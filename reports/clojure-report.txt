@@ -1,0 +1,466 @@
+#0
+src/jvm/clojure/lang/Reflector.java:31: error: Null Dereference
+  object returned by `getProperty("java.vm.specification.version")` could be null and is dereferenced at line 31.
+  29.   // Java 8 is oldest JDK supported
+  30.   private static boolean isJava8() {
+  31. > 	return System.getProperty("java.vm.specification.version").equals("1.8");
+  32.   }
+  33.   
+
+#1
+src/jvm/clojure/lang/PersistentTreeMap.java:132: error: Null Dereference
+  object `foundNode` last assigned on line 131 could be null and is dereferenced at line 132.
+  130.   		{
+  131.   		Node foundNode = (Node) found.val;
+  132. > 		if(foundNode.val() == val)  //note only get same collection on identity of val, not equals()
+  133.   			return this;
+  134.   		return new PersistentTreeMap(comp, replace(tree, key, val), _count, meta());
+
+#2
+src/jvm/clojure/lang/EdnReader.java:297: error: Null Dereference
+  object `name` last assigned on line 295 could be null and is dereferenced at line 297.
+  295.   		String name = m.group(2);
+  296.   		if(ns != null && ns.endsWith(":/")
+  297. > 		   || name.endsWith(":")
+  298.   		   || s.indexOf("::", 1) != -1)
+  299.   			return null;
+
+#3
+src/jvm/clojure/lang/EdnReader.java:324: error: Null Dereference
+  object returned by `m.group(1)` could be null and is dereferenced at line 324.
+  322.   			return Numbers.num(0);
+  323.   			}
+  324. > 		boolean negate = (m.group(1).equals("-"));
+  325.   		String n;
+  326.   		int radix = 10;
+
+#4
+src/jvm/clojure/lang/Var.java:326: error: Null Dereference
+  object `v` last assigned on line 325 could be null and is dereferenced at line 326.
+  324.   		IMapEntry e = (IMapEntry) bs.first();
+  325.   		Var v = (Var) e.key();
+  326. > 		if(!v.dynamic)
+  327.   			throw new IllegalStateException(String.format("Can't dynamically bind non-dynamic var: %s/%s", v.ns, v.sym));
+  328.   		v.validate(v.getValidator(), e.val());
+
+#5
+src/jvm/clojure/lang/PersistentTreeMap.java:413: error: Null Dereference
+  object returned by `left.left()` could be null and is dereferenced by call to `balanceLeftDel(...)` at line 413.
+  411.   			           black(right.key, right.val(), app.right(), right.right()));
+  412.   		else
+  413. > 			return balanceLeftDel(left.key, left.val(), left.left(), black(right.key, right.val(), app, right.right()));
+  414.   		}
+  415.   }
+
+#6
+src/jvm/clojure/lang/RT.java:401: error: Resource Leak
+  resource of type `java.net.HttpURLConnection` acquired by call to `openConnection()` at line 393 is not released after line 401.
+  399.   	}
+  400.   	finally {
+  401. > 		InputStream ins = connection.getInputStream();
+  402.   		if (ins != null)
+  403.   			ins.close();
+
+#7
+src/jvm/clojure/lang/LispReader.java:424: error: Null Dereference
+  object `name` last assigned on line 422 could be null and is dereferenced at line 424.
+  422.   		String name = m.group(2);
+  423.   		if(ns != null && ns.endsWith(":/")
+  424. > 		   || name.endsWith(":")
+  425.   		   || s.indexOf("::", 1) != -1)
+  426.   			return null;
+
+#8
+src/jvm/clojure/lang/LispReader.java:477: error: Null Dereference
+  object returned by `m.group(1)` could be null and is dereferenced at line 477.
+  475.   			return Numbers.num(0);
+  476.   			}
+  477. > 		boolean negate = (m.group(1).equals("-"));
+  478.   		String n;
+  479.   		int radix = 10;
+
+#9
+src/jvm/clojure/lang/Compiler.java:544: error: Null Dereference
+  object `sym` last assigned on line 528 could be null and is dereferenced at line 544.
+  542.   					throw Util.runtimeException("Can't create defs outside of current ns");
+  543.   				}
+  544. > 			IPersistentMap mm = sym.meta();
+  545.   			boolean isDynamic = RT.booleanCast(RT.get(mm,dynamicKey));
+  546.   			if(isDynamic)
+
+#10
+src/jvm/clojure/lang/LispReader.java:875: error: Null Dereference
+  object `argsyms` last assigned on line 874 could be null and is dereferenced at line 875.
+  873.   			PersistentVector args = PersistentVector.EMPTY;
+  874.   			PersistentTreeMap argsyms = (PersistentTreeMap) ARG_ENV.deref();
+  875. > 			ISeq rargs = argsyms.rseq();
+  876.   			if(rargs != null)
+  877.   				{
+
+#11
+src/jvm/clojure/lang/LispReader.java:1152: error: Null Dereference
+  object `e` last assigned on line 1151 could be null and is dereferenced at line 1152.
+  1150.   			{
+  1151.   			IMapEntry e = (IMapEntry) s.first();
+  1152. > 			keyvals = (IPersistentVector) keyvals.cons(e.key());
+  1153.   			keyvals = (IPersistentVector) keyvals.cons(e.val());
+  1154.   			}
+
+#12
+src/jvm/clojure/lang/LispReader.java:1309: error: Null Dereference
+  object `fs` last assigned on line 1308 could be null and is dereferenced at line 1309.
+  1307.   			{
+  1308.   			Symbol fs = (Symbol) RT.first(o);
+  1309. > 			if(fs.equals(THE_VAR))
+  1310.   				{
+  1311.   				Symbol vs = (Symbol) RT.second(o);
+
+#13
+src/jvm/clojure/lang/LispReader.java:1655: error: Null Dereference
+  object `listReader` last assigned on line 1654 could be null and is dereferenced at line 1655.
+  1653.   			if (isPreserveReadCond(opts)) {
+  1654.   				IFn listReader = getMacro(ch); // should always be a list
+  1655. > 				Object form = listReader.invoke(r, ch, opts, ensurePending(pendingForms));
+  1656.   
+  1657.   				return ReaderConditional.create(form, splicing);
+
+#14
+src/jvm/clojure/asm/ClassReader.java:2581: error: Null Dereference
+  object `null` is dereferenced by call to `readElementValues(...)` at line 2581.
+  2579.           // with a null AnnotationVisitor).
+  2580.           currentOffset =
+  2581. >             readElementValues(
+  2582.                   /* annotationVisitor = */ null, currentOffset, /* named = */ true, charBuffer);
+  2583.         }
+
+#15
+src/jvm/clojure/lang/Compiler.java:6211: error: Null Dereference
+  object `bindings` last assigned on line 6210 could be null and is dereferenced at line 6211.
+  6209.   
+  6210.   			IPersistentVector bindings = (IPersistentVector) RT.second(form);
+  6211. > 			if((bindings.count() % 2) != 0)
+  6212.   				throw new IllegalArgumentException("Bad binding form, expected matched symbol expression pairs");
+  6213.   
+
+#16
+src/jvm/clojure/lang/Compiler.java:6339: error: Null Dereference
+  object `bindings` last assigned on line 6338 could be null and is dereferenced at line 6339.
+  6337.   
+  6338.   			IPersistentVector bindings = (IPersistentVector) RT.second(form);
+  6339. > 			if((bindings.count() % 2) != 0)
+  6340.   				throw new IllegalArgumentException("Bad binding form, expected matched symbol expression pairs");
+  6341.   
+
+#17
+src/jvm/clojure/lang/Compiler.java:6970: error: Null Dereference
+  object returned by `ensureMacroCheck()` could be null and is dereferenced at line 6970.
+  6968.   	if(RT.CHECK_SPECS && !MACRO_CHECK_LOADING) {
+  6969.   		try {
+  6970. > 			ensureMacroCheck().applyTo(RT.cons(v, RT.list(form.next())));
+  6971.   		} catch(Exception e) {
+  6972.   			throw new CompilerException((String) SOURCE_PATH.deref(), lineDeref(), columnDeref(), v.toSymbol(), CompilerException.PHASE_MACRO_SYNTAX_CHECK, e);
+
+#18
+src/jvm/clojure/lang/Compiler.java:8435: error: Null Dereference
+  object `parms` last assigned on line 8434 could be null and is dereferenced at line 8435.
+  8433.   		Symbol name = (Symbol) Symbol.intern(null,munge(dotname.name)).withMeta(RT.meta(dotname));
+  8434.   		IPersistentVector parms = (IPersistentVector) RT.second(form);
+  8435. > 		if(parms.count() == 0)
+  8436.   			{
+  8437.   			throw new IllegalArgumentException("Must supply at least one argument for 'this' in: " + dotname);
+
+#19
+src/jvm/clojure/lang/LockingTransaction.java:184: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.abort()` indirectly writes to field `this.info` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  182.   
+  183.   void abort() throws AbortException{
+  184. > 	stop(KILLED);
+  185.   	throw new AbortException();
+  186.   }
+
+#20
+src/jvm/clojure/lang/Compiler.java:4231: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Compiler$ObjExpr.compiledClass()` reads without synchronization from `this.compiledClass`. Potentially races with write in method `Compiler$ObjExpr.getCompiledClass()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  4229.   
+  4230.   	public final Class compiledClass(){
+  4231. > 		return compiledClass;
+  4232.   	}
+  4233.   
+
+#21
+src/jvm/clojure/lang/LockingTransaction.java:468: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.doCommute(...)` reads without synchronization from `this.info`. Potentially races with write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because this access may occur on a background thread.
+  466.   
+  467.   Object doCommute(Ref ref, IFn fn, ISeq args) {
+  468. > 	if(!info.running())
+  469.   		throw retryex;
+  470.   	if(!vals.containsKey(ref))
+
+#22
+src/jvm/clojure/lang/LockingTransaction.java:460: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.doEnsure(...)` indirectly writes to field `this.info` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  458.   		if(refinfo != info) //not us, ensure is doomed
+  459.   			{
+  460. > 			blockAndBail(refinfo); 
+  461.   			}
+  462.   		}
+
+#23
+src/jvm/clojure/lang/LockingTransaction.java:446: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.doEnsure(...)` reads with synchronization from `this.readPoint`. Potentially races with unsynchronized write in method `LockingTransaction.run(...)`.
+ Reporting because this access may occur on a background thread.
+  444.   
+  445.   	//someone completed a write after our snapshot
+  446. > 	if(ref.tvals != null && ref.tvals.point > readPoint) {
+  447.           ref.lock.readLock().unlock();
+  448.           throw retryex;
+
+#24
+src/jvm/clojure/lang/LockingTransaction.java:458: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.doEnsure(...)` reads without synchronization from `this.info`. Potentially races with write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because this access may occur on a background thread.
+  456.   		ref.lock.readLock().unlock();
+  457.   
+  458. > 		if(refinfo != info) //not us, ensure is doomed
+  459.   			{
+  460.   			blockAndBail(refinfo); 
+
+#25
+src/jvm/clojure/lang/LockingTransaction.java:410: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.doGet(...)` reads with synchronization from `this.readPoint`. Potentially races with unsynchronized write in method `LockingTransaction.run(...)`.
+ Reporting because this access may occur on a background thread.
+  408.   		do
+  409.   			{
+  410. > 			if(ver.point <= readPoint)
+  411.   				return ver.val;
+  412.   			} while((ver = ver.prior) != ref.tvals);
+
+#26
+src/jvm/clojure/lang/LockingTransaction.java:398: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.doGet(...)` reads without synchronization from `this.info`. Potentially races with write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because this access may occur on a background thread.
+  396.   
+  397.   Object doGet(Ref ref){
+  398. > 	if(!info.running())
+  399.   		throw retryex;
+  400.   	if(vals.containsKey(ref))
+
+#27
+src/jvm/clojure/lang/LockingTransaction.java:432: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.doSet(...)` indirectly writes to field `this.info` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  430.   		{
+  431.   		sets.add(ref);
+  432. > 		lock(ref);
+  433.   		}
+  434.   	vals.put(ref, val);
+
+#28
+src/jvm/clojure/lang/LockingTransaction.java:425: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.doSet(...)` reads without synchronization from `this.info`. Potentially races with write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  423.   
+  424.   Object doSet(Ref ref, Object val){
+  425. > 	if(!info.running())
+  426.   		throw retryex;
+  427.   	if(commutes.containsKey(ref))
+
+#29
+src/jvm/clojure/lang/LazySeq.java:76: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LazySeq.first()` reads without synchronization from `this.s`. Potentially races with write in method `LazySeq.seq()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  74.   public Object first(){
+  75.   	seq();
+  76. > 	if(s == null)
+  77.   		return null;
+  78.   	return s.first();
+
+#30
+src/jvm/clojure/lang/Compiler.java:5062: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Compiler$ObjExpr.getJavaClass()` reads without synchronization from `this.compiledClass`. Potentially races with write in method `Compiler$ObjExpr.getCompiledClass()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  5060.   	public Class getJavaClass() {
+  5061.   		if (jc == null)
+  5062. >             jc = (compiledClass != null) ? compiledClass
+  5063.                   : (tag != null) ? HostExpr.tagToClass(tag)
+  5064.                   : IFn.class;
+
+#31
+src/jvm/clojure/lang/LockingTransaction.java:77: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.getReadPoint()` writes to field `this.readPoint` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  75.   
+  76.   void getReadPoint(){
+  77. > 	readPoint = lastPoint.incrementAndGet();
+  78.   }
+  79.   
+
+#32
+src/jvm/clojure/lang/Ref.java:226: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Ref.histCount()` reads without synchronization from `this.tvals.next`. Potentially races with write in method `Ref.trimHistory()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  224.   		{
+  225.   		int count = 0;
+  226. > 		for(TVal tv = tvals.next;tv != tvals;tv = tv.next)
+  227.   			count++;
+  228.   		return count;
+
+#33
+src/jvm/clojure/lang/LockingTransaction.java:144: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.lock(...)` indirectly reads with synchronization from `this.startPoint`. Potentially races with unsynchronized write in method `LockingTransaction.run(...)`.
+ Reporting because this access may occur on a background thread.
+  142.   		if(refinfo != null && refinfo != info && refinfo.running())
+  143.   			{
+  144. > 			if(!barge(refinfo))
+  145.   				{
+  146.   				ref.lock.writeLock().unlock();
+
+#34
+src/jvm/clojure/lang/LockingTransaction.java:137: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.lock(...)` reads with synchronization from `this.readPoint`. Potentially races with unsynchronized write in method `LockingTransaction.run(...)`.
+ Reporting because this access may occur on a background thread.
+  135.   		unlocked = false;
+  136.   
+  137. > 		if(ref.tvals != null && ref.tvals.point > readPoint)
+  138.   			throw retryex;
+  139.   		Info refinfo = ref.tinfo;
+
+#35
+src/jvm/clojure/lang/LockingTransaction.java:148: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.lock(...)` indirectly writes to field `this.info` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  146.   				ref.lock.writeLock().unlock();
+  147.   				unlocked = true;
+  148. > 				return blockAndBail(refinfo);
+  149.   				}
+  150.   			}
+
+#36
+src/jvm/clojure/lang/LockingTransaction.java:142: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.lock(...)` reads with synchronization from `this.info`. Potentially races with unsynchronized write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because this access may occur on a background thread.
+  140.   
+  141.   		//write lock conflict
+  142. > 		if(refinfo != null && refinfo != info && refinfo.running())
+  143.   			{
+  144.   			if(!barge(refinfo))
+
+#37
+src/jvm/clojure/lang/LazySeq.java:90: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LazySeq.more()` reads without synchronization from `this.s`. Potentially races with write in method `LazySeq.seq()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  88.   public ISeq more(){
+  89.   	seq();
+  90. > 	if(s == null)
+  91.   		return PersistentList.EMPTY;
+  92.   	return s.more();
+
+#38
+src/jvm/clojure/lang/LazySeq.java:83: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LazySeq.next()` reads without synchronization from `this.s`. Potentially races with write in method `LazySeq.seq()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  81.   public ISeq next(){
+  82.   	seq();
+  83. > 	if(s == null)
+  84.   		return null;
+  85.   	return s.next();	
+
+#39
+src/jvm/clojure/lang/LockingTransaction.java:272: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.run(...)` writes to field `this.info` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  270.   				startTime = System.nanoTime();
+  271.   				}
+  272. > 			info = new Info(RUNNING, startPoint);
+  273.   			ret = fn.call();
+  274.   			//make sure no one has killed us before this point, and can't from now on
+
+#40
+src/jvm/clojure/lang/LockingTransaction.java:293: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.run(...)` indirectly reads with synchronization from `this.startPoint`. Potentially races with unsynchronized write in method `LockingTransaction.run(...)`.
+ Reporting because this access may occur on a background thread.
+  291.   					if(refinfo != null && refinfo != info && refinfo.running())
+  292.   						{
+  293. > 						if(!barge(refinfo))
+  294.   							throw retryex;
+  295.   						}
+
+#41
+src/jvm/clojure/lang/LockingTransaction.java:287: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.run(...)` reads with synchronization from `this.readPoint`. Potentially races with unsynchronized write in method `LockingTransaction.run(...)`.
+ Reporting because this access may occur on a background thread.
+  285.   					tryWriteLock(ref);
+  286.   					locked.add(ref);
+  287. > 					if(wasEnsured && ref.tvals != null && ref.tvals.point > readPoint)
+  288.   						throw retryex;
+  289.   
+
+#42
+src/jvm/clojure/lang/LockingTransaction.java:269: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.run(...)` writes to field `this.startPoint` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  267.   			if(i == 0)
+  268.   				{
+  269. > 				startPoint = readPoint;
+  270.   				startTime = System.nanoTime();
+  271.   				}
+
+#43
+src/jvm/clojure/lang/LockingTransaction.java:266: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.run(...)` indirectly writes to field `this.readPoint` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  264.   		try
+  265.   			{
+  266. > 			getReadPoint();
+  267.   			if(i == 0)
+  268.   				{
+
+#44
+src/jvm/clojure/lang/LockingTransaction.java:291: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.run(...)` reads with synchronization from `this.info`. Potentially races with unsynchronized write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because this access may occur on a background thread.
+  289.   
+  290.   					Info refinfo = ref.tinfo;
+  291. > 					if(refinfo != null && refinfo != info && refinfo.running())
+  292.   						{
+  293.   						if(!barge(refinfo))
+
+#45
+src/jvm/clojure/lang/LockingTransaction.java:270: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.run(...)` writes to field `this.startTime` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  268.   				{
+  269.   				startPoint = readPoint;
+  270. > 				startTime = System.nanoTime();
+  271.   				}
+  272.   			info = new Info(RUNNING, startPoint);
+
+#46
+src/jvm/clojure/lang/LockingTransaction.java:89: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LockingTransaction.stop(...)` reads with synchronization from `this.info`. Potentially races with unsynchronized write in method `LockingTransaction.doEnsure(...)`.
+ Reporting because this access may occur on a background thread.
+  87.   		synchronized(info)
+  88.   			{
+  89. > 			info.status.set(status);
+  90.   			info.latch.countDown();
+  91.   			}
+
+#47
+src/jvm/clojure/lang/LockingTransaction.java:92: warning: Thread Safety Violation
+  Unprotected write. Non-private method `LockingTransaction.stop(...)` writes to field `this.info` outside of synchronization.
+ Reporting because this access may occur on a background thread.
+  90.   			info.latch.countDown();
+  91.   			}
+  92. > 		info = null;
+  93.   		vals.clear();
+  94.   		sets.clear();
+
+Found 48 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 29
+                Null Dereference(NULL_DEREFERENCE): 18
+                      Resource Leak(RESOURCE_LEAK): 1
