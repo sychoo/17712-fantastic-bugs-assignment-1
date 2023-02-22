@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_1" [label="1: Start long Stopwatch.runtime(TimeUnit)\nFormals:  this:org.junit.rules.Stopwatch* unit:java.util.concurrent.TimeUnit*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_1" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_4" ;
+"org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_2" [label="2: Exit long Stopwatch.runtime(TimeUnit) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 99]\n  NULLIFY(&$irvar1); [line 99]\n  EXIT_SCOPE($irvar0,$irvar1); [line 99]\n  APPLY_ABSTRACTION; [line 99]\n " shape="box"]
+	
+
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_3" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_2" ;
+"org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_4" [label="4:  Call long Stopwatch.getNanos() \n   n$0=*&this:org.junit.rules.Stopwatch* [line 99]\n  n$1=_fun_long Stopwatch.getNanos()(n$0:org.junit.rules.Stopwatch*) [line 99]\n  *&$irvar0:long=n$1 [line 99]\n  NULLIFY(&this); [line 99]\n  EXIT_SCOPE(n$0,n$1,this); [line 99]\n " shape="box"]
+	
+
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_4" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_5" ;
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_4" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_3" [color="red" ];
+"org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_5" [label="5:  Call long TimeUnit.convert(long,TimeUnit) \n   n$2=*&unit:java.util.concurrent.TimeUnit* [line 99]\n  _=*n$2:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 99]\n  n$4=*&$irvar0:long [line 99]\n  n$5=*&#GB<>$java.util.concurrent.TimeUnit.NANOSECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 99]\n  n$6=_fun_long TimeUnit.convert(long,TimeUnit)(n$2:java.util.concurrent.TimeUnit*,n$4:long,n$5:java.util.concurrent.TimeUnit*) virtual [line 99]\n  *&$irvar1:long=n$6 [line 99]\n  NULLIFY(&unit); [line 99]\n  NULLIFY(&$irvar0); [line 99]\n  EXIT_SCOPE(_,n$2,n$4,n$5,n$6,unit,$irvar0); [line 99]\n " shape="box"]
+	
+
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_5" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_6" ;
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_5" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_3" [color="red" ];
+"org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_6" [label="6:  method_body \n   n$7=*&$irvar1:long [line 99]\n  *&return:long=n$7 [line 99]\n  NULLIFY(&$irvar1); [line 99]\n  EXIT_SCOPE(n$7,$irvar1); [line 99]\n  APPLY_ABSTRACTION; [line 99]\n " shape="box"]
+	
+
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_6" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_2" ;
+	 "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_6" -> "org.junit.rules.Stopwatch.runtime(java.util.concurrent.TimeUnit):long.620c9ec1c1cb13b787446532047858cb_3" [color="red" ];
+}

@@ -1,0 +1,79 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_1" [label="1: Start void TestSuite.run(TestResult)\nFormals:  this:junit.framework.TestSuite* result:junit.framework.TestResult*\nLocals:  $irvar2:void $irvar1:void $irvar0:void $bcvar2:void each:junit.framework.Test* \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_1" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_4" ;
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_2" [label="2: Exit void TestSuite.run(TestResult) \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [label="3:  exceptions sink \n   NULLIFY(&$bcvar2); [line 238]\n  NULLIFY(&each); [line 238]\n  NULLIFY(&$irvar0); [line 238]\n  NULLIFY(&$irvar1); [line 238]\n  NULLIFY(&$irvar2); [line 238]\n  EXIT_SCOPE($bcvar2,each,$irvar0,$irvar1,$irvar2); [line 238]\n  APPLY_ABSTRACTION; [line 238]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_2" ;
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_4" [label="4:  Call Iterator Vector.iterator() \n   n$0=*&this:junit.framework.TestSuite* [line 232]\n  n$1=*n$0.fTests:java.util.Vector*(root junit.framework.TestSuite) [line 232]\n  _=*n$1:java.util.Vector*(root java.util.Vector) [line 232]\n  n$3=_fun_Iterator Vector.iterator()(n$1:java.util.Vector*) virtual [line 232]\n  *&$bcvar2:java.util.Iterator*=n$3 [line 232]\n  EXIT_SCOPE(_,n$0,n$1,n$3); [line 232]\n  APPLY_ABSTRACTION; [line 232]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_4" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_5" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_4" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_5" [label="5:  Call boolean Iterator.hasNext() \n   n$4=*&$bcvar2:java.util.Iterator* [line 232]\n  _=*n$4:java.util.Iterator*(root java.util.Iterator) [line 232]\n  n$6=_fun_boolean Iterator.hasNext()(n$4:java.util.Iterator*) interface virtual [line 232]\n  *&$irvar0:_Bool=n$6 [line 232]\n  EXIT_SCOPE(_,n$4,n$6); [line 232]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_5" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_8" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_5" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_6" [label="6: Prune (true branch, if) \n   n$7=*&$irvar0:_Bool [line 232]\n  PRUNE(!(n$7 == 0), true); [line 232]\n  NULLIFY(&$irvar0); [line 232]\n  EXIT_SCOPE(n$7,$irvar0); [line 232]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_6" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_9" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_6" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_7" [label="7: Prune (false branch, if) \n   n$7=*&$irvar0:_Bool [line 232]\n  PRUNE((n$7 == 0), false); [line 232]\n  NULLIFY(&$bcvar2); [line 232]\n  NULLIFY(&$irvar0); [line 232]\n  EXIT_SCOPE(n$7,$bcvar2,$irvar0); [line 232]\n  APPLY_ABSTRACTION; [line 232]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_7" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_16" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_7" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_8" [label="8: + \n  " ]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_8" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_6" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_8" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_7" ;
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_9" [label="9:  Call Object Iterator.next() \n   n$8=*&$bcvar2:java.util.Iterator* [line 232]\n  _=*n$8:java.util.Iterator*(root java.util.Iterator) [line 232]\n  n$10=_fun_Object Iterator.next()(n$8:java.util.Iterator*) interface virtual [line 232]\n  *&$irvar1:java.lang.Object*=n$10 [line 232]\n  EXIT_SCOPE(_,n$8,n$10); [line 232]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_9" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_10" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_9" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_10" [label="10:  method_body \n   n$11=*&$irvar1:java.lang.Object* [line 232]\n  n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=junit.framework.Test;sub_t=( sub )(cast)):void) [line 232]\n  *&each:junit.framework.Test*=n$12 [line 232]\n  NULLIFY(&$irvar1); [line 232]\n  EXIT_SCOPE(n$11,n$12,$irvar1); [line 232]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_10" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_11" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_10" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_11" [label="11:  Call boolean TestResult.shouldStop() \n   n$13=*&result:junit.framework.TestResult* [line 233]\n  _=*n$13:junit.framework.TestResult*(root junit.framework.TestResult) [line 233]\n  n$15=_fun_boolean TestResult.shouldStop()(n$13:junit.framework.TestResult*) virtual [line 233]\n  *&$irvar2:_Bool=n$15 [line 233]\n  EXIT_SCOPE(_,n$13,n$15); [line 233]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_11" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_14" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_11" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_12" [label="12: Prune (true branch, if) \n   n$16=*&$irvar2:_Bool [line 233]\n  PRUNE(!(n$16 == 0), true); [line 233]\n  NULLIFY(&$bcvar2); [line 233]\n  NULLIFY(&each); [line 233]\n  NULLIFY(&$irvar2); [line 233]\n  EXIT_SCOPE(n$16,$bcvar2,each,$irvar2); [line 233]\n  APPLY_ABSTRACTION; [line 233]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_12" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_16" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_12" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_13" [label="13: Prune (false branch, if) \n   n$16=*&$irvar2:_Bool [line 233]\n  PRUNE((n$16 == 0), false); [line 233]\n  NULLIFY(&$irvar2); [line 233]\n  EXIT_SCOPE(n$16,$irvar2); [line 233]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_13" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_15" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_13" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_14" [label="14: + \n  " ]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_14" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_12" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_14" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_13" ;
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_15" [label="15:  Call void TestSuite.runTest(Test,TestResult) \n   n$17=*&this:junit.framework.TestSuite* [line 236]\n  _=*n$17:junit.framework.TestSuite*(root junit.framework.TestSuite) [line 236]\n  n$19=*&each:junit.framework.Test* [line 236]\n  n$20=*&result:junit.framework.TestResult* [line 236]\n  n$21=_fun_void TestSuite.runTest(Test,TestResult)(n$17:junit.framework.TestSuite*,n$19:junit.framework.Test*,n$20:junit.framework.TestResult*) virtual [line 236]\n  NULLIFY(&each); [line 236]\n  EXIT_SCOPE(_,n$17,n$19,n$20,n$21,each); [line 236]\n  APPLY_ABSTRACTION; [line 236]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_15" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_5" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_15" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+"junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_16" [label="16:  method_body \n   APPLY_ABSTRACTION; [line 238]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_16" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_2" ;
+	 "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_16" -> "junit.framework.TestSuite.run(junit.framework.TestResult):void.319b881531b73116cb27e08247fae4cb_3" [color="red" ];
+}

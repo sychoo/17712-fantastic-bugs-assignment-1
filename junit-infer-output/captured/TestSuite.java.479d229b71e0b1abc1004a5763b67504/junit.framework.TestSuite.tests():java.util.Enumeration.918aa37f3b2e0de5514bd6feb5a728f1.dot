@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_1" [label="1: Start Enumeration TestSuite.tests()\nFormals:  this:junit.framework.TestSuite*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_1" -> "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_4" ;
+"junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_2" [label="2: Exit Enumeration TestSuite.tests() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 271]\n  EXIT_SCOPE($irvar0); [line 271]\n  APPLY_ABSTRACTION; [line 271]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_3" -> "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_2" ;
+"junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_4" [label="4:  Call Enumeration Vector.elements() \n   n$0=*&this:junit.framework.TestSuite* [line 271]\n  n$1=*n$0.fTests:java.util.Vector*(root junit.framework.TestSuite) [line 271]\n  _=*n$1:java.util.Vector*(root java.util.Vector) [line 271]\n  n$3=_fun_Enumeration Vector.elements()(n$1:java.util.Vector*) virtual [line 271]\n  *&$irvar0:java.util.Enumeration*=n$3 [line 271]\n  NULLIFY(&this); [line 271]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 271]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_4" -> "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_5" ;
+	 "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_4" -> "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_3" [color="red" ];
+"junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_5" [label="5:  method_body \n   n$4=*&$irvar0:java.util.Enumeration* [line 271]\n  *&return:java.util.Enumeration*=n$4 [line 271]\n  NULLIFY(&$irvar0); [line 271]\n  EXIT_SCOPE(n$4,$irvar0); [line 271]\n  APPLY_ABSTRACTION; [line 271]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_5" -> "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_2" ;
+	 "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_5" -> "junit.framework.TestSuite.tests():java.util.Enumeration.918aa37f3b2e0de5514bd6feb5a728f1_3" [color="red" ];
+}

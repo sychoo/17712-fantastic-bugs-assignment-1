@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>RuleChain.java.cd879799059285020ab84fa82029c74f</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/rules/RuleChain.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.Collections; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * The {@code RuleChain} can be used for creating composite rules. You create a </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * {@code RuleChain} with {@link #outerRule(TestRule)} and subsequent calls of </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * {@link #around(TestRule)}: </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * public abstract class CompositeRules { </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> *   public static TestRule extendedLogging() { </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> *     return RuleChain.outerRule(new LoggingRule(&quot;outer rule&quot;)) </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> *                     .around(new LoggingRule(&quot;middle rule&quot;)) </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> *                     .around(new LoggingRule(&quot;inner rule&quot;)); </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> *   } </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> * public class UseRuleChain { </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> *   &amp;#064;Rule </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> *   public final TestRule extendedLogging = CompositeRules.extendedLogging(); </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> *   &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> *   public void example() { </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> *     assertTrue(true); </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> *   } </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> * writes the log </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> * starting outer rule </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> * starting middle rule </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> * starting inner rule </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> * finished inner rule </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> * finished middle rule </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> * finished outer rule </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> * In older versions of JUnit (before 4.13) {@code RuleChain} was used for </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> * ordering rules. We recommend to not use it for this purpose anymore. You can </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> * use the attribute {@code order} of the annotation {@link Rule#order() Rule} </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line"> * or {@link org.junit.ClassRule#order() ClassRule} for ordering rules. </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> * @see org.junit.Rule#order() </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line"> * @see org.junit.ClassRule#order() </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> * @since 4.10 </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">public class RuleChain implements TestRule { </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    private static final RuleChain EMPTY_CHAIN = new RuleChain( <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5.html">summary for void RuleChain.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">            Collections.&lt;TestRule&gt;emptyList()); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_List Collections.emptyList()() [line 60];
+*&amp;$irvar0:java.util.List*=n$0 [line 60];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=_fun___new(sizeof(t=org.junit.rules.RuleChain):org.junit.rules.RuleChain*) [line 60];
+n$2=*&amp;$irvar0:java.util.List* [line 60];
+n$3=_fun_RuleChain.&lt;init&gt;(List)(n$1:org.junit.rules.RuleChain*,n$2:java.util.List*) [line 60];
+*&amp;$irvar1:org.junit.rules.RuleChain*=n$1 [line 60];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar1:org.junit.rules.RuleChain* [line 60];
+*&amp;#GB<>$org.junit.rules.RuleChain.EMPTY_CHAIN:org.junit.rules.RuleChain(root org.junit.rules.RuleChain)=n$4 [line 60];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<clinit>%28%29%3Avoid.f8b7d238f839739b6d106ea5d264d8d5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">    private List&lt;TestRule&gt; rulesStartingWithInnerMost; </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">     * Returns a {@code RuleChain} without a {@link TestRule}. This method may </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">     * be the starting point of a {@code RuleChain}. </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">     * @return a {@code RuleChain} without a {@link TestRule}. </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    public static RuleChain emptyRuleChain() { <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.emptyRuleChain%28%29%3Aorg.junit.rules.RuleChain.271fa5519fe5cc81abc66010499c6c37_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/org.junit.rules.RuleChain.emptyRuleChain%28%29%3Aorg.junit.rules.RuleChain.271fa5519fe5cc81abc66010499c6c37.html">summary for RuleChain RuleChain.emptyRuleChain()</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        return EMPTY_CHAIN; <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.emptyRuleChain%28%29%3Aorg.junit.rules.RuleChain.271fa5519fe5cc81abc66010499c6c37_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.RuleChain.EMPTY_CHAIN:org.junit.rules.RuleChain*(root org.junit.rules.RuleChain) [line 71];
+*&amp;return:org.junit.rules.RuleChain*=n$0 [line 71];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.emptyRuleChain%28%29%3Aorg.junit.rules.RuleChain.271fa5519fe5cc81abc66010499c6c37_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.emptyRuleChain%28%29%3Aorg.junit.rules.RuleChain.271fa5519fe5cc81abc66010499c6c37_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">     * Returns a {@code RuleChain} with a single {@link TestRule}. This method </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">     * is the usual starting point of a {@code RuleChain}. </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">     * @param outerRule the outer rule of the {@code RuleChain}. </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">     * @return a {@code RuleChain} with a single {@link TestRule}. </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    public static RuleChain outerRule(TestRule outerRule) { <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b.html">summary for RuleChain RuleChain.outerRule(TestRule)</a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        return emptyRuleChain().around(outerRule); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_RuleChain RuleChain.emptyRuleChain()() [line 82];
+*&amp;$irvar0:org.junit.rules.RuleChain*=n$0 [line 82];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.rules.RuleChain* [line 82];
+_=*n$1:org.junit.rules.RuleChain*(root org.junit.rules.RuleChain) [line 82];
+n$3=*&amp;outerRule:org.junit.rules.TestRule* [line 82];
+n$4=_fun_RuleChain RuleChain.around(TestRule)(n$1:org.junit.rules.RuleChain*,n$3:org.junit.rules.TestRule*) virtual [line 82];
+*&amp;$irvar1:org.junit.rules.RuleChain*=n$4 [line 82];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar1:org.junit.rules.RuleChain* [line 82];
+*&amp;return:org.junit.rules.RuleChain*=n$5 [line 82];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.outerRule%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.b158cc7c79bdabb0d2fde8d5db83594b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">    private RuleChain(List&lt;TestRule&gt; rules) { <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.RuleChain* [line 85];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.RuleChain*) [line 85];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11.html">summary for RuleChain.&lt;init&gt;(List)</a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        this.rulesStartingWithInnerMost = rules; <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.RuleChain* [line 86];
+n$3=*&amp;rules:java.util.List* [line 86];
+*n$2.rulesStartingWithInnerMost:org.junit.rules.RuleChain(root org.junit.rules.RuleChain)=n$3 [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    } <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.<init>%28java.util.List%29.4e669fa2a44cb50386467ae8ed342c11_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">     * Create a new {@code RuleChain}, which encloses the given {@link TestRule} with </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">     * the rules of the current {@code RuleChain}. </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">     * @param enclosedRule the rule to enclose; must not be {@code null}. </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">     * @return a new {@code RuleChain}. </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">     * @throws NullPointerException if the argument {@code enclosedRule} is {@code null} </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    public RuleChain around(TestRule enclosedRule) { <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94.html">summary for RuleChain RuleChain.around(TestRule)</a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">        if (enclosedRule == null) { <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;enclosedRule:org.junit.rules.TestRule* [line 98];
+PRUNE(!(n$0 != null), true); [line 98];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;enclosedRule:org.junit.rules.TestRule* [line 98];
+PRUNE((n$0 != null), false); [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">            throw new NullPointerException(&quot;The enclosed rule must not be null&quot;); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 99];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"The enclosed rule must not be null":java.lang.Object*) [line 99];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 99];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 99];
+*&amp;return:org.junit.rules.RuleChain*=EXN n$3 [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        List&lt;TestRule&gt; rulesOfNewChain = new ArrayList&lt;TestRule&gt;(); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$4=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 101];
+n$5=_fun_ArrayList.&lt;init&gt;()(n$4:java.util.ArrayList*) [line 101];
+*&amp;rulesOfNewChain:java.util.ArrayList*=n$4 [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        rulesOfNewChain.add(enclosedRule); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$6=*&amp;rulesOfNewChain:java.util.ArrayList* [line 102];
+_=*n$6:java.util.ArrayList*(root java.util.ArrayList) [line 102];
+n$8=*&amp;enclosedRule:org.junit.rules.TestRule* [line 102];
+n$9=_fun_boolean List.add(Object)(n$6:java.util.ArrayList*,n$8:org.junit.rules.TestRule*) interface virtual [line 102];
+*&amp;$irvar1:_Bool=n$9 [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        rulesOfNewChain.addAll(rulesStartingWithInnerMost); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;rulesOfNewChain:java.util.ArrayList* [line 103];
+_=*n$10:java.util.ArrayList*(root java.util.ArrayList) [line 103];
+n$12=*&amp;this:org.junit.rules.RuleChain* [line 103];
+n$13=*n$12.rulesStartingWithInnerMost:java.util.List*(root org.junit.rules.RuleChain) [line 103];
+n$14=_fun_boolean List.addAll(Collection)(n$10:java.util.ArrayList*,n$13:java.util.List*) interface virtual [line 103];
+*&amp;$irvar2:_Bool=n$14 [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">        return new RuleChain(rulesOfNewChain); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=_fun___new(sizeof(t=org.junit.rules.RuleChain):org.junit.rules.RuleChain*) [line 104];
+n$16=*&amp;rulesOfNewChain:java.util.ArrayList* [line 104];
+n$17=_fun_RuleChain.&lt;init&gt;(List)(n$15:org.junit.rules.RuleChain*,n$16:java.util.ArrayList*) [line 104];
+*&amp;$irvar3:org.junit.rules.RuleChain*=n$15 [line 104];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+n$18=*&amp;$irvar3:org.junit.rules.RuleChain* [line 104];
+*&amp;return:org.junit.rules.RuleChain*=n$18 [line 104];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 7 3 succs: exn: Exit
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.around%28org.junit.rules.TestRule%29%3Aorg.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">     * {@inheritDoc} </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    public Statement apply(Statement base, Description description) { <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aorg..27a761f882aac931fecf48c4402e05f6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/org.junit.rules.RuleChain.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aorg..27a761f882aac931fecf48c4402e05f6.html">summary for Statement RuleChain.apply(Statement,Description)</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        return new RunRules(base, rulesStartingWithInnerMost, description); <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aorg..27a761f882aac931fecf48c4402e05f6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.RunRules):org.junit.rules.RunRules*) [line 111];
+n$1=*&amp;base:org.junit.runners.model.Statement* [line 111];
+n$2=*&amp;this:org.junit.rules.RuleChain* [line 111];
+n$3=*n$2.rulesStartingWithInnerMost:java.util.List*(root org.junit.rules.RuleChain) [line 111];
+n$4=*&amp;description:org.junit.runner.Description* [line 111];
+n$5=_fun_RunRules.&lt;init&gt;(Statement,Iterable,Description)(n$0:org.junit.rules.RunRules*,n$1:org.junit.runners.model.Statement*,n$3:java.util.List*,n$4:org.junit.runner.Description*) [line 111];
+*&amp;$irvar0:org.junit.rules.RunRules*=n$0 [line 111];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aorg..27a761f882aac931fecf48c4402e05f6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$6=*&amp;$irvar0:org.junit.rules.RunRules* [line 111];
+*&amp;return:org.junit.runners.model.Statement*=n$6 [line 111];
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aorg..27a761f882aac931fecf48c4402e05f6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RuleChain.java.cd879799059285020ab84fa82029c74f/nodes/org.junit.rules.RuleChain.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aorg..27a761f882aac931fecf48c4402e05f6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

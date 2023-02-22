@@ -1,0 +1,45 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_1" [label="1: Start Set Categories$CategoryFilter.copyAndRefine(Set)\nFormals:  classes:java.util.Set*\nLocals:  $irvar1:void $irvar0:void c:java.util.Set* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_1" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_4" ;
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_2" [label="2: Exit Set Categories$CategoryFilter.copyAndRefine(Set) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [label="3:  exceptions sink \n   NULLIFY(&c); [line 304]\n  EXIT_SCOPE(c); [line 304]\n  APPLY_ABSTRACTION; [line 304]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_2" ;
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_4" [label="4:  Call LinkedHashSet.<init>() \n   n$0=_fun___new(sizeof(t=java.util.LinkedHashSet):java.util.LinkedHashSet*) [line 299]\n  n$1=_fun_LinkedHashSet.<init>()(n$0:java.util.LinkedHashSet*) [line 299]\n  *&c:java.util.LinkedHashSet*=n$0 [line 299]\n  EXIT_SCOPE(n$0,n$1); [line 299]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_4" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_5" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_4" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_6" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_4" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [color="red" ];
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_5" [label="5: Prune (true branch, if) \n   n$2=*&classes:java.util.Set* [line 300]\n  PRUNE(!(n$2 == null), true); [line 300]\n  EXIT_SCOPE(n$2); [line 300]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_5" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_7" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_5" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [color="red" ];
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_6" [label="6: Prune (false branch, if) \n   n$2=*&classes:java.util.Set* [line 300]\n  PRUNE((n$2 == null), false); [line 300]\n  NULLIFY(&classes); [line 300]\n  EXIT_SCOPE(n$2,classes); [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_6" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_8" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_6" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [color="red" ];
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_7" [label="7:  Call boolean Set.addAll(Collection) \n   n$3=*&c:java.util.LinkedHashSet* [line 301]\n  _=*n$3:java.util.LinkedHashSet*(root java.util.LinkedHashSet) [line 301]\n  n$5=*&classes:java.util.Set* [line 301]\n  n$6=_fun_boolean Set.addAll(Collection)(n$3:java.util.LinkedHashSet*,n$5:java.util.Set*) interface virtual [line 301]\n  *&$irvar0:_Bool=n$6 [line 301]\n  NULLIFY(&classes); [line 301]\n  NULLIFY(&$irvar0); [line 301]\n  EXIT_SCOPE(_,n$3,n$5,n$6,classes,$irvar0); [line 301]\n  APPLY_ABSTRACTION; [line 301]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_7" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_8" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_7" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [color="red" ];
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_8" [label="8:  Call boolean Set.remove(Object) \n   n$7=*&c:java.util.LinkedHashSet* [line 303]\n  _=*n$7:java.util.LinkedHashSet*(root java.util.LinkedHashSet) [line 303]\n  n$9=_fun_boolean Set.remove(Object)(n$7:java.util.LinkedHashSet*,null:java.lang.Object*) interface virtual [line 303]\n  *&$irvar1:_Bool=n$9 [line 303]\n  NULLIFY(&$irvar1); [line 303]\n  EXIT_SCOPE(_,n$7,n$9,$irvar1); [line 303]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_8" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_9" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_8" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [color="red" ];
+"org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_9" [label="9:  method_body \n   n$10=*&c:java.util.LinkedHashSet* [line 304]\n  *&return:java.util.Set*=n$10 [line 304]\n  NULLIFY(&c); [line 304]\n  EXIT_SCOPE(n$10,c); [line 304]\n  APPLY_ABSTRACTION; [line 304]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_9" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_2" ;
+	 "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_9" -> "org.junit.experimental.categories.Categories$CategoryFilter.copyAndRefine(java.util.Set):java.util.S.e8fdd2746ea726198b70c3c062136152_3" [color="red" ];
+}

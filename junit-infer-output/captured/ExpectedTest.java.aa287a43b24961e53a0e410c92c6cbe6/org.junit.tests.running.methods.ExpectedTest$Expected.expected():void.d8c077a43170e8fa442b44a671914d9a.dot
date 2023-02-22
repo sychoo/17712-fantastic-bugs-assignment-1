@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_1" [label="1: Start void ExpectedTest$Expected.expected()\nFormals:  this:org.junit.tests.running.methods.ExpectedTest$Expected*\nLocals:  $irvar0:void\nAnnotation: <_org.junit.Test(expected="java.lang.Exception")> void ExpectedTest$Expected.expected()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_1" -> "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_4" ;
+"org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_2" [label="2: Exit void ExpectedTest$Expected.expected() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 18]\n  EXIT_SCOPE($irvar0); [line 18]\n  APPLY_ABSTRACTION; [line 18]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_3" -> "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_2" ;
+"org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_4" [label="4:  Call Exception.<init>() \n   n$0=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 18]\n  n$1=_fun_Exception.<init>()(n$0:java.lang.Exception*) [line 18]\n  *&$irvar0:java.lang.Exception*=n$0 [line 18]\n  EXIT_SCOPE(n$0,n$1); [line 18]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_4" -> "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_5" ;
+	 "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_4" -> "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_3" [color="red" ];
+"org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_5" [label="5:  throw \n   n$2=*&$irvar0:java.lang.Exception* [line 18]\n  *&return:void=EXN n$2 [line 18]\n  NULLIFY(&$irvar0); [line 18]\n  EXIT_SCOPE(n$2,$irvar0); [line 18]\n  APPLY_ABSTRACTION; [line 18]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_5" -> "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_2" ;
+	 "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_5" -> "org.junit.tests.running.methods.ExpectedTest$Expected.expected():void.d8c077a43170e8fa442b44a671914d9a_3" [color="red" ];
+}

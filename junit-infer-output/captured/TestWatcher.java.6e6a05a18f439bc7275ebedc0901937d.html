@@ -1,0 +1,676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/rules/TestWatcher.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.AssumptionViolatedException; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runners.model.MultipleFailureException; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * TestWatcher is a base class for Rules that take note of the testing </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * action, without modifying it. For example, this class will keep a log of each </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * passing and failing test: </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * public static class WatchmanTest { </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> *  private static String watchedLog; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> *  &amp;#064;Rule(order = Integer.MIN_VALUE) </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> *  public TestWatcher watchman= new TestWatcher() { </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> *      &amp;#064;Override </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> *      protected void failed(Throwable e, Description description) { </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> *          watchedLog+= description + &amp;quot;\n&amp;quot;; </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> *      } </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> *      &amp;#064;Override </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> *      protected void succeeded(Description description) { </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> *          watchedLog+= description + &amp;quot; &amp;quot; + &amp;quot;success!\n&amp;quot;; </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> *         } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> *     }; </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> *  &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> *  public void fails() { </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> *      fail(); </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> *  } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> *  &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> *  public void succeeds() { </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> * &lt;p&gt;It is recommended to always set the {@link Rule#order() order} of the </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> * {@code TestWatcher} to {@code Integer.MIN_VALUE} so that it encloses all </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> * other rules. Otherwise it may see failed tests as successful and vice versa </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> * if some rule changes the result of a test (e.g. {@link ErrorCollector} or </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> * {@link ExpectedException}). </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> * @since 4.9 </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">public abstract class TestWatcher implements TestRule { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24400%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.05ee1135f29a5a16d0e7c54b6c164d06_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24300%28org.junit.rules.TestWatcher%2Cjava.lang.Throwable%2Corg.junit.run.777da53e8dca77aac26c689fa6434262_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24200%28org.junit.rules.TestWatcher%2Corg.junit.internal.AssumptionViol.8469b3ca7895d83d1fc358628f27ccca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24100%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.3b2d47b3ece5d3e3135f0ada20de0728_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24000%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.437ae5122b6638db57f3b81d5dd06307_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.<init>%28%29.63413cf75a0f25fca6b8cb8762702028_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24400%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.05ee1135f29a5a16d0e7c54b6c164d06_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.TestWatcher* [line 52];
+n$1=*&amp;x1:org.junit.runner.Description* [line 52];
+n$2=*&amp;x2:java.util.List* [line 52];
+n$3=_fun_void TestWatcher.finishedQuietly(Description,List)(n$0:org.junit.rules.TestWatcher*,n$1:org.junit.runner.Description*,n$2:java.util.List*) [line 52];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24300%28org.junit.rules.TestWatcher%2Cjava.lang.Throwable%2Corg.junit.run.777da53e8dca77aac26c689fa6434262_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.TestWatcher* [line 52];
+n$1=*&amp;x1:java.lang.Throwable* [line 52];
+n$2=*&amp;x2:org.junit.runner.Description* [line 52];
+n$3=*&amp;x3:java.util.List* [line 52];
+n$4=_fun_void TestWatcher.failedQuietly(Throwable,Description,List)(n$0:org.junit.rules.TestWatcher*,n$1:java.lang.Throwable*,n$2:org.junit.runner.Description*,n$3:java.util.List*) [line 52];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24200%28org.junit.rules.TestWatcher%2Corg.junit.internal.AssumptionViol.8469b3ca7895d83d1fc358628f27ccca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.TestWatcher* [line 52];
+n$1=*&amp;x1:org.junit.internal.AssumptionViolatedException* [line 52];
+n$2=*&amp;x2:org.junit.runner.Description* [line 52];
+n$3=*&amp;x3:java.util.List* [line 52];
+n$4=_fun_void TestWatcher.skippedQuietly(AssumptionViolatedException,Description,List)(n$0:org.junit.rules.TestWatcher*,n$1:org.junit.internal.AssumptionViolatedException*,n$2:org.junit.runner.Description*,n$3:java.util.List*) [line 52];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24100%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.3b2d47b3ece5d3e3135f0ada20de0728_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.TestWatcher* [line 52];
+n$1=*&amp;x1:org.junit.runner.Description* [line 52];
+n$2=*&amp;x2:java.util.List* [line 52];
+n$3=_fun_void TestWatcher.succeededQuietly(Description,List)(n$0:org.junit.rules.TestWatcher*,n$1:org.junit.runner.Description*,n$2:java.util.List*) [line 52];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24000%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.437ae5122b6638db57f3b81d5dd06307_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.TestWatcher* [line 52];
+n$1=*&amp;x1:org.junit.runner.Description* [line 52];
+n$2=*&amp;x2:java.util.List* [line 52];
+n$3=_fun_void TestWatcher.startingQuietly(Description,List)(n$0:org.junit.rules.TestWatcher*,n$1:org.junit.runner.Description*,n$2:java.util.List*) [line 52];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.<init>%28%29.63413cf75a0f25fca6b8cb8762702028_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TestWatcher* [line 52];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.TestWatcher*) [line 52];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24400%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.05ee1135f29a5a16d0e7c54b6c164d06_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24300%28org.junit.rules.TestWatcher%2Cjava.lang.Throwable%2Corg.junit.run.777da53e8dca77aac26c689fa6434262_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24200%28org.junit.rules.TestWatcher%2Corg.junit.internal.AssumptionViol.8469b3ca7895d83d1fc358628f27ccca_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24100%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.3b2d47b3ece5d3e3135f0ada20de0728_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24000%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.437ae5122b6638db57f3b81d5dd06307_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.<init>%28%29.63413cf75a0f25fca6b8cb8762702028_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24400%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.05ee1135f29a5a16d0e7c54b6c164d06_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24300%28org.junit.rules.TestWatcher%2Cjava.lang.Throwable%2Corg.junit.run.777da53e8dca77aac26c689fa6434262_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24200%28org.junit.rules.TestWatcher%2Corg.junit.internal.AssumptionViol.8469b3ca7895d83d1fc358628f27ccca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24100%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.3b2d47b3ece5d3e3135f0ada20de0728_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24000%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.437ae5122b6638db57f3b81d5dd06307_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.<init>%28%29.63413cf75a0f25fca6b8cb8762702028_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24400%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.05ee1135f29a5a16d0e7c54b6c164d06_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24300%28org.junit.rules.TestWatcher%2Cjava.lang.Throwable%2Corg.junit.run.777da53e8dca77aac26c689fa6434262_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24200%28org.junit.rules.TestWatcher%2Corg.junit.internal.AssumptionViol.8469b3ca7895d83d1fc358628f27ccca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24100%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.3b2d47b3ece5d3e3135f0ada20de0728_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.access%24000%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.437ae5122b6638db57f3b81d5dd06307_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.<init>%28%29.63413cf75a0f25fca6b8cb8762702028_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.access%24400%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.05ee1135f29a5a16d0e7c54b6c164d06.html">summary for void TestWatcher.access$400(TestWatcher,Description,List)</a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.access%24300%28org.junit.rules.TestWatcher%2Cjava.lang.Throwable%2Corg.junit.run.777da53e8dca77aac26c689fa6434262.html">summary for void TestWatcher.access$300(TestWatcher,Throwable,Description,List)</a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.access%24200%28org.junit.rules.TestWatcher%2Corg.junit.internal.AssumptionViol.8469b3ca7895d83d1fc358628f27ccca.html">summary for void TestWatcher.access$200(TestWatcher,AssumptionViolatedException,Description,List)</a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.access%24100%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.3b2d47b3ece5d3e3135f0ada20de0728.html">summary for void TestWatcher.access$100(TestWatcher,Description,List)</a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.access%24000%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Cjava.437ae5122b6638db57f3b81d5dd06307.html">summary for void TestWatcher.access$000(TestWatcher,Description,List)</a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.<init>%28%29.63413cf75a0f25fca6b8cb8762702028.html">summary for TestWatcher.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    public Statement apply(final Statement base, final Description description) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aor.c43dfce1655d37ab217f5cf071ea0c29_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aor.c43dfce1655d37ab217f5cf071ea0c29.html">summary for Statement TestWatcher.apply(Statement,Description)</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        return new Statement() { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aor.c43dfce1655d37ab217f5cf071ea0c29_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.TestWatcher$1):org.junit.rules.TestWatcher$1*) [line 54];
+n$1=*&amp;this:org.junit.rules.TestWatcher* [line 54];
+n$2=*&amp;description:org.junit.runner.Description* [line 54];
+n$3=*&amp;base:org.junit.runners.model.Statement* [line 54];
+n$4=_fun_TestWatcher$1.&lt;init&gt;(TestWatcher,Description,Statement)(n$0:org.junit.rules.TestWatcher$1*,n$1:org.junit.rules.TestWatcher*,n$2:org.junit.runner.Description*,n$3:org.junit.runners.model.Statement*) [line 54];
+*&amp;$irvar0:org.junit.rules.TestWatcher$1*=n$0 [line 54];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TestWatcher$1* [line 54];
+n$1=*&amp;this$0:org.junit.rules.TestWatcher* [line 54];
+*n$0.this$0:org.junit.rules.TestWatcher$1(root org.junit.rules.TestWatcher$1)=n$1 [line 54];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aor.c43dfce1655d37ab217f5cf071ea0c29_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.rules.TestWatcher$1* [line 54];
+*&amp;return:org.junit.runners.model.Statement*=n$5 [line 54];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.TestWatcher$1* [line 54];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 54];
+*n$2.val$description:org.junit.rules.TestWatcher$1(root org.junit.rules.TestWatcher$1)=n$3 [line 54];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aor.c43dfce1655d37ab217f5cf071ea0c29_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.TestWatcher$1* [line 54];
+n$5=*&amp;$bcvar3:org.junit.runners.model.Statement* [line 54];
+*n$4.val$base:org.junit.rules.TestWatcher$1(root org.junit.rules.TestWatcher$1)=n$5 [line 54];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.TestWatcher$1* [line 54];
+n$7=_fun_Statement.&lt;init&gt;()(n$6:org.junit.rules.TestWatcher$1*) [line 54];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29%3Aor.c43dfce1655d37ab217f5cf071ea0c29_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher%241.<init>%28org.junit.rules.TestWatcher%2Corg.junit.runner.Description%2Corg.ju.a958cc37377aca63e48fab3c0ea1baf8.html">summary for TestWatcher$1.&lt;init&gt;(TestWatcher,Description,Statement)</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">            public void evaluate() throws Throwable { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca.html">summary for void TestWatcher$1.evaluate()</a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">                List&lt;Throwable&gt; errors = new ArrayList&lt;Throwable&gt;(); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 57];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 57];
+*&amp;errors:java.util.ArrayList*=n$0 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">                startingQuietly(description, errors); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.TestWatcher$1* [line 59];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 59];
+*&amp;$irvar1:org.junit.runner.Description*=n$3 [line 59];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.TestWatcher$1* [line 59];
+n$5=*n$4.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 59];
+*&amp;$irvar0:org.junit.rules.TestWatcher*=n$5 [line 59];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;$irvar0:org.junit.rules.TestWatcher* [line 59];
+n$7=*&amp;$irvar1:org.junit.runner.Description* [line 59];
+n$8=*&amp;errors:java.util.ArrayList* [line 59];
+n$9=_fun_void TestWatcher.access$000(TestWatcher,Description,List)(n$6:org.junit.rules.TestWatcher*,n$7:org.junit.runner.Description*,n$8:java.util.ArrayList*) [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">                    base.evaluate(); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:47 Instructions
+n$10=*&amp;this:org.junit.rules.TestWatcher$1* [line 61];
+n$11=*n$10.val$base:org.junit.runners.model.Statement*(root org.junit.rules.TestWatcher$1) [line 61];
+_=*n$11:org.junit.runners.model.Statement*(root org.junit.runners.model.Statement) [line 61];
+n$13=_fun_void Statement.evaluate()(n$11:org.junit.runners.model.Statement*) virtual [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">                    succeededQuietly(description, errors); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:47 Instructions
+n$14=*&amp;this:org.junit.rules.TestWatcher$1* [line 62];
+n$15=*n$14.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 62];
+*&amp;$irvar3:org.junit.runner.Description*=n$15 [line 62];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:47 Instructions
+n$16=*&amp;this:org.junit.rules.TestWatcher$1* [line 62];
+n$17=*n$16.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 62];
+*&amp;$irvar2:org.junit.rules.TestWatcher*=n$17 [line 62];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:47 Instructions
+n$18=*&amp;$irvar2:org.junit.rules.TestWatcher* [line 62];
+n$19=*&amp;$irvar3:org.junit.runner.Description* [line 62];
+n$20=*&amp;errors:java.util.ArrayList* [line 62];
+n$21=_fun_void TestWatcher.access$100(TestWatcher,Description,List)(n$18:org.junit.rules.TestWatcher*,n$19:org.junit.runner.Description*,n$20:java.util.ArrayList*) [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">                } catch (org.junit.internal.AssumptionViolatedException  e) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:45 succs:16 exn:41 Instructions
+n$30=*&amp;CatchVar54:java.lang.Object* [line 63];
+*&amp;e:java.lang.Object*=n$30 [line 63];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node45.html"><span class='visited with_tooltip'>C_45<span class='tooltip'>node45 preds:47 succs:15 exn:3 Conditional exception handler
+n$89=_fun___instanceof(n$87:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.internal.AssumptionViolatedException):void) [line 63];
+PRUNE(n$89, true); [line 63];
+*&amp;CatchVar54:void=n$87 [line 63];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node46.html"><span class='visited with_tooltip'>C_46<span class='tooltip'>node46 preds:47 succs:43 44 exn:3 Conditional exception handler
+n$89=_fun___instanceof(n$87:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.internal.AssumptionViolatedException):void) [line 63];
+PRUNE(!n$89, false); [line 63];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node47.html"><span class='visited with_tooltip'>I_47<span class='tooltip'>node47 preds: succs:45 46 exn:3 Instructions
+n$86=*&amp;return:void [line 63];
+*&amp;return:void=null [line 63];
+n$87=_fun___unwrap_exception(n$86:void) [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">                    errors.add(e); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:41 Instructions
+n$31=*&amp;errors:java.util.ArrayList* [line 64];
+_=*n$31:java.util.ArrayList*(root java.util.ArrayList) [line 64];
+n$33=*&amp;e:java.lang.Object* [line 64];
+n$34=_fun_boolean List.add(Object)(n$31:java.util.ArrayList*,n$33:java.lang.Object*) interface virtual [line 64];
+*&amp;$irvar6:_Bool=n$34 [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">                    skippedQuietly(e, description, errors); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:41 Instructions
+n$35=*&amp;this:org.junit.rules.TestWatcher$1* [line 65];
+n$36=*n$35.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 65];
+*&amp;$irvar8:org.junit.runner.Description*=n$36 [line 65];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:41 Instructions
+n$37=*&amp;this:org.junit.rules.TestWatcher$1* [line 65];
+n$38=*n$37.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 65];
+*&amp;$irvar7:org.junit.rules.TestWatcher*=n$38 [line 65];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:41 Instructions
+n$39=*&amp;$irvar7:org.junit.rules.TestWatcher* [line 65];
+n$40=*&amp;e:java.lang.Object* [line 65];
+n$41=*&amp;$irvar8:org.junit.runner.Description* [line 65];
+n$42=*&amp;errors:java.util.ArrayList* [line 65];
+n$43=_fun_void TestWatcher.access$200(TestWatcher,AssumptionViolatedException,Description,List)(n$39:org.junit.rules.TestWatcher*,n$40:java.lang.Object*,n$41:org.junit.runner.Description*,n$42:java.util.ArrayList*) [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">                } catch (Throwable e) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:43 succs:24 exn:39 Instructions
+n$52=*&amp;CatchVar91:java.lang.Object* [line 66];
+*&amp;e:java.lang.Object*=n$52 [line 66];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node43.html"><span class='visited with_tooltip'>C_43<span class='tooltip'>node43 preds:46 succs:23 exn:3 Conditional exception handler
+n$88=_fun___instanceof(n$87:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 66];
+PRUNE(n$88, true); [line 66];
+*&amp;CatchVar91:void=n$87 [line 66];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node44.html"><span class='visited with_tooltip'>C_44<span class='tooltip'>node44 preds:46 succs:42 exn:3 Conditional exception handler
+n$88=_fun___instanceof(n$87:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 66];
+PRUNE(!n$88, false); [line 66];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">                    errors.add(e); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:39 Instructions
+n$53=*&amp;errors:java.util.ArrayList* [line 67];
+_=*n$53:java.util.ArrayList*(root java.util.ArrayList) [line 67];
+n$55=*&amp;e:java.lang.Object* [line 67];
+n$56=_fun_boolean List.add(Object)(n$53:java.util.ArrayList*,n$55:java.lang.Object*) interface virtual [line 67];
+*&amp;$irvar11:_Bool=n$56 [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">                    failedQuietly(e, description, errors); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:39 Instructions
+n$57=*&amp;this:org.junit.rules.TestWatcher$1* [line 68];
+n$58=*n$57.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 68];
+*&amp;$irvar13:org.junit.runner.Description*=n$58 [line 68];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:39 Instructions
+n$59=*&amp;this:org.junit.rules.TestWatcher$1* [line 68];
+n$60=*n$59.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 68];
+*&amp;$irvar12:org.junit.rules.TestWatcher*=n$60 [line 68];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:39 Instructions
+n$61=*&amp;$irvar12:org.junit.rules.TestWatcher* [line 68];
+n$62=*&amp;e:java.lang.Object* [line 68];
+n$63=*&amp;$irvar13:org.junit.runner.Description* [line 68];
+n$64=*&amp;errors:java.util.ArrayList* [line 68];
+n$65=_fun_void TestWatcher.access$300(TestWatcher,Throwable,Description,List)(n$61:org.junit.rules.TestWatcher*,n$62:java.lang.Object*,n$63:org.junit.runner.Description*,n$64:java.util.ArrayList*) [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">                } finally { </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">                    finishedQuietly(description, errors); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$22=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$23=*n$22.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar5:org.junit.runner.Description*=n$23 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$24=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$25=*n$24.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar4:org.junit.rules.TestWatcher*=n$25 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:36 exn:3 Instructions
+n$26=*&amp;$irvar4:org.junit.rules.TestWatcher* [line 70];
+n$27=*&amp;$irvar5:org.junit.runner.Description* [line 70];
+n$28=*&amp;errors:java.util.ArrayList* [line 70];
+n$29=_fun_void TestWatcher.access$400(TestWatcher,Description,List)(n$26:org.junit.rules.TestWatcher*,n$27:org.junit.runner.Description*,n$28:java.util.ArrayList*) [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$44=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$45=*n$44.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar10:org.junit.runner.Description*=n$45 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$46=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$47=*n$46.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar9:org.junit.rules.TestWatcher*=n$47 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:36 exn:3 Instructions
+n$48=*&amp;$irvar9:org.junit.rules.TestWatcher* [line 70];
+n$49=*&amp;$irvar10:org.junit.runner.Description* [line 70];
+n$50=*&amp;errors:java.util.ArrayList* [line 70];
+n$51=_fun_void TestWatcher.access$400(TestWatcher,Description,List)(n$48:org.junit.rules.TestWatcher*,n$49:org.junit.runner.Description*,n$50:java.util.ArrayList*) [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$66=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$67=*n$66.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar15:org.junit.runner.Description*=n$67 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$68=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$69=*n$68.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar14:org.junit.rules.TestWatcher*=n$69 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:36 exn:3 Instructions
+n$70=*&amp;$irvar14:org.junit.rules.TestWatcher* [line 70];
+n$71=*&amp;$irvar15:org.junit.runner.Description* [line 70];
+n$72=*&amp;errors:java.util.ArrayList* [line 70];
+n$73=_fun_void TestWatcher.access$400(TestWatcher,Description,List)(n$70:org.junit.rules.TestWatcher*,n$71:org.junit.runner.Description*,n$72:java.util.ArrayList*) [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:42 40 38 succs:32 exn:3 Instructions
+n$74=*&amp;CatchVar128:java.lang.Object* [line 70];
+*&amp;$bcvar3:java.lang.Object*=n$74 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:33 exn:3 Instructions
+n$75=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$76=*n$75.val$description:org.junit.runner.Description*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar17:org.junit.runner.Description*=n$76 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:32 succs:34 exn:3 Instructions
+n$77=*&amp;this:org.junit.rules.TestWatcher$1* [line 70];
+n$78=*n$77.this$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher$1) [line 70];
+*&amp;$irvar16:org.junit.rules.TestWatcher*=n$78 [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:33 succs:35 exn:3 Instructions
+n$79=*&amp;$irvar16:org.junit.rules.TestWatcher* [line 70];
+n$80=*&amp;$irvar17:org.junit.runner.Description* [line 70];
+n$81=*&amp;errors:java.util.ArrayList* [line 70];
+n$82=_fun_void TestWatcher.access$400(TestWatcher,Description,List)(n$79:org.junit.rules.TestWatcher*,n$80:org.junit.runner.Description*,n$81:java.util.ArrayList*) [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node38.html"><span class='visited with_tooltip'>I_38<span class='tooltip'>node38 preds:39 succs:31 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node39.html"><span class='visited with_tooltip'>I_39<span class='tooltip'>node39 preds: succs:38 exn:3 Instructions
+n$86=*&amp;return:void [line 70];
+*&amp;return:void=null [line 70];
+n$87=_fun___unwrap_exception(n$86:void) [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node40.html"><span class='visited with_tooltip'>I_40<span class='tooltip'>node40 preds:41 succs:31 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node41.html"><span class='visited with_tooltip'>I_41<span class='tooltip'>node41 preds: succs:40 exn:3 Instructions
+n$86=*&amp;return:void [line 70];
+*&amp;return:void=null [line 70];
+n$87=_fun___unwrap_exception(n$86:void) [line 70];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node42.html"><span class='visited with_tooltip'>I_42<span class='tooltip'>node42 preds:44 succs:31 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">                } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:34 succs:2 exn:3 Instructions
+n$83=*&amp;$bcvar3:java.lang.Object* [line 71];
+*&amp;return:void=EXN n$83 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">                MultipleFailureException.assertEmpty(errors); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node36.html"><span class='visited with_tooltip'>I_36<span class='tooltip'>node36 preds:30 22 14 succs:37 exn:3 Instructions
+n$84=*&amp;errors:java.util.ArrayList* [line 73];
+n$85=_fun_void MultipleFailureException.assertEmpty(List)(n$84:java.util.ArrayList*) [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node37.html"><span class='visited with_tooltip'>I_37<span class='tooltip'>node37 preds:36 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:37 35 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher%241.evaluate%28%29%3Avoid.a4a54c6fe6876ad02a4914ce08b993ca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    private void succeededQuietly(Description description, <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3.html">summary for void TestWatcher.succeededQuietly(Description,List)</a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            List&lt;Throwable&gt; errors) { </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">            succeeded(description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:10 Instructions
+n$0=*&amp;this:org.junit.rules.TestWatcher* [line 81];
+_=*n$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 81];
+n$2=*&amp;description:org.junit.runner.Description* [line 81];
+n$3=_fun_void TestWatcher.succeeded(Description)(n$0:org.junit.rules.TestWatcher*,n$2:org.junit.runner.Description*) virtual [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        } catch (Throwable e) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:8 succs:6 exn:3 Instructions
+n$4=*&amp;CatchVar8:java.lang.Object* [line 82];
+*&amp;e:java.lang.Object*=n$4 [line 82];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:5 exn:3 Conditional exception handler
+n$11=_fun___instanceof(n$10:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 82];
+PRUNE(n$11, true); [line 82];
+*&amp;CatchVar8:void=n$10 [line 82];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:3 exn:3 Conditional exception handler
+n$11=_fun___instanceof(n$10:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 82];
+PRUNE(!n$11, false); [line 82];
+*&amp;return:void=EXN n$10 [line 82];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds: succs:8 9 exn:3 Instructions
+n$9=*&amp;return:void [line 82];
+*&amp;return:void=null [line 82];
+n$10=_fun___unwrap_exception(n$9:void) [line 82];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">            errors.add(e); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;errors:java.util.List* [line 83];
+_=*n$5:java.util.List*(root java.util.List) [line 83];
+n$7=*&amp;e:java.lang.Object* [line 83];
+n$8=_fun_boolean List.add(Object)(n$5:java.util.List*,n$7:java.lang.Object*) interface virtual [line 83];
+*&amp;$irvar0:_Bool=n$8 [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeededQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.3fb16c1f5cc3b4123f0514781be6b1c3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:9 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    private void failedQuietly(Throwable e, Description description, <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2.html">summary for void TestWatcher.failedQuietly(Throwable,Description,List)</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">            List&lt;Throwable&gt; errors) { </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            failed(e, description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:10 Instructions
+n$0=*&amp;this:org.junit.rules.TestWatcher* [line 90];
+_=*n$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 90];
+n$2=*&amp;e:java.lang.Throwable* [line 90];
+n$3=*&amp;description:org.junit.runner.Description* [line 90];
+n$4=_fun_void TestWatcher.failed(Throwable,Description)(n$0:org.junit.rules.TestWatcher*,n$2:java.lang.Throwable*,n$3:org.junit.runner.Description*) virtual [line 90];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        } catch (Throwable e1) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:8 succs:6 exn:3 Instructions
+n$5=*&amp;CatchVar9:java.lang.Object* [line 91];
+*&amp;e1:java.lang.Object*=n$5 [line 91];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:5 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 91];
+PRUNE(n$12, true); [line 91];
+*&amp;CatchVar9:void=n$11 [line 91];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:3 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 91];
+PRUNE(!n$12, false); [line 91];
+*&amp;return:void=EXN n$11 [line 91];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds: succs:8 9 exn:3 Instructions
+n$10=*&amp;return:void [line 91];
+*&amp;return:void=null [line 91];
+n$11=_fun___unwrap_exception(n$10:void) [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            errors.add(e1); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;errors:java.util.List* [line 92];
+_=*n$6:java.util.List*(root java.util.List) [line 92];
+n$8=*&amp;e1:java.lang.Object* [line 92];
+n$9=_fun_boolean List.add(Object)(n$6:java.util.List*,n$8:java.lang.Object*) interface virtual [line 92];
+*&amp;$irvar0:_Bool=n$9 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failedQuietly%28java.lang.Throwable%2Corg.junit.runner.Description%2Cjava.util.de91ecf26a3f7847cd597b729f9c08e2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:9 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    private void skippedQuietly( <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709.html">summary for void TestWatcher.skippedQuietly(AssumptionViolatedException,Description,List)</a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">            org.junit.internal.AssumptionViolatedException e, Description description, </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            List&lt;Throwable&gt; errors) { </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">            if (e instanceof AssumptionViolatedException) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:13 Conditional method_body
+n$0=*&amp;e:org.junit.internal.AssumptionViolatedException* [line 100];
+n$1=_fun___instanceof(n$0:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.AssumptionViolatedException;sub_t=( sub )(instof)):void) [line 100];
+PRUNE(!(n$1 == 0), true); [line 100];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 exn:13 Conditional method_body
+n$0=*&amp;e:org.junit.internal.AssumptionViolatedException* [line 100];
+n$1=_fun___instanceof(n$0:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.AssumptionViolatedException;sub_t=( sub )(instof)):void) [line 100];
+PRUNE((n$1 == 0), false); [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">                skipped((AssumptionViolatedException) e, description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:10 exn:13 Instructions
+n$2=*&amp;this:org.junit.rules.TestWatcher* [line 101];
+_=*n$2:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 101];
+n$4=*&amp;e:org.junit.internal.AssumptionViolatedException* [line 101];
+n$5=_fun___cast(n$4:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.AssumptionViolatedException;sub_t=( sub )(cast)):void) [line 101];
+n$6=*&amp;description:org.junit.runner.Description* [line 101];
+n$7=_fun_void TestWatcher.skipped(AssumptionViolatedException,Description)(n$2:org.junit.rules.TestWatcher*,n$5:org.junit.AssumptionViolatedException*,n$6:org.junit.runner.Description*) virtual [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">                skipped(e, description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:10 exn:13 Instructions
+n$8=*&amp;this:org.junit.rules.TestWatcher* [line 103];
+_=*n$8:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 103];
+n$10=*&amp;e:org.junit.internal.AssumptionViolatedException* [line 103];
+n$11=*&amp;description:org.junit.runner.Description* [line 103];
+n$12=_fun_void TestWatcher.skipped(AssumptionViolatedException,Description)(n$8:org.junit.rules.TestWatcher*,n$10:org.junit.internal.AssumptionViolatedException*,n$11:org.junit.runner.Description*) virtual [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        } catch (Throwable e1) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:11 succs:9 exn:3 Instructions
+n$13=*&amp;CatchVar28:java.lang.Object* [line 105];
+*&amp;e1:java.lang.Object*=n$13 [line 105];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:8 exn:3 Conditional exception handler
+n$20=_fun___instanceof(n$19:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 105];
+PRUNE(n$20, true); [line 105];
+*&amp;CatchVar28:void=n$19 [line 105];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:3 exn:3 Conditional exception handler
+n$20=_fun___instanceof(n$19:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 105];
+PRUNE(!n$20, false); [line 105];
+*&amp;return:void=EXN n$19 [line 105];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds: succs:11 12 exn:3 Instructions
+n$18=*&amp;return:void [line 105];
+*&amp;return:void=null [line 105];
+n$19=_fun___unwrap_exception(n$18:void) [line 105];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">            errors.add(e1); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;errors:java.util.List* [line 106];
+_=*n$14:java.util.List*(root java.util.List) [line 106];
+n$16=*&amp;e1:java.lang.Object* [line 106];
+n$17=_fun_boolean List.add(Object)(n$14:java.util.List*,n$16:java.lang.Object*) interface virtual [line 106];
+*&amp;$irvar0:_Bool=n$17 [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 7 6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skippedQuietly%28org.junit.internal.AssumptionViolatedException%2Corg.junit..1319bf1fcafce1de9a2315127b859709_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:12 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    private void startingQuietly(Description description, <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a.html">summary for void TestWatcher.startingQuietly(Description,List)</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">            List&lt;Throwable&gt; errors) { </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">            starting(description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:10 Instructions
+n$0=*&amp;this:org.junit.rules.TestWatcher* [line 113];
+_=*n$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 113];
+n$2=*&amp;description:org.junit.runner.Description* [line 113];
+n$3=_fun_void TestWatcher.starting(Description)(n$0:org.junit.rules.TestWatcher*,n$2:org.junit.runner.Description*) virtual [line 113];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        } catch (Throwable e) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:8 succs:6 exn:3 Instructions
+n$4=*&amp;CatchVar8:java.lang.Object* [line 114];
+*&amp;e:java.lang.Object*=n$4 [line 114];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:5 exn:3 Conditional exception handler
+n$11=_fun___instanceof(n$10:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 114];
+PRUNE(n$11, true); [line 114];
+*&amp;CatchVar8:void=n$10 [line 114];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:3 exn:3 Conditional exception handler
+n$11=_fun___instanceof(n$10:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 114];
+PRUNE(!n$11, false); [line 114];
+*&amp;return:void=EXN n$10 [line 114];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds: succs:8 9 exn:3 Instructions
+n$9=*&amp;return:void [line 114];
+*&amp;return:void=null [line 114];
+n$10=_fun___unwrap_exception(n$9:void) [line 114];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            errors.add(e); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;errors:java.util.List* [line 115];
+_=*n$5:java.util.List*(root java.util.List) [line 115];
+n$7=*&amp;e:java.lang.Object* [line 115];
+n$8=_fun_boolean List.add(Object)(n$5:java.util.List*,n$7:java.lang.Object*) interface virtual [line 115];
+*&amp;$irvar0:_Bool=n$8 [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.startingQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.bbef336ff35734e335b6a495bcb4558a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:9 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    private void finishedQuietly(Description description, <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2.html">summary for void TestWatcher.finishedQuietly(Description,List)</a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">            List&lt;Throwable&gt; errors) { </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            finished(description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:10 Instructions
+n$0=*&amp;this:org.junit.rules.TestWatcher* [line 122];
+_=*n$0:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 122];
+n$2=*&amp;description:org.junit.runner.Description* [line 122];
+n$3=_fun_void TestWatcher.finished(Description)(n$0:org.junit.rules.TestWatcher*,n$2:org.junit.runner.Description*) virtual [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        } catch (Throwable e) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:8 succs:6 exn:3 Instructions
+n$4=*&amp;CatchVar8:java.lang.Object* [line 123];
+*&amp;e:java.lang.Object*=n$4 [line 123];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:5 exn:3 Conditional exception handler
+n$11=_fun___instanceof(n$10:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 123];
+PRUNE(n$11, true); [line 123];
+*&amp;CatchVar8:void=n$10 [line 123];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:3 exn:3 Conditional exception handler
+n$11=_fun___instanceof(n$10:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 123];
+PRUNE(!n$11, false); [line 123];
+*&amp;return:void=EXN n$10 [line 123];
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds: succs:8 9 exn:3 Instructions
+n$9=*&amp;return:void [line 123];
+*&amp;return:void=null [line 123];
+n$10=_fun___unwrap_exception(n$9:void) [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">            errors.add(e); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;errors:java.util.List* [line 124];
+_=*n$5:java.util.List*(root java.util.List) [line 124];
+n$7=*&amp;e:java.lang.Object* [line 124];
+n$8=_fun_boolean List.add(Object)(n$5:java.util.List*,n$7:java.lang.Object*) interface virtual [line 124];
+*&amp;$irvar0:_Bool=n$8 [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finishedQuietly%28org.junit.runner.Description%2Cjava.util.List%29%3Avoid.0db3bd10afceece788b6da3c224ec7c2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:9 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">     * Invoked when a test succeeds </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    protected void succeeded(Description description) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeeded%28org.junit.runner.Description%29%3Avoid.eee744d7b7fcfae23a2c5f2da8a95d1a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.succeeded%28org.junit.runner.Description%29%3Avoid.eee744d7b7fcfae23a2c5f2da8a95d1a.html">summary for void TestWatcher.succeeded(Description)</a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeeded%28org.junit.runner.Description%29%3Avoid.eee744d7b7fcfae23a2c5f2da8a95d1a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeeded%28org.junit.runner.Description%29%3Avoid.eee744d7b7fcfae23a2c5f2da8a95d1a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.succeeded%28org.junit.runner.Description%29%3Avoid.eee744d7b7fcfae23a2c5f2da8a95d1a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">     * Invoked when a test fails </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">    protected void failed(Throwable e, Description description) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failed%28java.lang.Throwable%2Corg.junit.runner.Description%29%3Avoid.cb81d3cb6b77e01375e42ddbc16c9cb6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.failed%28java.lang.Throwable%2Corg.junit.runner.Description%29%3Avoid.cb81d3cb6b77e01375e42ddbc16c9cb6.html">summary for void TestWatcher.failed(Throwable,Description)</a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failed%28java.lang.Throwable%2Corg.junit.runner.Description%29%3Avoid.cb81d3cb6b77e01375e42ddbc16c9cb6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failed%28java.lang.Throwable%2Corg.junit.runner.Description%29%3Avoid.cb81d3cb6b77e01375e42ddbc16c9cb6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.failed%28java.lang.Throwable%2Corg.junit.runner.Description%29%3Avoid.cb81d3cb6b77e01375e42ddbc16c9cb6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">     * Invoked when a test is skipped due to a failed assumption. </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    protected void skipped(AssumptionViolatedException e, Description description) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f.html">summary for void TestWatcher.skipped(AssumptionViolatedException,Description)</a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        // For backwards compatibility with JUnit 4.11 and earlier, call the legacy version </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        org.junit.internal.AssumptionViolatedException asInternalException = e; <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;e:org.junit.AssumptionViolatedException* [line 145];
+*&amp;asInternalException:org.junit.AssumptionViolatedException*=n$0 [line 145];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        skipped(asInternalException, description); <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;this:org.junit.rules.TestWatcher* [line 146];
+_=*n$1:org.junit.rules.TestWatcher*(root org.junit.rules.TestWatcher) [line 146];
+n$3=*&amp;asInternalException:org.junit.AssumptionViolatedException* [line 146];
+n$4=*&amp;description:org.junit.runner.Description* [line 146];
+n$5=_fun_void TestWatcher.skipped(AssumptionViolatedException,Description)(n$1:org.junit.rules.TestWatcher*,n$3:org.junit.AssumptionViolatedException*,n$4:org.junit.runner.Description*) virtual [line 146];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.AssumptionViolatedException%2Corg.junit.runner.Descripti.1719fc9d8d312e53c5de32d3af85f68f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">     * Invoked when a test is skipped due to a failed assumption. </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">     * @deprecated use {@link #skipped(AssumptionViolatedException, Description)} </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">    protected void skipped( <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.internal.AssumptionViolatedException%2Corg.junit.runner..a103c207ca39f05ae3feb995a9105d78_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.skipped%28org.junit.internal.AssumptionViolatedException%2Corg.junit.runner..a103c207ca39f05ae3feb995a9105d78.html">summary for void TestWatcher.skipped(AssumptionViolatedException,Description)</a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">            org.junit.internal.AssumptionViolatedException e, Description description) { </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.internal.AssumptionViolatedException%2Corg.junit.runner..a103c207ca39f05ae3feb995a9105d78_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.internal.AssumptionViolatedException%2Corg.junit.runner..a103c207ca39f05ae3feb995a9105d78_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.skipped%28org.junit.internal.AssumptionViolatedException%2Corg.junit.runner..a103c207ca39f05ae3feb995a9105d78_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">     * Invoked when a test is about to start </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">    protected void starting(Description description) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.starting%28org.junit.runner.Description%29%3Avoid.e0d903145c9e21a5a54c8e174441a509_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.starting%28org.junit.runner.Description%29%3Avoid.e0d903145c9e21a5a54c8e174441a509.html">summary for void TestWatcher.starting(Description)</a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.starting%28org.junit.runner.Description%29%3Avoid.e0d903145c9e21a5a54c8e174441a509_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.starting%28org.junit.runner.Description%29%3Avoid.e0d903145c9e21a5a54c8e174441a509_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.starting%28org.junit.runner.Description%29%3Avoid.e0d903145c9e21a5a54c8e174441a509_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">     * Invoked when a test method finishes (whether passing or failing) </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    protected void finished(Description description) { <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finished%28org.junit.runner.Description%29%3Avoid.b80b42bee2a1079a801922cc57381f82_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/org.junit.rules.TestWatcher.finished%28org.junit.runner.Description%29%3Avoid.b80b42bee2a1079a801922cc57381f82.html">summary for void TestWatcher.finished(Description)</a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">    } <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finished%28org.junit.runner.Description%29%3Avoid.b80b42bee2a1079a801922cc57381f82_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finished%28org.junit.runner.Description%29%3Avoid.b80b42bee2a1079a801922cc57381f82_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestWatcher.java.6e6a05a18f439bc7275ebedc0901937d/nodes/org.junit.rules.TestWatcher.finished%28org.junit.runner.Description%29%3Avoid.b80b42bee2a1079a801922cc57381f82_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

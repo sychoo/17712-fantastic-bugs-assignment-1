@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_1" [label="1: Start void EventCollector.testRunFinished(Result)\nFormals:  this:org.junit.rules.EventCollector* result:org.junit.runner.Result*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_1" -> "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_4" ;
+"org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_2" [label="2: Exit void EventCollector.testRunFinished(Result) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_3" [label="3:  exceptions sink \n   APPLY_ABSTRACTION; [line 154]\n " shape="box"]
+	
+
+	 "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_3" -> "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_2" ;
+"org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_4" [label="4:  Call boolean List.add(Object) \n   n$0=*&this:org.junit.rules.EventCollector* [line 153]\n  n$1=*n$0.fTestRunsFinished:java.util.List*(root org.junit.rules.EventCollector) [line 153]\n  _=*n$1:java.util.List*(root java.util.List) [line 153]\n  n$3=*&result:org.junit.runner.Result* [line 153]\n  n$4=_fun_boolean List.add(Object)(n$1:java.util.List*,n$3:org.junit.runner.Result*) interface virtual [line 153]\n  *&$irvar0:_Bool=n$4 [line 153]\n  NULLIFY(&result); [line 153]\n  NULLIFY(&$irvar0); [line 153]\n  NULLIFY(&this); [line 153]\n  EXIT_SCOPE(_,n$0,n$1,n$3,n$4,result,$irvar0,this); [line 153]\n " shape="box"]
+	
+
+	 "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_4" -> "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_5" ;
+	 "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_4" -> "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_3" [color="red" ];
+"org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_5" [label="5:  method_body \n   APPLY_ABSTRACTION; [line 154]\n " shape="box"]
+	
+
+	 "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_5" -> "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_2" ;
+	 "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_5" -> "org.junit.rules.EventCollector.testRunFinished(org.junit.runner.Result):void.03987b9432114e7259e62c401fdd35fb_3" [color="red" ];
+}

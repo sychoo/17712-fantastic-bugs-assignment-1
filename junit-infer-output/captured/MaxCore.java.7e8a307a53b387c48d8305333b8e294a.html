@@ -1,0 +1,820 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MaxCore.java.7e8a307a53b387c48d8305333b8e294a</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/experimental/max/MaxCore.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.experimental.max; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.io.File; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.Collections; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import junit.framework.TestSuite; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.internal.requests.SortingRequest; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.internal.runners.ErrorReportingRunner; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.internal.runners.JUnit38ClassRunner; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.runner.Request; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.runner.Runner; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.runners.Suite; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import org.junit.runners.model.InitializationError; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * A replacement for JUnitCore, which keeps track of runtime and failure history, and reorders tests </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * to maximize the chances that a failing test occurs early in the test run. </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * The rules for sorting are: </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * &lt;ol&gt; </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> * &lt;li&gt; Never-run tests first, in arbitrary order </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> * &lt;li&gt; Group remaining tests by the date at which they most recently failed. </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> * &lt;li&gt; Sort groups such that the most recent failure date is first, and never-failing tests are at the end. </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> * &lt;li&gt; Within a group, run the fastest tests first. </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> * &lt;/ol&gt; </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">public class MaxCore { </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    private static final String MALFORMED_JUNIT_3_TEST_CLASS_PREFIX = &quot;malformed JUnit 3 test class: &quot;; </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">     * Create a new MaxCore from a serialized file stored at storedResults </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">     * @deprecated use storedLocally() </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    public static MaxCore forFolder(String folderName) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e.html">summary for MaxCore MaxCore.forFolder(String)</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        return storedLocally(new File(folderName)); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.io.File):java.io.File*) [line 42];
+n$1=*&amp;folderName:java.lang.String* [line 42];
+n$2=_fun_File.&lt;init&gt;(String)(n$0:java.io.File*,n$1:java.lang.String*) [line 42];
+*&amp;$irvar0:java.io.File*=n$0 [line 42];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;$irvar0:java.io.File* [line 42];
+n$4=_fun_MaxCore MaxCore.storedLocally(File)(n$3:java.io.File*) [line 42];
+*&amp;$irvar1:org.junit.experimental.max.MaxCore*=n$4 [line 42];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar1:org.junit.experimental.max.MaxCore* [line 42];
+*&amp;return:org.junit.experimental.max.MaxCore*=n$5 [line 42];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.forFolder%28java.lang.String%29%3Aorg.junit.experimental.max.MaxCore.cb923c2264ed670c2ac790b4fa8fa28e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">     * Create a new MaxCore from a serialized file stored at storedResults </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    public static MaxCore storedLocally(File storedResults) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.storedLocally%28java.io.File%29%3Aorg.junit.experimental.max.MaxCore.a932bf42ba549a41901f1a8804473c7b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.storedLocally%28java.io.File%29%3Aorg.junit.experimental.max.MaxCore.a932bf42ba549a41901f1a8804473c7b.html">summary for MaxCore MaxCore.storedLocally(File)</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        return new MaxCore(storedResults); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.storedLocally%28java.io.File%29%3Aorg.junit.experimental.max.MaxCore.a932bf42ba549a41901f1a8804473c7b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.max.MaxCore):org.junit.experimental.max.MaxCore*) [line 49];
+n$1=*&amp;storedResults:java.io.File* [line 49];
+n$2=_fun_MaxCore.&lt;init&gt;(File)(n$0:org.junit.experimental.max.MaxCore*,n$1:java.io.File*) [line 49];
+*&amp;$irvar0:org.junit.experimental.max.MaxCore*=n$0 [line 49];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.storedLocally%28java.io.File%29%3Aorg.junit.experimental.max.MaxCore.a932bf42ba549a41901f1a8804473c7b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.experimental.max.MaxCore* [line 49];
+*&amp;return:org.junit.experimental.max.MaxCore*=n$3 [line 49];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.storedLocally%28java.io.File%29%3Aorg.junit.experimental.max.MaxCore.a932bf42ba549a41901f1a8804473c7b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.storedLocally%28java.io.File%29%3Aorg.junit.experimental.max.MaxCore.a932bf42ba549a41901f1a8804473c7b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    private final MaxHistory history; </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">    private MaxCore(File storedResults) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.max.MaxCore* [line 54];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.max.MaxCore*) [line 54];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331.html">summary for MaxCore.&lt;init&gt;(File)</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        history = MaxHistory.forFolder(storedResults); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;storedResults:java.io.File* [line 55];
+n$3=_fun_MaxHistory MaxHistory.forFolder(File)(n$2:java.io.File*) [line 55];
+*&amp;$irvar0:org.junit.experimental.max.MaxHistory*=n$3 [line 55];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.experimental.max.MaxCore* [line 55];
+n$5=*&amp;$irvar0:org.junit.experimental.max.MaxHistory* [line 55];
+*n$4.history:org.junit.experimental.max.MaxCore(root org.junit.experimental.max.MaxCore)=n$5 [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">    } <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.<init>%28java.io.File%29.9a12c3ebb7fadf8831d4cfd201117331_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">     * Run all the tests in &lt;code&gt;class&lt;/code&gt;. </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">     * @return a {@link Result} describing the details of the test run and the failed tests. </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    public Result run(Class&lt;?&gt; testClass) { </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        return run(Request.aClass(testClass)); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;testClass:java.lang.Class* [line 64];
+n$1=_fun_Request Request.aClass(Class)(n$0:java.lang.Class*) [line 64];
+*&amp;$irvar0:org.junit.runner.Request*=n$1 [line 64];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.max.MaxCore* [line 64];
+_=*n$2:org.junit.experimental.max.MaxCore*(root org.junit.experimental.max.MaxCore) [line 64];
+n$4=*&amp;$irvar0:org.junit.runner.Request* [line 64];
+n$5=_fun_Result MaxCore.run(Request)(n$2:org.junit.experimental.max.MaxCore*,n$4:org.junit.runner.Request*) virtual [line 64];
+*&amp;$irvar1:org.junit.runner.Result*=n$5 [line 64];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$6=*&amp;$irvar1:org.junit.runner.Result* [line 64];
+*&amp;return:org.junit.runner.Result*=n$6 [line 64];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.run%28java.lang.Class%29%3Aorg.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c.html">summary for Result MaxCore.run(Class)</a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">     * Run all the tests contained in &lt;code&gt;request&lt;/code&gt;. </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">     * @param request the request describing tests </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">     * @return a {@link Result} describing the details of the test run and the failed tests. </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    public Result run(Request request) { </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        return run(request, new JUnitCore()); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 74];
+n$1=_fun_JUnitCore.&lt;init&gt;()(n$0:org.junit.runner.JUnitCore*) [line 74];
+*&amp;$irvar0:org.junit.runner.JUnitCore*=n$0 [line 74];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.max.MaxCore* [line 74];
+_=*n$2:org.junit.experimental.max.MaxCore*(root org.junit.experimental.max.MaxCore) [line 74];
+n$4=*&amp;request:org.junit.runner.Request* [line 74];
+n$5=*&amp;$irvar0:org.junit.runner.JUnitCore* [line 74];
+n$6=_fun_Result MaxCore.run(Request,JUnitCore)(n$2:org.junit.experimental.max.MaxCore*,n$4:org.junit.runner.Request*,n$5:org.junit.runner.JUnitCore*) virtual [line 74];
+*&amp;$irvar1:org.junit.runner.Result*=n$6 [line 74];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar1:org.junit.runner.Result* [line 74];
+*&amp;return:org.junit.runner.Result*=n$7 [line 74];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%29%3Aorg.junit.runner.Result.485044fa97bb72444722af98e469a0a1.html">summary for Result MaxCore.run(Request)</a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">     * Run all the tests contained in &lt;code&gt;request&lt;/code&gt;. </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">     * This variant should be used if {@code core} has attached listeners that this </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">     * run should notify. </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">     * @param request the request describing tests </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     * @param core a JUnitCore to delegate to. </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * @return a {@link Result} describing the details of the test run and the failed tests. </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public Result run(Request request, JUnitCore core) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b.html">summary for Result MaxCore.run(Request,JUnitCore)</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        core.addListener(history.listener()); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.max.MaxCore* [line 88];
+n$1=*n$0.history:org.junit.experimental.max.MaxHistory*(root org.junit.experimental.max.MaxCore) [line 88];
+_=*n$1:org.junit.experimental.max.MaxHistory*(root org.junit.experimental.max.MaxHistory) [line 88];
+n$3=_fun_RunListener MaxHistory.listener()(n$1:org.junit.experimental.max.MaxHistory*) virtual [line 88];
+*&amp;$irvar0:org.junit.runner.notification.RunListener*=n$3 [line 88];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;core:org.junit.runner.JUnitCore* [line 88];
+_=*n$4:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 88];
+n$6=*&amp;$irvar0:org.junit.runner.notification.RunListener* [line 88];
+n$7=_fun_void JUnitCore.addListener(RunListener)(n$4:org.junit.runner.JUnitCore*,n$6:org.junit.runner.notification.RunListener*) virtual [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        return core.run(sortRequest(request).getRunner()); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;this:org.junit.experimental.max.MaxCore* [line 89];
+_=*n$8:org.junit.experimental.max.MaxCore*(root org.junit.experimental.max.MaxCore) [line 89];
+n$10=*&amp;request:org.junit.runner.Request* [line 89];
+n$11=_fun_Request MaxCore.sortRequest(Request)(n$8:org.junit.experimental.max.MaxCore*,n$10:org.junit.runner.Request*) virtual [line 89];
+*&amp;$irvar1:org.junit.runner.Request*=n$11 [line 89];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$12=*&amp;$irvar1:org.junit.runner.Request* [line 89];
+_=*n$12:org.junit.runner.Request*(root org.junit.runner.Request) [line 89];
+n$14=_fun_Runner Request.getRunner()(n$12:org.junit.runner.Request*) virtual [line 89];
+*&amp;$irvar2:org.junit.runner.Runner*=n$14 [line 89];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$15=*&amp;core:org.junit.runner.JUnitCore* [line 89];
+_=*n$15:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 89];
+n$17=*&amp;$irvar2:org.junit.runner.Runner* [line 89];
+n$18=_fun_Result JUnitCore.run(Runner)(n$15:org.junit.runner.JUnitCore*,n$17:org.junit.runner.Runner*) virtual [line 89];
+*&amp;$irvar3:org.junit.runner.Result*=n$18 [line 89];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$19=*&amp;$irvar3:org.junit.runner.Result* [line 89];
+*&amp;return:org.junit.runner.Result*=n$19 [line 89];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.run%28org.junit.runner.Request%2Corg.junit.runner.JUnitCore%29%3Aorg.juni.7f3fd604b6fe380e245b6376f37e171b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">     * @return a new Request, which contains all of the same tests, but in a new order. </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">    public Request sortRequest(Request request) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a.html">summary for Request MaxCore.sortRequest(Request)</a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        if (request instanceof SortingRequest) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;request:org.junit.runner.Request* [line 96];
+n$1=_fun___instanceof(n$0:org.junit.runner.Request*,sizeof(t=org.junit.internal.requests.SortingRequest;sub_t=( sub )(instof)):void) [line 96];
+PRUNE(!(n$1 == 0), true); [line 96];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 exn:3 Conditional method_body
+n$0=*&amp;request:org.junit.runner.Request* [line 96];
+n$1=_fun___instanceof(n$0:org.junit.runner.Request*,sizeof(t=org.junit.internal.requests.SortingRequest;sub_t=( sub )(instof)):void) [line 96];
+PRUNE((n$1 == 0), false); [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">            // We'll pay big karma points for this </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            return request; <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;request:org.junit.runner.Request* [line 98];
+*&amp;return:org.junit.runner.Request*=n$2 [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        List&lt;Description&gt; leaves = findLeaves(request); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$3=*&amp;this:org.junit.experimental.max.MaxCore* [line 100];
+n$4=*&amp;request:org.junit.runner.Request* [line 100];
+n$5=_fun_List MaxCore.findLeaves(Request)(n$3:org.junit.experimental.max.MaxCore*,n$4:org.junit.runner.Request*) [line 100];
+*&amp;leaves:java.util.List*=n$5 [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        Collections.sort(leaves, history.testComparator()); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=*&amp;this:org.junit.experimental.max.MaxCore* [line 101];
+n$7=*n$6.history:org.junit.experimental.max.MaxHistory*(root org.junit.experimental.max.MaxCore) [line 101];
+_=*n$7:org.junit.experimental.max.MaxHistory*(root org.junit.experimental.max.MaxHistory) [line 101];
+n$9=_fun_Comparator MaxHistory.testComparator()(n$7:org.junit.experimental.max.MaxHistory*) virtual [line 101];
+*&amp;$irvar0:java.util.Comparator*=n$9 [line 101];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;leaves:java.util.List* [line 101];
+n$11=*&amp;$irvar0:java.util.Comparator* [line 101];
+n$12=_fun_void Collections.sort(List,Comparator)(n$10:java.util.List*,n$11:java.util.Comparator*) [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        return constructLeafRequest(leaves); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;this:org.junit.experimental.max.MaxCore* [line 102];
+n$14=*&amp;leaves:java.util.List* [line 102];
+n$15=_fun_Request MaxCore.constructLeafRequest(List)(n$13:org.junit.experimental.max.MaxCore*,n$14:java.util.List*) [line 102];
+*&amp;$irvar1:org.junit.runner.Request*=n$15 [line 102];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+n$16=*&amp;$irvar1:org.junit.runner.Request* [line 102];
+*&amp;return:org.junit.runner.Request*=n$16 [line 102];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 6 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortRequest%28org.junit.runner.Request%29%3Aorg.junit.runner.Request.7a484ec84d14fa7af453fa4df101605a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">    private Request constructLeafRequest(List&lt;Description&gt; leaves) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed.html">summary for Request MaxCore.constructLeafRequest(List)</a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        final List&lt;Runner&gt; runners = new ArrayList&lt;Runner&gt;(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 106];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 106];
+*&amp;runners:java.util.ArrayList*=n$0 [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        for (Description each : leaves) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;leaves:java.util.List* [line 107];
+_=*n$2:java.util.List*(root java.util.List) [line 107];
+n$4=_fun_Iterator List.iterator()(n$2:java.util.List*) interface virtual [line 107];
+*&amp;$bcvar3:java.util.Iterator*=n$4 [line 107];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:13 5 succs:9 exn:3 Instructions
+n$5=*&amp;$bcvar3:java.util.Iterator* [line 107];
+_=*n$5:java.util.Iterator*(root java.util.Iterator) [line 107];
+n$7=_fun_boolean Iterator.hasNext()(n$5:java.util.Iterator*) interface virtual [line 107];
+*&amp;$irvar0:_Bool=n$7 [line 107];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:6 succs:7 8 exn: Join
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:_Bool [line 107];
+PRUNE(!(n$8 == 0), true); [line 107];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$9=*&amp;$bcvar3:java.util.Iterator* [line 107];
+_=*n$9:java.util.Iterator*(root java.util.Iterator) [line 107];
+n$11=_fun_Object Iterator.next()(n$9:java.util.Iterator*) interface virtual [line 107];
+*&amp;$irvar1:java.lang.Object*=n$11 [line 107];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar1:java.lang.Object* [line 107];
+n$13=_fun___cast(n$12:java.lang.Object*,sizeof(t=org.junit.runner.Description;sub_t=( sub )(cast)):void) [line 107];
+*&amp;each:org.junit.runner.Description*=n$13 [line 107];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:14 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:_Bool [line 107];
+PRUNE((n$8 == 0), false); [line 107];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">            runners.add(buildRunner(each)); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;this:org.junit.experimental.max.MaxCore* [line 108];
+n$15=*&amp;each:org.junit.runner.Description* [line 108];
+n$16=_fun_Runner MaxCore.buildRunner(Description)(n$14:org.junit.experimental.max.MaxCore*,n$15:org.junit.runner.Description*) [line 108];
+*&amp;$irvar2:org.junit.runner.Runner*=n$16 [line 108];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:6 exn:3 Instructions
+n$17=*&amp;runners:java.util.ArrayList* [line 108];
+_=*n$17:java.util.ArrayList*(root java.util.ArrayList) [line 108];
+n$19=*&amp;$irvar2:org.junit.runner.Runner* [line 108];
+n$20=_fun_boolean List.add(Object)(n$17:java.util.ArrayList*,n$19:org.junit.runner.Runner*) interface virtual [line 108];
+*&amp;$irvar3:_Bool=n$20 [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        return new Request() { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.max.MaxCore$1* [line 110];
+n$1=*&amp;this$0:org.junit.experimental.max.MaxCore* [line 110];
+*n$0.this$0:org.junit.experimental.max.MaxCore$1(root org.junit.experimental.max.MaxCore$1)=n$1 [line 110];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.max.MaxCore$1* [line 110];
+n$3=*&amp;$bcvar2:java.util.List* [line 110];
+*n$2.val$runners:org.junit.experimental.max.MaxCore$1(root org.junit.experimental.max.MaxCore$1)=n$3 [line 110];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.experimental.max.MaxCore$1* [line 110];
+n$5=_fun_Request.&lt;init&gt;()(n$4:org.junit.experimental.max.MaxCore$1*) [line 110];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:8 succs:15 exn:3 Instructions
+n$21=_fun___new(sizeof(t=org.junit.experimental.max.MaxCore$1):org.junit.experimental.max.MaxCore$1*) [line 110];
+n$22=*&amp;this:org.junit.experimental.max.MaxCore* [line 110];
+n$23=*&amp;runners:java.util.ArrayList* [line 110];
+n$24=_fun_MaxCore$1.&lt;init&gt;(MaxCore,List)(n$21:org.junit.experimental.max.MaxCore$1*,n$22:org.junit.experimental.max.MaxCore*,n$23:java.util.ArrayList*) [line 110];
+*&amp;$irvar4:org.junit.experimental.max.MaxCore$1*=n$21 [line 110];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:2 exn:3 Instructions
+n$25=*&amp;$irvar4:org.junit.experimental.max.MaxCore$1* [line 110];
+*&amp;return:org.junit.runner.Request*=n$25 [line 110];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.constructLeafRequest%28java.util.List%29%3Aorg.junit.runner.Request.9e1036e191c14f1e6c929b5280878bed_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore%241.<init>%28org.junit.experimental.max.MaxCore%2Cjava.util.List%29.6fddbe858640d66e486602a0da96bc27.html">summary for MaxCore$1.&lt;init&gt;(MaxCore,List)</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">            public Runner getRunner() { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25.html">summary for Runner MaxCore$1.getRunner()</a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">                    return new Suite((Class&lt;?&gt;) null, runners) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:11 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.max.MaxCore$1$1):org.junit.experimental.max.MaxCore$1$1*) [line 114];
+n$1=*&amp;this:org.junit.experimental.max.MaxCore$1* [line 114];
+n$2=_fun___cast(null:java.lang.Object*,sizeof(t=java.lang.Class;sub_t=( sub )(cast)):void) [line 114];
+n$3=*&amp;this:org.junit.experimental.max.MaxCore$1* [line 114];
+n$4=*n$3.val$runners:java.util.List*(root org.junit.experimental.max.MaxCore$1) [line 114];
+n$5=_fun_MaxCore$1$1.&lt;init&gt;(MaxCore$1,Class,List)(n$0:org.junit.experimental.max.MaxCore$1$1*,n$1:org.junit.experimental.max.MaxCore$1*,n$2:java.lang.Class*,n$4:java.util.List*) [line 114];
+*&amp;$irvar0:org.junit.experimental.max.MaxCore$1$1*=n$0 [line 114];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.max.MaxCore$1$1* [line 114];
+n$1=*&amp;this$1:org.junit.experimental.max.MaxCore$1* [line 114];
+*n$0.this$1:org.junit.experimental.max.MaxCore$1$1(root org.junit.experimental.max.MaxCore$1$1)=n$1 [line 114];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$6=*&amp;$irvar0:org.junit.experimental.max.MaxCore$1$1* [line 114];
+*&amp;return:org.junit.runner.Runner*=n$6 [line 114];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.max.MaxCore$1$1* [line 114];
+n$3=*&amp;klass:java.lang.Class* [line 114];
+n$4=*&amp;runners:java.util.List* [line 114];
+n$5=_fun_Suite.&lt;init&gt;(Class,List)(n$2:org.junit.experimental.max.MaxCore$1$1*,n$3:java.lang.Class*,n$4:java.util.List*) [line 114];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore%241%241.<init>%28org.junit.experimental.max.MaxCore%241%2Cjava.lang.Class%2Cj.c2bf2a1e975d87404e2eb0a20afd48c1.html">summary for MaxCore$1$1.&lt;init&gt;(MaxCore$1,Class,List)</a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">                    }; </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">                } catch (InitializationError e) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:9 succs:7 exn:3 Instructions
+n$7=*&amp;CatchVar17:java.lang.Object* [line 116];
+*&amp;e:java.lang.Object*=n$7 [line 116];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:6 exn:3 Conditional exception handler
+n$14=_fun___instanceof(n$13:org.junit.runners.model.InitializationError*,sizeof(t=org.junit.runners.model.InitializationError):void) [line 116];
+PRUNE(n$14, true); [line 116];
+*&amp;CatchVar17:org.junit.runner.Runner*=n$13 [line 116];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:3 exn:3 Conditional exception handler
+n$14=_fun___instanceof(n$13:org.junit.runners.model.InitializationError*,sizeof(t=org.junit.runners.model.InitializationError):void) [line 116];
+PRUNE(!n$14, false); [line 116];
+*&amp;return:org.junit.runner.Runner*=EXN n$13 [line 116];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds: succs:9 10 exn:3 Instructions
+n$12=*&amp;return:org.junit.runner.Runner* [line 116];
+*&amp;return:org.junit.runner.Runner*=null [line 116];
+n$13=_fun___unwrap_exception(n$12:org.junit.runner.Runner*) [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">                    return new ErrorReportingRunner(null, e); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 5 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:10 succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunner):org.junit.internal.runners.ErrorReportingRunner*) [line 117];
+n$9=*&amp;e:java.lang.Object* [line 117];
+n$10=_fun_ErrorReportingRunner.&lt;init&gt;(Class,Throwable)(n$8:org.junit.internal.runners.ErrorReportingRunner*,null:java.lang.Object*,n$9:java.lang.Object*) [line 117];
+*&amp;$irvar1:org.junit.internal.runners.ErrorReportingRunner*=n$8 [line 117];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore%241.getRunner%28%29%3Aorg.junit.runner.Runner.418cb82b39bcf3a9cfa359011e2b7e25_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$11=*&amp;$irvar1:org.junit.internal.runners.ErrorReportingRunner* [line 117];
+*&amp;return:org.junit.runner.Runner*=n$11 [line 117];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">    private Runner buildRunner(Description each) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45.html">summary for Runner MaxCore.buildRunner(Description)</a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        if (each.toString().equals(&quot;TestSuite with 0 tests&quot;)) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.Description* [line 124];
+_=*n$0:org.junit.runner.Description*(root org.junit.runner.Description) [line 124];
+n$2=_fun_String Description.toString()(n$0:org.junit.runner.Description*) virtual [line 124];
+*&amp;$irvar0:java.lang.String*=n$2 [line 124];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String* [line 124];
+_=*n$3:java.lang.String*(root java.lang.String) [line 124];
+n$5=_fun_boolean String.equals(Object)(n$3:java.lang.String*,"TestSuite with 0 tests":java.lang.Object*) virtual [line 124];
+*&amp;$irvar1:_Bool=n$5 [line 124];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;$irvar1:_Bool [line 124];
+PRUNE(!(n$6 == 0), true); [line 124];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:10 exn:3 Conditional method_body
+n$6=*&amp;$irvar1:_Bool [line 124];
+PRUNE((n$6 == 0), false); [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">            return Suite.emptySuite(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$7=_fun_Runner Suite.emptySuite()() [line 125];
+*&amp;$irvar2:org.junit.runner.Runner*=n$7 [line 125];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$8=*&amp;$irvar2:org.junit.runner.Runner* [line 125];
+*&amp;return:org.junit.runner.Runner*=n$8 [line 125];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        if (each.toString().startsWith(MALFORMED_JUNIT_3_TEST_CLASS_PREFIX)) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$9=*&amp;each:org.junit.runner.Description* [line 127];
+_=*n$9:org.junit.runner.Description*(root org.junit.runner.Description) [line 127];
+n$11=_fun_String Description.toString()(n$9:org.junit.runner.Description*) virtual [line 127];
+*&amp;$irvar3:java.lang.String*=n$11 [line 127];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 13 exn:3 Instructions
+n$12=*&amp;$irvar3:java.lang.String* [line 127];
+_=*n$12:java.lang.String*(root java.lang.String) [line 127];
+n$14=_fun_boolean String.startsWith(String)(n$12:java.lang.String*,"malformed JUnit 3 test class: ":java.lang.Object*) virtual [line 127];
+*&amp;$irvar4:_Bool=n$14 [line 127];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$15=*&amp;$irvar4:_Bool [line 127];
+PRUNE(!(n$15 == 0), true); [line 127];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:18 exn:3 Conditional method_body
+n$15=*&amp;$irvar4:_Bool [line 127];
+PRUNE((n$15 == 0), false); [line 127];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">            // This is cheating, because it runs the whole class </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">            // to get the warning for this method, but we can't do better, </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">            // because JUnit 3.8's </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">            // thrown away which method the warning is for. </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">            return new JUnit38ClassRunner(new TestSuite(getMalformedTestClass(each))); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:15 exn:3 Instructions
+n$16=*&amp;this:org.junit.experimental.max.MaxCore* [line 132];
+n$17=*&amp;each:org.junit.runner.Description* [line 132];
+n$18=_fun_Class MaxCore.getMalformedTestClass(Description)(n$16:org.junit.experimental.max.MaxCore*,n$17:org.junit.runner.Description*) [line 132];
+*&amp;$irvar5:java.lang.Class*=n$18 [line 132];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$19=_fun___new(sizeof(t=junit.framework.TestSuite):junit.framework.TestSuite*) [line 132];
+n$20=*&amp;$irvar5:java.lang.Class* [line 132];
+n$21=_fun_TestSuite.&lt;init&gt;(Class)(n$19:junit.framework.TestSuite*,n$20:java.lang.Class*) [line 132];
+*&amp;$irvar6:junit.framework.TestSuite*=n$19 [line 132];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$22=_fun___new(sizeof(t=org.junit.internal.runners.JUnit38ClassRunner):org.junit.internal.runners.JUnit38ClassRunner*) [line 132];
+n$23=*&amp;$irvar6:junit.framework.TestSuite* [line 132];
+n$24=_fun_JUnit38ClassRunner.&lt;init&gt;(Test)(n$22:org.junit.internal.runners.JUnit38ClassRunner*,n$23:junit.framework.TestSuite*) [line 132];
+*&amp;$irvar7:org.junit.internal.runners.JUnit38ClassRunner*=n$22 [line 132];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+n$25=*&amp;$irvar7:org.junit.internal.runners.JUnit38ClassRunner* [line 132];
+*&amp;return:org.junit.runner.Runner*=n$25 [line 132];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        Class&lt;?&gt; type = each.getTestClass(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:13 succs:19 20 exn:3 Instructions
+n$26=*&amp;each:org.junit.runner.Description* [line 134];
+_=*n$26:org.junit.runner.Description*(root org.junit.runner.Description) [line 134];
+n$28=_fun_Class Description.getTestClass()(n$26:org.junit.runner.Description*) virtual [line 134];
+*&amp;type:java.lang.Class*=n$28 [line 134];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        if (type == null) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:18 succs:21 exn:3 Conditional method_body
+n$29=*&amp;type:java.lang.Class* [line 135];
+PRUNE(!(n$29 != null), true); [line 135];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:18 succs:28 exn:3 Conditional method_body
+n$29=*&amp;type:java.lang.Class* [line 135];
+PRUNE((n$29 != null), false); [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">            throw new RuntimeException(&quot;Can't build a runner from description [&quot; + each + &quot;]&quot;); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:19 succs:22 exn:3 Instructions
+n$30=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 136];
+n$31=_fun_StringBuilder.&lt;init&gt;()(n$30:java.lang.StringBuilder*) [line 136];
+*&amp;$irvar8:java.lang.StringBuilder*=n$30 [line 136];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$32=*&amp;$irvar8:java.lang.StringBuilder* [line 136];
+_=*n$32:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 136];
+n$34=_fun_StringBuilder StringBuilder.append(String)(n$32:java.lang.StringBuilder*,"Can't build a runner from description [":java.lang.Object*) virtual [line 136];
+*&amp;$irvar9:java.lang.StringBuilder*=n$34 [line 136];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$35=*&amp;$irvar9:java.lang.StringBuilder* [line 136];
+_=*n$35:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 136];
+n$37=*&amp;each:org.junit.runner.Description* [line 136];
+n$38=_fun_StringBuilder StringBuilder.append(Object)(n$35:java.lang.StringBuilder*,n$37:org.junit.runner.Description*) virtual [line 136];
+*&amp;$irvar10:java.lang.StringBuilder*=n$38 [line 136];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$39=*&amp;$irvar10:java.lang.StringBuilder* [line 136];
+_=*n$39:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 136];
+n$41=_fun_StringBuilder StringBuilder.append(String)(n$39:java.lang.StringBuilder*,"]":java.lang.Object*) virtual [line 136];
+*&amp;$irvar11:java.lang.StringBuilder*=n$41 [line 136];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$42=*&amp;$irvar11:java.lang.StringBuilder* [line 136];
+_=*n$42:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 136];
+n$44=_fun_String StringBuilder.toString()(n$42:java.lang.StringBuilder*) virtual [line 136];
+*&amp;$irvar12:java.lang.String*=n$44 [line 136];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$45=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 136];
+n$46=*&amp;$irvar12:java.lang.String* [line 136];
+n$47=_fun_RuntimeException.&lt;init&gt;(String)(n$45:java.lang.RuntimeException*,n$46:java.lang.String*) [line 136];
+*&amp;$irvar13:java.lang.RuntimeException*=n$45 [line 136];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:2 exn:3 Instructions
+n$48=*&amp;$irvar13:java.lang.RuntimeException* [line 136];
+*&amp;return:org.junit.runner.Runner*=EXN n$48 [line 136];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">        String methodName = each.getMethodName(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:20 succs:29 30 exn:3 Instructions
+n$49=*&amp;each:org.junit.runner.Description* [line 138];
+_=*n$49:org.junit.runner.Description*(root org.junit.runner.Description) [line 138];
+n$51=_fun_String Description.getMethodName()(n$49:org.junit.runner.Description*) virtual [line 138];
+*&amp;methodName:java.lang.String*=n$51 [line 138];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">        if (methodName == null) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node29.html"><span class='visited with_tooltip'>C_29<span class='tooltip'>node29 preds:28 succs:31 exn:3 Conditional method_body
+n$52=*&amp;methodName:java.lang.String* [line 139];
+PRUNE(!(n$52 != null), true); [line 139];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node30.html"><span class='visited with_tooltip'>C_30<span class='tooltip'>node30 preds:28 succs:34 exn:3 Conditional method_body
+n$52=*&amp;methodName:java.lang.String* [line 139];
+PRUNE((n$52 != null), false); [line 139];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">            return Request.aClass(type).getRunner(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:29 succs:32 exn:3 Instructions
+n$53=*&amp;type:java.lang.Class* [line 140];
+n$54=_fun_Request Request.aClass(Class)(n$53:java.lang.Class*) [line 140];
+*&amp;$irvar14:org.junit.runner.Request*=n$54 [line 140];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:33 exn:3 Instructions
+n$55=*&amp;$irvar14:org.junit.runner.Request* [line 140];
+_=*n$55:org.junit.runner.Request*(root org.junit.runner.Request) [line 140];
+n$57=_fun_Runner Request.getRunner()(n$55:org.junit.runner.Request*) virtual [line 140];
+*&amp;$irvar15:org.junit.runner.Runner*=n$57 [line 140];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:32 succs:2 exn:3 Instructions
+n$58=*&amp;$irvar15:org.junit.runner.Runner* [line 140];
+*&amp;return:org.junit.runner.Runner*=n$58 [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        return Request.method(type, methodName).getRunner(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:30 succs:35 exn:3 Instructions
+n$59=*&amp;type:java.lang.Class* [line 142];
+n$60=*&amp;methodName:java.lang.String* [line 142];
+n$61=_fun_Request Request.method(Class,String)(n$59:java.lang.Class*,n$60:java.lang.String*) [line 142];
+*&amp;$irvar16:org.junit.runner.Request*=n$61 [line 142];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:34 succs:36 exn:3 Instructions
+n$62=*&amp;$irvar16:org.junit.runner.Request* [line 142];
+_=*n$62:org.junit.runner.Request*(root org.junit.runner.Request) [line 142];
+n$64=_fun_Runner Request.getRunner()(n$62:org.junit.runner.Request*) virtual [line 142];
+*&amp;$irvar17:org.junit.runner.Runner*=n$64 [line 142];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node36.html"><span class='visited with_tooltip'>I_36<span class='tooltip'>node36 preds:35 succs:2 exn:3 Instructions
+n$65=*&amp;$irvar17:org.junit.runner.Runner* [line 142];
+*&amp;return:org.junit.runner.Runner*=n$65 [line 142];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:36 33 27 17 9 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.buildRunner%28org.junit.runner.Description%29%3Aorg.junit.runner.Runner.09c4b0fb3b3d56ffd308da48e521ee45_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">    private Class&lt;?&gt; getMalformedTestClass(Description each) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3.html">summary for Class MaxCore.getMalformedTestClass(Description)</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">            return Class.forName(each.toString().replace(MALFORMED_JUNIT_3_TEST_CLASS_PREFIX, &quot;&quot;)); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:12 Instructions
+n$0=*&amp;each:org.junit.runner.Description* [line 147];
+_=*n$0:org.junit.runner.Description*(root org.junit.runner.Description) [line 147];
+n$2=_fun_String Description.toString()(n$0:org.junit.runner.Description*) virtual [line 147];
+*&amp;$irvar0:java.lang.String*=n$2 [line 147];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:12 Instructions
+n$3=*&amp;$irvar0:java.lang.String* [line 147];
+_=*n$3:java.lang.String*(root java.lang.String) [line 147];
+n$5=_fun_String String.replace(CharSequence,CharSequence)(n$3:java.lang.String*,"malformed JUnit 3 test class: ":java.lang.Object*,"":java.lang.Object*) virtual [line 147];
+*&amp;$irvar1:java.lang.String*=n$5 [line 147];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:12 Instructions
+n$6=*&amp;$irvar1:java.lang.String* [line 147];
+n$7=_fun_Class Class.forName(String)(n$6:java.lang.String*) [line 147];
+*&amp;$irvar2:java.lang.Class*=n$7 [line 147];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$8=*&amp;$irvar2:java.lang.Class* [line 147];
+*&amp;return:java.lang.Class*=n$8 [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        } catch (ClassNotFoundException e) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:10 succs:9 exn:3 Instructions
+n$9=*&amp;CatchVar15:java.lang.Object* [line 148];
+*&amp;e:java.lang.Object*=n$9 [line 148];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:12 succs:8 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:java.lang.ClassNotFoundException*,sizeof(t=java.lang.ClassNotFoundException):void) [line 148];
+PRUNE(n$12, true); [line 148];
+*&amp;CatchVar15:java.lang.Class*=n$11 [line 148];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:12 succs:3 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:java.lang.ClassNotFoundException*,sizeof(t=java.lang.ClassNotFoundException):void) [line 148];
+PRUNE(!n$12, false); [line 148];
+*&amp;return:java.lang.Class*=EXN n$11 [line 148];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds: succs:10 11 exn:3 Instructions
+n$10=*&amp;return:java.lang.Class* [line 148];
+*&amp;return:java.lang.Class*=null [line 148];
+n$11=_fun___unwrap_exception(n$10:java.lang.Class*) [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">            return null; <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 7 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:11 succs:2 exn:2 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.getMalformedTestClass%28org.junit.runner.Description%29%3Ajava.lang.Cla.ccda558e06e2c665332fa03928bb42c3_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Class*=null [line 149];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">     * @param request a request to run </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">     * @return a list of method-level tests to run, sorted in the order </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">     *         specified in the class comment. </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">    public List&lt;Description&gt; sortedLeavesForTest(Request request) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5.html">summary for List MaxCore.sortedLeavesForTest(Request)</a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">        return findLeaves(sortRequest(request)); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.max.MaxCore* [line 159];
+_=*n$0:org.junit.experimental.max.MaxCore*(root org.junit.experimental.max.MaxCore) [line 159];
+n$2=*&amp;request:org.junit.runner.Request* [line 159];
+n$3=_fun_Request MaxCore.sortRequest(Request)(n$0:org.junit.experimental.max.MaxCore*,n$2:org.junit.runner.Request*) virtual [line 159];
+*&amp;$irvar0:org.junit.runner.Request*=n$3 [line 159];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;this:org.junit.experimental.max.MaxCore* [line 159];
+n$5=*&amp;$irvar0:org.junit.runner.Request* [line 159];
+n$6=_fun_List MaxCore.findLeaves(Request)(n$4:org.junit.experimental.max.MaxCore*,n$5:org.junit.runner.Request*) [line 159];
+*&amp;$irvar1:java.util.List*=n$6 [line 159];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar1:java.util.List* [line 159];
+*&amp;return:java.util.List*=n$7 [line 159];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.sortedLeavesForTest%28org.junit.runner.Request%29%3Ajava.util.List.3f638c666ae04fc7073db294df15d3d5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">    private List&lt;Description&gt; findLeaves(Request request) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06.html">summary for List MaxCore.findLeaves(Request)</a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">        List&lt;Description&gt; results = new ArrayList&lt;Description&gt;(); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 163];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 163];
+*&amp;results:java.util.ArrayList*=n$0 [line 163];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">        findLeaves(null, request.getRunner().getDescription(), results); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;request:org.junit.runner.Request* [line 164];
+_=*n$2:org.junit.runner.Request*(root org.junit.runner.Request) [line 164];
+n$4=_fun_Runner Request.getRunner()(n$2:org.junit.runner.Request*) virtual [line 164];
+*&amp;$irvar0:org.junit.runner.Runner*=n$4 [line 164];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.runner.Runner* [line 164];
+_=*n$5:org.junit.runner.Runner*(root org.junit.runner.Runner) [line 164];
+n$7=_fun_Description Runner.getDescription()(n$5:org.junit.runner.Runner*) virtual [line 164];
+*&amp;$irvar1:org.junit.runner.Description*=n$7 [line 164];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=*&amp;this:org.junit.experimental.max.MaxCore* [line 164];
+n$9=*&amp;$irvar1:org.junit.runner.Description* [line 164];
+n$10=*&amp;results:java.util.ArrayList* [line 164];
+n$11=_fun_void MaxCore.findLeaves(Description,Description,List)(n$8:org.junit.experimental.max.MaxCore*,null:java.lang.Object*,n$9:org.junit.runner.Description*,n$10:java.util.ArrayList*) [line 164];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">        return results; <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$12=*&amp;results:java.util.ArrayList* [line 165];
+*&amp;return:java.util.List*=n$12 [line 165];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Request%29%3Ajava.util.List.c96f0bd9b87519688059601593a2dd06_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    private void findLeaves(Description parent, Description description, List&lt;Description&gt; results) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573.html">summary for void MaxCore.findLeaves(Description,Description,List)</a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">        if (description.getChildren().isEmpty()) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;description:org.junit.runner.Description* [line 169];
+_=*n$0:org.junit.runner.Description*(root org.junit.runner.Description) [line 169];
+n$2=_fun_ArrayList Description.getChildren()(n$0:org.junit.runner.Description*) virtual [line 169];
+*&amp;$irvar0:java.util.ArrayList*=n$2 [line 169];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.util.ArrayList* [line 169];
+_=*n$3:java.util.ArrayList*(root java.util.ArrayList) [line 169];
+n$5=_fun_boolean ArrayList.isEmpty()(n$3:java.util.ArrayList*) virtual [line 169];
+*&amp;$irvar1:_Bool=n$5 [line 169];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;$irvar1:_Bool [line 169];
+PRUNE(!(n$6 == 0), true); [line 169];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:20 exn:3 Conditional method_body
+n$6=*&amp;$irvar1:_Bool [line 169];
+PRUNE((n$6 == 0), false); [line 169];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">            if (description.toString().equals(&quot;warning(junit.framework.TestSuite$1)&quot;)) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$7=*&amp;description:org.junit.runner.Description* [line 170];
+_=*n$7:org.junit.runner.Description*(root org.junit.runner.Description) [line 170];
+n$9=_fun_String Description.toString()(n$7:org.junit.runner.Description*) virtual [line 170];
+*&amp;$irvar2:java.lang.String*=n$9 [line 170];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 11 exn:3 Instructions
+n$10=*&amp;$irvar2:java.lang.String* [line 170];
+_=*n$10:java.lang.String*(root java.lang.String) [line 170];
+n$12=_fun_boolean String.equals(Object)(n$10:java.lang.String*,"warning(junit.framework.TestSuite$1)":java.lang.Object*) virtual [line 170];
+*&amp;$irvar3:_Bool=n$12 [line 170];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:9 succs:12 exn:3 Conditional method_body
+n$13=*&amp;$irvar3:_Bool [line 170];
+PRUNE(!(n$13 == 0), true); [line 170];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:9 succs:19 exn:3 Conditional method_body
+n$13=*&amp;$irvar3:_Bool [line 170];
+PRUNE((n$13 == 0), false); [line 170];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">                results.add(Description.createSuiteDescription(MALFORMED_JUNIT_3_TEST_CLASS_PREFIX + parent)); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:13 exn:3 Instructions
+n$14=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 171];
+n$15=_fun_StringBuilder.&lt;init&gt;()(n$14:java.lang.StringBuilder*) [line 171];
+*&amp;$irvar4:java.lang.StringBuilder*=n$14 [line 171];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$16=*&amp;$irvar4:java.lang.StringBuilder* [line 171];
+_=*n$16:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 171];
+n$18=_fun_StringBuilder StringBuilder.append(String)(n$16:java.lang.StringBuilder*,"malformed JUnit 3 test class: ":java.lang.Object*) virtual [line 171];
+*&amp;$irvar5:java.lang.StringBuilder*=n$18 [line 171];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$19=*&amp;$irvar5:java.lang.StringBuilder* [line 171];
+_=*n$19:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 171];
+n$21=*&amp;parent:org.junit.runner.Description* [line 171];
+n$22=_fun_StringBuilder StringBuilder.append(Object)(n$19:java.lang.StringBuilder*,n$21:org.junit.runner.Description*) virtual [line 171];
+*&amp;$irvar6:java.lang.StringBuilder*=n$22 [line 171];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;$irvar6:java.lang.StringBuilder* [line 171];
+_=*n$23:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 171];
+n$25=_fun_String StringBuilder.toString()(n$23:java.lang.StringBuilder*) virtual [line 171];
+*&amp;$irvar7:java.lang.String*=n$25 [line 171];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$26=_fun___new_array(sizeof(t=java.lang.annotation.Annotation*[_*_];len=[0]):java.lang.annotation.Annotation*[_*_](*)) [line 171];
+*&amp;$irvar8:java.lang.annotation.Annotation*[_*_](*)=n$26 [line 171];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$27=*&amp;$irvar7:java.lang.String* [line 171];
+n$28=*&amp;$irvar8:java.lang.annotation.Annotation*[_*_](*) [line 171];
+n$29=_fun_Description Description.createSuiteDescription(String,Annotation[])(n$27:java.lang.String*,n$28:java.lang.annotation.Annotation*[_*_](*)) [line 171];
+*&amp;$irvar9:org.junit.runner.Description*=n$29 [line 171];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:29 exn:3 Instructions
+n$30=*&amp;results:java.util.List* [line 171];
+_=*n$30:java.util.List*(root java.util.List) [line 171];
+n$32=*&amp;$irvar9:org.junit.runner.Description* [line 171];
+n$33=_fun_boolean List.add(Object)(n$30:java.util.List*,n$32:org.junit.runner.Description*) interface virtual [line 171];
+*&amp;$irvar10:_Bool=n$33 [line 171];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">                results.add(description); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:11 succs:29 exn:3 Instructions
+n$34=*&amp;results:java.util.List* [line 173];
+_=*n$34:java.util.List*(root java.util.List) [line 173];
+n$36=*&amp;description:org.junit.runner.Description* [line 173];
+n$37=_fun_boolean List.add(Object)(n$34:java.util.List*,n$36:org.junit.runner.Description*) interface virtual [line 173];
+*&amp;$irvar11:_Bool=n$37 [line 173];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">            for (Description each : description.getChildren()) { <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:7 succs:21 exn:3 Instructions
+n$38=*&amp;description:org.junit.runner.Description* [line 176];
+_=*n$38:org.junit.runner.Description*(root org.junit.runner.Description) [line 176];
+n$40=_fun_ArrayList Description.getChildren()(n$38:org.junit.runner.Description*) virtual [line 176];
+*&amp;$irvar12:java.util.ArrayList*=n$40 [line 176];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$41=*&amp;$irvar12:java.util.ArrayList* [line 176];
+_=*n$41:java.util.ArrayList*(root java.util.ArrayList) [line 176];
+n$43=_fun_Iterator ArrayList.iterator()(n$41:java.util.ArrayList*) virtual [line 176];
+*&amp;$bcvar4:java.util.Iterator*=n$43 [line 176];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:28 21 succs:25 exn:3 Instructions
+n$44=*&amp;$bcvar4:java.util.Iterator* [line 176];
+_=*n$44:java.util.Iterator*(root java.util.Iterator) [line 176];
+n$46=_fun_boolean Iterator.hasNext()(n$44:java.util.Iterator*) interface virtual [line 176];
+*&amp;$irvar13:_Bool=n$46 [line 176];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node25.html"><span class='visited with_tooltip'>J_25<span class='tooltip'>node25 preds:22 succs:23 24 exn: Join
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node23.html"><span class='visited with_tooltip'>C_23<span class='tooltip'>node23 preds:25 succs:26 exn:3 Conditional method_body
+n$47=*&amp;$irvar13:_Bool [line 176];
+PRUNE(!(n$47 == 0), true); [line 176];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:23 succs:27 exn:3 Instructions
+n$48=*&amp;$bcvar4:java.util.Iterator* [line 176];
+_=*n$48:java.util.Iterator*(root java.util.Iterator) [line 176];
+n$50=_fun_Object Iterator.next()(n$48:java.util.Iterator*) interface virtual [line 176];
+*&amp;$irvar14:java.lang.Object*=n$50 [line 176];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$51=*&amp;$irvar14:java.lang.Object* [line 176];
+n$52=_fun___cast(n$51:java.lang.Object*,sizeof(t=org.junit.runner.Description;sub_t=( sub )(cast)):void) [line 176];
+*&amp;each:org.junit.runner.Description*=n$52 [line 176];
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node24.html"><span class='visited with_tooltip'>C_24<span class='tooltip'>node24 preds:25 succs:29 exn:3 Conditional method_body
+n$47=*&amp;$irvar13:_Bool [line 176];
+PRUNE((n$47 == 0), false); [line 176];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">                findLeaves(description, each, results); <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:22 exn:3 Instructions
+n$53=*&amp;this:org.junit.experimental.max.MaxCore* [line 177];
+n$54=*&amp;description:org.junit.runner.Description* [line 177];
+n$55=*&amp;each:org.junit.runner.Description* [line 177];
+n$56=*&amp;results:java.util.List* [line 177];
+n$57=_fun_void MaxCore.findLeaves(Description,Description,List)(n$53:org.junit.experimental.max.MaxCore*,n$54:org.junit.runner.Description*,n$55:org.junit.runner.Description*,n$56:java.util.List*) [line 177];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">    } <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:24 19 18 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:29 3 succs: exn: Exit
+</span></span></a> <a href="./MaxCore.java.7e8a307a53b387c48d8305333b8e294a/nodes/org.junit.experimental.max.MaxCore.findLeaves%28org.junit.runner.Description%2Corg.junit.runner.Descript.fb6b1d20c315287fec76f5dd380b1573_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

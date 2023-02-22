@@ -1,0 +1,50 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_1" [label="1: Start Iterator ParameterizedTestTest$OneShotIterable.iterator()\nFormals:  this:org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable*\nLocals:  $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_1" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_4" ;
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_2" [label="2: Exit Iterator ParameterizedTestTest$OneShotIterable.iterator() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 668]\n  NULLIFY(&$irvar1); [line 668]\n  NULLIFY(&$irvar2); [line 668]\n  EXIT_SCOPE($irvar0,$irvar1,$irvar2); [line 668]\n  APPLY_ABSTRACTION; [line 668]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_2" ;
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_4" [label="4:  Call boolean AtomicBoolean.compareAndSet(boolean,boolean) \n   n$0=*&this:org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable* [line 665]\n  n$1=*n$0.iterated:java.util.concurrent.atomic.AtomicBoolean*(root org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable) [line 665]\n  _=*n$1:java.util.concurrent.atomic.AtomicBoolean*(root java.util.concurrent.atomic.AtomicBoolean) [line 665]\n  n$3=_fun_boolean AtomicBoolean.compareAndSet(boolean,boolean)(n$1:java.util.concurrent.atomic.AtomicBoolean*,0:int,1:int) virtual [line 665]\n  *&$irvar0:_Bool=n$3 [line 665]\n  EXIT_SCOPE(_,n$0,n$1,n$3); [line 665]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_4" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_5" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_4" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_6" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_4" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_5" [label="5: Prune (true branch, if) \n   n$4=*&$irvar0:_Bool [line 665]\n  PRUNE(!(n$4 == 0), true); [line 665]\n  NULLIFY(&$irvar0); [line 665]\n  EXIT_SCOPE(n$4,$irvar0); [line 665]\n " shape="invhouse"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_5" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_7" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_5" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_6" [label="6: Prune (false branch, if) \n   n$4=*&$irvar0:_Bool [line 665]\n  PRUNE((n$4 == 0), false); [line 665]\n  NULLIFY(&$irvar0); [line 665]\n  EXIT_SCOPE(n$4,$irvar0); [line 665]\n " shape="invhouse"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_6" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_9" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_6" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_7" [label="7:  Call Iterator Iterable.iterator() \n   n$5=*&this:org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable* [line 666]\n  n$6=*n$5.delegate:java.lang.Iterable*(root org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable) [line 666]\n  _=*n$6:java.lang.Iterable*(root java.lang.Iterable) [line 666]\n  n$8=_fun_Iterator Iterable.iterator()(n$6:java.lang.Iterable*) interface virtual [line 666]\n  *&$irvar1:java.util.Iterator*=n$8 [line 666]\n  NULLIFY(&this); [line 666]\n  EXIT_SCOPE(_,n$5,n$6,n$8,this); [line 666]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_7" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_8" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_7" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_8" [label="8:  method_body \n   n$9=*&$irvar1:java.util.Iterator* [line 666]\n  *&return:java.util.Iterator*=n$9 [line 666]\n  NULLIFY(&$irvar1); [line 666]\n  EXIT_SCOPE(n$9,$irvar1); [line 666]\n  APPLY_ABSTRACTION; [line 666]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_8" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_2" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_8" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_9" [label="9:  Call IllegalStateException.<init>(String) \n   n$10=_fun___new(sizeof(t=java.lang.IllegalStateException):java.lang.IllegalStateException*) [line 668]\n  n$11=_fun_IllegalStateException.<init>(String)(n$10:java.lang.IllegalStateException*,\"Cannot call iterator() more than once\":java.lang.Object*) [line 668]\n  *&$irvar2:java.lang.IllegalStateException*=n$10 [line 668]\n  EXIT_SCOPE(n$10,n$11); [line 668]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_9" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_10" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_9" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+"org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_10" [label="10:  throw \n   n$12=*&$irvar2:java.lang.IllegalStateException* [line 668]\n  *&return:java.util.Iterator*=EXN n$12 [line 668]\n  NULLIFY(&$irvar2); [line 668]\n  EXIT_SCOPE(n$12,$irvar2); [line 668]\n  APPLY_ABSTRACTION; [line 668]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_10" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_2" ;
+	 "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_10" -> "org.junit.tests.running.classes.ParameterizedTestTest$OneShotIterable.iterator():java.util.Iterator.082944a331dd7c8e9f1da9a98d854247_3" [color="red" ];
+}

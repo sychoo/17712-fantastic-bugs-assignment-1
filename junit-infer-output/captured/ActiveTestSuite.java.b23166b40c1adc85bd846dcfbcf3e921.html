@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/junit/extensions/ActiveTestSuite.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package junit.extensions; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import junit.framework.Test; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import junit.framework.TestCase; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import junit.framework.TestResult; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import junit.framework.TestSuite; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * A TestSuite for active Tests. It runs each </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * test in a separate thread and waits until all </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * threads have terminated. </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * -- Aarhus Radisson Scandinavian Center 11th floor </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">public class ActiveTestSuite extends TestSuite { </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">    private volatile int fActiveTestDeathCount; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">    public ActiveTestSuite() { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28%29.518ece68e8f85c7571a9f6e594637b52_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28%29.518ece68e8f85c7571a9f6e594637b52_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 17];
+n$1=_fun_TestSuite.&lt;init&gt;()(n$0:junit.extensions.ActiveTestSuite*) [line 17];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.<init>%28%29.518ece68e8f85c7571a9f6e594637b52.html">summary for ActiveTestSuite.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28%29.518ece68e8f85c7571a9f6e594637b52_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28%29.518ece68e8f85c7571a9f6e594637b52_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28%29.518ece68e8f85c7571a9f6e594637b52_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    public ActiveTestSuite(Class&lt;? extends TestCase&gt; theClass) { </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">        super(theClass); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%29.324cfa57e44b5ea193ec4d77c7326279_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%29.324cfa57e44b5ea193ec4d77c7326279_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 21];
+n$1=*&amp;theClass:java.lang.Class* [line 21];
+n$2=_fun_TestSuite.&lt;init&gt;(Class)(n$0:junit.extensions.ActiveTestSuite*,n$1:java.lang.Class*) [line 21];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%29.324cfa57e44b5ea193ec4d77c7326279.html">summary for ActiveTestSuite.&lt;init&gt;(Class)</a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%29.324cfa57e44b5ea193ec4d77c7326279_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%29.324cfa57e44b5ea193ec4d77c7326279_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%29.324cfa57e44b5ea193ec4d77c7326279_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    public ActiveTestSuite(String name) { </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        super(name); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.String%29.5bb91fbfb3ca457f99a187ef5fbf01fc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.String%29.5bb91fbfb3ca457f99a187ef5fbf01fc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 25];
+n$1=*&amp;name:java.lang.String* [line 25];
+n$2=_fun_TestSuite.&lt;init&gt;(String)(n$0:junit.extensions.ActiveTestSuite*,n$1:java.lang.String*) [line 25];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.<init>%28java.lang.String%29.5bb91fbfb3ca457f99a187ef5fbf01fc.html">summary for ActiveTestSuite.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.String%29.5bb91fbfb3ca457f99a187ef5fbf01fc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.String%29.5bb91fbfb3ca457f99a187ef5fbf01fc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.String%29.5bb91fbfb3ca457f99a187ef5fbf01fc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    public ActiveTestSuite(Class&lt;? extends TestCase&gt; theClass, String name) { </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        super(theClass, name); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%2Cjava.lang.String%29.d765120b798a6447d2cca09b4a35aae0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%2Cjava.lang.String%29.d765120b798a6447d2cca09b4a35aae0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 29];
+n$1=*&amp;theClass:java.lang.Class* [line 29];
+n$2=*&amp;name:java.lang.String* [line 29];
+n$3=_fun_TestSuite.&lt;init&gt;(Class,String)(n$0:junit.extensions.ActiveTestSuite*,n$1:java.lang.Class*,n$2:java.lang.String*) [line 29];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%2Cjava.lang.String%29.d765120b798a6447d2cca09b4a35aae0.html">summary for ActiveTestSuite.&lt;init&gt;(Class,String)</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%2Cjava.lang.String%29.d765120b798a6447d2cca09b4a35aae0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%2Cjava.lang.String%29.d765120b798a6447d2cca09b4a35aae0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.<init>%28java.lang.Class%2Cjava.lang.String%29.d765120b798a6447d2cca09b4a35aae0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    public void run(TestResult result) { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8.html">summary for void ActiveTestSuite.run(TestResult)</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        fActiveTestDeathCount = 0; <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 34];
+*n$0.fActiveTestDeathCount:junit.extensions.ActiveTestSuite(root junit.extensions.ActiveTestSuite)=0 [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        super.run(result); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;this:junit.extensions.ActiveTestSuite* [line 35];
+n$2=*&amp;result:junit.framework.TestResult* [line 35];
+n$3=_fun_void TestSuite.run(TestResult)(n$1:junit.extensions.ActiveTestSuite*,n$2:junit.framework.TestResult*) [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        waitUntilFinished(); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:junit.extensions.ActiveTestSuite* [line 36];
+_=*n$4:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite) [line 36];
+n$6=_fun_void ActiveTestSuite.waitUntilFinished()(n$4:junit.extensions.ActiveTestSuite*) virtual [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.run%28junit.framework.TestResult%29%3Avoid.4b9582f0c7f3e5a54ededda0b80214d8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    public void runTest(final Test test, final TestResult result) { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a.html">summary for void ActiveTestSuite.runTest(Test,TestResult)</a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        Thread t = new Thread() { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.extensions.ActiveTestSuite$1):junit.extensions.ActiveTestSuite$1*) [line 41];
+n$1=*&amp;this:junit.extensions.ActiveTestSuite* [line 41];
+n$2=*&amp;test:junit.framework.Test* [line 41];
+n$3=*&amp;result:junit.framework.TestResult* [line 41];
+n$4=_fun_ActiveTestSuite$1.&lt;init&gt;(ActiveTestSuite,Test,TestResult)(n$0:junit.extensions.ActiveTestSuite$1*,n$1:junit.extensions.ActiveTestSuite*,n$2:junit.framework.Test*,n$3:junit.framework.TestResult*) [line 41];
+*&amp;t:junit.extensions.ActiveTestSuite$1*=n$0 [line 41];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 41];
+n$1=*&amp;this$0:junit.extensions.ActiveTestSuite* [line 41];
+*n$0.this$0:junit.extensions.ActiveTestSuite$1(root junit.extensions.ActiveTestSuite$1)=n$1 [line 41];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 41];
+n$3=*&amp;$bcvar2:junit.framework.Test* [line 41];
+*n$2.val$test:junit.extensions.ActiveTestSuite$1(root junit.extensions.ActiveTestSuite$1)=n$3 [line 41];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 41];
+n$5=*&amp;$bcvar3:junit.framework.TestResult* [line 41];
+*n$4.val$result:junit.extensions.ActiveTestSuite$1(root junit.extensions.ActiveTestSuite$1)=n$5 [line 41];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 41];
+n$7=_fun_Thread.&lt;init&gt;()(n$6:junit.extensions.ActiveTestSuite$1*) [line 41];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite%241.<init>%28junit.extensions.ActiveTestSuite%2Cjunit.framework.Test%2Cjuni.f59b63fc1153a949d3af0d7d021fc77c.html">summary for ActiveTestSuite$1.&lt;init&gt;(ActiveTestSuite,Test,TestResult)</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">            public void run() { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e.html">summary for void ActiveTestSuite$1.run()</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">                    // inlined due to limitation in VA/Java </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">                    //ActiveTestSuite.super.runTest(test, result); </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">                    test.run(result); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:11 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 47];
+n$1=*n$0.val$test:junit.framework.Test*(root junit.extensions.ActiveTestSuite$1) [line 47];
+_=*n$1:junit.framework.Test*(root junit.framework.Test) [line 47];
+n$3=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 47];
+n$4=*n$3.val$result:junit.framework.TestResult*(root junit.extensions.ActiveTestSuite$1) [line 47];
+n$5=_fun_void Test.run(TestResult)(n$1:junit.framework.Test*,n$4:junit.framework.TestResult*) interface virtual [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">                } finally { </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">                    ActiveTestSuite.this.runFinished(); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:9 exn:3 Instructions
+n$6=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 49];
+n$7=*n$6.this$0:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite$1) [line 49];
+_=*n$7:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite) [line 49];
+n$9=_fun_void ActiveTestSuite.runFinished()(n$7:junit.extensions.ActiveTestSuite*) virtual [line 49];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:10 succs:7 exn:3 Instructions
+n$10=*&amp;CatchVar23:java.lang.Object* [line 49];
+*&amp;$bcvar1:java.lang.Object*=n$10 [line 49];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$11=*&amp;this:junit.extensions.ActiveTestSuite$1* [line 49];
+n$12=*n$11.this$0:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite$1) [line 49];
+_=*n$12:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite) [line 49];
+n$14=_fun_void ActiveTestSuite.runFinished()(n$12:junit.extensions.ActiveTestSuite*) virtual [line 49];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:11 succs:6 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds: succs:10 exn:3 Instructions
+n$16=*&amp;return:void [line 49];
+*&amp;return:void=null [line 49];
+n$17=_fun___unwrap_exception(n$16:void) [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">                } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$15=*&amp;$bcvar1:java.lang.Object* [line 50];
+*&amp;return:void=EXN n$15 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">            } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 8 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite%241.run%28%29%3Avoid.b371756d0b907f90fbcabdf4ba415f5e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        t.start(); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$5=*&amp;t:junit.extensions.ActiveTestSuite$1* [line 53];
+_=*n$5:junit.extensions.ActiveTestSuite$1*(root junit.extensions.ActiveTestSuite$1) [line 53];
+n$7=_fun_void Thread.start()(n$5:junit.extensions.ActiveTestSuite$1*) virtual [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runTest%28junit.framework.Test%2Cjunit.framework.TestResult%29%3Avoid.fd440743c4b17776a19bc0da39fcb62a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">    synchronized void waitUntilFinished() { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed.html">summary for void ActiveTestSuite.waitUntilFinished()</a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        while (fActiveTestDeathCount &lt; testCount()) { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:9 1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 57];
+n$1=*n$0.fActiveTestDeathCount:int(root junit.extensions.ActiveTestSuite) [line 57];
+*&amp;$irvar1:int=n$1 [line 57];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:8 exn:3 Instructions
+n$2=*&amp;this:junit.extensions.ActiveTestSuite* [line 57];
+_=*n$2:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite) [line 57];
+n$4=_fun_int TestSuite.testCount()(n$2:junit.extensions.ActiveTestSuite*) virtual [line 57];
+*&amp;$irvar0:int=n$4 [line 57];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$5=*&amp;$irvar1:int [line 57];
+n$6=*&amp;$irvar0:int [line 57];
+PRUNE(!(n$5  &gt;=  n$6), true); [line 57];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:12 exn:3 Conditional method_body
+n$5=*&amp;$irvar1:int [line 57];
+n$6=*&amp;$irvar0:int [line 57];
+PRUNE((n$5  &gt;=  n$6), false); [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">                wait(); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:4 exn:15 Instructions
+n$7=*&amp;this:junit.extensions.ActiveTestSuite* [line 59];
+_=*n$7:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite) [line 59];
+n$9=_fun_void Object.wait()(n$7:junit.extensions.ActiveTestSuite*) virtual [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">            } catch (InterruptedException e) { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:13 succs:11 exn:3 Instructions
+n$10=*&amp;CatchVar18:java.lang.Object* [line 60];
+*&amp;e:java.lang.Object*=n$10 [line 60];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:10 exn:3 Conditional exception handler
+n$13=_fun___instanceof(n$12:java.lang.InterruptedException*,sizeof(t=java.lang.InterruptedException):void) [line 60];
+PRUNE(n$13, true); [line 60];
+*&amp;CatchVar18:void=n$12 [line 60];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:3 exn:3 Conditional exception handler
+n$13=_fun___instanceof(n$12:java.lang.InterruptedException*,sizeof(t=java.lang.InterruptedException):void) [line 60];
+PRUNE(!n$13, false); [line 60];
+*&amp;return:void=EXN n$12 [line 60];
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds: succs:13 14 exn:3 Instructions
+n$11=*&amp;return:void [line 60];
+*&amp;return:void=null [line 60];
+n$12=_fun___unwrap_exception(n$11:void) [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">                return; // ignore <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 11 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.waitUntilFinished%28%29%3Avoid.535b5bfeef3b5f723dba5bd28e20c5ed_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:14 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    public synchronized void runFinished() { <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966.html">summary for void ActiveTestSuite.runFinished()</a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        fActiveTestDeathCount++; <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.ActiveTestSuite* [line 67];
+n$1=*&amp;this:junit.extensions.ActiveTestSuite* [line 67];
+n$2=*n$1.fActiveTestDeathCount:int(root junit.extensions.ActiveTestSuite) [line 67];
+*n$0.fActiveTestDeathCount:junit.extensions.ActiveTestSuite(root junit.extensions.ActiveTestSuite)=(n$2 + 1) [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        notifyAll(); <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:junit.extensions.ActiveTestSuite* [line 68];
+_=*n$3:junit.extensions.ActiveTestSuite*(root junit.extensions.ActiveTestSuite) [line 68];
+n$5=_fun_void Object.notifyAll()(n$3:junit.extensions.ActiveTestSuite*) virtual [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    } <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ActiveTestSuite.java.b23166b40c1adc85bd846dcfbcf3e921/nodes/junit.extensions.ActiveTestSuite.runFinished%28%29%3Avoid.304817b8da0785e2bd74fa77363e0966_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

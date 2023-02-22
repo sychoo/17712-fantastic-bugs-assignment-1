@@ -1,0 +1,45 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_1" [label="1: Start Runner IgnoredBuilder.runnerForClass(Class)\nFormals:  this:org.junit.internal.builders.IgnoredBuilder* testClass:java.lang.Class*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_1" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_4" ;
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_2" [label="2: Exit Runner IgnoredBuilder.runnerForClass(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 13]\n  NULLIFY(&$irvar1); [line 13]\n  EXIT_SCOPE($irvar0,$irvar1); [line 13]\n  APPLY_ABSTRACTION; [line 13]\n " shape="box"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_2" ;
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_4" [label="4:  Call Annotation Class.getAnnotation(Class) \n   n$0=*&testClass:java.lang.Class* [line 10]\n  _=*n$0:java.lang.Class*(root java.lang.Class) [line 10]\n  n$2=_fun_Annotation Class.getAnnotation(Class)(n$0:java.lang.Class*,org.junit.Ignore:java.lang.Object*) virtual [line 10]\n  *&$irvar0:java.lang.annotation.Annotation*=n$2 [line 10]\n  EXIT_SCOPE(_,n$0,n$2); [line 10]\n " shape="box"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_4" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_5" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_4" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_6" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_4" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [color="red" ];
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:java.lang.annotation.Annotation* [line 10]\n  PRUNE(!(n$3 == null), true); [line 10]\n  NULLIFY(&$irvar0); [line 10]\n  EXIT_SCOPE(n$3,$irvar0); [line 10]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_5" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_7" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_5" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [color="red" ];
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:java.lang.annotation.Annotation* [line 10]\n  PRUNE((n$3 == null), false); [line 10]\n  NULLIFY(&$irvar0); [line 10]\n  EXIT_SCOPE(n$3,$irvar0); [line 10]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_6" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_9" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_6" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [color="red" ];
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_7" [label="7:  Call IgnoredClassRunner.<init>(Class) \n   n$4=_fun___new(sizeof(t=org.junit.internal.builders.IgnoredClassRunner):org.junit.internal.builders.IgnoredClassRunner*) [line 11]\n  n$5=*&testClass:java.lang.Class* [line 11]\n  n$6=_fun_IgnoredClassRunner.<init>(Class)(n$4:org.junit.internal.builders.IgnoredClassRunner*,n$5:java.lang.Class*) [line 11]\n  *&$irvar1:org.junit.internal.builders.IgnoredClassRunner*=n$4 [line 11]\n  NULLIFY(&testClass); [line 11]\n  EXIT_SCOPE(n$4,n$5,n$6,testClass); [line 11]\n " shape="box"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_7" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_8" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_7" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [color="red" ];
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_8" [label="8:  method_body \n   n$7=*&$irvar1:org.junit.internal.builders.IgnoredClassRunner* [line 11]\n  *&return:org.junit.runner.Runner*=n$7 [line 11]\n  NULLIFY(&$irvar1); [line 11]\n  EXIT_SCOPE(n$7,$irvar1); [line 11]\n  APPLY_ABSTRACTION; [line 11]\n " shape="box"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_8" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_2" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_8" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [color="red" ];
+"org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_9" [label="9:  method_body \n   *&return:org.junit.runner.Runner*=null [line 13]\n  APPLY_ABSTRACTION; [line 13]\n " shape="box"]
+	
+
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_9" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_2" ;
+	 "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_9" -> "org.junit.internal.builders.IgnoredBuilder.runnerForClass(java.lang.Class):org.junit.runner.Runner.f815c5cbfcde5e3575b6dd8c272ee605_3" [color="red" ];
+}

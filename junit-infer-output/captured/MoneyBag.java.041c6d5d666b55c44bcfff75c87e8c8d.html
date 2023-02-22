@@ -1,0 +1,880 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/junit/samples/money/MoneyBag.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package junit.samples.money; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> * A MoneyBag defers exchange rate conversions. For example adding </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> * 12 Swiss Francs to 14 US Dollars is represented as a bag </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * containing the two Monies 12 CHF and 14 USD. Adding another </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * 10 Swiss francs gives a bag with 22 CHF and 14 USD. Due to </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * the deferred exchange rate conversion we can later value a </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * MoneyBag with different exchange rates. </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * A MoneyBag is represented as a list of Monies and provides </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * different constructors to create a MoneyBag. </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">public class MoneyBag implements IMoney { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.samples.money.MoneyBag* [line 17];
+n$1=_fun_Object.&lt;init&gt;()(n$0:junit.samples.money.MoneyBag*) [line 17];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0.html">summary for MoneyBag.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    private List&lt;Money&gt; fMonies = new ArrayList&lt;Money&gt;(5); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 18];
+n$3=_fun_ArrayList.&lt;init&gt;(int)(n$2:java.util.ArrayList*,5:int) [line 18];
+*&amp;$irvar0:java.util.ArrayList*=n$2 [line 18];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:junit.samples.money.MoneyBag* [line 18];
+n$5=*&amp;$irvar0:java.util.ArrayList* [line 18];
+*n$4.fMonies:junit.samples.money.MoneyBag(root junit.samples.money.MoneyBag)=n$5 [line 18];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.<init>%28%29.102a22d68666ce16df463107ae789bd0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    public static IMoney create(IMoney m1, IMoney m2) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6.html">summary for IMoney MoneyBag.create(IMoney,IMoney)</a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">        MoneyBag result = new MoneyBag(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.MoneyBag):junit.samples.money.MoneyBag*) [line 21];
+n$1=_fun_MoneyBag.&lt;init&gt;()(n$0:junit.samples.money.MoneyBag*) [line 21];
+*&amp;result:junit.samples.money.MoneyBag*=n$0 [line 21];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">        m1.appendTo(result); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;m1:junit.samples.money.IMoney* [line 22];
+_=*n$2:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 22];
+n$4=*&amp;result:junit.samples.money.MoneyBag* [line 22];
+n$5=_fun_void IMoney.appendTo(MoneyBag)(n$2:junit.samples.money.IMoney*,n$4:junit.samples.money.MoneyBag*) interface virtual [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">        m2.appendTo(result); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;m2:junit.samples.money.IMoney* [line 23];
+_=*n$6:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 23];
+n$8=*&amp;result:junit.samples.money.MoneyBag* [line 23];
+n$9=_fun_void IMoney.appendTo(MoneyBag)(n$6:junit.samples.money.IMoney*,n$8:junit.samples.money.MoneyBag*) interface virtual [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        return result.simplify(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;result:junit.samples.money.MoneyBag* [line 24];
+n$11=_fun_IMoney MoneyBag.simplify()(n$10:junit.samples.money.MoneyBag*) [line 24];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$11 [line 24];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar0:junit.samples.money.IMoney* [line 24];
+*&amp;return:junit.samples.money.IMoney*=n$12 [line 24];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.create%28junit.samples.money.IMoney%2Cjunit.samples.money.IMoney%29%3Ajunit.sam.b35c7b89e537022d7cf06f628f84c2c6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    public IMoney add(IMoney m) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.add%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.23b9558383ce08a78e53ea2e94775ad5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.add%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.23b9558383ce08a78e53ea2e94775ad5.html">summary for IMoney MoneyBag.add(IMoney)</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        return m.addMoneyBag(this); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.add%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.23b9558383ce08a78e53ea2e94775ad5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;m:junit.samples.money.IMoney* [line 28];
+_=*n$0:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 28];
+n$2=*&amp;this:junit.samples.money.MoneyBag* [line 28];
+n$3=_fun_IMoney IMoney.addMoneyBag(MoneyBag)(n$0:junit.samples.money.IMoney*,n$2:junit.samples.money.MoneyBag*) interface virtual [line 28];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$3 [line 28];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.add%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.23b9558383ce08a78e53ea2e94775ad5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.IMoney* [line 28];
+*&amp;return:junit.samples.money.IMoney*=n$4 [line 28];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.add%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.23b9558383ce08a78e53ea2e94775ad5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.add%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.23b9558383ce08a78e53ea2e94775ad5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    public IMoney addMoney(Money m) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoney%28junit.samples.money.Money%29%3Ajunit.samples.money.IMoney.418a29d0691c25b1b3efd3636734b93d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.addMoney%28junit.samples.money.Money%29%3Ajunit.samples.money.IMoney.418a29d0691c25b1b3efd3636734b93d.html">summary for IMoney MoneyBag.addMoney(Money)</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        return MoneyBag.create(m, this); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoney%28junit.samples.money.Money%29%3Ajunit.samples.money.IMoney.418a29d0691c25b1b3efd3636734b93d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;m:junit.samples.money.Money* [line 32];
+n$1=*&amp;this:junit.samples.money.MoneyBag* [line 32];
+n$2=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$0:junit.samples.money.Money*,n$1:junit.samples.money.MoneyBag*) [line 32];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$2 [line 32];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoney%28junit.samples.money.Money%29%3Ajunit.samples.money.IMoney.418a29d0691c25b1b3efd3636734b93d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:junit.samples.money.IMoney* [line 32];
+*&amp;return:junit.samples.money.IMoney*=n$3 [line 32];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoney%28junit.samples.money.Money%29%3Ajunit.samples.money.IMoney.418a29d0691c25b1b3efd3636734b93d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoney%28junit.samples.money.Money%29%3Ajunit.samples.money.IMoney.418a29d0691c25b1b3efd3636734b93d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    public IMoney addMoneyBag(MoneyBag s) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoneyBag%28junit.samples.money.MoneyBag%29%3Ajunit.samples.money.IMoney.3b9404a89313b6d370f5e34caba4b7c6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.addMoneyBag%28junit.samples.money.MoneyBag%29%3Ajunit.samples.money.IMoney.3b9404a89313b6d370f5e34caba4b7c6.html">summary for IMoney MoneyBag.addMoneyBag(MoneyBag)</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        return MoneyBag.create(s, this); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoneyBag%28junit.samples.money.MoneyBag%29%3Ajunit.samples.money.IMoney.3b9404a89313b6d370f5e34caba4b7c6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;s:junit.samples.money.MoneyBag* [line 36];
+n$1=*&amp;this:junit.samples.money.MoneyBag* [line 36];
+n$2=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$0:junit.samples.money.MoneyBag*,n$1:junit.samples.money.MoneyBag*) [line 36];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$2 [line 36];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoneyBag%28junit.samples.money.MoneyBag%29%3Ajunit.samples.money.IMoney.3b9404a89313b6d370f5e34caba4b7c6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:junit.samples.money.IMoney* [line 36];
+*&amp;return:junit.samples.money.IMoney*=n$3 [line 36];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoneyBag%28junit.samples.money.MoneyBag%29%3Ajunit.samples.money.IMoney.3b9404a89313b6d370f5e34caba4b7c6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.addMoneyBag%28junit.samples.money.MoneyBag%29%3Ajunit.samples.money.IMoney.3b9404a89313b6d370f5e34caba4b7c6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    void appendBag(MoneyBag aBag) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf.html">summary for void MoneyBag.appendBag(MoneyBag)</a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        for (Money each : aBag.fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;aBag:junit.samples.money.MoneyBag* [line 40];
+n$1=*n$0.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 40];
+_=*n$1:java.util.List*(root java.util.List) [line 40];
+n$3=_fun_Iterator List.iterator()(n$1:java.util.List*) interface virtual [line 40];
+*&amp;$bcvar2:java.util.Iterator*=n$3 [line 40];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:11 4 succs:8 exn:3 Instructions
+n$4=*&amp;$bcvar2:java.util.Iterator* [line 40];
+_=*n$4:java.util.Iterator*(root java.util.Iterator) [line 40];
+n$6=_fun_boolean Iterator.hasNext()(n$4:java.util.Iterator*) interface virtual [line 40];
+*&amp;$irvar0:_Bool=n$6 [line 40];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 40];
+PRUNE(!(n$7 == 0), true); [line 40];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$8=*&amp;$bcvar2:java.util.Iterator* [line 40];
+_=*n$8:java.util.Iterator*(root java.util.Iterator) [line 40];
+n$10=_fun_Object Iterator.next()(n$8:java.util.Iterator*) interface virtual [line 40];
+*&amp;$irvar1:java.lang.Object*=n$10 [line 40];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;$irvar1:java.lang.Object* [line 40];
+n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 40];
+*&amp;each:junit.samples.money.Money*=n$12 [line 40];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:12 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 40];
+PRUNE((n$7 == 0), false); [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">            appendMoney(each); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:5 exn:3 Instructions
+n$13=*&amp;this:junit.samples.money.MoneyBag* [line 41];
+_=*n$13:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 41];
+n$15=*&amp;each:junit.samples.money.Money* [line 41];
+n$16=_fun_void MoneyBag.appendMoney(Money)(n$13:junit.samples.money.MoneyBag*,n$15:junit.samples.money.Money*) virtual [line 41];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendBag%28junit.samples.money.MoneyBag%29%3Avoid.3b44238fa245dc2eff8e82a181e52faf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    void appendMoney(Money aMoney) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927.html">summary for void MoneyBag.appendMoney(Money)</a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">        if (aMoney.isZero()) return; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;aMoney:junit.samples.money.Money* [line 46];
+_=*n$0:junit.samples.money.Money*(root junit.samples.money.Money) [line 46];
+n$2=_fun_boolean Money.isZero()(n$0:junit.samples.money.Money*) virtual [line 46];
+*&amp;$irvar0:_Bool=n$2 [line 46];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 46];
+PRUNE(!(n$3 == 0), true); [line 46];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 46];
+PRUNE((n$3 == 0), false); [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        IMoney old = findMoney(aMoney.currency()); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$4=*&amp;aMoney:junit.samples.money.Money* [line 47];
+_=*n$4:junit.samples.money.Money*(root junit.samples.money.Money) [line 47];
+n$6=_fun_String Money.currency()(n$4:junit.samples.money.Money*) virtual [line 47];
+*&amp;$irvar1:java.lang.String*=n$6 [line 47];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 11 exn:3 Instructions
+n$7=*&amp;this:junit.samples.money.MoneyBag* [line 47];
+n$8=*&amp;$irvar1:java.lang.String* [line 47];
+n$9=_fun_Money MoneyBag.findMoney(String)(n$7:junit.samples.money.MoneyBag*,n$8:java.lang.String*) [line 47];
+*&amp;old:junit.samples.money.Money*=n$9 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        if (old == null) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:9 succs:12 exn:3 Conditional method_body
+n$10=*&amp;old:junit.samples.money.Money* [line 48];
+PRUNE(!(n$10 != null), true); [line 48];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:9 succs:14 exn:3 Conditional method_body
+n$10=*&amp;old:junit.samples.money.Money* [line 48];
+PRUNE((n$10 != null), false); [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">            fMonies.add(aMoney); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:13 exn:3 Instructions
+n$11=*&amp;this:junit.samples.money.MoneyBag* [line 49];
+n$12=*n$11.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 49];
+_=*n$12:java.util.List*(root java.util.List) [line 49];
+n$14=*&amp;aMoney:junit.samples.money.Money* [line 49];
+n$15=_fun_boolean List.add(Object)(n$12:java.util.List*,n$14:junit.samples.money.Money*) interface virtual [line 49];
+*&amp;$irvar2:_Bool=n$15 [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">            return; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        fMonies.remove(old); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:11 succs:15 exn:3 Instructions
+n$16=*&amp;this:junit.samples.money.MoneyBag* [line 52];
+n$17=*n$16.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 52];
+_=*n$17:java.util.List*(root java.util.List) [line 52];
+n$19=*&amp;old:junit.samples.money.Money* [line 52];
+n$20=_fun_boolean List.remove(Object)(n$17:java.util.List*,n$19:junit.samples.money.Money*) interface virtual [line 52];
+*&amp;$irvar3:_Bool=n$20 [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        Money sum = (Money) old.add(aMoney); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$21=*&amp;old:junit.samples.money.Money* [line 53];
+_=*n$21:junit.samples.money.Money*(root junit.samples.money.Money) [line 53];
+n$23=*&amp;aMoney:junit.samples.money.Money* [line 53];
+n$24=_fun_IMoney IMoney.add(IMoney)(n$21:junit.samples.money.Money*,n$23:junit.samples.money.Money*) interface virtual [line 53];
+*&amp;$irvar4:junit.samples.money.IMoney*=n$24 [line 53];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$25=*&amp;$irvar4:junit.samples.money.IMoney* [line 53];
+n$26=_fun___cast(n$25:junit.samples.money.IMoney*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 53];
+*&amp;sum:junit.samples.money.Money*=n$26 [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        if (sum.isZero()) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 19 exn:3 Instructions
+n$27=*&amp;sum:junit.samples.money.Money* [line 54];
+_=*n$27:junit.samples.money.Money*(root junit.samples.money.Money) [line 54];
+n$29=_fun_boolean Money.isZero()(n$27:junit.samples.money.Money*) virtual [line 54];
+*&amp;$irvar5:_Bool=n$29 [line 54];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:17 succs:20 exn:3 Conditional method_body
+n$30=*&amp;$irvar5:_Bool [line 54];
+PRUNE(!(n$30 == 0), true); [line 54];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:17 succs:21 exn:3 Conditional method_body
+n$30=*&amp;$irvar5:_Bool [line 54];
+PRUNE((n$30 == 0), false); [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">            return; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:18 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        fMonies.add(sum); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:19 succs:22 exn:3 Instructions
+n$31=*&amp;this:junit.samples.money.MoneyBag* [line 57];
+n$32=*n$31.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 57];
+_=*n$32:java.util.List*(root java.util.List) [line 57];
+n$34=*&amp;sum:junit.samples.money.Money* [line 57];
+n$35=_fun_boolean List.add(Object)(n$32:java.util.List*,n$34:junit.samples.money.Money*) interface virtual [line 57];
+*&amp;$irvar6:_Bool=n$35 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    } <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:22 20 13 7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendMoney%28junit.samples.money.Money%29%3Avoid.6b9daa301affdeabf441e654c1108927_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    public boolean equals(Object anObject) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334.html">summary for boolean MoneyBag.equals(Object)</a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        if (isZero()) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:junit.samples.money.MoneyBag* [line 62];
+_=*n$0:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 62];
+n$2=_fun_boolean MoneyBag.isZero()(n$0:junit.samples.money.MoneyBag*) virtual [line 62];
+*&amp;$irvar0:_Bool=n$2 [line 62];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 8 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 62];
+PRUNE(!(n$3 == 0), true); [line 62];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:11 12 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 62];
+PRUNE((n$3 == 0), false); [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">            if (anObject instanceof IMoney) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$4=*&amp;anObject:java.lang.Object* [line 63];
+n$5=_fun___instanceof(n$4:java.lang.Object*,sizeof(t=junit.samples.money.IMoney;sub_t=( sub )(instof)):void) [line 63];
+PRUNE(!(n$5 == 0), true); [line 63];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:11 12 exn:3 Conditional method_body
+n$4=*&amp;anObject:java.lang.Object* [line 63];
+n$5=_fun___instanceof(n$4:java.lang.Object*,sizeof(t=junit.samples.money.IMoney;sub_t=( sub )(instof)):void) [line 63];
+PRUNE((n$5 == 0), false); [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">                return ((IMoney) anObject).isZero(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 exn:3 Instructions
+n$6=*&amp;anObject:java.lang.Object* [line 64];
+n$7=_fun___cast(n$6:java.lang.Object*,sizeof(t=junit.samples.money.IMoney;sub_t=( sub )(cast)):void) [line 64];
+_=*n$7:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 64];
+n$9=_fun_boolean IMoney.isZero()(n$7:junit.samples.money.IMoney*) interface virtual [line 64];
+*&amp;$irvar1:_Bool=n$9 [line 64];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$10=*&amp;$irvar1:_Bool [line 64];
+*&amp;return:_Bool=n$10 [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        if (anObject instanceof MoneyBag) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:8 6 succs:13 exn:3 Conditional method_body
+n$11=*&amp;anObject:java.lang.Object* [line 68];
+n$12=_fun___instanceof(n$11:java.lang.Object*,sizeof(t=junit.samples.money.MoneyBag;sub_t=( sub )(instof)):void) [line 68];
+PRUNE(!(n$12 == 0), true); [line 68];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:8 6 succs:32 exn:3 Conditional method_body
+n$11=*&amp;anObject:java.lang.Object* [line 68];
+n$12=_fun___instanceof(n$11:java.lang.Object*,sizeof(t=junit.samples.money.MoneyBag;sub_t=( sub )(instof)):void) [line 68];
+PRUNE((n$12 == 0), false); [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">            MoneyBag aMoneyBag = (MoneyBag) anObject; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 succs:14 exn:3 Instructions
+n$13=*&amp;anObject:java.lang.Object* [line 69];
+n$14=_fun___cast(n$13:java.lang.Object*,sizeof(t=junit.samples.money.MoneyBag;sub_t=( sub )(cast)):void) [line 69];
+*&amp;aMoneyBag:junit.samples.money.MoneyBag*=n$14 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">            if (aMoneyBag.fMonies.size() != fMonies.size()) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$15=*&amp;aMoneyBag:junit.samples.money.MoneyBag* [line 70];
+n$16=*n$15.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 70];
+_=*n$16:java.util.List*(root java.util.List) [line 70];
+n$18=_fun_int List.size()(n$16:java.util.List*) interface virtual [line 70];
+*&amp;$irvar2:int=n$18 [line 70];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 17 exn:3 Instructions
+n$19=*&amp;this:junit.samples.money.MoneyBag* [line 70];
+n$20=*n$19.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 70];
+_=*n$20:java.util.List*(root java.util.List) [line 70];
+n$22=_fun_int List.size()(n$20:java.util.List*) interface virtual [line 70];
+*&amp;$irvar3:int=n$22 [line 70];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:15 succs:18 exn:3 Conditional method_body
+n$23=*&amp;$irvar2:int [line 70];
+n$24=*&amp;$irvar3:int [line 70];
+PRUNE(!(n$23 == n$24), true); [line 70];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:15 succs:19 exn:3 Conditional method_body
+n$23=*&amp;$irvar2:int [line 70];
+n$24=*&amp;$irvar3:int [line 70];
+PRUNE((n$23 == n$24), false); [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">                return false; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:16 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            for (Money each : fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:17 succs:20 exn:3 Instructions
+n$25=*&amp;this:junit.samples.money.MoneyBag* [line 74];
+n$26=*n$25.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 74];
+_=*n$26:java.util.List*(root java.util.List) [line 74];
+n$28=_fun_Iterator List.iterator()(n$26:java.util.List*) interface virtual [line 74];
+*&amp;$bcvar3:java.util.Iterator*=n$28 [line 74];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:28 19 succs:23 exn:3 Instructions
+n$29=*&amp;$bcvar3:java.util.Iterator* [line 74];
+_=*n$29:java.util.Iterator*(root java.util.Iterator) [line 74];
+n$31=_fun_boolean Iterator.hasNext()(n$29:java.util.Iterator*) interface virtual [line 74];
+*&amp;$irvar4:_Bool=n$31 [line 74];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node23.html"><span class='visited with_tooltip'>J_23<span class='tooltip'>node23 preds:20 succs:21 22 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node21.html"><span class='visited with_tooltip'>C_21<span class='tooltip'>node21 preds:23 succs:24 exn:3 Conditional method_body
+n$32=*&amp;$irvar4:_Bool [line 74];
+PRUNE(!(n$32 == 0), true); [line 74];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:21 succs:25 exn:3 Instructions
+n$33=*&amp;$bcvar3:java.util.Iterator* [line 74];
+_=*n$33:java.util.Iterator*(root java.util.Iterator) [line 74];
+n$35=_fun_Object Iterator.next()(n$33:java.util.Iterator*) interface virtual [line 74];
+*&amp;$irvar5:java.lang.Object*=n$35 [line 74];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$36=*&amp;$irvar5:java.lang.Object* [line 74];
+n$37=_fun___cast(n$36:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 74];
+*&amp;each:junit.samples.money.Money*=n$37 [line 74];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node22.html"><span class='visited with_tooltip'>C_22<span class='tooltip'>node22 preds:23 succs:31 exn:3 Conditional method_body
+n$32=*&amp;$irvar4:_Bool [line 74];
+PRUNE((n$32 == 0), false); [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                if (!aMoneyBag.contains(each)) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:29 exn:3 Instructions
+n$38=*&amp;aMoneyBag:junit.samples.money.MoneyBag* [line 75];
+n$39=*&amp;each:junit.samples.money.Money* [line 75];
+n$40=_fun_boolean MoneyBag.contains(Money)(n$38:junit.samples.money.MoneyBag*,n$39:junit.samples.money.Money*) [line 75];
+*&amp;$irvar6:_Bool=n$40 [line 75];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node29.html"><span class='visited with_tooltip'>J_29<span class='tooltip'>node29 preds:26 succs:27 28 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node28.html"><span class='visited with_tooltip'>C_28<span class='tooltip'>node28 preds:29 succs:20 exn:3 Conditional method_body
+n$41=*&amp;$irvar6:_Bool [line 75];
+PRUNE((n$41 != 0), false); [line 75];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node27.html"><span class='visited with_tooltip'>C_27<span class='tooltip'>node27 preds:29 succs:30 exn:3 Conditional method_body
+n$41=*&amp;$irvar6:_Bool [line 75];
+PRUNE(!(n$41 != 0), true); [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                    return false; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:27 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            return true; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:22 succs:2 exn:3 Instructions
+*&amp;return:_Bool=1 [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        return false; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:12 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 81];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 31 30 18 10 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.equals%28java.lang.Object%29%3Aboolean.d92d9d74afa2cef12cde2f08a3b0f334_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    private Money findMoney(String currency) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86.html">summary for Money MoneyBag.findMoney(String)</a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">        for (Money each : fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.samples.money.MoneyBag* [line 85];
+n$1=*n$0.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 85];
+_=*n$1:java.util.List*(root java.util.List) [line 85];
+n$3=_fun_Iterator List.iterator()(n$1:java.util.List*) interface virtual [line 85];
+*&amp;$bcvar2:java.util.Iterator*=n$3 [line 85];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:14 4 succs:8 exn:3 Instructions
+n$4=*&amp;$bcvar2:java.util.Iterator* [line 85];
+_=*n$4:java.util.Iterator*(root java.util.Iterator) [line 85];
+n$6=_fun_boolean Iterator.hasNext()(n$4:java.util.Iterator*) interface virtual [line 85];
+*&amp;$irvar0:_Bool=n$6 [line 85];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 85];
+PRUNE(!(n$7 == 0), true); [line 85];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$8=*&amp;$bcvar2:java.util.Iterator* [line 85];
+_=*n$8:java.util.Iterator*(root java.util.Iterator) [line 85];
+n$10=_fun_Object Iterator.next()(n$8:java.util.Iterator*) interface virtual [line 85];
+*&amp;$irvar1:java.lang.Object*=n$10 [line 85];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;$irvar1:java.lang.Object* [line 85];
+n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 85];
+*&amp;each:junit.samples.money.Money*=n$12 [line 85];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:17 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 85];
+PRUNE((n$7 == 0), false); [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">            if (each.currency().equals(currency)) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$13=*&amp;each:junit.samples.money.Money* [line 86];
+_=*n$13:junit.samples.money.Money*(root junit.samples.money.Money) [line 86];
+n$15=_fun_String Money.currency()(n$13:junit.samples.money.Money*) virtual [line 86];
+*&amp;$irvar2:java.lang.String*=n$15 [line 86];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:15 exn:3 Instructions
+n$16=*&amp;$irvar2:java.lang.String* [line 86];
+_=*n$16:java.lang.String*(root java.lang.String) [line 86];
+n$18=*&amp;currency:java.lang.String* [line 86];
+n$19=_fun_boolean String.equals(Object)(n$16:java.lang.String*,n$18:java.lang.String*) virtual [line 86];
+*&amp;$irvar3:_Bool=n$19 [line 86];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node15.html"><span class='visited with_tooltip'>J_15<span class='tooltip'>node15 preds:12 succs:13 14 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:5 exn:3 Conditional method_body
+n$20=*&amp;$irvar3:_Bool [line 86];
+PRUNE((n$20 == 0), false); [line 86];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:16 exn:3 Conditional method_body
+n$20=*&amp;$irvar3:_Bool [line 86];
+PRUNE(!(n$20 == 0), true); [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">                return each; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:13 succs:2 exn:3 Instructions
+n$21=*&amp;each:junit.samples.money.Money* [line 87];
+*&amp;return:junit.samples.money.Money*=n$21 [line 87];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">        return null; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:7 succs:2 exn:3 Instructions
+*&amp;return:junit.samples.money.Money*=null [line 90];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:17 16 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.findMoney%28java.lang.String%29%3Ajunit.samples.money.Money.70972a48de78b5fd5610cac784ca5c86_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">    private boolean contains(Money m) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2.html">summary for boolean MoneyBag.contains(Money)</a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">        Money found = findMoney(m.currency()); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;m:junit.samples.money.Money* [line 94];
+_=*n$0:junit.samples.money.Money*(root junit.samples.money.Money) [line 94];
+n$2=_fun_String Money.currency()(n$0:junit.samples.money.Money*) virtual [line 94];
+*&amp;$irvar0:java.lang.String*=n$2 [line 94];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;this:junit.samples.money.MoneyBag* [line 94];
+n$4=*&amp;$irvar0:java.lang.String* [line 94];
+n$5=_fun_Money MoneyBag.findMoney(String)(n$3:junit.samples.money.MoneyBag*,n$4:java.lang.String*) [line 94];
+*&amp;found:junit.samples.money.Money*=n$5 [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        if (found == null) return false; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;found:junit.samples.money.Money* [line 95];
+PRUNE(!(n$6 != null), true); [line 95];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 95];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$6=*&amp;found:junit.samples.money.Money* [line 95];
+PRUNE((n$6 != null), false); [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        return found.amount() == m.amount(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 exn:3 Instructions
+n$7=*&amp;found:junit.samples.money.Money* [line 96];
+_=*n$7:junit.samples.money.Money*(root junit.samples.money.Money) [line 96];
+n$9=_fun_int Money.amount()(n$7:junit.samples.money.Money*) virtual [line 96];
+*&amp;$irvar1:int=n$9 [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 12 exn:3 Instructions
+n$10=*&amp;m:junit.samples.money.Money* [line 96];
+_=*n$10:junit.samples.money.Money*(root junit.samples.money.Money) [line 96];
+n$12=_fun_int Money.amount()(n$10:junit.samples.money.Money*) virtual [line 96];
+*&amp;$irvar2:int=n$12 [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:10 succs:13 exn:3 Conditional method_body
+n$13=*&amp;$irvar1:int [line 96];
+n$14=*&amp;$irvar2:int [line 96];
+PRUNE(!(n$13 != n$14), true); [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 succs:15 exn:3 Instructions
+*&amp;$T0_31:int=1 [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:10 succs:14 exn:3 Conditional method_body
+n$13=*&amp;$irvar1:int [line 96];
+n$14=*&amp;$irvar2:int [line 96];
+PRUNE((n$13 != n$14), false); [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:15 exn:3 Instructions
+*&amp;$T0_31:int=0 [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 13 succs:2 exn:3 Instructions
+n$15=*&amp;$T0_31:int [line 96];
+*&amp;return:_Bool=n$15 [line 96];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 8 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.contains%28junit.samples.money.Money%29%3Aboolean.f9a87c680eb88d81103d92aaf1989ca2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">    public int hashCode() { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f.html">summary for int MoneyBag.hashCode()</a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        int hash = 0; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;hash:int=0 [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        for (Money each : fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=*&amp;this:junit.samples.money.MoneyBag* [line 102];
+n$1=*n$0.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 102];
+_=*n$1:java.util.List*(root java.util.List) [line 102];
+n$3=_fun_Iterator List.iterator()(n$1:java.util.List*) interface virtual [line 102];
+*&amp;$bcvar2:java.util.Iterator*=n$3 [line 102];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:13 5 succs:9 exn:3 Instructions
+n$4=*&amp;$bcvar2:java.util.Iterator* [line 102];
+_=*n$4:java.util.Iterator*(root java.util.Iterator) [line 102];
+n$6=_fun_boolean Iterator.hasNext()(n$4:java.util.Iterator*) interface virtual [line 102];
+*&amp;$irvar0:_Bool=n$6 [line 102];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:6 succs:7 8 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 102];
+PRUNE(!(n$7 == 0), true); [line 102];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$8=*&amp;$bcvar2:java.util.Iterator* [line 102];
+_=*n$8:java.util.Iterator*(root java.util.Iterator) [line 102];
+n$10=_fun_Object Iterator.next()(n$8:java.util.Iterator*) interface virtual [line 102];
+*&amp;$irvar1:java.lang.Object*=n$10 [line 102];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$11=*&amp;$irvar1:java.lang.Object* [line 102];
+n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 102];
+*&amp;each:junit.samples.money.Money*=n$12 [line 102];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:14 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 102];
+PRUNE((n$7 == 0), false); [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">            hash ^= each.hashCode(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;each:junit.samples.money.Money* [line 103];
+_=*n$13:junit.samples.money.Money*(root junit.samples.money.Money) [line 103];
+n$15=_fun_int Money.hashCode()(n$13:junit.samples.money.Money*) virtual [line 103];
+*&amp;$irvar2:int=n$15 [line 103];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:6 exn:3 Instructions
+n$16=*&amp;hash:int [line 103];
+n$17=*&amp;$irvar2:int [line 103];
+*&amp;hash:int=(n$16 ^ n$17) [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        return hash; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:8 succs:2 exn:3 Instructions
+n$18=*&amp;hash:int [line 105];
+*&amp;return:int=n$18 [line 105];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.hashCode%28%29%3Aint.2c571abe8271f683d9f719aaa7be619f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">    public boolean isZero() { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0.html">summary for boolean MoneyBag.isZero()</a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        return fMonies.size() == 0; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:junit.samples.money.MoneyBag* [line 109];
+n$1=*n$0.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 109];
+_=*n$1:java.util.List*(root java.util.List) [line 109];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 109];
+*&amp;$irvar0:int=n$3 [line 109];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:int [line 109];
+PRUNE(!(n$4 != 0), true); [line 109];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_17:int=1 [line 109];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:int [line 109];
+PRUNE((n$4 != 0), false); [line 109];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_17:int=0 [line 109];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:2 exn:3 Instructions
+n$5=*&amp;$T0_17:int [line 109];
+*&amp;return:_Bool=n$5 [line 109];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.isZero%28%29%3Aboolean.17dcf68392fbfd98e84795e5af7428b0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    public IMoney multiply(int factor) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c.html">summary for IMoney MoneyBag.multiply(int)</a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        MoneyBag result = new MoneyBag(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.MoneyBag):junit.samples.money.MoneyBag*) [line 113];
+n$1=_fun_MoneyBag.&lt;init&gt;()(n$0:junit.samples.money.MoneyBag*) [line 113];
+*&amp;result:junit.samples.money.MoneyBag*=n$0 [line 113];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        if (factor != 0) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$2=*&amp;factor:int [line 114];
+PRUNE(!(n$2 == 0), true); [line 114];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:16 exn:3 Conditional method_body
+n$2=*&amp;factor:int [line 114];
+PRUNE((n$2 == 0), false); [line 114];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            for (Money each : fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$3=*&amp;this:junit.samples.money.MoneyBag* [line 115];
+n$4=*n$3.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 115];
+_=*n$4:java.util.List*(root java.util.List) [line 115];
+n$6=_fun_Iterator List.iterator()(n$4:java.util.List*) interface virtual [line 115];
+*&amp;$bcvar3:java.util.Iterator*=n$6 [line 115];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:15 7 succs:11 exn:3 Instructions
+n$7=*&amp;$bcvar3:java.util.Iterator* [line 115];
+_=*n$7:java.util.Iterator*(root java.util.Iterator) [line 115];
+n$9=_fun_boolean Iterator.hasNext()(n$7:java.util.Iterator*) interface virtual [line 115];
+*&amp;$irvar0:_Bool=n$9 [line 115];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node11.html"><span class='visited with_tooltip'>J_11<span class='tooltip'>node11 preds:8 succs:9 10 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:12 exn:3 Conditional method_body
+n$10=*&amp;$irvar0:_Bool [line 115];
+PRUNE(!(n$10 == 0), true); [line 115];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$11=*&amp;$bcvar3:java.util.Iterator* [line 115];
+_=*n$11:java.util.Iterator*(root java.util.Iterator) [line 115];
+n$13=_fun_Object Iterator.next()(n$11:java.util.Iterator*) interface virtual [line 115];
+*&amp;$irvar1:java.lang.Object*=n$13 [line 115];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$14=*&amp;$irvar1:java.lang.Object* [line 115];
+n$15=_fun___cast(n$14:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 115];
+*&amp;each:junit.samples.money.Money*=n$15 [line 115];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:16 exn:3 Conditional method_body
+n$10=*&amp;$irvar0:_Bool [line 115];
+PRUNE((n$10 == 0), false); [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">                result.appendMoney((Money) each.multiply(factor)); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$16=*&amp;each:junit.samples.money.Money* [line 116];
+_=*n$16:junit.samples.money.Money*(root junit.samples.money.Money) [line 116];
+n$18=*&amp;factor:int [line 116];
+n$19=_fun_IMoney Money.multiply(int)(n$16:junit.samples.money.Money*,n$18:int) virtual [line 116];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$19 [line 116];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:8 exn:3 Instructions
+n$20=*&amp;result:junit.samples.money.MoneyBag* [line 116];
+_=*n$20:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 116];
+n$22=*&amp;$irvar2:junit.samples.money.IMoney* [line 116];
+n$23=_fun___cast(n$22:junit.samples.money.IMoney*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 116];
+n$24=_fun_void MoneyBag.appendMoney(Money)(n$20:junit.samples.money.MoneyBag*,n$23:junit.samples.money.Money*) virtual [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">        return result; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:10 6 succs:2 exn:3 Instructions
+n$25=*&amp;result:junit.samples.money.MoneyBag* [line 119];
+*&amp;return:junit.samples.money.IMoney*=n$25 [line 119];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.multiply%28int%29%3Ajunit.samples.money.IMoney.81d9746309820085bddd0f827242b72c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    public IMoney negate() { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b.html">summary for IMoney MoneyBag.negate()</a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        MoneyBag result = new MoneyBag(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.MoneyBag):junit.samples.money.MoneyBag*) [line 123];
+n$1=_fun_MoneyBag.&lt;init&gt;()(n$0:junit.samples.money.MoneyBag*) [line 123];
+*&amp;result:junit.samples.money.MoneyBag*=n$0 [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        for (Money each : fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.samples.money.MoneyBag* [line 124];
+n$3=*n$2.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 124];
+_=*n$3:java.util.List*(root java.util.List) [line 124];
+n$5=_fun_Iterator List.iterator()(n$3:java.util.List*) interface virtual [line 124];
+*&amp;$bcvar2:java.util.Iterator*=n$5 [line 124];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:13 5 succs:9 exn:3 Instructions
+n$6=*&amp;$bcvar2:java.util.Iterator* [line 124];
+_=*n$6:java.util.Iterator*(root java.util.Iterator) [line 124];
+n$8=_fun_boolean Iterator.hasNext()(n$6:java.util.Iterator*) interface virtual [line 124];
+*&amp;$irvar0:_Bool=n$8 [line 124];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:6 succs:7 8 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$9=*&amp;$irvar0:_Bool [line 124];
+PRUNE(!(n$9 == 0), true); [line 124];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$10=*&amp;$bcvar2:java.util.Iterator* [line 124];
+_=*n$10:java.util.Iterator*(root java.util.Iterator) [line 124];
+n$12=_fun_Object Iterator.next()(n$10:java.util.Iterator*) interface virtual [line 124];
+*&amp;$irvar1:java.lang.Object*=n$12 [line 124];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$13=*&amp;$irvar1:java.lang.Object* [line 124];
+n$14=_fun___cast(n$13:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 124];
+*&amp;each:junit.samples.money.Money*=n$14 [line 124];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:14 exn:3 Conditional method_body
+n$9=*&amp;$irvar0:_Bool [line 124];
+PRUNE((n$9 == 0), false); [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">            result.appendMoney((Money) each.negate()); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$15=*&amp;each:junit.samples.money.Money* [line 125];
+_=*n$15:junit.samples.money.Money*(root junit.samples.money.Money) [line 125];
+n$17=_fun_IMoney Money.negate()(n$15:junit.samples.money.Money*) virtual [line 125];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$17 [line 125];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:6 exn:3 Instructions
+n$18=*&amp;result:junit.samples.money.MoneyBag* [line 125];
+_=*n$18:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 125];
+n$20=*&amp;$irvar2:junit.samples.money.IMoney* [line 125];
+n$21=_fun___cast(n$20:junit.samples.money.IMoney*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 125];
+n$22=_fun_void MoneyBag.appendMoney(Money)(n$18:junit.samples.money.MoneyBag*,n$21:junit.samples.money.Money*) virtual [line 125];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        return result; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:8 succs:2 exn:3 Instructions
+n$23=*&amp;result:junit.samples.money.MoneyBag* [line 127];
+*&amp;return:junit.samples.money.IMoney*=n$23 [line 127];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.negate%28%29%3Ajunit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">    private IMoney simplify() { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1.html">summary for IMoney MoneyBag.simplify()</a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        if (fMonies.size() == 1) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:junit.samples.money.MoneyBag* [line 131];
+n$1=*n$0.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 131];
+_=*n$1:java.util.List*(root java.util.List) [line 131];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 131];
+*&amp;$irvar0:int=n$3 [line 131];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:int [line 131];
+PRUNE(!(n$4 != 1), true); [line 131];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:10 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:int [line 131];
+PRUNE((n$4 != 1), false); [line 131];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">            return fMonies.iterator().next(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$5=*&amp;this:junit.samples.money.MoneyBag* [line 132];
+n$6=*n$5.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 132];
+_=*n$6:java.util.List*(root java.util.List) [line 132];
+n$8=_fun_Iterator List.iterator()(n$6:java.util.List*) interface virtual [line 132];
+*&amp;$irvar1:java.util.Iterator*=n$8 [line 132];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar1:java.util.Iterator* [line 132];
+_=*n$9:java.util.Iterator*(root java.util.Iterator) [line 132];
+n$11=_fun_Object Iterator.next()(n$9:java.util.Iterator*) interface virtual [line 132];
+*&amp;$irvar2:java.lang.Object*=n$11 [line 132];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar2:java.lang.Object* [line 132];
+n$13=_fun___cast(n$12:java.lang.Object*,sizeof(t=junit.samples.money.IMoney;sub_t=( sub )(cast)):void) [line 132];
+*&amp;return:junit.samples.money.IMoney*=n$13 [line 132];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        return this; <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:6 succs:2 exn:3 Instructions
+n$14=*&amp;this:junit.samples.money.MoneyBag* [line 134];
+*&amp;return:junit.samples.money.IMoney*=n$14 [line 134];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.simplify%28%29%3Ajunit.samples.money.IMoney.06482cb7734c17a06f5817162b47aec1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">    public IMoney subtract(IMoney m) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc.html">summary for IMoney MoneyBag.subtract(IMoney)</a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">        return add(m.negate()); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;m:junit.samples.money.IMoney* [line 138];
+_=*n$0:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 138];
+n$2=_fun_IMoney IMoney.negate()(n$0:junit.samples.money.IMoney*) interface virtual [line 138];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$2 [line 138];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:junit.samples.money.MoneyBag* [line 138];
+_=*n$3:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 138];
+n$5=*&amp;$irvar0:junit.samples.money.IMoney* [line 138];
+n$6=_fun_IMoney MoneyBag.add(IMoney)(n$3:junit.samples.money.MoneyBag*,n$5:junit.samples.money.IMoney*) virtual [line 138];
+*&amp;$irvar1:junit.samples.money.IMoney*=n$6 [line 138];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar1:junit.samples.money.IMoney* [line 138];
+*&amp;return:junit.samples.money.IMoney*=n$7 [line 138];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.subtract%28junit.samples.money.IMoney%29%3Ajunit.samples.money.IMoney.8697f2aa7921c8f7ec2e3cf6f3ad7adc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">    public String toString() { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e.html">summary for String MoneyBag.toString()</a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        StringBuilder sb = new StringBuilder(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 143];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 143];
+*&amp;sb:java.lang.StringBuilder*=n$0 [line 143];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        sb.append(&quot;{&quot;); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;sb:java.lang.StringBuilder* [line 144];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 144];
+n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,"{":java.lang.Object*) virtual [line 144];
+*&amp;$irvar0:java.lang.StringBuilder*=n$4 [line 144];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        for (Money each : fMonies) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:junit.samples.money.MoneyBag* [line 145];
+n$6=*n$5.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 145];
+_=*n$6:java.util.List*(root java.util.List) [line 145];
+n$8=_fun_Iterator List.iterator()(n$6:java.util.List*) interface virtual [line 145];
+*&amp;$bcvar2:java.util.Iterator*=n$8 [line 145];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:13 6 succs:10 exn:3 Instructions
+n$9=*&amp;$bcvar2:java.util.Iterator* [line 145];
+_=*n$9:java.util.Iterator*(root java.util.Iterator) [line 145];
+n$11=_fun_boolean Iterator.hasNext()(n$9:java.util.Iterator*) interface virtual [line 145];
+*&amp;$irvar1:_Bool=n$11 [line 145];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:7 succs:8 9 exn: Join
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$12=*&amp;$irvar1:_Bool [line 145];
+PRUNE(!(n$12 == 0), true); [line 145];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$13=*&amp;$bcvar2:java.util.Iterator* [line 145];
+_=*n$13:java.util.Iterator*(root java.util.Iterator) [line 145];
+n$15=_fun_Object Iterator.next()(n$13:java.util.Iterator*) interface virtual [line 145];
+*&amp;$irvar2:java.lang.Object*=n$15 [line 145];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;$irvar2:java.lang.Object* [line 145];
+n$17=_fun___cast(n$16:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 145];
+*&amp;each:junit.samples.money.Money*=n$17 [line 145];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:14 exn:3 Conditional method_body
+n$12=*&amp;$irvar1:_Bool [line 145];
+PRUNE((n$12 == 0), false); [line 145];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            sb.append(each); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:7 exn:3 Instructions
+n$18=*&amp;sb:java.lang.StringBuilder* [line 146];
+_=*n$18:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 146];
+n$20=*&amp;each:junit.samples.money.Money* [line 146];
+n$21=_fun_StringBuilder StringBuilder.append(Object)(n$18:java.lang.StringBuilder*,n$20:junit.samples.money.Money*) virtual [line 146];
+*&amp;$irvar3:java.lang.StringBuilder*=n$21 [line 146];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        sb.append(&quot;}&quot;); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:9 succs:15 exn:3 Instructions
+n$22=*&amp;sb:java.lang.StringBuilder* [line 148];
+_=*n$22:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 148];
+n$24=_fun_StringBuilder StringBuilder.append(String)(n$22:java.lang.StringBuilder*,"}":java.lang.Object*) virtual [line 148];
+*&amp;$irvar4:java.lang.StringBuilder*=n$24 [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">        return sb.toString(); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$25=*&amp;sb:java.lang.StringBuilder* [line 149];
+_=*n$25:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 149];
+n$27=_fun_String StringBuilder.toString()(n$25:java.lang.StringBuilder*) virtual [line 149];
+*&amp;$irvar5:java.lang.String*=n$27 [line 149];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+n$28=*&amp;$irvar5:java.lang.String* [line 149];
+*&amp;return:java.lang.String*=n$28 [line 149];
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.toString%28%29%3Ajava.lang.String.384985da1a33c098920c2395fec9e58e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    public void appendTo(MoneyBag m) { <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendTo%28junit.samples.money.MoneyBag%29%3Avoid.69bab9567819846f15af7f0d06f9fab4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/junit.samples.money.MoneyBag.appendTo%28junit.samples.money.MoneyBag%29%3Avoid.69bab9567819846f15af7f0d06f9fab4.html">summary for void MoneyBag.appendTo(MoneyBag)</a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        m.appendBag(this); <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendTo%28junit.samples.money.MoneyBag%29%3Avoid.69bab9567819846f15af7f0d06f9fab4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;m:junit.samples.money.MoneyBag* [line 153];
+_=*n$0:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 153];
+n$2=*&amp;this:junit.samples.money.MoneyBag* [line 153];
+n$3=_fun_void MoneyBag.appendBag(MoneyBag)(n$0:junit.samples.money.MoneyBag*,n$2:junit.samples.money.MoneyBag*) virtual [line 153];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">    } <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendTo%28junit.samples.money.MoneyBag%29%3Avoid.69bab9567819846f15af7f0d06f9fab4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendTo%28junit.samples.money.MoneyBag%29%3Avoid.69bab9567819846f15af7f0d06f9fab4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyBag.java.041c6d5d666b55c44bcfff75c87e8c8d/nodes/junit.samples.money.MoneyBag.appendTo%28junit.samples.money.MoneyBag%29%3Avoid.69bab9567819846f15af7f0d06f9fab4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

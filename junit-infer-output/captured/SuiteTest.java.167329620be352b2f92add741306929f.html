@@ -1,0 +1,827 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SuiteTest.java.167329620be352b2f92add741306929f</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/tests/running/classes/SuiteTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.tests.running.classes; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.junit.experimental.results.PrintableResult.testResult; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import static org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import static org.junit.experimental.results.ResultMatchers.isSuccessful; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import junit.framework.JUnit4TestAdapter; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import junit.framework.TestResult; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.AfterClass; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.Assert; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.BeforeClass; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">import org.junit.runner.Request; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">import org.junit.runner.RunWith; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">import org.junit.runner.Runner; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">import org.junit.runners.Suite; </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">import org.junit.runners.Suite.SuiteClasses; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">public class SuiteTest { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<init>%28%29.5da9b97082982929f76c2dee539e8d88_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 26];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 26];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<init>%28%29.5da9b97082982929f76c2dee539e8d88_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest* [line 26];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest*) [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuilder* [line 26];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 26];
+n$4=*&amp;#GB<>$org.junit.tests.running.classes.SuiteTest.log:java.lang.String*(root org.junit.tests.running.classes.SuiteTest) [line 26];
+n$5=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,n$4:java.lang.String*) virtual [line 26];
+*&amp;$irvar1:java.lang.StringBuilder*=n$5 [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<init>%28%29.5da9b97082982929f76c2dee539e8d88_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<init>%28%29.5da9b97082982929f76c2dee539e8d88_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;$irvar1:java.lang.StringBuilder* [line 26];
+_=*n$6:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 26];
+n$8=*&amp;x0:java.lang.Object* [line 26];
+n$9=_fun_StringBuilder StringBuilder.append(Object)(n$6:java.lang.StringBuilder*,n$8:java.lang.Object*) virtual [line 26];
+*&amp;$irvar2:java.lang.StringBuilder*=n$9 [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar2:java.lang.StringBuilder* [line 26];
+_=*n$10:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 26];
+n$12=_fun_String StringBuilder.toString()(n$10:java.lang.StringBuilder*) virtual [line 26];
+*&amp;$irvar3:java.lang.String*=n$12 [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;$irvar3:java.lang.String* [line 26];
+*&amp;#GB<>$org.junit.tests.running.classes.SuiteTest.log:org.junit.tests.running.classes.SuiteTest(root org.junit.tests.running.classes.SuiteTest)=n$13 [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$14=*&amp;$irvar3:java.lang.String* [line 26];
+*&amp;return:java.lang.String*=n$14 [line 26];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<init>%28%29.5da9b97082982929f76c2dee539e8d88_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.access%24084%28java.lang.Object%29%3Ajava.lang.String.c210952cef3f3663dffb718ddbfab94c.html">summary for String SuiteTest.access$084(Object)</a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.<init>%28%29.5da9b97082982929f76c2dee539e8d88.html">summary for SuiteTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    public static class TestA { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.<init>%28%29.96d2d74d3ab368914298ec5ba7105e0c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.<init>%28%29.96d2d74d3ab368914298ec5ba7105e0c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$TestA* [line 27];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$TestA*) [line 27];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.<init>%28%29.96d2d74d3ab368914298ec5ba7105e0c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.<init>%28%29.96d2d74d3ab368914298ec5ba7105e0c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.<init>%28%29.96d2d74d3ab368914298ec5ba7105e0c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24TestA.<init>%28%29.96d2d74d3ab368914298ec5ba7105e0c.html">summary for SuiteTest$TestA.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        public void pass() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.pass%28%29%3Avoid.c33e87fb3917e2e4fc4b04b275fe5b29_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24TestA.pass%28%29%3Avoid.c33e87fb3917e2e4fc4b04b275fe5b29.html">summary for void SuiteTest$TestA.pass()</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.pass%28%29%3Avoid.c33e87fb3917e2e4fc4b04b275fe5b29_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.pass%28%29%3Avoid.c33e87fb3917e2e4fc4b04b275fe5b29_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestA.pass%28%29%3Avoid.c33e87fb3917e2e4fc4b04b275fe5b29_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    public static class TestB { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.<init>%28%29.ef83500207bfea02e659e187e082afcf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.<init>%28%29.ef83500207bfea02e659e187e082afcf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$TestB* [line 33];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$TestB*) [line 33];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.<init>%28%29.ef83500207bfea02e659e187e082afcf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.<init>%28%29.ef83500207bfea02e659e187e082afcf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.<init>%28%29.ef83500207bfea02e659e187e082afcf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24TestB.<init>%28%29.ef83500207bfea02e659e187e082afcf.html">summary for SuiteTest$TestB.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        public void fail() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.fail%28%29%3Avoid.4ed51516dcf1b8c0ed7e683173f4d478_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24TestB.fail%28%29%3Avoid.4ed51516dcf1b8c0ed7e683173f4d478.html">summary for void SuiteTest$TestB.fail()</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            Assert.fail(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.fail%28%29%3Avoid.4ed51516dcf1b8c0ed7e683173f4d478_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.fail%28%29%3Avoid.4ed51516dcf1b8c0ed7e683173f4d478_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.fail%28%29%3Avoid.4ed51516dcf1b8c0ed7e683173f4d478_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24TestB.fail%28%29%3Avoid.4ed51516dcf1b8c0ed7e683173f4d478_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    @SuiteClasses({TestA.class, TestB.class}) </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    public static class All { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24All.<init>%28%29.bda02e1523c082335a5db2d3ed3c1be0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24All.<init>%28%29.bda02e1523c082335a5db2d3ed3c1be0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$All* [line 42];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$All*) [line 42];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24All.<init>%28%29.bda02e1523c082335a5db2d3ed3c1be0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24All.<init>%28%29.bda02e1523c082335a5db2d3ed3c1be0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24All.<init>%28%29.bda02e1523c082335a5db2d3ed3c1be0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24All.<init>%28%29.bda02e1523c082335a5db2d3ed3c1be0.html">summary for SuiteTest$All.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    @SuiteClasses(TestA.class) </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    static class NonPublicSuite { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuite.<init>%28%29.d7bedcdd8d84a5a089c7b892e15e789d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuite.<init>%28%29.d7bedcdd8d84a5a089c7b892e15e789d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$NonPublicSuite* [line 47];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$NonPublicSuite*) [line 47];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuite.<init>%28%29.d7bedcdd8d84a5a089c7b892e15e789d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuite.<init>%28%29.d7bedcdd8d84a5a089c7b892e15e789d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuite.<init>%28%29.d7bedcdd8d84a5a089c7b892e15e789d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24NonPublicSuite.<init>%28%29.d7bedcdd8d84a5a089c7b892e15e789d.html">summary for SuiteTest$NonPublicSuite.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    @SuiteClasses(TestA.class) </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    static class NonPublicSuiteWithBeforeClass { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.<init>%28%29.e11a3c07a62acfe34c05df02296ee4dc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.<init>%28%29.e11a3c07a62acfe34c05df02296ee4dc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$NonPublicSuiteWithBeforeClass* [line 52];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$NonPublicSuiteWithBeforeClass*) [line 52];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.<init>%28%29.e11a3c07a62acfe34c05df02296ee4dc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.<init>%28%29.e11a3c07a62acfe34c05df02296ee4dc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.<init>%28%29.e11a3c07a62acfe34c05df02296ee4dc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.<init>%28%29.e11a3c07a62acfe34c05df02296ee4dc.html">summary for SuiteTest$NonPublicSuiteWithBeforeClass.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        @BeforeClass </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        public static void doesNothing() {} <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.doesNothing%28%29%3Avoid.4011bef26256ca1911b834f6614ad3eb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.doesNothing%28%29%3Avoid.4011bef26256ca1911b834f6614ad3eb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.doesNothing%28%29%3Avoid.4011bef26256ca1911b834f6614ad3eb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.doesNothing%28%29%3Avoid.4011bef26256ca1911b834f6614ad3eb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24NonPublicSuiteWithBeforeClass.doesNothing%28%29%3Avoid.4011bef26256ca1911b834f6614ad3eb.html">summary for void SuiteTest$NonPublicSuiteWithBeforeClass.doesNothing()</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    public static class InheritsAll extends All { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InheritsAll.<init>%28%29.6bea5b108eb857e494dd0166df1268c1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InheritsAll.<init>%28%29.6bea5b108eb857e494dd0166df1268c1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$InheritsAll* [line 57];
+n$1=_fun_SuiteTest$All.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$InheritsAll*) [line 57];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InheritsAll.<init>%28%29.6bea5b108eb857e494dd0166df1268c1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InheritsAll.<init>%28%29.6bea5b108eb857e494dd0166df1268c1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InheritsAll.<init>%28%29.6bea5b108eb857e494dd0166df1268c1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24InheritsAll.<init>%28%29.6bea5b108eb857e494dd0166df1268c1.html">summary for SuiteTest$InheritsAll.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    public void ensureTestIsRun() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533.html">summary for void SuiteTest.ensureTestIsRun()</a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        JUnitCore core = new JUnitCore(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 62];
+n$1=_fun_JUnitCore.&lt;init&gt;()(n$0:org.junit.runner.JUnitCore*) [line 62];
+*&amp;core:org.junit.runner.JUnitCore*=n$0 [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        Result result = core.run(All.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 63];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$2 [line 63];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 63];
+*n$3[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$All [line 63];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;core:org.junit.runner.JUnitCore* [line 63];
+_=*n$4:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 63];
+n$6=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 63];
+n$7=_fun_Result JUnitCore.run(Class[])(n$4:org.junit.runner.JUnitCore*,n$6:java.lang.Class*[_*_](*)) virtual [line 63];
+*&amp;result:org.junit.runner.Result*=n$7 [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        assertEquals(2, result.getRunCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;result:org.junit.runner.Result* [line 64];
+_=*n$8:org.junit.runner.Result*(root org.junit.runner.Result) [line 64];
+n$10=_fun_int Result.getRunCount()(n$8:org.junit.runner.Result*) virtual [line 64];
+*&amp;$irvar1:int=n$10 [line 64];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;$irvar1:int [line 64];
+n$12=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$11:long) [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        assertEquals(1, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;result:org.junit.runner.Result* [line 65];
+_=*n$13:org.junit.runner.Result*(root org.junit.runner.Result) [line 65];
+n$15=_fun_int Result.getFailureCount()(n$13:org.junit.runner.Result*) virtual [line 65];
+*&amp;$irvar2:int=n$15 [line 65];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;$irvar2:int [line 65];
+n$17=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$16:long) [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureTestIsRun%28%29%3Avoid.236d67363cf917ce0b33f2c6b2fc6533_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    public void ensureInheritedTestIsRun() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7.html">summary for void SuiteTest.ensureInheritedTestIsRun()</a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        JUnitCore core = new JUnitCore(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 70];
+n$1=_fun_JUnitCore.&lt;init&gt;()(n$0:org.junit.runner.JUnitCore*) [line 70];
+*&amp;core:org.junit.runner.JUnitCore*=n$0 [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        Result result = core.run(InheritsAll.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 71];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$2 [line 71];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 71];
+*n$3[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$InheritsAll [line 71];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;core:org.junit.runner.JUnitCore* [line 71];
+_=*n$4:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 71];
+n$6=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 71];
+n$7=_fun_Result JUnitCore.run(Class[])(n$4:org.junit.runner.JUnitCore*,n$6:java.lang.Class*[_*_](*)) virtual [line 71];
+*&amp;result:org.junit.runner.Result*=n$7 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        assertEquals(2, result.getRunCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;result:org.junit.runner.Result* [line 72];
+_=*n$8:org.junit.runner.Result*(root org.junit.runner.Result) [line 72];
+n$10=_fun_int Result.getRunCount()(n$8:org.junit.runner.Result*) virtual [line 72];
+*&amp;$irvar1:int=n$10 [line 72];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;$irvar1:int [line 72];
+n$12=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$11:long) [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        assertEquals(1, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;result:org.junit.runner.Result* [line 73];
+_=*n$13:org.junit.runner.Result*(root org.junit.runner.Result) [line 73];
+n$15=_fun_int Result.getFailureCount()(n$13:org.junit.runner.Result*) virtual [line 73];
+*&amp;$irvar2:int=n$15 [line 73];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;$irvar2:int [line 73];
+n$17=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$16:long) [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureInheritedTestIsRun%28%29%3Avoid.a5e21b55b171804b7bdd0e324e4a54e7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">    public void suiteTestCountIsCorrect() throws Exception { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2.html">summary for void SuiteTest.suiteTestCountIsCorrect()</a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">        Runner runner = Request.aClass(All.class).getRunner(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Request Request.aClass(Class)(org.junit.tests.running.classes.SuiteTest$All:java.lang.Object*) [line 78];
+*&amp;$irvar0:org.junit.runner.Request*=n$0 [line 78];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.runner.Request* [line 78];
+_=*n$1:org.junit.runner.Request*(root org.junit.runner.Request) [line 78];
+n$3=_fun_Runner Request.getRunner()(n$1:org.junit.runner.Request*) virtual [line 78];
+*&amp;runner:org.junit.runner.Runner*=n$3 [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        assertEquals(2, runner.testCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;runner:org.junit.runner.Runner* [line 79];
+_=*n$4:org.junit.runner.Runner*(root org.junit.runner.Runner) [line 79];
+n$6=_fun_int Runner.testCount()(n$4:org.junit.runner.Runner*) virtual [line 79];
+*&amp;$irvar1:int=n$6 [line 79];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 79];
+n$8=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$7:long) [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteTestCountIsCorrect%28%29%3Avoid.2a85bde7c083b7c5eddad07bd891e5c2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    public void suiteClassDoesNotNeedToBePublic() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a.html">summary for void SuiteTest.suiteClassDoesNotNeedToBePublic()</a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        JUnitCore core = new JUnitCore(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 84];
+n$1=_fun_JUnitCore.&lt;init&gt;()(n$0:org.junit.runner.JUnitCore*) [line 84];
+*&amp;core:org.junit.runner.JUnitCore*=n$0 [line 84];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">        Result result = core.run(NonPublicSuite.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 85];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$2 [line 85];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 85];
+*n$3[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$NonPublicSuite [line 85];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;core:org.junit.runner.JUnitCore* [line 85];
+_=*n$4:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 85];
+n$6=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 85];
+n$7=_fun_Result JUnitCore.run(Class[])(n$4:org.junit.runner.JUnitCore*,n$6:java.lang.Class*[_*_](*)) virtual [line 85];
+*&amp;result:org.junit.runner.Result*=n$7 [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        assertEquals(1, result.getRunCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;result:org.junit.runner.Result* [line 86];
+_=*n$8:org.junit.runner.Result*(root org.junit.runner.Result) [line 86];
+n$10=_fun_int Result.getRunCount()(n$8:org.junit.runner.Result*) virtual [line 86];
+*&amp;$irvar1:int=n$10 [line 86];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;$irvar1:int [line 86];
+n$12=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$11:long) [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">        assertEquals(0, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;result:org.junit.runner.Result* [line 87];
+_=*n$13:org.junit.runner.Result*(root org.junit.runner.Result) [line 87];
+n$15=_fun_int Result.getFailureCount()(n$13:org.junit.runner.Result*) virtual [line 87];
+*&amp;$irvar2:int=n$15 [line 87];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;$irvar2:int [line 87];
+n$17=_fun_void Assert.assertEquals(long,long)(0:long,(long)n$16:long) [line 87];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteClassDoesNotNeedToBePublic%28%29%3Avoid.ba13b0a03b8a5408a1fb4df6e69b068a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    public void nonPublicSuiteClassWithBeforeClassPasses() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641.html">summary for void SuiteTest.nonPublicSuiteClassWithBeforeClassPasses()</a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">        assertThat(testResult(NonPublicSuiteWithBeforeClass.class), isSuccessful()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_PrintableResult PrintableResult.testResult(Class)(org.junit.tests.running.classes.SuiteTest$NonPublicSuiteWithBeforeClass:java.lang.Object*) [line 92];
+*&amp;$irvar0:org.junit.experimental.results.PrintableResult*=n$0 [line 92];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=_fun_Matcher ResultMatchers.isSuccessful()() [line 92];
+*&amp;$irvar1:org.hamcrest.Matcher*=n$1 [line 92];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.experimental.results.PrintableResult* [line 92];
+n$3=*&amp;$irvar1:org.hamcrest.Matcher* [line 92];
+n$4=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$2:org.junit.experimental.results.PrintableResult*,n$3:org.hamcrest.Matcher*) [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.nonPublicSuiteClassWithBeforeClassPasses%28%29%3Avoid.e6372b2b3de499a68bdb8c201abcc641_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    public void ensureSuitesWorkWithForwardCompatibility() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf.html">summary for void SuiteTest.ensureSuitesWorkWithForwardCompatibility()</a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        junit.framework.Test test = new JUnit4TestAdapter(All.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.JUnit4TestAdapter):junit.framework.JUnit4TestAdapter*) [line 97];
+n$1=_fun_JUnit4TestAdapter.&lt;init&gt;(Class)(n$0:junit.framework.JUnit4TestAdapter*,org.junit.tests.running.classes.SuiteTest$All:java.lang.Object*) [line 97];
+*&amp;test:junit.framework.JUnit4TestAdapter*=n$0 [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">        TestResult result = new TestResult(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.framework.TestResult):junit.framework.TestResult*) [line 98];
+n$3=_fun_TestResult.&lt;init&gt;()(n$2:junit.framework.TestResult*) [line 98];
+*&amp;result:junit.framework.TestResult*=n$2 [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        test.run(result); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;test:junit.framework.JUnit4TestAdapter* [line 99];
+_=*n$4:junit.framework.JUnit4TestAdapter*(root junit.framework.JUnit4TestAdapter) [line 99];
+n$6=*&amp;result:junit.framework.TestResult* [line 99];
+n$7=_fun_void Test.run(TestResult)(n$4:junit.framework.JUnit4TestAdapter*,n$6:junit.framework.TestResult*) interface virtual [line 99];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B5] object `test.fCache` initialized automatically could be null and is dereferenced by call to `run(...)` at line 99</div></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        assertEquals(2, result.runCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=*&amp;result:junit.framework.TestResult* [line 100];
+_=*n$8:junit.framework.TestResult*(root junit.framework.TestResult) [line 100];
+n$10=_fun_int TestResult.runCount()(n$8:junit.framework.TestResult*) virtual [line 100];
+*&amp;$irvar0:int=n$10 [line 100];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;$irvar0:int [line 100];
+n$12=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$11:long) [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.ensureSuitesWorkWithForwardCompatibility%28%29%3Avoid.7a22ecfc7ab0078b1a0ef9c416094ecf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    public void forwardCompatibilityWorksWithGetTests() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07.html">summary for void SuiteTest.forwardCompatibilityWorksWithGetTests()</a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        JUnit4TestAdapter adapter = new JUnit4TestAdapter(All.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.JUnit4TestAdapter):junit.framework.JUnit4TestAdapter*) [line 105];
+n$1=_fun_JUnit4TestAdapter.&lt;init&gt;(Class)(n$0:junit.framework.JUnit4TestAdapter*,org.junit.tests.running.classes.SuiteTest$All:java.lang.Object*) [line 105];
+*&amp;adapter:junit.framework.JUnit4TestAdapter*=n$0 [line 105];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        List&lt;? extends junit.framework.Test&gt; tests = adapter.getTests(); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;adapter:junit.framework.JUnit4TestAdapter* [line 106];
+_=*n$2:junit.framework.JUnit4TestAdapter*(root junit.framework.JUnit4TestAdapter) [line 106];
+n$4=_fun_List JUnit4TestAdapter.getTests()(n$2:junit.framework.JUnit4TestAdapter*) virtual [line 106];
+*&amp;tests:java.util.List*=n$4 [line 106];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B5] object `adapter.fRunner` initialized automatically could be null and is dereferenced by call to `getTests()` at line 106</div></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        assertEquals(2, tests.size()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;tests:java.util.List* [line 107];
+_=*n$5:java.util.List*(root java.util.List) [line 107];
+n$7=_fun_int List.size()(n$5:java.util.List*) interface virtual [line 107];
+*&amp;$irvar0:int=n$7 [line 107];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=*&amp;$irvar0:int [line 107];
+n$9=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$8:long) [line 107];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithGetTests%28%29%3Avoid.d33b960db7e5072337afdb201d855f07_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">    public void forwardCompatibilityWorksWithTestCount() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1.html">summary for void SuiteTest.forwardCompatibilityWorksWithTestCount()</a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">        JUnit4TestAdapter adapter = new JUnit4TestAdapter(All.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.JUnit4TestAdapter):junit.framework.JUnit4TestAdapter*) [line 112];
+n$1=_fun_JUnit4TestAdapter.&lt;init&gt;(Class)(n$0:junit.framework.JUnit4TestAdapter*,org.junit.tests.running.classes.SuiteTest$All:java.lang.Object*) [line 112];
+*&amp;adapter:junit.framework.JUnit4TestAdapter*=n$0 [line 112];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        assertEquals(2, adapter.countTestCases()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;adapter:junit.framework.JUnit4TestAdapter* [line 113];
+_=*n$2:junit.framework.JUnit4TestAdapter*(root junit.framework.JUnit4TestAdapter) [line 113];
+n$4=_fun_int JUnit4TestAdapter.countTestCases()(n$2:junit.framework.JUnit4TestAdapter*) virtual [line 113];
+*&amp;$irvar0:int=n$4 [line 113];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:int [line 113];
+n$6=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$5:long) [line 113];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B5] object `adapter.fRunner` initialized automatically could be null and is dereferenced by call to `countTestCases()` at line 113</div></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.forwardCompatibilityWorksWithTestCount%28%29%3Avoid.6f8aa331b615d08bc30a2696c08321c1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    private static String log = &quot;&quot;; <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<clinit>%28%29%3Avoid.10d927bb4b4e2e8e10aaee949019dbcf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<clinit>%28%29%3Avoid.10d927bb4b4e2e8e10aaee949019dbcf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.running.classes.SuiteTest.log:org.junit.tests.running.classes.SuiteTest(root org.junit.tests.running.classes.SuiteTest)="" [line 117];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<clinit>%28%29%3Avoid.10d927bb4b4e2e8e10aaee949019dbcf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<clinit>%28%29%3Avoid.10d927bb4b4e2e8e10aaee949019dbcf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.<clinit>%28%29%3Avoid.10d927bb4b4e2e8e10aaee949019dbcf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.<clinit>%28%29%3Avoid.10d927bb4b4e2e8e10aaee949019dbcf.html">summary for void SuiteTest.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    @SuiteClasses({TestA.class, TestB.class}) </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">    public static class AllWithBeforeAndAfterClass { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.<init>%28%29.7095ad21b6d747c2e62bfa2b5621c943_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.<init>%28%29.7095ad21b6d747c2e62bfa2b5621c943_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$AllWithBeforeAndAfterClass* [line 121];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$AllWithBeforeAndAfterClass*) [line 121];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.<init>%28%29.7095ad21b6d747c2e62bfa2b5621c943_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.<init>%28%29.7095ad21b6d747c2e62bfa2b5621c943_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.<init>%28%29.7095ad21b6d747c2e62bfa2b5621c943_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.<init>%28%29.7095ad21b6d747c2e62bfa2b5621c943.html">summary for SuiteTest$AllWithBeforeAndAfterClass.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        @BeforeClass </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        public static void before() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.before%28%29%3Avoid.d5e8c16420480fc1b49d85bd15afd503_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.before%28%29%3Avoid.d5e8c16420480fc1b49d85bd15afd503.html">summary for void SuiteTest$AllWithBeforeAndAfterClass.before()</a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">            log += &quot;before &quot;; <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.before%28%29%3Avoid.d5e8c16420480fc1b49d85bd15afd503_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_String SuiteTest.access$084(Object)("before ":java.lang.Object*) [line 124];
+*&amp;$irvar0:java.lang.String*=n$0 [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.before%28%29%3Avoid.d5e8c16420480fc1b49d85bd15afd503_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.before%28%29%3Avoid.d5e8c16420480fc1b49d85bd15afd503_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.before%28%29%3Avoid.d5e8c16420480fc1b49d85bd15afd503_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        @AfterClass </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        public static void after() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.after%28%29%3Avoid.133af5daf2336829a7751138404d5adf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.after%28%29%3Avoid.133af5daf2336829a7751138404d5adf.html">summary for void SuiteTest$AllWithBeforeAndAfterClass.after()</a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">            log += &quot;after &quot;; <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.after%28%29%3Avoid.133af5daf2336829a7751138404d5adf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_String SuiteTest.access$084(Object)("after ":java.lang.Object*) [line 129];
+*&amp;$irvar0:java.lang.String*=n$0 [line 129];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.after%28%29%3Avoid.133af5daf2336829a7751138404d5adf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.after%28%29%3Avoid.133af5daf2336829a7751138404d5adf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithBeforeAndAfterClass.after%28%29%3Avoid.133af5daf2336829a7751138404d5adf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    public void beforeAndAfterClassRunOnSuite() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce.html">summary for void SuiteTest.beforeAndAfterClassRunOnSuite()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        log = &quot;&quot;; <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.running.classes.SuiteTest.log:org.junit.tests.running.classes.SuiteTest(root org.junit.tests.running.classes.SuiteTest)="" [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        JUnitCore.runClasses(AllWithBeforeAndAfterClass.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 136];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 136];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 136];
+*n$1[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$AllWithBeforeAndAfterClass [line 136];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 136];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 136];
+*&amp;$irvar1:org.junit.runner.Result*=n$3 [line 136];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        assertEquals(&quot;before after &quot;, log); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$4=*&amp;#GB<>$org.junit.tests.running.classes.SuiteTest.log:java.lang.String*(root org.junit.tests.running.classes.SuiteTest) [line 137];
+*&amp;$irvar2:java.lang.String*=n$4 [line 137];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$5=*&amp;$irvar2:java.lang.String* [line 137];
+n$6=_fun_void Assert.assertEquals(Object,Object)("before after ":java.lang.Object*,n$5:java.lang.String*) [line 137];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.beforeAndAfterClassRunOnSuite%28%29%3Avoid.9d8a3d488dafe2c586add0f73059d5ce_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">    public static class AllWithOutAnnotation { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithOutAnnotation.<init>%28%29.97955b08217401d86029ffc909ba2ac6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithOutAnnotation.<init>%28%29.97955b08217401d86029ffc909ba2ac6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$AllWithOutAnnotation* [line 141];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$AllWithOutAnnotation*) [line 141];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithOutAnnotation.<init>%28%29.97955b08217401d86029ffc909ba2ac6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithOutAnnotation.<init>%28%29.97955b08217401d86029ffc909ba2ac6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24AllWithOutAnnotation.<init>%28%29.97955b08217401d86029ffc909ba2ac6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24AllWithOutAnnotation.<init>%28%29.97955b08217401d86029ffc909ba2ac6.html">summary for SuiteTest$AllWithOutAnnotation.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">    public void withoutSuiteClassAnnotationProducesFailure() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789.html">summary for void SuiteTest.withoutSuiteClassAnnotationProducesFailure()</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        Result result = JUnitCore.runClasses(AllWithOutAnnotation.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 146];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 146];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 146];
+*n$1[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$AllWithOutAnnotation [line 146];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 146];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 146];
+*&amp;result:org.junit.runner.Result*=n$3 [line 146];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        assertEquals(1, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 147];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 147];
+n$6=_fun_int Result.getFailureCount()(n$4:org.junit.runner.Result*) virtual [line 147];
+*&amp;$irvar1:int=n$6 [line 147];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 147];
+n$8=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$7:long) [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        String expected = String.format( <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[1]):java.lang.Object*[_*_](*)) [line 148];
+*&amp;$irvar2:java.lang.Object*[_*_](*)=n$9 [line 148];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;$irvar2:java.lang.Object*[_*_](*) [line 148];
+n$14=_fun_String String.format(String,Object[])("class '%s' must have a SuiteClasses annotation":java.lang.Object*,n$13:java.lang.Object*[_*_](*)) [line 148];
+*&amp;expected:java.lang.String*=n$14 [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">                &quot;class '&#37;s' must have a SuiteClasses annotation&quot;, </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">                AllWithOutAnnotation.class.getName()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=_fun_String Class.getName()(org.junit.tests.running.classes.SuiteTest$AllWithOutAnnotation:java.lang.Object*) virtual [line 150];
+*&amp;$irvar3:java.lang.String*=n$10 [line 150];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$11=*&amp;$irvar2:java.lang.Object*[_*_](*) [line 150];
+n$12=*&amp;$irvar3:java.lang.String* [line 150];
+*n$11[0]:java.lang.String*=n$12 [line 150];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">        assertEquals(expected, result.getFailures().get(0).getMessage()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$15=*&amp;result:org.junit.runner.Result* [line 151];
+_=*n$15:org.junit.runner.Result*(root org.junit.runner.Result) [line 151];
+n$17=_fun_List Result.getFailures()(n$15:org.junit.runner.Result*) virtual [line 151];
+*&amp;$irvar4:java.util.List*=n$17 [line 151];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$18=*&amp;$irvar4:java.util.List* [line 151];
+_=*n$18:java.util.List*(root java.util.List) [line 151];
+n$20=_fun_Object List.get(int)(n$18:java.util.List*,0:int) interface virtual [line 151];
+*&amp;$irvar5:java.lang.Object*=n$20 [line 151];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$21=*&amp;$irvar5:java.lang.Object* [line 151];
+n$22=_fun___cast(n$21:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 151];
+_=*n$22:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 151];
+n$24=_fun_String Failure.getMessage()(n$22:org.junit.runner.notification.Failure*) virtual [line 151];
+*&amp;$irvar6:java.lang.String*=n$24 [line 151];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$25=*&amp;expected:java.lang.String* [line 151];
+n$26=*&amp;$irvar6:java.lang.String* [line 151];
+n$27=_fun_void Assert.assertEquals(Object,Object)(n$25:java.lang.String*,n$26:java.lang.String*) [line 151];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:17 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.withoutSuiteClassAnnotationProducesFailure%28%29%3Avoid.7a54736daf41238cec8df46133fba789_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">    @SuiteClasses(InfiniteLoop.class) </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">    static public class InfiniteLoop { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InfiniteLoop.<init>%28%29.803431d7b50382f259b643ce3b7ec03c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InfiniteLoop.<init>%28%29.803431d7b50382f259b643ce3b7ec03c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$InfiniteLoop* [line 156];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$InfiniteLoop*) [line 156];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InfiniteLoop.<init>%28%29.803431d7b50382f259b643ce3b7ec03c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InfiniteLoop.<init>%28%29.803431d7b50382f259b643ce3b7ec03c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24InfiniteLoop.<init>%28%29.803431d7b50382f259b643ce3b7ec03c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24InfiniteLoop.<init>%28%29.803431d7b50382f259b643ce3b7ec03c.html">summary for SuiteTest$InfiniteLoop.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">    public void whatHappensWhenASuiteHasACycle() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77.html">summary for void SuiteTest.whatHappensWhenASuiteHasACycle()</a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">        Result result = JUnitCore.runClasses(InfiniteLoop.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 161];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 161];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 161];
+*n$1[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$InfiniteLoop [line 161];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 161];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 161];
+*&amp;result:org.junit.runner.Result*=n$3 [line 161];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        assertEquals(1, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 162];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 162];
+n$6=_fun_int Result.getFailureCount()(n$4:org.junit.runner.Result*) virtual [line 162];
+*&amp;$irvar1:int=n$6 [line 162];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 162];
+n$8=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$7:long) [line 162];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasACycle%28%29%3Avoid.617818dd87b272d97e1a10dd83d6bb77_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    @SuiteClasses({BiInfiniteLoop.class, BiInfiniteLoop.class}) </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">    static public class BiInfiniteLoop { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24BiInfiniteLoop.<init>%28%29.1391b196c31ecbc266ff069f5fa56131_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24BiInfiniteLoop.<init>%28%29.1391b196c31ecbc266ff069f5fa56131_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$BiInfiniteLoop* [line 167];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$BiInfiniteLoop*) [line 167];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24BiInfiniteLoop.<init>%28%29.1391b196c31ecbc266ff069f5fa56131_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24BiInfiniteLoop.<init>%28%29.1391b196c31ecbc266ff069f5fa56131_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24BiInfiniteLoop.<init>%28%29.1391b196c31ecbc266ff069f5fa56131_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24BiInfiniteLoop.<init>%28%29.1391b196c31ecbc266ff069f5fa56131.html">summary for SuiteTest$BiInfiniteLoop.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">    public void whatHappensWhenASuiteHasAForkingCycle() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf.html">summary for void SuiteTest.whatHappensWhenASuiteHasAForkingCycle()</a></td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">        Result result = JUnitCore.runClasses(BiInfiniteLoop.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 172];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 172];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 172];
+*n$1[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$BiInfiniteLoop [line 172];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 172];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 172];
+*&amp;result:org.junit.runner.Result*=n$3 [line 172];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">        assertEquals(2, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 173];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 173];
+n$6=_fun_int Result.getFailureCount()(n$4:org.junit.runner.Result*) virtual [line 173];
+*&amp;$irvar1:int=n$6 [line 173];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 173];
+n$8=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$7:long) [line 173];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteHasAForkingCycle%28%29%3Avoid.968dc454a93d574d7fe23d4d45963abf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">    // The interesting case here is that Hydra indirectly contains two copies of </td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">    // itself (if it only contains one, Java's StackOverflowError eventually </td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">    // bails us out) </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">    @SuiteClasses({Hercules.class}) </td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">    static public class Hydra { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hydra.<init>%28%29.ed950ee5d5897d32710ceef0ada34d0b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hydra.<init>%28%29.ed950ee5d5897d32710ceef0ada34d0b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$Hydra* [line 182];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$Hydra*) [line 182];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hydra.<init>%28%29.ed950ee5d5897d32710ceef0ada34d0b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hydra.<init>%28%29.ed950ee5d5897d32710ceef0ada34d0b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hydra.<init>%28%29.ed950ee5d5897d32710ceef0ada34d0b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24Hydra.<init>%28%29.ed950ee5d5897d32710ceef0ada34d0b.html">summary for SuiteTest$Hydra.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line">    @SuiteClasses({Hydra.class, Hydra.class}) </td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">    static public class Hercules { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hercules.<init>%28%29.716283763cd7f3bfff8565b595d43709_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hercules.<init>%28%29.716283763cd7f3bfff8565b595d43709_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$Hercules* [line 187];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.SuiteTest$Hercules*) [line 187];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hercules.<init>%28%29.716283763cd7f3bfff8565b595d43709_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hercules.<init>%28%29.716283763cd7f3bfff8565b595d43709_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24Hercules.<init>%28%29.716283763cd7f3bfff8565b595d43709_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24Hercules.<init>%28%29.716283763cd7f3bfff8565b595d43709.html">summary for SuiteTest$Hercules.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line">    public void whatHappensWhenASuiteContainsItselfIndirectly() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881.html">summary for void SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly()</a></td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">        Result result = JUnitCore.runClasses(Hydra.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 192];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 192];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 192];
+*n$1[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$Hydra [line 192];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 192];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 192];
+*&amp;result:org.junit.runner.Result*=n$3 [line 192];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">        assertEquals(2, result.getFailureCount()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 193];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 193];
+n$6=_fun_int Result.getFailureCount()(n$4:org.junit.runner.Result*) virtual [line 193];
+*&amp;$irvar1:int=n$6 [line 193];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 193];
+n$8=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$7:long) [line 193];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.whatHappensWhenASuiteContainsItselfIndirectly%28%29%3Avoid.ff70282145dce84ee0d632b1a495f881_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">    @SuiteClasses({}) </td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line">    public class WithoutDefaultConstructor { </td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line">        public WithoutDefaultConstructor(int i) { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$WithoutDefaultConstructor* [line 199];
+n$1=*&amp;this$0:org.junit.tests.running.classes.SuiteTest* [line 199];
+*n$0.this$0:org.junit.tests.running.classes.SuiteTest$WithoutDefaultConstructor(root org.junit.tests.running.classes.SuiteTest$WithoutDefaultConstructor)=n$1 [line 199];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.tests.running.classes.SuiteTest$WithoutDefaultConstructor* [line 199];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.tests.running.classes.SuiteTest$WithoutDefaultConstructor*) [line 199];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747.html">summary for SuiteTest$WithoutDefaultConstructor.&lt;init&gt;(SuiteTest,int)</a></td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">        } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24WithoutDefaultConstructor.<init>%28org.junit.tests.running.c.aff36091d11647fbb4931a41b193d747_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">    public void suiteShouldBeOKwithNonDefaultConstructor() throws Exception { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc.html">summary for void SuiteTest.suiteShouldBeOKwithNonDefaultConstructor()</a></td></tr>
+<tr><td class="num" id="LINE206">206</td><td class="line">        Result result = JUnitCore.runClasses(WithoutDefaultConstructor.class); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 206];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 206];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 206];
+*n$1[0]:java.lang.Object*=org.junit.tests.running.classes.SuiteTest$WithoutDefaultConstructor [line 206];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 206];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 206];
+*&amp;result:org.junit.runner.Result*=n$3 [line 206];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE207">207</td><td class="line">        assertTrue(result.wasSuccessful()); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 207];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 207];
+n$6=_fun_boolean Result.wasSuccessful()(n$4:org.junit.runner.Result*) virtual [line 207];
+*&amp;$irvar1:_Bool=n$6 [line 207];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:_Bool [line 207];
+n$8=_fun_void Assert.assertTrue(boolean)(n$7:_Bool) [line 207];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE208">208</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldBeOKwithNonDefaultConstructor%28%29%3Avoid.94084620e73fdf28e6207ae5b8fba5fc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE209">209</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE210">210</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE211">211</td><td class="line">    public class NoSuiteClassesAnnotation { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.SuiteTest$NoSuiteClassesAnnotation* [line 211];
+n$1=*&amp;this$0:org.junit.tests.running.classes.SuiteTest* [line 211];
+*n$0.this$0:org.junit.tests.running.classes.SuiteTest$NoSuiteClassesAnnotation(root org.junit.tests.running.classes.SuiteTest$NoSuiteClassesAnnotation)=n$1 [line 211];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.tests.running.classes.SuiteTest$NoSuiteClassesAnnotation* [line 211];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.tests.running.classes.SuiteTest$NoSuiteClassesAnnotation*) [line 211];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest%24NoSuiteClassesAnnotation.<init>%28org.junit.tests.running.cl.20482fc73faec9c1677b06a4ce4087bc.html">summary for SuiteTest$NoSuiteClassesAnnotation.&lt;init&gt;(SuiteTest)</a></td></tr>
+<tr><td class="num" id="LINE212">212</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE213">213</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE214">214</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE215">215</td><td class="line">    public void suiteShouldComplainAboutNoSuiteClassesAnnotation() { <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4.html">summary for void SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation()</a></td></tr>
+<tr><td class="num" id="LINE216">216</td><td class="line">        assertThat(testResult(NoSuiteClassesAnnotation.class), hasSingleFailureContaining(&quot;SuiteClasses&quot;)); <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_PrintableResult PrintableResult.testResult(Class)(org.junit.tests.running.classes.SuiteTest$NoSuiteClassesAnnotation:java.lang.Object*) [line 216];
+*&amp;$irvar0:org.junit.experimental.results.PrintableResult*=n$0 [line 216];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=_fun_Matcher ResultMatchers.hasSingleFailureContaining(String)("SuiteClasses":java.lang.Object*) [line 216];
+*&amp;$irvar1:org.hamcrest.Matcher*=n$1 [line 216];
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.experimental.results.PrintableResult* [line 216];
+n$3=*&amp;$irvar1:org.hamcrest.Matcher* [line 216];
+n$4=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$2:org.junit.experimental.results.PrintableResult*,n$3:org.hamcrest.Matcher*) [line 216];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE217">217</td><td class="line">    } <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/org.junit.tests.running.classes.SuiteTest.suiteShouldComplainAboutNoSuiteClassesAnnotation%28%29%3Avoid.2c1a099a9ca67c9cb2a663264cfd1cf4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE218">218</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Null Dereference [B5] object `test.fCache` initialized automatically could be null and is dereferenced by call to `run(...)` at line 99 <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/node6.html#session34">node6#session34</a>(<a href="./SuiteTest.java.167329620be352b2f92add741306929f/../SuiteTest.java.167329620be352b2f92add741306929f.html#LINE99">99</a>)<br>Null Dereference [B5] object `adapter.fRunner` initialized automatically could be null and is dereferenced by call to `getTests()` at line 106 <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/node5.html#session29">node5#session29</a>(<a href="./SuiteTest.java.167329620be352b2f92add741306929f/../SuiteTest.java.167329620be352b2f92add741306929f.html#LINE106">106</a>)<br>Null Dereference [B5] object `adapter.fRunner` initialized automatically could be null and is dereferenced by call to `countTestCases()` at line 113 <a href="./SuiteTest.java.167329620be352b2f92add741306929f/nodes/node5.html#session25">node5#session25</a>(<a href="./SuiteTest.java.167329620be352b2f92add741306929f/../SuiteTest.java.167329620be352b2f92add741306929f.html#LINE113">113</a>)</body>
+</html>

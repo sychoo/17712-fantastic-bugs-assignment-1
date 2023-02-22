@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_1" [label="1: Start void WithOnlyTestAnnotations$HonorExpectedExceptionPasses.shouldThrow()\nFormals:  this:org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses*\nLocals:  $irvar0:void\nAnnotation: <_org.junit.Test(expected="java.lang.NullPointerException")> void WithOnlyTestAnnotations$HonorExpectedExceptionPasses.shouldThrow()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_1" -> "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_4" ;
+"org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_2" [label="2: Exit void WithOnlyTestAnnotations$HonorExpectedExceptionPasses.shouldThrow() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 36]\n  EXIT_SCOPE($irvar0); [line 36]\n  APPLY_ABSTRACTION; [line 36]\n " shape="box"]
+	
+
+	 "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_3" -> "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_2" ;
+"org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_4" [label="4:  Call NullPointerException.<init>() \n   n$0=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 36]\n  n$1=_fun_NullPointerException.<init>()(n$0:java.lang.NullPointerException*) [line 36]\n  *&$irvar0:java.lang.NullPointerException*=n$0 [line 36]\n  EXIT_SCOPE(n$0,n$1); [line 36]\n " shape="box"]
+	
+
+	 "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_4" -> "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_5" ;
+	 "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_4" -> "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_3" [color="red" ];
+"org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_5" [label="5:  throw \n   n$2=*&$irvar0:java.lang.NullPointerException* [line 36]\n  *&return:void=EXN n$2 [line 36]\n  NULLIFY(&$irvar0); [line 36]\n  EXIT_SCOPE(n$2,$irvar0); [line 36]\n  APPLY_ABSTRACTION; [line 36]\n " shape="box"]
+	
+
+	 "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_5" -> "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_2" ;
+	 "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_5" -> "org.junit.tests.experimental.theories.runner.WithOnlyTestAnnotations$HonorExpectedExceptionPasses.sh.820b0f3015d751a5d0b40e7d2d0e101e_3" [color="red" ];
+}

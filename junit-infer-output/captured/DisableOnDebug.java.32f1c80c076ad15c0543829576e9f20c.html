@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/rules/DisableOnDebug.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import org.junit.internal.management.ManagementFactory; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.internal.management.RuntimeMXBean; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * The {@code DisableOnDebug} Rule allows you to label certain rules to be </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * disabled when debugging. </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * The most illustrative use case is for tests that make use of the </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * {@link Timeout} rule, when ran in debug mode the test may terminate on </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * timeout abruptly during debugging. Developers may disable the timeout, or </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * increase the timeout by making a code change on tests that need debugging and </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * remember revert the change afterwards or rules such as {@link Timeout} that </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * may be disabled during debugging may be wrapped in a {@code DisableOnDebug}. </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * The important benefit of this feature is that you can disable such rules </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * without any making any modifications to your test class to remove them during </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * debugging. </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * This does nothing to tackle timeouts or time sensitive code under test when </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> * debugging and may make this less useful in such circumstances. </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> * Example usage: </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> *  </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> * public static class DisableTimeoutOnDebugSampleTest { </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> *  </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> *     &amp;#064;Rule </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> *     public TestRule timeout = new DisableOnDebug(new Timeout(20)); </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> *  </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> *     &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> *     public void myTest() { </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> *         int i = 0; </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> *         assertEquals(0, i); // suppose you had a break point here to inspect i </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> *  </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">public class DisableOnDebug implements TestRule { </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    private final TestRule rule; </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    private final boolean debugging; </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">     * Create a {@code DisableOnDebug} instance with the timeout specified in </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">     * milliseconds. </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">     *  </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     * @param rule to disable during debugging </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">    public DisableOnDebug(TestRule rule) { </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        this(rule, ManagementFactory.getRuntimeMXBean() <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_RuntimeMXBean ManagementFactory.getRuntimeMXBean()() [line 57];
+*&amp;$irvar0:org.junit.internal.management.RuntimeMXBean*=n$0 [line 57];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.DisableOnDebug* [line 57];
+n$5=*&amp;rule:org.junit.rules.TestRule* [line 57];
+n$6=*&amp;$irvar1:java.util.List* [line 57];
+n$7=_fun_DisableOnDebug.&lt;init&gt;(TestRule,List)(n$4:org.junit.rules.DisableOnDebug*,n$5:org.junit.rules.TestRule*,n$6:java.util.List*) [line 57];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09.html">summary for DisableOnDebug.&lt;init&gt;(TestRule)</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">                .getInputArguments()); <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.internal.management.RuntimeMXBean* [line 58];
+_=*n$1:org.junit.internal.management.RuntimeMXBean*(root org.junit.internal.management.RuntimeMXBean) [line 58];
+n$3=_fun_List RuntimeMXBean.getInputArguments()(n$1:org.junit.internal.management.RuntimeMXBean*) interface virtual [line 58];
+*&amp;$irvar1:java.util.List*=n$3 [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    } <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%29.ec6015884031f6ad99372e4ae58a3e09_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">     * Visible for testing purposes only. </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">     *  </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">     * @param rule the rule to disable during debugging </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">     * @param inputArguments </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">     *            arguments provided to the Java runtime </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    DisableOnDebug(TestRule rule, List&lt;String&gt; inputArguments) { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.DisableOnDebug* [line 68];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.DisableOnDebug*) [line 68];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30.html">summary for DisableOnDebug.&lt;init&gt;(TestRule,List)</a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        this.rule = rule; <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.DisableOnDebug* [line 69];
+n$3=*&amp;rule:org.junit.rules.TestRule* [line 69];
+*n$2.rule:org.junit.rules.DisableOnDebug(root org.junit.rules.DisableOnDebug)=n$3 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        debugging = isDebugging(inputArguments); <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;inputArguments:java.util.List* [line 70];
+n$5=_fun_boolean DisableOnDebug.isDebugging(List)(n$4:java.util.List*) [line 70];
+*&amp;$irvar0:_Bool=n$5 [line 70];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.DisableOnDebug* [line 70];
+n$7=*&amp;$irvar0:_Bool [line 70];
+*n$6.debugging:org.junit.rules.DisableOnDebug(root org.junit.rules.DisableOnDebug)=n$7 [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">    } <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.<init>%28org.junit.rules.TestRule%2Cjava.util.List%29.d34835da91235ef38fb513a07548bf30_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">     * @see TestRule#apply(Statement, Description) </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    public Statement apply(Statement base, Description description) { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8.html">summary for Statement DisableOnDebug.apply(Statement,Description)</a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        if (debugging) { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.rules.DisableOnDebug* [line 77];
+n$1=*n$0.debugging:_Bool(root org.junit.rules.DisableOnDebug) [line 77];
+PRUNE(!(n$1 == 0), true); [line 77];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.rules.DisableOnDebug* [line 77];
+n$1=*n$0.debugging:_Bool(root org.junit.rules.DisableOnDebug) [line 77];
+PRUNE((n$1 == 0), false); [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            return base; <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;base:org.junit.runners.model.Statement* [line 78];
+*&amp;return:org.junit.runners.model.Statement*=n$2 [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">            return rule.apply(base, description); <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$3=*&amp;this:org.junit.rules.DisableOnDebug* [line 80];
+n$4=*n$3.rule:org.junit.rules.TestRule*(root org.junit.rules.DisableOnDebug) [line 80];
+_=*n$4:org.junit.rules.TestRule*(root org.junit.rules.TestRule) [line 80];
+n$6=*&amp;base:org.junit.runners.model.Statement* [line 80];
+n$7=*&amp;description:org.junit.runner.Description* [line 80];
+n$8=_fun_Statement TestRule.apply(Statement,Description)(n$4:org.junit.rules.TestRule*,n$6:org.junit.runners.model.Statement*,n$7:org.junit.runner.Description*) interface virtual [line 80];
+*&amp;$irvar0:org.junit.runners.model.Statement*=n$8 [line 80];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$9=*&amp;$irvar0:org.junit.runners.model.Statement* [line 80];
+*&amp;return:org.junit.runners.model.Statement*=n$9 [line 80];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 6 3 succs: exn: Exit
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Description%29.7a354060836cf951d83eb5a62b0de6a8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * Parses arguments passed to the runtime environment for debug flags </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">     * Options specified in: </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">     * &lt;ul&gt; </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">     * &lt;li&gt; </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">     * &lt;a href=&quot;http://docs.oracle.com/javase/6/docs/technotes/guides/jpda/conninv.html#Invocation&quot; </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">     * &gt;javase-6&lt;/a&gt;&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">     * &lt;li&gt;&lt;a href=&quot;http://docs.oracle.com/javase/7/docs/technotes/guides/jpda/conninv.html#Invocation&quot; </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">     * &gt;javase-7&lt;/a&gt;&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">     * &lt;li&gt;&lt;a href=&quot;http://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html#Invocation&quot; </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">     * &gt;javase-8&lt;/a&gt;&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">     *  </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">     *  </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">     * @param arguments </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">     *            the arguments passed to the runtime environment, usually this </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">     *            will be {@link RuntimeMXBean#getInputArguments()} </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">     * @return true if the current JVM was started in debug mode, false </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">     *         otherwise. </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    private static boolean isDebugging(List&lt;String&gt; arguments) { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3.html">summary for boolean DisableOnDebug.isDebugging(List)</a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        for (final String argument : arguments) { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;arguments:java.util.List* [line 105];
+_=*n$0:java.util.List*(root java.util.List) [line 105];
+n$2=_fun_Iterator List.iterator()(n$0:java.util.List*) interface virtual [line 105];
+*&amp;$bcvar1:java.util.Iterator*=n$2 [line 105];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:17 4 succs:8 exn:3 Instructions
+n$3=*&amp;$bcvar1:java.util.Iterator* [line 105];
+_=*n$3:java.util.Iterator*(root java.util.Iterator) [line 105];
+n$5=_fun_boolean Iterator.hasNext()(n$3:java.util.Iterator*) interface virtual [line 105];
+*&amp;$irvar0:_Bool=n$5 [line 105];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 105];
+PRUNE(!(n$6 == 0), true); [line 105];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$7=*&amp;$bcvar1:java.util.Iterator* [line 105];
+_=*n$7:java.util.Iterator*(root java.util.Iterator) [line 105];
+n$9=_fun_Object Iterator.next()(n$7:java.util.Iterator*) interface virtual [line 105];
+*&amp;$irvar1:java.lang.Object*=n$9 [line 105];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar1:java.lang.Object* [line 105];
+n$11=_fun___cast(n$10:java.lang.Object*,sizeof(t=java.lang.String;sub_t=( sub )(cast)):void) [line 105];
+*&amp;argument:java.lang.String*=n$11 [line 105];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:20 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 105];
+PRUNE((n$6 == 0), false); [line 105];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">            if (&quot;-Xdebug&quot;.equals(argument) || argument.startsWith(&quot;-agentlib:jdwp&quot;)) { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:14 exn:3 Instructions
+n$12=*&amp;argument:java.lang.String* [line 106];
+n$13=_fun_boolean String.equals(Object)("-Xdebug":java.lang.Object*,n$12:java.lang.String*) virtual [line 106];
+*&amp;$irvar2:_Bool=n$13 [line 106];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node14.html"><span class='visited with_tooltip'>J_14<span class='tooltip'>node14 preds:11 succs:12 13 exn: Join
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:14 succs:15 exn:3 Conditional method_body
+n$14=*&amp;$irvar2:_Bool [line 106];
+PRUNE(!(n$14 != 0), true); [line 106];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:12 succs:18 exn:3 Instructions
+n$15=*&amp;argument:java.lang.String* [line 106];
+_=*n$15:java.lang.String*(root java.lang.String) [line 106];
+n$17=_fun_boolean String.startsWith(String)(n$15:java.lang.String*,"-agentlib:jdwp":java.lang.Object*) virtual [line 106];
+*&amp;$irvar3:_Bool=n$17 [line 106];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node18.html"><span class='visited with_tooltip'>J_18<span class='tooltip'>node18 preds:15 succs:16 17 exn: Join
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:18 succs:5 exn:3 Conditional method_body
+n$18=*&amp;$irvar3:_Bool [line 106];
+PRUNE((n$18 == 0), false); [line 106];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:18 succs:19 exn:3 Conditional method_body
+n$18=*&amp;$irvar3:_Bool [line 106];
+PRUNE(!(n$18 == 0), true); [line 106];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:14 succs:19 exn:3 Conditional method_body
+n$14=*&amp;$irvar2:_Bool [line 106];
+PRUNE((n$14 != 0), false); [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">                return true; <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:16 13 succs:2 exn:3 Instructions
+*&amp;return:_Bool=1 [line 107];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        return false; <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:7 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 110];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:20 19 3 succs: exn: Exit
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28java.util.List%29%3Aboolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">     * Returns {@code true} if the JVM is in debug mode. This method may be used </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">     * by test classes to take additional action to disable code paths that </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">     * interfere with debugging if required. </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">     *  </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">     * @return {@code true} if the current JVM is in debug mode, {@code false} </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">     *         otherwise </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">    public boolean isDebugging() { <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28%29%3Aboolean.3e0859cc041023b4b891f57da0fcf172_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/org.junit.rules.DisableOnDebug.isDebugging%28%29%3Aboolean.3e0859cc041023b4b891f57da0fcf172.html">summary for boolean DisableOnDebug.isDebugging()</a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        return debugging; <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28%29%3Aboolean.3e0859cc041023b4b891f57da0fcf172_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.DisableOnDebug* [line 122];
+n$1=*n$0.debugging:_Bool(root org.junit.rules.DisableOnDebug) [line 122];
+*&amp;return:_Bool=n$1 [line 122];
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28%29%3Aboolean.3e0859cc041023b4b891f57da0fcf172_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./DisableOnDebug.java.32f1c80c076ad15c0543829576e9f20c/nodes/org.junit.rules.DisableOnDebug.isDebugging%28%29%3Aboolean.3e0859cc041023b4b891f57da0fcf172_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

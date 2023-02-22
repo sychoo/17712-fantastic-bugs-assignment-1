@@ -1,0 +1,44 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_1" [label="1: Start Result StopwatchTest.runTest(Class)\nFormals:  test:java.lang.Class*\nLocals:  $irvar2:void $irvar1:void $irvar0:void junitCore:org.junit.runner.JUnitCore* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_1" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_4" ;
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_2" [label="2: Exit Result StopwatchTest.runTest(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 161]\n  NULLIFY(&$irvar1); [line 161]\n  NULLIFY(&junitCore); [line 161]\n  NULLIFY(&$irvar2); [line 161]\n  EXIT_SCOPE($irvar0,$irvar1,junitCore,$irvar2); [line 161]\n  APPLY_ABSTRACTION; [line 161]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_2" ;
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_4" [label="4:  Call void StopwatchTest.simulateTimePassing(long) \n   n$0=_fun_void StopwatchTest.simulateTimePassing(long)(1:long) [line 159]\n  EXIT_SCOPE(n$0); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_4" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_5" ;
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_4" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [color="red" ];
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_5" [label="5:  Call JUnitCore.<init>() \n   n$1=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 160]\n  n$2=_fun_JUnitCore.<init>()(n$1:org.junit.runner.JUnitCore*) [line 160]\n  *&junitCore:org.junit.runner.JUnitCore*=n$1 [line 160]\n  EXIT_SCOPE(n$1,n$2); [line 160]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_5" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_6" ;
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_5" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [color="red" ];
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_6" [label="6:  Call Request Request.aClass(Class) \n   n$3=*&test:java.lang.Class* [line 161]\n  n$4=_fun_Request Request.aClass(Class)(n$3:java.lang.Class*) [line 161]\n  *&$irvar0:org.junit.runner.Request*=n$4 [line 161]\n  NULLIFY(&test); [line 161]\n  EXIT_SCOPE(n$3,n$4,test); [line 161]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_6" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_7" ;
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_6" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [color="red" ];
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_7" [label="7:  Call Runner Request.getRunner() \n   n$5=*&$irvar0:org.junit.runner.Request* [line 161]\n  _=*n$5:org.junit.runner.Request*(root org.junit.runner.Request) [line 161]\n  n$7=_fun_Runner Request.getRunner()(n$5:org.junit.runner.Request*) virtual [line 161]\n  *&$irvar1:org.junit.runner.Runner*=n$7 [line 161]\n  NULLIFY(&$irvar0); [line 161]\n  EXIT_SCOPE(_,n$5,n$7,$irvar0); [line 161]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_7" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_8" ;
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_7" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [color="red" ];
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_8" [label="8:  Call Result JUnitCore.run(Runner) \n   n$8=*&junitCore:org.junit.runner.JUnitCore* [line 161]\n  _=*n$8:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 161]\n  n$10=*&$irvar1:org.junit.runner.Runner* [line 161]\n  n$11=_fun_Result JUnitCore.run(Runner)(n$8:org.junit.runner.JUnitCore*,n$10:org.junit.runner.Runner*) [line 161]\n  *&$irvar2:org.junit.runner.Result*=n$11 [line 161]\n  NULLIFY(&$irvar1); [line 161]\n  NULLIFY(&junitCore); [line 161]\n  EXIT_SCOPE(_,n$8,n$10,n$11,$irvar1,junitCore); [line 161]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_8" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_9" ;
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_8" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [color="red" ];
+"org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_9" [label="9:  method_body \n   n$12=*&$irvar2:org.junit.runner.Result* [line 161]\n  *&return:org.junit.runner.Result*=n$12 [line 161]\n  NULLIFY(&$irvar2); [line 161]\n  EXIT_SCOPE(n$12,$irvar2); [line 161]\n  APPLY_ABSTRACTION; [line 161]\n " shape="box"]
+	
+
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_9" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_2" ;
+	 "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_9" -> "org.junit.rules.StopwatchTest.runTest(java.lang.Class):org.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_3" [color="red" ];
+}

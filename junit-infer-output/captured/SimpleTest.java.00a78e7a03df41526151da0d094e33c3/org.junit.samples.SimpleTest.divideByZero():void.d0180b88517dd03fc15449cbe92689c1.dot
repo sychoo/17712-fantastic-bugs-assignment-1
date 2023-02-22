@@ -1,0 +1,34 @@
+/* @generated */
+digraph cfg {
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_1" [label="1: Start void SimpleTest.divideByZero()\nFormals:  this:org.junit.samples.SimpleTest*\nLocals:  result:int zero:int\nAnnotation: <_org.junit.Test> void SimpleTest.divideByZero()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_1" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_4" ;
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_2" [label="2: Exit void SimpleTest.divideByZero() \n  " color=yellow style=filled]
+	
+
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_3" [label="3:  exceptions sink \n   NULLIFY(&result); [line 35]\n  NULLIFY(&zero); [line 35]\n  EXIT_SCOPE(result,zero); [line 35]\n  APPLY_ABSTRACTION; [line 35]\n " shape="box"]
+	
+
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_3" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_2" ;
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_4" [label="4:  method_body \n   *&zero:int=0 [line 32]\n " shape="box"]
+	
+
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_4" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_5" ;
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_4" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_3" [color="red" ];
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_5" [label="5:  method_body \n   n$0=*&zero:int [line 33]\n  *&result:int=(8 / n$0) [line 33]\n  NULLIFY(&zero); [line 33]\n  EXIT_SCOPE(n$0,zero); [line 33]\n " shape="box"]
+	
+
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_5" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_6" ;
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_5" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_3" [color="red" ];
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_6" [label="6:  method_body \n   n$1=*&this:org.junit.samples.SimpleTest* [line 34]\n  n$2=*&result:int [line 34]\n  *n$1.unused:org.junit.samples.SimpleTest(root org.junit.samples.SimpleTest)=n$2 [line 34]\n  NULLIFY(&result); [line 34]\n  NULLIFY(&this); [line 34]\n  EXIT_SCOPE(n$1,n$2,result,this); [line 34]\n " shape="box"]
+	
+
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_6" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_7" ;
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_6" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_3" [color="red" ];
+"org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_7" [label="7:  method_body \n   APPLY_ABSTRACTION; [line 35]\n " shape="box"]
+	
+
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_7" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_2" ;
+	 "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_7" -> "org.junit.samples.SimpleTest.divideByZero():void.d0180b88517dd03fc15449cbe92689c1_3" [color="red" ];
+}

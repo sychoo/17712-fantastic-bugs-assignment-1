@@ -1,0 +1,45 @@
+/* @generated */
+digraph cfg {
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_1" [label="1: Start void Assume.assumeThat(Matcher,Matcher)\nFormals:  actual:org.hamcrest.Matcher* matcher:org.hamcrest.Matcher*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_1" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_3" ;
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_2" [label="2: Exit void Assume.assumeThat(Matcher,Matcher) \n  " color=yellow style=filled]
+	
+
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_3" [label="3:  Call boolean Matcher.matches(Object) \n   n$0=*&matcher:org.hamcrest.Matcher* [line 105]\n  _=*n$0:org.hamcrest.Matcher [line 105]\n  n$2=*&actual:org.hamcrest.Matcher* [line 105]\n  n$3=_fun_boolean Matcher.matches(Object)(n$0:org.hamcrest.Matcher*,n$2:java.lang.Object*) interface virtual [line 105]\n  *&$irvar0:_Bool=n$3 [line 105]\n  EXIT_SCOPE(_,n$0,n$2,n$3); [line 105]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_3" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_5" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_3" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_8" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_3" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [color="red" ];
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [label="4:  exceptions sink \n   NULLIFY(&$irvar0); [line 108]\n  NULLIFY(&$irvar1); [line 108]\n  EXIT_SCOPE($irvar0,$irvar1); [line 108]\n  APPLY_ABSTRACTION; [line 108]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_2" ;
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_5" [label="5: Prune (true branch, if) \n   n$4=*&$irvar0:_Bool [line 105]\n  PRUNE(!(n$4 != 0), true); [line 105]\n  NULLIFY(&$irvar0); [line 105]\n  EXIT_SCOPE(n$4,$irvar0); [line 105]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_5" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_6" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_5" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [color="red" ];
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_6" [label="6:  Call AssumptionViolatedException.<init>(Object,Matcher) \n   n$5=_fun___new(sizeof(t=org.junit.AssumptionViolatedException):org.junit.AssumptionViolatedException*) [line 106]\n  n$6=*&actual:org.hamcrest.Matcher* [line 106]\n  n$7=*&matcher:org.hamcrest.Matcher* [line 106]\n  n$8=_fun_AssumptionViolatedException.<init>(Object,Matcher)(n$5:org.junit.AssumptionViolatedException*,n$6:java.lang.Object*,n$7:org.hamcrest.Matcher*) [line 106]\n  *&$irvar1:org.junit.AssumptionViolatedException*=n$5 [line 106]\n  NULLIFY(&actual); [line 106]\n  NULLIFY(&matcher); [line 106]\n  EXIT_SCOPE(n$5,n$6,n$7,n$8,actual,matcher); [line 106]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_6" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_7" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_6" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [color="red" ];
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_7" [label="7:  throw \n   n$9=*&$irvar1:org.junit.AssumptionViolatedException* [line 106]\n  *&return:void=EXN n$9 [line 106]\n  NULLIFY(&$irvar1); [line 106]\n  EXIT_SCOPE(n$9,$irvar1); [line 106]\n  APPLY_ABSTRACTION; [line 106]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_7" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_2" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_7" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [color="red" ];
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_8" [label="8: Prune (false branch, if) \n   n$4=*&$irvar0:_Bool [line 105]\n  PRUNE((n$4 != 0), false); [line 105]\n  NULLIFY(&$irvar0); [line 105]\n  EXIT_SCOPE(n$4,$irvar0); [line 105]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_8" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_9" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_8" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [color="red" ];
+"org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_9" [label="9:  method_body \n   APPLY_ABSTRACTION; [line 108]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_9" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_2" ;
+	 "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_9" -> "org.junit.Assume.assumeThat(org.hamcrest.Matcher,org.hamcrest.Matcher):void.7188149d79b0dc18dfbe7389e7a768c2_4" [color="red" ];
+}

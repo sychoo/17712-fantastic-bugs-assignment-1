@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_1" [label="1: Start void AllTests.main(String[])\nFormals:  args:java.lang.String*[_*_](*)\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_1" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_4" ;
+"junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_2" [label="2: Exit void AllTests.main(String[]) \n  " color=yellow style=filled]
+	
+
+"junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 13]\n  EXIT_SCOPE($irvar0); [line 13]\n  APPLY_ABSTRACTION; [line 13]\n " shape="box"]
+	
+
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_3" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_2" ;
+"junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_4" [label="4:  Call Test AllTests.suite() \n   n$0=_fun_Test AllTests.suite()() [line 12]\n  *&$irvar0:junit.framework.Test*=n$0 [line 12]\n  EXIT_SCOPE(n$0); [line 12]\n " shape="box"]
+	
+
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_4" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_5" ;
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_4" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_3" [color="red" ];
+"junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_5" [label="5:  Call TestResult TestRunner.run(Test) \n   n$1=*&$irvar0:junit.framework.Test* [line 12]\n  n$2=_fun_TestResult TestRunner.run(Test)(n$1:junit.framework.Test*) [line 12]\n  *&$irvar1:junit.framework.TestResult*=n$2 [line 12]\n  NULLIFY(&$irvar0); [line 12]\n  NULLIFY(&$irvar1); [line 12]\n  EXIT_SCOPE(n$1,n$2,$irvar0,$irvar1); [line 12]\n " shape="box"]
+	
+
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_5" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_6" ;
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_5" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_3" [color="red" ];
+"junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 13]\n " shape="box"]
+	
+
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_6" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_2" ;
+	 "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_6" -> "junit.tests.framework.AllTests.main(java.lang.String[]):void.a732616ceb8f0dbda9320c6d2d223883_3" [color="red" ];
+}

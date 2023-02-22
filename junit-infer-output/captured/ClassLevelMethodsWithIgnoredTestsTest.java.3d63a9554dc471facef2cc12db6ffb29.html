@@ -1,0 +1,509 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/tests/running/classes/ClassLevelMethodsWithIgnoredTestsTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.tests.running.classes; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.fail; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.AfterClass; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.BeforeClass; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.ClassRule; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.Ignore; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.experimental.categories.Categories.CategoryFilter; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.experimental.categories.Category; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.rules.TestRule; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.runner.Request; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">import org.junit.runner.notification.Failure; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * Tests verifying that class-level fixtures ({@link BeforeClass} and </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * {@link AfterClass}) and rules ({@link ClassRule}) are not executed when there </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * are no test methods to be run in a test class because they have been ignored. </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> *  </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">public class ClassLevelMethodsWithIgnoredTestsTest { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.<init>%28%29.97bb595bd443e6b14717841e2ed5093b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.<init>%28%29.97bb595bd443e6b14717841e2ed5093b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 28];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*) [line 28];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.<init>%28%29.97bb595bd443e6b14717841e2ed5093b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.<init>%28%29.97bb595bd443e6b14717841e2ed5093b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.<init>%28%29.97bb595bd443e6b14717841e2ed5093b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.<init>%28%29.97bb595bd443e6b14717841e2ed5093b.html">summary for ClassLevelMethodsWithIgnoredTestsTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    private static final String FAILURE_MESSAGE = &quot;This should not have happened!&quot;; </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    public static class BeforeClassWithIgnoredTest { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.<in.64888e8054ab2710f573db395d590fba_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.<in.64888e8054ab2710f573db395d590fba_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredTest* [line 31];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredTest*) [line 31];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.<in.64888e8054ab2710f573db395d590fba_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.<in.64888e8054ab2710f573db395d590fba_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.<in.64888e8054ab2710f573db395d590fba_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.<in.64888e8054ab2710f573db395d590fba.html">summary for ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        @BeforeClass </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        public static void beforeClass() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.bef.3be644efed8e44db0f2195254c122cee_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.bef.3be644efed8e44db0f2195254c122cee.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredTest.beforeClass()</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">            fail(FAILURE_MESSAGE); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.bef.3be644efed8e44db0f2195254c122cee_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("This should not have happened!":java.lang.Object*) [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.bef.3be644efed8e44db0f2195254c122cee_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.bef.3be644efed8e44db0f2195254c122cee_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.bef.3be644efed8e44db0f2195254c122cee_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        @Ignore </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        public void test() throws Exception { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.tes.3a6e5d67a35857c99635c2f919fedfb9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.tes.3a6e5d67a35857c99635c2f919fedfb9.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredTest.test()</a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">            fail(&quot;test() should not run&quot;); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.tes.3a6e5d67a35857c99635c2f919fedfb9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("test() should not run":java.lang.Object*) [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.tes.3a6e5d67a35857c99635c2f919fedfb9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.tes.3a6e5d67a35857c99635c2f919fedfb9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredTest.tes.3a6e5d67a35857c99635c2f919fedfb9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    public void beforeClassShouldNotRunWhenAllTestsAreIgnored() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.c3e8dcb271ae8a9b3485622b6ccc52be_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.c3e8dcb271ae8a9b3485622b6ccc52be.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAllTestsAreIgnored()</a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">        runClassAndVerifyNoFailures(BeforeClassWithIgnoredTest.class, <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.c3e8dcb271ae8a9b3485622b6ccc52be_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 46];
+n$1=_fun_void ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures(Class,String)(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredTest:java.lang.Object*,"BeforeClass should not have been executed because the test method is ignored!":java.lang.Object*) [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">                &quot;BeforeClass should not have been executed because the test method is ignored!&quot;); </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.c3e8dcb271ae8a9b3485622b6ccc52be_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.c3e8dcb271ae8a9b3485622b6ccc52be_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.c3e8dcb271ae8a9b3485622b6ccc52be_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    @Ignore </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    public static class BeforeClassWithIgnoredClass { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.<i.cec4df9c1a70c7d10e9151e9a1404a33_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.<i.cec4df9c1a70c7d10e9151e9a1404a33_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredClass* [line 51];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredClass*) [line 51];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.<i.cec4df9c1a70c7d10e9151e9a1404a33_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.<i.cec4df9c1a70c7d10e9151e9a1404a33_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.<i.cec4df9c1a70c7d10e9151e9a1404a33_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.<i.cec4df9c1a70c7d10e9151e9a1404a33.html">summary for ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredClass.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        @BeforeClass </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        public static void beforeClass() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.be.f03587ea92facb1dbaa2a569a27fa37a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.be.f03587ea92facb1dbaa2a569a27fa37a.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredClass.beforeClass()</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            fail(FAILURE_MESSAGE); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.be.f03587ea92facb1dbaa2a569a27fa37a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("This should not have happened!":java.lang.Object*) [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.be.f03587ea92facb1dbaa2a569a27fa37a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.be.f03587ea92facb1dbaa2a569a27fa37a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.be.f03587ea92facb1dbaa2a569a27fa37a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        public void test() throws Exception { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.te.a93cba3a09bfa8e9d281dccee2e29a24_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.te.a93cba3a09bfa8e9d281dccee2e29a24.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredClass.test()</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            fail(&quot;test() should not run&quot;); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.te.a93cba3a09bfa8e9d281dccee2e29a24_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("test() should not run":java.lang.Object*) [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.te.a93cba3a09bfa8e9d281dccee2e29a24_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.te.a93cba3a09bfa8e9d281dccee2e29a24_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithIgnoredClass.te.a93cba3a09bfa8e9d281dccee2e29a24_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    public void beforeClassShouldNotRunWhenWholeClassIsIgnored() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWho.c4de13e4d05b45bdab48d67fd4bb0a21_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWho.c4de13e4d05b45bdab48d67fd4bb0a21.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWholeClassIsIgnored()</a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        runClassAndVerifyNoFailures( <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWho.c4de13e4d05b45bdab48d67fd4bb0a21_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 65];
+n$1=_fun_void ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures(Class,String)(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithIgnoredClass:java.lang.Object*,"BeforeClass should not have been executed because the whole test class is ignored!":java.lang.Object*) [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">                BeforeClassWithIgnoredClass.class, </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">                &quot;BeforeClass should not have been executed because the whole test class is ignored!&quot;); </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWho.c4de13e4d05b45bdab48d67fd4bb0a21_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWho.c4de13e4d05b45bdab48d67fd4bb0a21_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenWho.c4de13e4d05b45bdab48d67fd4bb0a21_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    public static class AfterClassWithIgnoredTest { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.<ini.c6c0e2cc667549c6b3065418c3423cf6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.<ini.c6c0e2cc667549c6b3065418c3423cf6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$AfterClassWithIgnoredTest* [line 70];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$AfterClassWithIgnoredTest*) [line 70];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.<ini.c6c0e2cc667549c6b3065418c3423cf6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.<ini.c6c0e2cc667549c6b3065418c3423cf6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.<ini.c6c0e2cc667549c6b3065418c3423cf6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.<ini.c6c0e2cc667549c6b3065418c3423cf6.html">summary for ClassLevelMethodsWithIgnoredTestsTest$AfterClassWithIgnoredTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        @Ignore </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        public void test() throws Exception { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.test.c17f24821020804d81cd42063eea40b9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.test.c17f24821020804d81cd42063eea40b9.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$AfterClassWithIgnoredTest.test()</a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            fail(&quot;test() should not run&quot;); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.test.c17f24821020804d81cd42063eea40b9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("test() should not run":java.lang.Object*) [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.test.c17f24821020804d81cd42063eea40b9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.test.c17f24821020804d81cd42063eea40b9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.test.c17f24821020804d81cd42063eea40b9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        @AfterClass </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">        public static void afterClass() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.afte.1f5ff7702c15006ee6115ba7d1f16731_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.afte.1f5ff7702c15006ee6115ba7d1f16731.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$AfterClassWithIgnoredTest.afterClass()</a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            fail(FAILURE_MESSAGE); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.afte.1f5ff7702c15006ee6115ba7d1f16731_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("This should not have happened!":java.lang.Object*) [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.afte.1f5ff7702c15006ee6115ba7d1f16731_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.afte.1f5ff7702c15006ee6115ba7d1f16731_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24AfterClassWithIgnoredTest.afte.1f5ff7702c15006ee6115ba7d1f16731_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    public void afterClassShouldNotRunWhenAllTestsAreIgnored() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllT.0a30f546e24d038388e80f3a51d3fd8e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllT.0a30f546e24d038388e80f3a51d3fd8e.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllTestsAreIgnored()</a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">        runClassAndVerifyNoFailures(AfterClassWithIgnoredTest.class, <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllT.0a30f546e24d038388e80f3a51d3fd8e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 85];
+n$1=_fun_void ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures(Class,String)(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$AfterClassWithIgnoredTest:java.lang.Object*,"AfterClass should not have been executed because the test method is ignored!":java.lang.Object*) [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">                &quot;AfterClass should not have been executed because the test method is ignored!&quot;); </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllT.0a30f546e24d038388e80f3a51d3fd8e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllT.0a30f546e24d038388e80f3a51d3fd8e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.afterClassShouldNotRunWhenAllT.0a30f546e24d038388e80f3a51d3fd8e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    public interface FilteredTests { </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">    public static class BeforeClassWithFilteredTest { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.<i.218862929b61328f42c8740831e9d676_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.<i.218862929b61328f42c8740831e9d676_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithFilteredTest* [line 92];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithFilteredTest*) [line 92];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.<i.218862929b61328f42c8740831e9d676_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.<i.218862929b61328f42c8740831e9d676_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.<i.218862929b61328f42c8740831e9d676_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.<i.218862929b61328f42c8740831e9d676.html">summary for ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithFilteredTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        @BeforeClass </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">        public static void setUpClass() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.se.34b349601635b6be84ac91cd5d2203d0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.se.34b349601635b6be84ac91cd5d2203d0.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithFilteredTest.setUpClass()</a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">            fail(FAILURE_MESSAGE); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.se.34b349601635b6be84ac91cd5d2203d0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("This should not have happened!":java.lang.Object*) [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.se.34b349601635b6be84ac91cd5d2203d0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.se.34b349601635b6be84ac91cd5d2203d0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.se.34b349601635b6be84ac91cd5d2203d0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">        @Category(FilteredTests.class) </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        public void test() throws Exception { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.te.e76c199051cdd13fcf11f39cec1cf377_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.te.e76c199051cdd13fcf11f39cec1cf377.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithFilteredTest.test()</a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">            fail(&quot;test() should not run&quot;); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.te.e76c199051cdd13fcf11f39cec1cf377_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("test() should not run":java.lang.Object*) [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.te.e76c199051cdd13fcf11f39cec1cf377_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.te.e76c199051cdd13fcf11f39cec1cf377_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BeforeClassWithFilteredTest.te.e76c199051cdd13fcf11f39cec1cf377_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">    public static class HasUnfilteredTest { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.<init>%28%29.ae4a47315db0c288adf748c53f1b45e2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.<init>%28%29.ae4a47315db0c288adf748c53f1b45e2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$HasUnfilteredTest* [line 105];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$HasUnfilteredTest*) [line 105];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.<init>%28%29.ae4a47315db0c288adf748c53f1b45e2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.<init>%28%29.ae4a47315db0c288adf748c53f1b45e2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.<init>%28%29.ae4a47315db0c288adf748c53f1b45e2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.<init>%28%29.ae4a47315db0c288adf748c53f1b45e2.html">summary for ClassLevelMethodsWithIgnoredTestsTest$HasUnfilteredTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        public void unfilteredTest() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.unfilteredTe.7d8197b1567cf58e456f417ef446ff41_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.unfilteredTe.7d8197b1567cf58e456f417ef446ff41.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$HasUnfilteredTest.unfilteredTest()</a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">            // to prevent errors when all other tests have been filtered </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.unfilteredTe.7d8197b1567cf58e456f417ef446ff41_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.unfilteredTe.7d8197b1567cf58e456f417ef446ff41_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24HasUnfilteredTest.unfilteredTe.7d8197b1567cf58e456f417ef446ff41_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">    public void beforeClassShouldNotRunWhenAllTestsAreFiltered() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAllTestsAreFiltered()</a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        Result result = new JUnitCore().run(Request.classes( <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 114];
+n$1=_fun_JUnitCore.&lt;init&gt;()(n$0:org.junit.runner.JUnitCore*) [line 114];
+*&amp;$irvar0:org.junit.runner.JUnitCore*=n$0 [line 114];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[2]):java.lang.Class*[_*_](*)) [line 114];
+*&amp;$irvar1:java.lang.Class*[_*_](*)=n$2 [line 114];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 114];
+*n$3[0]:java.lang.Object*=org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BeforeClassWithFilteredTest [line 114];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 114];
+*n$4[1]:java.lang.Object*=org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$HasUnfilteredTest [line 114];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$5=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 114];
+n$6=_fun_Request Request.classes(Class[])(n$5:java.lang.Class*[_*_](*)) [line 114];
+*&amp;$irvar2:org.junit.runner.Request*=n$6 [line 114];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar0:org.junit.runner.JUnitCore* [line 114];
+_=*n$12:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 114];
+n$14=*&amp;$irvar4:org.junit.runner.Request* [line 114];
+n$15=_fun_Result JUnitCore.run(Request)(n$12:org.junit.runner.JUnitCore*,n$14:org.junit.runner.Request*) virtual [line 114];
+*&amp;result:org.junit.runner.Result*=n$15 [line 114];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">                BeforeClassWithFilteredTest.class, HasUnfilteredTest.class) </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">                .filterWith(CategoryFilter.exclude(FilteredTests.class))); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$7=_fun_Categories$CategoryFilter Categories$CategoryFilter.exclude(Class)(org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$FilteredTests:java.lang.Object*) [line 116];
+*&amp;$irvar3:org.junit.experimental.categories.Categories$CategoryFilter*=n$7 [line 116];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$8=*&amp;$irvar2:org.junit.runner.Request* [line 116];
+_=*n$8:org.junit.runner.Request*(root org.junit.runner.Request) [line 116];
+n$10=*&amp;$irvar3:org.junit.experimental.categories.Categories$CategoryFilter* [line 116];
+n$11=_fun_Request Request.filterWith(Filter)(n$8:org.junit.runner.Request*,n$10:org.junit.experimental.categories.Categories$CategoryFilter*) virtual [line 116];
+*&amp;$irvar4:org.junit.runner.Request*=n$11 [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">        analyseResult( <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 117];
+n$17=*&amp;result:org.junit.runner.Result* [line 117];
+n$18=_fun_void ClassLevelMethodsWithIgnoredTestsTest.analyseResult(Result,String)(n$16:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,n$17:org.junit.runner.Result*,"BeforeClass should not have been executed because the test method is filtered!":java.lang.Object*) [line 117];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">                result, </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">                &quot;BeforeClass should not have been executed because the test method is filtered!&quot;); </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.beforeClassShouldNotRunWhenAll.03a2f406d37cd7d825688c71e8a12d18_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    public static class BrokenRule implements TestRule { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.<init>%28%29.58a29502944ac4948fc2013d73d0f128_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.<init>%28%29.58a29502944ac4948fc2013d73d0f128_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule* [line 122];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule*) [line 122];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.<init>%28%29.58a29502944ac4948fc2013d73d0f128_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.<init>%28%29.58a29502944ac4948fc2013d73d0f128_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.<init>%28%29.58a29502944ac4948fc2013d73d0f128_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.<init>%28%29.58a29502944ac4948fc2013d73d0f128.html">summary for ClassLevelMethodsWithIgnoredTestsTest$BrokenRule.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        public Statement apply(Statement base, Description description) { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.apply%28org.junit.run.c28514c81477a4d3dc4722929be21aa4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.apply%28org.junit.run.c28514c81477a4d3dc4722929be21aa4.html">summary for Statement ClassLevelMethodsWithIgnoredTestsTest$BrokenRule.apply(Statement,Description)</a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">            throw new RuntimeException(&quot;this rule is broken&quot;); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.apply%28org.junit.run.c28514c81477a4d3dc4722929be21aa4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 124];
+n$1=_fun_RuntimeException.&lt;init&gt;(String)(n$0:java.lang.RuntimeException*,"this rule is broken":java.lang.Object*) [line 124];
+*&amp;$irvar0:java.lang.RuntimeException*=n$0 [line 124];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.apply%28org.junit.run.c28514c81477a4d3dc4722929be21aa4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.RuntimeException* [line 124];
+*&amp;return:org.junit.runners.model.Statement*=EXN n$2 [line 124];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.apply%28org.junit.run.c28514c81477a4d3dc4722929be21aa4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24BrokenRule.apply%28org.junit.run.c28514c81477a4d3dc4722929be21aa4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    public static class ClassRuleWithIgnoredTest { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<init.8fc8a252479aa6fa89151bdfdaa9a1ba_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<init.8fc8a252479aa6fa89151bdfdaa9a1ba_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest* [line 128];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest*) [line 128];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<init.8fc8a252479aa6fa89151bdfdaa9a1ba_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<init.8fc8a252479aa6fa89151bdfdaa9a1ba_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<init.8fc8a252479aa6fa89151bdfdaa9a1ba_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<init.8fc8a252479aa6fa89151bdfdaa9a1ba.html">summary for ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        @ClassRule </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        public static BrokenRule brokenRule = new BrokenRule(); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule):org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule*) [line 130];
+n$1=_fun_ClassLevelMethodsWithIgnoredTestsTest$BrokenRule.&lt;init&gt;()(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule*) [line 130];
+*&amp;$irvar0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule*=n$0 [line 130];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$BrokenRule* [line 130];
+*&amp;#GB<>$org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest.brokenRule:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest(root org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest)=n$2 [line 130];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.<clin.6d6880005102af3b3dcd9f4cdfad3dd4.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">        @Ignore </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        public void test() throws Exception { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.test%28.4d31d8c0df222ecdf47ce4defcaaa4c7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.test%28.4d31d8c0df222ecdf47ce4defcaaa4c7.html">summary for void ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest.test()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">            fail(&quot;test() should not be run&quot;); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.test%28.4d31d8c0df222ecdf47ce4defcaaa4c7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail(String)("test() should not be run":java.lang.Object*) [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.test%28.4d31d8c0df222ecdf47ce4defcaaa4c7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.test%28.4d31d8c0df222ecdf47ce4defcaaa4c7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest%24ClassRuleWithIgnoredTest.test%28.4d31d8c0df222ecdf47ce4defcaaa4c7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">    public void classRuleShouldNotBeAppliedWhenAllTestsAreIgnored() { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhe.00d3471e6fd75cf91eb2c9a3ff16d220_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhe.00d3471e6fd75cf91eb2c9a3ff16d220.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhenAllTestsAreIgnored()</a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        runClassAndVerifyNoFailures(ClassRuleWithIgnoredTest.class, <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhe.00d3471e6fd75cf91eb2c9a3ff16d220_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 141];
+n$1=_fun_void ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures(Class,String)(n$0:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest$ClassRuleWithIgnoredTest:java.lang.Object*,"The class rule should have been applied because the test method is ignored!":java.lang.Object*) [line 141];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">                &quot;The class rule should have been applied because the test method is ignored!&quot;); </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhe.00d3471e6fd75cf91eb2c9a3ff16d220_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhe.00d3471e6fd75cf91eb2c9a3ff16d220_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.classRuleShouldNotBeAppliedWhe.00d3471e6fd75cf91eb2c9a3ff16d220_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">    private void runClassAndVerifyNoFailures(Class&lt;?&gt; klass, <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures(Class,String)</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            String testFailureDescription) { </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        Result result = JUnitCore.runClasses(klass); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 147];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 147];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 147];
+n$2=*&amp;klass:java.lang.Class* [line 147];
+*n$1[0]:java.lang.Class*=n$2 [line 147];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 147];
+n$4=_fun_Result JUnitCore.runClasses(Class[])(n$3:java.lang.Class*[_*_](*)) [line 147];
+*&amp;result:org.junit.runner.Result*=n$4 [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        analyseResult(result, testFailureDescription); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 148];
+n$6=*&amp;result:org.junit.runner.Result* [line 148];
+n$7=*&amp;testFailureDescription:java.lang.String* [line 148];
+n$8=_fun_void ClassLevelMethodsWithIgnoredTestsTest.analyseResult(Result,String)(n$5:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,n$6:org.junit.runner.Result*,n$7:java.lang.String*) [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.runClassAndVerifyNoFailures%28ja.7704a63fdd1ab6e665455b7116cd6c50_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    private void analyseResult(Result result, String testFailureDescription) { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.analyseResult(Result,String)</a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">        List&lt;Failure&gt; failures = result.getFailures(); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;result:org.junit.runner.Result* [line 152];
+_=*n$0:org.junit.runner.Result*(root org.junit.runner.Result) [line 152];
+n$2=_fun_List Result.getFailures()(n$0:org.junit.runner.Result*) virtual [line 152];
+*&amp;failures:java.util.List*=n$2 [line 152];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        if (failures.isEmpty() == false) { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;failures:java.util.List* [line 153];
+_=*n$3:java.util.List*(root java.util.List) [line 153];
+n$5=_fun_boolean List.isEmpty()(n$3:java.util.List*) interface virtual [line 153];
+*&amp;$irvar0:_Bool=n$5 [line 153];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 153];
+PRUNE(!(n$6 != 0), true); [line 153];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:10 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 153];
+PRUNE((n$6 != 0), false); [line 153];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">            analyzeFailure(failures.get(0), testFailureDescription); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$7=*&amp;failures:java.util.List* [line 154];
+_=*n$7:java.util.List*(root java.util.List) [line 154];
+n$9=_fun_Object List.get(int)(n$7:java.util.List*,0:int) interface virtual [line 154];
+*&amp;$irvar1:java.lang.Object*=n$9 [line 154];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* [line 154];
+n$11=*&amp;$irvar1:java.lang.Object* [line 154];
+n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 154];
+n$13=*&amp;testFailureDescription:java.lang.String* [line 154];
+n$14=_fun_void ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(Failure,String)(n$10:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest*,n$12:org.junit.runner.notification.Failure*,n$13:java.lang.String*) [line 154];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyseResult%28org.junit.runner.fd697f1da766dfd3af1421a02593eb3c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">    private void analyzeFailure(Failure failure, String testFailureDescription) { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f.html">summary for void ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(Failure,String)</a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">        String actualFailureMsg = failure.getMessage(); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;failure:org.junit.runner.notification.Failure* [line 159];
+_=*n$0:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 159];
+n$2=_fun_String Failure.getMessage()(n$0:org.junit.runner.notification.Failure*) virtual [line 159];
+*&amp;actualFailureMsg:java.lang.String*=n$2 [line 159];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">        if (FAILURE_MESSAGE.equals(actualFailureMsg)) { <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;actualFailureMsg:java.lang.String* [line 160];
+n$4=_fun_boolean String.equals(Object)("This should not have happened!":java.lang.Object*,n$3:java.lang.String*) virtual [line 160];
+*&amp;$irvar0:_Bool=n$4 [line 160];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$5=*&amp;$irvar0:_Bool [line 160];
+PRUNE(!(n$5 == 0), true); [line 160];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$5=*&amp;$irvar0:_Bool [line 160];
+PRUNE((n$5 == 0), false); [line 160];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">            fail(testFailureDescription); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$6=*&amp;testFailureDescription:java.lang.String* [line 161];
+n$7=_fun_void Assert.fail(String)(n$6:java.lang.String*) [line 161];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">        fail(&quot;Unexpected failure : &quot; + actualFailureMsg); <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:10 exn:3 Instructions
+n$8=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 163];
+n$9=_fun_StringBuilder.&lt;init&gt;()(n$8:java.lang.StringBuilder*) [line 163];
+*&amp;$irvar1:java.lang.StringBuilder*=n$8 [line 163];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar1:java.lang.StringBuilder* [line 163];
+_=*n$10:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 163];
+n$12=_fun_StringBuilder StringBuilder.append(String)(n$10:java.lang.StringBuilder*,"Unexpected failure : ":java.lang.Object*) virtual [line 163];
+*&amp;$irvar2:java.lang.StringBuilder*=n$12 [line 163];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$13=*&amp;$irvar2:java.lang.StringBuilder* [line 163];
+_=*n$13:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 163];
+n$15=*&amp;actualFailureMsg:java.lang.String* [line 163];
+n$16=_fun_StringBuilder StringBuilder.append(String)(n$13:java.lang.StringBuilder*,n$15:java.lang.String*) virtual [line 163];
+*&amp;$irvar3:java.lang.StringBuilder*=n$16 [line 163];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$17=*&amp;$irvar3:java.lang.StringBuilder* [line 163];
+_=*n$17:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 163];
+n$19=_fun_String StringBuilder.toString()(n$17:java.lang.StringBuilder*) virtual [line 163];
+*&amp;$irvar4:java.lang.String*=n$19 [line 163];
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$20=*&amp;$irvar4:java.lang.String* [line 163];
+n$21=_fun_void Assert.fail(String)(n$20:java.lang.String*) [line 163];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">    } <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./ClassLevelMethodsWithIgnoredTestsTest.java.3d63a9554dc471facef2cc12db6ffb29/nodes/org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure%28org.junit.runne.307409e1b0aebf9da67ede40500eba6f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

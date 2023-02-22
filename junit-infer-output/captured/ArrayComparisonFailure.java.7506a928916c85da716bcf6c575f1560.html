@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/ArrayComparisonFailure.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.Assert; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * Thrown when two array elements differ </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * @see Assert#assertArrayEquals(String, Object[], Object[]) </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">public class ArrayComparisonFailure extends AssertionError { </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">    private static final long serialVersionUID = 1L; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">    /* </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">     * We have to use the f prefix until the next major release to ensure </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">     * serialization compatibility. </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">     * See https://github.com/junit-team/junit4/issues/976 </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private final List&lt;Integer&gt; fIndices = new ArrayList&lt;Integer&gt;(); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 22];
+n$3=_fun_ArrayList.&lt;init&gt;()(n$2:java.util.ArrayList*) [line 22];
+*&amp;$irvar0:java.util.ArrayList*=n$2 [line 22];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 22];
+n$5=*&amp;$irvar0:java.util.ArrayList* [line 22];
+*n$4.fIndices:org.junit.internal.ArrayComparisonFailure(root org.junit.internal.ArrayComparisonFailure)=n$5 [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private final String fMessage; </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    private final AssertionError fCause; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">     * Construct a new &lt;code&gt;ArrayComparisonFailure&lt;/code&gt; with an error text and the array's </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     * dimension that was not equal </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">     * @param cause the exception that caused the array's content to fail the assertion test </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">     * @param index the array position of the objects that are not equal. </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">     * @see Assert#assertArrayEquals(String, Object[], Object[]) </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">    public ArrayComparisonFailure(String message, AssertionError cause, int index) { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 34];
+n$1=_fun_AssertionError.&lt;init&gt;()(n$0:org.junit.internal.ArrayComparisonFailure*) [line 34];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0.html">summary for ArrayComparisonFailure.&lt;init&gt;(String,AssertionError,int)</a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        this.fMessage = message; <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 35];
+n$7=*&amp;message:java.lang.String* [line 35];
+*n$6.fMessage:org.junit.internal.ArrayComparisonFailure(root org.junit.internal.ArrayComparisonFailure)=n$7 [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        this.fCause = cause; <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 36];
+n$9=*&amp;cause:java.lang.AssertionError* [line 36];
+*n$8.fCause:org.junit.internal.ArrayComparisonFailure(root org.junit.internal.ArrayComparisonFailure)=n$9 [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        initCause(fCause); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 37];
+_=*n$10:org.junit.internal.ArrayComparisonFailure*(root org.junit.internal.ArrayComparisonFailure) [line 37];
+n$12=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 37];
+n$13=*n$12.fCause:java.lang.AssertionError*(root org.junit.internal.ArrayComparisonFailure) [line 37];
+n$14=_fun_Throwable ArrayComparisonFailure.initCause(Throwable)(n$10:org.junit.internal.ArrayComparisonFailure*,n$13:java.lang.AssertionError*) virtual [line 37];
+*&amp;$irvar1:java.lang.Throwable*=n$14 [line 37];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        addDimension(index); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$15=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 38];
+_=*n$15:org.junit.internal.ArrayComparisonFailure*(root org.junit.internal.ArrayComparisonFailure) [line 38];
+n$17=*&amp;index:int [line 38];
+n$18=_fun_void ArrayComparisonFailure.addDimension(int)(n$15:org.junit.internal.ArrayComparisonFailure*,n$17:int) virtual [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    } <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.<init>%28java.lang.String%2Cjava.lang.AssertionError%2Cint%29.3cebcb125a0e491f9935e6d784682cf0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    public void addDimension(int index) { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4.html">summary for void ArrayComparisonFailure.addDimension(int)</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        fIndices.add(0, index); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 42];
+n$1=*n$0.fIndices:java.util.List*(root org.junit.internal.ArrayComparisonFailure) [line 42];
+*&amp;$irvar0:java.util.List*=n$1 [line 42];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;index:int [line 42];
+n$3=_fun_Integer Integer.valueOf(int)(n$2:int) [line 42];
+*&amp;$irvar1:java.lang.Integer*=n$3 [line 42];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.util.List* [line 42];
+_=*n$4:java.util.List*(root java.util.List) [line 42];
+n$6=*&amp;$irvar1:java.lang.Integer* [line 42];
+n$7=_fun_void List.add(int,Object)(n$4:java.util.List*,0:int,n$6:java.lang.Integer*) interface virtual [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.addDimension%28int%29%3Avoid.49d4da6a24aaba602e62835acc2e59b4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    public synchronized Throwable getCause() { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524.html">summary for Throwable ArrayComparisonFailure.getCause()</a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        return super.getCause() == null ? fCause : super.getCause(); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 47];
+n$1=_fun_Throwable AssertionError.getCause()(n$0:org.junit.internal.ArrayComparisonFailure*) [line 47];
+*&amp;$irvar0:java.lang.Throwable*=n$1 [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$2=*&amp;$irvar0:java.lang.Throwable* [line 47];
+PRUNE(!(n$2 != null), true); [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:10 exn:3 Instructions
+n$3=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 47];
+n$4=*n$3.fCause:java.lang.AssertionError*(root org.junit.internal.ArrayComparisonFailure) [line 47];
+*&amp;$T0_18:java.lang.AssertionError*=n$4 [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$2=*&amp;$irvar0:java.lang.Throwable* [line 47];
+PRUNE((n$2 != null), false); [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$5=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 47];
+n$6=_fun_Throwable AssertionError.getCause()(n$5:org.junit.internal.ArrayComparisonFailure*) [line 47];
+*&amp;$irvar1:java.lang.Throwable*=n$6 [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.Throwable* [line 47];
+*&amp;$T0_18:java.lang.Throwable*=n$7 [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 7 succs:2 exn:3 Instructions
+n$8=*&amp;$T0_18:java.lang.Throwable* [line 47];
+*&amp;return:java.lang.Throwable*=n$8 [line 47];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getCause%28%29%3Ajava.lang.Throwable.adc24187f6b30b42d7fe66e801034524_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    public String getMessage() { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db.html">summary for String ArrayComparisonFailure.getMessage()</a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        StringBuilder sb = new StringBuilder(); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 52];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 52];
+*&amp;sb:java.lang.StringBuilder*=n$0 [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        if (fMessage != null) { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$2=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 53];
+n$3=*n$2.fMessage:java.lang.String*(root org.junit.internal.ArrayComparisonFailure) [line 53];
+PRUNE(!(n$3 == null), true); [line 53];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$2=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 53];
+n$3=*n$2.fMessage:java.lang.String*(root org.junit.internal.ArrayComparisonFailure) [line 53];
+PRUNE((n$3 == null), false); [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            sb.append(fMessage); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$4=*&amp;sb:java.lang.StringBuilder* [line 54];
+_=*n$4:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 54];
+n$6=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 54];
+n$7=*n$6.fMessage:java.lang.String*(root org.junit.internal.ArrayComparisonFailure) [line 54];
+n$8=_fun_StringBuilder StringBuilder.append(String)(n$4:java.lang.StringBuilder*,n$7:java.lang.String*) virtual [line 54];
+*&amp;$irvar0:java.lang.StringBuilder*=n$8 [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        sb.append(&quot;arrays first differed at element &quot;); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 6 succs:9 exn:3 Instructions
+n$9=*&amp;sb:java.lang.StringBuilder* [line 56];
+_=*n$9:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 56];
+n$11=_fun_StringBuilder StringBuilder.append(String)(n$9:java.lang.StringBuilder*,"arrays first differed at element ":java.lang.Object*) virtual [line 56];
+*&amp;$irvar1:java.lang.StringBuilder*=n$11 [line 56];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        for (int each : fIndices) { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$12=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 57];
+n$13=*n$12.fIndices:java.util.List*(root org.junit.internal.ArrayComparisonFailure) [line 57];
+_=*n$13:java.util.List*(root java.util.List) [line 57];
+n$15=_fun_Iterator List.iterator()(n$13:java.util.List*) interface virtual [line 57];
+*&amp;$bcvar2:java.util.Iterator*=n$15 [line 57];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:18 9 succs:13 exn:3 Instructions
+n$16=*&amp;$bcvar2:java.util.Iterator* [line 57];
+_=*n$16:java.util.Iterator*(root java.util.Iterator) [line 57];
+n$18=_fun_boolean Iterator.hasNext()(n$16:java.util.Iterator*) interface virtual [line 57];
+*&amp;$irvar2:_Bool=n$18 [line 57];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node13.html"><span class='visited with_tooltip'>J_13<span class='tooltip'>node13 preds:10 succs:11 12 exn: Join
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:14 exn:3 Conditional method_body
+n$19=*&amp;$irvar2:_Bool [line 57];
+PRUNE(!(n$19 == 0), true); [line 57];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:11 succs:15 exn:3 Instructions
+n$20=*&amp;$bcvar2:java.util.Iterator* [line 57];
+_=*n$20:java.util.Iterator*(root java.util.Iterator) [line 57];
+n$22=_fun_Object Iterator.next()(n$20:java.util.Iterator*) interface virtual [line 57];
+*&amp;$irvar3:java.lang.Object*=n$22 [line 57];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;$irvar3:java.lang.Object* [line 57];
+n$24=_fun___cast(n$23:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(cast)):void) [line 57];
+_=*n$24:java.lang.Integer*(root java.lang.Integer) [line 57];
+n$26=_fun_int Integer.intValue()(n$24:java.lang.Integer*) virtual [line 57];
+*&amp;each:int=n$26 [line 57];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:19 exn:3 Conditional method_body
+n$19=*&amp;$irvar2:_Bool [line 57];
+PRUNE((n$19 == 0), false); [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">            sb.append(&quot;[&quot;); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$27=*&amp;sb:java.lang.StringBuilder* [line 58];
+_=*n$27:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 58];
+n$29=_fun_StringBuilder StringBuilder.append(String)(n$27:java.lang.StringBuilder*,"[":java.lang.Object*) virtual [line 58];
+*&amp;$irvar4:java.lang.StringBuilder*=n$29 [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            sb.append(each); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$30=*&amp;sb:java.lang.StringBuilder* [line 59];
+_=*n$30:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 59];
+n$32=*&amp;each:int [line 59];
+n$33=_fun_StringBuilder StringBuilder.append(int)(n$30:java.lang.StringBuilder*,n$32:int) virtual [line 59];
+*&amp;$irvar5:java.lang.StringBuilder*=n$33 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">            sb.append(&quot;]&quot;); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:10 exn:3 Instructions
+n$34=*&amp;sb:java.lang.StringBuilder* [line 60];
+_=*n$34:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 60];
+n$36=_fun_StringBuilder StringBuilder.append(String)(n$34:java.lang.StringBuilder*,"]":java.lang.Object*) virtual [line 60];
+*&amp;$irvar6:java.lang.StringBuilder*=n$36 [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        sb.append(&quot;; &quot;); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:12 succs:20 exn:3 Instructions
+n$37=*&amp;sb:java.lang.StringBuilder* [line 62];
+_=*n$37:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 62];
+n$39=_fun_StringBuilder StringBuilder.append(String)(n$37:java.lang.StringBuilder*,"; ":java.lang.Object*) virtual [line 62];
+*&amp;$irvar7:java.lang.StringBuilder*=n$39 [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        sb.append(getCause().getMessage()); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$40=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 63];
+_=*n$40:org.junit.internal.ArrayComparisonFailure*(root org.junit.internal.ArrayComparisonFailure) [line 63];
+n$42=_fun_Throwable ArrayComparisonFailure.getCause()(n$40:org.junit.internal.ArrayComparisonFailure*) virtual [line 63];
+*&amp;$irvar8:java.lang.Throwable*=n$42 [line 63];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$43=*&amp;$irvar8:java.lang.Throwable* [line 63];
+_=*n$43:java.lang.Throwable*(root java.lang.Throwable) [line 63];
+n$45=_fun_String Throwable.getMessage()(n$43:java.lang.Throwable*) virtual [line 63];
+*&amp;$irvar9:java.lang.String*=n$45 [line 63];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$46=*&amp;sb:java.lang.StringBuilder* [line 63];
+_=*n$46:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 63];
+n$48=*&amp;$irvar9:java.lang.String* [line 63];
+n$49=_fun_StringBuilder StringBuilder.append(String)(n$46:java.lang.StringBuilder*,n$48:java.lang.String*) virtual [line 63];
+*&amp;$irvar10:java.lang.StringBuilder*=n$49 [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        return sb.toString(); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$50=*&amp;sb:java.lang.StringBuilder* [line 64];
+_=*n$50:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 64];
+n$52=_fun_String StringBuilder.toString()(n$50:java.lang.StringBuilder*) virtual [line 64];
+*&amp;$irvar11:java.lang.String*=n$52 [line 64];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:2 exn:3 Instructions
+n$53=*&amp;$irvar11:java.lang.String* [line 64];
+*&amp;return:java.lang.String*=n$53 [line 64];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:24 3 succs: exn: Exit
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.getMessage%28%29%3Ajava.lang.String.e15f0be4a09a1ac035eef821e27f15db_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">     * {@inheritDoc} </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">    public String toString() { <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.toString%28%29%3Ajava.lang.String.2466f40e5c1fe645e79a93424d81931d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/org.junit.internal.ArrayComparisonFailure.toString%28%29%3Ajava.lang.String.2466f40e5c1fe645e79a93424d81931d.html">summary for String ArrayComparisonFailure.toString()</a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        return getMessage(); <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.toString%28%29%3Ajava.lang.String.2466f40e5c1fe645e79a93424d81931d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ArrayComparisonFailure* [line 72];
+_=*n$0:org.junit.internal.ArrayComparisonFailure*(root org.junit.internal.ArrayComparisonFailure) [line 72];
+n$2=_fun_String ArrayComparisonFailure.getMessage()(n$0:org.junit.internal.ArrayComparisonFailure*) virtual [line 72];
+*&amp;$irvar0:java.lang.String*=n$2 [line 72];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.toString%28%29%3Ajava.lang.String.2466f40e5c1fe645e79a93424d81931d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String* [line 72];
+*&amp;return:java.lang.String*=n$3 [line 72];
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.toString%28%29%3Ajava.lang.String.2466f40e5c1fe645e79a93424d81931d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ArrayComparisonFailure.java.7506a928916c85da716bcf6c575f1560/nodes/org.junit.internal.ArrayComparisonFailure.toString%28%29%3Ajava.lang.String.2466f40e5c1fe645e79a93424d81931d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

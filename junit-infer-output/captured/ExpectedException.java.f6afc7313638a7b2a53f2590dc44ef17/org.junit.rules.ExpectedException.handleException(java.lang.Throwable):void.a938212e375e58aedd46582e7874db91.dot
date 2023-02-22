@@ -1,0 +1,50 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_1" [label="1: Start void ExpectedException.handleException(Throwable)\nFormals:  this:org.junit.rules.ExpectedException* e:java.lang.Throwable*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_1" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_4" ;
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_2" [label="2: Exit void ExpectedException.handleException(Throwable) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 275]\n  NULLIFY(&$irvar1); [line 275]\n  EXIT_SCOPE($irvar0,$irvar1); [line 275]\n  APPLY_ABSTRACTION; [line 275]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_2" ;
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_4" [label="4:  Call boolean ExpectedException.isAnyExceptionExpected() \n   n$0=*&this:org.junit.rules.ExpectedException* [line 270]\n  _=*n$0:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 270]\n  n$2=_fun_boolean ExpectedException.isAnyExceptionExpected()(n$0:org.junit.rules.ExpectedException*) virtual [line 270]\n  *&$irvar0:_Bool=n$2 [line 270]\n  EXIT_SCOPE(_,n$0,n$2); [line 270]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_4" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_5" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_4" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_6" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_4" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:_Bool [line 270]\n  PRUNE(!(n$3 == 0), true); [line 270]\n  NULLIFY(&$irvar0); [line 270]\n  EXIT_SCOPE(n$3,$irvar0); [line 270]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_5" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_7" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_5" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:_Bool [line 270]\n  PRUNE((n$3 == 0), false); [line 270]\n  NULLIFY(&$irvar0); [line 270]\n  EXIT_SCOPE(n$3,$irvar0); [line 270]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_6" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_9" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_6" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_7" [label="7:  Call Matcher ExpectedExceptionMatcherBuilder.build() \n   n$4=*&this:org.junit.rules.ExpectedException* [line 271]\n  n$5=*n$4.matcherBuilder:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedException) [line 271]\n  _=*n$5:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedExceptionMatcherBuilder) [line 271]\n  n$7=_fun_Matcher ExpectedExceptionMatcherBuilder.build()(n$5:org.junit.rules.ExpectedExceptionMatcherBuilder*) virtual [line 271]\n  *&$irvar1:org.hamcrest.Matcher*=n$7 [line 271]\n  NULLIFY(&this); [line 271]\n  EXIT_SCOPE(_,n$4,n$5,n$7,this); [line 271]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_7" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_8" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_7" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_8" [label="8:  Call void MatcherAssert.assertThat(Object,Matcher) \n   n$8=*&e:java.lang.Throwable* [line 271]\n  n$9=*&$irvar1:org.hamcrest.Matcher* [line 271]\n  n$10=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$8:java.lang.Throwable*,n$9:org.hamcrest.Matcher*) [line 271]\n  NULLIFY(&$irvar1); [line 271]\n  NULLIFY(&e); [line 271]\n  EXIT_SCOPE(n$8,n$9,n$10,$irvar1,e); [line 271]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_8" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_10" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_8" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_9" [label="9:  throw \n   n$11=*&e:java.lang.Throwable* [line 273]\n  *&return:void=EXN n$11 [line 273]\n  NULLIFY(&e); [line 273]\n  EXIT_SCOPE(n$11,e); [line 273]\n  APPLY_ABSTRACTION; [line 273]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_9" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_2" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_9" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+"org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_10" [label="10:  method_body \n   APPLY_ABSTRACTION; [line 275]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_10" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_2" ;
+	 "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_10" -> "org.junit.rules.ExpectedException.handleException(java.lang.Throwable):void.a938212e375e58aedd46582e7874db91_3" [color="red" ];
+}

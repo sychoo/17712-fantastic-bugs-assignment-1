@@ -1,0 +1,940 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/ComparisonFailure.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> * Thrown when an {@link org.junit.Assert#assertEquals(Object, Object) assertEquals(String, String)} fails. </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> * Create and throw a &lt;code&gt;ComparisonFailure&lt;/code&gt; manually if you want to show users the </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> * difference between two complex strings. </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> * &lt;p/&gt; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> * Inspired by a patch from Alex Chaffee (alex@purpletech.com) </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * @since 4.0 </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">public class ComparisonFailure extends AssertionError { </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">     * The maximum length for expected and actual strings. If it is exceeded, the strings should be shortened. </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">     * @see ComparisonCompactor </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    private static final int MAX_CONTEXT_LENGTH = 20; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    private static final long serialVersionUID = 1L; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    /* </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">     * We have to use the f prefix until the next major release to ensure </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">     * serialization compatibility.  </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">     * See https://github.com/junit-team/junit4/issues/976 </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    private String fExpected; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    private String fActual; </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">     * Constructs a comparison failure. </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">     * @param message the identifying message or null </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">     * @param expected the expected string value </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">     * @param actual the actual string value </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">    public ComparisonFailure(String message, String expected, String actual) { </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        super(message); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure* [line 37];
+n$1=*&amp;message:java.lang.String* [line 37];
+n$2=_fun_AssertionError.&lt;init&gt;(Object)(n$0:org.junit.ComparisonFailure*,n$1:java.lang.String*) [line 37];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c.html">summary for ComparisonFailure.&lt;init&gt;(String,String,String)</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        this.fExpected = expected; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.ComparisonFailure* [line 38];
+n$4=*&amp;expected:java.lang.String* [line 38];
+*n$3.fExpected:org.junit.ComparisonFailure(root org.junit.ComparisonFailure)=n$4 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        this.fActual = actual; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.ComparisonFailure* [line 39];
+n$6=*&amp;actual:java.lang.String* [line 39];
+*n$5.fActual:org.junit.ComparisonFailure(root org.junit.ComparisonFailure)=n$6 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    } <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.<init>%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29.8fcb8a1d2188ad743cfbb72938ab943c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">     * Returns &quot;...&quot; in place of common prefix and &quot;...&quot; in place of common suffix between expected and actual. </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">     * @see Throwable#getMessage() </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    public String getMessage() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f.html">summary for String ComparisonFailure.getMessage()</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        return new ComparisonCompactor(MAX_CONTEXT_LENGTH, fExpected, fActual).compact(super.getMessage()); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.ComparisonFailure$ComparisonCompactor):org.junit.ComparisonFailure$ComparisonCompactor*) [line 49];
+n$1=*&amp;this:org.junit.ComparisonFailure* [line 49];
+n$2=*n$1.fExpected:java.lang.String*(root org.junit.ComparisonFailure) [line 49];
+n$3=*&amp;this:org.junit.ComparisonFailure* [line 49];
+n$4=*n$3.fActual:java.lang.String*(root org.junit.ComparisonFailure) [line 49];
+n$5=_fun_ComparisonFailure$ComparisonCompactor.&lt;init&gt;(int,String,String)(n$0:org.junit.ComparisonFailure$ComparisonCompactor*,20:int,n$2:java.lang.String*,n$4:java.lang.String*) [line 49];
+*&amp;$irvar0:org.junit.ComparisonFailure$ComparisonCompactor*=n$0 [line 49];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$6=*&amp;this:org.junit.ComparisonFailure* [line 49];
+n$7=_fun_String AssertionError.getMessage()(n$6:org.junit.ComparisonFailure*) [line 49];
+*&amp;$irvar1:java.lang.String*=n$7 [line 49];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;$irvar0:org.junit.ComparisonFailure$ComparisonCompactor* [line 49];
+_=*n$8:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 49];
+n$10=*&amp;$irvar1:java.lang.String* [line 49];
+n$11=_fun_String ComparisonFailure$ComparisonCompactor.compact(String)(n$8:org.junit.ComparisonFailure$ComparisonCompactor*,n$10:java.lang.String*) virtual [line 49];
+*&amp;$irvar2:java.lang.String*=n$11 [line 49];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar2:java.lang.String* [line 49];
+*&amp;return:java.lang.String*=n$12 [line 49];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getMessage%28%29%3Ajava.lang.String.f3d87355e2c11de994760de7430cb26f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">     * Returns the actual string value </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">     * @return the actual string value </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    public String getActual() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getActual%28%29%3Ajava.lang.String.32cb36d7dbc1192a7e61cd6d162a500d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure.getActual%28%29%3Ajava.lang.String.32cb36d7dbc1192a7e61cd6d162a500d.html">summary for String ComparisonFailure.getActual()</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        return fActual; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getActual%28%29%3Ajava.lang.String.32cb36d7dbc1192a7e61cd6d162a500d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure* [line 58];
+n$1=*n$0.fActual:java.lang.String*(root org.junit.ComparisonFailure) [line 58];
+*&amp;return:java.lang.String*=n$1 [line 58];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getActual%28%29%3Ajava.lang.String.32cb36d7dbc1192a7e61cd6d162a500d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getActual%28%29%3Ajava.lang.String.32cb36d7dbc1192a7e61cd6d162a500d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">     * Returns the expected string value </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">     * @return the expected string value </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    public String getExpected() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getExpected%28%29%3Ajava.lang.String.178f7069a2bd8fcdf23e32b89f7907c6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure.getExpected%28%29%3Ajava.lang.String.178f7069a2bd8fcdf23e32b89f7907c6.html">summary for String ComparisonFailure.getExpected()</a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        return fExpected; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getExpected%28%29%3Ajava.lang.String.178f7069a2bd8fcdf23e32b89f7907c6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure* [line 67];
+n$1=*n$0.fExpected:java.lang.String*(root org.junit.ComparisonFailure) [line 67];
+*&amp;return:java.lang.String*=n$1 [line 67];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getExpected%28%29%3Ajava.lang.String.178f7069a2bd8fcdf23e32b89f7907c6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure.getExpected%28%29%3Ajava.lang.String.178f7069a2bd8fcdf23e32b89f7907c6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    private static class ComparisonCompactor { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24500%28org.junit.ComparisonFailure%24ComparisonCom.e8be8c68ffca30b539974466810f6fa9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24400%28org.junit.ComparisonFailure%24ComparisonCom.8530e695dc0d5589584448b9731133e0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24300%28org.junit.ComparisonFailure%24ComparisonCom.7e067b7cdb4d4a6901670f6297d6abc1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24200%28org.junit.ComparisonFailure%24ComparisonCom.7057f8bae2a0f2dbef405a527e3a6779_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24100%28org.junit.ComparisonFailure%24ComparisonCom.3ea4dfb850aa5ad0db8d09b2ccc46d11_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24500%28org.junit.ComparisonFailure%24ComparisonCom.e8be8c68ffca30b539974466810f6fa9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.ComparisonFailure$ComparisonCompactor* [line 70];
+n$1=*n$0.contextLength:int(root org.junit.ComparisonFailure$ComparisonCompactor) [line 70];
+*&amp;return:int=n$1 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24400%28org.junit.ComparisonFailure%24ComparisonCom.8530e695dc0d5589584448b9731133e0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.ComparisonFailure$ComparisonCompactor* [line 70];
+n$1=*n$0.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 70];
+*&amp;return:java.lang.String*=n$1 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24300%28org.junit.ComparisonFailure%24ComparisonCom.7e067b7cdb4d4a6901670f6297d6abc1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.ComparisonFailure$ComparisonCompactor* [line 70];
+n$1=*n$0.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 70];
+*&amp;return:java.lang.String*=n$1 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24200%28org.junit.ComparisonFailure%24ComparisonCom.7057f8bae2a0f2dbef405a527e3a6779_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.ComparisonFailure$ComparisonCompactor* [line 70];
+n$1=*&amp;x1:java.lang.String* [line 70];
+n$2=_fun_String ComparisonFailure$ComparisonCompactor.sharedSuffix(String)(n$0:org.junit.ComparisonFailure$ComparisonCompactor*,n$1:java.lang.String*) [line 70];
+*&amp;$irvar0:java.lang.String*=n$2 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24100%28org.junit.ComparisonFailure%24ComparisonCom.3ea4dfb850aa5ad0db8d09b2ccc46d11_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.ComparisonFailure$ComparisonCompactor* [line 70];
+n$1=_fun_String ComparisonFailure$ComparisonCompactor.sharedPrefix()(n$0:org.junit.ComparisonFailure$ComparisonCompactor*) [line 70];
+*&amp;$irvar0:java.lang.String*=n$1 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24500%28org.junit.ComparisonFailure%24ComparisonCom.e8be8c68ffca30b539974466810f6fa9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24400%28org.junit.ComparisonFailure%24ComparisonCom.8530e695dc0d5589584448b9731133e0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24300%28org.junit.ComparisonFailure%24ComparisonCom.7e067b7cdb4d4a6901670f6297d6abc1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24200%28org.junit.ComparisonFailure%24ComparisonCom.7057f8bae2a0f2dbef405a527e3a6779_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String* [line 70];
+*&amp;return:java.lang.String*=n$3 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24100%28org.junit.ComparisonFailure%24ComparisonCom.3ea4dfb850aa5ad0db8d09b2ccc46d11_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String* [line 70];
+*&amp;return:java.lang.String*=n$2 [line 70];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24200%28org.junit.ComparisonFailure%24ComparisonCom.7057f8bae2a0f2dbef405a527e3a6779_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24100%28org.junit.ComparisonFailure%24ComparisonCom.3ea4dfb850aa5ad0db8d09b2ccc46d11_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24500%28org.junit.ComparisonFailure%24ComparisonCom.e8be8c68ffca30b539974466810f6fa9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24400%28org.junit.ComparisonFailure%24ComparisonCom.8530e695dc0d5589584448b9731133e0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24300%28org.junit.ComparisonFailure%24ComparisonCom.7e067b7cdb4d4a6901670f6297d6abc1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24200%28org.junit.ComparisonFailure%24ComparisonCom.7057f8bae2a0f2dbef405a527e3a6779_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.access%24100%28org.junit.ComparisonFailure%24ComparisonCom.3ea4dfb850aa5ad0db8d09b2ccc46d11_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.access%24500%28org.junit.ComparisonFailure%24ComparisonCom.e8be8c68ffca30b539974466810f6fa9.html">summary for int ComparisonFailure$ComparisonCompactor.access$500(ComparisonFailure$ComparisonCompactor)</a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.access%24400%28org.junit.ComparisonFailure%24ComparisonCom.8530e695dc0d5589584448b9731133e0.html">summary for String ComparisonFailure$ComparisonCompactor.access$400(ComparisonFailure$ComparisonCompactor)</a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.access%24300%28org.junit.ComparisonFailure%24ComparisonCom.7e067b7cdb4d4a6901670f6297d6abc1.html">summary for String ComparisonFailure$ComparisonCompactor.access$300(ComparisonFailure$ComparisonCompactor)</a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.access%24200%28org.junit.ComparisonFailure%24ComparisonCom.7057f8bae2a0f2dbef405a527e3a6779.html">summary for String ComparisonFailure$ComparisonCompactor.access$200(ComparisonFailure$ComparisonCompactor,String)</a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.access%24100%28org.junit.ComparisonFailure%24ComparisonCom.3ea4dfb850aa5ad0db8d09b2ccc46d11.html">summary for String ComparisonFailure$ComparisonCompactor.access$100(ComparisonFailure$ComparisonCompactor)</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        private static final String ELLIPSIS = &quot;...&quot;; </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        private static final String DIFF_END = &quot;]&quot;; </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        private static final String DIFF_START = &quot;[&quot;; </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">         * The maximum length for &lt;code&gt;expected&lt;/code&gt; and &lt;code&gt;actual&lt;/code&gt; strings to show. When </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">         * &lt;code&gt;contextLength&lt;/code&gt; is exceeded, the Strings are shortened. </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        private final int contextLength; </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        private final String expected; </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        private final String actual; </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">         * @param contextLength the maximum length of context surrounding the difference between the compared strings. </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">         * When context length is exceeded, the prefixes and suffixes are compacted. </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">         * @param expected the expected string value </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">         * @param actual the actual string value </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        public ComparisonCompactor(int contextLength, String expected, String actual) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 89];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.ComparisonFailure$ComparisonCompactor*) [line 89];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68.html">summary for ComparisonFailure$ComparisonCompactor.&lt;init&gt;(int,String,String)</a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            this.contextLength = contextLength; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 90];
+n$3=*&amp;contextLength:int [line 90];
+*n$2.contextLength:org.junit.ComparisonFailure$ComparisonCompactor(root org.junit.ComparisonFailure$ComparisonCompactor)=n$3 [line 90];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">            this.expected = expected; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 91];
+n$5=*&amp;expected:java.lang.String* [line 91];
+*n$4.expected:org.junit.ComparisonFailure$ComparisonCompactor(root org.junit.ComparisonFailure$ComparisonCompactor)=n$5 [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            this.actual = actual; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 92];
+n$7=*&amp;actual:java.lang.String* [line 92];
+*n$6.actual:org.junit.ComparisonFailure$ComparisonCompactor(root org.junit.ComparisonFailure$ComparisonCompactor)=n$7 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        } <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.<init>%28int%2Cjava.lang.String%2Cjava.lang.String%29.e357a19aa1206a681c9150bbe492fd68_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        public String compact(String message) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8.html">summary for String ComparisonFailure$ComparisonCompactor.compact(String)</a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">            if (expected == null || actual == null || expected.equals(actual)) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 7 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 96];
+n$1=*n$0.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 96];
+PRUNE(!(n$1 == null), true); [line 96];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$2=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 96];
+n$3=*n$2.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 96];
+PRUNE(!(n$3 == null), true); [line 96];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 10 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 96];
+n$5=*n$4.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 96];
+_=*n$5:java.lang.String*(root java.lang.String) [line 96];
+n$7=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 96];
+n$8=*n$7.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 96];
+n$9=_fun_boolean String.equals(Object)(n$5:java.lang.String*,n$8:java.lang.String*) virtual [line 96];
+*&amp;$irvar0:_Bool=n$9 [line 96];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$10=*&amp;$irvar0:_Bool [line 96];
+PRUNE(!(n$10 == 0), true); [line 96];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:15 exn:3 Conditional method_body
+n$10=*&amp;$irvar0:_Bool [line 96];
+PRUNE((n$10 == 0), false); [line 96];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:4 succs:11 exn:3 Conditional method_body
+n$2=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 96];
+n$3=*n$2.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 96];
+PRUNE((n$3 == null), false); [line 96];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:11 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 96];
+n$1=*n$0.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 96];
+PRUNE((n$1 == null), false); [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">                return Assert.format(message, expected, actual); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 7 5 succs:12 exn:3 Instructions
+n$11=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 97];
+n$12=*n$11.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 97];
+*&amp;$irvar2:java.lang.String*=n$12 [line 97];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 97];
+n$14=*n$13.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 97];
+*&amp;$irvar1:java.lang.String*=n$14 [line 97];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$15=*&amp;message:java.lang.String* [line 97];
+n$16=*&amp;$irvar1:java.lang.String* [line 97];
+n$17=*&amp;$irvar2:java.lang.String* [line 97];
+n$18=_fun_String Assert.format(String,Object,Object)(n$15:java.lang.String*,n$16:java.lang.String*,n$17:java.lang.String*) [line 97];
+*&amp;$irvar3:java.lang.String*=n$18 [line 97];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+n$19=*&amp;$irvar3:java.lang.String* [line 97];
+*&amp;return:java.lang.String*=n$19 [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">                DiffExtractor extractor = new DiffExtractor(); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:10 succs:16 exn:3 Instructions
+n$20=_fun___new(sizeof(t=org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor):org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*) [line 99];
+n$21=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 99];
+n$22=_fun_ComparisonFailure$ComparisonCompactor$DiffExtractor.&lt;init&gt;(ComparisonFailure$ComparisonCompactor,ComparisonFailure$1)(n$20:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*,n$21:org.junit.ComparisonFailure$ComparisonCompactor*,null:java.lang.Object*) [line 99];
+*&amp;extractor:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*=n$20 [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">                String compactedPrefix = extractor.compactPrefix(); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$23=*&amp;extractor:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 100];
+_=*n$23:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 100];
+n$25=_fun_String ComparisonFailure$ComparisonCompactor$DiffExtractor.compactPrefix()(n$23:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*) virtual [line 100];
+*&amp;compactedPrefix:java.lang.String*=n$25 [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">                String compactedSuffix = extractor.compactSuffix(); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$26=*&amp;extractor:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 101];
+_=*n$26:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 101];
+n$28=_fun_String ComparisonFailure$ComparisonCompactor$DiffExtractor.compactSuffix()(n$26:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*) virtual [line 101];
+*&amp;compactedSuffix:java.lang.String*=n$28 [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">                return Assert.format(message, <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$29=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 102];
+n$30=_fun_StringBuilder.&lt;init&gt;()(n$29:java.lang.StringBuilder*) [line 102];
+*&amp;$irvar4:java.lang.StringBuilder*=n$29 [line 102];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$31=*&amp;$irvar4:java.lang.StringBuilder* [line 102];
+_=*n$31:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 102];
+n$33=*&amp;compactedPrefix:java.lang.String* [line 102];
+n$34=_fun_StringBuilder StringBuilder.append(String)(n$31:java.lang.StringBuilder*,n$33:java.lang.String*) virtual [line 102];
+*&amp;$irvar5:java.lang.StringBuilder*=n$34 [line 102];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$69=*&amp;message:java.lang.String* [line 102];
+n$70=*&amp;$irvar9:java.lang.String* [line 102];
+n$71=*&amp;$irvar15:java.lang.String* [line 102];
+n$72=_fun_String Assert.format(String,Object,Object)(n$69:java.lang.String*,n$70:java.lang.String*,n$71:java.lang.String*) [line 102];
+*&amp;$irvar16:java.lang.String*=n$72 [line 102];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:2 exn:3 Instructions
+n$73=*&amp;$irvar16:java.lang.String* [line 102];
+*&amp;return:java.lang.String*=n$73 [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">                        compactedPrefix + extractor.expectedDiff() + compactedSuffix, <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$35=*&amp;extractor:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 103];
+_=*n$35:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 103];
+n$37=_fun_String ComparisonFailure$ComparisonCompactor$DiffExtractor.expectedDiff()(n$35:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*) virtual [line 103];
+*&amp;$irvar6:java.lang.String*=n$37 [line 103];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$38=*&amp;$irvar5:java.lang.StringBuilder* [line 103];
+_=*n$38:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 103];
+n$40=*&amp;$irvar6:java.lang.String* [line 103];
+n$41=_fun_StringBuilder StringBuilder.append(String)(n$38:java.lang.StringBuilder*,n$40:java.lang.String*) virtual [line 103];
+*&amp;$irvar7:java.lang.StringBuilder*=n$41 [line 103];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$42=*&amp;$irvar7:java.lang.StringBuilder* [line 103];
+_=*n$42:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 103];
+n$44=*&amp;compactedSuffix:java.lang.String* [line 103];
+n$45=_fun_StringBuilder StringBuilder.append(String)(n$42:java.lang.StringBuilder*,n$44:java.lang.String*) virtual [line 103];
+*&amp;$irvar8:java.lang.StringBuilder*=n$45 [line 103];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$46=*&amp;$irvar8:java.lang.StringBuilder* [line 103];
+_=*n$46:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 103];
+n$48=_fun_String StringBuilder.toString()(n$46:java.lang.StringBuilder*) virtual [line 103];
+*&amp;$irvar9:java.lang.String*=n$48 [line 103];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$49=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 103];
+n$50=_fun_StringBuilder.&lt;init&gt;()(n$49:java.lang.StringBuilder*) [line 103];
+*&amp;$irvar10:java.lang.StringBuilder*=n$49 [line 103];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$51=*&amp;$irvar10:java.lang.StringBuilder* [line 103];
+_=*n$51:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 103];
+n$53=*&amp;compactedPrefix:java.lang.String* [line 103];
+n$54=_fun_StringBuilder StringBuilder.append(String)(n$51:java.lang.StringBuilder*,n$53:java.lang.String*) virtual [line 103];
+*&amp;$irvar11:java.lang.StringBuilder*=n$54 [line 103];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `expectedDiff()` at line 103</div></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">                        compactedPrefix + extractor.actualDiff() + compactedSuffix); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$55=*&amp;extractor:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 104];
+_=*n$55:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 104];
+n$57=_fun_String ComparisonFailure$ComparisonCompactor$DiffExtractor.actualDiff()(n$55:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*) virtual [line 104];
+*&amp;$irvar12:java.lang.String*=n$57 [line 104];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$58=*&amp;$irvar11:java.lang.StringBuilder* [line 104];
+_=*n$58:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 104];
+n$60=*&amp;$irvar12:java.lang.String* [line 104];
+n$61=_fun_StringBuilder StringBuilder.append(String)(n$58:java.lang.StringBuilder*,n$60:java.lang.String*) virtual [line 104];
+*&amp;$irvar13:java.lang.StringBuilder*=n$61 [line 104];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$62=*&amp;$irvar13:java.lang.StringBuilder* [line 104];
+_=*n$62:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 104];
+n$64=*&amp;compactedSuffix:java.lang.String* [line 104];
+n$65=_fun_StringBuilder StringBuilder.append(String)(n$62:java.lang.StringBuilder*,n$64:java.lang.String*) virtual [line 104];
+*&amp;$irvar14:java.lang.StringBuilder*=n$65 [line 104];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$66=*&amp;$irvar14:java.lang.StringBuilder* [line 104];
+_=*n$66:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 104];
+n$68=_fun_String StringBuilder.toString()(n$66:java.lang.StringBuilder*) virtual [line 104];
+*&amp;$irvar15:java.lang.String*=n$68 [line 104];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:31 14 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.compact%28java.lang.String%29%3Ajava.lang.String.0f617d772181397104b7d304c605baa8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">        private String sharedPrefix() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721.html">summary for String ComparisonFailure$ComparisonCompactor.sharedPrefix()</a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">            int end = Math.min(expected.length(), actual.length()); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 109];
+n$1=*n$0.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 109];
+_=*n$1:java.lang.String*(root java.lang.String) [line 109];
+n$3=_fun_int String.length()(n$1:java.lang.String*) virtual [line 109];
+*&amp;$irvar0:int=n$3 [line 109];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 109];
+n$5=*n$4.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 109];
+_=*n$5:java.lang.String*(root java.lang.String) [line 109];
+n$7=_fun_int String.length()(n$5:java.lang.String*) virtual [line 109];
+*&amp;$irvar1:int=n$7 [line 109];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;$irvar0:int [line 109];
+n$9=*&amp;$irvar1:int [line 109];
+n$10=_fun_int Math.min(int,int)(n$8:int,n$9:int) [line 109];
+*&amp;end:int=n$10 [line 109];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">            for (int i = 0; i &lt; end; i++) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:10 exn:3 Instructions
+*&amp;i:int=0 [line 110];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:18 7 succs:8 9 exn: Join
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$11=*&amp;i:int [line 110];
+n$12=*&amp;end:int [line 110];
+PRUNE(!(n$11  &gt;=  n$12), true); [line 110];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:14 succs:10 exn:3 Instructions
+n$31=*&amp;i:int [line 110];
+*&amp;i:int=(n$31 + 1) [line 110];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:19 exn:3 Conditional method_body
+n$11=*&amp;i:int [line 110];
+n$12=*&amp;end:int [line 110];
+PRUNE((n$11  &gt;=  n$12), false); [line 110];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">                if (expected.charAt(i) != actual.charAt(i)) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$13=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 111];
+n$14=*n$13.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 111];
+_=*n$14:java.lang.String*(root java.lang.String) [line 111];
+n$16=*&amp;i:int [line 111];
+n$17=_fun_char String.charAt(int)(n$14:java.lang.String*,n$16:int) virtual [line 111];
+*&amp;$irvar2:unsigned short=n$17 [line 111];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:15 exn:3 Instructions
+n$18=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 111];
+n$19=*n$18.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 111];
+_=*n$19:java.lang.String*(root java.lang.String) [line 111];
+n$21=*&amp;i:int [line 111];
+n$22=_fun_char String.charAt(int)(n$19:java.lang.String*,n$21:int) virtual [line 111];
+*&amp;$irvar3:unsigned short=n$22 [line 111];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node15.html"><span class='visited with_tooltip'>J_15<span class='tooltip'>node15 preds:12 succs:13 14 exn: Join
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:18 exn:3 Conditional method_body
+n$23=*&amp;$irvar2:unsigned short [line 111];
+n$24=*&amp;$irvar3:unsigned short [line 111];
+PRUNE((n$23 == n$24), false); [line 111];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:16 exn:3 Conditional method_body
+n$23=*&amp;$irvar2:unsigned short [line 111];
+n$24=*&amp;$irvar3:unsigned short [line 111];
+PRUNE(!(n$23 == n$24), true); [line 111];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">                    return expected.substring(0, i); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:13 succs:17 exn:3 Instructions
+n$25=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 112];
+n$26=*n$25.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 112];
+_=*n$26:java.lang.String*(root java.lang.String) [line 112];
+n$28=*&amp;i:int [line 112];
+n$29=_fun_String String.substring(int,int)(n$26:java.lang.String*,0:int,n$28:int) virtual [line 112];
+*&amp;$irvar4:java.lang.String*=n$29 [line 112];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+n$30=*&amp;$irvar4:java.lang.String* [line 112];
+*&amp;return:java.lang.String*=n$30 [line 112];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            return expected.substring(0, end); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:9 succs:20 exn:3 Instructions
+n$32=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 115];
+n$33=*n$32.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 115];
+_=*n$33:java.lang.String*(root java.lang.String) [line 115];
+n$35=*&amp;end:int [line 115];
+n$36=_fun_String String.substring(int,int)(n$33:java.lang.String*,0:int,n$35:int) virtual [line 115];
+*&amp;$irvar5:java.lang.String*=n$36 [line 115];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:2 exn:3 Instructions
+n$37=*&amp;$irvar5:java.lang.String* [line 115];
+*&amp;return:java.lang.String*=n$37 [line 115];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:20 17 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedPrefix%28%29%3Ajava.lang.String.94e7589602b4b188bfc70a09928aa721_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        private String sharedSuffix(String prefix) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3.html">summary for String ComparisonFailure$ComparisonCompactor.sharedSuffix(String)</a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">            int suffixLength = 0; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;suffixLength:int=0 [line 119];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">            int maxSuffixLength = Math.min(expected.length() - prefix.length(), <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 120];
+n$1=*n$0.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 120];
+_=*n$1:java.lang.String*(root java.lang.String) [line 120];
+n$3=_fun_int String.length()(n$1:java.lang.String*) virtual [line 120];
+*&amp;$irvar0:int=n$3 [line 120];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;prefix:java.lang.String* [line 120];
+_=*n$4:java.lang.String*(root java.lang.String) [line 120];
+n$6=_fun_int String.length()(n$4:java.lang.String*) virtual [line 120];
+*&amp;$irvar1:int=n$6 [line 120];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;$irvar0:int [line 120];
+n$15=*&amp;$irvar1:int [line 120];
+n$16=*&amp;$irvar2:int [line 120];
+n$17=*&amp;$irvar3:int [line 120];
+n$18=_fun_int Math.min(int,int)((n$14 - n$15):int,(n$16 - n$17):int) [line 120];
+*&amp;$irvar4:int=n$18 [line 120];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:13 exn:3 Instructions
+n$19=*&amp;$irvar4:int [line 120];
+*&amp;maxSuffixLength:int=(n$19 - 1) [line 120];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">                    actual.length() - prefix.length()) - 1; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 121];
+n$8=*n$7.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 121];
+_=*n$8:java.lang.String*(root java.lang.String) [line 121];
+n$10=_fun_int String.length()(n$8:java.lang.String*) virtual [line 121];
+*&amp;$irvar2:int=n$10 [line 121];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;prefix:java.lang.String* [line 121];
+_=*n$11:java.lang.String*(root java.lang.String) [line 121];
+n$13=_fun_int String.length()(n$11:java.lang.String*) virtual [line 121];
+*&amp;$irvar3:int=n$13 [line 121];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            for (; suffixLength &lt;= maxSuffixLength; suffixLength++) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node13.html"><span class='visited with_tooltip'>J_13<span class='tooltip'>node13 preds:23 10 succs:11 12 exn: Join
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:14 exn:3 Conditional method_body
+n$20=*&amp;suffixLength:int [line 122];
+n$21=*&amp;maxSuffixLength:int [line 122];
+PRUNE(!(n$20  &gt;  n$21), true); [line 122];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:21 succs:13 exn:3 Instructions
+n$46=*&amp;suffixLength:int [line 122];
+*&amp;suffixLength:int=(n$46 + 1) [line 122];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:24 exn:3 Conditional method_body
+n$20=*&amp;suffixLength:int [line 122];
+n$21=*&amp;maxSuffixLength:int [line 122];
+PRUNE((n$20  &gt;  n$21), false); [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">                if (expected.charAt(expected.length() - 1 - suffixLength) <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:11 succs:15 exn:3 Instructions
+n$22=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 123];
+n$23=*n$22.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 123];
+*&amp;$irvar6:java.lang.String*=n$23 [line 123];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$24=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 123];
+n$25=*n$24.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 123];
+_=*n$25:java.lang.String*(root java.lang.String) [line 123];
+n$27=_fun_int String.length()(n$25:java.lang.String*) virtual [line 123];
+*&amp;$irvar5:int=n$27 [line 123];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$28=*&amp;$irvar6:java.lang.String* [line 123];
+_=*n$28:java.lang.String*(root java.lang.String) [line 123];
+n$30=*&amp;$irvar5:int [line 123];
+n$31=*&amp;suffixLength:int [line 123];
+n$32=_fun_char String.charAt(int)(n$28:java.lang.String*,((n$30 - 1) - n$31):int) virtual [line 123];
+*&amp;$irvar7:unsigned short=n$32 [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">                        != actual.charAt(actual.length() - 1 - suffixLength)) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$33=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 124];
+n$34=*n$33.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 124];
+*&amp;$irvar9:java.lang.String*=n$34 [line 124];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$35=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 124];
+n$36=*n$35.actual:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 124];
+_=*n$36:java.lang.String*(root java.lang.String) [line 124];
+n$38=_fun_int String.length()(n$36:java.lang.String*) virtual [line 124];
+*&amp;$irvar8:int=n$38 [line 124];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:22 exn:3 Instructions
+n$39=*&amp;$irvar9:java.lang.String* [line 124];
+_=*n$39:java.lang.String*(root java.lang.String) [line 124];
+n$41=*&amp;$irvar8:int [line 124];
+n$42=*&amp;suffixLength:int [line 124];
+n$43=_fun_char String.charAt(int)(n$39:java.lang.String*,((n$41 - 1) - n$42):int) virtual [line 124];
+*&amp;$irvar10:unsigned short=n$43 [line 124];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node22.html"><span class='visited with_tooltip'>J_22<span class='tooltip'>node22 preds:19 succs:20 21 exn: Join
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node21.html"><span class='visited with_tooltip'>C_21<span class='tooltip'>node21 preds:22 succs:23 exn:3 Conditional method_body
+n$44=*&amp;$irvar7:unsigned short [line 124];
+n$45=*&amp;$irvar10:unsigned short [line 124];
+PRUNE((n$44 == n$45), false); [line 124];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:22 succs:24 exn:3 Conditional method_body
+n$44=*&amp;$irvar7:unsigned short [line 124];
+n$45=*&amp;$irvar10:unsigned short [line 124];
+PRUNE(!(n$44 == n$45), true); [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">                    break; </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">            return expected.substring(expected.length() - suffixLength); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:20 12 succs:25 exn:3 Instructions
+n$47=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 128];
+n$48=*n$47.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 128];
+*&amp;$irvar12:java.lang.String*=n$48 [line 128];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$49=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor* [line 128];
+n$50=*n$49.expected:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor) [line 128];
+_=*n$50:java.lang.String*(root java.lang.String) [line 128];
+n$52=_fun_int String.length()(n$50:java.lang.String*) virtual [line 128];
+*&amp;$irvar11:int=n$52 [line 128];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$53=*&amp;$irvar12:java.lang.String* [line 128];
+_=*n$53:java.lang.String*(root java.lang.String) [line 128];
+n$55=*&amp;$irvar11:int [line 128];
+n$56=*&amp;suffixLength:int [line 128];
+n$57=_fun_String String.substring(int)(n$53:java.lang.String*,(n$55 - n$56):int) virtual [line 128];
+*&amp;$irvar13:java.lang.String*=n$57 [line 128];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:2 exn:3 Instructions
+n$58=*&amp;$irvar13:java.lang.String* [line 128];
+*&amp;return:java.lang.String*=n$58 [line 128];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:27 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor.sharedSuffix%28java.lang.String%29%3Ajava.lang.String.861d8d136b83049f6265b373fcbffaa3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        private class DiffExtractor { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.422988bec2e04aa5256cae11c81aa188_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.422988bec2e04aa5256cae11c81aa188_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 131];
+n$1=*&amp;x0:org.junit.ComparisonFailure$ComparisonCompactor* [line 131];
+n$2=_fun_ComparisonFailure$ComparisonCompactor$DiffExtractor.&lt;init&gt;(ComparisonFailure$ComparisonCompactor)(n$0:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*,n$1:org.junit.ComparisonFailure$ComparisonCompactor*) [line 131];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.422988bec2e04aa5256cae11c81aa188_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.422988bec2e04aa5256cae11c81aa188_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.422988bec2e04aa5256cae11c81aa188_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.422988bec2e04aa5256cae11c81aa188.html">summary for ComparisonFailure$ComparisonCompactor$DiffExtractor.&lt;init&gt;(ComparisonFailure$ComparisonCompactor,ComparisonFailure$1)</a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">            private final String sharedPrefix; </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">            private final String sharedSuffix; </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">            /** </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">             * Can not be instantiated outside {@link org.junit.ComparisonFailure.ComparisonCompactor}. </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">             */ </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">            private DiffExtractor() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 138];
+n$1=*&amp;$bcvar1:org.junit.ComparisonFailure$ComparisonCompactor* [line 138];
+*n$0.this$0:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor)=n$1 [line 138];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 138];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*) [line 138];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e.html">summary for ComparisonFailure$ComparisonCompactor$DiffExtractor.&lt;init&gt;(ComparisonFailure$ComparisonCompactor)</a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">                sharedPrefix = sharedPrefix(); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$bcvar1:org.junit.ComparisonFailure$ComparisonCompactor* [line 139];
+n$5=_fun_String ComparisonFailure$ComparisonCompactor.access$100(ComparisonFailure$ComparisonCompactor)(n$4:org.junit.ComparisonFailure$ComparisonCompactor*) [line 139];
+*&amp;$irvar0:java.lang.String*=n$5 [line 139];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 139];
+n$7=*&amp;$irvar0:java.lang.String* [line 139];
+*n$6.sharedPrefix:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor)=n$7 [line 139];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">                sharedSuffix = sharedSuffix(sharedPrefix); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 140];
+n$9=*n$8.sharedPrefix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 140];
+*&amp;$irvar1:java.lang.String*=n$9 [line 140];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;$bcvar1:org.junit.ComparisonFailure$ComparisonCompactor* [line 140];
+n$11=*&amp;$irvar1:java.lang.String* [line 140];
+n$12=_fun_String ComparisonFailure$ComparisonCompactor.access$200(ComparisonFailure$ComparisonCompactor,String)(n$10:org.junit.ComparisonFailure$ComparisonCompactor*,n$11:java.lang.String*) [line 140];
+*&amp;$irvar2:java.lang.String*=n$12 [line 140];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 140];
+n$14=*&amp;$irvar2:java.lang.String* [line 140];
+*n$13.sharedSuffix:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor)=n$14 [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">            } <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.<init>%28org.junit.ComparisonFailure%24Com.8e83ca24d7480da140772a3a7558b40e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">            public String expectedDiff() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954.html">summary for String ComparisonFailure$ComparisonCompactor$DiffExtractor.expectedDiff()</a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">                return extractDiff(expected); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 144];
+n$1=*n$0.this$0:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 144];
+*&amp;$irvar0:org.junit.ComparisonFailure$ComparisonCompactor*=n$1 [line 144];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.ComparisonFailure$ComparisonCompactor* [line 144];
+n$3=_fun_String ComparisonFailure$ComparisonCompactor.access$300(ComparisonFailure$ComparisonCompactor)(n$2:org.junit.ComparisonFailure$ComparisonCompactor*) [line 144];
+*&amp;$irvar1:java.lang.String*=n$3 [line 144];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 144];
+n$5=*&amp;$irvar1:java.lang.String* [line 144];
+n$6=_fun_String ComparisonFailure$ComparisonCompactor$DiffExtractor.extractDiff(String)(n$4:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*,n$5:java.lang.String*) [line 144];
+*&amp;$irvar2:java.lang.String*=n$6 [line 144];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar2:java.lang.String* [line 144];
+*&amp;return:java.lang.String*=n$7 [line 144];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.expectedDiff%28%29%3Ajava.lang.String.1965526cc9129407d873b1f3d5aa0954_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">            public String actualDiff() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38.html">summary for String ComparisonFailure$ComparisonCompactor$DiffExtractor.actualDiff()</a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">                return extractDiff(actual); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 148];
+n$1=*n$0.this$0:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 148];
+*&amp;$irvar0:org.junit.ComparisonFailure$ComparisonCompactor*=n$1 [line 148];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.ComparisonFailure$ComparisonCompactor* [line 148];
+n$3=_fun_String ComparisonFailure$ComparisonCompactor.access$400(ComparisonFailure$ComparisonCompactor)(n$2:org.junit.ComparisonFailure$ComparisonCompactor*) [line 148];
+*&amp;$irvar1:java.lang.String*=n$3 [line 148];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 148];
+n$5=*&amp;$irvar1:java.lang.String* [line 148];
+n$6=_fun_String ComparisonFailure$ComparisonCompactor$DiffExtractor.extractDiff(String)(n$4:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor*,n$5:java.lang.String*) [line 148];
+*&amp;$irvar2:java.lang.String*=n$6 [line 148];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar2:java.lang.String* [line 148];
+*&amp;return:java.lang.String*=n$7 [line 148];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.actualDiff%28%29%3Ajava.lang.String.c8df42f4cf8f7aa6fa9090dae7c0de38_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">            public String compactPrefix() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f.html">summary for String ComparisonFailure$ComparisonCompactor$DiffExtractor.compactPrefix()</a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">                if (sharedPrefix.length() &lt;= contextLength) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 152];
+n$1=*n$0.sharedPrefix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 152];
+_=*n$1:java.lang.String*(root java.lang.String) [line 152];
+n$3=_fun_int String.length()(n$1:java.lang.String*) virtual [line 152];
+*&amp;$irvar0:int=n$3 [line 152];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 152];
+n$5=*n$4.this$0:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 152];
+*&amp;$irvar1:org.junit.ComparisonFailure$ComparisonCompactor*=n$5 [line 152];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 8 exn:3 Instructions
+n$6=*&amp;$irvar1:org.junit.ComparisonFailure$ComparisonCompactor* [line 152];
+n$7=_fun_int ComparisonFailure$ComparisonCompactor.access$500(ComparisonFailure$ComparisonCompactor)(n$6:org.junit.ComparisonFailure$ComparisonCompactor*) [line 152];
+*&amp;$irvar2:int=n$7 [line 152];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 succs:9 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:int [line 152];
+n$9=*&amp;$irvar2:int [line 152];
+PRUNE(!(n$8  &gt;  n$9), true); [line 152];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 succs:10 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:int [line 152];
+n$9=*&amp;$irvar2:int [line 152];
+PRUNE((n$8  &gt;  n$9), false); [line 152];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">                    return sharedPrefix; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:2 exn:3 Instructions
+n$10=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 153];
+n$11=*n$10.sharedPrefix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 153];
+*&amp;return:java.lang.String*=n$11 [line 153];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">                return ELLIPSIS + sharedPrefix.substring(sharedPrefix.length() - contextLength); <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$12=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 155];
+n$13=_fun_StringBuilder.&lt;init&gt;()(n$12:java.lang.StringBuilder*) [line 155];
+*&amp;$irvar3:java.lang.StringBuilder*=n$12 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;$irvar3:java.lang.StringBuilder* [line 155];
+_=*n$14:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 155];
+n$16=_fun_StringBuilder StringBuilder.append(String)(n$14:java.lang.StringBuilder*,"...":java.lang.Object*) virtual [line 155];
+*&amp;$irvar4:java.lang.StringBuilder*=n$16 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$17=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 155];
+n$18=*n$17.sharedPrefix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 155];
+*&amp;$irvar6:java.lang.String*=n$18 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$19=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 155];
+n$20=*n$19.sharedPrefix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 155];
+_=*n$20:java.lang.String*(root java.lang.String) [line 155];
+n$22=_fun_int String.length()(n$20:java.lang.String*) virtual [line 155];
+*&amp;$irvar5:int=n$22 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$23=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 155];
+n$24=*n$23.this$0:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 155];
+*&amp;$irvar7:org.junit.ComparisonFailure$ComparisonCompactor*=n$24 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$25=*&amp;$irvar7:org.junit.ComparisonFailure$ComparisonCompactor* [line 155];
+n$26=_fun_int ComparisonFailure$ComparisonCompactor.access$500(ComparisonFailure$ComparisonCompactor)(n$25:org.junit.ComparisonFailure$ComparisonCompactor*) [line 155];
+*&amp;$irvar8:int=n$26 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$27=*&amp;$irvar6:java.lang.String* [line 155];
+_=*n$27:java.lang.String*(root java.lang.String) [line 155];
+n$29=*&amp;$irvar5:int [line 155];
+n$30=*&amp;$irvar8:int [line 155];
+n$31=_fun_String String.substring(int)(n$27:java.lang.String*,(n$29 - n$30):int) virtual [line 155];
+*&amp;$irvar9:java.lang.String*=n$31 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$32=*&amp;$irvar4:java.lang.StringBuilder* [line 155];
+_=*n$32:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 155];
+n$34=*&amp;$irvar9:java.lang.String* [line 155];
+n$35=_fun_StringBuilder StringBuilder.append(String)(n$32:java.lang.StringBuilder*,n$34:java.lang.String*) virtual [line 155];
+*&amp;$irvar10:java.lang.StringBuilder*=n$35 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$36=*&amp;$irvar10:java.lang.StringBuilder* [line 155];
+_=*n$36:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 155];
+n$38=_fun_String StringBuilder.toString()(n$36:java.lang.StringBuilder*) virtual [line 155];
+*&amp;$irvar11:java.lang.String*=n$38 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:2 exn:3 Instructions
+n$39=*&amp;$irvar11:java.lang.String* [line 155];
+*&amp;return:java.lang.String*=n$39 [line 155];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:19 9 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactPrefix%28%29%3Ajava.lang.String.7261ec2c0a69ced56de5f7915ac2d92f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">            public String compactSuffix() { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069.html">summary for String ComparisonFailure$ComparisonCompactor$DiffExtractor.compactSuffix()</a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">                if (sharedSuffix.length() &lt;= contextLength) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 159];
+n$1=*n$0.sharedSuffix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 159];
+_=*n$1:java.lang.String*(root java.lang.String) [line 159];
+n$3=_fun_int String.length()(n$1:java.lang.String*) virtual [line 159];
+*&amp;$irvar0:int=n$3 [line 159];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 159];
+n$5=*n$4.this$0:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 159];
+*&amp;$irvar1:org.junit.ComparisonFailure$ComparisonCompactor*=n$5 [line 159];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 8 exn:3 Instructions
+n$6=*&amp;$irvar1:org.junit.ComparisonFailure$ComparisonCompactor* [line 159];
+n$7=_fun_int ComparisonFailure$ComparisonCompactor.access$500(ComparisonFailure$ComparisonCompactor)(n$6:org.junit.ComparisonFailure$ComparisonCompactor*) [line 159];
+*&amp;$irvar2:int=n$7 [line 159];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 succs:9 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:int [line 159];
+n$9=*&amp;$irvar2:int [line 159];
+PRUNE(!(n$8  &gt;  n$9), true); [line 159];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 succs:10 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:int [line 159];
+n$9=*&amp;$irvar2:int [line 159];
+PRUNE((n$8  &gt;  n$9), false); [line 159];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">                    return sharedSuffix; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:2 exn:3 Instructions
+n$10=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 160];
+n$11=*n$10.sharedSuffix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 160];
+*&amp;return:java.lang.String*=n$11 [line 160];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">                return sharedSuffix.substring(0, contextLength) + ELLIPSIS; <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$12=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 162];
+n$13=_fun_StringBuilder.&lt;init&gt;()(n$12:java.lang.StringBuilder*) [line 162];
+*&amp;$irvar3:java.lang.StringBuilder*=n$12 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 162];
+n$15=*n$14.this$0:org.junit.ComparisonFailure$ComparisonCompactor*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 162];
+*&amp;$irvar5:org.junit.ComparisonFailure$ComparisonCompactor*=n$15 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 162];
+n$17=*n$16.sharedSuffix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 162];
+*&amp;$irvar4:java.lang.String*=n$17 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar5:org.junit.ComparisonFailure$ComparisonCompactor* [line 162];
+n$19=_fun_int ComparisonFailure$ComparisonCompactor.access$500(ComparisonFailure$ComparisonCompactor)(n$18:org.junit.ComparisonFailure$ComparisonCompactor*) [line 162];
+*&amp;$irvar6:int=n$19 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar4:java.lang.String* [line 162];
+_=*n$20:java.lang.String*(root java.lang.String) [line 162];
+n$22=*&amp;$irvar6:int [line 162];
+n$23=_fun_String String.substring(int,int)(n$20:java.lang.String*,0:int,n$22:int) virtual [line 162];
+*&amp;$irvar7:java.lang.String*=n$23 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$24=*&amp;$irvar3:java.lang.StringBuilder* [line 162];
+_=*n$24:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 162];
+n$26=*&amp;$irvar7:java.lang.String* [line 162];
+n$27=_fun_StringBuilder StringBuilder.append(String)(n$24:java.lang.StringBuilder*,n$26:java.lang.String*) virtual [line 162];
+*&amp;$irvar8:java.lang.StringBuilder*=n$27 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$28=*&amp;$irvar8:java.lang.StringBuilder* [line 162];
+_=*n$28:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 162];
+n$30=_fun_StringBuilder StringBuilder.append(String)(n$28:java.lang.StringBuilder*,"...":java.lang.Object*) virtual [line 162];
+*&amp;$irvar9:java.lang.StringBuilder*=n$30 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$31=*&amp;$irvar9:java.lang.StringBuilder* [line 162];
+_=*n$31:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 162];
+n$33=_fun_String StringBuilder.toString()(n$31:java.lang.StringBuilder*) virtual [line 162];
+*&amp;$irvar10:java.lang.String*=n$33 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:2 exn:3 Instructions
+n$34=*&amp;$irvar10:java.lang.String* [line 162];
+*&amp;return:java.lang.String*=n$34 [line 162];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:18 9 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.compactSuffix%28%29%3Ajava.lang.String.3888c23f7ca263b56bf176ad71549069_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">            private String extractDiff(String source) { <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84.html">summary for String ComparisonFailure$ComparisonCompactor$DiffExtractor.extractDiff(String)</a></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">                return DIFF_START + source.substring(sharedPrefix.length(), source.length() - sharedSuffix.length()) <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 166];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 166];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuilder* [line 166];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 166];
+n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,"[":java.lang.Object*) virtual [line 166];
+*&amp;$irvar1:java.lang.StringBuilder*=n$4 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 166];
+n$6=*n$5.sharedPrefix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 166];
+_=*n$6:java.lang.String*(root java.lang.String) [line 166];
+n$8=_fun_int String.length()(n$6:java.lang.String*) virtual [line 166];
+*&amp;$irvar2:int=n$8 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$9=*&amp;source:java.lang.String* [line 166];
+_=*n$9:java.lang.String*(root java.lang.String) [line 166];
+n$11=_fun_int String.length()(n$9:java.lang.String*) virtual [line 166];
+*&amp;$irvar3:int=n$11 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;this:org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor* [line 166];
+n$13=*n$12.sharedSuffix:java.lang.String*(root org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor) [line 166];
+_=*n$13:java.lang.String*(root java.lang.String) [line 166];
+n$15=_fun_int String.length()(n$13:java.lang.String*) virtual [line 166];
+*&amp;$irvar4:int=n$15 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$16=*&amp;source:java.lang.String* [line 166];
+_=*n$16:java.lang.String*(root java.lang.String) [line 166];
+n$18=*&amp;$irvar2:int [line 166];
+n$19=*&amp;$irvar3:int [line 166];
+n$20=*&amp;$irvar4:int [line 166];
+n$21=_fun_String String.substring(int,int)(n$16:java.lang.String*,n$18:int,(n$19 - n$20):int) virtual [line 166];
+*&amp;$irvar5:java.lang.String*=n$21 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$22=*&amp;$irvar1:java.lang.StringBuilder* [line 166];
+_=*n$22:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 166];
+n$24=*&amp;$irvar5:java.lang.String* [line 166];
+n$25=_fun_StringBuilder StringBuilder.append(String)(n$22:java.lang.StringBuilder*,n$24:java.lang.String*) virtual [line 166];
+*&amp;$irvar6:java.lang.StringBuilder*=n$25 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$26=*&amp;$irvar6:java.lang.StringBuilder* [line 166];
+_=*n$26:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 166];
+n$28=_fun_StringBuilder StringBuilder.append(String)(n$26:java.lang.StringBuilder*,"]":java.lang.Object*) virtual [line 166];
+*&amp;$irvar7:java.lang.StringBuilder*=n$28 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$29=*&amp;$irvar7:java.lang.StringBuilder* [line 166];
+_=*n$29:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 166];
+n$31=_fun_String StringBuilder.toString()(n$29:java.lang.StringBuilder*) virtual [line 166];
+*&amp;$irvar8:java.lang.String*=n$31 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+n$32=*&amp;$irvar8:java.lang.String* [line 166];
+*&amp;return:java.lang.String*=n$32 [line 166];
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/org.junit.ComparisonFailure%24ComparisonCompactor%24DiffExtractor.extractDiff%28java.lang.String%29%3Ajava.lan.259b7fb82685d85c2d08fc75f0068b84_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">                        + DIFF_END; </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+<br>Precondition Not Met in call to `expectedDiff()` at line 103 <a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/nodes/node20.html#session139">node20#session139</a>(<a href="./ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce/../ComparisonFailure.java.ee8e637346f75e10cb60d629d325c9ce.html#LINE103">103</a>)
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_1" [label="1: Start boolean TemporaryFolder.recursiveDelete(File)\nFormals:  this:org.junit.rules.TemporaryFolder* file:java.io.File*\nLocals:  $irvar2:void $irvar1:void $bcvar5:void $bcvar4:void $bcvar3:void $irvar0:void files:java.io.File*[_*_](*) each:java.io.File* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_1" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_4" ;
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_2" [label="2: Exit boolean TemporaryFolder.recursiveDelete(File) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [label="3:  exceptions sink \n   NULLIFY(&$bcvar3); [line 349]\n  NULLIFY(&$bcvar4); [line 349]\n  NULLIFY(&$bcvar5); [line 349]\n  NULLIFY(&each); [line 349]\n  NULLIFY(&$irvar0); [line 349]\n  NULLIFY(&files); [line 349]\n  NULLIFY(&$irvar1); [line 349]\n  NULLIFY(&$irvar2); [line 349]\n  EXIT_SCOPE($bcvar3,$bcvar4,$bcvar5,each,$irvar0,files,$irvar1,$irvar2); [line 349]\n  APPLY_ABSTRACTION; [line 349]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_2" ;
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_4" [label="4:  Call boolean File.delete() \n   n$0=*&file:java.io.File* [line 338]\n  _=*n$0:java.io.File*(root java.io.File) [line 338]\n  n$2=_fun_boolean File.delete()(n$0:java.io.File*) virtual [line 338]\n  *&$irvar0:_Bool=n$2 [line 338]\n  EXIT_SCOPE(_,n$0,n$2); [line 338]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_4" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_5" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_4" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_6" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_4" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:_Bool [line 338]\n  PRUNE(!(n$3 == 0), true); [line 338]\n  NULLIFY(&$irvar0); [line 338]\n  EXIT_SCOPE(n$3,$irvar0); [line 338]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_5" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_7" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_5" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:_Bool [line 338]\n  PRUNE((n$3 == 0), false); [line 338]\n  NULLIFY(&$irvar0); [line 338]\n  EXIT_SCOPE(n$3,$irvar0); [line 338]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_6" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_8" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_6" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_7" [label="7:  method_body \n   *&return:_Bool=1 [line 339]\n  APPLY_ABSTRACTION; [line 339]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_7" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_2" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_7" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_8" [label="8:  Call File[] File.listFiles() \n   n$4=*&file:java.io.File* [line 341]\n  _=*n$4:java.io.File*(root java.io.File) [line 341]\n  n$6=_fun_File[] File.listFiles()(n$4:java.io.File*) virtual [line 341]\n  *&files:java.io.File*[_*_](*)=n$6 [line 341]\n  EXIT_SCOPE(_,n$4,n$6); [line 341]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_8" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_9" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_8" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_10" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_8" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_9" [label="9: Prune (true branch, if) \n   n$7=*&files:java.io.File*[_*_](*) [line 342]\n  PRUNE(!(n$7 == null), true); [line 342]\n  EXIT_SCOPE(n$7); [line 342]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_9" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_11" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_9" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_10" [label="10: Prune (false branch, if) \n   n$7=*&files:java.io.File*[_*_](*) [line 342]\n  PRUNE((n$7 == null), false); [line 342]\n  NULLIFY(&files); [line 342]\n  EXIT_SCOPE(n$7,files); [line 342]\n  APPLY_ABSTRACTION; [line 342]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_10" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_24" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_10" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_11" [label="11:  method_body \n   n$8=*&files:java.io.File*[_*_](*) [line 343]\n  *&$bcvar3:java.io.File*[_*_](*)=n$8 [line 343]\n  NULLIFY(&files); [line 343]\n  EXIT_SCOPE(n$8,files); [line 343]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_11" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_12" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_11" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_12" [label="12:  method_body \n   n$9=*&$bcvar3:java.io.File*[_*_](*) [line 343]\n  _=*n$9:int(root java.io.File*[_*_]) [line 343]\n  n$11=_fun___get_array_length(n$9:java.io.File*[_*_](*)) [line 343]\n  *&$bcvar4:int=n$11 [line 343]\n  EXIT_SCOPE(_,n$9,n$11); [line 343]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_12" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_13" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_12" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_13" [label="13:  method_body \n   *&$bcvar5:int=0 [line 343]\n  APPLY_ABSTRACTION; [line 343]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_13" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_16" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_13" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_14" [label="14: Prune (true branch, if) \n   n$12=*&$bcvar5:int [line 343]\n  n$13=*&$bcvar4:int [line 343]\n  PRUNE(!(n$12 >= n$13), true); [line 343]\n  EXIT_SCOPE(n$12,n$13); [line 343]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_14" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_17" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_14" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_15" [label="15: Prune (false branch, if) \n   n$12=*&$bcvar5:int [line 343]\n  n$13=*&$bcvar4:int [line 343]\n  PRUNE((n$12 >= n$13), false); [line 343]\n  NULLIFY(&$bcvar3); [line 343]\n  NULLIFY(&$bcvar4); [line 343]\n  NULLIFY(&$bcvar5); [line 343]\n  EXIT_SCOPE(n$12,n$13,$bcvar3,$bcvar4,$bcvar5); [line 343]\n  APPLY_ABSTRACTION; [line 343]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_15" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_24" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_15" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_16" [label="16: + \n  " ]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_16" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_14" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_16" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_15" ;
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_17" [label="17:  method_body \n   n$14=*&$bcvar3:java.io.File*[_*_](*) [line 343]\n  _=*n$14:java.io.File*(root java.io.File*[_*_]) [line 343]\n  n$15=*&$bcvar5:int [line 343]\n  n$17=*n$14[n$15]:java.io.File* [line 343]\n  *&each:java.io.File*=n$17 [line 343]\n  EXIT_SCOPE(_,n$14,n$15,n$17); [line 343]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_17" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_18" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_17" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_18" [label="18:  Call boolean TemporaryFolder.recursiveDelete(File) \n   n$18=*&this:org.junit.rules.TemporaryFolder* [line 344]\n  n$19=*&each:java.io.File* [line 344]\n  n$20=_fun_boolean TemporaryFolder.recursiveDelete(File)(n$18:org.junit.rules.TemporaryFolder*,n$19:java.io.File*) [line 344]\n  *&$irvar1:_Bool=n$20 [line 344]\n  NULLIFY(&each); [line 344]\n  EXIT_SCOPE(n$18,n$19,n$20,each); [line 344]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_18" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_21" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_18" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_19" [label="19: Prune (true branch, if) \n   n$21=*&$irvar1:_Bool [line 344]\n  PRUNE(!(n$21 != 0), true); [line 344]\n  NULLIFY(&$bcvar3); [line 344]\n  NULLIFY(&$bcvar4); [line 344]\n  NULLIFY(&$bcvar5); [line 344]\n  NULLIFY(&$irvar1); [line 344]\n  EXIT_SCOPE(n$21,$bcvar3,$bcvar4,$bcvar5,$irvar1); [line 344]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_19" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_22" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_19" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_20" [label="20: Prune (false branch, if) \n   n$21=*&$irvar1:_Bool [line 344]\n  PRUNE((n$21 != 0), false); [line 344]\n  NULLIFY(&$irvar1); [line 344]\n  EXIT_SCOPE(n$21,$irvar1); [line 344]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_20" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_23" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_20" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_21" [label="21: + \n  " ]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_21" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_19" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_21" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_20" ;
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_22" [label="22:  method_body \n   *&return:_Bool=0 [line 345]\n  APPLY_ABSTRACTION; [line 345]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_22" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_2" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_22" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_23" [label="23:  method_body \n   n$22=*&$bcvar5:int [line 343]\n  *&$bcvar5:int=(n$22 + 1) [line 343]\n  EXIT_SCOPE(n$22); [line 343]\n  APPLY_ABSTRACTION; [line 343]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_23" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_16" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_23" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_24" [label="24:  Call boolean File.delete() \n   n$23=*&file:java.io.File* [line 349]\n  _=*n$23:java.io.File*(root java.io.File) [line 349]\n  n$25=_fun_boolean File.delete()(n$23:java.io.File*) virtual [line 349]\n  *&$irvar2:_Bool=n$25 [line 349]\n  NULLIFY(&file); [line 349]\n  EXIT_SCOPE(_,n$23,n$25,file); [line 349]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_24" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_25" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_24" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_25" [label="25:  method_body \n   n$26=*&$irvar2:_Bool [line 349]\n  *&return:_Bool=n$26 [line 349]\n  NULLIFY(&$irvar2); [line 349]\n  EXIT_SCOPE(n$26,$irvar2); [line 349]\n  APPLY_ABSTRACTION; [line 349]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_25" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_2" ;
+	 "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_25" -> "org.junit.rules.TemporaryFolder.recursiveDelete(java.io.File):boolean.f738fadf7668d640d1e31ad4f80a2fe5_3" [color="red" ];
+}

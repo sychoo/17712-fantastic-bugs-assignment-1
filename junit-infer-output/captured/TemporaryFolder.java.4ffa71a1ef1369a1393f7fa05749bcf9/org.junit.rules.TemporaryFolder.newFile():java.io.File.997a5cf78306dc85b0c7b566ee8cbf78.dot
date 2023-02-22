@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_1" [label="1: Start File TemporaryFolder.newFile()\nFormals:  this:org.junit.rules.TemporaryFolder*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_1" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_4" ;
+"org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_2" [label="2: Exit File TemporaryFolder.newFile() \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 169]\n  NULLIFY(&$irvar1); [line 169]\n  EXIT_SCOPE($irvar0,$irvar1); [line 169]\n  APPLY_ABSTRACTION; [line 169]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_3" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_2" ;
+"org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_4" [label="4:  Call File TemporaryFolder.getRoot() \n   n$0=*&this:org.junit.rules.TemporaryFolder* [line 169]\n  _=*n$0:org.junit.rules.TemporaryFolder*(root org.junit.rules.TemporaryFolder) [line 169]\n  n$2=_fun_File TemporaryFolder.getRoot()(n$0:org.junit.rules.TemporaryFolder*) virtual [line 169]\n  *&$irvar0:java.io.File*=n$2 [line 169]\n  NULLIFY(&this); [line 169]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 169]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_4" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_5" ;
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_4" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_5" [label="5:  Call File File.createTempFile(String,String,File) \n   n$3=*&$irvar0:java.io.File* [line 169]\n  n$4=_fun_File File.createTempFile(String,String,File)(\"junit\":java.lang.Object*,null:java.lang.Object*,n$3:java.io.File*) [line 169]\n  *&$irvar1:java.io.File*=n$4 [line 169]\n  NULLIFY(&$irvar0); [line 169]\n  EXIT_SCOPE(n$3,n$4,$irvar0); [line 169]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_5" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_6" ;
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_5" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_6" [label="6:  method_body \n   n$5=*&$irvar1:java.io.File* [line 169]\n  *&return:java.io.File*=n$5 [line 169]\n  NULLIFY(&$irvar1); [line 169]\n  EXIT_SCOPE(n$5,$irvar1); [line 169]\n  APPLY_ABSTRACTION; [line 169]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_6" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_2" ;
+	 "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_6" -> "org.junit.rules.TemporaryFolder.newFile():java.io.File.997a5cf78306dc85b0c7b566ee8cbf78_3" [color="red" ];
+}

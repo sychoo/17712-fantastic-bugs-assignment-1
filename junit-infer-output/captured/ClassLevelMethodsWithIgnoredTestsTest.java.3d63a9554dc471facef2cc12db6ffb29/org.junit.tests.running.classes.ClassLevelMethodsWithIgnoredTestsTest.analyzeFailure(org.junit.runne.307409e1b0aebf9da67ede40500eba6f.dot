@@ -1,0 +1,70 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_1" [label="1: Start void ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(Failure,String)\nFormals:  this:org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest* failure:org.junit.runner.notification.Failure* testFailureDescription:java.lang.String*\nLocals:  $irvar4:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void actualFailureMsg:java.lang.String* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_1" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_4" ;
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_2" [label="2: Exit void ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(Failure,String) \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 164]\n  NULLIFY(&$irvar4); [line 164]\n  NULLIFY(&$irvar0); [line 164]\n  NULLIFY(&$irvar1); [line 164]\n  NULLIFY(&actualFailureMsg); [line 164]\n  NULLIFY(&$irvar2); [line 164]\n  EXIT_SCOPE($irvar3,$irvar4,$irvar0,$irvar1,actualFailureMsg,$irvar2); [line 164]\n  APPLY_ABSTRACTION; [line 164]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_2" ;
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_4" [label="4:  Call String Failure.getMessage() \n   n$0=*&failure:org.junit.runner.notification.Failure* [line 159]\n  _=*n$0:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 159]\n  n$2=_fun_String Failure.getMessage()(n$0:org.junit.runner.notification.Failure*) virtual [line 159]\n  *&actualFailureMsg:java.lang.String*=n$2 [line 159]\n  NULLIFY(&failure); [line 159]\n  EXIT_SCOPE(_,n$0,n$2,failure); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_4" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_5" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_4" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_5" [label="5:  Call boolean String.equals(Object) \n   n$3=*&actualFailureMsg:java.lang.String* [line 160]\n  n$4=_fun_boolean String.equals(Object)(\"This should not have happened!\":java.lang.Object*,n$3:java.lang.String*) virtual [line 160]\n  *&$irvar0:_Bool=n$4 [line 160]\n  EXIT_SCOPE(n$3,n$4); [line 160]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_5" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_6" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_5" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_7" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_5" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_6" [label="6: Prune (true branch, if) \n   n$5=*&$irvar0:_Bool [line 160]\n  PRUNE(!(n$5 == 0), true); [line 160]\n  NULLIFY(&$irvar0); [line 160]\n  EXIT_SCOPE(n$5,$irvar0); [line 160]\n " shape="invhouse"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_6" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_8" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_6" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_7" [label="7: Prune (false branch, if) \n   n$5=*&$irvar0:_Bool [line 160]\n  PRUNE((n$5 == 0), false); [line 160]\n  NULLIFY(&$irvar0); [line 160]\n  EXIT_SCOPE(n$5,$irvar0); [line 160]\n  APPLY_ABSTRACTION; [line 160]\n " shape="invhouse"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_7" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_9" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_7" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_8" [label="8:  Call void Assert.fail(String) \n   n$6=*&testFailureDescription:java.lang.String* [line 161]\n  n$7=_fun_void Assert.fail(String)(n$6:java.lang.String*) [line 161]\n  NULLIFY(&testFailureDescription); [line 161]\n  EXIT_SCOPE(n$6,n$7,testFailureDescription); [line 161]\n  APPLY_ABSTRACTION; [line 161]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_8" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_9" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_8" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_9" [label="9:  Call StringBuilder.<init>() \n   n$8=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 163]\n  n$9=_fun_StringBuilder.<init>()(n$8:java.lang.StringBuilder*) [line 163]\n  *&$irvar1:java.lang.StringBuilder*=n$8 [line 163]\n  EXIT_SCOPE(n$8,n$9); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_9" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_10" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_9" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_10" [label="10:  Call StringBuilder StringBuilder.append(String) \n   n$10=*&$irvar1:java.lang.StringBuilder* [line 163]\n  _=*n$10:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 163]\n  n$12=_fun_StringBuilder StringBuilder.append(String)(n$10:java.lang.StringBuilder*,\"Unexpected failure : \":java.lang.Object*) virtual [line 163]\n  *&$irvar2:java.lang.StringBuilder*=n$12 [line 163]\n  NULLIFY(&$irvar1); [line 163]\n  EXIT_SCOPE(_,n$10,n$12,$irvar1); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_10" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_11" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_10" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_11" [label="11:  Call StringBuilder StringBuilder.append(String) \n   n$13=*&$irvar2:java.lang.StringBuilder* [line 163]\n  _=*n$13:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 163]\n  n$15=*&actualFailureMsg:java.lang.String* [line 163]\n  n$16=_fun_StringBuilder StringBuilder.append(String)(n$13:java.lang.StringBuilder*,n$15:java.lang.String*) virtual [line 163]\n  *&$irvar3:java.lang.StringBuilder*=n$16 [line 163]\n  NULLIFY(&actualFailureMsg); [line 163]\n  NULLIFY(&$irvar2); [line 163]\n  EXIT_SCOPE(_,n$13,n$15,n$16,actualFailureMsg,$irvar2); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_11" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_12" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_11" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_12" [label="12:  Call String StringBuilder.toString() \n   n$17=*&$irvar3:java.lang.StringBuilder* [line 163]\n  _=*n$17:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 163]\n  n$19=_fun_String StringBuilder.toString()(n$17:java.lang.StringBuilder*) virtual [line 163]\n  *&$irvar4:java.lang.String*=n$19 [line 163]\n  NULLIFY(&$irvar3); [line 163]\n  EXIT_SCOPE(_,n$17,n$19,$irvar3); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_12" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_13" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_12" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_13" [label="13:  Call void Assert.fail(String) \n   n$20=*&$irvar4:java.lang.String* [line 163]\n  n$21=_fun_void Assert.fail(String)(n$20:java.lang.String*) [line 163]\n  NULLIFY(&$irvar4); [line 163]\n  EXIT_SCOPE(n$20,n$21,$irvar4); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_13" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_14" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_13" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+"org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_14" [label="14:  method_body \n   APPLY_ABSTRACTION; [line 164]\n " shape="box"]
+	
+
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_14" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_2" ;
+	 "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_14" -> "org.junit.tests.running.classes.ClassLevelMethodsWithIgnoredTestsTest.analyzeFailure(org.junit.runne.307409e1b0aebf9da67ede40500eba6f_3" [color="red" ];
+}

@@ -1,0 +1,1027 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/runner/notification/RunNotifier.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner.notification; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static java.util.Arrays.asList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.concurrent.CopyOnWriteArrayList; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * If you write custom runners, you may need to notify JUnit of your progress running tests. </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * Do this by invoking the &lt;code&gt;RunNotifier&lt;/code&gt; passed to your implementation of </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * {@link org.junit.runner.Runner#run(RunNotifier)}. Future evolution of this class is likely to </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * move {@link #fireTestRunStarted(Description)} and {@link #fireTestRunFinished(Result)} </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * to a separate class since they should only be called once per run. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * @since 4.0 </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">public class RunNotifier { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24100%28org.junit.runner.notification.RunNotifier%2Cjava..d82e603e724e35ca6b0858791b7dccdb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24000%28org.junit.runner.notification.RunNotifier%29%3Ajava.e42919df12a692d425a7bb70103fae3c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24100%28org.junit.runner.notification.RunNotifier%2Cjava..d82e603e724e35ca6b0858791b7dccdb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.runner.notification.RunNotifier* [line 21];
+n$1=*&amp;x1:java.util.List* [line 21];
+n$2=*&amp;x2:java.util.List* [line 21];
+n$3=_fun_void RunNotifier.fireTestFailures(List,List)(n$0:org.junit.runner.notification.RunNotifier*,n$1:java.util.List*,n$2:java.util.List*) [line 21];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24000%28org.junit.runner.notification.RunNotifier%29%3Ajava.e42919df12a692d425a7bb70103fae3c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.runner.notification.RunNotifier* [line 21];
+n$1=*n$0.listeners:java.util.List*(root org.junit.runner.notification.RunNotifier) [line 21];
+*&amp;return:java.util.List*=n$1 [line 21];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier* [line 21];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.notification.RunNotifier*) [line 21];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24000%28org.junit.runner.notification.RunNotifier%29%3Ajava.e42919df12a692d425a7bb70103fae3c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24100%28org.junit.runner.notification.RunNotifier%2Cjava..d82e603e724e35ca6b0858791b7dccdb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24100%28org.junit.runner.notification.RunNotifier%2Cjava..d82e603e724e35ca6b0858791b7dccdb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24100%28org.junit.runner.notification.RunNotifier%2Cjava..d82e603e724e35ca6b0858791b7dccdb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.access%24000%28org.junit.runner.notification.RunNotifier%29%3Ajava.e42919df12a692d425a7bb70103fae3c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.access%24100%28org.junit.runner.notification.RunNotifier%2Cjava..d82e603e724e35ca6b0858791b7dccdb.html">summary for void RunNotifier.access$100(RunNotifier,List,List)</a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.access%24000%28org.junit.runner.notification.RunNotifier%29%3Ajava.e42919df12a692d425a7bb70103fae3c.html">summary for List RunNotifier.access$000(RunNotifier)</a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235.html">summary for RunNotifier.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private final List&lt;RunListener&gt; listeners = new CopyOnWriteArrayList&lt;RunListener&gt;(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.concurrent.CopyOnWriteArrayList):java.util.concurrent.CopyOnWriteArrayList*) [line 22];
+n$3=_fun_CopyOnWriteArrayList.&lt;init&gt;()(n$2:java.util.concurrent.CopyOnWriteArrayList*) [line 22];
+*&amp;$irvar0:java.util.concurrent.CopyOnWriteArrayList*=n$2 [line 22];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier* [line 22];
+n$5=*&amp;$irvar0:java.util.concurrent.CopyOnWriteArrayList* [line 22];
+*n$4.listeners:org.junit.runner.notification.RunNotifier(root org.junit.runner.notification.RunNotifier)=n$5 [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private volatile boolean pleaseStop = false; <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.RunNotifier* [line 23];
+*n$6.pleaseStop:org.junit.runner.notification.RunNotifier(root org.junit.runner.notification.RunNotifier)=0 [line 23];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.<init>%28%29.997476a089d82bfed608c55e8853c235_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">     * Internal use only </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    public void addListener(RunListener listener) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d.html">summary for void RunNotifier.addListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        if (listener == null) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 29];
+PRUNE(!(n$0 != null), true); [line 29];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 29];
+PRUNE((n$0 != null), false); [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">            throw new NullPointerException(&quot;Cannot add a null listener&quot;); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 30];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"Cannot add a null listener":java.lang.Object*) [line 30];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 30];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 30];
+*&amp;return:void=EXN n$3 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        listeners.add(wrapIfNotThreadSafe(listener)); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier* [line 32];
+n$5=*n$4.listeners:java.util.List*(root org.junit.runner.notification.RunNotifier) [line 32];
+*&amp;$irvar2:java.util.List*=n$5 [line 32];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.RunNotifier* [line 32];
+_=*n$6:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 32];
+n$8=*&amp;listener:org.junit.runner.notification.RunListener* [line 32];
+n$9=_fun_RunListener RunNotifier.wrapIfNotThreadSafe(RunListener)(n$6:org.junit.runner.notification.RunNotifier*,n$8:org.junit.runner.notification.RunListener*) virtual [line 32];
+*&amp;$irvar1:org.junit.runner.notification.RunListener*=n$9 [line 32];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar2:java.util.List* [line 32];
+_=*n$10:java.util.List*(root java.util.List) [line 32];
+n$12=*&amp;$irvar1:org.junit.runner.notification.RunListener* [line 32];
+n$13=_fun_boolean List.add(Object)(n$10:java.util.List*,n$12:org.junit.runner.notification.RunListener*) interface virtual [line 32];
+*&amp;$irvar3:_Bool=n$13 [line 32];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addListener%28org.junit.runner.notification.RunListener%29%3Avoi.34a7442a2509d78a682dcb5a9650072d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">     * Internal use only </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    public void removeListener(RunListener listener) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1.html">summary for void RunNotifier.removeListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        if (listener == null) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 39];
+PRUNE(!(n$0 != null), true); [line 39];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 39];
+PRUNE((n$0 != null), false); [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">            throw new NullPointerException(&quot;Cannot remove a null listener&quot;); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 40];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"Cannot remove a null listener":java.lang.Object*) [line 40];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 40];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 40];
+*&amp;return:void=EXN n$3 [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        listeners.remove(wrapIfNotThreadSafe(listener)); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier* [line 42];
+n$5=*n$4.listeners:java.util.List*(root org.junit.runner.notification.RunNotifier) [line 42];
+*&amp;$irvar2:java.util.List*=n$5 [line 42];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.RunNotifier* [line 42];
+_=*n$6:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 42];
+n$8=*&amp;listener:org.junit.runner.notification.RunListener* [line 42];
+n$9=_fun_RunListener RunNotifier.wrapIfNotThreadSafe(RunListener)(n$6:org.junit.runner.notification.RunNotifier*,n$8:org.junit.runner.notification.RunListener*) virtual [line 42];
+*&amp;$irvar1:org.junit.runner.notification.RunListener*=n$9 [line 42];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar2:java.util.List* [line 42];
+_=*n$10:java.util.List*(root java.util.List) [line 42];
+n$12=*&amp;$irvar1:org.junit.runner.notification.RunListener* [line 42];
+n$13=_fun_boolean List.remove(Object)(n$10:java.util.List*,n$12:org.junit.runner.notification.RunListener*) interface virtual [line 42];
+*&amp;$irvar3:_Bool=n$13 [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.removeListener%28org.junit.runner.notification.RunListener%29%3A.476ff64a720357f73c5d01643bbe63b1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">     * Wraps the given listener with {@link SynchronizedRunListener} if </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">     * it is not annotated with {@link RunListener.ThreadSafe}. </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    RunListener wrapIfNotThreadSafe(RunListener listener) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154.html">summary for RunListener RunNotifier.wrapIfNotThreadSafe(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        return listener.getClass().isAnnotationPresent(RunListener.ThreadSafe.class) ? <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 50];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 50];
+n$2=_fun_Class Object.getClass()(n$0:org.junit.runner.notification.RunListener*) virtual [line 50];
+*&amp;$irvar0:java.lang.Class*=n$2 [line 50];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Class* [line 50];
+_=*n$3:java.lang.Class*(root java.lang.Class) [line 50];
+n$5=_fun_boolean Class.isAnnotationPresent(Class)(n$3:java.lang.Class*,org.junit.runner.notification.RunListener$ThreadSafe:java.lang.Object*) virtual [line 50];
+*&amp;$irvar1:_Bool=n$5 [line 50];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;$irvar1:_Bool [line 50];
+PRUNE(!(n$6 == 0), true); [line 50];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$6=*&amp;$irvar1:_Bool [line 50];
+PRUNE((n$6 == 0), false); [line 50];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 8 succs:2 exn:3 Instructions
+n$13=*&amp;$T0_25:org.junit.runner.notification.SynchronizedRunListener* [line 50];
+*&amp;return:org.junit.runner.notification.RunListener*=n$13 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">                listener : new SynchronizedRunListener(listener, this); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:11 exn:3 Instructions
+n$7=*&amp;listener:org.junit.runner.notification.RunListener* [line 51];
+*&amp;$T0_25:org.junit.runner.notification.RunListener*=n$7 [line 51];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 exn:3 Instructions
+n$8=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListener):org.junit.runner.notification.SynchronizedRunListener*) [line 51];
+n$9=*&amp;listener:org.junit.runner.notification.RunListener* [line 51];
+n$10=*&amp;this:org.junit.runner.notification.RunNotifier* [line 51];
+n$11=_fun_SynchronizedRunListener.&lt;init&gt;(RunListener,Object)(n$8:org.junit.runner.notification.SynchronizedRunListener*,n$9:org.junit.runner.notification.RunListener*,n$10:org.junit.runner.notification.RunNotifier*) [line 51];
+*&amp;$irvar2:org.junit.runner.notification.SynchronizedRunListener*=n$8 [line 51];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar2:org.junit.runner.notification.SynchronizedRunListener* [line 51];
+*&amp;$T0_25:org.junit.runner.notification.SynchronizedRunListener*=n$12 [line 51];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.wrapIfNotThreadSafe%28org.junit.runner.notification.RunListe.cf0aaa057adb5364577b23ed8bb11154_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    private abstract class SafeNotifier { </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        private final List&lt;RunListener&gt; currentListeners; </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        SafeNotifier() { </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            this(listeners); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;$bcvar1:org.junit.runner.notification.RunNotifier* [line 59];
+n$1=_fun_List RunNotifier.access$000(RunNotifier)(n$0:org.junit.runner.notification.RunNotifier*) [line 59];
+*&amp;$irvar0:java.util.List*=n$1 [line 59];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 59];
+n$3=*&amp;$bcvar1:org.junit.runner.notification.RunNotifier* [line 59];
+n$4=*&amp;$irvar0:java.util.List* [line 59];
+n$5=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier,List)(n$2:org.junit.runner.notification.RunNotifier$SafeNotifier*,n$3:org.junit.runner.notification.RunNotifier*,n$4:java.util.List*) [line 59];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369.html">summary for RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)</a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.2066601e93e5d18e147dc4f043974369_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        SafeNotifier(List&lt;RunListener&gt; currentListeners) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 62];
+n$1=*&amp;$bcvar1:org.junit.runner.notification.RunNotifier* [line 62];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$SafeNotifier(root org.junit.runner.notification.RunNotifier$SafeNotifier)=n$1 [line 62];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 62];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.runner.notification.RunNotifier$SafeNotifier*) [line 62];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c.html">summary for RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier,List)</a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">            this.currentListeners = currentListeners; <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 63];
+n$5=*&amp;currentListeners:java.util.List* [line 63];
+*n$4.currentListeners:org.junit.runner.notification.RunNotifier$SafeNotifier(root org.junit.runner.notification.RunNotifier$SafeNotifier)=n$5 [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.<init>%28org.junit.runner.notification.RunNotif.7e63042b2b003ea628de6bd38cfe563c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        void run() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed.html">summary for void RunNotifier$SafeNotifier.run()</a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">            int capacity = currentListeners.size(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 67];
+n$1=*n$0.currentListeners:java.util.List*(root org.junit.runner.notification.RunNotifier$SafeNotifier) [line 67];
+_=*n$1:java.util.List*(root java.util.List) [line 67];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 67];
+*&amp;capacity:int=n$3 [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">            List&lt;RunListener&gt; safeListeners = new ArrayList&lt;RunListener&gt;(capacity); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 68];
+n$5=*&amp;capacity:int [line 68];
+n$6=_fun_ArrayList.&lt;init&gt;(int)(n$4:java.util.ArrayList*,n$5:int) [line 68];
+*&amp;safeListeners:java.util.ArrayList*=n$4 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">            List&lt;Failure&gt; failures = new ArrayList&lt;Failure&gt;(capacity); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$7=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 69];
+n$8=*&amp;capacity:int [line 69];
+n$9=_fun_ArrayList.&lt;init&gt;(int)(n$7:java.util.ArrayList*,n$8:int) [line 69];
+*&amp;failures:java.util.ArrayList*=n$7 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">            for (RunListener listener : currentListeners) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 70];
+n$11=*n$10.currentListeners:java.util.List*(root org.junit.runner.notification.RunNotifier$SafeNotifier) [line 70];
+_=*n$11:java.util.List*(root java.util.List) [line 70];
+n$13=_fun_Iterator List.iterator()(n$11:java.util.List*) interface virtual [line 70];
+*&amp;$bcvar4:java.util.Iterator*=n$13 [line 70];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:18 15 7 succs:11 exn:3 Instructions
+n$14=*&amp;$bcvar4:java.util.Iterator* [line 70];
+_=*n$14:java.util.Iterator*(root java.util.Iterator) [line 70];
+n$16=_fun_boolean Iterator.hasNext()(n$14:java.util.Iterator*) interface virtual [line 70];
+*&amp;$irvar0:_Bool=n$16 [line 70];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node11.html"><span class='visited with_tooltip'>J_11<span class='tooltip'>node11 preds:8 succs:9 10 exn: Join
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:12 exn:3 Conditional method_body
+n$17=*&amp;$irvar0:_Bool [line 70];
+PRUNE(!(n$17 == 0), true); [line 70];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$18=*&amp;$bcvar4:java.util.Iterator* [line 70];
+_=*n$18:java.util.Iterator*(root java.util.Iterator) [line 70];
+n$20=_fun_Object Iterator.next()(n$18:java.util.Iterator*) interface virtual [line 70];
+*&amp;$irvar1:java.lang.Object*=n$20 [line 70];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$21=*&amp;$irvar1:java.lang.Object* [line 70];
+n$22=_fun___cast(n$21:java.lang.Object*,sizeof(t=org.junit.runner.notification.RunListener;sub_t=( sub )(cast)):void) [line 70];
+*&amp;listener:org.junit.runner.notification.RunListener*=n$22 [line 70];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:19 exn:3 Conditional method_body
+n$17=*&amp;$irvar0:_Bool [line 70];
+PRUNE((n$17 == 0), false); [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">                    notifyListener(listener); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:24 Instructions
+n$23=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 72];
+_=*n$23:org.junit.runner.notification.RunNotifier$SafeNotifier*(root org.junit.runner.notification.RunNotifier$SafeNotifier) [line 72];
+n$25=*&amp;listener:org.junit.runner.notification.RunListener* [line 72];
+n$26=_fun_void RunNotifier$SafeNotifier.notifyListener(RunListener)(n$23:org.junit.runner.notification.RunNotifier$SafeNotifier*,n$25:org.junit.runner.notification.RunListener*) virtual [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">                    safeListeners.add(listener); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:8 exn:24 Instructions
+n$27=*&amp;safeListeners:java.util.ArrayList* [line 73];
+_=*n$27:java.util.ArrayList*(root java.util.ArrayList) [line 73];
+n$29=*&amp;listener:org.junit.runner.notification.RunListener* [line 73];
+n$30=_fun_boolean List.add(Object)(n$27:java.util.ArrayList*,n$29:org.junit.runner.notification.RunListener*) interface virtual [line 73];
+*&amp;$irvar2:_Bool=n$30 [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">                } catch (Exception e) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:22 succs:17 exn:3 Instructions
+n$31=*&amp;CatchVar79:java.lang.Object* [line 74];
+*&amp;e:java.lang.Object*=n$31 [line 74];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node22.html"><span class='visited with_tooltip'>C_22<span class='tooltip'>node22 preds:24 succs:16 exn:3 Conditional exception handler
+n$48=_fun___instanceof(n$47:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 74];
+PRUNE(n$48, true); [line 74];
+*&amp;CatchVar79:void=n$47 [line 74];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node23.html"><span class='visited with_tooltip'>C_23<span class='tooltip'>node23 preds:24 succs:3 exn:3 Conditional exception handler
+n$48=_fun___instanceof(n$47:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 74];
+PRUNE(!n$48, false); [line 74];
+*&amp;return:void=EXN n$47 [line 74];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds: succs:22 23 exn:3 Instructions
+n$46=*&amp;return:void [line 74];
+*&amp;return:void=null [line 74];
+n$47=_fun___unwrap_exception(n$46:void) [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                    failures.add(new Failure(Description.TEST_MECHANISM, e)); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$32=_fun___new(sizeof(t=org.junit.runner.notification.Failure):org.junit.runner.notification.Failure*) [line 75];
+n$33=*&amp;#GB<>$org.junit.runner.Description.TEST_MECHANISM:org.junit.runner.Description*(root org.junit.runner.Description) [line 75];
+n$34=*&amp;e:java.lang.Object* [line 75];
+n$35=_fun_Failure.&lt;init&gt;(Description,Throwable)(n$32:org.junit.runner.notification.Failure*,n$33:org.junit.runner.Description*,n$34:java.lang.Object*) [line 75];
+*&amp;$irvar3:org.junit.runner.notification.Failure*=n$32 [line 75];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:8 exn:3 Instructions
+n$36=*&amp;failures:java.util.ArrayList* [line 75];
+_=*n$36:java.util.ArrayList*(root java.util.ArrayList) [line 75];
+n$38=*&amp;$irvar3:org.junit.runner.notification.Failure* [line 75];
+n$39=_fun_boolean List.add(Object)(n$36:java.util.ArrayList*,n$38:org.junit.runner.notification.Failure*) interface virtual [line 75];
+*&amp;$irvar4:_Bool=n$39 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            fireTestFailures(safeListeners, failures); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:10 succs:20 exn:3 Instructions
+n$40=*&amp;this:org.junit.runner.notification.RunNotifier$SafeNotifier* [line 78];
+n$41=*n$40.this$0:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier$SafeNotifier) [line 78];
+*&amp;$irvar5:org.junit.runner.notification.RunNotifier*=n$41 [line 78];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$42=*&amp;$irvar5:org.junit.runner.notification.RunNotifier* [line 78];
+n$43=*&amp;safeListeners:java.util.ArrayList* [line 78];
+n$44=*&amp;failures:java.util.ArrayList* [line 78];
+n$45=_fun_void RunNotifier.access$100(RunNotifier,List,List)(n$42:org.junit.runner.notification.RunNotifier*,n$43:java.util.ArrayList*,n$44:java.util.ArrayList*) [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:21 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%24SafeNotifier.run%28%29%3Avoid.9decf5cf17a7f4cd3ecccdb437806eed_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:23 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        protected abstract void notifyListener(RunListener each) throws Exception; </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * Do not invoke. </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public void fireTestRunStarted(final Description description) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db.html">summary for void RunNotifier.fireTestRunStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$1):org.junit.runner.notification.RunNotifier$1*) [line 88];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 88];
+n$2=*&amp;description:org.junit.runner.Description* [line 88];
+n$3=_fun_RunNotifier$1.&lt;init&gt;(RunNotifier,Description)(n$0:org.junit.runner.notification.RunNotifier$1*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.Description*) [line 88];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$1*=n$0 [line 88];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$1* [line 88];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 88];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$1(root org.junit.runner.notification.RunNotifier$1)=n$1 [line 88];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$1* [line 88];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 88];
+*n$2.val$description:org.junit.runner.notification.RunNotifier$1(root org.junit.runner.notification.RunNotifier$1)=n$3 [line 88];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$1* [line 88];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 88];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$1*,n$5:org.junit.runner.notification.RunNotifier*) [line 88];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%241.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.c13452efef2cce8cd0764c69b2e99ef1.html">summary for RunNotifier$1.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.notifyListener%28org.junit.runner.notification.RunListener.0daac302b1bf59dc3b75a95b4ac7d698_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%241.notifyListener%28org.junit.runner.notification.RunListener.0daac302b1bf59dc3b75a95b4ac7d698.html">summary for void RunNotifier$1.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">                each.testRunStarted(description); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.notifyListener%28org.junit.runner.notification.RunListener.0daac302b1bf59dc3b75a95b4ac7d698_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 91];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 91];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$1* [line 91];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.runner.notification.RunNotifier$1) [line 91];
+n$4=_fun_void RunListener.testRunStarted(Description)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Description*) virtual [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.notifyListener%28org.junit.runner.notification.RunListener.0daac302b1bf59dc3b75a95b4ac7d698_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.notifyListener%28org.junit.runner.notification.RunListener.0daac302b1bf59dc3b75a95b4ac7d698_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%241.notifyListener%28org.junit.runner.notification.RunListener.0daac302b1bf59dc3b75a95b4ac7d698_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$1* [line 93];
+_=*n$4:org.junit.runner.notification.RunNotifier$1*(root org.junit.runner.notification.RunNotifier$1) [line 93];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$1*) virtual [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunStarted%28org.junit.runner.Description%29%3Avoid.d1f2c7ebcbc37044481a9e9a195392db_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">     * Do not invoke. </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">    public void fireTestRunFinished(final Result result) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9.html">summary for void RunNotifier.fireTestRunFinished(Result)</a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$2):org.junit.runner.notification.RunNotifier$2*) [line 100];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 100];
+n$2=*&amp;result:org.junit.runner.Result* [line 100];
+n$3=_fun_RunNotifier$2.&lt;init&gt;(RunNotifier,Result)(n$0:org.junit.runner.notification.RunNotifier$2*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.Result*) [line 100];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$2*=n$0 [line 100];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$2* [line 100];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 100];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$2(root org.junit.runner.notification.RunNotifier$2)=n$1 [line 100];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$2* [line 100];
+n$3=*&amp;$bcvar2:org.junit.runner.Result* [line 100];
+*n$2.val$result:org.junit.runner.notification.RunNotifier$2(root org.junit.runner.notification.RunNotifier$2)=n$3 [line 100];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$2* [line 100];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 100];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$2*,n$5:org.junit.runner.notification.RunNotifier*) [line 100];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%242.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.3377b466351940d15ab26ea8704c945f.html">summary for RunNotifier$2.&lt;init&gt;(RunNotifier,Result)</a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.notifyListener%28org.junit.runner.notification.RunListener.8a826053c064c7cb892fe4cd0a438d0e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%242.notifyListener%28org.junit.runner.notification.RunListener.8a826053c064c7cb892fe4cd0a438d0e.html">summary for void RunNotifier$2.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">                each.testRunFinished(result); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.notifyListener%28org.junit.runner.notification.RunListener.8a826053c064c7cb892fe4cd0a438d0e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 103];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 103];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$2* [line 103];
+n$3=*n$2.val$result:org.junit.runner.Result*(root org.junit.runner.notification.RunNotifier$2) [line 103];
+n$4=_fun_void RunListener.testRunFinished(Result)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Result*) virtual [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.notifyListener%28org.junit.runner.notification.RunListener.8a826053c064c7cb892fe4cd0a438d0e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.notifyListener%28org.junit.runner.notification.RunListener.8a826053c064c7cb892fe4cd0a438d0e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%242.notifyListener%28org.junit.runner.notification.RunListener.8a826053c064c7cb892fe4cd0a438d0e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$2* [line 105];
+_=*n$4:org.junit.runner.notification.RunNotifier$2*(root org.junit.runner.notification.RunNotifier$2) [line 105];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$2*) virtual [line 105];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestRunFinished%28org.junit.runner.Result%29%3Avoid.d0ee5b19f7149fa0b7660eb5f3ebfae9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">     * Invoke to tell listeners that a test suite is about to start. Runners are strongly </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">     * encouraged--but not required--to call this method. If this method is called for </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">     * a given {@link Description} then {@link #fireTestSuiteFinished(Description)} MUST </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">     * be called for the same {@code Description}. </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">     * @param description the description of the suite test (generally a class name) </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    public void fireTestSuiteStarted(final Description description) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034.html">summary for void RunNotifier.fireTestSuiteStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$3):org.junit.runner.notification.RunNotifier$3*) [line 118];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 118];
+n$2=*&amp;description:org.junit.runner.Description* [line 118];
+n$3=_fun_RunNotifier$3.&lt;init&gt;(RunNotifier,Description)(n$0:org.junit.runner.notification.RunNotifier$3*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.Description*) [line 118];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$3*=n$0 [line 118];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$3* [line 118];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 118];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$3(root org.junit.runner.notification.RunNotifier$3)=n$1 [line 118];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$3* [line 118];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 118];
+*n$2.val$description:org.junit.runner.notification.RunNotifier$3(root org.junit.runner.notification.RunNotifier$3)=n$3 [line 118];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$3* [line 118];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 118];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$3*,n$5:org.junit.runner.notification.RunNotifier*) [line 118];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%243.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.f9c18786192fedcc55c329117b21ff03.html">summary for RunNotifier$3.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.notifyListener%28org.junit.runner.notification.RunListener.53dcf00be54830b12c3b000c320278dd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%243.notifyListener%28org.junit.runner.notification.RunListener.53dcf00be54830b12c3b000c320278dd.html">summary for void RunNotifier$3.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">                each.testSuiteStarted(description); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.notifyListener%28org.junit.runner.notification.RunListener.53dcf00be54830b12c3b000c320278dd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 121];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 121];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$3* [line 121];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.runner.notification.RunNotifier$3) [line 121];
+n$4=_fun_void RunListener.testSuiteStarted(Description)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Description*) virtual [line 121];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.notifyListener%28org.junit.runner.notification.RunListener.53dcf00be54830b12c3b000c320278dd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.notifyListener%28org.junit.runner.notification.RunListener.53dcf00be54830b12c3b000c320278dd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%243.notifyListener%28org.junit.runner.notification.RunListener.53dcf00be54830b12c3b000c320278dd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$3* [line 123];
+_=*n$4:org.junit.runner.notification.RunNotifier$3*(root org.junit.runner.notification.RunNotifier$3) [line 123];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$3*) virtual [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteStarted%28org.junit.runner.Description%29%3Avoid.a3ee4c2ef5e21fcc5ca9f25b3072b034_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">     * Invoke to tell listeners that a test suite is about to finish. Always invoke </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">     * this method if you invoke {@link #fireTestSuiteStarted(Description)} </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">     * as listeners are likely to expect them to come in pairs. </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">     * @param description the description of the suite test (generally a class name) </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    public void fireTestSuiteFinished(final Description description) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415.html">summary for void RunNotifier.fireTestSuiteFinished(Description)</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$4):org.junit.runner.notification.RunNotifier$4*) [line 135];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 135];
+n$2=*&amp;description:org.junit.runner.Description* [line 135];
+n$3=_fun_RunNotifier$4.&lt;init&gt;(RunNotifier,Description)(n$0:org.junit.runner.notification.RunNotifier$4*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.Description*) [line 135];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$4*=n$0 [line 135];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$4* [line 135];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 135];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$4(root org.junit.runner.notification.RunNotifier$4)=n$1 [line 135];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$4* [line 135];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 135];
+*n$2.val$description:org.junit.runner.notification.RunNotifier$4(root org.junit.runner.notification.RunNotifier$4)=n$3 [line 135];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$4* [line 135];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 135];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$4*,n$5:org.junit.runner.notification.RunNotifier*) [line 135];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%244.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.62099cdb467dfb462aa342769e152974.html">summary for RunNotifier$4.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.notifyListener%28org.junit.runner.notification.RunListener.3e1bcd21f1435323c076c295d8fb4bca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%244.notifyListener%28org.junit.runner.notification.RunListener.3e1bcd21f1435323c076c295d8fb4bca.html">summary for void RunNotifier$4.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">                each.testSuiteFinished(description); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.notifyListener%28org.junit.runner.notification.RunListener.3e1bcd21f1435323c076c295d8fb4bca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 138];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 138];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$4* [line 138];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.runner.notification.RunNotifier$4) [line 138];
+n$4=_fun_void RunListener.testSuiteFinished(Description)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Description*) virtual [line 138];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.notifyListener%28org.junit.runner.notification.RunListener.3e1bcd21f1435323c076c295d8fb4bca_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.notifyListener%28org.junit.runner.notification.RunListener.3e1bcd21f1435323c076c295d8fb4bca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%244.notifyListener%28org.junit.runner.notification.RunListener.3e1bcd21f1435323c076c295d8fb4bca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$4* [line 140];
+_=*n$4:org.junit.runner.notification.RunNotifier$4*(root org.junit.runner.notification.RunNotifier$4) [line 140];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$4*) virtual [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestSuiteFinished%28org.junit.runner.Description%29%3Avoid.624b9eb35bb8cd334c5ed0a55cb09415_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">     * Invoke to tell listeners that an atomic test is about to start. </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">     * @param description the description of the atomic test (generally a class and method name) </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">     * @throws StoppedByUserException thrown if a user has requested that the test run stop </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    public void fireTestStarted(final Description description) throws StoppedByUserException { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa.html">summary for void RunNotifier.fireTestStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">        if (pleaseStop) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier* [line 150];
+n$1=*n$0.pleaseStop:_Bool(root org.junit.runner.notification.RunNotifier) [line 150];
+PRUNE(!(n$1 == 0), true); [line 150];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier* [line 150];
+n$1=*n$0.pleaseStop:_Bool(root org.junit.runner.notification.RunNotifier) [line 150];
+PRUNE((n$1 == 0), false); [line 150];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">            throw new StoppedByUserException(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.notification.StoppedByUserException):org.junit.runner.notification.StoppedByUserException*) [line 151];
+n$3=_fun_StoppedByUserException.&lt;init&gt;()(n$2:org.junit.runner.notification.StoppedByUserException*) [line 151];
+*&amp;$irvar0:org.junit.runner.notification.StoppedByUserException*=n$2 [line 151];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.StoppedByUserException* [line 151];
+*&amp;return:void=EXN n$4 [line 151];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$5* [line 153];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 153];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$5(root org.junit.runner.notification.RunNotifier$5)=n$1 [line 153];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$5* [line 153];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 153];
+*n$2.val$description:org.junit.runner.notification.RunNotifier$5(root org.junit.runner.notification.RunNotifier$5)=n$3 [line 153];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$5* [line 153];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 153];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$5*,n$5:org.junit.runner.notification.RunNotifier*) [line 153];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$5=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$5):org.junit.runner.notification.RunNotifier$5*) [line 153];
+n$6=*&amp;this:org.junit.runner.notification.RunNotifier* [line 153];
+n$7=*&amp;description:org.junit.runner.Description* [line 153];
+n$8=_fun_RunNotifier$5.&lt;init&gt;(RunNotifier,Description)(n$5:org.junit.runner.notification.RunNotifier$5*,n$6:org.junit.runner.notification.RunNotifier*,n$7:org.junit.runner.Description*) [line 153];
+*&amp;$irvar1:org.junit.runner.notification.RunNotifier$5*=n$5 [line 153];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%245.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.a83455ff203a27660828a86b6abd70b9.html">summary for RunNotifier$5.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.notifyListener%28org.junit.runner.notification.RunListener.156aa5a725b9f8c4884c29adcbfb5e1c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%245.notifyListener%28org.junit.runner.notification.RunListener.156aa5a725b9f8c4884c29adcbfb5e1c.html">summary for void RunNotifier$5.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">                each.testStarted(description); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.notifyListener%28org.junit.runner.notification.RunListener.156aa5a725b9f8c4884c29adcbfb5e1c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 156];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 156];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$5* [line 156];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.runner.notification.RunNotifier$5) [line 156];
+n$4=_fun_void RunListener.testStarted(Description)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Description*) virtual [line 156];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.notifyListener%28org.junit.runner.notification.RunListener.156aa5a725b9f8c4884c29adcbfb5e1c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.notifyListener%28org.junit.runner.notification.RunListener.156aa5a725b9f8c4884c29adcbfb5e1c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%245.notifyListener%28org.junit.runner.notification.RunListener.156aa5a725b9f8c4884c29adcbfb5e1c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar1:org.junit.runner.notification.RunNotifier$5* [line 158];
+_=*n$9:org.junit.runner.notification.RunNotifier$5*(root org.junit.runner.notification.RunNotifier$5) [line 158];
+n$11=_fun_void RunNotifier$SafeNotifier.run()(n$9:org.junit.runner.notification.RunNotifier$5*) virtual [line 158];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestStarted%28org.junit.runner.Description%29%3Avoid.3393ff3be564fee1a627bc4dcf18d2aa_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">     * Invoke to tell listeners that an atomic test failed. </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">     * @param failure the description of the test that failed and the exception thrown </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    public void fireTestFailure(Failure failure) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc.html">summary for void RunNotifier.fireTestFailure(Failure)</a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">        fireTestFailures(listeners, asList(failure)); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=org.junit.runner.notification.Failure*[_*_];len=[1]):org.junit.runner.notification.Failure*[_*_](*)) [line 167];
+*&amp;$irvar0:org.junit.runner.notification.Failure*[_*_](*)=n$0 [line 167];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.runner.notification.Failure*[_*_](*) [line 167];
+n$2=*&amp;failure:org.junit.runner.notification.Failure* [line 167];
+*n$1[0]:org.junit.runner.notification.Failure*=n$2 [line 167];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;this:org.junit.runner.notification.RunNotifier* [line 167];
+n$4=*n$3.listeners:java.util.List*(root org.junit.runner.notification.RunNotifier) [line 167];
+*&amp;$irvar1:java.util.List*=n$4 [line 167];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.runner.notification.Failure*[_*_](*) [line 167];
+n$6=_fun_List Arrays.asList(Object[])(n$5:org.junit.runner.notification.Failure*[_*_](*)) [line 167];
+*&amp;$irvar2:java.util.List*=n$6 [line 167];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;this:org.junit.runner.notification.RunNotifier* [line 167];
+n$8=*&amp;$irvar1:java.util.List* [line 167];
+n$9=*&amp;$irvar2:java.util.List* [line 167];
+n$10=_fun_void RunNotifier.fireTestFailures(List,List)(n$7:org.junit.runner.notification.RunNotifier*,n$8:java.util.List*,n$9:java.util.List*) [line 167];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailure%28org.junit.runner.notification.Failure%29%3Avoi.24387308e1ddf0f0ef9020e1878e79bc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">    private void fireTestFailures(List&lt;RunListener&gt; listeners, <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147.html">summary for void RunNotifier.fireTestFailures(List,List)</a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">            final List&lt;Failure&gt; failures) { </td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">        if (!failures.isEmpty()) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;failures:java.util.List* [line 172];
+_=*n$0:java.util.List*(root java.util.List) [line 172];
+n$2=_fun_boolean List.isEmpty()(n$0:java.util.List*) interface virtual [line 172];
+*&amp;$irvar0:_Bool=n$2 [line 172];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 172];
+PRUNE(!(n$3 != 0), true); [line 172];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:9 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 172];
+PRUNE((n$3 != 0), false); [line 172];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">            new SafeNotifier(listeners) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$6* [line 173];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 173];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$6(root org.junit.runner.notification.RunNotifier$6)=n$1 [line 173];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$6* [line 173];
+n$3=*&amp;$bcvar3:java.util.List* [line 173];
+*n$2.val$failures:org.junit.runner.notification.RunNotifier$6(root org.junit.runner.notification.RunNotifier$6)=n$3 [line 173];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$6* [line 173];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 173];
+n$6=*&amp;currentListeners:java.util.List* [line 173];
+n$7=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier,List)(n$4:org.junit.runner.notification.RunNotifier$6*,n$5:org.junit.runner.notification.RunNotifier*,n$6:java.util.List*) [line 173];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$6):org.junit.runner.notification.RunNotifier$6*) [line 173];
+n$5=*&amp;this:org.junit.runner.notification.RunNotifier* [line 173];
+n$6=*&amp;listeners:java.util.List* [line 173];
+n$7=*&amp;failures:java.util.List* [line 173];
+n$8=_fun_RunNotifier$6.&lt;init&gt;(RunNotifier,List,List)(n$4:org.junit.runner.notification.RunNotifier$6*,n$5:org.junit.runner.notification.RunNotifier*,n$6:java.util.List*,n$7:java.util.List*) [line 173];
+*&amp;$irvar1:org.junit.runner.notification.RunNotifier$6*=n$4 [line 173];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%246.<init>%28org.junit.runner.notification.RunNotifier%2Cjava.ut.b6ced2e2b2f76471632856f86b2ebb78.html">summary for RunNotifier$6.&lt;init&gt;(RunNotifier,List,List)</a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">                @Override </td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">                protected void notifyListener(RunListener listener) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93.html">summary for void RunNotifier$6.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">                    for (Failure each : failures) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$6* [line 176];
+n$1=*n$0.val$failures:java.util.List*(root org.junit.runner.notification.RunNotifier$6) [line 176];
+_=*n$1:java.util.List*(root java.util.List) [line 176];
+n$3=_fun_Iterator List.iterator()(n$1:java.util.List*) interface virtual [line 176];
+*&amp;$bcvar2:java.util.Iterator*=n$3 [line 176];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:11 4 succs:8 exn:3 Instructions
+n$4=*&amp;$bcvar2:java.util.Iterator* [line 176];
+_=*n$4:java.util.Iterator*(root java.util.Iterator) [line 176];
+n$6=_fun_boolean Iterator.hasNext()(n$4:java.util.Iterator*) interface virtual [line 176];
+*&amp;$irvar0:_Bool=n$6 [line 176];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 176];
+PRUNE(!(n$7 == 0), true); [line 176];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$8=*&amp;$bcvar2:java.util.Iterator* [line 176];
+_=*n$8:java.util.Iterator*(root java.util.Iterator) [line 176];
+n$10=_fun_Object Iterator.next()(n$8:java.util.Iterator*) interface virtual [line 176];
+*&amp;$irvar1:java.lang.Object*=n$10 [line 176];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;$irvar1:java.lang.Object* [line 176];
+n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 176];
+*&amp;each:org.junit.runner.notification.Failure*=n$12 [line 176];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:12 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 176];
+PRUNE((n$7 == 0), false); [line 176];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">                        listener.testFailure(each); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:5 exn:3 Instructions
+n$13=*&amp;listener:org.junit.runner.notification.RunListener* [line 177];
+_=*n$13:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 177];
+n$15=*&amp;each:org.junit.runner.notification.Failure* [line 177];
+n$16=_fun_void RunListener.testFailure(Failure)(n$13:org.junit.runner.notification.RunListener*,n$15:org.junit.runner.notification.Failure*) virtual [line 177];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">                    } </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">                } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%246.notifyListener%28org.junit.runner.notification.RunListener.fad9aee1540819be439ad855f5ac5b93_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">            }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar1:org.junit.runner.notification.RunNotifier$6* [line 180];
+_=*n$9:org.junit.runner.notification.RunNotifier$6*(root org.junit.runner.notification.RunNotifier$6) [line 180];
+n$11=_fun_void RunNotifier$SafeNotifier.run()(n$9:org.junit.runner.notification.RunNotifier$6*) virtual [line 180];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFailures%28java.util.List%2Cjava.util.List%29%3Avoid.3ccc3d4855c44dd9dd56de4a75062147_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">     * Invoke to tell listeners that an atomic test flagged that it assumed </td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line">     * something false. </td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">     * @param failure the description of the test that failed and the </td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line">     * {@link org.junit.AssumptionViolatedException} thrown </td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line">    public void fireTestAssumptionFailed(final Failure failure) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6.html">summary for void RunNotifier.fireTestAssumptionFailed(Failure)</a></td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$7):org.junit.runner.notification.RunNotifier$7*) [line 192];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 192];
+n$2=*&amp;failure:org.junit.runner.notification.Failure* [line 192];
+n$3=_fun_RunNotifier$7.&lt;init&gt;(RunNotifier,Failure)(n$0:org.junit.runner.notification.RunNotifier$7*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.notification.Failure*) [line 192];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$7*=n$0 [line 192];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$7* [line 192];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 192];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$7(root org.junit.runner.notification.RunNotifier$7)=n$1 [line 192];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$7* [line 192];
+n$3=*&amp;$bcvar2:org.junit.runner.notification.Failure* [line 192];
+*n$2.val$failure:org.junit.runner.notification.RunNotifier$7(root org.junit.runner.notification.RunNotifier$7)=n$3 [line 192];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$7* [line 192];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 192];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$7*,n$5:org.junit.runner.notification.RunNotifier*) [line 192];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%247.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.57d7a74860a1c0f33767b3495d044f8e.html">summary for RunNotifier$7.&lt;init&gt;(RunNotifier,Failure)</a></td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.notifyListener%28org.junit.runner.notification.RunListener.1b3c17d85f3ba93bfb6210f74f3fd440_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%247.notifyListener%28org.junit.runner.notification.RunListener.1b3c17d85f3ba93bfb6210f74f3fd440.html">summary for void RunNotifier$7.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line">                each.testAssumptionFailure(failure); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.notifyListener%28org.junit.runner.notification.RunListener.1b3c17d85f3ba93bfb6210f74f3fd440_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 195];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 195];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$7* [line 195];
+n$3=*n$2.val$failure:org.junit.runner.notification.Failure*(root org.junit.runner.notification.RunNotifier$7) [line 195];
+n$4=_fun_void RunListener.testAssumptionFailure(Failure)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.notification.Failure*) virtual [line 195];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.notifyListener%28org.junit.runner.notification.RunListener.1b3c17d85f3ba93bfb6210f74f3fd440_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.notifyListener%28org.junit.runner.notification.RunListener.1b3c17d85f3ba93bfb6210f74f3fd440_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%247.notifyListener%28org.junit.runner.notification.RunListener.1b3c17d85f3ba93bfb6210f74f3fd440_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$7* [line 197];
+_=*n$4:org.junit.runner.notification.RunNotifier$7*(root org.junit.runner.notification.RunNotifier$7) [line 197];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$7*) virtual [line 197];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestAssumptionFailed%28org.junit.runner.notification.Fai.58993942fc6f6fb295b16c12231b2cf6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">     * Invoke to tell listeners that an atomic test was ignored. </td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line">     * @param description the description of the ignored test </td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">    public void fireTestIgnored(final Description description) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779.html">summary for void RunNotifier.fireTestIgnored(Description)</a></td></tr>
+<tr><td class="num" id="LINE206">206</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$8):org.junit.runner.notification.RunNotifier$8*) [line 206];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 206];
+n$2=*&amp;description:org.junit.runner.Description* [line 206];
+n$3=_fun_RunNotifier$8.&lt;init&gt;(RunNotifier,Description)(n$0:org.junit.runner.notification.RunNotifier$8*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.Description*) [line 206];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$8*=n$0 [line 206];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$8* [line 206];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 206];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$8(root org.junit.runner.notification.RunNotifier$8)=n$1 [line 206];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$8* [line 206];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 206];
+*n$2.val$description:org.junit.runner.notification.RunNotifier$8(root org.junit.runner.notification.RunNotifier$8)=n$3 [line 206];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$8* [line 206];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 206];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$8*,n$5:org.junit.runner.notification.RunNotifier*) [line 206];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%248.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.13b993a0bea464658b8ce83a6a3655e8.html">summary for RunNotifier$8.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE207">207</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE208">208</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.notifyListener%28org.junit.runner.notification.RunListener.b304e6a10fe6d726ce989a8d6d4957f2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%248.notifyListener%28org.junit.runner.notification.RunListener.b304e6a10fe6d726ce989a8d6d4957f2.html">summary for void RunNotifier$8.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE209">209</td><td class="line">                each.testIgnored(description); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.notifyListener%28org.junit.runner.notification.RunListener.b304e6a10fe6d726ce989a8d6d4957f2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 209];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 209];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$8* [line 209];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.runner.notification.RunNotifier$8) [line 209];
+n$4=_fun_void RunListener.testIgnored(Description)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Description*) virtual [line 209];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE210">210</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.notifyListener%28org.junit.runner.notification.RunListener.b304e6a10fe6d726ce989a8d6d4957f2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.notifyListener%28org.junit.runner.notification.RunListener.b304e6a10fe6d726ce989a8d6d4957f2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%248.notifyListener%28org.junit.runner.notification.RunListener.b304e6a10fe6d726ce989a8d6d4957f2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE211">211</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$8* [line 211];
+_=*n$4:org.junit.runner.notification.RunNotifier$8*(root org.junit.runner.notification.RunNotifier$8) [line 211];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$8*) virtual [line 211];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE212">212</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestIgnored%28org.junit.runner.Description%29%3Avoid.b16c04c00ec8e33f3aaf9725d2155779_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE213">213</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE214">214</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE215">215</td><td class="line">     * Invoke to tell listeners that an atomic test finished. Always invoke </td></tr>
+<tr><td class="num" id="LINE216">216</td><td class="line">     * this method if you invoke {@link #fireTestStarted(Description)} </td></tr>
+<tr><td class="num" id="LINE217">217</td><td class="line">     * as listeners are likely to expect them to come in pairs. </td></tr>
+<tr><td class="num" id="LINE218">218</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE219">219</td><td class="line">     * @param description the description of the test that finished </td></tr>
+<tr><td class="num" id="LINE220">220</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE221">221</td><td class="line">    public void fireTestFinished(final Description description) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352.html">summary for void RunNotifier.fireTestFinished(Description)</a></td></tr>
+<tr><td class="num" id="LINE222">222</td><td class="line">        new SafeNotifier() { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier$9):org.junit.runner.notification.RunNotifier$9*) [line 222];
+n$1=*&amp;this:org.junit.runner.notification.RunNotifier* [line 222];
+n$2=*&amp;description:org.junit.runner.Description* [line 222];
+n$3=_fun_RunNotifier$9.&lt;init&gt;(RunNotifier,Description)(n$0:org.junit.runner.notification.RunNotifier$9*,n$1:org.junit.runner.notification.RunNotifier*,n$2:org.junit.runner.Description*) [line 222];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier$9*=n$0 [line 222];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier$9* [line 222];
+n$1=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 222];
+*n$0.this$0:org.junit.runner.notification.RunNotifier$9(root org.junit.runner.notification.RunNotifier$9)=n$1 [line 222];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$9* [line 222];
+n$3=*&amp;$bcvar2:org.junit.runner.Description* [line 222];
+*n$2.val$description:org.junit.runner.notification.RunNotifier$9(root org.junit.runner.notification.RunNotifier$9)=n$3 [line 222];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier$9* [line 222];
+n$5=*&amp;this$0:org.junit.runner.notification.RunNotifier* [line 222];
+n$6=_fun_RunNotifier$SafeNotifier.&lt;init&gt;(RunNotifier)(n$4:org.junit.runner.notification.RunNotifier$9*,n$5:org.junit.runner.notification.RunNotifier*) [line 222];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%249.<init>%28org.junit.runner.notification.RunNotifier%2Corg.jun.e83bfbba57bd9754201ece76d2c5832e.html">summary for RunNotifier$9.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE223">223</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE224">224</td><td class="line">            protected void notifyListener(RunListener each) throws Exception { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.notifyListener%28org.junit.runner.notification.RunListener.52f3a9776743e268a27ff5b666fa9a88_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier%249.notifyListener%28org.junit.runner.notification.RunListener.52f3a9776743e268a27ff5b666fa9a88.html">summary for void RunNotifier$9.notifyListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE225">225</td><td class="line">                each.testFinished(description); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.notifyListener%28org.junit.runner.notification.RunListener.52f3a9776743e268a27ff5b666fa9a88_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;each:org.junit.runner.notification.RunListener* [line 225];
+_=*n$0:org.junit.runner.notification.RunListener*(root org.junit.runner.notification.RunListener) [line 225];
+n$2=*&amp;this:org.junit.runner.notification.RunNotifier$9* [line 225];
+n$3=*n$2.val$description:org.junit.runner.Description*(root org.junit.runner.notification.RunNotifier$9) [line 225];
+n$4=_fun_void RunListener.testFinished(Description)(n$0:org.junit.runner.notification.RunListener*,n$3:org.junit.runner.Description*) virtual [line 225];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE226">226</td><td class="line">            } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.notifyListener%28org.junit.runner.notification.RunListener.52f3a9776743e268a27ff5b666fa9a88_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.notifyListener%28org.junit.runner.notification.RunListener.52f3a9776743e268a27ff5b666fa9a88_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier%249.notifyListener%28org.junit.runner.notification.RunListener.52f3a9776743e268a27ff5b666fa9a88_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE227">227</td><td class="line">        }.run(); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.RunNotifier$9* [line 227];
+_=*n$4:org.junit.runner.notification.RunNotifier$9*(root org.junit.runner.notification.RunNotifier$9) [line 227];
+n$6=_fun_void RunNotifier$SafeNotifier.run()(n$4:org.junit.runner.notification.RunNotifier$9*) virtual [line 227];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE228">228</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.fireTestFinished%28org.junit.runner.Description%29%3Avoid.94bc6f368f81e557486388a176a9f352_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE229">229</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE230">230</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE231">231</td><td class="line">     * Ask that the tests run stop before starting the next test. Phrased politely because </td></tr>
+<tr><td class="num" id="LINE232">232</td><td class="line">     * the test currently running will not be interrupted. It seems a little odd to put this </td></tr>
+<tr><td class="num" id="LINE233">233</td><td class="line">     * functionality here, but the &lt;code&gt;RunNotifier&lt;/code&gt; is the only object guaranteed </td></tr>
+<tr><td class="num" id="LINE234">234</td><td class="line">     * to be shared amongst the many runners involved. </td></tr>
+<tr><td class="num" id="LINE235">235</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE236">236</td><td class="line">    public void pleaseStop() { </td></tr>
+<tr><td class="num" id="LINE237">237</td><td class="line">        pleaseStop = true; <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.pleaseStop%28%29%3Avoid.60aed1476c050462fc113a6de6f1b143_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.pleaseStop%28%29%3Avoid.60aed1476c050462fc113a6de6f1b143_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunNotifier* [line 237];
+*n$0.pleaseStop:org.junit.runner.notification.RunNotifier(root org.junit.runner.notification.RunNotifier)=1 [line 237];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.pleaseStop%28%29%3Avoid.60aed1476c050462fc113a6de6f1b143.html">summary for void RunNotifier.pleaseStop()</a></td></tr>
+<tr><td class="num" id="LINE238">238</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.pleaseStop%28%29%3Avoid.60aed1476c050462fc113a6de6f1b143_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.pleaseStop%28%29%3Avoid.60aed1476c050462fc113a6de6f1b143_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.pleaseStop%28%29%3Avoid.60aed1476c050462fc113a6de6f1b143_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE239">239</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE240">240</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE241">241</td><td class="line">     * Internal use only. The Result's listener must be first. </td></tr>
+<tr><td class="num" id="LINE242">242</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE243">243</td><td class="line">    public void addFirstListener(RunListener listener) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386.html">summary for void RunNotifier.addFirstListener(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE244">244</td><td class="line">        if (listener == null) { <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 244];
+PRUNE(!(n$0 != null), true); [line 244];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;listener:org.junit.runner.notification.RunListener* [line 244];
+PRUNE((n$0 != null), false); [line 244];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE245">245</td><td class="line">            throw new NullPointerException(&quot;Cannot add a null listener&quot;); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 245];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"Cannot add a null listener":java.lang.Object*) [line 245];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 245];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 245];
+*&amp;return:void=EXN n$3 [line 245];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE246">246</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE247">247</td><td class="line">        listeners.add(0, wrapIfNotThreadSafe(listener)); <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.RunNotifier* [line 247];
+n$5=*n$4.listeners:java.util.List*(root org.junit.runner.notification.RunNotifier) [line 247];
+*&amp;$irvar2:java.util.List*=n$5 [line 247];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.RunNotifier* [line 247];
+_=*n$6:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 247];
+n$8=*&amp;listener:org.junit.runner.notification.RunListener* [line 247];
+n$9=_fun_RunListener RunNotifier.wrapIfNotThreadSafe(RunListener)(n$6:org.junit.runner.notification.RunNotifier*,n$8:org.junit.runner.notification.RunListener*) virtual [line 247];
+*&amp;$irvar1:org.junit.runner.notification.RunListener*=n$9 [line 247];
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar2:java.util.List* [line 247];
+_=*n$10:java.util.List*(root java.util.List) [line 247];
+n$12=*&amp;$irvar1:org.junit.runner.notification.RunListener* [line 247];
+n$13=_fun_void List.add(int,Object)(n$10:java.util.List*,0:int,n$12:org.junit.runner.notification.RunListener*) interface virtual [line 247];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE248">248</td><td class="line">    } <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 7 3 succs: exn: Exit
+</span></span></a> <a href="./RunNotifier.java.7f91d2da8fd67b887b616b1d571d1419/nodes/org.junit.runner.notification.RunNotifier.addFirstListener%28org.junit.runner.notification.RunListener.5cc7d804318f063a90c68312cae31386_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE249">249</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

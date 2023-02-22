@@ -1,0 +1,79 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_1" [label="1: Start boolean Categories.hasAssignableTo(Set,Class)\nFormals:  assigns:java.util.Set* to:java.lang.Class*\nLocals:  $irvar2:void $irvar1:void $irvar0:void $bcvar2:void from:java.lang.Class* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_1" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_4" ;
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_2" [label="2: Exit boolean Categories.hasAssignableTo(Set,Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [label="3:  exceptions sink \n   NULLIFY(&$bcvar2); [line 348]\n  NULLIFY(&from); [line 348]\n  NULLIFY(&$irvar0); [line 348]\n  NULLIFY(&$irvar1); [line 348]\n  NULLIFY(&$irvar2); [line 348]\n  EXIT_SCOPE($bcvar2,from,$irvar0,$irvar1,$irvar2); [line 348]\n  APPLY_ABSTRACTION; [line 348]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_2" ;
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_4" [label="4:  Call Iterator Set.iterator() \n   n$0=*&assigns:java.util.Set* [line 343]\n  _=*n$0:java.util.Set*(root java.util.Set) [line 343]\n  n$2=_fun_Iterator Set.iterator()(n$0:java.util.Set*) interface virtual [line 343]\n  *&$bcvar2:java.util.Iterator*=n$2 [line 343]\n  NULLIFY(&assigns); [line 343]\n  EXIT_SCOPE(_,n$0,n$2,assigns); [line 343]\n  APPLY_ABSTRACTION; [line 343]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_4" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_5" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_4" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_5" [label="5:  Call boolean Iterator.hasNext() \n   n$3=*&$bcvar2:java.util.Iterator* [line 343]\n  _=*n$3:java.util.Iterator*(root java.util.Iterator) [line 343]\n  n$5=_fun_boolean Iterator.hasNext()(n$3:java.util.Iterator*) interface virtual [line 343]\n  *&$irvar0:_Bool=n$5 [line 343]\n  EXIT_SCOPE(_,n$3,n$5); [line 343]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_5" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_8" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_5" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_6" [label="6: Prune (true branch, if) \n   n$6=*&$irvar0:_Bool [line 343]\n  PRUNE(!(n$6 == 0), true); [line 343]\n  NULLIFY(&$irvar0); [line 343]\n  EXIT_SCOPE(n$6,$irvar0); [line 343]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_6" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_9" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_6" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_7" [label="7: Prune (false branch, if) \n   n$6=*&$irvar0:_Bool [line 343]\n  PRUNE((n$6 == 0), false); [line 343]\n  NULLIFY(&$bcvar2); [line 343]\n  NULLIFY(&$irvar0); [line 343]\n  EXIT_SCOPE(n$6,$bcvar2,$irvar0); [line 343]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_7" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_16" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_7" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_8" [label="8: + \n  " ]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_8" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_6" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_8" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_7" ;
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_9" [label="9:  Call Object Iterator.next() \n   n$7=*&$bcvar2:java.util.Iterator* [line 343]\n  _=*n$7:java.util.Iterator*(root java.util.Iterator) [line 343]\n  n$9=_fun_Object Iterator.next()(n$7:java.util.Iterator*) interface virtual [line 343]\n  *&$irvar1:java.lang.Object*=n$9 [line 343]\n  EXIT_SCOPE(_,n$7,n$9); [line 343]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_9" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_10" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_9" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_10" [label="10:  method_body \n   n$10=*&$irvar1:java.lang.Object* [line 343]\n  n$11=_fun___cast(n$10:java.lang.Object*,sizeof(t=java.lang.Class;sub_t=( sub )(cast)):void) [line 343]\n  *&from:java.lang.Class*=n$11 [line 343]\n  NULLIFY(&$irvar1); [line 343]\n  EXIT_SCOPE(n$10,n$11,$irvar1); [line 343]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_10" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_11" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_10" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_11" [label="11:  Call boolean Class.isAssignableFrom(Class) \n   n$12=*&to:java.lang.Class* [line 344]\n  _=*n$12:java.lang.Class*(root java.lang.Class) [line 344]\n  n$14=*&from:java.lang.Class* [line 344]\n  n$15=_fun_boolean Class.isAssignableFrom(Class)(n$12:java.lang.Class*,n$14:java.lang.Class*) virtual [line 344]\n  *&$irvar2:_Bool=n$15 [line 344]\n  NULLIFY(&from); [line 344]\n  EXIT_SCOPE(_,n$12,n$14,n$15,from); [line 344]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_11" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_14" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_11" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_12" [label="12: Prune (true branch, if) \n   n$16=*&$irvar2:_Bool [line 344]\n  PRUNE(!(n$16 == 0), true); [line 344]\n  NULLIFY(&$bcvar2); [line 344]\n  NULLIFY(&$irvar2); [line 344]\n  EXIT_SCOPE(n$16,$bcvar2,$irvar2); [line 344]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_12" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_15" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_12" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_13" [label="13: Prune (false branch, if) \n   n$16=*&$irvar2:_Bool [line 344]\n  PRUNE((n$16 == 0), false); [line 344]\n  NULLIFY(&$irvar2); [line 344]\n  EXIT_SCOPE(n$16,$irvar2); [line 344]\n  APPLY_ABSTRACTION; [line 344]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_13" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_5" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_13" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_14" [label="14: + \n  " ]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_14" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_12" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_14" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_13" ;
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_15" [label="15:  method_body \n   *&return:_Bool=1 [line 345]\n  APPLY_ABSTRACTION; [line 345]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_15" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_2" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_15" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+"org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_16" [label="16:  method_body \n   *&return:_Bool=0 [line 348]\n  APPLY_ABSTRACTION; [line 348]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_16" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_2" ;
+	 "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_16" -> "org.junit.experimental.categories.Categories.hasAssignableTo(java.util.Set,java.lang.Class):boolean.944b506c6ba43eb17be4fb03ec688a1f_3" [color="red" ];
+}

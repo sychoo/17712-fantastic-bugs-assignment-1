@@ -1,0 +1,62 @@
+/* @generated */
+digraph cfg {
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_1" [label="1: Start boolean Integer.equals(Integer)\nFormals:  this:java.lang.Integer* anObject:java.lang.Integer*\nLocals:  $T0_30:void\nAnnotation: <> boolean Integer.equals(Integer)(<_javax.annotation.Nullable>) \n  " color=yellow style=filled]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_1" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_3" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_1" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_12" ;
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_2" [label="2: Exit boolean Integer.equals(Integer) \n  " color=yellow style=filled]
+	
+
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_3" [label="3: Prune (true branch, if) \n   n$0=*&anObject:java.lang.Integer* [line 28]\n  PRUNE(!(n$0 == null), true); [line 28]\n  EXIT_SCOPE(n$0); [line 28]\n " shape="invhouse"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_3" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_5" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_3" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_11" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_3" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [label="4:  exceptions sink \n   NULLIFY(&$T0_30); [line 28]\n  EXIT_SCOPE($T0_30); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="box"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_2" ;
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_5" [label="5: Prune (true branch, if) \n   n$1=*&anObject:java.lang.Integer* [line 28]\n  n$2=_fun___instanceof(n$1:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(instof)):void) [line 28]\n  PRUNE(!(n$2 == 0), true); [line 28]\n  EXIT_SCOPE(n$1,n$2); [line 28]\n " shape="invhouse"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_5" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_6" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_5" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_9" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_5" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_6" [label="6: Prune (true branch, if) \n   n$3=*&this:java.lang.Integer* [line 28]\n  n$4=*n$3.value:int(root java.lang.Integer) [line 28]\n  n$5=*&anObject:java.lang.Integer* [line 28]\n  n$6=_fun___cast(n$5:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(cast)):void) [line 28]\n  n$7=*n$6.value:int(root java.lang.Integer) [line 28]\n  PRUNE(!(n$4 != n$7), true); [line 28]\n  NULLIFY(&this); [line 28]\n  NULLIFY(&anObject); [line 28]\n  EXIT_SCOPE(n$3,n$4,n$5,n$6,n$7,this,anObject); [line 28]\n " shape="invhouse"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_6" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_7" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_6" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_7" [label="7:  method_body \n   *&$T0_30:int=1 [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="box"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_7" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_8" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_7" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_8" [label="8:  method_body \n   n$8=*&$T0_30:int [line 28]\n  *&return:_Bool=n$8 [line 28]\n  NULLIFY(&$T0_30); [line 28]\n  EXIT_SCOPE(n$8,$T0_30); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="box"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_8" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_2" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_8" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_9" [label="9: Prune (false branch, if) \n   n$3=*&this:java.lang.Integer* [line 28]\n  n$4=*n$3.value:int(root java.lang.Integer) [line 28]\n  n$5=*&anObject:java.lang.Integer* [line 28]\n  n$6=_fun___cast(n$5:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(cast)):void) [line 28]\n  n$7=*n$6.value:int(root java.lang.Integer) [line 28]\n  PRUNE((n$4 != n$7), false); [line 28]\n  NULLIFY(&this); [line 28]\n  NULLIFY(&anObject); [line 28]\n  EXIT_SCOPE(n$3,n$4,n$5,n$6,n$7,this,anObject); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="invhouse"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_9" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_10" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_9" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_10" [label="10:  method_body \n   *&$T0_30:int=0 [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="box"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_10" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_8" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_10" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_11" [label="11: Prune (false branch, if) \n   n$1=*&anObject:java.lang.Integer* [line 28]\n  n$2=_fun___instanceof(n$1:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(instof)):void) [line 28]\n  PRUNE((n$2 == 0), false); [line 28]\n  NULLIFY(&anObject); [line 28]\n  EXIT_SCOPE(n$1,n$2,anObject); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="invhouse"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_11" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_10" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_11" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+"java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_12" [label="12: Prune (false branch, if) \n   n$0=*&anObject:java.lang.Integer* [line 28]\n  PRUNE((n$0 == null), false); [line 28]\n  NULLIFY(&anObject); [line 28]\n  EXIT_SCOPE(n$0,anObject); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="invhouse"]
+	
+
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_12" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_10" ;
+	 "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_12" -> "java.lang.Integer.equals(java.lang.Integer):boolean.3315a56b8c70e42e1539ad03a9dfbaef_4" [color="red" ];
+}

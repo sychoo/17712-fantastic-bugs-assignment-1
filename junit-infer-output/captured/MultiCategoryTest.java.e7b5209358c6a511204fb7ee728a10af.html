@@ -1,0 +1,938 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/experimental/categories/MultiCategoryTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.experimental.categories; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.hamcrest.core.Is.is; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.hamcrest.core.IsEqual.equalTo; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.junit.Assert.assertFalse; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.junit.Assert.assertThat; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import static org.junit.Assert.fail; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.runner.RunWith; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runners.Suite; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * @author tibor17 </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * @version 4.12 </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">public final class MultiCategoryTest { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.<init>%28%29.cd4f4ca038b9c2ce24eefcd4042b3ee5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.<init>%28%29.cd4f4ca038b9c2ce24eefcd4042b3ee5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest* [line 20];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest*) [line 20];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.<init>%28%29.cd4f4ca038b9c2ce24eefcd4042b3ee5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.<init>%28%29.cd4f4ca038b9c2ce24eefcd4042b3ee5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.<init>%28%29.cd4f4ca038b9c2ce24eefcd4042b3ee5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest.<init>%28%29.cd4f4ca038b9c2ce24eefcd4042b3ee5.html">summary for MultiCategoryTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    public interface A {} </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    public interface B {} </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    public interface C {} </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">     * This test is mentioned in {@code Categories} and any changes </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">     * must be reflected. </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    public void runSuite() { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042.html">summary for void MultiCategoryTest.runSuite()</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        // Targeting Test: </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        Result testResult= JUnitCore.runClasses(MultiCategorySuite.class); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 32];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 32];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 32];
+*n$1[0]:java.lang.Object*=org.junit.experimental.categories.MultiCategoryTest$MultiCategorySuite [line 32];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 32];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 32];
+*&amp;testResult:org.junit.runner.Result*=n$3 [line 32];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        assertThat(&quot;unexpected run count&quot;, testResult.getRunCount(), is(equalTo(2))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;testResult:org.junit.runner.Result* [line 34];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 34];
+n$6=_fun_int Result.getRunCount()(n$4:org.junit.runner.Result*) virtual [line 34];
+*&amp;$irvar1:int=n$6 [line 34];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 34];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 34];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 34];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun_Integer Integer.valueOf(int)(2:int) [line 34];
+*&amp;$irvar3:java.lang.Integer*=n$9 [line 34];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar3:java.lang.Integer* [line 34];
+n$11=_fun_Matcher IsEqual.equalTo(Object)(n$10:java.lang.Integer*) [line 34];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$11 [line 34];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar4:org.hamcrest.Matcher* [line 34];
+n$13=_fun_Matcher Is.is(Matcher)(n$12:org.hamcrest.Matcher*) [line 34];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$13 [line 34];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Integer* [line 34];
+n$15=*&amp;$irvar5:org.hamcrest.Matcher* [line 34];
+n$16=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected run count":java.lang.Object*,n$14:java.lang.Integer*,n$15:org.hamcrest.Matcher*) [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getFailureCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;testResult:org.junit.runner.Result* [line 35];
+_=*n$17:org.junit.runner.Result*(root org.junit.runner.Result) [line 35];
+n$19=_fun_int Result.getFailureCount()(n$17:org.junit.runner.Result*) virtual [line 35];
+*&amp;$irvar6:int=n$19 [line 35];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar6:int [line 35];
+n$21=_fun_Integer Integer.valueOf(int)(n$20:int) [line 35];
+*&amp;$irvar7:java.lang.Integer*=n$21 [line 35];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$22=_fun_Integer Integer.valueOf(int)(0:int) [line 35];
+*&amp;$irvar8:java.lang.Integer*=n$22 [line 35];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$23=*&amp;$irvar8:java.lang.Integer* [line 35];
+n$24=_fun_Matcher IsEqual.equalTo(Object)(n$23:java.lang.Integer*) [line 35];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$24 [line 35];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$25=*&amp;$irvar9:org.hamcrest.Matcher* [line 35];
+n$26=_fun_Matcher Is.is(Matcher)(n$25:org.hamcrest.Matcher*) [line 35];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$26 [line 35];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$27=*&amp;$irvar7:java.lang.Integer* [line 35];
+n$28=*&amp;$irvar10:org.hamcrest.Matcher* [line 35];
+n$29=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$27:java.lang.Integer*,n$28:org.hamcrest.Matcher*) [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getIgnoreCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$30=*&amp;testResult:org.junit.runner.Result* [line 36];
+_=*n$30:org.junit.runner.Result*(root org.junit.runner.Result) [line 36];
+n$32=_fun_int Result.getIgnoreCount()(n$30:org.junit.runner.Result*) virtual [line 36];
+*&amp;$irvar11:int=n$32 [line 36];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$33=*&amp;$irvar11:int [line 36];
+n$34=_fun_Integer Integer.valueOf(int)(n$33:int) [line 36];
+*&amp;$irvar12:java.lang.Integer*=n$34 [line 36];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$35=_fun_Integer Integer.valueOf(int)(0:int) [line 36];
+*&amp;$irvar13:java.lang.Integer*=n$35 [line 36];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$36=*&amp;$irvar13:java.lang.Integer* [line 36];
+n$37=_fun_Matcher IsEqual.equalTo(Object)(n$36:java.lang.Integer*) [line 36];
+*&amp;$irvar14:org.hamcrest.Matcher*=n$37 [line 36];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$38=*&amp;$irvar14:org.hamcrest.Matcher* [line 36];
+n$39=_fun_Matcher Is.is(Matcher)(n$38:org.hamcrest.Matcher*) [line 36];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$39 [line 36];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$40=*&amp;$irvar12:java.lang.Integer* [line 36];
+n$41=*&amp;$irvar15:org.hamcrest.Matcher* [line 36];
+n$42=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$40:java.lang.Integer*,n$41:org.hamcrest.Matcher*) [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">    } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:25 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.runSuite%28%29%3Avoid.6bb8c339923e27e2f700ba5c9ab93042_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    @RunWith(Categories.class) </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    @Categories.IncludeCategory({A.class, B.class}) </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    @Categories.ExcludeCategory(C.class) </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    @Suite.SuiteClasses({CategoriesTest.class}) </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    public static final class MultiCategorySuite {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24MultiCategorySuite.<init>%28%29.1ec91aa6804c2c5977ed27090ba40f1b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24MultiCategorySuite.<init>%28%29.1ec91aa6804c2c5977ed27090ba40f1b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$MultiCategorySuite* [line 43];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$MultiCategorySuite*) [line 43];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24MultiCategorySuite.<init>%28%29.1ec91aa6804c2c5977ed27090ba40f1b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24MultiCategorySuite.<init>%28%29.1ec91aa6804c2c5977ed27090ba40f1b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24MultiCategorySuite.<init>%28%29.1ec91aa6804c2c5977ed27090ba40f1b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24MultiCategorySuite.<init>%28%29.1ec91aa6804c2c5977ed27090ba40f1b.html">summary for MultiCategoryTest$MultiCategorySuite.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    public static final class CategoriesTest { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.<init>%28%29.c5dba1304bd98119a842cf491eff6915_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.<init>%28%29.c5dba1304bd98119a842cf491eff6915_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$CategoriesTest* [line 45];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$CategoriesTest*) [line 45];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.<init>%28%29.c5dba1304bd98119a842cf491eff6915_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.<init>%28%29.c5dba1304bd98119a842cf491eff6915_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.<init>%28%29.c5dba1304bd98119a842cf491eff6915_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.<init>%28%29.c5dba1304bd98119a842cf491eff6915.html">summary for MultiCategoryTest$CategoriesTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        @Category(A.class) </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        public void a() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.a%28%29%3Avoid.15cd57075a835deb8591447bff475b71_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.a%28%29%3Avoid.15cd57075a835deb8591447bff475b71_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.a%28%29%3Avoid.15cd57075a835deb8591447bff475b71_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.a%28%29%3Avoid.15cd57075a835deb8591447bff475b71_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.a%28%29%3Avoid.15cd57075a835deb8591447bff475b71.html">summary for void MultiCategoryTest$CategoriesTest.a()</a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        @Category(B.class) </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        public void b() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.b%28%29%3Avoid.4af745e287f81203cf71a3e344a6e929_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.b%28%29%3Avoid.4af745e287f81203cf71a3e344a6e929_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.b%28%29%3Avoid.4af745e287f81203cf71a3e344a6e929_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.b%28%29%3Avoid.4af745e287f81203cf71a3e344a6e929_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.b%28%29%3Avoid.4af745e287f81203cf71a3e344a6e929.html">summary for void MultiCategoryTest$CategoriesTest.b()</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        @Category(C.class) </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        public void c() { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.c%28%29%3Avoid.aae8ef7941380b955535775c79e526f3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.c%28%29%3Avoid.aae8ef7941380b955535775c79e526f3.html">summary for void MultiCategoryTest$CategoriesTest.c()</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">            fail(); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.c%28%29%3Avoid.aae8ef7941380b955535775c79e526f3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.c%28%29%3Avoid.aae8ef7941380b955535775c79e526f3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.c%28%29%3Avoid.aae8ef7941380b955535775c79e526f3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.c%28%29%3Avoid.aae8ef7941380b955535775c79e526f3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        public void anything() { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.anything%28%29%3Avoid.4d32a3a41c7bfedbef9ad939bebdff11_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.anything%28%29%3Avoid.4d32a3a41c7bfedbef9ad939bebdff11.html">summary for void MultiCategoryTest$CategoriesTest.anything()</a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">            fail(); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.anything%28%29%3Avoid.4d32a3a41c7bfedbef9ad939bebdff11_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.anything%28%29%3Avoid.4d32a3a41c7bfedbef9ad939bebdff11_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.anything%28%29%3Avoid.4d32a3a41c7bfedbef9ad939bebdff11_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24CategoriesTest.anything%28%29%3Avoid.4d32a3a41c7bfedbef9ad939bebdff11_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    public void inheritanceAnyIncluded() { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6.html">summary for void MultiCategoryTest.inheritanceAnyIncluded()</a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        Result testResult= JUnitCore.runClasses(InheritanceAny.class); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 69];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 69];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 69];
+*n$1[0]:java.lang.Object*=org.junit.experimental.categories.MultiCategoryTest$InheritanceAny [line 69];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 69];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 69];
+*&amp;testResult:org.junit.runner.Result*=n$3 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        assertThat(&quot;unexpected run count&quot;, testResult.getRunCount(), is(equalTo(3))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;testResult:org.junit.runner.Result* [line 70];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 70];
+n$6=_fun_int Result.getRunCount()(n$4:org.junit.runner.Result*) virtual [line 70];
+*&amp;$irvar1:int=n$6 [line 70];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 70];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 70];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 70];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun_Integer Integer.valueOf(int)(3:int) [line 70];
+*&amp;$irvar3:java.lang.Integer*=n$9 [line 70];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar3:java.lang.Integer* [line 70];
+n$11=_fun_Matcher IsEqual.equalTo(Object)(n$10:java.lang.Integer*) [line 70];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$11 [line 70];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar4:org.hamcrest.Matcher* [line 70];
+n$13=_fun_Matcher Is.is(Matcher)(n$12:org.hamcrest.Matcher*) [line 70];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$13 [line 70];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Integer* [line 70];
+n$15=*&amp;$irvar5:org.hamcrest.Matcher* [line 70];
+n$16=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected run count":java.lang.Object*,n$14:java.lang.Integer*,n$15:org.hamcrest.Matcher*) [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getFailureCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;testResult:org.junit.runner.Result* [line 71];
+_=*n$17:org.junit.runner.Result*(root org.junit.runner.Result) [line 71];
+n$19=_fun_int Result.getFailureCount()(n$17:org.junit.runner.Result*) virtual [line 71];
+*&amp;$irvar6:int=n$19 [line 71];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar6:int [line 71];
+n$21=_fun_Integer Integer.valueOf(int)(n$20:int) [line 71];
+*&amp;$irvar7:java.lang.Integer*=n$21 [line 71];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$22=_fun_Integer Integer.valueOf(int)(0:int) [line 71];
+*&amp;$irvar8:java.lang.Integer*=n$22 [line 71];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$23=*&amp;$irvar8:java.lang.Integer* [line 71];
+n$24=_fun_Matcher IsEqual.equalTo(Object)(n$23:java.lang.Integer*) [line 71];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$24 [line 71];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$25=*&amp;$irvar9:org.hamcrest.Matcher* [line 71];
+n$26=_fun_Matcher Is.is(Matcher)(n$25:org.hamcrest.Matcher*) [line 71];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$26 [line 71];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$27=*&amp;$irvar7:java.lang.Integer* [line 71];
+n$28=*&amp;$irvar10:org.hamcrest.Matcher* [line 71];
+n$29=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$27:java.lang.Integer*,n$28:org.hamcrest.Matcher*) [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getIgnoreCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$30=*&amp;testResult:org.junit.runner.Result* [line 72];
+_=*n$30:org.junit.runner.Result*(root org.junit.runner.Result) [line 72];
+n$32=_fun_int Result.getIgnoreCount()(n$30:org.junit.runner.Result*) virtual [line 72];
+*&amp;$irvar11:int=n$32 [line 72];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$33=*&amp;$irvar11:int [line 72];
+n$34=_fun_Integer Integer.valueOf(int)(n$33:int) [line 72];
+*&amp;$irvar12:java.lang.Integer*=n$34 [line 72];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$35=_fun_Integer Integer.valueOf(int)(0:int) [line 72];
+*&amp;$irvar13:java.lang.Integer*=n$35 [line 72];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$36=*&amp;$irvar13:java.lang.Integer* [line 72];
+n$37=_fun_Matcher IsEqual.equalTo(Object)(n$36:java.lang.Integer*) [line 72];
+*&amp;$irvar14:org.hamcrest.Matcher*=n$37 [line 72];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$38=*&amp;$irvar14:org.hamcrest.Matcher* [line 72];
+n$39=_fun_Matcher Is.is(Matcher)(n$38:org.hamcrest.Matcher*) [line 72];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$39 [line 72];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$40=*&amp;$irvar12:java.lang.Integer* [line 72];
+n$41=*&amp;$irvar15:org.hamcrest.Matcher* [line 72];
+n$42=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$40:java.lang.Integer*,n$41:org.hamcrest.Matcher*) [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:25 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyIncluded%28%29%3Avoid.fded01f3319a03d74a515c6c6231a4d6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    public void inheritanceAllIncluded() { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922.html">summary for void MultiCategoryTest.inheritanceAllIncluded()</a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        Result testResult= JUnitCore.runClasses(InheritanceAll.class); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 77];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 77];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 77];
+*n$1[0]:java.lang.Object*=org.junit.experimental.categories.MultiCategoryTest$InheritanceAll [line 77];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 77];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 77];
+*&amp;testResult:org.junit.runner.Result*=n$3 [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">        assertThat(&quot;unexpected run count&quot;, testResult.getRunCount(), is(equalTo(1))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;testResult:org.junit.runner.Result* [line 78];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 78];
+n$6=_fun_int Result.getRunCount()(n$4:org.junit.runner.Result*) virtual [line 78];
+*&amp;$irvar1:int=n$6 [line 78];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 78];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 78];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 78];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun_Integer Integer.valueOf(int)(1:int) [line 78];
+*&amp;$irvar3:java.lang.Integer*=n$9 [line 78];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar3:java.lang.Integer* [line 78];
+n$11=_fun_Matcher IsEqual.equalTo(Object)(n$10:java.lang.Integer*) [line 78];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$11 [line 78];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar4:org.hamcrest.Matcher* [line 78];
+n$13=_fun_Matcher Is.is(Matcher)(n$12:org.hamcrest.Matcher*) [line 78];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$13 [line 78];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Integer* [line 78];
+n$15=*&amp;$irvar5:org.hamcrest.Matcher* [line 78];
+n$16=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected run count":java.lang.Object*,n$14:java.lang.Integer*,n$15:org.hamcrest.Matcher*) [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getFailureCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;testResult:org.junit.runner.Result* [line 79];
+_=*n$17:org.junit.runner.Result*(root org.junit.runner.Result) [line 79];
+n$19=_fun_int Result.getFailureCount()(n$17:org.junit.runner.Result*) virtual [line 79];
+*&amp;$irvar6:int=n$19 [line 79];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar6:int [line 79];
+n$21=_fun_Integer Integer.valueOf(int)(n$20:int) [line 79];
+*&amp;$irvar7:java.lang.Integer*=n$21 [line 79];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$22=_fun_Integer Integer.valueOf(int)(0:int) [line 79];
+*&amp;$irvar8:java.lang.Integer*=n$22 [line 79];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$23=*&amp;$irvar8:java.lang.Integer* [line 79];
+n$24=_fun_Matcher IsEqual.equalTo(Object)(n$23:java.lang.Integer*) [line 79];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$24 [line 79];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$25=*&amp;$irvar9:org.hamcrest.Matcher* [line 79];
+n$26=_fun_Matcher Is.is(Matcher)(n$25:org.hamcrest.Matcher*) [line 79];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$26 [line 79];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$27=*&amp;$irvar7:java.lang.Integer* [line 79];
+n$28=*&amp;$irvar10:org.hamcrest.Matcher* [line 79];
+n$29=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$27:java.lang.Integer*,n$28:org.hamcrest.Matcher*) [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getIgnoreCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$30=*&amp;testResult:org.junit.runner.Result* [line 80];
+_=*n$30:org.junit.runner.Result*(root org.junit.runner.Result) [line 80];
+n$32=_fun_int Result.getIgnoreCount()(n$30:org.junit.runner.Result*) virtual [line 80];
+*&amp;$irvar11:int=n$32 [line 80];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$33=*&amp;$irvar11:int [line 80];
+n$34=_fun_Integer Integer.valueOf(int)(n$33:int) [line 80];
+*&amp;$irvar12:java.lang.Integer*=n$34 [line 80];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$35=_fun_Integer Integer.valueOf(int)(0:int) [line 80];
+*&amp;$irvar13:java.lang.Integer*=n$35 [line 80];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$36=*&amp;$irvar13:java.lang.Integer* [line 80];
+n$37=_fun_Matcher IsEqual.equalTo(Object)(n$36:java.lang.Integer*) [line 80];
+*&amp;$irvar14:org.hamcrest.Matcher*=n$37 [line 80];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$38=*&amp;$irvar14:org.hamcrest.Matcher* [line 80];
+n$39=_fun_Matcher Is.is(Matcher)(n$38:org.hamcrest.Matcher*) [line 80];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$39 [line 80];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$40=*&amp;$irvar12:java.lang.Integer* [line 80];
+n$41=*&amp;$irvar15:org.hamcrest.Matcher* [line 80];
+n$42=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$40:java.lang.Integer*,n$41:org.hamcrest.Matcher*) [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:25 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllIncluded%28%29%3Avoid.57fa9571bcb18bc58c4863d3bae50922_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    public void inheritanceAnyAll() {//any included, all excluded <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7.html">summary for void MultiCategoryTest.inheritanceAnyAll()</a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">        Result testResult= JUnitCore.runClasses(InheritanceAnyAll.class); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 85];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 85];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 85];
+*n$1[0]:java.lang.Object*=org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyAll [line 85];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 85];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 85];
+*&amp;testResult:org.junit.runner.Result*=n$3 [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        assertThat(&quot;unexpected run count&quot;, testResult.getRunCount(), is(equalTo(3))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;testResult:org.junit.runner.Result* [line 86];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 86];
+n$6=_fun_int Result.getRunCount()(n$4:org.junit.runner.Result*) virtual [line 86];
+*&amp;$irvar1:int=n$6 [line 86];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 86];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 86];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 86];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun_Integer Integer.valueOf(int)(3:int) [line 86];
+*&amp;$irvar3:java.lang.Integer*=n$9 [line 86];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar3:java.lang.Integer* [line 86];
+n$11=_fun_Matcher IsEqual.equalTo(Object)(n$10:java.lang.Integer*) [line 86];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$11 [line 86];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar4:org.hamcrest.Matcher* [line 86];
+n$13=_fun_Matcher Is.is(Matcher)(n$12:org.hamcrest.Matcher*) [line 86];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$13 [line 86];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Integer* [line 86];
+n$15=*&amp;$irvar5:org.hamcrest.Matcher* [line 86];
+n$16=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected run count":java.lang.Object*,n$14:java.lang.Integer*,n$15:org.hamcrest.Matcher*) [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getFailureCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;testResult:org.junit.runner.Result* [line 87];
+_=*n$17:org.junit.runner.Result*(root org.junit.runner.Result) [line 87];
+n$19=_fun_int Result.getFailureCount()(n$17:org.junit.runner.Result*) virtual [line 87];
+*&amp;$irvar6:int=n$19 [line 87];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar6:int [line 87];
+n$21=_fun_Integer Integer.valueOf(int)(n$20:int) [line 87];
+*&amp;$irvar7:java.lang.Integer*=n$21 [line 87];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$22=_fun_Integer Integer.valueOf(int)(0:int) [line 87];
+*&amp;$irvar8:java.lang.Integer*=n$22 [line 87];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$23=*&amp;$irvar8:java.lang.Integer* [line 87];
+n$24=_fun_Matcher IsEqual.equalTo(Object)(n$23:java.lang.Integer*) [line 87];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$24 [line 87];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$25=*&amp;$irvar9:org.hamcrest.Matcher* [line 87];
+n$26=_fun_Matcher Is.is(Matcher)(n$25:org.hamcrest.Matcher*) [line 87];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$26 [line 87];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$27=*&amp;$irvar7:java.lang.Integer* [line 87];
+n$28=*&amp;$irvar10:org.hamcrest.Matcher* [line 87];
+n$29=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$27:java.lang.Integer*,n$28:org.hamcrest.Matcher*) [line 87];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getIgnoreCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$30=*&amp;testResult:org.junit.runner.Result* [line 88];
+_=*n$30:org.junit.runner.Result*(root org.junit.runner.Result) [line 88];
+n$32=_fun_int Result.getIgnoreCount()(n$30:org.junit.runner.Result*) virtual [line 88];
+*&amp;$irvar11:int=n$32 [line 88];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$33=*&amp;$irvar11:int [line 88];
+n$34=_fun_Integer Integer.valueOf(int)(n$33:int) [line 88];
+*&amp;$irvar12:java.lang.Integer*=n$34 [line 88];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$35=_fun_Integer Integer.valueOf(int)(0:int) [line 88];
+*&amp;$irvar13:java.lang.Integer*=n$35 [line 88];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$36=*&amp;$irvar13:java.lang.Integer* [line 88];
+n$37=_fun_Matcher IsEqual.equalTo(Object)(n$36:java.lang.Integer*) [line 88];
+*&amp;$irvar14:org.hamcrest.Matcher*=n$37 [line 88];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$38=*&amp;$irvar14:org.hamcrest.Matcher* [line 88];
+n$39=_fun_Matcher Is.is(Matcher)(n$38:org.hamcrest.Matcher*) [line 88];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$39 [line 88];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$40=*&amp;$irvar12:java.lang.Integer* [line 88];
+n$41=*&amp;$irvar15:org.hamcrest.Matcher* [line 88];
+n$42=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$40:java.lang.Integer*,n$41:org.hamcrest.Matcher*) [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:25 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAnyAll%28%29%3Avoid.5d42705f0cd8b8154fa1bf4a60493ec7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">    public void inheritanceAllAny() {//all included, any excluded <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9.html">summary for void MultiCategoryTest.inheritanceAllAny()</a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        Result testResult= JUnitCore.runClasses(InheritanceAllAny.class); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 93];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 93];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 93];
+*n$1[0]:java.lang.Object*=org.junit.experimental.categories.MultiCategoryTest$InheritanceAllAny [line 93];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 93];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 93];
+*&amp;testResult:org.junit.runner.Result*=n$3 [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">        assertThat(&quot;unexpected run count&quot;, testResult.getRunCount(), is(equalTo(1))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;testResult:org.junit.runner.Result* [line 94];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 94];
+n$6=_fun_int Result.getRunCount()(n$4:org.junit.runner.Result*) virtual [line 94];
+*&amp;$irvar1:int=n$6 [line 94];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 94];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 94];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 94];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun_Integer Integer.valueOf(int)(1:int) [line 94];
+*&amp;$irvar3:java.lang.Integer*=n$9 [line 94];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar3:java.lang.Integer* [line 94];
+n$11=_fun_Matcher IsEqual.equalTo(Object)(n$10:java.lang.Integer*) [line 94];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$11 [line 94];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar4:org.hamcrest.Matcher* [line 94];
+n$13=_fun_Matcher Is.is(Matcher)(n$12:org.hamcrest.Matcher*) [line 94];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$13 [line 94];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Integer* [line 94];
+n$15=*&amp;$irvar5:org.hamcrest.Matcher* [line 94];
+n$16=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected run count":java.lang.Object*,n$14:java.lang.Integer*,n$15:org.hamcrest.Matcher*) [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getFailureCount(), is(equalTo(1))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;testResult:org.junit.runner.Result* [line 95];
+_=*n$17:org.junit.runner.Result*(root org.junit.runner.Result) [line 95];
+n$19=_fun_int Result.getFailureCount()(n$17:org.junit.runner.Result*) virtual [line 95];
+*&amp;$irvar6:int=n$19 [line 95];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar6:int [line 95];
+n$21=_fun_Integer Integer.valueOf(int)(n$20:int) [line 95];
+*&amp;$irvar7:java.lang.Integer*=n$21 [line 95];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$22=_fun_Integer Integer.valueOf(int)(1:int) [line 95];
+*&amp;$irvar8:java.lang.Integer*=n$22 [line 95];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$23=*&amp;$irvar8:java.lang.Integer* [line 95];
+n$24=_fun_Matcher IsEqual.equalTo(Object)(n$23:java.lang.Integer*) [line 95];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$24 [line 95];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$25=*&amp;$irvar9:org.hamcrest.Matcher* [line 95];
+n$26=_fun_Matcher Is.is(Matcher)(n$25:org.hamcrest.Matcher*) [line 95];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$26 [line 95];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$27=*&amp;$irvar7:java.lang.Integer* [line 95];
+n$28=*&amp;$irvar10:org.hamcrest.Matcher* [line 95];
+n$29=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$27:java.lang.Integer*,n$28:org.hamcrest.Matcher*) [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        assertThat(&quot;unexpected failure count&quot;, testResult.getIgnoreCount(), is(equalTo(0))); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$30=*&amp;testResult:org.junit.runner.Result* [line 96];
+_=*n$30:org.junit.runner.Result*(root org.junit.runner.Result) [line 96];
+n$32=_fun_int Result.getIgnoreCount()(n$30:org.junit.runner.Result*) virtual [line 96];
+*&amp;$irvar11:int=n$32 [line 96];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$33=*&amp;$irvar11:int [line 96];
+n$34=_fun_Integer Integer.valueOf(int)(n$33:int) [line 96];
+*&amp;$irvar12:java.lang.Integer*=n$34 [line 96];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$35=_fun_Integer Integer.valueOf(int)(0:int) [line 96];
+*&amp;$irvar13:java.lang.Integer*=n$35 [line 96];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$36=*&amp;$irvar13:java.lang.Integer* [line 96];
+n$37=_fun_Matcher IsEqual.equalTo(Object)(n$36:java.lang.Integer*) [line 96];
+*&amp;$irvar14:org.hamcrest.Matcher*=n$37 [line 96];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$38=*&amp;$irvar14:org.hamcrest.Matcher* [line 96];
+n$39=_fun_Matcher Is.is(Matcher)(n$38:org.hamcrest.Matcher*) [line 96];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$39 [line 96];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$40=*&amp;$irvar12:java.lang.Integer* [line 96];
+n$41=*&amp;$irvar15:org.hamcrest.Matcher* [line 96];
+n$42=_fun_void Assert.assertThat(String,Object,Matcher)("unexpected failure count":java.lang.Object*,n$40:java.lang.Integer*,n$41:org.hamcrest.Matcher*) [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        assertFalse(testResult.wasSuccessful()); <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$43=*&amp;testResult:org.junit.runner.Result* [line 97];
+_=*n$43:org.junit.runner.Result*(root org.junit.runner.Result) [line 97];
+n$45=_fun_boolean Result.wasSuccessful()(n$43:org.junit.runner.Result*) virtual [line 97];
+*&amp;$irvar16:_Bool=n$45 [line 97];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$46=*&amp;$irvar16:_Bool [line 97];
+n$47=_fun_void Assert.assertFalse(boolean)(n$46:_Bool) [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">    } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:27 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest.inheritanceAllAny%28%29%3Avoid.0874d826fb7485d8bc3bd0f2ebeac6b9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">    public static class X implements A {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24X.<init>%28%29.c450615811bfe1427bfbeca2b4128bce_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24X.<init>%28%29.c450615811bfe1427bfbeca2b4128bce_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$X* [line 100];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$X*) [line 100];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24X.<init>%28%29.c450615811bfe1427bfbeca2b4128bce_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24X.<init>%28%29.c450615811bfe1427bfbeca2b4128bce_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24X.<init>%28%29.c450615811bfe1427bfbeca2b4128bce_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24X.<init>%28%29.c450615811bfe1427bfbeca2b4128bce.html">summary for MultiCategoryTest$X.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">    public static class Y implements B {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Y.<init>%28%29.a83d85d6f90de8d6ff84ef067940783d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Y.<init>%28%29.a83d85d6f90de8d6ff84ef067940783d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$Y* [line 101];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$Y*) [line 101];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Y.<init>%28%29.a83d85d6f90de8d6ff84ef067940783d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Y.<init>%28%29.a83d85d6f90de8d6ff84ef067940783d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Y.<init>%28%29.a83d85d6f90de8d6ff84ef067940783d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24Y.<init>%28%29.a83d85d6f90de8d6ff84ef067940783d.html">summary for MultiCategoryTest$Y.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">    public static class Z implements A, B {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Z.<init>%28%29.4f6dead2792f2344baf56429b00bad6c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Z.<init>%28%29.4f6dead2792f2344baf56429b00bad6c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$Z* [line 102];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$Z*) [line 102];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Z.<init>%28%29.4f6dead2792f2344baf56429b00bad6c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Z.<init>%28%29.4f6dead2792f2344baf56429b00bad6c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Z.<init>%28%29.4f6dead2792f2344baf56429b00bad6c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24Z.<init>%28%29.4f6dead2792f2344baf56429b00bad6c.html">summary for MultiCategoryTest$Z.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">    public static class W implements A, B, C {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24W.<init>%28%29.96aac0088c24c1a06f9520f647cf301b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24W.<init>%28%29.96aac0088c24c1a06f9520f647cf301b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$W* [line 103];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$W*) [line 103];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24W.<init>%28%29.96aac0088c24c1a06f9520f647cf301b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24W.<init>%28%29.96aac0088c24c1a06f9520f647cf301b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24W.<init>%28%29.96aac0088c24c1a06f9520f647cf301b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24W.<init>%28%29.96aac0088c24c1a06f9520f647cf301b.html">summary for MultiCategoryTest$W.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    public static class Q implements A, C {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Q.<init>%28%29.ae50c4285a290590bd8a737e891c694e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Q.<init>%28%29.ae50c4285a290590bd8a737e891c694e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$Q* [line 104];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$Q*) [line 104];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Q.<init>%28%29.ae50c4285a290590bd8a737e891c694e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Q.<init>%28%29.ae50c4285a290590bd8a737e891c694e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24Q.<init>%28%29.ae50c4285a290590bd8a737e891c694e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24Q.<init>%28%29.ae50c4285a290590bd8a737e891c694e.html">summary for MultiCategoryTest$Q.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    @RunWith(Categories.class) </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    @Categories.IncludeCategory({A.class, B.class}) </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">    @Categories.ExcludeCategory(C.class) </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">    @Suite.SuiteClasses({InheritanceAnyTest.class}) </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    public static final class InheritanceAny {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAny.<init>%28%29.94a4e4956e1461c87cf89df909393a40_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAny.<init>%28%29.94a4e4956e1461c87cf89df909393a40_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAny* [line 110];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAny*) [line 110];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAny.<init>%28%29.94a4e4956e1461c87cf89df909393a40_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAny.<init>%28%29.94a4e4956e1461c87cf89df909393a40_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAny.<init>%28%29.94a4e4956e1461c87cf89df909393a40_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAny.<init>%28%29.94a4e4956e1461c87cf89df909393a40.html">summary for MultiCategoryTest$InheritanceAny.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    @RunWith(Categories.class) </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">    @Categories.IncludeCategory(value= {A.class, B.class}, matchAny= false) </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">    @Categories.ExcludeCategory(C.class) </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">    @Suite.SuiteClasses({InheritanceAllTest.class}) </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">    public static final class InheritanceAll {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAll.<init>%28%29.47c7a005b45c2869e72ad00e861a0d4e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAll.<init>%28%29.47c7a005b45c2869e72ad00e861a0d4e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAll* [line 116];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAll*) [line 116];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAll.<init>%28%29.47c7a005b45c2869e72ad00e861a0d4e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAll.<init>%28%29.47c7a005b45c2869e72ad00e861a0d4e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAll.<init>%28%29.47c7a005b45c2869e72ad00e861a0d4e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAll.<init>%28%29.47c7a005b45c2869e72ad00e861a0d4e.html">summary for MultiCategoryTest$InheritanceAll.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">    @RunWith(Categories.class) </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    @Categories.IncludeCategory({A.class, B.class}) </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    @Categories.ExcludeCategory(value= {A.class, C.class}, matchAny= false) </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">    @Suite.SuiteClasses({InheritanceAnyAllTest.class}) </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    public static final class InheritanceAnyAll {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAll.<init>%28%29.ef6ce261b46ec15664a2e05202ee548f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAll.<init>%28%29.ef6ce261b46ec15664a2e05202ee548f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyAll* [line 122];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyAll*) [line 122];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAll.<init>%28%29.ef6ce261b46ec15664a2e05202ee548f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAll.<init>%28%29.ef6ce261b46ec15664a2e05202ee548f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAll.<init>%28%29.ef6ce261b46ec15664a2e05202ee548f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAll.<init>%28%29.ef6ce261b46ec15664a2e05202ee548f.html">summary for MultiCategoryTest$InheritanceAnyAll.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    @RunWith(Categories.class) </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">    @Categories.IncludeCategory(value= {A.class, B.class}, matchAny= false) </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    @Categories.ExcludeCategory({A.class, C.class}) </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    @Suite.SuiteClasses({InheritanceAllAnyTest.class}) </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    public static final class InheritanceAllAny {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAny.<init>%28%29.31037dc1e2f2df6e123323dba46e2962_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAny.<init>%28%29.31037dc1e2f2df6e123323dba46e2962_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAllAny* [line 128];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAllAny*) [line 128];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAny.<init>%28%29.31037dc1e2f2df6e123323dba46e2962_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAny.<init>%28%29.31037dc1e2f2df6e123323dba46e2962_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAny.<init>%28%29.31037dc1e2f2df6e123323dba46e2962_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAny.<init>%28%29.31037dc1e2f2df6e123323dba46e2962.html">summary for MultiCategoryTest$InheritanceAllAny.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">    public static final class InheritanceAnyTest { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.<init>%28%29.81ef181979a5ea233f0ef93ad9b23f80_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.<init>%28%29.81ef181979a5ea233f0ef93ad9b23f80_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyTest* [line 130];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyTest*) [line 130];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.<init>%28%29.81ef181979a5ea233f0ef93ad9b23f80_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.<init>%28%29.81ef181979a5ea233f0ef93ad9b23f80_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.<init>%28%29.81ef181979a5ea233f0ef93ad9b23f80_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.<init>%28%29.81ef181979a5ea233f0ef93ad9b23f80.html">summary for MultiCategoryTest$InheritanceAnyTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        @Test @Category(X.class) public void x() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.x%28%29%3Avoid.f50d1327a82589b689721d5b7e882ec9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.x%28%29%3Avoid.f50d1327a82589b689721d5b7e882ec9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.x%28%29%3Avoid.f50d1327a82589b689721d5b7e882ec9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.x%28%29%3Avoid.f50d1327a82589b689721d5b7e882ec9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.x%28%29%3Avoid.f50d1327a82589b689721d5b7e882ec9.html">summary for void MultiCategoryTest$InheritanceAnyTest.x()</a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">        @Test @Category(Y.class) public void y() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.y%28%29%3Avoid.86094ae5e115939329411326f39dd7ab_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.y%28%29%3Avoid.86094ae5e115939329411326f39dd7ab_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.y%28%29%3Avoid.86094ae5e115939329411326f39dd7ab_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.y%28%29%3Avoid.86094ae5e115939329411326f39dd7ab_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.y%28%29%3Avoid.86094ae5e115939329411326f39dd7ab.html">summary for void MultiCategoryTest$InheritanceAnyTest.y()</a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        @Test @Category(Z.class) public void z() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.z%28%29%3Avoid.686f51315166bbe7a3d8c2f296aac2af_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.z%28%29%3Avoid.686f51315166bbe7a3d8c2f296aac2af_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.z%28%29%3Avoid.686f51315166bbe7a3d8c2f296aac2af_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.z%28%29%3Avoid.686f51315166bbe7a3d8c2f296aac2af_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.z%28%29%3Avoid.686f51315166bbe7a3d8c2f296aac2af.html">summary for void MultiCategoryTest$InheritanceAnyTest.z()</a></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        @Test @Category(W.class) public void w() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.w%28%29%3Avoid.06a5d57d8b762567687606063d51e98a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.w%28%29%3Avoid.06a5d57d8b762567687606063d51e98a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 134];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.w%28%29%3Avoid.06a5d57d8b762567687606063d51e98a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.w%28%29%3Avoid.06a5d57d8b762567687606063d51e98a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.w%28%29%3Avoid.06a5d57d8b762567687606063d51e98a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.w%28%29%3Avoid.06a5d57d8b762567687606063d51e98a.html">summary for void MultiCategoryTest$InheritanceAnyTest.w()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        @Test @Category(Q.class) public void q() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.q%28%29%3Avoid.76496b437c9c53764cbdeea3a9f57e06_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.q%28%29%3Avoid.76496b437c9c53764cbdeea3a9f57e06_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 135];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.q%28%29%3Avoid.76496b437c9c53764cbdeea3a9f57e06_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.q%28%29%3Avoid.76496b437c9c53764cbdeea3a9f57e06_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.q%28%29%3Avoid.76496b437c9c53764cbdeea3a9f57e06_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.q%28%29%3Avoid.76496b437c9c53764cbdeea3a9f57e06.html">summary for void MultiCategoryTest$InheritanceAnyTest.q()</a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        @Test @Category(Runnable.class) public void runnable() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.runnable%28%29%3Avoid.09b95179da9de58a2a451870362344ef_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.runnable%28%29%3Avoid.09b95179da9de58a2a451870362344ef_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 136];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.runnable%28%29%3Avoid.09b95179da9de58a2a451870362344ef_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.runnable%28%29%3Avoid.09b95179da9de58a2a451870362344ef_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.runnable%28%29%3Avoid.09b95179da9de58a2a451870362344ef_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.runnable%28%29%3Avoid.09b95179da9de58a2a451870362344ef.html">summary for void MultiCategoryTest$InheritanceAnyTest.runnable()</a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        @Test public void t() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.t%28%29%3Avoid.2205228884627abb37d2c1d3e6331017_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.t%28%29%3Avoid.2205228884627abb37d2c1d3e6331017_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 137];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.t%28%29%3Avoid.2205228884627abb37d2c1d3e6331017_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.t%28%29%3Avoid.2205228884627abb37d2c1d3e6331017_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.t%28%29%3Avoid.2205228884627abb37d2c1d3e6331017_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyTest.t%28%29%3Avoid.2205228884627abb37d2c1d3e6331017.html">summary for void MultiCategoryTest$InheritanceAnyTest.t()</a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">    public static final class InheritanceAllTest { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.<init>%28%29.707ad8853cb482a4850520f288662965_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.<init>%28%29.707ad8853cb482a4850520f288662965_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAllTest* [line 140];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAllTest*) [line 140];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.<init>%28%29.707ad8853cb482a4850520f288662965_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.<init>%28%29.707ad8853cb482a4850520f288662965_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.<init>%28%29.707ad8853cb482a4850520f288662965_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.<init>%28%29.707ad8853cb482a4850520f288662965.html">summary for MultiCategoryTest$InheritanceAllTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        @Test @Category(X.class) public void x() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.x%28%29%3Avoid.d7c4038b67e7a21a5696cf0434218f05_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.x%28%29%3Avoid.d7c4038b67e7a21a5696cf0434218f05_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 141];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.x%28%29%3Avoid.d7c4038b67e7a21a5696cf0434218f05_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.x%28%29%3Avoid.d7c4038b67e7a21a5696cf0434218f05_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.x%28%29%3Avoid.d7c4038b67e7a21a5696cf0434218f05_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.x%28%29%3Avoid.d7c4038b67e7a21a5696cf0434218f05.html">summary for void MultiCategoryTest$InheritanceAllTest.x()</a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        @Test @Category(Y.class) public void y() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.y%28%29%3Avoid.d10b27fbb7345c14c6ad8f0fe3f38dde_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.y%28%29%3Avoid.d10b27fbb7345c14c6ad8f0fe3f38dde_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 142];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.y%28%29%3Avoid.d10b27fbb7345c14c6ad8f0fe3f38dde_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.y%28%29%3Avoid.d10b27fbb7345c14c6ad8f0fe3f38dde_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.y%28%29%3Avoid.d10b27fbb7345c14c6ad8f0fe3f38dde_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.y%28%29%3Avoid.d10b27fbb7345c14c6ad8f0fe3f38dde.html">summary for void MultiCategoryTest$InheritanceAllTest.y()</a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        @Test @Category(Z.class) public void z() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.z%28%29%3Avoid.71f606c5e1bfe5902a2c447be0fac9f5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.z%28%29%3Avoid.71f606c5e1bfe5902a2c447be0fac9f5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.z%28%29%3Avoid.71f606c5e1bfe5902a2c447be0fac9f5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.z%28%29%3Avoid.71f606c5e1bfe5902a2c447be0fac9f5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.z%28%29%3Avoid.71f606c5e1bfe5902a2c447be0fac9f5.html">summary for void MultiCategoryTest$InheritanceAllTest.z()</a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        @Test @Category(W.class) public void w() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.w%28%29%3Avoid.c0ae830d3d7a6c9adb466ddc2bd03773_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.w%28%29%3Avoid.c0ae830d3d7a6c9adb466ddc2bd03773_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 144];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.w%28%29%3Avoid.c0ae830d3d7a6c9adb466ddc2bd03773_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.w%28%29%3Avoid.c0ae830d3d7a6c9adb466ddc2bd03773_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.w%28%29%3Avoid.c0ae830d3d7a6c9adb466ddc2bd03773_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.w%28%29%3Avoid.c0ae830d3d7a6c9adb466ddc2bd03773.html">summary for void MultiCategoryTest$InheritanceAllTest.w()</a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        @Test @Category(Q.class) public void q() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.q%28%29%3Avoid.17843f4ed892e49ae2e7f2173c455b24_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.q%28%29%3Avoid.17843f4ed892e49ae2e7f2173c455b24_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 145];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.q%28%29%3Avoid.17843f4ed892e49ae2e7f2173c455b24_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.q%28%29%3Avoid.17843f4ed892e49ae2e7f2173c455b24_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.q%28%29%3Avoid.17843f4ed892e49ae2e7f2173c455b24_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.q%28%29%3Avoid.17843f4ed892e49ae2e7f2173c455b24.html">summary for void MultiCategoryTest$InheritanceAllTest.q()</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        @Test @Category(Runnable.class) public void runnable() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.runnable%28%29%3Avoid.2f398f3615e6a6cfcc0e6888ac8e40fe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.runnable%28%29%3Avoid.2f398f3615e6a6cfcc0e6888ac8e40fe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 146];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.runnable%28%29%3Avoid.2f398f3615e6a6cfcc0e6888ac8e40fe_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.runnable%28%29%3Avoid.2f398f3615e6a6cfcc0e6888ac8e40fe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.runnable%28%29%3Avoid.2f398f3615e6a6cfcc0e6888ac8e40fe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.runnable%28%29%3Avoid.2f398f3615e6a6cfcc0e6888ac8e40fe.html">summary for void MultiCategoryTest$InheritanceAllTest.runnable()</a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        @Test public void t() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.t%28%29%3Avoid.59a30c4fae8be07dcf3ef0a53b23fb49_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.t%28%29%3Avoid.59a30c4fae8be07dcf3ef0a53b23fb49_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 147];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.t%28%29%3Avoid.59a30c4fae8be07dcf3ef0a53b23fb49_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.t%28%29%3Avoid.59a30c4fae8be07dcf3ef0a53b23fb49_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.t%28%29%3Avoid.59a30c4fae8be07dcf3ef0a53b23fb49_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllTest.t%28%29%3Avoid.59a30c4fae8be07dcf3ef0a53b23fb49.html">summary for void MultiCategoryTest$InheritanceAllTest.t()</a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">    public static final class InheritanceAnyAllTest { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.<init>%28%29.3702d625fd9ca6d94862ecea2f37b9bd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.<init>%28%29.3702d625fd9ca6d94862ecea2f37b9bd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyAllTest* [line 150];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAnyAllTest*) [line 150];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.<init>%28%29.3702d625fd9ca6d94862ecea2f37b9bd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.<init>%28%29.3702d625fd9ca6d94862ecea2f37b9bd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.<init>%28%29.3702d625fd9ca6d94862ecea2f37b9bd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.<init>%28%29.3702d625fd9ca6d94862ecea2f37b9bd.html">summary for MultiCategoryTest$InheritanceAnyAllTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">        @Test @Category(X.class) public void x() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.x%28%29%3Avoid.e877a2d7ff649b185c268ce1f00b7bd3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.x%28%29%3Avoid.e877a2d7ff649b185c268ce1f00b7bd3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.x%28%29%3Avoid.e877a2d7ff649b185c268ce1f00b7bd3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.x%28%29%3Avoid.e877a2d7ff649b185c268ce1f00b7bd3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.x%28%29%3Avoid.e877a2d7ff649b185c268ce1f00b7bd3.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.x()</a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">        @Test @Category(Y.class) public void y() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.y%28%29%3Avoid.0c9046a0c2e23c20ee5524f368008877_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.y%28%29%3Avoid.0c9046a0c2e23c20ee5524f368008877_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.y%28%29%3Avoid.0c9046a0c2e23c20ee5524f368008877_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.y%28%29%3Avoid.0c9046a0c2e23c20ee5524f368008877_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.y%28%29%3Avoid.0c9046a0c2e23c20ee5524f368008877.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.y()</a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        @Test @Category(Z.class) public void z() {} <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.z%28%29%3Avoid.c1824a8206dd4d51e8ee863c5cee2b0a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.z%28%29%3Avoid.c1824a8206dd4d51e8ee863c5cee2b0a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.z%28%29%3Avoid.c1824a8206dd4d51e8ee863c5cee2b0a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.z%28%29%3Avoid.c1824a8206dd4d51e8ee863c5cee2b0a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.z%28%29%3Avoid.c1824a8206dd4d51e8ee863c5cee2b0a.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.z()</a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        @Test @Category(W.class) public void w() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.w%28%29%3Avoid.028329054ad5af6f5bec4b43371d0488_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.w%28%29%3Avoid.028329054ad5af6f5bec4b43371d0488_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 154];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.w%28%29%3Avoid.028329054ad5af6f5bec4b43371d0488_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.w%28%29%3Avoid.028329054ad5af6f5bec4b43371d0488_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.w%28%29%3Avoid.028329054ad5af6f5bec4b43371d0488_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.w%28%29%3Avoid.028329054ad5af6f5bec4b43371d0488.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.w()</a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        @Test @Category(Q.class) public void q() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.q%28%29%3Avoid.54f2c71dc143c80f534ea7cc67cdfe80_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.q%28%29%3Avoid.54f2c71dc143c80f534ea7cc67cdfe80_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 155];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.q%28%29%3Avoid.54f2c71dc143c80f534ea7cc67cdfe80_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.q%28%29%3Avoid.54f2c71dc143c80f534ea7cc67cdfe80_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.q%28%29%3Avoid.54f2c71dc143c80f534ea7cc67cdfe80_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.q%28%29%3Avoid.54f2c71dc143c80f534ea7cc67cdfe80.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.q()</a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">        @Test @Category(Runnable.class) public void runnable() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.runnable%28%29%3Avoid.e2a000aed5dc3715861d3e9dcb5d2d9e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.runnable%28%29%3Avoid.e2a000aed5dc3715861d3e9dcb5d2d9e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 156];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.runnable%28%29%3Avoid.e2a000aed5dc3715861d3e9dcb5d2d9e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.runnable%28%29%3Avoid.e2a000aed5dc3715861d3e9dcb5d2d9e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.runnable%28%29%3Avoid.e2a000aed5dc3715861d3e9dcb5d2d9e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.runnable%28%29%3Avoid.e2a000aed5dc3715861d3e9dcb5d2d9e.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.runnable()</a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">        @Test public void t() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.t%28%29%3Avoid.1c12bb99a41fe4e7815b2b93f01452bd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.t%28%29%3Avoid.1c12bb99a41fe4e7815b2b93f01452bd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 157];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.t%28%29%3Avoid.1c12bb99a41fe4e7815b2b93f01452bd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.t%28%29%3Avoid.1c12bb99a41fe4e7815b2b93f01452bd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.t%28%29%3Avoid.1c12bb99a41fe4e7815b2b93f01452bd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAnyAllTest.t%28%29%3Avoid.1c12bb99a41fe4e7815b2b93f01452bd.html">summary for void MultiCategoryTest$InheritanceAnyAllTest.t()</a></td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">    public static final class InheritanceAllAnyTest { <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.<init>%28%29.659d65774e78218ae5ae40ae78bfea12_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.<init>%28%29.659d65774e78218ae5ae40ae78bfea12_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.MultiCategoryTest$InheritanceAllAnyTest* [line 160];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.categories.MultiCategoryTest$InheritanceAllAnyTest*) [line 160];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.<init>%28%29.659d65774e78218ae5ae40ae78bfea12_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.<init>%28%29.659d65774e78218ae5ae40ae78bfea12_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.<init>%28%29.659d65774e78218ae5ae40ae78bfea12_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.<init>%28%29.659d65774e78218ae5ae40ae78bfea12.html">summary for MultiCategoryTest$InheritanceAllAnyTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">        @Test @Category(X.class) public void x() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.x%28%29%3Avoid.85c8b65777f783dbdf2e396968dafb8d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.x%28%29%3Avoid.85c8b65777f783dbdf2e396968dafb8d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 161];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.x%28%29%3Avoid.85c8b65777f783dbdf2e396968dafb8d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.x%28%29%3Avoid.85c8b65777f783dbdf2e396968dafb8d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.x%28%29%3Avoid.85c8b65777f783dbdf2e396968dafb8d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.x%28%29%3Avoid.85c8b65777f783dbdf2e396968dafb8d.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.x()</a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        @Test @Category(Y.class) public void y() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.y%28%29%3Avoid.ba1e83282015c05db3b501cd54199ba2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.y%28%29%3Avoid.ba1e83282015c05db3b501cd54199ba2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 162];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.y%28%29%3Avoid.ba1e83282015c05db3b501cd54199ba2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.y%28%29%3Avoid.ba1e83282015c05db3b501cd54199ba2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.y%28%29%3Avoid.ba1e83282015c05db3b501cd54199ba2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.y%28%29%3Avoid.ba1e83282015c05db3b501cd54199ba2.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.y()</a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">        @Test @Category(Z.class) public void z() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.z%28%29%3Avoid.26f1543b4f83c49b419a6e8cd0b3b799_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.z%28%29%3Avoid.26f1543b4f83c49b419a6e8cd0b3b799_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 163];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.z%28%29%3Avoid.26f1543b4f83c49b419a6e8cd0b3b799_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.z%28%29%3Avoid.26f1543b4f83c49b419a6e8cd0b3b799_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.z%28%29%3Avoid.26f1543b4f83c49b419a6e8cd0b3b799_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.z%28%29%3Avoid.26f1543b4f83c49b419a6e8cd0b3b799.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.z()</a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">        @Test @Category(W.class) public void w() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.w%28%29%3Avoid.00b7b665cf515b6eb0005b0515b40d9d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.w%28%29%3Avoid.00b7b665cf515b6eb0005b0515b40d9d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 164];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.w%28%29%3Avoid.00b7b665cf515b6eb0005b0515b40d9d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.w%28%29%3Avoid.00b7b665cf515b6eb0005b0515b40d9d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.w%28%29%3Avoid.00b7b665cf515b6eb0005b0515b40d9d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.w%28%29%3Avoid.00b7b665cf515b6eb0005b0515b40d9d.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.w()</a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">        @Test @Category(Q.class) public void q() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.q%28%29%3Avoid.d4e4f7660b5c56ef58c59173512dfe54_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.q%28%29%3Avoid.d4e4f7660b5c56ef58c59173512dfe54_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 165];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.q%28%29%3Avoid.d4e4f7660b5c56ef58c59173512dfe54_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.q%28%29%3Avoid.d4e4f7660b5c56ef58c59173512dfe54_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.q%28%29%3Avoid.d4e4f7660b5c56ef58c59173512dfe54_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.q%28%29%3Avoid.d4e4f7660b5c56ef58c59173512dfe54.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.q()</a></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">        @Test @Category(Runnable.class) public void runnable() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.runnable%28%29%3Avoid.bc76fdcfd6e8880ef903c18db5e12fd8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.runnable%28%29%3Avoid.bc76fdcfd6e8880ef903c18db5e12fd8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 166];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.runnable%28%29%3Avoid.bc76fdcfd6e8880ef903c18db5e12fd8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.runnable%28%29%3Avoid.bc76fdcfd6e8880ef903c18db5e12fd8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.runnable%28%29%3Avoid.bc76fdcfd6e8880ef903c18db5e12fd8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.runnable%28%29%3Avoid.bc76fdcfd6e8880ef903c18db5e12fd8.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.runnable()</a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">        @Test public void t() { fail(); } <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.t%28%29%3Avoid.7d59cf3f51741669b3a6feee1870accb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.t%28%29%3Avoid.7d59cf3f51741669b3a6feee1870accb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 167];
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.t%28%29%3Avoid.7d59cf3f51741669b3a6feee1870accb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.t%28%29%3Avoid.7d59cf3f51741669b3a6feee1870accb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/nodes/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.t%28%29%3Avoid.7d59cf3f51741669b3a6feee1870accb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MultiCategoryTest.java.e7b5209358c6a511204fb7ee728a10af/org.junit.experimental.categories.MultiCategoryTest%24InheritanceAllAnyTest.t%28%29%3Avoid.7d59cf3f51741669b3a6feee1870accb.html">summary for void MultiCategoryTest$InheritanceAllAnyTest.t()</a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

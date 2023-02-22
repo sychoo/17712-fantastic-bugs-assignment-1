@@ -1,0 +1,61 @@
+/* @generated */
+digraph cfg {
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_1" [label="1: Start boolean Assert.equalsRegardingNull(String,String)\nFormals:  expected:java.lang.String* actual:java.lang.String*\nLocals:  $irvar0:void $T0_13:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_1" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_3" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_1" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_10" ;
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_2" [label="2: Exit boolean Assert.equalsRegardingNull(String,String) \n  " color=yellow style=filled]
+	
+
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_3" [label="3: Prune (true branch, if) \n   n$0=*&expected:java.lang.String* [line 125]\n  PRUNE(!(n$0 != null), true); [line 125]\n  NULLIFY(&expected); [line 125]\n  EXIT_SCOPE(n$0,expected); [line 125]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_3" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_5" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_3" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_8" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_3" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [label="4:  exceptions sink \n   NULLIFY(&$T0_13); [line 129]\n  NULLIFY(&$irvar0); [line 129]\n  EXIT_SCOPE($T0_13,$irvar0); [line 129]\n  APPLY_ABSTRACTION; [line 129]\n " shape="box"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_2" ;
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_5" [label="5: Prune (true branch, if) \n   n$1=*&actual:java.lang.String* [line 126]\n  PRUNE(!(n$1 != null), true); [line 126]\n  NULLIFY(&actual); [line 126]\n  EXIT_SCOPE(n$1,actual); [line 126]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_5" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_6" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_5" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_6" [label="6:  method_body \n   *&$T0_13:int=1 [line 126]\n  APPLY_ABSTRACTION; [line 126]\n " shape="box"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_6" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_7" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_6" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_7" [label="7:  method_body \n   n$2=*&$T0_13:int [line 126]\n  *&return:_Bool=n$2 [line 126]\n  NULLIFY(&$T0_13); [line 126]\n  EXIT_SCOPE(n$2,$T0_13); [line 126]\n  APPLY_ABSTRACTION; [line 126]\n " shape="box"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_7" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_2" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_7" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_8" [label="8: Prune (false branch, if) \n   n$1=*&actual:java.lang.String* [line 126]\n  PRUNE((n$1 != null), false); [line 126]\n  NULLIFY(&actual); [line 126]\n  EXIT_SCOPE(n$1,actual); [line 126]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_8" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_9" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_8" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_9" [label="9:  method_body \n   *&$T0_13:int=0 [line 126]\n  APPLY_ABSTRACTION; [line 126]\n " shape="box"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_9" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_7" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_9" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_10" [label="10: Prune (false branch, if) \n   n$0=*&expected:java.lang.String* [line 125]\n  PRUNE((n$0 != null), false); [line 125]\n  EXIT_SCOPE(n$0); [line 125]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_10" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_11" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_10" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_11" [label="11:  Call boolean Assert.isEquals(Object,Object) \n   n$3=*&expected:java.lang.String* [line 129]\n  n$4=*&actual:java.lang.String* [line 129]\n  n$5=_fun_boolean Assert.isEquals(Object,Object)(n$3:java.lang.Object*,n$4:java.lang.Object*) [line 129]\n  *&$irvar0:_Bool=n$5 [line 129]\n  NULLIFY(&actual); [line 129]\n  NULLIFY(&expected); [line 129]\n  EXIT_SCOPE(n$3,n$4,n$5,actual,expected); [line 129]\n " shape="box"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_11" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_12" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_11" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+"org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_12" [label="12:  method_body \n   n$6=*&$irvar0:_Bool [line 129]\n  *&return:_Bool=n$6 [line 129]\n  NULLIFY(&$irvar0); [line 129]\n  EXIT_SCOPE(n$6,$irvar0); [line 129]\n  APPLY_ABSTRACTION; [line 129]\n " shape="box"]
+	
+
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_12" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_2" ;
+	 "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_12" -> "org.junit.Assert.equalsRegardingNull(java.lang.String,java.lang.String):boolean.8e3022ee07a86c593060a7f8ecbdb79a_4" [color="red" ];
+}

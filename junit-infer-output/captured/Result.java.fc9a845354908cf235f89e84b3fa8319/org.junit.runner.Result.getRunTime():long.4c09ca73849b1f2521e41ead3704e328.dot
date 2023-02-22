@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_1" [label="1: Start long Result.getRunTime()\nFormals:  this:org.junit.runner.Result*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_1" -> "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_4" ;
+"org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_2" [label="2: Exit long Result.getRunTime() \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 75]\n  EXIT_SCOPE($irvar0); [line 75]\n  APPLY_ABSTRACTION; [line 75]\n " shape="box"]
+	
+
+	 "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_3" -> "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_2" ;
+"org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_4" [label="4:  Call long AtomicLong.get() \n   n$0=*&this:org.junit.runner.Result* [line 75]\n  n$1=*n$0.runTime:java.util.concurrent.atomic.AtomicLong*(root org.junit.runner.Result) [line 75]\n  _=*n$1:java.util.concurrent.atomic.AtomicLong*(root java.util.concurrent.atomic.AtomicLong) [line 75]\n  n$3=_fun_long AtomicLong.get()(n$1:java.util.concurrent.atomic.AtomicLong*) virtual [line 75]\n  *&$irvar0:long=n$3 [line 75]\n  NULLIFY(&this); [line 75]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 75]\n " shape="box"]
+	
+
+	 "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_4" -> "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_5" ;
+	 "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_4" -> "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_3" [color="red" ];
+"org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_5" [label="5:  method_body \n   n$4=*&$irvar0:long [line 75]\n  *&return:long=n$4 [line 75]\n  NULLIFY(&$irvar0); [line 75]\n  EXIT_SCOPE(n$4,$irvar0); [line 75]\n  APPLY_ABSTRACTION; [line 75]\n " shape="box"]
+	
+
+	 "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_5" -> "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_2" ;
+	 "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_5" -> "org.junit.runner.Result.getRunTime():long.4c09ca73849b1f2521e41ead3704e328_3" [color="red" ];
+}

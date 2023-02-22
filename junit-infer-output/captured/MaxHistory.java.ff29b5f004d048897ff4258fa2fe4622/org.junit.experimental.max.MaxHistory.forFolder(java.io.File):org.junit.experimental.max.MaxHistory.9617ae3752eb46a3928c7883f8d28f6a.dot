@@ -1,0 +1,81 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_1" [label="1: Start MaxHistory MaxHistory.forFolder(File)\nFormals:  file:java.io.File*\nLocals:  $irvar3:void $irvar2:void CatchVar12:void $irvar1:void $irvar0:void e:org.junit.experimental.max.CouldNotReadCoreException* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_1" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_4" ;
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_2" [label="2: Exit MaxHistory MaxHistory.forFolder(File) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 42]\n  NULLIFY(&$irvar0); [line 42]\n  NULLIFY(&CatchVar12); [line 42]\n  NULLIFY(&e); [line 42]\n  EXIT_SCOPE(n$19,$irvar3,$irvar0,CatchVar12,e); [line 42]\n  APPLY_ABSTRACTION; [line 42]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_2" ;
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_4" [label="4:  Call boolean File.exists() \n   n$0=*&file:java.io.File* [line 34]\n  _=*n$0:java.io.File*(root java.io.File) [line 34]\n  n$2=_fun_boolean File.exists()(n$0:java.io.File*) virtual [line 34]\n  *&$irvar0:_Bool=n$2 [line 34]\n  EXIT_SCOPE(_,n$0,n$2); [line 34]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_4" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_5" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_4" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_6" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_4" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:_Bool [line 34]\n  PRUNE(!(n$3 == 0), true); [line 34]\n  NULLIFY(&$irvar0); [line 34]\n  EXIT_SCOPE(n$3,$irvar0); [line 34]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_5" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_7" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_5" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:_Bool [line 34]\n  PRUNE((n$3 == 0), false); [line 34]\n  NULLIFY(&$irvar0); [line 34]\n  EXIT_SCOPE(n$3,$irvar0); [line 34]\n  APPLY_ABSTRACTION; [line 34]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_6" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_12" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_6" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_7" [label="7:  Call MaxHistory MaxHistory.readHistory(File) \n   n$4=*&file:java.io.File* [line 36]\n  n$5=_fun_MaxHistory MaxHistory.readHistory(File)(n$4:java.io.File*) [line 36]\n  *&$irvar1:org.junit.experimental.max.MaxHistory*=n$5 [line 36]\n  EXIT_SCOPE(n$4,n$5); [line 36]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_7" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_8" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_7" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_16" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_8" [label="8:  method_body \n   n$6=*&$irvar1:org.junit.experimental.max.MaxHistory* [line 36]\n  *&return:org.junit.experimental.max.MaxHistory*=n$6 [line 36]\n  NULLIFY(&$irvar1); [line 36]\n  EXIT_SCOPE(n$6,$irvar1); [line 36]\n  APPLY_ABSTRACTION; [line 36]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_8" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_2" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_8" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_9" [label="9:  method_body \n   n$7=*&CatchVar12:java.lang.Object* [line 37]\n  *&e:java.lang.Object*=n$7 [line 37]\n  NULLIFY(&CatchVar12); [line 37]\n  EXIT_SCOPE(n$7,CatchVar12); [line 37]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_9" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_10" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_9" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_10" [label="10:  Call void CouldNotReadCoreException.printStackTrace() \n   n$8=*&e:java.lang.Object* [line 38]\n  _=*n$8:java.lang.Object*(root java.lang.Object) [line 38]\n  n$10=_fun_void CouldNotReadCoreException.printStackTrace()(n$8:java.lang.Object*) virtual [line 38]\n  NULLIFY(&e); [line 38]\n  EXIT_SCOPE(_,n$8,n$10,e); [line 38]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_10" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_11" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_10" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_11" [label="11:  Call boolean File.delete() \n   n$11=*&file:java.io.File* [line 39]\n  _=*n$11:java.io.File*(root java.io.File) [line 39]\n  n$13=_fun_boolean File.delete()(n$11:java.io.File*) virtual [line 39]\n  *&$irvar2:_Bool=n$13 [line 39]\n  NULLIFY(&$irvar2); [line 39]\n  EXIT_SCOPE(_,n$11,n$13,$irvar2); [line 39]\n  APPLY_ABSTRACTION; [line 39]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_11" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_12" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_11" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_12" [label="12:  Call MaxHistory.<init>(File) \n   n$14=_fun___new(sizeof(t=org.junit.experimental.max.MaxHistory):org.junit.experimental.max.MaxHistory*) [line 42]\n  n$15=*&file:java.io.File* [line 42]\n  n$16=_fun_MaxHistory.<init>(File)(n$14:org.junit.experimental.max.MaxHistory*,n$15:java.io.File*) [line 42]\n  *&$irvar3:org.junit.experimental.max.MaxHistory*=n$14 [line 42]\n  NULLIFY(&file); [line 42]\n  EXIT_SCOPE(n$14,n$15,n$16,file); [line 42]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_12" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_13" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_12" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_13" [label="13:  method_body \n   n$17=*&$irvar3:org.junit.experimental.max.MaxHistory* [line 42]\n  *&return:org.junit.experimental.max.MaxHistory*=n$17 [line 42]\n  NULLIFY(&$irvar3); [line 42]\n  EXIT_SCOPE(n$17,$irvar3); [line 42]\n  APPLY_ABSTRACTION; [line 42]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_13" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_2" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_13" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_14" [label="14: Prune (true branch, switch) \n   n$20=_fun___instanceof(n$19:org.junit.experimental.max.CouldNotReadCoreException*,sizeof(t=org.junit.experimental.max.CouldNotReadCoreException):void) [line 37]\n  PRUNE(n$20, true); [line 37]\n  *&CatchVar12:org.junit.experimental.max.MaxHistory*=n$19 [line 37]\n  EXIT_SCOPE(n$19,n$20); [line 37]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_14" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_9" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_14" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_15" [label="15: Prune (false branch, switch) \n   n$20=_fun___instanceof(n$19:org.junit.experimental.max.CouldNotReadCoreException*,sizeof(t=org.junit.experimental.max.CouldNotReadCoreException):void) [line 37]\n  PRUNE(!n$20, false); [line 37]\n  *&return:org.junit.experimental.max.MaxHistory*=EXN n$19 [line 37]\n  EXIT_SCOPE(n$19,n$20); [line 37]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_15" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_15" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+"org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_16" [label="16:  exception handler \n   n$18=*&return:org.junit.experimental.max.MaxHistory* [line 37]\n  *&return:org.junit.experimental.max.MaxHistory*=null [line 37]\n  n$19=_fun___unwrap_exception(n$18:org.junit.experimental.max.MaxHistory*) [line 37]\n  NULLIFY(&$irvar1); [line 37]\n  EXIT_SCOPE(n$18,$irvar1); [line 37]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_16" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_14" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_16" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_15" ;
+	 "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_16" -> "org.junit.experimental.max.MaxHistory.forFolder(java.io.File):org.junit.experimental.max.MaxHistory.9617ae3752eb46a3928c7883f8d28f6a_3" [color="red" ];
+}

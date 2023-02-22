@@ -1,0 +1,45 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_1" [label="1: Start void Ordering.apply(Object)\nFormals:  this:org.junit.runner.manipulation.Ordering* target:java.lang.Object*\nLocals:  $irvar0:void orderable:org.junit.runner.manipulation.Orderable* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_1" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_4" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_1" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_5" ;
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_2" [label="2: Exit void Ordering.apply(Object) \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [label="3:  exceptions sink \n   NULLIFY(&orderable); [line 125]\n  NULLIFY(&$irvar0); [line 125]\n  EXIT_SCOPE(orderable,$irvar0); [line 125]\n  APPLY_ABSTRACTION; [line 125]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_2" ;
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_4" [label="4: Prune (true branch, if) \n   n$0=*&target:java.lang.Object* [line 121]\n  n$1=_fun___instanceof(n$0:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Orderable;sub_t=( sub )(instof)):void) [line 121]\n  PRUNE(!(n$1 == 0), true); [line 121]\n  EXIT_SCOPE(n$0,n$1); [line 121]\n " shape="invhouse"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_4" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_6" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_4" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_5" [label="5: Prune (false branch, if) \n   n$0=*&target:java.lang.Object* [line 121]\n  n$1=_fun___instanceof(n$0:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Orderable;sub_t=( sub )(instof)):void) [line 121]\n  PRUNE((n$1 == 0), false); [line 121]\n  NULLIFY(&target); [line 121]\n  EXIT_SCOPE(n$0,n$1,target); [line 121]\n  APPLY_ABSTRACTION; [line 121]\n " shape="invhouse"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_5" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_9" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_5" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_6" [label="6:  method_body \n   n$2=*&target:java.lang.Object* [line 122]\n  n$3=_fun___cast(n$2:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Orderable;sub_t=( sub )(cast)):void) [line 122]\n  *&orderable:org.junit.runner.manipulation.Orderable*=n$3 [line 122]\n  NULLIFY(&target); [line 122]\n  EXIT_SCOPE(n$2,n$3,target); [line 122]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_6" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_7" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_6" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_7" [label="7:  Call Orderer.<init>(Ordering) \n   n$4=_fun___new(sizeof(t=org.junit.runner.manipulation.Orderer):org.junit.runner.manipulation.Orderer*) [line 123]\n  n$5=*&this:org.junit.runner.manipulation.Ordering* [line 123]\n  n$6=_fun_Orderer.<init>(Ordering)(n$4:org.junit.runner.manipulation.Orderer*,n$5:org.junit.runner.manipulation.Ordering*) [line 123]\n  *&$irvar0:org.junit.runner.manipulation.Orderer*=n$4 [line 123]\n  NULLIFY(&this); [line 123]\n  EXIT_SCOPE(n$4,n$5,n$6,this); [line 123]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_7" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_8" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_7" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_8" [label="8:  Call void Orderable.order(Orderer) \n   n$7=*&orderable:org.junit.runner.manipulation.Orderable* [line 123]\n  _=*n$7:org.junit.runner.manipulation.Orderable*(root org.junit.runner.manipulation.Orderable) [line 123]\n  n$9=*&$irvar0:org.junit.runner.manipulation.Orderer* [line 123]\n  n$10=_fun_void Orderable.order(Orderer)(n$7:org.junit.runner.manipulation.Orderable*,n$9:org.junit.runner.manipulation.Orderer*) interface virtual [line 123]\n  NULLIFY(&orderable); [line 123]\n  NULLIFY(&$irvar0); [line 123]\n  EXIT_SCOPE(_,n$7,n$9,n$10,orderable,$irvar0); [line 123]\n  APPLY_ABSTRACTION; [line 123]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_8" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_9" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_8" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_9" [label="9:  method_body \n   APPLY_ABSTRACTION; [line 125]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_9" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_2" ;
+	 "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_9" -> "org.junit.runner.manipulation.Ordering.apply(java.lang.Object):void.545980b3ecde8ecc3ada3edbcca79002_3" [color="red" ];
+}

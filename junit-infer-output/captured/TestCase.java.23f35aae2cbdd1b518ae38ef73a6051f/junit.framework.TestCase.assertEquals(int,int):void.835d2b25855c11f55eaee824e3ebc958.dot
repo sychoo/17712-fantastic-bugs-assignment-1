@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_1" [label="1: Start void TestCase.assertEquals(int,int)\nFormals:  expected:int actual:int\nLocals:  \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_1" -> "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_4" ;
+"junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_2" [label="2: Exit void TestCase.assertEquals(int,int) \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_3" [label="3:  exceptions sink \n   APPLY_ABSTRACTION; [line 385]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_3" -> "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_2" ;
+"junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_4" [label="4:  Call void Assert.assertEquals(int,int) \n   n$0=*&expected:int [line 384]\n  n$1=*&actual:int [line 384]\n  n$2=_fun_void Assert.assertEquals(int,int)(n$0:int,n$1:int) [line 384]\n  NULLIFY(&actual); [line 384]\n  NULLIFY(&expected); [line 384]\n  EXIT_SCOPE(n$0,n$1,n$2,actual,expected); [line 384]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_4" -> "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_5" ;
+	 "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_4" -> "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_3" [color="red" ];
+"junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_5" [label="5:  method_body \n   APPLY_ABSTRACTION; [line 385]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_5" -> "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_2" ;
+	 "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_5" -> "junit.framework.TestCase.assertEquals(int,int):void.835d2b25855c11f55eaee824e3ebc958_3" [color="red" ];
+}

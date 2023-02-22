@@ -1,0 +1,636 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>RuleContainer.java.62939224621c4da5ca053f340e500b7b</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/runners/RuleContainer.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runners; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.Collections; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.Comparator; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.IdentityHashMap; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.rules.MethodRule; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.rules.TestRule; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runners.model.FrameworkMethod; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * Data structure for ordering of {@link TestRule}/{@link MethodRule} instances. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">class RuleContainer { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer* [line 21];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runners.RuleContainer*) [line 21];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff.html">summary for RuleContainer.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private final IdentityHashMap&lt;Object, Integer&gt; orderValues = new IdentityHashMap&lt;Object, Integer&gt;(); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.IdentityHashMap):java.util.IdentityHashMap*) [line 22];
+n$3=_fun_IdentityHashMap.&lt;init&gt;()(n$2:java.util.IdentityHashMap*) [line 22];
+*&amp;$irvar0:java.util.IdentityHashMap*=n$2 [line 22];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runners.RuleContainer* [line 22];
+n$5=*&amp;$irvar0:java.util.IdentityHashMap* [line 22];
+*n$4.orderValues:org.junit.runners.RuleContainer(root org.junit.runners.RuleContainer)=n$5 [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private final List&lt;TestRule&gt; testRules = new ArrayList&lt;TestRule&gt;(); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 23];
+n$7=_fun_ArrayList.&lt;init&gt;()(n$6:java.util.ArrayList*) [line 23];
+*&amp;$irvar1:java.util.ArrayList*=n$6 [line 23];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;this:org.junit.runners.RuleContainer* [line 23];
+n$9=*&amp;$irvar1:java.util.ArrayList* [line 23];
+*n$8.testRules:org.junit.runners.RuleContainer(root org.junit.runners.RuleContainer)=n$9 [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    private final List&lt;MethodRule&gt; methodRules = new ArrayList&lt;MethodRule&gt;(); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 24];
+n$11=_fun_ArrayList.&lt;init&gt;()(n$10:java.util.ArrayList*) [line 24];
+*&amp;$irvar2:java.util.ArrayList*=n$10 [line 24];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;this:org.junit.runners.RuleContainer* [line 24];
+n$13=*&amp;$irvar2:java.util.ArrayList* [line 24];
+*n$12.methodRules:org.junit.runners.RuleContainer(root org.junit.runners.RuleContainer)=n$13 [line 24];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<init>%28%29.abcd89b1aaaab6a78887d359e7f856ff_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">     * Sets order value for the specified rule. </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    public void setOrder(Object rule, int order) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798.html">summary for void RuleContainer.setOrder(Object,int)</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        orderValues.put(rule, order); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer* [line 30];
+n$1=*n$0.orderValues:java.util.IdentityHashMap*(root org.junit.runners.RuleContainer) [line 30];
+*&amp;$irvar0:java.util.IdentityHashMap*=n$1 [line 30];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;order:int [line 30];
+n$3=_fun_Integer Integer.valueOf(int)(n$2:int) [line 30];
+*&amp;$irvar1:java.lang.Integer*=n$3 [line 30];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.util.IdentityHashMap* [line 30];
+_=*n$4:java.util.IdentityHashMap*(root java.util.IdentityHashMap) [line 30];
+n$6=*&amp;rule:java.lang.Object* [line 30];
+n$7=*&amp;$irvar1:java.lang.Integer* [line 30];
+n$8=_fun_Object IdentityHashMap.put(Object,Object)(n$4:java.util.IdentityHashMap*,n$6:java.lang.Object*,n$7:java.lang.Integer*) virtual [line 30];
+*&amp;$irvar2:java.lang.Object*=n$8 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    } <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.setOrder%28java.lang.Object%2Cint%29%3Avoid.80785686e254db317a6a16f511ca0798_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    public void add(MethodRule methodRule) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.MethodRule%29%3Avoid.8956c744ae3424767c84f6d66c06b602_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.add%28org.junit.rules.MethodRule%29%3Avoid.8956c744ae3424767c84f6d66c06b602.html">summary for void RuleContainer.add(MethodRule)</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        methodRules.add(methodRule); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.MethodRule%29%3Avoid.8956c744ae3424767c84f6d66c06b602_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer* [line 34];
+n$1=*n$0.methodRules:java.util.List*(root org.junit.runners.RuleContainer) [line 34];
+_=*n$1:java.util.List*(root java.util.List) [line 34];
+n$3=*&amp;methodRule:org.junit.rules.MethodRule* [line 34];
+n$4=_fun_boolean List.add(Object)(n$1:java.util.List*,n$3:org.junit.rules.MethodRule*) interface virtual [line 34];
+*&amp;$irvar0:_Bool=n$4 [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    } <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.MethodRule%29%3Avoid.8956c744ae3424767c84f6d66c06b602_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.MethodRule%29%3Avoid.8956c744ae3424767c84f6d66c06b602_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.MethodRule%29%3Avoid.8956c744ae3424767c84f6d66c06b602_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">    public void add(TestRule testRule) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.TestRule%29%3Avoid.76c613f144145810e6b44a1d54793141_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.add%28org.junit.rules.TestRule%29%3Avoid.76c613f144145810e6b44a1d54793141.html">summary for void RuleContainer.add(TestRule)</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        testRules.add(testRule); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.TestRule%29%3Avoid.76c613f144145810e6b44a1d54793141_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer* [line 38];
+n$1=*n$0.testRules:java.util.List*(root org.junit.runners.RuleContainer) [line 38];
+_=*n$1:java.util.List*(root java.util.List) [line 38];
+n$3=*&amp;testRule:org.junit.rules.TestRule* [line 38];
+n$4=_fun_boolean List.add(Object)(n$1:java.util.List*,n$3:org.junit.rules.TestRule*) interface virtual [line 38];
+*&amp;$irvar0:_Bool=n$4 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    } <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.TestRule%29%3Avoid.76c613f144145810e6b44a1d54793141_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.TestRule%29%3Avoid.76c613f144145810e6b44a1d54793141_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.add%28org.junit.rules.TestRule%29%3Avoid.76c613f144145810e6b44a1d54793141_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    static final Comparator&lt;RuleEntry&gt; ENTRY_COMPARATOR = new Comparator&lt;RuleEntry&gt;() { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28java.lang.Object%2Cjava.lang.Object%29%3Aint.272a8916f207d22bfec678ea82a9918b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.<init>%28%29.b4043a6a238fedbc501cd1b721845f74_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28java.lang.Object%2Cjava.lang.Object%29%3Aint.272a8916f207d22bfec678ea82a9918b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer$1* [line 41];
+_=*n$0:org.junit.runners.RuleContainer$1*(root org.junit.runners.RuleContainer$1) [line 41];
+n$2=*&amp;$bcvar1:java.lang.Object* [line 41];
+n$3=_fun___cast(n$2:java.lang.Object*,sizeof(t=org.junit.runners.RuleContainer$RuleEntry;sub_t=( sub )(cast)):void) [line 41];
+n$4=*&amp;$bcvar2:java.lang.Object* [line 41];
+n$5=_fun___cast(n$4:java.lang.Object*,sizeof(t=org.junit.runners.RuleContainer$RuleEntry;sub_t=( sub )(cast)):void) [line 41];
+n$6=_fun_int RuleContainer$1.compare(RuleContainer$RuleEntry,RuleContainer$RuleEntry)(n$0:org.junit.runners.RuleContainer$1*,n$3:org.junit.runners.RuleContainer$RuleEntry*,n$5:org.junit.runners.RuleContainer$RuleEntry*) virtual [line 41];
+*&amp;$irvar0:int=n$6 [line 41];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.<init>%28%29.b4043a6a238fedbc501cd1b721845f74_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer$1* [line 41];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runners.RuleContainer$1*) [line 41];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runners.RuleContainer$1):org.junit.runners.RuleContainer$1*) [line 41];
+n$1=_fun_RuleContainer$1.&lt;init&gt;()(n$0:org.junit.runners.RuleContainer$1*) [line 41];
+*&amp;$irvar0:org.junit.runners.RuleContainer$1*=n$0 [line 41];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28java.lang.Object%2Cjava.lang.Object%29%3Aint.272a8916f207d22bfec678ea82a9918b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar0:int [line 41];
+*&amp;return:int=n$7 [line 41];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.<init>%28%29.b4043a6a238fedbc501cd1b721845f74_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.runners.RuleContainer$1* [line 41];
+*&amp;#GB<>$org.junit.runners.RuleContainer.ENTRY_COMPARATOR:org.junit.runners.RuleContainer(root org.junit.runners.RuleContainer)=n$2 [line 41];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28java.lang.Object%2Cjava.lang.Object%29%3Aint.272a8916f207d22bfec678ea82a9918b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.<init>%28%29.b4043a6a238fedbc501cd1b721845f74_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28java.lang.Object%2Cjava.lang.Object%29%3Aint.272a8916f207d22bfec678ea82a9918b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.<init>%28%29.b4043a6a238fedbc501cd1b721845f74_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer%241.compare%28java.lang.Object%2Cjava.lang.Object%29%3Aint.272a8916f207d22bfec678ea82a9918b.html">summary for int RuleContainer$1.compare(Object,Object)</a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer%241.<init>%28%29.b4043a6a238fedbc501cd1b721845f74.html">summary for RuleContainer$1.&lt;init&gt;()</a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.<clinit>%28%29%3Avoid.19bf7cc99568009d7ef67246ff1ef537.html">summary for void RuleContainer.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        public int compare(RuleEntry o1, RuleEntry o2) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6.html">summary for int RuleContainer$1.compare(RuleContainer$RuleEntry,RuleContainer$RuleEntry)</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">            int result = compareInt(o1.order, o2.order); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer$1* [line 43];
+n$1=*&amp;o1:org.junit.runners.RuleContainer$RuleEntry* [line 43];
+n$2=*n$1.order:int(root org.junit.runners.RuleContainer$RuleEntry) [line 43];
+n$3=*&amp;o2:org.junit.runners.RuleContainer$RuleEntry* [line 43];
+n$4=*n$3.order:int(root org.junit.runners.RuleContainer$RuleEntry) [line 43];
+n$5=_fun_int RuleContainer$1.compareInt(int,int)(n$0:org.junit.runners.RuleContainer$1*,n$2:int,n$4:int) [line 43];
+*&amp;result:int=n$5 [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">            return result != 0 ? result : o1.type - o2.type; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$6=*&amp;result:int [line 44];
+PRUNE(!(n$6 == 0), true); [line 44];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+n$7=*&amp;result:int [line 44];
+*&amp;$T0_30:int=n$7 [line 44];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$6=*&amp;result:int [line 44];
+PRUNE((n$6 == 0), false); [line 44];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$8=*&amp;o1:org.junit.runners.RuleContainer$RuleEntry* [line 44];
+n$9=*n$8.type:int(root org.junit.runners.RuleContainer$RuleEntry) [line 44];
+n$10=*&amp;o2:org.junit.runners.RuleContainer$RuleEntry* [line 44];
+n$11=*n$10.type:int(root org.junit.runners.RuleContainer$RuleEntry) [line 44];
+*&amp;$T0_30:int=(n$9 - n$11) [line 44];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:2 exn:3 Instructions
+n$12=*&amp;$T0_30:int [line 44];
+*&amp;return:int=n$12 [line 44];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compare%28org.junit.runners.RuleContainer%24RuleEntry%2Corg.junit.runner.78878151cb8d1577643f24f966fc77d6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        private int compareInt(int a, int b) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b.html">summary for int RuleContainer$1.compareInt(int,int)</a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">            return (a &lt; b) ? 1 : (a == b ? 0 : -1); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;a:int [line 48];
+n$1=*&amp;b:int [line 48];
+PRUNE(!(n$0  &gt;=  n$1), true); [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:11 exn:3 Instructions
+*&amp;$T0_19:int=1 [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 8 exn:3 Conditional method_body
+n$0=*&amp;a:int [line 48];
+n$1=*&amp;b:int [line 48];
+PRUNE((n$0  &gt;=  n$1), false); [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$2=*&amp;a:int [line 48];
+n$3=*&amp;b:int [line 48];
+PRUNE(!(n$2 != n$3), true); [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:11 exn:3 Instructions
+*&amp;$T0_19:int=0 [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$2=*&amp;a:int [line 48];
+n$3=*&amp;b:int [line 48];
+PRUNE((n$2 != n$3), false); [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+*&amp;$T0_19:int=-1 [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 9 6 succs:2 exn:3 Instructions
+n$4=*&amp;$T0_19:int [line 48];
+*&amp;return:int=n$4 [line 48];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%241.compareInt%28int%2Cint%29%3Aint.7a106badc691a07ee9848d62798a9b2b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    }; </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">     * Returns entries in the order how they should be applied, i.e. inner-to-outer. </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    private List&lt;RuleEntry&gt; getSortedEntries() { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6.html">summary for List RuleContainer.getSortedEntries()</a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        List&lt;RuleEntry&gt; ruleEntries = new ArrayList&lt;RuleEntry&gt;( </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">                methodRules.size() + testRules.size()); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer* [line 57];
+n$1=*n$0.methodRules:java.util.List*(root org.junit.runners.RuleContainer) [line 57];
+_=*n$1:java.util.List*(root java.util.List) [line 57];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 57];
+*&amp;$irvar0:int=n$3 [line 57];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;this:org.junit.runners.RuleContainer* [line 57];
+n$5=*n$4.testRules:java.util.List*(root org.junit.runners.RuleContainer) [line 57];
+_=*n$5:java.util.List*(root java.util.List) [line 57];
+n$7=_fun_int List.size()(n$5:java.util.List*) interface virtual [line 57];
+*&amp;$irvar1:int=n$7 [line 57];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 57];
+n$9=*&amp;$irvar0:int [line 57];
+n$10=*&amp;$irvar1:int [line 57];
+n$11=_fun_ArrayList.&lt;init&gt;(int)(n$8:java.util.ArrayList*,(n$9 + n$10):int) [line 57];
+*&amp;ruleEntries:java.util.ArrayList*=n$8 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        for (MethodRule rule : methodRules) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$12=*&amp;this:org.junit.runners.RuleContainer* [line 58];
+n$13=*n$12.methodRules:java.util.List*(root org.junit.runners.RuleContainer) [line 58];
+_=*n$13:java.util.List*(root java.util.List) [line 58];
+n$15=_fun_Iterator List.iterator()(n$13:java.util.List*) interface virtual [line 58];
+*&amp;$bcvar2:java.util.Iterator*=n$15 [line 58];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:16 7 succs:11 exn:3 Instructions
+n$16=*&amp;$bcvar2:java.util.Iterator* [line 58];
+_=*n$16:java.util.Iterator*(root java.util.Iterator) [line 58];
+n$18=_fun_boolean Iterator.hasNext()(n$16:java.util.Iterator*) interface virtual [line 58];
+*&amp;$irvar2:_Bool=n$18 [line 58];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node11.html"><span class='visited with_tooltip'>J_11<span class='tooltip'>node11 preds:8 succs:9 10 exn: Join
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:12 exn:3 Conditional method_body
+n$19=*&amp;$irvar2:_Bool [line 58];
+PRUNE(!(n$19 == 0), true); [line 58];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$20=*&amp;$bcvar2:java.util.Iterator* [line 58];
+_=*n$20:java.util.Iterator*(root java.util.Iterator) [line 58];
+n$22=_fun_Object Iterator.next()(n$20:java.util.Iterator*) interface virtual [line 58];
+*&amp;$irvar3:java.lang.Object*=n$22 [line 58];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$23=*&amp;$irvar3:java.lang.Object* [line 58];
+n$24=_fun___cast(n$23:java.lang.Object*,sizeof(t=org.junit.rules.MethodRule;sub_t=( sub )(cast)):void) [line 58];
+*&amp;rule:org.junit.rules.MethodRule*=n$24 [line 58];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:17 exn:3 Conditional method_body
+n$19=*&amp;$irvar2:_Bool [line 58];
+PRUNE((n$19 == 0), false); [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            ruleEntries.add(new RuleEntry(rule, RuleEntry.TYPE_METHOD_RULE, orderValues.get(rule))); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$25=*&amp;this:org.junit.runners.RuleContainer* [line 59];
+n$26=*n$25.orderValues:java.util.IdentityHashMap*(root org.junit.runners.RuleContainer) [line 59];
+_=*n$26:java.util.IdentityHashMap*(root java.util.IdentityHashMap) [line 59];
+n$28=*&amp;rule:org.junit.rules.MethodRule* [line 59];
+n$29=_fun_Object IdentityHashMap.get(Object)(n$26:java.util.IdentityHashMap*,n$28:org.junit.rules.MethodRule*) virtual [line 59];
+*&amp;$irvar4:java.lang.Object*=n$29 [line 59];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$30=_fun___new(sizeof(t=org.junit.runners.RuleContainer$RuleEntry):org.junit.runners.RuleContainer$RuleEntry*) [line 59];
+n$31=*&amp;rule:org.junit.rules.MethodRule* [line 59];
+n$32=*&amp;$irvar4:java.lang.Object* [line 59];
+n$33=_fun___cast(n$32:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(cast)):void) [line 59];
+n$34=_fun_RuleContainer$RuleEntry.&lt;init&gt;(Object,int,Integer)(n$30:org.junit.runners.RuleContainer$RuleEntry*,n$31:org.junit.rules.MethodRule*,0:int,n$33:java.lang.Integer*) [line 59];
+*&amp;$irvar5:org.junit.runners.RuleContainer$RuleEntry*=n$30 [line 59];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:8 exn:3 Instructions
+n$35=*&amp;ruleEntries:java.util.ArrayList* [line 59];
+_=*n$35:java.util.ArrayList*(root java.util.ArrayList) [line 59];
+n$37=*&amp;$irvar5:org.junit.runners.RuleContainer$RuleEntry* [line 59];
+n$38=_fun_boolean List.add(Object)(n$35:java.util.ArrayList*,n$37:org.junit.runners.RuleContainer$RuleEntry*) interface virtual [line 59];
+*&amp;$irvar6:_Bool=n$38 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        for (TestRule rule : testRules) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:10 succs:18 exn:3 Instructions
+n$39=*&amp;this:org.junit.runners.RuleContainer* [line 61];
+n$40=*n$39.testRules:java.util.List*(root org.junit.runners.RuleContainer) [line 61];
+_=*n$40:java.util.List*(root java.util.List) [line 61];
+n$42=_fun_Iterator List.iterator()(n$40:java.util.List*) interface virtual [line 61];
+*&amp;$bcvar2:java.util.Iterator*=n$42 [line 61];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:26 17 succs:21 exn:3 Instructions
+n$43=*&amp;$bcvar2:java.util.Iterator* [line 61];
+_=*n$43:java.util.Iterator*(root java.util.Iterator) [line 61];
+n$45=_fun_boolean Iterator.hasNext()(n$43:java.util.Iterator*) interface virtual [line 61];
+*&amp;$irvar7:_Bool=n$45 [line 61];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node21.html"><span class='visited with_tooltip'>J_21<span class='tooltip'>node21 preds:18 succs:19 20 exn: Join
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:21 succs:22 exn:3 Conditional method_body
+n$46=*&amp;$irvar7:_Bool [line 61];
+PRUNE(!(n$46 == 0), true); [line 61];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:19 succs:23 exn:3 Instructions
+n$47=*&amp;$bcvar2:java.util.Iterator* [line 61];
+_=*n$47:java.util.Iterator*(root java.util.Iterator) [line 61];
+n$49=_fun_Object Iterator.next()(n$47:java.util.Iterator*) interface virtual [line 61];
+*&amp;$irvar8:java.lang.Object*=n$49 [line 61];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$50=*&amp;$irvar8:java.lang.Object* [line 61];
+n$51=_fun___cast(n$50:java.lang.Object*,sizeof(t=org.junit.rules.TestRule;sub_t=( sub )(cast)):void) [line 61];
+*&amp;rule:org.junit.rules.TestRule*=n$51 [line 61];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:21 succs:27 exn:3 Conditional method_body
+n$46=*&amp;$irvar7:_Bool [line 61];
+PRUNE((n$46 == 0), false); [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">            ruleEntries.add(new RuleEntry(rule, RuleEntry.TYPE_TEST_RULE, orderValues.get(rule))); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$52=*&amp;this:org.junit.runners.RuleContainer* [line 62];
+n$53=*n$52.orderValues:java.util.IdentityHashMap*(root org.junit.runners.RuleContainer) [line 62];
+_=*n$53:java.util.IdentityHashMap*(root java.util.IdentityHashMap) [line 62];
+n$55=*&amp;rule:org.junit.rules.TestRule* [line 62];
+n$56=_fun_Object IdentityHashMap.get(Object)(n$53:java.util.IdentityHashMap*,n$55:org.junit.rules.TestRule*) virtual [line 62];
+*&amp;$irvar9:java.lang.Object*=n$56 [line 62];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$57=_fun___new(sizeof(t=org.junit.runners.RuleContainer$RuleEntry):org.junit.runners.RuleContainer$RuleEntry*) [line 62];
+n$58=*&amp;rule:org.junit.rules.TestRule* [line 62];
+n$59=*&amp;$irvar9:java.lang.Object* [line 62];
+n$60=_fun___cast(n$59:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(cast)):void) [line 62];
+n$61=_fun_RuleContainer$RuleEntry.&lt;init&gt;(Object,int,Integer)(n$57:org.junit.runners.RuleContainer$RuleEntry*,n$58:org.junit.rules.TestRule*,1:int,n$60:java.lang.Integer*) [line 62];
+*&amp;$irvar10:org.junit.runners.RuleContainer$RuleEntry*=n$57 [line 62];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:18 exn:3 Instructions
+n$62=*&amp;ruleEntries:java.util.ArrayList* [line 62];
+_=*n$62:java.util.ArrayList*(root java.util.ArrayList) [line 62];
+n$64=*&amp;$irvar10:org.junit.runners.RuleContainer$RuleEntry* [line 62];
+n$65=_fun_boolean List.add(Object)(n$62:java.util.ArrayList*,n$64:org.junit.runners.RuleContainer$RuleEntry*) interface virtual [line 62];
+*&amp;$irvar11:_Bool=n$65 [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        Collections.sort(ruleEntries, ENTRY_COMPARATOR); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:20 succs:28 exn:3 Instructions
+n$66=*&amp;#GB<>$org.junit.runners.RuleContainer.ENTRY_COMPARATOR:java.util.Comparator*(root org.junit.runners.RuleContainer) [line 64];
+*&amp;$irvar12:java.util.Comparator*=n$66 [line 64];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$67=*&amp;ruleEntries:java.util.ArrayList* [line 64];
+n$68=*&amp;$irvar12:java.util.Comparator* [line 64];
+n$69=_fun_void Collections.sort(List,Comparator)(n$67:java.util.ArrayList*,n$68:java.util.Comparator*) [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        return ruleEntries; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:2 exn:3 Instructions
+n$70=*&amp;ruleEntries:java.util.ArrayList* [line 65];
+*&amp;return:java.util.List*=n$70 [line 65];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:29 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedEntries%28%29%3Ajava.util.List.9cd80c8de73a7625bb84add015d603d6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">     * Applies all the rules ordered accordingly to the specified {@code statement}. </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">    public Statement apply(FrameworkMethod method, Description description, Object target, <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06.html">summary for Statement RuleContainer.apply(FrameworkMethod,Description,Object,Statement)</a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">            Statement statement) { </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        if (methodRules.isEmpty() &amp;&amp; testRules.isEmpty()) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer* [line 73];
+n$1=*n$0.methodRules:java.util.List*(root org.junit.runners.RuleContainer) [line 73];
+_=*n$1:java.util.List*(root java.util.List) [line 73];
+n$3=_fun_boolean List.isEmpty()(n$1:java.util.List*) interface virtual [line 73];
+*&amp;$irvar0:_Bool=n$3 [line 73];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 73];
+PRUNE(!(n$4 == 0), true); [line 73];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 9 exn:3 Instructions
+n$5=*&amp;this:org.junit.runners.RuleContainer* [line 73];
+n$6=*n$5.testRules:java.util.List*(root org.junit.runners.RuleContainer) [line 73];
+_=*n$6:java.util.List*(root java.util.List) [line 73];
+n$8=_fun_boolean List.isEmpty()(n$6:java.util.List*) interface virtual [line 73];
+*&amp;$irvar1:_Bool=n$8 [line 73];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 73];
+PRUNE(!(n$9 == 0), true); [line 73];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:11 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 73];
+PRUNE((n$9 == 0), false); [line 73];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:11 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 73];
+PRUNE((n$4 == 0), false); [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            return statement; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:2 exn:3 Instructions
+n$10=*&amp;statement:org.junit.runners.model.Statement* [line 74];
+*&amp;return:org.junit.runners.model.Statement*=n$10 [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">        Statement result = statement; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 6 succs:12 exn:3 Instructions
+n$11=*&amp;statement:org.junit.runners.model.Statement* [line 76];
+*&amp;result:org.junit.runners.model.Statement*=n$11 [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        for (RuleEntry ruleEntry : getSortedEntries()) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$12=*&amp;this:org.junit.runners.RuleContainer* [line 77];
+n$13=_fun_List RuleContainer.getSortedEntries()(n$12:org.junit.runners.RuleContainer*) [line 77];
+*&amp;$irvar2:java.util.List*=n$13 [line 77];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$14=*&amp;$irvar2:java.util.List* [line 77];
+_=*n$14:java.util.List*(root java.util.List) [line 77];
+n$16=_fun_Iterator List.iterator()(n$14:java.util.List*) interface virtual [line 77];
+*&amp;$bcvar6:java.util.Iterator*=n$16 [line 77];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:26 24 13 succs:17 exn:3 Instructions
+n$17=*&amp;$bcvar6:java.util.Iterator* [line 77];
+_=*n$17:java.util.Iterator*(root java.util.Iterator) [line 77];
+n$19=_fun_boolean Iterator.hasNext()(n$17:java.util.Iterator*) interface virtual [line 77];
+*&amp;$irvar3:_Bool=n$19 [line 77];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node17.html"><span class='visited with_tooltip'>J_17<span class='tooltip'>node17 preds:14 succs:15 16 exn: Join
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:17 succs:18 exn:3 Conditional method_body
+n$20=*&amp;$irvar3:_Bool [line 77];
+PRUNE(!(n$20 == 0), true); [line 77];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:15 succs:19 exn:3 Instructions
+n$21=*&amp;$bcvar6:java.util.Iterator* [line 77];
+_=*n$21:java.util.Iterator*(root java.util.Iterator) [line 77];
+n$23=_fun_Object Iterator.next()(n$21:java.util.Iterator*) interface virtual [line 77];
+*&amp;$irvar4:java.lang.Object*=n$23 [line 77];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:22 exn:3 Instructions
+n$24=*&amp;$irvar4:java.lang.Object* [line 77];
+n$25=_fun___cast(n$24:java.lang.Object*,sizeof(t=org.junit.runners.RuleContainer$RuleEntry;sub_t=( sub )(cast)):void) [line 77];
+*&amp;ruleEntry:org.junit.runners.RuleContainer$RuleEntry*=n$25 [line 77];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:17 succs:27 exn:3 Conditional method_body
+n$20=*&amp;$irvar3:_Bool [line 77];
+PRUNE((n$20 == 0), false); [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            if (ruleEntry.type == RuleEntry.TYPE_TEST_RULE) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node22.html"><span class='visited with_tooltip'>J_22<span class='tooltip'>node22 preds:19 succs:20 21 exn: Join
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:22 succs:23 exn:3 Conditional method_body
+n$26=*&amp;ruleEntry:org.junit.runners.RuleContainer$RuleEntry* [line 78];
+n$27=*n$26.type:int(root org.junit.runners.RuleContainer$RuleEntry) [line 78];
+PRUNE(!(n$27 != 1), true); [line 78];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node21.html"><span class='visited with_tooltip'>C_21<span class='tooltip'>node21 preds:22 succs:25 exn:3 Conditional method_body
+n$26=*&amp;ruleEntry:org.junit.runners.RuleContainer$RuleEntry* [line 78];
+n$27=*n$26.type:int(root org.junit.runners.RuleContainer$RuleEntry) [line 78];
+PRUNE((n$27 != 1), false); [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">                result = ((TestRule) ruleEntry.rule).apply(result, description); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:20 succs:24 exn:3 Instructions
+n$28=*&amp;ruleEntry:org.junit.runners.RuleContainer$RuleEntry* [line 79];
+n$29=*n$28.rule:java.lang.Object*(root org.junit.runners.RuleContainer$RuleEntry) [line 79];
+n$30=_fun___cast(n$29:java.lang.Object*,sizeof(t=org.junit.rules.TestRule;sub_t=( sub )(cast)):void) [line 79];
+_=*n$30:org.junit.rules.TestRule*(root org.junit.rules.TestRule) [line 79];
+n$32=*&amp;result:org.junit.runners.model.Statement* [line 79];
+n$33=*&amp;description:org.junit.runner.Description* [line 79];
+n$34=_fun_Statement TestRule.apply(Statement,Description)(n$30:org.junit.rules.TestRule*,n$32:org.junit.runners.model.Statement*,n$33:org.junit.runner.Description*) interface virtual [line 79];
+*&amp;$irvar5:org.junit.runners.model.Statement*=n$34 [line 79];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:14 exn:3 Instructions
+n$35=*&amp;$irvar5:org.junit.runners.model.Statement* [line 79];
+*&amp;result:org.junit.runners.model.Statement*=n$35 [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">                result = ((MethodRule) ruleEntry.rule).apply(result, method, target); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:21 succs:26 exn:3 Instructions
+n$36=*&amp;ruleEntry:org.junit.runners.RuleContainer$RuleEntry* [line 81];
+n$37=*n$36.rule:java.lang.Object*(root org.junit.runners.RuleContainer$RuleEntry) [line 81];
+n$38=_fun___cast(n$37:java.lang.Object*,sizeof(t=org.junit.rules.MethodRule;sub_t=( sub )(cast)):void) [line 81];
+_=*n$38:org.junit.rules.MethodRule*(root org.junit.rules.MethodRule) [line 81];
+n$40=*&amp;result:org.junit.runners.model.Statement* [line 81];
+n$41=*&amp;method:org.junit.runners.model.FrameworkMethod* [line 81];
+n$42=*&amp;target:java.lang.Object* [line 81];
+n$43=_fun_Statement MethodRule.apply(Statement,FrameworkMethod,Object)(n$38:org.junit.rules.MethodRule*,n$40:org.junit.runners.model.Statement*,n$41:org.junit.runners.model.FrameworkMethod*,n$42:java.lang.Object*) interface virtual [line 81];
+*&amp;$irvar6:org.junit.runners.model.Statement*=n$43 [line 81];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:14 exn:3 Instructions
+n$44=*&amp;$irvar6:org.junit.runners.model.Statement* [line 81];
+*&amp;result:org.junit.runners.model.Statement*=n$44 [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        return result; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:16 succs:2 exn:3 Instructions
+n$45=*&amp;result:org.junit.runners.model.Statement* [line 84];
+*&amp;return:org.junit.runners.model.Statement*=n$45 [line 84];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:27 10 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.apply%28org.junit.runners.model.FrameworkMethod%2Corg.junit.runner.Descr.cc73a50ab3c40a752df0ac54a6687e06_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">     * Returns rule instances in the order how they should be applied, i.e. inner-to-outer. </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">     * VisibleForTesting </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    List&lt;Object&gt; getSortedRules() { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080.html">summary for List RuleContainer.getSortedRules()</a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;(); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 92];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 92];
+*&amp;result:java.util.ArrayList*=n$0 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        for (RuleEntry entry : getSortedEntries()) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runners.RuleContainer* [line 93];
+n$3=_fun_List RuleContainer.getSortedEntries()(n$2:org.junit.runners.RuleContainer*) [line 93];
+*&amp;$irvar0:java.util.List*=n$3 [line 93];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.util.List* [line 93];
+_=*n$4:java.util.List*(root java.util.List) [line 93];
+n$6=_fun_Iterator List.iterator()(n$4:java.util.List*) interface virtual [line 93];
+*&amp;$bcvar2:java.util.Iterator*=n$6 [line 93];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:13 6 succs:10 exn:3 Instructions
+n$7=*&amp;$bcvar2:java.util.Iterator* [line 93];
+_=*n$7:java.util.Iterator*(root java.util.Iterator) [line 93];
+n$9=_fun_boolean Iterator.hasNext()(n$7:java.util.Iterator*) interface virtual [line 93];
+*&amp;$irvar1:_Bool=n$9 [line 93];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:7 succs:8 9 exn: Join
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$10=*&amp;$irvar1:_Bool [line 93];
+PRUNE(!(n$10 == 0), true); [line 93];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$11=*&amp;$bcvar2:java.util.Iterator* [line 93];
+_=*n$11:java.util.Iterator*(root java.util.Iterator) [line 93];
+n$13=_fun_Object Iterator.next()(n$11:java.util.Iterator*) interface virtual [line 93];
+*&amp;$irvar2:java.lang.Object*=n$13 [line 93];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Object* [line 93];
+n$15=_fun___cast(n$14:java.lang.Object*,sizeof(t=org.junit.runners.RuleContainer$RuleEntry;sub_t=( sub )(cast)):void) [line 93];
+*&amp;entry:org.junit.runners.RuleContainer$RuleEntry*=n$15 [line 93];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:14 exn:3 Conditional method_body
+n$10=*&amp;$irvar1:_Bool [line 93];
+PRUNE((n$10 == 0), false); [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            result.add(entry.rule); <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:7 exn:3 Instructions
+n$16=*&amp;result:java.util.ArrayList* [line 94];
+_=*n$16:java.util.ArrayList*(root java.util.ArrayList) [line 94];
+n$18=*&amp;entry:org.junit.runners.RuleContainer$RuleEntry* [line 94];
+n$19=*n$18.rule:java.lang.Object*(root org.junit.runners.RuleContainer$RuleEntry) [line 94];
+n$20=_fun_boolean List.add(Object)(n$16:java.util.ArrayList*,n$19:java.lang.Object*) interface virtual [line 94];
+*&amp;$irvar3:_Bool=n$20 [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        return result; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:9 succs:2 exn:3 Instructions
+n$21=*&amp;result:java.util.ArrayList* [line 96];
+*&amp;return:java.util.List*=n$21 [line 96];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer.getSortedRules%28%29%3Ajava.util.List.305c0eeb1ec8293cc48bad5d38938080_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">    static class RuleEntry { </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        static final int TYPE_TEST_RULE = 1; </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        static final int TYPE_METHOD_RULE = 0; </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        final Object rule; </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">        final int type; </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        final int order; </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        RuleEntry(Object rule, int type, Integer order) { <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.RuleContainer$RuleEntry* [line 107];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runners.RuleContainer$RuleEntry*) [line 107];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d.html">summary for RuleContainer$RuleEntry.&lt;init&gt;(Object,int,Integer)</a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">            this.rule = rule; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runners.RuleContainer$RuleEntry* [line 108];
+n$3=*&amp;rule:java.lang.Object* [line 108];
+*n$2.rule:org.junit.runners.RuleContainer$RuleEntry(root org.junit.runners.RuleContainer$RuleEntry)=n$3 [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">            this.type = type; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runners.RuleContainer$RuleEntry* [line 109];
+n$5=*&amp;type:int [line 109];
+*n$4.type:org.junit.runners.RuleContainer$RuleEntry(root org.junit.runners.RuleContainer$RuleEntry)=n$5 [line 109];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">            this.order = order != null ? order.intValue() : Rule.DEFAULT_ORDER; <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 9 exn:3 Instructions
+n$6=*&amp;this:org.junit.runners.RuleContainer$RuleEntry* [line 110];
+*&amp;$T0_26:org.junit.runners.RuleContainer$RuleEntry*=n$6 [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Conditional method_body
+n$7=*&amp;order:java.lang.Integer* [line 110];
+PRUNE(!(n$7 == null), true); [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$8=*&amp;order:java.lang.Integer* [line 110];
+_=*n$8:java.lang.Integer*(root java.lang.Integer) [line 110];
+n$10=_fun_int Integer.intValue()(n$8:java.lang.Integer*) virtual [line 110];
+*&amp;$irvar0:int=n$10 [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$11=*&amp;$irvar0:int [line 110];
+*&amp;$T0_27:int=n$11 [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:15 exn:3 Instructions
+n$12=*&amp;this:org.junit.runners.RuleContainer$RuleEntry* [line 110];
+*&amp;$T1_27:org.junit.runners.RuleContainer$RuleEntry*=n$12 [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:13 exn:3 Conditional method_body
+n$7=*&amp;order:java.lang.Integer* [line 110];
+PRUNE((n$7 == null), false); [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:9 succs:14 exn:3 Instructions
+*&amp;$T0_27:int=-1 [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$13=*&amp;$T0_26:org.junit.runners.RuleContainer$RuleEntry* [line 110];
+*&amp;$T1_27:org.junit.runners.RuleContainer$RuleEntry*=n$13 [line 110];
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 12 succs:16 exn:3 Instructions
+n$14=*&amp;$T1_27:org.junit.runners.RuleContainer$RuleEntry* [line 110];
+n$15=*&amp;$T0_27:int [line 110];
+*n$14.order:org.junit.runners.RuleContainer$RuleEntry(root org.junit.runners.RuleContainer$RuleEntry)=n$15 [line 110];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        } <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./RuleContainer.java.62939224621c4da5ca053f340e500b7b/nodes/org.junit.runners.RuleContainer%24RuleEntry.<init>%28java.lang.Object%2Cint%2Cjava.lang.Integer%29.aedf439c553a54adda19e633c4d12f9d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

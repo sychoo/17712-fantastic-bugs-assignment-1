@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_1" [label="1: Start AssertionFailedError.<init>(String)\nFormals:  this:junit.framework.AssertionFailedError* message:java.lang.String*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_1" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_4" ;
+"junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_2" [label="2: Exit AssertionFailedError.<init>(String) \n  " color=yellow style=filled]
+	
+
+"junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 24]\n  EXIT_SCOPE($irvar0); [line 24]\n  APPLY_ABSTRACTION; [line 24]\n " shape="box"]
+	
+
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_3" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_2" ;
+"junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_4" [label="4:  Call String AssertionFailedError.defaultString(String) \n   n$0=*&message:java.lang.String* [line 23]\n  n$1=_fun_String AssertionFailedError.defaultString(String)(n$0:java.lang.String*) [line 23]\n  *&$irvar0:java.lang.String*=n$1 [line 23]\n  NULLIFY(&message); [line 23]\n  EXIT_SCOPE(n$0,n$1,message); [line 23]\n " shape="box"]
+	
+
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_4" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_5" ;
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_4" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_3" [color="red" ];
+"junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_5" [label="5:  Call AssertionError.<init>(Object) \n   n$2=*&this:junit.framework.AssertionFailedError* [line 23]\n  n$3=*&$irvar0:java.lang.String* [line 23]\n  n$4=_fun_AssertionError.<init>(Object)(n$2:junit.framework.AssertionFailedError*,n$3:java.lang.String*) [line 23]\n  NULLIFY(&$irvar0); [line 23]\n  NULLIFY(&this); [line 23]\n  EXIT_SCOPE(n$2,n$3,n$4,$irvar0,this); [line 23]\n " shape="box"]
+	
+
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_5" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_6" ;
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_5" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_3" [color="red" ];
+"junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 24]\n " shape="box"]
+	
+
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_6" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_2" ;
+	 "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_6" -> "junit.framework.AssertionFailedError.<init>(java.lang.String).85b79346030b6c60a95f0d1608936808_3" [color="red" ];
+}

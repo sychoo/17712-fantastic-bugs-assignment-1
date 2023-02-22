@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_1" [label="1: Start boolean TestFailure.isFailure()\nFormals:  this:junit.framework.TestFailure*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_1" -> "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_4" ;
+"junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_2" [label="2: Exit boolean TestFailure.isFailure() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 67]\n  EXIT_SCOPE($irvar0); [line 67]\n  APPLY_ABSTRACTION; [line 67]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_3" -> "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_2" ;
+"junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_4" [label="4:  Call Throwable TestFailure.thrownException() \n   n$0=*&this:junit.framework.TestFailure* [line 67]\n  _=*n$0:junit.framework.TestFailure*(root junit.framework.TestFailure) [line 67]\n  n$2=_fun_Throwable TestFailure.thrownException()(n$0:junit.framework.TestFailure*) virtual [line 67]\n  *&$irvar0:java.lang.Throwable*=n$2 [line 67]\n  NULLIFY(&this); [line 67]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 67]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_4" -> "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_5" ;
+	 "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_4" -> "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_3" [color="red" ];
+"junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_5" [label="5:  method_body \n   n$3=*&$irvar0:java.lang.Throwable* [line 67]\n  n$4=_fun___instanceof(n$3:java.lang.Throwable*,sizeof(t=junit.framework.AssertionFailedError;sub_t=( sub )(instof)):void) [line 67]\n  *&return:_Bool=n$4 [line 67]\n  NULLIFY(&$irvar0); [line 67]\n  EXIT_SCOPE(n$3,n$4,$irvar0); [line 67]\n  APPLY_ABSTRACTION; [line 67]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_5" -> "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_2" ;
+	 "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_5" -> "junit.framework.TestFailure.isFailure():boolean.a19ddc18835b20e8def23d604b4cbf30_3" [color="red" ];
+}

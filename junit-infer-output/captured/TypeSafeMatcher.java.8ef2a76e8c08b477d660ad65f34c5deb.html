@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/matchers/TypeSafeMatcher.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.matchers; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import org.hamcrest.BaseMatcher; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.internal.MethodSorter; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * Convenient base class for Matchers that require a non-null value of a specific type. </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * This simply implements the null check, checks the type and then casts. </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * @author Joe Walnes </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * @deprecated Please use {@link org.hamcrest.TypeSafeMatcher}. </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> */ <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.hamcrest.internal.ReflectiveTypeFinder):org.hamcrest.internal.ReflectiveTypeFinder*) [line 14];
+n$1=_fun_ReflectiveTypeFinder.&lt;init&gt;(String,int,int)(n$0:org.hamcrest.internal.ReflectiveTypeFinder*,"matchesSafely":java.lang.Object*,1:int,0:int) [line 14];
+*&amp;$irvar0:org.hamcrest.internal.ReflectiveTypeFinder*=n$0 [line 14];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.hamcrest.internal.ReflectiveTypeFinder* [line 14];
+*&amp;#GB<>$org.hamcrest.TypeSafeMatcher.TYPE_FINDER:org.hamcrest.TypeSafeMatcher(root org.hamcrest.TypeSafeMatcher)=n$2 [line 14];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.hamcrest.TypeSafeMatcher.<clinit>%28%29%3Avoid.a9edac9685361b7f778ba9bd0643958e.html">summary for void TypeSafeMatcher.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">@Deprecated </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">public abstract class TypeSafeMatcher&lt;T&gt; extends BaseMatcher&lt;T&gt; { </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    private Class&lt;?&gt; expectedType; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">     * Subclasses should implement this. The item will already have been checked for </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">     * the specific type and will never be null. <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28%29.5ed4b42e8b45f32674814bc3dc01f7ce_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28%29.5ed4b42e8b45f32674814bc3dc01f7ce_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 22];
+n$1=*&amp;#GB<>$org.hamcrest.TypeSafeMatcher.TYPE_FINDER:org.hamcrest.internal.ReflectiveTypeFinder*(root org.hamcrest.TypeSafeMatcher) [line 22];
+n$2=_fun_TypeSafeMatcher.&lt;init&gt;(ReflectiveTypeFinder)(n$0:org.hamcrest.TypeSafeMatcher*,n$1:org.hamcrest.internal.ReflectiveTypeFinder*) [line 22];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.hamcrest.TypeSafeMatcher.<init>%28%29.5ed4b42e8b45f32674814bc3dc01f7ce.html">summary for TypeSafeMatcher.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">     */ <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28%29.5ed4b42e8b45f32674814bc3dc01f7ce_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28%29.5ed4b42e8b45f32674814bc3dc01f7ce_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28%29.5ed4b42e8b45f32674814bc3dc01f7ce_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    public abstract boolean matchesSafely(T item); </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    protected TypeSafeMatcher() { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 26];
+n$1=_fun_BaseMatcher.&lt;init&gt;()(n$0:org.junit.internal.matchers.TypeSafeMatcher*) [line 26];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c.html">summary for TypeSafeMatcher.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">        expectedType = findExpectedType(getClass()); <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 27];
+_=*n$2:org.junit.internal.matchers.TypeSafeMatcher*(root org.junit.internal.matchers.TypeSafeMatcher) [line 27];
+n$4=_fun_Class Object.getClass()(n$2:org.junit.internal.matchers.TypeSafeMatcher*) virtual [line 27];
+*&amp;$irvar0:java.lang.Class*=n$4 [line 27];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.Class* [line 27];
+n$6=_fun_Class TypeSafeMatcher.findExpectedType(Class)(n$5:java.lang.Class*) [line 27];
+*&amp;$irvar1:java.lang.Class*=n$6 [line 27];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 27];
+n$8=*&amp;$irvar1:java.lang.Class* [line 27];
+*n$7.expectedType:org.junit.internal.matchers.TypeSafeMatcher(root org.junit.internal.matchers.TypeSafeMatcher)=n$8 [line 27];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    } <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28%29.c54d40516e8d6c7a3250033dc7d0371c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    private static Class&lt;?&gt; findExpectedType(Class&lt;?&gt; fromClass) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 30];
+n$1=_fun_BaseMatcher.&lt;init&gt;()(n$0:org.hamcrest.TypeSafeMatcher*) [line 30];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c.html">summary for Class TypeSafeMatcher.findExpectedType(Class)</a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8.html">summary for TypeSafeMatcher.&lt;init&gt;(Class)</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        for (Class&lt;?&gt; c = fromClass; c != Object.class; c = c.getSuperclass()) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:3 Instructions
+n$0=*&amp;fromClass:java.lang.Class* [line 31];
+*&amp;c:java.lang.Class*=n$0 [line 31];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 31];
+n$3=*&amp;expectedType:java.lang.Class* [line 31];
+*n$2.expectedType:org.hamcrest.TypeSafeMatcher(root org.hamcrest.TypeSafeMatcher)=n$3 [line 31];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node7.html"><span class='visited with_tooltip'>J_7<span class='tooltip'>node7 preds:23 4 succs:5 6 exn: Join
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:7 succs:8 exn:3 Conditional method_body
+n$1=*&amp;c:java.lang.Class* [line 31];
+PRUNE(!(n$1 == java.lang.Object), true); [line 31];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:12 succs:23 exn:3 Instructions
+n$23=*&amp;c:java.lang.Class* [line 31];
+_=*n$23:java.lang.Class*(root java.lang.Class) [line 31];
+n$25=_fun_Class Class.getSuperclass()(n$23:java.lang.Class*) virtual [line 31];
+*&amp;$irvar2:java.lang.Class*=n$25 [line 31];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:7 exn:3 Instructions
+n$26=*&amp;$irvar2:java.lang.Class* [line 31];
+*&amp;c:java.lang.Class*=n$26 [line 31];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:7 succs:24 exn:3 Conditional method_body
+n$1=*&amp;c:java.lang.Class* [line 31];
+PRUNE((n$1 == java.lang.Object), false); [line 31];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">            for (Method method : MethodSorter.getDeclaredMethods(c)) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$2=*&amp;c:java.lang.Class* [line 32];
+n$3=_fun_Method[] MethodSorter.getDeclaredMethods(Class)(n$2:java.lang.Class*) [line 32];
+*&amp;$bcvar2:java.lang.reflect.Method*[_*_](*)=n$3 [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$4=*&amp;$bcvar2:java.lang.reflect.Method*[_*_](*) [line 32];
+_=*n$4:int(root java.lang.reflect.Method*[_*_]) [line 32];
+n$6=_fun___get_array_length(n$4:java.lang.reflect.Method*[_*_](*)) [line 32];
+*&amp;$bcvar3:int=n$6 [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:13 exn:3 Instructions
+*&amp;$bcvar4:int=0 [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node13.html"><span class='visited with_tooltip'>J_13<span class='tooltip'>node13 preds:21 10 succs:11 12 exn: Join
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:14 exn:3 Conditional method_body
+n$7=*&amp;$bcvar4:int [line 32];
+n$8=*&amp;$bcvar3:int [line 32];
+PRUNE(!(n$7  &gt;=  n$8), true); [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:11 succs:15 exn:3 Instructions
+n$9=*&amp;$bcvar2:java.lang.reflect.Method*[_*_](*) [line 32];
+_=*n$9:java.lang.reflect.Method*(root java.lang.reflect.Method*[_*_]) [line 32];
+n$10=*&amp;$bcvar4:int [line 32];
+n$12=*n$9[n$10]:java.lang.reflect.Method* [line 32];
+*&amp;method:java.lang.reflect.Method*=n$12 [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:17 succs:13 exn:3 Instructions
+n$22=*&amp;$bcvar4:int [line 32];
+*&amp;$bcvar4:int=(n$22 + 1) [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:22 exn:3 Conditional method_body
+n$7=*&amp;$bcvar4:int [line 32];
+n$8=*&amp;$bcvar3:int [line 32];
+PRUNE((n$7  &gt;=  n$8), false); [line 32];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28java.lang.Class%29.0115292bd567e6a398ecbe0788ac72c8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">                if (isMatchesSafelyMethod(method)) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:18 exn:3 Instructions
+n$13=*&amp;method:java.lang.reflect.Method* [line 33];
+n$14=_fun_boolean TypeSafeMatcher.isMatchesSafelyMethod(Method)(n$13:java.lang.reflect.Method*) [line 33];
+*&amp;$irvar0:_Bool=n$14 [line 33];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node18.html"><span class='visited with_tooltip'>J_18<span class='tooltip'>node18 preds:15 succs:16 17 exn: Join
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:18 succs:21 exn:3 Conditional method_body
+n$15=*&amp;$irvar0:_Bool [line 33];
+PRUNE((n$15 == 0), false); [line 33];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:18 succs:19 exn:3 Conditional method_body
+n$15=*&amp;$irvar0:_Bool [line 33];
+PRUNE(!(n$15 == 0), true); [line 33];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">                    return method.getParameterTypes()[0]; <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:16 succs:20 exn:3 Instructions
+n$16=*&amp;method:java.lang.reflect.Method* [line 34];
+_=*n$16:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 34];
+n$18=_fun_Class[] Method.getParameterTypes()(n$16:java.lang.reflect.Method*) virtual [line 34];
+*&amp;$irvar1:java.lang.Class*[_*_](*)=n$18 [line 34];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:2 exn:3 Instructions
+n$19=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 34];
+_=*n$19:java.lang.Class*(root java.lang.Class*[_*_]) [line 34];
+n$21=*n$19[0]:java.lang.Class* [line 34];
+*&amp;return:java.lang.Class*=n$21 [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        throw new Error(&quot;Cannot determine correct type for matchesSafely() method.&quot;); <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 39];
+n$1=_fun_BaseMatcher.&lt;init&gt;()(n$0:org.hamcrest.TypeSafeMatcher*) [line 39];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:6 succs:25 exn:3 Instructions
+n$27=_fun___new(sizeof(t=java.lang.Error):java.lang.Error*) [line 39];
+n$28=_fun_Error.&lt;init&gt;(String)(n$27:java.lang.Error*,"Cannot determine correct type for matchesSafely() method.":java.lang.Object*) [line 39];
+*&amp;$irvar3:java.lang.Error*=n$27 [line 39];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+n$29=*&amp;$irvar3:java.lang.Error* [line 39];
+*&amp;return:java.lang.Class*=EXN n$29 [line 39];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:25 20 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.findExpectedType%28java.lang.Class%29%3Ajava.lang.Class.35bfe59ad3128ece08ae4236574fec7c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8.html">summary for TypeSafeMatcher.&lt;init&gt;(ReflectiveTypeFinder)</a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    } <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 40];
+_=*n$2:org.hamcrest.TypeSafeMatcher*(root org.hamcrest.TypeSafeMatcher) [line 40];
+n$4=_fun_Class Object.getClass()(n$2:org.hamcrest.TypeSafeMatcher*) virtual [line 40];
+*&amp;$irvar0:java.lang.Class*=n$4 [line 40];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;typeFinder:org.hamcrest.internal.ReflectiveTypeFinder* [line 40];
+_=*n$5:org.hamcrest.internal.ReflectiveTypeFinder*(root org.hamcrest.internal.ReflectiveTypeFinder) [line 40];
+n$7=*&amp;$irvar0:java.lang.Class* [line 40];
+n$8=_fun_Class ReflectiveTypeFinder.findExpectedType(Class)(n$5:org.hamcrest.internal.ReflectiveTypeFinder*,n$7:java.lang.Class*) virtual [line 40];
+*&amp;$irvar1:java.lang.Class*=n$8 [line 40];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$9=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 40];
+n$10=*&amp;$irvar1:java.lang.Class* [line 40];
+*n$9.expectedType:org.hamcrest.TypeSafeMatcher(root org.hamcrest.TypeSafeMatcher)=n$10 [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.<init>%28org.hamcrest.internal.ReflectiveTypeFinder%29.86207296e4c48e26f3ff2528de12b2d8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    private static boolean isMatchesSafelyMethod(Method method) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1.html">summary for boolean TypeSafeMatcher.isMatchesSafelyMethod(Method)</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        return &quot;matchesSafely&quot;.equals(method.getName()) <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;method:java.lang.reflect.Method* [line 43];
+_=*n$0:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 43];
+n$2=_fun_String Method.getName()(n$0:java.lang.reflect.Method*) virtual [line 43];
+*&amp;$irvar0:java.lang.String*=n$2 [line 43];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String* [line 43];
+n$4=_fun_boolean String.equals(Object)("matchesSafely":java.lang.Object*,n$3:java.lang.String*) virtual [line 43];
+*&amp;$irvar1:_Bool=n$4 [line 43];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$5=*&amp;$irvar1:_Bool [line 43];
+PRUNE(!(n$5 == 0), true); [line 43];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:15 exn:3 Conditional method_body
+n$5=*&amp;$irvar1:_Bool [line 43];
+PRUNE((n$5 == 0), false); [line 43];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 14 succs:2 exn:3 Instructions
+n$16=*&amp;$T0_33:int [line 43];
+*&amp;return:_Bool=n$16 [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">                &amp;&amp; method.getParameterTypes().length == 1 <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 10 exn:3 Instructions
+n$6=*&amp;method:java.lang.reflect.Method* [line 44];
+_=*n$6:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 44];
+n$8=_fun_Class[] Method.getParameterTypes()(n$6:java.lang.reflect.Method*) virtual [line 44];
+*&amp;$irvar2:java.lang.Class*[_*_](*)=n$8 [line 44];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$9=*&amp;$irvar2:java.lang.Class*[_*_](*) [line 44];
+_=*n$9:int(root java.lang.Class*[_*_]) [line 44];
+n$11=_fun___get_array_length(n$9:java.lang.Class*[_*_](*)) [line 44];
+PRUNE(!(n$11 != 1), true); [line 44];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:15 exn:3 Conditional method_body
+n$9=*&amp;$irvar2:java.lang.Class*[_*_](*) [line 44];
+_=*n$9:int(root java.lang.Class*[_*_]) [line 44];
+n$11=_fun___get_array_length(n$9:java.lang.Class*[_*_](*)) [line 44];
+PRUNE((n$11 != 1), false); [line 44];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">                &amp;&amp; !method.isSynthetic(); <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:12 13 exn:3 Instructions
+n$12=*&amp;method:java.lang.reflect.Method* [line 45];
+_=*n$12:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 45];
+n$14=_fun_boolean Method.isSynthetic()(n$12:java.lang.reflect.Method*) virtual [line 45];
+*&amp;$irvar3:_Bool=n$14 [line 45];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$15=*&amp;$irvar3:_Bool [line 45];
+PRUNE(!(n$15 != 0), true); [line 45];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:16 exn:3 Instructions
+*&amp;$T0_33:int=1 [line 45];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:15 exn:3 Conditional method_body
+n$15=*&amp;$irvar3:_Bool [line 45];
+PRUNE((n$15 != 0), false); [line 45];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:13 10 7 succs:16 exn:3 Instructions
+*&amp;$T0_33:int=0 [line 45];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.isMatchesSafelyMethod%28java.lang.reflect.Method%29%3Aboolean.ae08cd8e80cd0a6615cc532b669a27b1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    protected TypeSafeMatcher(Class&lt;T&gt; expectedType) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 48];
+n$1=_fun_BaseMatcher.&lt;init&gt;()(n$0:org.junit.internal.matchers.TypeSafeMatcher*) [line 48];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569.html">summary for TypeSafeMatcher.&lt;init&gt;(Class)</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        this.expectedType = expectedType; <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 49];
+n$3=*&amp;expectedType:java.lang.Class* [line 49];
+*n$2.expectedType:org.junit.internal.matchers.TypeSafeMatcher(root org.junit.internal.matchers.TypeSafeMatcher)=n$3 [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    } <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.<init>%28java.lang.Class%29.90c516ae564295f7e6e8778c4ceec569_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">     * Method made final to prevent accidental override. </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     * If you need to override this, there's no point on extending TypeSafeMatcher. <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.describeMismatchSafely%28java.lang.Object%2Corg.hamcrest.Description%29%3Avoid.06e7e8b2d26b4afd1e94946ed8c4a2e2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.describeMismatchSafely%28java.lang.Object%2Corg.hamcrest.Description%29%3Avoid.06e7e8b2d26b4afd1e94946ed8c4a2e2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.hamcrest.TypeSafeMatcher* [line 54];
+n$1=*&amp;item:java.lang.Object* [line 54];
+n$2=*&amp;mismatchDescription:org.hamcrest.Description* [line 54];
+n$3=_fun_void BaseMatcher.describeMismatch(Object,Description)(n$0:org.hamcrest.TypeSafeMatcher*,n$1:java.lang.Object*,n$2:org.hamcrest.Description*) [line 54];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.hamcrest.TypeSafeMatcher.describeMismatchSafely%28java.lang.Object%2Corg.hamcrest.Description%29%3Avoid.06e7e8b2d26b4afd1e94946ed8c4a2e2.html">summary for void TypeSafeMatcher.describeMismatchSafely(Object,Description)</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">     * Instead, extend the {@link BaseMatcher}. <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.describeMismatchSafely%28java.lang.Object%2Corg.hamcrest.Description%29%3Avoid.06e7e8b2d26b4afd1e94946ed8c4a2e2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.describeMismatchSafely%28java.lang.Object%2Corg.hamcrest.Description%29%3Avoid.06e7e8b2d26b4afd1e94946ed8c4a2e2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.hamcrest.TypeSafeMatcher.describeMismatchSafely%28java.lang.Object%2Corg.hamcrest.Description%29%3Avoid.06e7e8b2d26b4afd1e94946ed8c4a2e2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    @SuppressWarnings({&quot;unchecked&quot;}) </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    public final boolean matches(Object item) { <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12.html">summary for boolean TypeSafeMatcher.matches(Object)</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        return item != null <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;item:java.lang.Object* [line 59];
+PRUNE(!(n$0 == null), true); [line 59];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:13 exn:3 Conditional method_body
+n$0=*&amp;item:java.lang.Object* [line 59];
+PRUNE((n$0 == null), false); [line 59];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 12 succs:2 exn:3 Instructions
+n$12=*&amp;$T0_28:int [line 59];
+*&amp;return:_Bool=n$12 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">                &amp;&amp; expectedType.isInstance(item) <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 8 exn:3 Instructions
+n$1=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 60];
+n$2=*n$1.expectedType:java.lang.Class*(root org.junit.internal.matchers.TypeSafeMatcher) [line 60];
+_=*n$2:java.lang.Class*(root java.lang.Class) [line 60];
+n$4=*&amp;item:java.lang.Object* [line 60];
+n$5=_fun_boolean Class.isInstance(Object)(n$2:java.lang.Class*,n$4:java.lang.Object*) virtual [line 60];
+*&amp;$irvar0:_Bool=n$5 [line 60];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 succs:9 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 60];
+PRUNE(!(n$6 == 0), true); [line 60];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 succs:13 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 60];
+PRUNE((n$6 == 0), false); [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">                &amp;&amp; matchesSafely((T) item); <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 11 exn:3 Instructions
+n$7=*&amp;this:org.junit.internal.matchers.TypeSafeMatcher* [line 61];
+_=*n$7:org.junit.internal.matchers.TypeSafeMatcher*(root org.junit.internal.matchers.TypeSafeMatcher) [line 61];
+n$9=*&amp;item:java.lang.Object* [line 61];
+n$10=_fun_boolean TypeSafeMatcher.matchesSafely(Object)(n$7:org.junit.internal.matchers.TypeSafeMatcher*,n$9:java.lang.Object*) virtual [line 61];
+*&amp;$irvar1:_Bool=n$10 [line 61];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:9 succs:12 exn:3 Conditional method_body
+n$11=*&amp;$irvar1:_Bool [line 61];
+PRUNE(!(n$11 == 0), true); [line 61];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:14 exn:3 Instructions
+*&amp;$T0_28:int=1 [line 61];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:9 succs:13 exn:3 Conditional method_body
+n$11=*&amp;$irvar1:_Bool [line 61];
+PRUNE((n$11 == 0), false); [line 61];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 8 5 succs:14 exn:3 Instructions
+*&amp;$T0_28:int=0 [line 61];
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./TypeSafeMatcher.java.8ef2a76e8c08b477d660ad65f34c5deb/nodes/org.junit.internal.matchers.TypeSafeMatcher.matches%28java.lang.Object%29%3Aboolean.50a740c8e71e5cdd9ed5004f1dbf5e12_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

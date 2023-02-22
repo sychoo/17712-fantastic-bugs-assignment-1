@@ -1,0 +1,39 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_1" [label="1: Start void TextListener.testRunFinished(Result)\nFormals:  this:org.junit.internal.TextListener* result:org.junit.runner.Result*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_1" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_4" ;
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_2" [label="2: Exit void TextListener.testRunFinished(Result) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 29]\n  EXIT_SCOPE($irvar0); [line 29]\n  APPLY_ABSTRACTION; [line 29]\n " shape="box"]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_2" ;
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_4" [label="4:  Call long Result.getRunTime() \n   n$0=*&result:org.junit.runner.Result* [line 26]\n  _=*n$0:org.junit.runner.Result*(root org.junit.runner.Result) [line 26]\n  n$2=_fun_long Result.getRunTime()(n$0:org.junit.runner.Result*) virtual [line 26]\n  *&$irvar0:long=n$2 [line 26]\n  EXIT_SCOPE(_,n$0,n$2); [line 26]\n " shape="box"]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_4" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_5" ;
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_4" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" [color="red" ];
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_5" [label="5:  Call void TextListener.printHeader(long) \n   n$3=*&this:org.junit.internal.TextListener* [line 26]\n  _=*n$3:org.junit.internal.TextListener*(root org.junit.internal.TextListener) [line 26]\n  n$5=*&$irvar0:long [line 26]\n  n$6=_fun_void TextListener.printHeader(long)(n$3:org.junit.internal.TextListener*,n$5:long) virtual [line 26]\n  NULLIFY(&$irvar0); [line 26]\n  EXIT_SCOPE(_,n$3,n$5,n$6,$irvar0); [line 26]\n " shape="box"]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_5" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_6" ;
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_5" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" [color="red" ];
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_6" [label="6:  Call void TextListener.printFailures(Result) \n   n$7=*&this:org.junit.internal.TextListener* [line 27]\n  _=*n$7:org.junit.internal.TextListener*(root org.junit.internal.TextListener) [line 27]\n  n$9=*&result:org.junit.runner.Result* [line 27]\n  n$10=_fun_void TextListener.printFailures(Result)(n$7:org.junit.internal.TextListener*,n$9:org.junit.runner.Result*) virtual [line 27]\n  EXIT_SCOPE(_,n$7,n$9,n$10); [line 27]\n " shape="box"]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_6" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_7" ;
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_6" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" [color="red" ];
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_7" [label="7:  Call void TextListener.printFooter(Result) \n   n$11=*&this:org.junit.internal.TextListener* [line 28]\n  _=*n$11:org.junit.internal.TextListener*(root org.junit.internal.TextListener) [line 28]\n  n$13=*&result:org.junit.runner.Result* [line 28]\n  n$14=_fun_void TextListener.printFooter(Result)(n$11:org.junit.internal.TextListener*,n$13:org.junit.runner.Result*) virtual [line 28]\n  NULLIFY(&result); [line 28]\n  NULLIFY(&this); [line 28]\n  EXIT_SCOPE(_,n$11,n$13,n$14,result,this); [line 28]\n " shape="box"]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_7" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_8" ;
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_7" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" [color="red" ];
+"org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_8" [label="8:  method_body \n   APPLY_ABSTRACTION; [line 29]\n " shape="box"]
+	
+
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_8" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_2" ;
+	 "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_8" -> "org.junit.internal.TextListener.testRunFinished(org.junit.runner.Result):void.339e3b7635ef3632a989eb9f08dc7866_3" [color="red" ];
+}

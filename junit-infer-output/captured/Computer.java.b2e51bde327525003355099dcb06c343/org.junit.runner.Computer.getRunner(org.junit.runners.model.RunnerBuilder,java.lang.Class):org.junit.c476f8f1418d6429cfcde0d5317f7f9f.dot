@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_1" [label="1: Start Runner Computer.getRunner(RunnerBuilder,Class)\nFormals:  this:org.junit.runner.Computer* builder:org.junit.runners.model.RunnerBuilder* testClass:java.lang.Class*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_1" -> "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_4" ;
+"org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_2" [label="2: Exit Runner Computer.getRunner(RunnerBuilder,Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 50]\n  EXIT_SCOPE($irvar0); [line 50]\n  APPLY_ABSTRACTION; [line 50]\n " shape="box"]
+	
+
+	 "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_3" -> "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_2" ;
+"org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_4" [label="4:  Call Runner RunnerBuilder.runnerForClass(Class) \n   n$0=*&builder:org.junit.runners.model.RunnerBuilder* [line 50]\n  _=*n$0:org.junit.runners.model.RunnerBuilder*(root org.junit.runners.model.RunnerBuilder) [line 50]\n  n$2=*&testClass:java.lang.Class* [line 50]\n  n$3=_fun_Runner RunnerBuilder.runnerForClass(Class)(n$0:org.junit.runners.model.RunnerBuilder*,n$2:java.lang.Class*) virtual [line 50]\n  *&$irvar0:org.junit.runner.Runner*=n$3 [line 50]\n  NULLIFY(&testClass); [line 50]\n  NULLIFY(&builder); [line 50]\n  EXIT_SCOPE(_,n$0,n$2,n$3,testClass,builder); [line 50]\n " shape="box"]
+	
+
+	 "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_4" -> "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_5" ;
+	 "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_4" -> "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_3" [color="red" ];
+"org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_5" [label="5:  method_body \n   n$4=*&$irvar0:org.junit.runner.Runner* [line 50]\n  *&return:org.junit.runner.Runner*=n$4 [line 50]\n  NULLIFY(&$irvar0); [line 50]\n  EXIT_SCOPE(n$4,$irvar0); [line 50]\n  APPLY_ABSTRACTION; [line 50]\n " shape="box"]
+	
+
+	 "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_5" -> "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_2" ;
+	 "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_5" -> "org.junit.runner.Computer.getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class):org.junit.c476f8f1418d6429cfcde0d5317f7f9f_3" [color="red" ];
+}

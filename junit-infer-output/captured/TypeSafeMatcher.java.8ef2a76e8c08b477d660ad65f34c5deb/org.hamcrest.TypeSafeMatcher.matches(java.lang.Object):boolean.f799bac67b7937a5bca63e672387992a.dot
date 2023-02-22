@@ -1,0 +1,72 @@
+/* @generated */
+digraph cfg {
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_1" [label="1: Start boolean TypeSafeMatcher.matches(Object)\nFormals:  this:org.hamcrest.TypeSafeMatcher* item:java.lang.Object*\nLocals:  $T0_28:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_1" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_4" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_1" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_5" ;
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_2" [label="2: Exit boolean TypeSafeMatcher.matches(Object) \n  " color=yellow style=filled]
+	
+
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [label="3:  exceptions sink \n   NULLIFY(&$T0_28); [line 65]\n  NULLIFY(&$irvar0); [line 65]\n  NULLIFY(&$irvar1); [line 65]\n  EXIT_SCOPE($T0_28,$irvar0,$irvar1); [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="box"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_2" ;
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_4" [label="4: Prune (true branch, if) \n   n$0=*&item:java.lang.Object* [line 65]\n  PRUNE(!(n$0 == null), true); [line 65]\n  EXIT_SCOPE(n$0); [line 65]\n " shape="invhouse"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_4" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_6" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_4" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_5" [label="5: Prune (false branch, if) \n   n$0=*&item:java.lang.Object* [line 65]\n  PRUNE((n$0 == null), false); [line 65]\n  NULLIFY(&item); [line 65]\n  EXIT_SCOPE(n$0,item); [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="invhouse"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_5" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_13" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_5" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_6" [label="6:  Call boolean Class.isInstance(Object) \n   n$1=*&this:org.hamcrest.TypeSafeMatcher* [line 65]\n  n$2=*n$1.expectedType:java.lang.Class*(root org.hamcrest.TypeSafeMatcher) [line 65]\n  _=*n$2:java.lang.Class*(root java.lang.Class) [line 65]\n  n$4=*&item:java.lang.Object* [line 65]\n  n$5=_fun_boolean Class.isInstance(Object)(n$2:java.lang.Class*,n$4:java.lang.Object*) virtual [line 65]\n  *&$irvar0:_Bool=n$5 [line 65]\n  EXIT_SCOPE(_,n$1,n$2,n$4,n$5); [line 65]\n " shape="box"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_6" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_7" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_6" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_8" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_6" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_7" [label="7: Prune (true branch, if) \n   n$6=*&$irvar0:_Bool [line 65]\n  PRUNE(!(n$6 == 0), true); [line 65]\n  NULLIFY(&$irvar0); [line 65]\n  EXIT_SCOPE(n$6,$irvar0); [line 65]\n " shape="invhouse"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_7" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_9" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_7" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_8" [label="8: Prune (false branch, if) \n   n$6=*&$irvar0:_Bool [line 65]\n  PRUNE((n$6 == 0), false); [line 65]\n  NULLIFY(&$irvar0); [line 65]\n  EXIT_SCOPE(n$6,$irvar0); [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="invhouse"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_8" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_13" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_8" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_9" [label="9:  Call boolean TypeSafeMatcher.matchesSafely(Object) \n   n$7=*&this:org.hamcrest.TypeSafeMatcher* [line 65]\n  _=*n$7:org.hamcrest.TypeSafeMatcher*(root org.hamcrest.TypeSafeMatcher) [line 65]\n  n$9=*&item:java.lang.Object* [line 65]\n  n$10=_fun_boolean TypeSafeMatcher.matchesSafely(Object)(n$7:org.hamcrest.TypeSafeMatcher*,n$9:java.lang.Object*) virtual [line 65]\n  *&$irvar1:_Bool=n$10 [line 65]\n  NULLIFY(&this); [line 65]\n  NULLIFY(&item); [line 65]\n  EXIT_SCOPE(_,n$7,n$9,n$10,this,item); [line 65]\n " shape="box"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_9" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_10" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_9" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_11" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_9" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_10" [label="10: Prune (true branch, if) \n   n$11=*&$irvar1:_Bool [line 65]\n  PRUNE(!(n$11 == 0), true); [line 65]\n  NULLIFY(&$irvar1); [line 65]\n  EXIT_SCOPE(n$11,$irvar1); [line 65]\n " shape="invhouse"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_10" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_12" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_10" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_11" [label="11: Prune (false branch, if) \n   n$11=*&$irvar1:_Bool [line 65]\n  PRUNE((n$11 == 0), false); [line 65]\n  NULLIFY(&$irvar1); [line 65]\n  EXIT_SCOPE(n$11,$irvar1); [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="invhouse"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_11" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_13" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_11" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_12" [label="12:  method_body \n   *&$T0_28:int=1 [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="box"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_12" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_14" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_12" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_13" [label="13:  method_body \n   *&$T0_28:int=0 [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="box"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_13" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_14" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_13" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+"org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_14" [label="14:  method_body \n   n$12=*&$T0_28:int [line 65]\n  *&return:_Bool=n$12 [line 65]\n  NULLIFY(&$T0_28); [line 65]\n  EXIT_SCOPE(n$12,$T0_28); [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="box"]
+	
+
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_14" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_2" ;
+	 "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_14" -> "org.hamcrest.TypeSafeMatcher.matches(java.lang.Object):boolean.f799bac67b7937a5bca63e672387992a_3" [color="red" ];
+}

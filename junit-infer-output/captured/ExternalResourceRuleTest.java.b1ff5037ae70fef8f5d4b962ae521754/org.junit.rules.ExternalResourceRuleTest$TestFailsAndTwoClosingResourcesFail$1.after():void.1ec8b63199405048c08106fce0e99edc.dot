@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_1" [label="1: Start void ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after()\nFormals:  this:org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_1" -> "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_4" ;
+"org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_2" [label="2: Exit void ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after() \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 91]\n  EXIT_SCOPE($irvar0); [line 91]\n  APPLY_ABSTRACTION; [line 91]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_3" -> "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_2" ;
+"org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_4" [label="4:  Call RuntimeException.<init>(String) \n   n$0=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 91]\n  n$1=_fun_RuntimeException.<init>(String)(n$0:java.lang.RuntimeException*,\"simulating resource1 tear down failure\":java.lang.Object*) [line 91]\n  *&$irvar0:java.lang.RuntimeException*=n$0 [line 91]\n  EXIT_SCOPE(n$0,n$1); [line 91]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_4" -> "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_5" ;
+	 "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_4" -> "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_3" [color="red" ];
+"org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_5" [label="5:  throw \n   n$2=*&$irvar0:java.lang.RuntimeException* [line 91]\n  *&return:void=EXN n$2 [line 91]\n  NULLIFY(&$irvar0); [line 91]\n  EXIT_SCOPE(n$2,$irvar0); [line 91]\n  APPLY_ABSTRACTION; [line 91]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_5" -> "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_2" ;
+	 "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_5" -> "org.junit.rules.ExternalResourceRuleTest$TestFailsAndTwoClosingResourcesFail$1.after():void.1ec8b63199405048c08106fce0e99edc_3" [color="red" ];
+}

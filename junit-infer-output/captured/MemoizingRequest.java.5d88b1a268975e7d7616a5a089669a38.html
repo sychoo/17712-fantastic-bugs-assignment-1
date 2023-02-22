@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/requests/MemoizingRequest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.requests; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.concurrent.locks.Lock; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.concurrent.locks.ReentrantLock; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.runner.Request; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.runner.Runner; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">abstract class MemoizingRequest extends Request { <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 9];
+n$1=_fun_Request.&lt;init&gt;()(n$0:org.junit.internal.requests.MemoizingRequest*) [line 9];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4.html">summary for MemoizingRequest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">    private final Lock runnerLock = new ReentrantLock(); <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.concurrent.locks.ReentrantLock):java.util.concurrent.locks.ReentrantLock*) [line 10];
+n$3=_fun_ReentrantLock.&lt;init&gt;()(n$2:java.util.concurrent.locks.ReentrantLock*) [line 10];
+*&amp;$irvar0:java.util.concurrent.locks.ReentrantLock*=n$2 [line 10];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 10];
+n$5=*&amp;$irvar0:java.util.concurrent.locks.ReentrantLock* [line 10];
+*n$4.runnerLock:org.junit.internal.requests.MemoizingRequest(root org.junit.internal.requests.MemoizingRequest)=n$5 [line 10];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.<init>%28%29.b898ce5c92e51e47282843bdc6a4add4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">    private volatile Runner runner; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">    public final Runner getRunner() { <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462.html">summary for Runner MemoizingRequest.getRunner()</a></td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">        if (runner == null) { <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 15];
+n$1=*n$0.runner:org.junit.runner.Runner*(root org.junit.internal.requests.MemoizingRequest) [line 15];
+PRUNE(!(n$1 != null), true); [line 15];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:15 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 15];
+n$1=*n$0.runner:org.junit.runner.Runner*(root org.junit.internal.requests.MemoizingRequest) [line 15];
+PRUNE((n$1 != null), false); [line 15];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">            runnerLock.lock(); <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 8 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 16];
+n$3=*n$2.runnerLock:java.util.concurrent.locks.Lock*(root org.junit.internal.requests.MemoizingRequest) [line 16];
+_=*n$3:java.util.concurrent.locks.Lock*(root java.util.concurrent.locks.Lock) [line 16];
+n$5=_fun_void Lock.lock()(n$3:java.util.concurrent.locks.Lock*) interface virtual [line 16];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">                if (runner == null) { <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 succs:9 exn:17 Conditional method_body
+n$6=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 18];
+n$7=*n$6.runner:org.junit.runner.Runner*(root org.junit.internal.requests.MemoizingRequest) [line 18];
+PRUNE(!(n$7 != null), true); [line 18];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 succs:11 exn:17 Conditional method_body
+n$6=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 18];
+n$7=*n$6.runner:org.junit.runner.Runner*(root org.junit.internal.requests.MemoizingRequest) [line 18];
+PRUNE((n$7 != null), false); [line 18];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">                    runner = createRunner(); <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 exn:17 Instructions
+n$8=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 19];
+_=*n$8:org.junit.internal.requests.MemoizingRequest*(root org.junit.internal.requests.MemoizingRequest) [line 19];
+n$10=_fun_Runner MemoizingRequest.createRunner()(n$8:org.junit.internal.requests.MemoizingRequest*) virtual [line 19];
+*&amp;$irvar0:org.junit.runner.Runner*=n$10 [line 19];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:17 Instructions
+n$11=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 19];
+n$12=*&amp;$irvar0:org.junit.runner.Runner* [line 19];
+*n$11.runner:org.junit.internal.requests.MemoizingRequest(root org.junit.internal.requests.MemoizingRequest)=n$12 [line 19];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">            } finally { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">                runnerLock.unlock(); <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 8 succs:15 exn:3 Instructions
+n$13=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 22];
+n$14=*n$13.runnerLock:java.util.concurrent.locks.Lock*(root org.junit.internal.requests.MemoizingRequest) [line 22];
+_=*n$14:java.util.concurrent.locks.Lock*(root java.util.concurrent.locks.Lock) [line 22];
+n$16=_fun_void Lock.unlock()(n$14:java.util.concurrent.locks.Lock*) interface virtual [line 22];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:16 succs:13 exn:3 Instructions
+n$17=*&amp;CatchVar43:java.lang.Object* [line 22];
+*&amp;$bcvar1:java.lang.Object*=n$17 [line 22];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 22];
+n$19=*n$18.runnerLock:java.util.concurrent.locks.Lock*(root org.junit.internal.requests.MemoizingRequest) [line 22];
+_=*n$19:java.util.concurrent.locks.Lock*(root java.util.concurrent.locks.Lock) [line 22];
+n$21=_fun_void Lock.unlock()(n$19:java.util.concurrent.locks.Lock*) interface virtual [line 22];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:17 succs:12 exn:3 Instructions
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds: succs:16 exn:3 Instructions
+n$25=*&amp;return:org.junit.runner.Runner* [line 22];
+*&amp;return:org.junit.runner.Runner*=null [line 22];
+n$26=_fun___unwrap_exception(n$25:org.junit.runner.Runner*) [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">            } <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+n$22=*&amp;$bcvar1:java.lang.Object* [line 23];
+*&amp;return:org.junit.runner.Runner*=EXN n$22 [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        return runner; <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:11 5 succs:2 exn:3 Instructions
+n$23=*&amp;this:org.junit.internal.requests.MemoizingRequest* [line 25];
+n$24=*n$23.runner:org.junit.runner.Runner*(root org.junit.internal.requests.MemoizingRequest) [line 25];
+*&amp;return:org.junit.runner.Runner*=n$24 [line 25];
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 14 3 succs: exn: Exit
+</span></span></a> <a href="./MemoizingRequest.java.5d88b1a268975e7d7616a5a089669a38/nodes/org.junit.internal.requests.MemoizingRequest.getRunner%28%29%3Aorg.junit.runner.Runner.49d4e7e19069aeaaa6a83452c893d462_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    /** Creates the {@link Runner} to return from {@link #getRunner()}. Called at most once. */ </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    protected abstract Runner createRunner(); </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>org.junit.runners.model.TestTimedOutException.getTimeUnit():java.util.concurrent.TimeUnit.50b3043c8ccddcd80e4d5845d4e8b466</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>Procedure <a href="./../TestTimedOutException.java.b6f6a58107106cb3937a244203e10f00.html#LINE41">TimeUnit TestTimedOutException.getTimeUnit()</a></h1></center>
+<a href="./nodes/org.junit.runners.model.TestTimedOutException.getTimeUnit%28%29%3Ajava.util.concurrent.TimeUnit.50b3043c8ccddcd80e4d5845d4e8b466_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./nodes/org.junit.runners.model.TestTimedOutException.getTimeUnit%28%29%3Ajava.util.concurrent.TimeUnit.50b3043c8ccddcd80e4d5845d4e8b466_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./nodes/org.junit.runners.model.TestTimedOutException.getTimeUnit%28%29%3Ajava.util.concurrent.TimeUnit.50b3043c8ccddcd80e4d5845d4e8b466_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+APPLY_ABSTRACTION; [line 42];
+</span></span></a> <a href="./nodes/org.junit.runners.model.TestTimedOutException.getTimeUnit%28%29%3Ajava.util.concurrent.TimeUnit.50b3043c8ccddcd80e4d5845d4e8b466_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.runners.model.TestTimedOutException* [line 42];
+n$1=*n$0.timeUnit:java.util.concurrent.TimeUnit*(root org.junit.runners.model.TestTimedOutException) [line 42];
+*&amp;return:java.util.concurrent.TimeUnit*=n$1 [line 42];
+NULLIFY(&amp;this); [line 42];
+EXIT_SCOPE(n$0,n$1,this); [line 42];
+APPLY_ABSTRACTION; [line 42];
+</span></span></a><br />@
+
+<span class='color_black'>java.util.concurrent.TimeUnit* TimeUnit TestTimedOutException.getTimeUnit()(org.junit.runners.model.TestTimedOutException* this)
+Analyzed
+</span><br />FAILURE:NONE SYMOPS:16
+<br />
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+
+<hr width="100%">
+<LISTING>
+Biabduction: phase= RE_EXECUTION
+--------------------------- 1 of 1 [nvisited:41 42] ---------------------------
+PRE:
+<span class='color_blue'><span class='color_blue'>this = val$1<span class='color_orange'>formal</span>:org.junit.runners.model.TestTimedOutException*( sub ) ;
+this|->{timeUnit:val$2<span class='color_orange'>rearrange:(z)42</span>}<span class='color_orange'>rearrange:(z)42</span>:org.junit.runners.model.TestTimedOutException( sub )</span></span>
+POST 1 of 1:
+<span class='color_blue'><span class='color_red'>return = val$2<span class='color_orange'>update:42</span>:java.util.concurrent.TimeUnit*</span>; <span class='color_blue'>this = val$1<span class='color_orange'>formal</span>:org.junit.runners.model.TestTimedOutException*( sub )</span> ;
+<span class='color_blue'>this|->{timeUnit:return<span class='color_orange'>formal(z)</span>}<span class='color_orange'>formal(z)</span>:org.junit.runners.model.TestTimedOutException( sub )</span></span>
+----------------------------------------------------------------<br>
+
+RacerD: 
+Threads: NoThread, Locks: 0 
+Accesses { {elem= Access: Read of this->timeUnit Thread: NoThread Lock: false Pre: OwnedIf
+            { 0 }; loc= line 42; trace= { }} } 
+Ownership: OwnedIf{ 0 } 
+Return Attribute: Nothing 
+Attributes: { } 
+
+Starvation: {thread= UnknownThread; return_attributes= Nothing;
+             critical_pairs={ };
+             scheduled_work= { };
+             attributes= { }}
+</LISTING>
+<hr />
+<pre>
+{ proc_name= TimeUnit TestTimedOutException.getTimeUnit()
+; translation_unit= src/main/java/org/junit/runners/model/TestTimedOutException.java
+; access= Public
+; formals= [(this,org.junit.runners.model.TestTimedOutException*)]
+; is_defined= true
+; loc= src/main/java/org/junit/runners/model/TestTimedOutException.java:41
+; locals= []
+; ret_type= java.util.concurrent.TimeUnit* 
+; proc_id= org.junit.runners.model.TestTimedOutException.getTimeUnit():java.util.concurrent.TimeUnit }</pre>
+</body>
+</html>

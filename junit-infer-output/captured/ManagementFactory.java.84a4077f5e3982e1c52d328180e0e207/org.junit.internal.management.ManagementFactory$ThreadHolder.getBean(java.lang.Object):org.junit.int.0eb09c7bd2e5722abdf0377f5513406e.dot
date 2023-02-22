@@ -1,0 +1,50 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_1" [label="1: Start ThreadMXBean ManagementFactory$ThreadHolder.getBean(Object)\nFormals:  threadMxBean:java.lang.Object*\nLocals:  $irvar1:void $T0_22:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_1" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_4" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_1" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_5" ;
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_2" [label="2: Exit ThreadMXBean ManagementFactory$ThreadHolder.getBean(Object) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [label="3:  exceptions sink \n   NULLIFY(&$T0_22); [line 60]\n  NULLIFY(&$irvar0); [line 60]\n  NULLIFY(&$irvar1); [line 60]\n  EXIT_SCOPE($T0_22,$irvar0,$irvar1); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_2" ;
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_4" [label="4: Prune (true branch, if) \n   n$0=*&threadMxBean:java.lang.Object* [line 59]\n  PRUNE(!(n$0 == null), true); [line 59]\n  EXIT_SCOPE(n$0); [line 59]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_4" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_6" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_4" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_5" [label="5: Prune (false branch, if) \n   n$0=*&threadMxBean:java.lang.Object* [line 59]\n  PRUNE((n$0 == null), false); [line 59]\n  NULLIFY(&threadMxBean); [line 59]\n  EXIT_SCOPE(n$0,threadMxBean); [line 59]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_5" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_8" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_5" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_6" [label="6:  Call ReflectiveThreadMXBean.<init>(Object) \n   n$1=_fun___new(sizeof(t=org.junit.internal.management.ReflectiveThreadMXBean):org.junit.internal.management.ReflectiveThreadMXBean*) [line 60]\n  n$2=*&threadMxBean:java.lang.Object* [line 60]\n  n$3=_fun_ReflectiveThreadMXBean.<init>(Object)(n$1:org.junit.internal.management.ReflectiveThreadMXBean*,n$2:java.lang.Object*) [line 60]\n  *&$irvar0:org.junit.internal.management.ReflectiveThreadMXBean*=n$1 [line 60]\n  NULLIFY(&threadMxBean); [line 60]\n  EXIT_SCOPE(n$1,n$2,n$3,threadMxBean); [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_6" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_7" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_6" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_7" [label="7:  method_body \n   n$4=*&$irvar0:org.junit.internal.management.ReflectiveThreadMXBean* [line 60]\n  *&$T0_22:org.junit.internal.management.ReflectiveThreadMXBean*=n$4 [line 60]\n  NULLIFY(&$irvar0); [line 60]\n  EXIT_SCOPE(n$4,$irvar0); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_7" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_10" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_7" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_8" [label="8:  Call FakeThreadMXBean.<init>() \n   n$5=_fun___new(sizeof(t=org.junit.internal.management.FakeThreadMXBean):org.junit.internal.management.FakeThreadMXBean*) [line 60]\n  n$6=_fun_FakeThreadMXBean.<init>()(n$5:org.junit.internal.management.FakeThreadMXBean*) [line 60]\n  *&$irvar1:org.junit.internal.management.FakeThreadMXBean*=n$5 [line 60]\n  EXIT_SCOPE(n$5,n$6); [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_8" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_9" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_8" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_9" [label="9:  method_body \n   n$7=*&$irvar1:org.junit.internal.management.FakeThreadMXBean* [line 60]\n  *&$T0_22:org.junit.internal.management.FakeThreadMXBean*=n$7 [line 60]\n  NULLIFY(&$irvar1); [line 60]\n  EXIT_SCOPE(n$7,$irvar1); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_9" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_10" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_9" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+"org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_10" [label="10:  method_body \n   n$8=*&$T0_22:org.junit.internal.management.FakeThreadMXBean* [line 59]\n  *&return:org.junit.internal.management.ThreadMXBean*=n$8 [line 59]\n  NULLIFY(&$T0_22); [line 59]\n  EXIT_SCOPE(n$8,$T0_22); [line 59]\n  APPLY_ABSTRACTION; [line 59]\n " shape="box"]
+	
+
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_10" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_2" ;
+	 "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_10" -> "org.junit.internal.management.ManagementFactory$ThreadHolder.getBean(java.lang.Object):org.junit.int.0eb09c7bd2e5722abdf0377f5513406e_3" [color="red" ];
+}

@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_1" [label="1: Start Result MaxCore.run(Class)\nFormals:  this:org.junit.experimental.max.MaxCore* testClass:java.lang.Class*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_1" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_4" ;
+"org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_2" [label="2: Exit Result MaxCore.run(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 64]\n  NULLIFY(&$irvar1); [line 64]\n  EXIT_SCOPE($irvar0,$irvar1); [line 64]\n  APPLY_ABSTRACTION; [line 64]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_3" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_2" ;
+"org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_4" [label="4:  Call Request Request.aClass(Class) \n   n$0=*&testClass:java.lang.Class* [line 64]\n  n$1=_fun_Request Request.aClass(Class)(n$0:java.lang.Class*) [line 64]\n  *&$irvar0:org.junit.runner.Request*=n$1 [line 64]\n  NULLIFY(&testClass); [line 64]\n  EXIT_SCOPE(n$0,n$1,testClass); [line 64]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_4" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_5" ;
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_4" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_3" [color="red" ];
+"org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_5" [label="5:  Call Result MaxCore.run(Request) \n   n$2=*&this:org.junit.experimental.max.MaxCore* [line 64]\n  _=*n$2:org.junit.experimental.max.MaxCore*(root org.junit.experimental.max.MaxCore) [line 64]\n  n$4=*&$irvar0:org.junit.runner.Request* [line 64]\n  n$5=_fun_Result MaxCore.run(Request)(n$2:org.junit.experimental.max.MaxCore*,n$4:org.junit.runner.Request*) virtual [line 64]\n  *&$irvar1:org.junit.runner.Result*=n$5 [line 64]\n  NULLIFY(&$irvar0); [line 64]\n  NULLIFY(&this); [line 64]\n  EXIT_SCOPE(_,n$2,n$4,n$5,$irvar0,this); [line 64]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_5" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_6" ;
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_5" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_3" [color="red" ];
+"org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_6" [label="6:  method_body \n   n$6=*&$irvar1:org.junit.runner.Result* [line 64]\n  *&return:org.junit.runner.Result*=n$6 [line 64]\n  NULLIFY(&$irvar1); [line 64]\n  EXIT_SCOPE(n$6,$irvar1); [line 64]\n  APPLY_ABSTRACTION; [line 64]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_6" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_2" ;
+	 "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_6" -> "org.junit.experimental.max.MaxCore.run(java.lang.Class):org.junit.runner.Result.59cb8c64448739a8c179004b6d5ab60c_3" [color="red" ];
+}

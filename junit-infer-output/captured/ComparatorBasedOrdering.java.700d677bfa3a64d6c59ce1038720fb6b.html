@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/tests/manipulation/ComparatorBasedOrdering.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.tests.manipulation; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.Collection; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.Collections; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.Comparator; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runner.manipulation.Ordering; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * An ordering that internally uses a {@link Comparator}. </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">class ComparatorBasedOrdering extends Ordering { </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">    private final Comparator&lt;Description&gt; comparator; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    protected ComparatorBasedOrdering(Comparator&lt;Description&gt; comparator) { <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.manipulation.ComparatorBasedOrdering* [line 18];
+n$1=_fun_Ordering.&lt;init&gt;()(n$0:org.junit.tests.manipulation.ComparatorBasedOrdering*) [line 18];
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13.html">summary for ComparatorBasedOrdering.&lt;init&gt;(Comparator)</a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">        this.comparator = comparator; <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.tests.manipulation.ComparatorBasedOrdering* [line 19];
+n$3=*&amp;comparator:java.util.Comparator* [line 19];
+*n$2.comparator:org.junit.tests.manipulation.ComparatorBasedOrdering(root org.junit.tests.manipulation.ComparatorBasedOrdering)=n$3 [line 19];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    } <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.<init>%28java.util.Comparator%29.85c223bad01cb4acd96de64cd3f33b13_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    protected List&lt;Description&gt; orderItems(Collection&lt;Description&gt; descriptions) { <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486.html">summary for List ComparatorBasedOrdering.orderItems(Collection)</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        List&lt;Description&gt; ordered = new ArrayList&lt;Description&gt;(descriptions); <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 24];
+n$1=*&amp;descriptions:java.util.Collection* [line 24];
+n$2=_fun_ArrayList.&lt;init&gt;(Collection)(n$0:java.util.ArrayList*,n$1:java.util.Collection*) [line 24];
+*&amp;ordered:java.util.ArrayList*=n$0 [line 24];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        Collections.sort(ordered, comparator); <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.tests.manipulation.ComparatorBasedOrdering* [line 25];
+n$4=*n$3.comparator:java.util.Comparator*(root org.junit.tests.manipulation.ComparatorBasedOrdering) [line 25];
+*&amp;$irvar0:java.util.Comparator*=n$4 [line 25];
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;ordered:java.util.ArrayList* [line 25];
+n$6=*&amp;$irvar0:java.util.Comparator* [line 25];
+n$7=_fun_void Collections.sort(List,Comparator)(n$5:java.util.ArrayList*,n$6:java.util.Comparator*) [line 25];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">        return ordered; <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$8=*&amp;ordered:java.util.ArrayList* [line 26];
+*&amp;return:java.util.List*=n$8 [line 26];
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ComparatorBasedOrdering.java.700d677bfa3a64d6c59ce1038720fb6b/nodes/org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems%28java.util.Collection%29%3Ajava.util.List.66bf3dedbfd721e21ee9eeb6fb188486_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

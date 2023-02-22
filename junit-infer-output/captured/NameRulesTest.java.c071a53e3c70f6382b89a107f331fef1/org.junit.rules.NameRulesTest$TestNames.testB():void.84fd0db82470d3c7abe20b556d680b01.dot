@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_1" [label="1: Start void NameRulesTest$TestNames.testB()\nFormals:  this:org.junit.rules.NameRulesTest$TestNames*\nLocals:  $irvar0:void\nAnnotation: <_org.junit.Test> void NameRulesTest$TestNames.testB()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_1" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_4" ;
+"org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_2" [label="2: Exit void NameRulesTest$TestNames.testB() \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 26]\n  EXIT_SCOPE($irvar0); [line 26]\n  APPLY_ABSTRACTION; [line 26]\n " shape="box"]
+	
+
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_3" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_2" ;
+"org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_4" [label="4:  Call String TestName.getMethodName() \n   n$0=*&this:org.junit.rules.NameRulesTest$TestNames* [line 25]\n  n$1=*n$0.name:org.junit.rules.TestName*(root org.junit.rules.NameRulesTest$TestNames) [line 25]\n  _=*n$1:org.junit.rules.TestName*(root org.junit.rules.TestName) [line 25]\n  n$3=_fun_String TestName.getMethodName()(n$1:org.junit.rules.TestName*) virtual [line 25]\n  *&$irvar0:java.lang.String*=n$3 [line 25]\n  NULLIFY(&this); [line 25]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 25]\n " shape="box"]
+	
+
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_4" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_5" ;
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_4" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_3" [color="red" ];
+"org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_5" [label="5:  Call void Assert.assertEquals(Object,Object) \n   n$4=*&$irvar0:java.lang.String* [line 25]\n  n$5=_fun_void Assert.assertEquals(Object,Object)(\"testB\":java.lang.Object*,n$4:java.lang.String*) [line 25]\n  NULLIFY(&$irvar0); [line 25]\n  EXIT_SCOPE(n$4,n$5,$irvar0); [line 25]\n " shape="box"]
+	
+
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_5" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_6" ;
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_5" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_3" [color="red" ];
+"org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 26]\n " shape="box"]
+	
+
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_6" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_2" ;
+	 "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_6" -> "org.junit.rules.NameRulesTest$TestNames.testB():void.84fd0db82470d3c7abe20b556d680b01_3" [color="red" ];
+}

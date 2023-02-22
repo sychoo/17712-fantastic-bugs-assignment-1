@@ -1,0 +1,95 @@
+/* @generated */
+digraph cfg {
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_1" [label="1: Start void ListTest.testCapacity()\nFormals:  this:junit.samples.ListTest*\nLocals:  $T0_59:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void size:int i:int \n  " color=yellow style=filled]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_1" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_4" ;
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_2" [label="2: Exit void ListTest.testCapacity() \n  " color=yellow style=filled]
+	
+
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 37]\n  NULLIFY(&i); [line 37]\n  NULLIFY(&size); [line 37]\n  NULLIFY(&$T0_59); [line 37]\n  NULLIFY(&$irvar0); [line 37]\n  NULLIFY(&$irvar1); [line 37]\n  EXIT_SCOPE($irvar3,i,size,$T0_59,$irvar0,$irvar1); [line 37]\n  APPLY_ABSTRACTION; [line 37]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_2" ;
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_4" [label="4:  Call int List.size() \n   n$0=*&this:junit.samples.ListTest* [line 32]\n  n$1=*n$0.fullList:java.util.List*(root junit.samples.ListTest) [line 32]\n  _=*n$1:java.util.List*(root java.util.List) [line 32]\n  n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 32]\n  *&size:int=n$3 [line 32]\n  EXIT_SCOPE(_,n$0,n$1,n$3); [line 32]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_4" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_5" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_4" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_5" [label="5:  method_body \n   *&i:int=0 [line 33]\n  APPLY_ABSTRACTION; [line 33]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_5" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_8" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_5" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_6" [label="6: Prune (true branch, if) \n   n$4=*&i:int [line 33]\n  PRUNE(!(n$4 >= 100), true); [line 33]\n  EXIT_SCOPE(n$4); [line 33]\n " shape="invhouse"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_6" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_9" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_6" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_7" [label="7: Prune (false branch, if) \n   n$4=*&i:int [line 33]\n  PRUNE((n$4 >= 100), false); [line 33]\n  NULLIFY(&i); [line 33]\n  EXIT_SCOPE(n$4,i); [line 33]\n " shape="invhouse"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_7" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_13" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_7" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_8" [label="8: + \n  " ]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_8" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_6" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_8" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_7" ;
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_9" [label="9:  method_body \n   n$5=*&this:junit.samples.ListTest* [line 34]\n  n$6=*n$5.fullList:java.util.List*(root junit.samples.ListTest) [line 34]\n  *&$irvar0:java.util.List*=n$6 [line 34]\n  EXIT_SCOPE(n$5,n$6); [line 34]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_9" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_10" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_9" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_10" [label="10:  Call Integer Integer.valueOf(int) \n   n$7=*&i:int [line 34]\n  n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 34]\n  *&$irvar1:java.lang.Integer*=n$8 [line 34]\n  EXIT_SCOPE(n$7,n$8); [line 34]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_10" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_11" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_10" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_11" [label="11:  Call boolean List.add(Object) \n   n$9=*&$irvar0:java.util.List* [line 34]\n  _=*n$9:java.util.List*(root java.util.List) [line 34]\n  n$11=*&$irvar1:java.lang.Integer* [line 34]\n  n$12=_fun_boolean List.add(Object)(n$9:java.util.List*,n$11:java.lang.Integer*) interface virtual [line 34]\n  *&$irvar2:_Bool=n$12 [line 34]\n  NULLIFY(&$irvar0); [line 34]\n  NULLIFY(&$irvar1); [line 34]\n  NULLIFY(&$irvar2); [line 34]\n  EXIT_SCOPE(_,n$9,n$11,n$12,$irvar0,$irvar1,$irvar2); [line 34]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_11" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_12" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_11" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_12" [label="12:  method_body \n   n$13=*&i:int [line 33]\n  *&i:int=(n$13 + 1) [line 33]\n  EXIT_SCOPE(n$13); [line 33]\n  APPLY_ABSTRACTION; [line 33]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_12" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_8" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_12" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_13" [label="13:  Call int List.size() \n   n$14=*&this:junit.samples.ListTest* [line 36]\n  n$15=*n$14.fullList:java.util.List*(root junit.samples.ListTest) [line 36]\n  _=*n$15:java.util.List*(root java.util.List) [line 36]\n  n$17=_fun_int List.size()(n$15:java.util.List*) interface virtual [line 36]\n  *&$irvar3:int=n$17 [line 36]\n  NULLIFY(&this); [line 36]\n  EXIT_SCOPE(_,n$14,n$15,n$17,this); [line 36]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_13" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_14" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_13" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_15" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_13" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_14" [label="14: Prune (true branch, if) \n   n$18=*&$irvar3:int [line 36]\n  n$19=*&size:int [line 36]\n  PRUNE(!(n$18 != (100 + n$19)), true); [line 36]\n  NULLIFY(&$irvar3); [line 36]\n  NULLIFY(&size); [line 36]\n  EXIT_SCOPE(n$18,n$19,$irvar3,size); [line 36]\n " shape="invhouse"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_14" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_16" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_14" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_15" [label="15: Prune (false branch, if) \n   n$18=*&$irvar3:int [line 36]\n  n$19=*&size:int [line 36]\n  PRUNE((n$18 != (100 + n$19)), false); [line 36]\n  NULLIFY(&$irvar3); [line 36]\n  NULLIFY(&size); [line 36]\n  EXIT_SCOPE(n$18,n$19,$irvar3,size); [line 36]\n " shape="invhouse"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_15" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_17" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_15" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_16" [label="16:  method_body \n   *&$T0_59:int=1 [line 36]\n  APPLY_ABSTRACTION; [line 36]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_16" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_18" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_16" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_17" [label="17:  method_body \n   *&$T0_59:int=0 [line 36]\n  APPLY_ABSTRACTION; [line 36]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_17" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_18" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_17" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_18" [label="18:  Call void TestCase.assertTrue(boolean) \n   n$20=*&$T0_59:int [line 36]\n  n$21=_fun_void TestCase.assertTrue(boolean)(n$20:int) [line 36]\n  NULLIFY(&$T0_59); [line 36]\n  EXIT_SCOPE(n$20,n$21,$T0_59); [line 36]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_18" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_19" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_18" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+"junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_19" [label="19:  method_body \n   APPLY_ABSTRACTION; [line 37]\n " shape="box"]
+	
+
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_19" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_2" ;
+	 "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_19" -> "junit.samples.ListTest.testCapacity():void.df4aa6a8b4264615612d2cb768a1977e_3" [color="red" ];
+}

@@ -1,0 +1,1255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/runners/statements/FailOnTimeout.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.runners.statements; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.Arrays; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.Collections; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.concurrent.Callable; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.concurrent.CountDownLatch; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.util.concurrent.ExecutionException; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import java.util.concurrent.FutureTask; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import java.util.concurrent.TimeUnit; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import java.util.concurrent.TimeoutException; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.internal.management.ManagementFactory; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.internal.management.ThreadMXBean; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.runners.model.MultipleFailureException; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.runners.model.TestTimedOutException; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">public class FailOnTimeout extends Statement { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.access%24600%28org.junit.internal.runners.statements.058bb742600e14a6d6e65a00d3905d03_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.39cc0e09c3d561c8a282689adc9e74ca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.access%24600%28org.junit.internal.runners.statements.058bb742600e14a6d6e65a00d3905d03_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.internal.runners.statements.FailOnTimeout* [line 19];
+n$1=*n$0.originalStatement:org.junit.runners.model.Statement*(root org.junit.internal.runners.statements.FailOnTimeout) [line 19];
+*&amp;return:org.junit.runners.model.Statement*=n$1 [line 19];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.39cc0e09c3d561c8a282689adc9e74ca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 19];
+n$1=*&amp;x0:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 19];
+n$2=*&amp;x1:org.junit.runners.model.Statement* [line 19];
+n$3=_fun_FailOnTimeout.&lt;init&gt;(FailOnTimeout$Builder,Statement)(n$0:org.junit.internal.runners.statements.FailOnTimeout*,n$1:org.junit.internal.runners.statements.FailOnTimeout$Builder*,n$2:org.junit.runners.model.Statement*) [line 19];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.access%24600%28org.junit.internal.runners.statements.058bb742600e14a6d6e65a00d3905d03_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.39cc0e09c3d561c8a282689adc9e74ca_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.39cc0e09c3d561c8a282689adc9e74ca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.access%24600%28org.junit.internal.runners.statements.058bb742600e14a6d6e65a00d3905d03_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.39cc0e09c3d561c8a282689adc9e74ca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.access%24600%28org.junit.internal.runners.statements.058bb742600e14a6d6e65a00d3905d03.html">summary for Statement FailOnTimeout.access$600(FailOnTimeout)</a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.39cc0e09c3d561c8a282689adc9e74ca.html">summary for FailOnTimeout.&lt;init&gt;(FailOnTimeout$Builder,Statement,FailOnTimeout$1)</a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    private final Statement originalStatement; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    private final TimeUnit timeUnit; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private final long timeout; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private final boolean lookForStuckThread; </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">     * Returns a new builder for building an instance. </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    public static Builder builder() { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.builder%28%29%3Aorg.junit.internal.runners.statements..2d78497dc5b2e76e85c9f546e3666f4f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.builder%28%29%3Aorg.junit.internal.runners.statements..2d78497dc5b2e76e85c9f546e3666f4f.html">summary for FailOnTimeout$Builder FailOnTimeout.builder()</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        return new Builder(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.builder%28%29%3Aorg.junit.internal.runners.statements..2d78497dc5b2e76e85c9f546e3666f4f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.internal.runners.statements.FailOnTimeout$Builder):org.junit.internal.runners.statements.FailOnTimeout$Builder*) [line 31];
+n$1=_fun_FailOnTimeout$Builder.&lt;init&gt;(FailOnTimeout$1)(n$0:org.junit.internal.runners.statements.FailOnTimeout$Builder*,null:java.lang.Object*) [line 31];
+*&amp;$irvar0:org.junit.internal.runners.statements.FailOnTimeout$Builder*=n$0 [line 31];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.builder%28%29%3Aorg.junit.internal.runners.statements..2d78497dc5b2e76e85c9f546e3666f4f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 31];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout$Builder*=n$2 [line 31];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.builder%28%29%3Aorg.junit.internal.runners.statements..2d78497dc5b2e76e85c9f546e3666f4f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.builder%28%29%3Aorg.junit.internal.runners.statements..2d78497dc5b2e76e85c9f546e3666f4f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">     * Creates an instance wrapping the given statement with the given timeout in milliseconds. </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">     * @param statement the statement to wrap </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">     * @param timeoutMillis the timeout in milliseconds </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">     * @deprecated use {@link #builder()} instead. </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    public FailOnTimeout(Statement statement, long timeoutMillis) { </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        this(builder().withTimeout(timeoutMillis, TimeUnit.MILLISECONDS), statement); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_FailOnTimeout$Builder FailOnTimeout.builder()() [line 43];
+*&amp;$irvar0:org.junit.internal.runners.statements.FailOnTimeout$Builder*=n$0 [line 43];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 43];
+_=*n$1:org.junit.internal.runners.statements.FailOnTimeout$Builder*(root org.junit.internal.runners.statements.FailOnTimeout$Builder) [line 43];
+n$3=*&amp;timeoutMillis:long [line 43];
+n$4=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 43];
+n$5=_fun_FailOnTimeout$Builder FailOnTimeout$Builder.withTimeout(long,TimeUnit)(n$1:org.junit.internal.runners.statements.FailOnTimeout$Builder*,n$3:long,n$4:java.util.concurrent.TimeUnit*) virtual [line 43];
+*&amp;$irvar1:org.junit.internal.runners.statements.FailOnTimeout$Builder*=n$5 [line 43];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 43];
+n$7=*&amp;$irvar1:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 43];
+n$8=*&amp;statement:org.junit.runners.model.Statement* [line 43];
+n$9=_fun_FailOnTimeout.&lt;init&gt;(FailOnTimeout$Builder,Statement)(n$6:org.junit.internal.runners.statements.FailOnTimeout*,n$7:org.junit.internal.runners.statements.FailOnTimeout$Builder*,n$8:org.junit.runners.model.Statement*) [line 43];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9.html">summary for FailOnTimeout.&lt;init&gt;(Statement,long)</a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">    } <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.runners.model.Statement%2Clong%29.be7a3ea23adc41352f53ee2a9516b9e9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    private FailOnTimeout(Builder builder, Statement statement) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 46];
+n$1=_fun_Statement.&lt;init&gt;()(n$0:org.junit.internal.runners.statements.FailOnTimeout*) [line 46];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62.html">summary for FailOnTimeout.&lt;init&gt;(FailOnTimeout$Builder,Statement)</a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        originalStatement = statement; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 47];
+n$3=*&amp;statement:org.junit.runners.model.Statement* [line 47];
+*n$2.originalStatement:org.junit.internal.runners.statements.FailOnTimeout(root org.junit.internal.runners.statements.FailOnTimeout)=n$3 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        timeout = builder.timeout; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;builder:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 48];
+n$5=_fun_long FailOnTimeout$Builder.access$100(FailOnTimeout$Builder)(n$4:org.junit.internal.runners.statements.FailOnTimeout$Builder*) [line 48];
+*&amp;$irvar0:long=n$5 [line 48];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 48];
+n$7=*&amp;$irvar0:long [line 48];
+*n$6.timeout:org.junit.internal.runners.statements.FailOnTimeout(root org.junit.internal.runners.statements.FailOnTimeout)=n$7 [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        timeUnit = builder.unit; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;builder:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 49];
+n$9=_fun_TimeUnit FailOnTimeout$Builder.access$200(FailOnTimeout$Builder)(n$8:org.junit.internal.runners.statements.FailOnTimeout$Builder*) [line 49];
+*&amp;$irvar1:java.util.concurrent.TimeUnit*=n$9 [line 49];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 49];
+n$11=*&amp;$irvar1:java.util.concurrent.TimeUnit* [line 49];
+*n$10.timeUnit:org.junit.internal.runners.statements.FailOnTimeout(root org.junit.internal.runners.statements.FailOnTimeout)=n$11 [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        lookForStuckThread = builder.lookForStuckThread; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;builder:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 50];
+n$13=_fun_boolean FailOnTimeout$Builder.access$300(FailOnTimeout$Builder)(n$12:org.junit.internal.runners.statements.FailOnTimeout$Builder*) [line 50];
+*&amp;$irvar2:_Bool=n$13 [line 50];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 50];
+n$15=*&amp;$irvar2:_Bool [line 50];
+*n$14.lookForStuckThread:org.junit.internal.runners.statements.FailOnTimeout(root org.junit.internal.runners.statements.FailOnTimeout)=n$15 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    } <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.<init>%28org.junit.internal.runners.statements.Fai.11e4bda4ce767e7554ea3708d0616f62_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     * Builder for {@link FailOnTimeout}. </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">     * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    public static class Builder { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24300%28org.junit.internal.runners.st.50b48b843c30deeb843f0a9a618e11f8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24200%28org.junit.internal.runners.st.f16d24b64de8569826e97602134bbe3c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24100%28org.junit.internal.runners.st.5a54d4504dc3a122ebb224516be6ad5b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28org.junit.internal.runners.statem.c032bdcb6cfb765897aa9993874d48e1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24300%28org.junit.internal.runners.st.50b48b843c30deeb843f0a9a618e11f8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 58];
+n$1=*n$0.lookForStuckThread:_Bool(root org.junit.internal.runners.statements.FailOnTimeout$Builder) [line 58];
+*&amp;return:_Bool=n$1 [line 58];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24200%28org.junit.internal.runners.st.f16d24b64de8569826e97602134bbe3c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 58];
+n$1=*n$0.unit:java.util.concurrent.TimeUnit*(root org.junit.internal.runners.statements.FailOnTimeout$Builder) [line 58];
+*&amp;return:java.util.concurrent.TimeUnit*=n$1 [line 58];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24100%28org.junit.internal.runners.st.5a54d4504dc3a122ebb224516be6ad5b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 58];
+n$1=*n$0.timeout:long(root org.junit.internal.runners.statements.FailOnTimeout$Builder) [line 58];
+*&amp;return:long=n$1 [line 58];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28org.junit.internal.runners.statem.c032bdcb6cfb765897aa9993874d48e1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 58];
+n$1=_fun_FailOnTimeout$Builder.&lt;init&gt;()(n$0:org.junit.internal.runners.statements.FailOnTimeout$Builder*) [line 58];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24300%28org.junit.internal.runners.st.50b48b843c30deeb843f0a9a618e11f8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24200%28org.junit.internal.runners.st.f16d24b64de8569826e97602134bbe3c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24100%28org.junit.internal.runners.st.5a54d4504dc3a122ebb224516be6ad5b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28org.junit.internal.runners.statem.c032bdcb6cfb765897aa9993874d48e1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28org.junit.internal.runners.statem.c032bdcb6cfb765897aa9993874d48e1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24300%28org.junit.internal.runners.st.50b48b843c30deeb843f0a9a618e11f8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24200%28org.junit.internal.runners.st.f16d24b64de8569826e97602134bbe3c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24100%28org.junit.internal.runners.st.5a54d4504dc3a122ebb224516be6ad5b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28org.junit.internal.runners.statem.c032bdcb6cfb765897aa9993874d48e1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24300%28org.junit.internal.runners.st.50b48b843c30deeb843f0a9a618e11f8.html">summary for boolean FailOnTimeout$Builder.access$300(FailOnTimeout$Builder)</a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24200%28org.junit.internal.runners.st.f16d24b64de8569826e97602134bbe3c.html">summary for TimeUnit FailOnTimeout$Builder.access$200(FailOnTimeout$Builder)</a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.access%24100%28org.junit.internal.runners.st.5a54d4504dc3a122ebb224516be6ad5b.html">summary for long FailOnTimeout$Builder.access$100(FailOnTimeout$Builder)</a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28org.junit.internal.runners.statem.c032bdcb6cfb765897aa9993874d48e1.html">summary for FailOnTimeout$Builder.&lt;init&gt;(FailOnTimeout$1)</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        private boolean lookForStuckThread = false; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 59];
+*n$2.lookForStuckThread:org.junit.internal.runners.statements.FailOnTimeout$Builder(root org.junit.internal.runners.statements.FailOnTimeout$Builder)=0 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        private long timeout = 0; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 60];
+*n$3.timeout:org.junit.internal.runners.statements.FailOnTimeout$Builder(root org.junit.internal.runners.statements.FailOnTimeout$Builder)=0 [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        private TimeUnit unit = TimeUnit.SECONDS; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 61];
+n$5=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 61];
+*n$4.unit:org.junit.internal.runners.statements.FailOnTimeout$Builder(root org.junit.internal.runners.statements.FailOnTimeout$Builder)=n$5 [line 61];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        private Builder() { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 63];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.runners.statements.FailOnTimeout$Builder*) [line 63];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101.html">summary for FailOnTimeout$Builder.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        } <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.<init>%28%29.6164662a4627f0fbffdcd441b315f101_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">         * Specifies the time to wait before timing out the test. </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">         * </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">         * &lt;p&gt;If this is not called, or is called with a {@code timeout} of </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">         * {@code 0}, the returned {@code Statement} will wait forever for the </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">         * test to complete, however the test will still launch from a separate </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">         * thread. This can be useful for disabling timeouts in environments </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">         * where they are dynamically set based on some property. </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">         * </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">         * @param timeout the maximum time to wait </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">         * @param unit the time unit of the {@code timeout} argument </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">         * @return {@code this} for method chaining. </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        public Builder withTimeout(long timeout, TimeUnit unit) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b.html">summary for FailOnTimeout$Builder FailOnTimeout$Builder.withTimeout(long,TimeUnit)</a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">            if (timeout &lt; 0) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;timeout:long [line 80];
+PRUNE(!(n$0  &gt;=  0), true); [line 80];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 9 exn:3 Conditional method_body
+n$0=*&amp;timeout:long [line 80];
+PRUNE((n$0  &gt;=  0), false); [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">                throw new IllegalArgumentException(&quot;timeout must be non-negative&quot;); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.IllegalArgumentException):java.lang.IllegalArgumentException*) [line 81];
+n$2=_fun_IllegalArgumentException.&lt;init&gt;(String)(n$1:java.lang.IllegalArgumentException*,"timeout must be non-negative":java.lang.Object*) [line 81];
+*&amp;$irvar0:java.lang.IllegalArgumentException*=n$1 [line 81];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.IllegalArgumentException* [line 81];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout$Builder*=EXN n$3 [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">            if (unit == null) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$4=*&amp;unit:java.util.concurrent.TimeUnit* [line 83];
+PRUNE(!(n$4 != null), true); [line 83];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:5 succs:12 exn:3 Conditional method_body
+n$4=*&amp;unit:java.util.concurrent.TimeUnit* [line 83];
+PRUNE((n$4 != null), false); [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">                throw new NullPointerException(&quot;TimeUnit cannot be null&quot;); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$5=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 84];
+n$6=_fun_NullPointerException.&lt;init&gt;(String)(n$5:java.lang.NullPointerException*,"TimeUnit cannot be null":java.lang.Object*) [line 84];
+*&amp;$irvar1:java.lang.NullPointerException*=n$5 [line 84];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.NullPointerException* [line 84];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout$Builder*=EXN n$7 [line 84];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">            this.timeout = timeout; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$8=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 86];
+n$9=*&amp;timeout:long [line 86];
+*n$8.timeout:org.junit.internal.runners.statements.FailOnTimeout$Builder(root org.junit.internal.runners.statements.FailOnTimeout$Builder)=n$9 [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">            this.unit = unit; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$10=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 87];
+n$11=*&amp;unit:java.util.concurrent.TimeUnit* [line 87];
+*n$10.unit:org.junit.internal.runners.statements.FailOnTimeout$Builder(root org.junit.internal.runners.statements.FailOnTimeout$Builder)=n$11 [line 87];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">            return this; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+n$12=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 88];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout$Builder*=n$12 [line 88];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 11 7 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withTimeout%28long%2Cjava.util.concurrent.Ti.f6a6ecade4f45c873e2a26bc5520c95b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">         * Specifies whether to look for a stuck thread.  If a timeout occurs and this </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">         * feature is enabled, the test will look for a thread that appears to be stuck </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">         * and dump its backtrace.  This feature is experimental.  Behavior may change </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">         * after the 4.12 release in response to feedback. </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">         * </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">         * @param enable {@code true} to enable the feature </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">         * @return {@code this} for method chaining. </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        public Builder withLookingForStuckThread(boolean enable) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withLookingForStuckThread%28boolean%29%3Aorg.j.27ce6ce8bb17227ebd1a3222ed5744d3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withLookingForStuckThread%28boolean%29%3Aorg.j.27ce6ce8bb17227ebd1a3222ed5744d3.html">summary for FailOnTimeout$Builder FailOnTimeout$Builder.withLookingForStuckThread(boolean)</a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">            this.lookForStuckThread = enable; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withLookingForStuckThread%28boolean%29%3Aorg.j.27ce6ce8bb17227ebd1a3222ed5744d3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 101];
+n$1=*&amp;enable:_Bool [line 101];
+*n$0.lookForStuckThread:org.junit.internal.runners.statements.FailOnTimeout$Builder(root org.junit.internal.runners.statements.FailOnTimeout$Builder)=n$1 [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">            return this; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withLookingForStuckThread%28boolean%29%3Aorg.j.27ce6ce8bb17227ebd1a3222ed5744d3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 102];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout$Builder*=n$2 [line 102];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withLookingForStuckThread%28boolean%29%3Aorg.j.27ce6ce8bb17227ebd1a3222ed5744d3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.withLookingForStuckThread%28boolean%29%3Aorg.j.27ce6ce8bb17227ebd1a3222ed5744d3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">         * Builds a {@link FailOnTimeout} instance using the values in this builder, </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">         * wrapping the given statement. </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">         * </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">         * @param statement statement to build </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        public FailOnTimeout build(Statement statement) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19.html">summary for FailOnTimeout FailOnTimeout$Builder.build(Statement)</a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">            if (statement == null) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;statement:org.junit.runners.model.Statement* [line 112];
+PRUNE(!(n$0 != null), true); [line 112];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;statement:org.junit.runners.model.Statement* [line 112];
+PRUNE((n$0 != null), false); [line 112];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">                throw new NullPointerException(&quot;statement cannot be null&quot;); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 113];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"statement cannot be null":java.lang.Object*) [line 113];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 113];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 113];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout*=EXN n$3 [line 113];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            return new FailOnTimeout(this, statement); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.internal.runners.statements.FailOnTimeout):org.junit.internal.runners.statements.FailOnTimeout*) [line 115];
+n$5=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$Builder* [line 115];
+n$6=*&amp;statement:org.junit.runners.model.Statement* [line 115];
+n$7=_fun_FailOnTimeout.&lt;init&gt;(FailOnTimeout$Builder,Statement,FailOnTimeout$1)(n$4:org.junit.internal.runners.statements.FailOnTimeout*,n$5:org.junit.internal.runners.statements.FailOnTimeout$Builder*,n$6:org.junit.runners.model.Statement*,null:java.lang.Object*) [line 115];
+*&amp;$irvar1:org.junit.internal.runners.statements.FailOnTimeout*=n$4 [line 115];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$8=*&amp;$irvar1:org.junit.internal.runners.statements.FailOnTimeout* [line 115];
+*&amp;return:org.junit.internal.runners.statements.FailOnTimeout*=n$8 [line 115];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 7 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24Builder.build%28org.junit.runners.model.Statement%29.5c10dd52720d0819be04a04690bc4d19_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    public void evaluate() throws Throwable { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482.html">summary for void FailOnTimeout.evaluate()</a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        CallableStatement callable = new CallableStatement(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.internal.runners.statements.FailOnTimeout$CallableStatement):org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*) [line 121];
+n$1=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 121];
+n$2=_fun_FailOnTimeout$CallableStatement.&lt;init&gt;(FailOnTimeout,FailOnTimeout$1)(n$0:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*,n$1:org.junit.internal.runners.statements.FailOnTimeout*,null:java.lang.Object*) [line 121];
+*&amp;callable:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*=n$0 [line 121];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        FutureTask&lt;Throwable&gt; task = new FutureTask&lt;Throwable&gt;(callable); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new(sizeof(t=java.util.concurrent.FutureTask):java.util.concurrent.FutureTask*) [line 122];
+n$4=*&amp;callable:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 122];
+n$5=_fun_FutureTask.&lt;init&gt;(Callable)(n$3:java.util.concurrent.FutureTask*,n$4:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*) [line 122];
+*&amp;task:java.util.concurrent.FutureTask*=n$3 [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        ThreadGroup threadGroup = threadGroupForNewThread(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 123];
+n$7=_fun_ThreadGroup FailOnTimeout.threadGroupForNewThread()(n$6:org.junit.internal.runners.statements.FailOnTimeout*) [line 123];
+*&amp;threadGroup:java.lang.ThreadGroup*=n$7 [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        Thread thread = new Thread(threadGroup, task, &quot;Time-limited test&quot;); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=_fun___new(sizeof(t=java.lang.Thread):java.lang.Thread*) [line 124];
+n$9=*&amp;threadGroup:java.lang.ThreadGroup* [line 124];
+n$10=*&amp;task:java.util.concurrent.FutureTask* [line 124];
+n$11=_fun_Thread.&lt;init&gt;(ThreadGroup,Runnable,String)(n$8:java.lang.Thread*,n$9:java.lang.ThreadGroup*,n$10:java.util.concurrent.FutureTask*,"Time-limited test":java.lang.Object*) [line 124];
+*&amp;thread:java.lang.Thread*=n$8 [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        thread.setDaemon(true); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;thread:java.lang.Thread* [line 125];
+_=*n$12:java.lang.Thread*(root java.lang.Thread) [line 125];
+n$14=_fun_void Thread.setDaemon(boolean)(n$12:java.lang.Thread*,1:int) virtual [line 125];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">        thread.start(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$15=*&amp;thread:java.lang.Thread* [line 126];
+_=*n$15:java.lang.Thread*(root java.lang.Thread) [line 126];
+n$17=_fun_void Thread.start()(n$15:java.lang.Thread*) virtual [line 126];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        callable.awaitStarted(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$18=*&amp;callable:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 127];
+_=*n$18:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement) [line 127];
+n$20=_fun_void FailOnTimeout$CallableStatement.awaitStarted()(n$18:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*) virtual [line 127];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        Throwable throwable = getResult(task, thread); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 13 exn:3 Instructions
+n$21=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 128];
+n$22=*&amp;task:java.util.concurrent.FutureTask* [line 128];
+n$23=*&amp;thread:java.lang.Thread* [line 128];
+n$24=_fun_Throwable FailOnTimeout.getResult(FutureTask,Thread)(n$21:org.junit.internal.runners.statements.FailOnTimeout*,n$22:java.util.concurrent.FutureTask*,n$23:java.lang.Thread*) [line 128];
+*&amp;throwable:java.lang.Throwable*=n$24 [line 128];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        if (throwable != null) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$25=*&amp;throwable:java.lang.Throwable* [line 129];
+PRUNE(!(n$25 == null), true); [line 129];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:15 exn:3 Conditional method_body
+n$25=*&amp;throwable:java.lang.Throwable* [line 129];
+PRUNE((n$25 == null), false); [line 129];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">            throw throwable; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:2 exn:3 Instructions
+n$26=*&amp;throwable:java.lang.Throwable* [line 130];
+*&amp;return:void=EXN n$26 [line 130];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    } <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 14 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.evaluate%28%29%3Avoid.885348a6a52ee3d5cd164419560aa482_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    private ThreadGroup threadGroupForNewThread() { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5.html">summary for ThreadGroup FailOnTimeout.threadGroupForNewThread()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        if (!lookForStuckThread) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 135];
+n$1=*n$0.lookForStuckThread:_Bool(root org.junit.internal.runners.statements.FailOnTimeout) [line 135];
+PRUNE(!(n$1 != 0), true); [line 135];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 135];
+n$1=*n$0.lookForStuckThread:_Bool(root org.junit.internal.runners.statements.FailOnTimeout) [line 135];
+PRUNE((n$1 != 0), false); [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">            // Use the default ThreadGroup (usually the one from the current </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">            // thread). </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">            return null; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:2 exn:3 Instructions
+*&amp;return:java.lang.ThreadGroup*=null [line 138];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        // Create the thread in a new ThreadGroup, so if the time-limited thread </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        // becomes stuck, getStuckThread() can find the thread likely to be the </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        // culprit. </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        ThreadGroup threadGroup = new ThreadGroup(&quot;FailOnTimeoutGroup&quot;); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.lang.ThreadGroup):java.lang.ThreadGroup*) [line 144];
+n$3=_fun_ThreadGroup.&lt;init&gt;(String)(n$2:java.lang.ThreadGroup*,"FailOnTimeoutGroup":java.lang.Object*) [line 144];
+*&amp;threadGroup:java.lang.ThreadGroup*=n$2 [line 144];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        if (!threadGroup.isDaemon()) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 10 exn:3 Instructions
+n$4=*&amp;threadGroup:java.lang.ThreadGroup* [line 145];
+_=*n$4:java.lang.ThreadGroup*(root java.lang.ThreadGroup) [line 145];
+n$6=_fun_boolean ThreadGroup.isDaemon()(n$4:java.lang.ThreadGroup*) virtual [line 145];
+*&amp;$irvar0:_Bool=n$6 [line 145];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 145];
+PRUNE(!(n$7 != 0), true); [line 145];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:13 exn:3 Conditional method_body
+n$7=*&amp;$irvar0:_Bool [line 145];
+PRUNE((n$7 != 0), false); [line 145];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            // Mark the new ThreadGroup as a daemon thread group, so it will be </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">            // destroyed after the time-limited thread completes. By ensuring the </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">            // ThreadGroup is destroyed, any data associated with the ThreadGroup </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">            // (ex: via java.beans.ThreadGroupContext) is destroyed. </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">                threadGroup.setDaemon(true); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:13 exn:16 Instructions
+n$8=*&amp;threadGroup:java.lang.ThreadGroup* [line 151];
+_=*n$8:java.lang.ThreadGroup*(root java.lang.ThreadGroup) [line 151];
+n$10=_fun_void ThreadGroup.setDaemon(boolean)(n$8:java.lang.ThreadGroup*,1:int) virtual [line 151];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">            } catch (SecurityException e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:14 succs:13 exn:3 Instructions
+n$11=*&amp;CatchVar34:java.lang.Object* [line 152];
+*&amp;$bcvar2:java.lang.Object*=n$11 [line 152];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:16 succs:12 exn:3 Conditional exception handler
+n$15=_fun___instanceof(n$14:java.lang.SecurityException*,sizeof(t=java.lang.SecurityException):void) [line 152];
+PRUNE(n$15, true); [line 152];
+*&amp;CatchVar34:java.lang.ThreadGroup*=n$14 [line 152];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:16 succs:3 exn:3 Conditional exception handler
+n$15=_fun___instanceof(n$14:java.lang.SecurityException*,sizeof(t=java.lang.SecurityException):void) [line 152];
+PRUNE(!n$15, false); [line 152];
+*&amp;return:java.lang.ThreadGroup*=EXN n$14 [line 152];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds: succs:14 15 exn:3 Instructions
+n$13=*&amp;return:java.lang.ThreadGroup* [line 152];
+*&amp;return:java.lang.ThreadGroup*=null [line 152];
+n$14=_fun___unwrap_exception(n$13:java.lang.ThreadGroup*) [line 152];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">                // Swallow the exception to keep the same behavior as in JUnit 4.12. </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">        return threadGroup; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 11 10 succs:2 exn:3 Instructions
+n$12=*&amp;threadGroup:java.lang.ThreadGroup* [line 156];
+*&amp;return:java.lang.ThreadGroup*=n$12 [line 156];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 6 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.threadGroupForNewThread%28%29%3Ajava.lang.ThreadGroup.111445bf8f949b7f7f3950139a8ca0e5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:15 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">     * Wait for the test task, returning the exception thrown by the test if the </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">     * test failed, an exception indicating a timeout if the test timed out, or </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">     * {@code null} if the test passed. </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">    private Throwable getResult(FutureTask&lt;Throwable&gt; task, Thread thread) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1.html">summary for Throwable FailOnTimeout.getResult(FutureTask,Thread)</a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">            if (timeout &gt; 0) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:24 Conditional method_body
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 166];
+n$1=*n$0.timeout:long(root org.junit.internal.runners.statements.FailOnTimeout) [line 166];
+PRUNE(!(n$1  &lt;=  0), true); [line 166];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:24 Conditional method_body
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 166];
+n$1=*n$0.timeout:long(root org.junit.internal.runners.statements.FailOnTimeout) [line 166];
+PRUNE((n$1  &lt;=  0), false); [line 166];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">                return task.get(timeout, timeUnit); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:24 Instructions
+n$2=*&amp;task:java.util.concurrent.FutureTask* [line 167];
+_=*n$2:java.util.concurrent.FutureTask*(root java.util.concurrent.FutureTask) [line 167];
+n$4=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 167];
+n$5=*n$4.timeout:long(root org.junit.internal.runners.statements.FailOnTimeout) [line 167];
+n$6=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 167];
+n$7=*n$6.timeUnit:java.util.concurrent.TimeUnit*(root org.junit.internal.runners.statements.FailOnTimeout) [line 167];
+n$8=_fun_Object FutureTask.get(long,TimeUnit)(n$2:java.util.concurrent.FutureTask*,n$5:long,n$7:java.util.concurrent.TimeUnit*) virtual [line 167];
+*&amp;$irvar0:java.lang.Object*=n$8 [line 167];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$9=*&amp;$irvar0:java.lang.Object* [line 167];
+n$10=_fun___cast(n$9:java.lang.Object*,sizeof(t=java.lang.Throwable;sub_t=( sub )(cast)):void) [line 167];
+*&amp;return:java.lang.Throwable*=n$10 [line 167];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">                return task.get(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:31 Instructions
+n$11=*&amp;task:java.util.concurrent.FutureTask* [line 169];
+_=*n$11:java.util.concurrent.FutureTask*(root java.util.concurrent.FutureTask) [line 169];
+n$13=_fun_Object FutureTask.get()(n$11:java.util.concurrent.FutureTask*) virtual [line 169];
+*&amp;$irvar1:java.lang.Object*=n$13 [line 169];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$14=*&amp;$irvar1:java.lang.Object* [line 169];
+n$15=_fun___cast(n$14:java.lang.Object*,sizeof(t=java.lang.Throwable;sub_t=( sub )(cast)):void) [line 169];
+*&amp;return:java.lang.Throwable*=n$15 [line 169];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">        } catch (InterruptedException e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:29 22 succs:11 exn:3 Instructions
+n$16=*&amp;CatchVar33:java.lang.Object* [line 171];
+*&amp;e:java.lang.Object*=n$16 [line 171];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node22.html"><span class='visited with_tooltip'>C_22<span class='tooltip'>node22 preds:24 succs:10 exn:3 Conditional exception handler
+n$32=_fun___instanceof(n$29:java.lang.InterruptedException*,sizeof(t=java.lang.InterruptedException):void) [line 171];
+PRUNE(n$32, true); [line 171];
+*&amp;CatchVar33:java.lang.Throwable*=n$29 [line 171];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node23.html"><span class='visited with_tooltip'>C_23<span class='tooltip'>node23 preds:24 succs:20 21 exn:3 Conditional exception handler
+n$32=_fun___instanceof(n$29:java.lang.InterruptedException*,sizeof(t=java.lang.InterruptedException):void) [line 171];
+PRUNE(!n$32, false); [line 171];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds: succs:22 23 exn:3 Instructions
+n$28=*&amp;return:java.lang.Throwable* [line 171];
+*&amp;return:java.lang.Throwable*=null [line 171];
+n$29=_fun___unwrap_exception(n$28:java.lang.Throwable*) [line 171];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node29.html"><span class='visited with_tooltip'>C_29<span class='tooltip'>node29 preds:31 succs:10 exn:3 Conditional exception handler
+n$35=_fun___instanceof(n$29:java.lang.InterruptedException*,sizeof(t=java.lang.InterruptedException):void) [line 171];
+PRUNE(n$35, true); [line 171];
+*&amp;CatchVar33:java.lang.Throwable*=n$29 [line 171];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node30.html"><span class='visited with_tooltip'>C_30<span class='tooltip'>node30 preds:31 succs:27 28 exn:3 Conditional exception handler
+n$35=_fun___instanceof(n$29:java.lang.InterruptedException*,sizeof(t=java.lang.InterruptedException):void) [line 171];
+PRUNE(!n$35, false); [line 171];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds: succs:29 30 exn:3 Instructions
+n$28=*&amp;return:java.lang.Throwable* [line 171];
+*&amp;return:java.lang.Throwable*=null [line 171];
+n$29=_fun___unwrap_exception(n$28:java.lang.Throwable*) [line 171];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">            return e; // caller will re-throw; no need to call Thread.interrupt() <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+n$17=*&amp;e:java.lang.Object* [line 172];
+*&amp;return:java.lang.Throwable*=n$17 [line 172];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">        } catch (ExecutionException e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:27 20 succs:13 exn:3 Instructions
+n$18=*&amp;CatchVar36:java.lang.Object* [line 173];
+*&amp;e:java.lang.Object*=n$18 [line 173];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:23 succs:12 exn:3 Conditional exception handler
+n$31=_fun___instanceof(n$29:java.util.concurrent.ExecutionException*,sizeof(t=java.util.concurrent.ExecutionException):void) [line 173];
+PRUNE(n$31, true); [line 173];
+*&amp;CatchVar36:java.lang.Throwable*=n$29 [line 173];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node21.html"><span class='visited with_tooltip'>C_21<span class='tooltip'>node21 preds:23 succs:18 19 exn:3 Conditional exception handler
+n$31=_fun___instanceof(n$29:java.util.concurrent.ExecutionException*,sizeof(t=java.util.concurrent.ExecutionException):void) [line 173];
+PRUNE(!n$31, false); [line 173];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node27.html"><span class='visited with_tooltip'>C_27<span class='tooltip'>node27 preds:30 succs:12 exn:3 Conditional exception handler
+n$34=_fun___instanceof(n$29:java.util.concurrent.ExecutionException*,sizeof(t=java.util.concurrent.ExecutionException):void) [line 173];
+PRUNE(n$34, true); [line 173];
+*&amp;CatchVar36:java.lang.Throwable*=n$29 [line 173];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node28.html"><span class='visited with_tooltip'>C_28<span class='tooltip'>node28 preds:30 succs:25 26 exn:3 Conditional exception handler
+n$34=_fun___instanceof(n$29:java.util.concurrent.ExecutionException*,sizeof(t=java.util.concurrent.ExecutionException):void) [line 173];
+PRUNE(!n$34, false); [line 173];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">            // test failed; have caller re-throw the exception thrown by the test </td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">            return e.getCause(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$19=*&amp;e:java.lang.Object* [line 175];
+_=*n$19:java.lang.Object*(root java.lang.Object) [line 175];
+n$21=_fun_Throwable ExecutionException.getCause()(n$19:java.lang.Object*) virtual [line 175];
+*&amp;$irvar2:java.lang.Throwable*=n$21 [line 175];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+n$22=*&amp;$irvar2:java.lang.Throwable* [line 175];
+*&amp;return:java.lang.Throwable*=n$22 [line 175];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">        } catch (TimeoutException e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:25 18 succs:16 exn:3 Instructions
+n$23=*&amp;CatchVar42:java.lang.Object* [line 176];
+*&amp;e:java.lang.Object*=n$23 [line 176];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:21 succs:15 exn:3 Conditional exception handler
+n$30=_fun___instanceof(n$29:java.util.concurrent.TimeoutException*,sizeof(t=java.util.concurrent.TimeoutException):void) [line 176];
+PRUNE(n$30, true); [line 176];
+*&amp;CatchVar42:java.lang.Throwable*=n$29 [line 176];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:21 succs:3 exn:3 Conditional exception handler
+n$30=_fun___instanceof(n$29:java.util.concurrent.TimeoutException*,sizeof(t=java.util.concurrent.TimeoutException):void) [line 176];
+PRUNE(!n$30, false); [line 176];
+*&amp;return:java.lang.Throwable*=EXN n$29 [line 176];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node25.html"><span class='visited with_tooltip'>C_25<span class='tooltip'>node25 preds:28 succs:15 exn:3 Conditional exception handler
+n$33=_fun___instanceof(n$29:java.util.concurrent.TimeoutException*,sizeof(t=java.util.concurrent.TimeoutException):void) [line 176];
+PRUNE(n$33, true); [line 176];
+*&amp;CatchVar42:java.lang.Throwable*=n$29 [line 176];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node26.html"><span class='visited with_tooltip'>C_26<span class='tooltip'>node26 preds:28 succs:3 exn:3 Conditional exception handler
+n$33=_fun___instanceof(n$29:java.util.concurrent.TimeoutException*,sizeof(t=java.util.concurrent.TimeoutException):void) [line 176];
+PRUNE(!n$33, false); [line 176];
+*&amp;return:java.lang.Throwable*=EXN n$29 [line 176];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">            return createTimeoutException(thread); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:17 14 11 9 7 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:26 19 succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$24=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 177];
+n$25=*&amp;thread:java.lang.Thread* [line 177];
+n$26=_fun_Exception FailOnTimeout.createTimeoutException(Thread)(n$24:org.junit.internal.runners.statements.FailOnTimeout*,n$25:java.lang.Thread*) [line 177];
+*&amp;$irvar3:java.lang.Exception*=n$26 [line 177];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getResult%28java.util.concurrent.FutureTask%2Cjava.l.4c56879217d507516c620fed51b1b8d1_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+n$27=*&amp;$irvar3:java.lang.Exception* [line 177];
+*&amp;return:java.lang.Throwable*=n$27 [line 177];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">    private Exception createTimeoutException(Thread thread) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee.html">summary for Exception FailOnTimeout.createTimeoutException(Thread)</a></td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">        StackTraceElement[] stackTrace = thread.getStackTrace(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;thread:java.lang.Thread* [line 182];
+_=*n$0:java.lang.Thread*(root java.lang.Thread) [line 182];
+n$2=_fun_StackTraceElement[] Thread.getStackTrace()(n$0:java.lang.Thread*) virtual [line 182];
+*&amp;stackTrace:java.lang.StackTraceElement*[_*_](*)=n$2 [line 182];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line">        final Thread stuckThread = lookForStuckThread ? getStuckThread(thread) : null; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 183];
+n$4=*n$3.lookForStuckThread:_Bool(root org.junit.internal.runners.statements.FailOnTimeout) [line 183];
+PRUNE(!(n$4 == 0), true); [line 183];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$5=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 183];
+n$6=*&amp;thread:java.lang.Thread* [line 183];
+n$7=_fun_Thread FailOnTimeout.getStuckThread(Thread)(n$5:org.junit.internal.runners.statements.FailOnTimeout*,n$6:java.lang.Thread*) [line 183];
+*&amp;$irvar0:java.lang.Thread*=n$7 [line 183];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Instructions
+n$8=*&amp;$irvar0:java.lang.Thread* [line 183];
+*&amp;$T0_21:java.lang.Thread*=n$8 [line 183];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:9 exn:3 Conditional method_body
+n$3=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 183];
+n$4=*n$3.lookForStuckThread:_Bool(root org.junit.internal.runners.statements.FailOnTimeout) [line 183];
+PRUNE((n$4 == 0), false); [line 183];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+*&amp;$T0_21:java.lang.Object*=null [line 183];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 8 succs:11 exn:3 Instructions
+n$9=*&amp;$T0_21:java.lang.Object* [line 183];
+*&amp;stuckThread:java.lang.Object*=n$9 [line 183];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line">        Exception currThreadException = new TestTimedOutException(timeout, timeUnit); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 13 exn:3 Instructions
+n$10=_fun___new(sizeof(t=org.junit.runners.model.TestTimedOutException):org.junit.runners.model.TestTimedOutException*) [line 184];
+n$11=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 184];
+n$12=*n$11.timeout:long(root org.junit.internal.runners.statements.FailOnTimeout) [line 184];
+n$13=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 184];
+n$14=*n$13.timeUnit:java.util.concurrent.TimeUnit*(root org.junit.internal.runners.statements.FailOnTimeout) [line 184];
+n$15=_fun_TestTimedOutException.&lt;init&gt;(long,TimeUnit)(n$10:org.junit.runners.model.TestTimedOutException*,n$12:long,n$14:java.util.concurrent.TimeUnit*) [line 184];
+*&amp;currThreadException:org.junit.runners.model.TestTimedOutException*=n$10 [line 184];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">        if (stackTrace != null) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$16=*&amp;stackTrace:java.lang.StackTraceElement*[_*_](*) [line 185];
+PRUNE(!(n$16 == null), true); [line 185];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:16 17 exn:3 Conditional method_body
+n$16=*&amp;stackTrace:java.lang.StackTraceElement*[_*_](*) [line 185];
+PRUNE((n$16 == null), false); [line 185];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line">            currThreadException.setStackTrace(stackTrace); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:15 exn:3 Instructions
+n$17=*&amp;currThreadException:org.junit.runners.model.TestTimedOutException* [line 186];
+_=*n$17:org.junit.runners.model.TestTimedOutException*(root org.junit.runners.model.TestTimedOutException) [line 186];
+n$19=*&amp;stackTrace:java.lang.StackTraceElement*[_*_](*) [line 186];
+n$20=_fun_void Exception.setStackTrace(StackTraceElement[])(n$17:org.junit.runners.model.TestTimedOutException*,n$19:java.lang.StackTraceElement*[_*_](*)) virtual [line 186];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">            thread.interrupt(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 17 exn:3 Instructions
+n$21=*&amp;thread:java.lang.Thread* [line 187];
+_=*n$21:java.lang.Thread*(root java.lang.Thread) [line 187];
+n$23=_fun_void Thread.interrupt()(n$21:java.lang.Thread*) virtual [line 187];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line">        if (stuckThread != null) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:15 13 succs:18 exn:3 Conditional method_body
+n$24=*&amp;stuckThread:java.lang.Object* [line 189];
+PRUNE(!(n$24 == null), true); [line 189];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:15 13 succs:32 exn:3 Conditional method_body
+n$24=*&amp;stuckThread:java.lang.Object* [line 189];
+PRUNE((n$24 == null), false); [line 189];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">            Exception stuckThreadException =  <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:16 succs:19 exn:3 Instructions
+n$25=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 190];
+n$26=_fun_StringBuilder.&lt;init&gt;()(n$25:java.lang.StringBuilder*) [line 190];
+*&amp;$irvar1:java.lang.StringBuilder*=n$25 [line 190];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$27=*&amp;$irvar1:java.lang.StringBuilder* [line 190];
+_=*n$27:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 190];
+n$29=_fun_StringBuilder StringBuilder.append(String)(n$27:java.lang.StringBuilder*,"Appears to be stuck in thread ":java.lang.Object*) virtual [line 190];
+*&amp;$irvar2:java.lang.StringBuilder*=n$29 [line 190];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line">                new Exception(&quot;Appears to be stuck in thread &quot; + </td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">                               stuckThread.getName()); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$30=*&amp;stuckThread:java.lang.Object* [line 192];
+_=*n$30:java.lang.Object*(root java.lang.Object) [line 192];
+n$32=_fun_String Thread.getName()(n$30:java.lang.Object*) virtual [line 192];
+*&amp;$irvar3:java.lang.String*=n$32 [line 192];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$33=*&amp;$irvar2:java.lang.StringBuilder* [line 192];
+_=*n$33:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 192];
+n$35=*&amp;$irvar3:java.lang.String* [line 192];
+n$36=_fun_StringBuilder StringBuilder.append(String)(n$33:java.lang.StringBuilder*,n$35:java.lang.String*) virtual [line 192];
+*&amp;$irvar4:java.lang.StringBuilder*=n$36 [line 192];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$37=*&amp;$irvar4:java.lang.StringBuilder* [line 192];
+_=*n$37:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 192];
+n$39=_fun_String StringBuilder.toString()(n$37:java.lang.StringBuilder*) virtual [line 192];
+*&amp;$irvar5:java.lang.String*=n$39 [line 192];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$40=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 192];
+n$41=*&amp;$irvar5:java.lang.String* [line 192];
+n$42=_fun_Exception.&lt;init&gt;(String)(n$40:java.lang.Exception*,n$41:java.lang.String*) [line 192];
+*&amp;stuckThreadException:java.lang.Exception*=n$40 [line 192];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">            stuckThreadException.setStackTrace(getStackTrace(stuckThread)); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$43=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 193];
+n$44=*&amp;stuckThread:java.lang.Object* [line 193];
+n$45=_fun_StackTraceElement[] FailOnTimeout.getStackTrace(Thread)(n$43:org.junit.internal.runners.statements.FailOnTimeout*,n$44:java.lang.Object*) [line 193];
+*&amp;$irvar6:java.lang.StackTraceElement*[_*_](*)=n$45 [line 193];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$46=*&amp;stuckThreadException:java.lang.Exception* [line 193];
+_=*n$46:java.lang.Exception*(root java.lang.Exception) [line 193];
+n$48=*&amp;$irvar6:java.lang.StackTraceElement*[_*_](*) [line 193];
+n$49=_fun_void Exception.setStackTrace(StackTraceElement[])(n$46:java.lang.Exception*,n$48:java.lang.StackTraceElement*[_*_](*)) virtual [line 193];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line">            return new MultipleFailureException( <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$50=_fun___new_array(sizeof(t=java.lang.Throwable*[_*_];len=[2]):java.lang.Throwable*[_*_](*)) [line 194];
+*&amp;$irvar7:java.lang.Throwable*[_*_](*)=n$50 [line 194];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$51=*&amp;$irvar7:java.lang.Throwable*[_*_](*) [line 194];
+n$52=*&amp;currThreadException:org.junit.runners.model.TestTimedOutException* [line 194];
+*n$51[0]:org.junit.runners.model.TestTimedOutException*=n$52 [line 194];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$53=*&amp;$irvar7:java.lang.Throwable*[_*_](*) [line 194];
+n$54=*&amp;stuckThreadException:java.lang.Exception* [line 194];
+*n$53[1]:java.lang.Exception*=n$54 [line 194];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:2 exn:3 Instructions
+n$60=*&amp;$irvar9:org.junit.runners.model.MultipleFailureException* [line 194];
+*&amp;return:java.lang.Exception*=n$60 [line 194];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line">                Arrays.&lt;Throwable&gt;asList(currThreadException, stuckThreadException)); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$55=*&amp;$irvar7:java.lang.Throwable*[_*_](*) [line 195];
+n$56=_fun_List Arrays.asList(Object[])(n$55:java.lang.Throwable*[_*_](*)) [line 195];
+*&amp;$irvar8:java.util.List*=n$56 [line 195];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$57=_fun___new(sizeof(t=org.junit.runners.model.MultipleFailureException):org.junit.runners.model.MultipleFailureException*) [line 195];
+n$58=*&amp;$irvar8:java.util.List* [line 195];
+n$59=_fun_MultipleFailureException.&lt;init&gt;(List)(n$57:org.junit.runners.model.MultipleFailureException*,n$58:java.util.List*) [line 195];
+*&amp;$irvar9:org.junit.runners.model.MultipleFailureException*=n$57 [line 195];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">            return currThreadException; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:17 succs:2 exn:3 Instructions
+n$61=*&amp;currThreadException:org.junit.runners.model.TestTimedOutException* [line 197];
+*&amp;return:java.lang.Exception*=n$61 [line 197];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 31 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.createTimeoutException%28java.lang.Thread%29%3Ajava.la.b7d4d7a4a24b5df34333b7542fb543ee_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line">     * Retrieves the stack trace for a given thread. </td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line">     * @param thread The thread whose stack is to be retrieved. </td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">     * @return The stack trace; returns a zero-length array if the thread has  </td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">     * terminated or the stack cannot be retrieved for some other reason. </td></tr>
+<tr><td class="num" id="LINE206">206</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE207">207</td><td class="line">    private StackTraceElement[] getStackTrace(Thread thread) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a.html">summary for StackTraceElement[] FailOnTimeout.getStackTrace(Thread)</a></td></tr>
+<tr><td class="num" id="LINE208">208</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE209">209</td><td class="line">            return thread.getStackTrace(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:11 Instructions
+n$0=*&amp;thread:java.lang.Thread* [line 209];
+_=*n$0:java.lang.Thread*(root java.lang.Thread) [line 209];
+n$2=_fun_StackTraceElement[] Thread.getStackTrace()(n$0:java.lang.Thread*) virtual [line 209];
+*&amp;$irvar0:java.lang.StackTraceElement*[_*_](*)=n$2 [line 209];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.StackTraceElement*[_*_](*) [line 209];
+*&amp;return:java.lang.StackTraceElement*[_*_](*)=n$3 [line 209];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE210">210</td><td class="line">        } catch (SecurityException e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:9 succs:7 exn:3 Instructions
+n$4=*&amp;CatchVar5:java.lang.Object* [line 210];
+*&amp;e:java.lang.Object*=n$4 [line 210];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:6 exn:3 Conditional exception handler
+n$9=_fun___instanceof(n$8:java.lang.SecurityException*,sizeof(t=java.lang.SecurityException):void) [line 210];
+PRUNE(n$9, true); [line 210];
+*&amp;CatchVar5:java.lang.StackTraceElement*[_*_](*)=n$8 [line 210];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:3 exn:3 Conditional exception handler
+n$9=_fun___instanceof(n$8:java.lang.SecurityException*,sizeof(t=java.lang.SecurityException):void) [line 210];
+PRUNE(!n$9, false); [line 210];
+*&amp;return:java.lang.StackTraceElement*[_*_](*)=EXN n$8 [line 210];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds: succs:9 10 exn:3 Instructions
+n$7=*&amp;return:java.lang.StackTraceElement*[_*_](*) [line 210];
+*&amp;return:java.lang.StackTraceElement*[_*_](*)=null [line 210];
+n$8=_fun___unwrap_exception(n$7:java.lang.StackTraceElement*[_*_](*)) [line 210];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE211">211</td><td class="line">            return new StackTraceElement[0]; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:10 succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=_fun___new_array(sizeof(t=java.lang.StackTraceElement*[_*_];len=[0]):java.lang.StackTraceElement*[_*_](*)) [line 211];
+*&amp;$irvar1:java.lang.StackTraceElement*[_*_](*)=n$5 [line 211];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStackTrace%28java.lang.Thread%29%3Ajava.lang.StackT.06b3922d635fc26645bda229f9a1202a_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$6=*&amp;$irvar1:java.lang.StackTraceElement*[_*_](*) [line 211];
+*&amp;return:java.lang.StackTraceElement*[_*_](*)=n$6 [line 211];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE212">212</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE213">213</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE214">214</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE215">215</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE216">216</td><td class="line">     * Determines whether the test appears to be stuck in some thread other than </td></tr>
+<tr><td class="num" id="LINE217">217</td><td class="line">     * the &quot;main thread&quot; (the one created to run the test).  This feature is experimental. </td></tr>
+<tr><td class="num" id="LINE218">218</td><td class="line">     * Behavior may change after the 4.12 release in response to feedback. </td></tr>
+<tr><td class="num" id="LINE219">219</td><td class="line">     * @param mainThread The main thread created by {@code evaluate()} </td></tr>
+<tr><td class="num" id="LINE220">220</td><td class="line">     * @return The thread which appears to be causing the problem, if different from </td></tr>
+<tr><td class="num" id="LINE221">221</td><td class="line">     * {@code mainThread}, or {@code null} if the main thread appears to be the </td></tr>
+<tr><td class="num" id="LINE222">222</td><td class="line">     * problem or if the thread cannot be determined.  The return value is never equal  </td></tr>
+<tr><td class="num" id="LINE223">223</td><td class="line">     * to {@code mainThread}. </td></tr>
+<tr><td class="num" id="LINE224">224</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE225">225</td><td class="line">    private Thread getStuckThread(Thread mainThread) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2.html">summary for Thread FailOnTimeout.getStuckThread(Thread)</a></td></tr>
+<tr><td class="num" id="LINE226">226</td><td class="line">        List&lt;Thread&gt; threadsInGroup = getThreadsInGroup(mainThread.getThreadGroup()); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;mainThread:java.lang.Thread* [line 226];
+_=*n$0:java.lang.Thread*(root java.lang.Thread) [line 226];
+n$2=_fun_ThreadGroup Thread.getThreadGroup()(n$0:java.lang.Thread*) virtual [line 226];
+*&amp;$irvar0:java.lang.ThreadGroup*=n$2 [line 226];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 226];
+n$4=*&amp;$irvar0:java.lang.ThreadGroup* [line 226];
+n$5=_fun_List FailOnTimeout.getThreadsInGroup(ThreadGroup)(n$3:org.junit.internal.runners.statements.FailOnTimeout*,n$4:java.lang.ThreadGroup*) [line 226];
+*&amp;threadsInGroup:java.util.List*=n$5 [line 226];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE227">227</td><td class="line">        if (threadsInGroup.isEmpty()) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 8 exn:3 Instructions
+n$6=*&amp;threadsInGroup:java.util.List* [line 227];
+_=*n$6:java.util.List*(root java.util.List) [line 227];
+n$8=_fun_boolean List.isEmpty()(n$6:java.util.List*) interface virtual [line 227];
+*&amp;$irvar1:_Bool=n$8 [line 227];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 succs:9 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 227];
+PRUNE(!(n$9 == 0), true); [line 227];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 succs:10 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 227];
+PRUNE((n$9 == 0), false); [line 227];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE228">228</td><td class="line">            return null; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Thread*=null [line 228];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE229">229</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE230">230</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE231">231</td><td class="line">        // Now that we have all the threads in the test's thread group: Assume that </td></tr>
+<tr><td class="num" id="LINE232">232</td><td class="line">        // any thread we're &quot;stuck&quot; in is RUNNABLE.  Look for all RUNNABLE threads.  </td></tr>
+<tr><td class="num" id="LINE233">233</td><td class="line">        // If just one, we return that (unless it equals threadMain).  If there's more </td></tr>
+<tr><td class="num" id="LINE234">234</td><td class="line">        // than one, pick the one that's using the most CPU time, if this feature is </td></tr>
+<tr><td class="num" id="LINE235">235</td><td class="line">        // supported. </td></tr>
+<tr><td class="num" id="LINE236">236</td><td class="line">        Thread stuckThread = null; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+*&amp;stuckThread:java.lang.Object*=null [line 236];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE237">237</td><td class="line">        long maxCpuTime = 0; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+*&amp;maxCpuTime:long=0 [line 237];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE238">238</td><td class="line">        for (Thread thread : threadsInGroup) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$10=*&amp;threadsInGroup:java.util.List* [line 238];
+_=*n$10:java.util.List*(root java.util.List) [line 238];
+n$12=_fun_Iterator List.iterator()(n$10:java.util.List*) interface virtual [line 238];
+*&amp;$bcvar6:java.util.Iterator*=n$12 [line 238];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:30 28 21 12 succs:16 exn:3 Instructions
+n$13=*&amp;$bcvar6:java.util.Iterator* [line 238];
+_=*n$13:java.util.Iterator*(root java.util.Iterator) [line 238];
+n$15=_fun_boolean Iterator.hasNext()(n$13:java.util.Iterator*) interface virtual [line 238];
+*&amp;$irvar2:_Bool=n$15 [line 238];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node16.html"><span class='visited with_tooltip'>J_16<span class='tooltip'>node16 preds:13 succs:14 15 exn: Join
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:16 succs:17 exn:3 Conditional method_body
+n$16=*&amp;$irvar2:_Bool [line 238];
+PRUNE(!(n$16 == 0), true); [line 238];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:14 succs:18 exn:3 Instructions
+n$17=*&amp;$bcvar6:java.util.Iterator* [line 238];
+_=*n$17:java.util.Iterator*(root java.util.Iterator) [line 238];
+n$19=_fun_Object Iterator.next()(n$17:java.util.Iterator*) interface virtual [line 238];
+*&amp;$irvar3:java.lang.Object*=n$19 [line 238];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$20=*&amp;$irvar3:java.lang.Object* [line 238];
+n$21=_fun___cast(n$20:java.lang.Object*,sizeof(t=java.lang.Thread;sub_t=( sub )(cast)):void) [line 238];
+*&amp;thread:java.lang.Thread*=n$21 [line 238];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:16 succs:31 32 exn:3 Conditional method_body
+n$16=*&amp;$irvar2:_Bool [line 238];
+PRUNE((n$16 == 0), false); [line 238];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE239">239</td><td class="line">            if (thread.getState() == Thread.State.RUNNABLE) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:22 exn:3 Instructions
+n$22=*&amp;thread:java.lang.Thread* [line 239];
+_=*n$22:java.lang.Thread*(root java.lang.Thread) [line 239];
+n$24=_fun_Thread$State Thread.getState()(n$22:java.lang.Thread*) virtual [line 239];
+*&amp;$irvar4:java.lang.Thread$State*=n$24 [line 239];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node22.html"><span class='visited with_tooltip'>J_22<span class='tooltip'>node22 preds:19 succs:20 21 exn: Join
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:22 succs:23 exn:3 Conditional method_body
+n$25=*&amp;$irvar4:java.lang.Thread$State* [line 239];
+n$26=*&amp;#GB<>$java.lang.Thread$State.RUNNABLE:java.lang.Thread$State*(root java.lang.Thread$State) [line 239];
+PRUNE(!(n$25 != n$26), true); [line 239];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node21.html"><span class='visited with_tooltip'>C_21<span class='tooltip'>node21 preds:22 succs:13 exn:3 Conditional method_body
+n$25=*&amp;$irvar4:java.lang.Thread$State* [line 239];
+n$26=*&amp;#GB<>$java.lang.Thread$State.RUNNABLE:java.lang.Thread$State*(root java.lang.Thread$State) [line 239];
+PRUNE((n$25 != n$26), false); [line 239];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE240">240</td><td class="line">                long threadCpuTime = cpuTime(thread); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:20 succs:26 exn:3 Instructions
+n$27=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout* [line 240];
+n$28=*&amp;thread:java.lang.Thread* [line 240];
+n$29=_fun_long FailOnTimeout.cpuTime(Thread)(n$27:org.junit.internal.runners.statements.FailOnTimeout*,n$28:java.lang.Thread*) [line 240];
+*&amp;threadCpuTime:long=n$29 [line 240];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE241">241</td><td class="line">                if (stuckThread == null || threadCpuTime &gt; maxCpuTime) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node26.html"><span class='visited with_tooltip'>J_26<span class='tooltip'>node26 preds:23 succs:24 25 exn: Join
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node24.html"><span class='visited with_tooltip'>C_24<span class='tooltip'>node24 preds:26 succs:27 28 exn:3 Conditional method_body
+n$30=*&amp;stuckThread:java.lang.Object* [line 241];
+PRUNE(!(n$30 == null), true); [line 241];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node27.html"><span class='visited with_tooltip'>C_27<span class='tooltip'>node27 preds:24 succs:29 exn:3 Conditional method_body
+n$31=*&amp;threadCpuTime:long [line 241];
+n$32=*&amp;maxCpuTime:long [line 241];
+PRUNE(!(n$31  &lt;=  n$32), true); [line 241];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node28.html"><span class='visited with_tooltip'>C_28<span class='tooltip'>node28 preds:24 succs:13 exn:3 Conditional method_body
+n$31=*&amp;threadCpuTime:long [line 241];
+n$32=*&amp;maxCpuTime:long [line 241];
+PRUNE((n$31  &lt;=  n$32), false); [line 241];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node25.html"><span class='visited with_tooltip'>C_25<span class='tooltip'>node25 preds:26 succs:29 exn:3 Conditional method_body
+n$30=*&amp;stuckThread:java.lang.Object* [line 241];
+PRUNE((n$30 == null), false); [line 241];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE242">242</td><td class="line">                    stuckThread = thread; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:27 25 succs:30 exn:3 Instructions
+n$33=*&amp;thread:java.lang.Thread* [line 242];
+*&amp;stuckThread:java.lang.Thread*=n$33 [line 242];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE243">243</td><td class="line">                    maxCpuTime = threadCpuTime; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:13 exn:3 Instructions
+n$34=*&amp;threadCpuTime:long [line 243];
+*&amp;maxCpuTime:long=n$34 [line 243];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE244">244</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE245">245</td><td class="line">            }                </td></tr>
+<tr><td class="num" id="LINE246">246</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE247">247</td><td class="line">        return (stuckThread == mainThread) ? null : stuckThread; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node31.html"><span class='visited with_tooltip'>C_31<span class='tooltip'>node31 preds:15 succs:33 exn:3 Conditional method_body
+n$35=*&amp;stuckThread:java.lang.Thread* [line 247];
+n$36=*&amp;mainThread:java.lang.Thread* [line 247];
+PRUNE(!(n$35 != n$36), true); [line 247];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:31 succs:35 exn:3 Instructions
+*&amp;$T0_106:java.lang.Object*=null [line 247];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node32.html"><span class='visited with_tooltip'>C_32<span class='tooltip'>node32 preds:15 succs:34 exn:3 Conditional method_body
+n$35=*&amp;stuckThread:java.lang.Thread* [line 247];
+n$36=*&amp;mainThread:java.lang.Thread* [line 247];
+PRUNE((n$35 != n$36), false); [line 247];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:32 succs:35 exn:3 Instructions
+n$37=*&amp;stuckThread:java.lang.Thread* [line 247];
+*&amp;$T0_106:java.lang.Thread*=n$37 [line 247];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:34 33 succs:2 exn:3 Instructions
+n$38=*&amp;$T0_106:java.lang.Thread* [line 247];
+*&amp;return:java.lang.Thread*=n$38 [line 247];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:35 9 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getStuckThread%28java.lang.Thread%29%3Ajava.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE248">248</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE249">249</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE250">250</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE251">251</td><td class="line">     * Returns all active threads belonging to a thread group.   </td></tr>
+<tr><td class="num" id="LINE252">252</td><td class="line">     * @param group The thread group. </td></tr>
+<tr><td class="num" id="LINE253">253</td><td class="line">     * @return The active threads in the thread group.  The result should be a </td></tr>
+<tr><td class="num" id="LINE254">254</td><td class="line">     * complete list of the active threads at some point in time.  Returns an empty list </td></tr>
+<tr><td class="num" id="LINE255">255</td><td class="line">     * if this cannot be determined, e.g. because new threads are being created at an </td></tr>
+<tr><td class="num" id="LINE256">256</td><td class="line">     * extremely fast rate. </td></tr>
+<tr><td class="num" id="LINE257">257</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE258">258</td><td class="line">    private List&lt;Thread&gt; getThreadsInGroup(ThreadGroup group) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd.html">summary for List FailOnTimeout.getThreadsInGroup(ThreadGroup)</a></td></tr>
+<tr><td class="num" id="LINE259">259</td><td class="line">        final int activeThreadCount = group.activeCount(); // this is just an estimate <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;group:java.lang.ThreadGroup* [line 259];
+_=*n$0:java.lang.ThreadGroup*(root java.lang.ThreadGroup) [line 259];
+n$2=_fun_int ThreadGroup.activeCount()(n$0:java.lang.ThreadGroup*) virtual [line 259];
+*&amp;activeThreadCount:int=n$2 [line 259];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE260">260</td><td class="line">        int threadArraySize = Math.max(activeThreadCount * 2, 100); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;activeThreadCount:int [line 260];
+n$4=_fun_int Math.max(int,int)((n$3 * 2):int,100:int) [line 260];
+*&amp;threadArraySize:int=n$4 [line 260];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE261">261</td><td class="line">        for (int loopCount = 0; loopCount &lt; 5; loopCount++) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:9 exn:3 Instructions
+*&amp;loopCount:int=0 [line 261];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:19 6 succs:7 8 exn: Join
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$5=*&amp;loopCount:int [line 261];
+PRUNE(!(n$5  &gt;=  5), true); [line 261];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:9 exn:3 Instructions
+n$22=*&amp;loopCount:int [line 261];
+*&amp;loopCount:int=(n$22 + 1) [line 261];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:20 exn:3 Conditional method_body
+n$5=*&amp;loopCount:int [line 261];
+PRUNE((n$5  &gt;=  5), false); [line 261];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE262">262</td><td class="line">            Thread[] threads = new Thread[threadArraySize]; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$6=*&amp;threadArraySize:int [line 262];
+n$7=_fun___new_array(sizeof(t=java.lang.Thread*[_*_];len=[n$6]):java.lang.Thread*[_*_](*)) [line 262];
+*&amp;threads:java.lang.Thread*[_*_](*)=n$7 [line 262];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE263">263</td><td class="line">            int enumCount = group.enumerate(threads); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:14 exn:3 Instructions
+n$8=*&amp;group:java.lang.ThreadGroup* [line 263];
+_=*n$8:java.lang.ThreadGroup*(root java.lang.ThreadGroup) [line 263];
+n$10=*&amp;threads:java.lang.Thread*[_*_](*) [line 263];
+n$11=_fun_int ThreadGroup.enumerate(Thread[])(n$8:java.lang.ThreadGroup*,n$10:java.lang.Thread*[_*_](*)) virtual [line 263];
+*&amp;enumCount:int=n$11 [line 263];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE264">264</td><td class="line">            if (enumCount &lt; threadArraySize) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node14.html"><span class='visited with_tooltip'>J_14<span class='tooltip'>node14 preds:11 succs:12 13 exn: Join
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:14 succs:18 exn:3 Conditional method_body
+n$12=*&amp;enumCount:int [line 264];
+n$13=*&amp;threadArraySize:int [line 264];
+PRUNE((n$12  &gt;=  n$13), false); [line 264];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:14 succs:15 exn:3 Conditional method_body
+n$12=*&amp;enumCount:int [line 264];
+n$13=*&amp;threadArraySize:int [line 264];
+PRUNE(!(n$12  &gt;=  n$13), true); [line 264];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE265">265</td><td class="line">                return Arrays.asList(threads).subList(0, enumCount); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:12 succs:16 exn:3 Instructions
+n$14=*&amp;threads:java.lang.Thread*[_*_](*) [line 265];
+n$15=_fun_List Arrays.asList(Object[])(n$14:java.lang.Thread*[_*_](*)) [line 265];
+*&amp;$irvar0:java.util.List*=n$15 [line 265];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$16=*&amp;$irvar0:java.util.List* [line 265];
+_=*n$16:java.util.List*(root java.util.List) [line 265];
+n$18=*&amp;enumCount:int [line 265];
+n$19=_fun_List List.subList(int,int)(n$16:java.util.List*,0:int,n$18:int) interface virtual [line 265];
+*&amp;$irvar1:java.util.List*=n$19 [line 265];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+n$20=*&amp;$irvar1:java.util.List* [line 265];
+*&amp;return:java.util.List*=n$20 [line 265];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE266">266</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE267">267</td><td class="line">            // if there are too many threads to fit into the array, enumerate's result </td></tr>
+<tr><td class="num" id="LINE268">268</td><td class="line">            // is &gt;= the array's length; therefore we can't trust that it returned all </td></tr>
+<tr><td class="num" id="LINE269">269</td><td class="line">            // the threads.  Try again. </td></tr>
+<tr><td class="num" id="LINE270">270</td><td class="line">            threadArraySize += 100; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:13 succs:19 exn:3 Instructions
+n$21=*&amp;threadArraySize:int [line 270];
+*&amp;threadArraySize:int=(n$21 + 100) [line 270];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE271">271</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE272">272</td><td class="line">        // threads are proliferating too fast for us.  Bail before we get into  </td></tr>
+<tr><td class="num" id="LINE273">273</td><td class="line">        // trouble. </td></tr>
+<tr><td class="num" id="LINE274">274</td><td class="line">        return Collections.emptyList(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:8 succs:21 exn:3 Instructions
+n$23=_fun_List Collections.emptyList()() [line 274];
+*&amp;$irvar2:java.util.List*=n$23 [line 274];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:2 exn:3 Instructions
+n$24=*&amp;$irvar2:java.util.List* [line 274];
+*&amp;return:java.util.List*=n$24 [line 274];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:21 17 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.getThreadsInGroup%28java.lang.ThreadGroup%29%3Ajava.ut.0993302ba566560d19ca358bd9edf7dd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE275">275</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE276">276</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE277">277</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE278">278</td><td class="line">     * Returns the CPU time used by a thread, if possible. </td></tr>
+<tr><td class="num" id="LINE279">279</td><td class="line">     * @param thr The thread to query. </td></tr>
+<tr><td class="num" id="LINE280">280</td><td class="line">     * @return The CPU time used by {@code thr}, or 0 if it cannot be determined. </td></tr>
+<tr><td class="num" id="LINE281">281</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE282">282</td><td class="line">    private long cpuTime(Thread thr) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6.html">summary for long FailOnTimeout.cpuTime(Thread)</a></td></tr>
+<tr><td class="num" id="LINE283">283</td><td class="line">        ThreadMXBean mxBean = ManagementFactory.getThreadMXBean(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_ThreadMXBean ManagementFactory.getThreadMXBean()() [line 283];
+*&amp;mxBean:org.junit.internal.management.ThreadMXBean*=n$0 [line 283];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE284">284</td><td class="line">        if (mxBean.isThreadCpuTimeSupported()) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$1=*&amp;mxBean:org.junit.internal.management.ThreadMXBean* [line 284];
+_=*n$1:org.junit.internal.management.ThreadMXBean*(root org.junit.internal.management.ThreadMXBean) [line 284];
+n$3=_fun_boolean ThreadMXBean.isThreadCpuTimeSupported()(n$1:org.junit.internal.management.ThreadMXBean*) interface virtual [line 284];
+*&amp;$irvar0:_Bool=n$3 [line 284];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 284];
+PRUNE(!(n$4 == 0), true); [line 284];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:12 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 284];
+PRUNE((n$4 == 0), false); [line 284];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE285">285</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE286">286</td><td class="line">                return mxBean.getThreadCpuTime(thr.getId()); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:15 Instructions
+n$5=*&amp;thr:java.lang.Thread* [line 286];
+_=*n$5:java.lang.Thread*(root java.lang.Thread) [line 286];
+n$7=_fun_long Thread.getId()(n$5:java.lang.Thread*) virtual [line 286];
+*&amp;$irvar1:long=n$7 [line 286];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:15 Instructions
+n$8=*&amp;mxBean:org.junit.internal.management.ThreadMXBean* [line 286];
+_=*n$8:org.junit.internal.management.ThreadMXBean*(root org.junit.internal.management.ThreadMXBean) [line 286];
+n$10=*&amp;$irvar1:long [line 286];
+n$11=_fun_long ThreadMXBean.getThreadCpuTime(long)(n$8:org.junit.internal.management.ThreadMXBean*,n$10:long) interface virtual [line 286];
+*&amp;$irvar2:long=n$11 [line 286];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar2:long [line 286];
+*&amp;return:long=n$12 [line 286];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE287">287</td><td class="line">            } catch (UnsupportedOperationException e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:13 succs:12 exn:3 Instructions
+n$13=*&amp;CatchVar24:java.lang.Object* [line 287];
+*&amp;$bcvar3:java.lang.Object*=n$13 [line 287];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:11 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:java.lang.UnsupportedOperationException*,sizeof(t=java.lang.UnsupportedOperationException):void) [line 287];
+PRUNE(n$16, true); [line 287];
+*&amp;CatchVar24:long=n$15 [line 287];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:3 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:java.lang.UnsupportedOperationException*,sizeof(t=java.lang.UnsupportedOperationException):void) [line 287];
+PRUNE(!n$16, false); [line 287];
+*&amp;return:long=EXN n$15 [line 287];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds: succs:13 14 exn:3 Instructions
+n$14=*&amp;return:long [line 287];
+*&amp;return:long=null [line 287];
+n$15=_fun___unwrap_exception(n$14:long) [line 287];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE288">288</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE289">289</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE290">290</td><td class="line">        return 0; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 7 succs:2 exn:3 Instructions
+*&amp;return:long=0 [line 290];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 10 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout.cpuTime%28java.lang.Thread%29%3Along.61fa48384c179d860d6d0cd5e066e6f6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:14 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE291">291</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE292">292</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE293">293</td><td class="line">    private class CallableStatement implements Callable&lt;Throwable&gt; { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Object.4909c5bac6e05c0e72cbae873e264fb6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.5a209562356e633a360a17e8e5b5eb85_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Object.4909c5bac6e05c0e72cbae873e264fb6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 293];
+_=*n$0:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement) [line 293];
+n$2=_fun_Throwable FailOnTimeout$CallableStatement.call()(n$0:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*) virtual [line 293];
+*&amp;$irvar0:java.lang.Throwable*=n$2 [line 293];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.5a209562356e633a360a17e8e5b5eb85_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 293];
+n$1=*&amp;x0:org.junit.internal.runners.statements.FailOnTimeout* [line 293];
+n$2=_fun_FailOnTimeout$CallableStatement.&lt;init&gt;(FailOnTimeout)(n$0:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*,n$1:org.junit.internal.runners.statements.FailOnTimeout*) [line 293];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 293];
+n$1=*&amp;$bcvar1:org.junit.internal.runners.statements.FailOnTimeout* [line 293];
+*n$0.this$0:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement)=n$1 [line 293];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Object.4909c5bac6e05c0e72cbae873e264fb6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Throwable* [line 293];
+*&amp;return:java.lang.Object*=n$3 [line 293];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.5a209562356e633a360a17e8e5b5eb85_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 293];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement*) [line 293];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Object.4909c5bac6e05c0e72cbae873e264fb6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.5a209562356e633a360a17e8e5b5eb85_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Object.4909c5bac6e05c0e72cbae873e264fb6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.5a209562356e633a360a17e8e5b5eb85_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Object.4909c5bac6e05c0e72cbae873e264fb6.html">summary for Object FailOnTimeout$CallableStatement.call()</a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.5a209562356e633a360a17e8e5b5eb85.html">summary for FailOnTimeout$CallableStatement.&lt;init&gt;(FailOnTimeout,FailOnTimeout$1)</a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db.html">summary for FailOnTimeout$CallableStatement.&lt;init&gt;(FailOnTimeout)</a></td></tr>
+<tr><td class="num" id="LINE294">294</td><td class="line">        private final CountDownLatch startLatch = new CountDownLatch(1); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun___new(sizeof(t=java.util.concurrent.CountDownLatch):java.util.concurrent.CountDownLatch*) [line 294];
+n$5=_fun_CountDownLatch.&lt;init&gt;(int)(n$4:java.util.concurrent.CountDownLatch*,1:int) [line 294];
+*&amp;$irvar0:java.util.concurrent.CountDownLatch*=n$4 [line 294];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 294];
+n$7=*&amp;$irvar0:java.util.concurrent.CountDownLatch* [line 294];
+*n$6.startLatch:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement)=n$7 [line 294];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.<init>%28org.junit.internal.runn.8ccf2d595f9ea5384a990e888a7163db_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE295">295</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE296">296</td><td class="line">        public Throwable call() throws Exception { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9.html">summary for Throwable FailOnTimeout$CallableStatement.call()</a></td></tr>
+<tr><td class="num" id="LINE297">297</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE298">298</td><td class="line">                startLatch.countDown(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:17 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 298];
+n$1=*n$0.startLatch:java.util.concurrent.CountDownLatch*(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement) [line 298];
+_=*n$1:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 298];
+n$3=_fun_void CountDownLatch.countDown()(n$1:java.util.concurrent.CountDownLatch*) virtual [line 298];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE299">299</td><td class="line">                originalStatement.evaluate(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:17 Instructions
+n$4=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 299];
+n$5=*n$4.this$0:org.junit.internal.runners.statements.FailOnTimeout*(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement) [line 299];
+*&amp;$irvar0:org.junit.internal.runners.statements.FailOnTimeout*=n$5 [line 299];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:17 Instructions
+n$6=*&amp;$irvar0:org.junit.internal.runners.statements.FailOnTimeout* [line 299];
+n$7=_fun_Statement FailOnTimeout.access$600(FailOnTimeout)(n$6:org.junit.internal.runners.statements.FailOnTimeout*) [line 299];
+*&amp;$irvar1:org.junit.runners.model.Statement*=n$7 [line 299];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:12 exn:17 Instructions
+n$8=*&amp;$irvar1:org.junit.runners.model.Statement* [line 299];
+_=*n$8:org.junit.runners.model.Statement*(root org.junit.runners.model.Statement) [line 299];
+n$10=_fun_void Statement.evaluate()(n$8:org.junit.runners.model.Statement*) virtual [line 299];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE300">300</td><td class="line">            } catch (Exception e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:15 succs:9 exn:3 Instructions
+n$11=*&amp;CatchVar20:java.lang.Object* [line 300];
+*&amp;e:java.lang.Object*=n$11 [line 300];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:17 succs:8 exn:3 Conditional exception handler
+n$18=_fun___instanceof(n$16:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 300];
+PRUNE(n$18, true); [line 300];
+*&amp;CatchVar20:java.lang.Throwable*=n$16 [line 300];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:17 succs:13 14 exn:3 Conditional exception handler
+n$18=_fun___instanceof(n$16:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 300];
+PRUNE(!n$18, false); [line 300];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds: succs:15 16 exn:3 Instructions
+n$15=*&amp;return:java.lang.Throwable* [line 300];
+*&amp;return:java.lang.Throwable*=null [line 300];
+n$16=_fun___unwrap_exception(n$15:java.lang.Throwable*) [line 300];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE301">301</td><td class="line">                throw e; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$12=*&amp;e:java.lang.Object* [line 301];
+*&amp;return:java.lang.Throwable*=EXN n$12 [line 301];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE302">302</td><td class="line">            } catch (Throwable e) { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:13 succs:11 exn:3 Instructions
+n$13=*&amp;CatchVar23:java.lang.Object* [line 302];
+*&amp;e:java.lang.Object*=n$13 [line 302];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:16 succs:10 exn:3 Conditional exception handler
+n$17=_fun___instanceof(n$16:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 302];
+PRUNE(n$17, true); [line 302];
+*&amp;CatchVar23:java.lang.Throwable*=n$16 [line 302];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:16 succs:3 exn:3 Conditional exception handler
+n$17=_fun___instanceof(n$16:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 302];
+PRUNE(!n$17, false); [line 302];
+*&amp;return:java.lang.Throwable*=EXN n$16 [line 302];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE303">303</td><td class="line">                return e; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+n$14=*&amp;e:java.lang.Object* [line 303];
+*&amp;return:java.lang.Throwable*=n$14 [line 303];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE304">304</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE305">305</td><td class="line">            return null; <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:7 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Throwable*=null [line 305];
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 11 9 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.call%28%29%3Ajava.lang.Throwable.576f30ff06cf8a971c5c19c2fb921ae9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:14 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE306">306</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE307">307</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE308">308</td><td class="line">        public void awaitStarted() throws InterruptedException { <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.awaitStarted%28%29%3Avoid.d8606c8de0d22227b0e6115e8c376670_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.awaitStarted%28%29%3Avoid.d8606c8de0d22227b0e6115e8c376670.html">summary for void FailOnTimeout$CallableStatement.awaitStarted()</a></td></tr>
+<tr><td class="num" id="LINE309">309</td><td class="line">            startLatch.await(); <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.awaitStarted%28%29%3Avoid.d8606c8de0d22227b0e6115e8c376670_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.statements.FailOnTimeout$CallableStatement* [line 309];
+n$1=*n$0.startLatch:java.util.concurrent.CountDownLatch*(root org.junit.internal.runners.statements.FailOnTimeout$CallableStatement) [line 309];
+_=*n$1:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 309];
+n$3=_fun_void CountDownLatch.await()(n$1:java.util.concurrent.CountDownLatch*) virtual [line 309];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE310">310</td><td class="line">        } <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.awaitStarted%28%29%3Avoid.d8606c8de0d22227b0e6115e8c376670_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.awaitStarted%28%29%3Avoid.d8606c8de0d22227b0e6115e8c376670_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/org.junit.internal.runners.statements.FailOnTimeout%24CallableStatement.awaitStarted%28%29%3Avoid.d8606c8de0d22227b0e6115e8c376670_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE311">311</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE312">312</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/node5.html#session25">node5#session25</a>(<a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/../FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d.html#LINE43">43</a>)<a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/node7.html#session31">node7#session31</a>(<a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/../FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d.html#LINE61">61</a>)<a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/nodes/node21.html#session209">node21#session209</a>(<a href="./FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d/../FailOnTimeout.java.cab2094d44563dcccbb686aa2b2d5b5d.html#LINE239">239</a>)</body>
+</html>

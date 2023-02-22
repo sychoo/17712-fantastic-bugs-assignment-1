@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/runners/model/EachTestNotifier.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.runners.model; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import org.junit.internal.AssumptionViolatedException; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import org.junit.runner.notification.Failure; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.runner.notification.RunNotifier; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.runners.model.MultipleFailureException; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">public class EachTestNotifier { </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">    private final RunNotifier notifier; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">    private final Description description; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">    public EachTestNotifier(RunNotifier notifier, Description description) { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 14];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.runners.model.EachTestNotifier*) [line 14];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2.html">summary for EachTestNotifier.&lt;init&gt;(RunNotifier,Description)</a></td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">        this.notifier = notifier; <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 15];
+n$3=*&amp;notifier:org.junit.runner.notification.RunNotifier* [line 15];
+*n$2.notifier:org.junit.internal.runners.model.EachTestNotifier(root org.junit.internal.runners.model.EachTestNotifier)=n$3 [line 15];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">        this.description = description; <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 16];
+n$5=*&amp;description:org.junit.runner.Description* [line 16];
+*n$4.description:org.junit.internal.runners.model.EachTestNotifier(root org.junit.internal.runners.model.EachTestNotifier)=n$5 [line 16];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.<init>%28org.junit.runner.notification.RunNotifier%2Co.83ebd970a07b26f75fb12b98c29a63b2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    public void addFailure(Throwable targetException) { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178.html">summary for void EachTestNotifier.addFailure(Throwable)</a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">        if (targetException instanceof MultipleFailureException) { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;targetException:java.lang.Throwable* [line 20];
+n$1=_fun___instanceof(n$0:java.lang.Throwable*,sizeof(t=org.junit.runners.model.MultipleFailureException;sub_t=( sub )(instof)):void) [line 20];
+PRUNE(!(n$1 == 0), true); [line 20];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 exn:3 Conditional method_body
+n$0=*&amp;targetException:java.lang.Throwable* [line 20];
+n$1=_fun___instanceof(n$0:java.lang.Throwable*,sizeof(t=org.junit.runners.model.MultipleFailureException;sub_t=( sub )(instof)):void) [line 20];
+PRUNE((n$1 == 0), false); [line 20];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">            addMultipleFailureException((MultipleFailureException) targetException); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:10 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 21];
+n$3=*&amp;targetException:java.lang.Throwable* [line 21];
+n$4=_fun___cast(n$3:java.lang.Throwable*,sizeof(t=org.junit.runners.model.MultipleFailureException;sub_t=( sub )(cast)):void) [line 21];
+n$5=_fun_void EachTestNotifier.addMultipleFailureException(MultipleFailureException)(n$2:org.junit.internal.runners.model.EachTestNotifier*,n$4:org.junit.runners.model.MultipleFailureException*) [line 21];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">            notifier.fireTestFailure(new Failure(description, targetException)); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 23];
+n$7=*n$6.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 23];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier*=n$7 [line 23];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=_fun___new(sizeof(t=org.junit.runner.notification.Failure):org.junit.runner.notification.Failure*) [line 23];
+n$9=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 23];
+n$10=*n$9.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 23];
+n$11=*&amp;targetException:java.lang.Throwable* [line 23];
+n$12=_fun_Failure.&lt;init&gt;(Description,Throwable)(n$8:org.junit.runner.notification.Failure*,n$10:org.junit.runner.Description*,n$11:java.lang.Throwable*) [line 23];
+*&amp;$irvar1:org.junit.runner.notification.Failure*=n$8 [line 23];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$13=*&amp;$irvar0:org.junit.runner.notification.RunNotifier* [line 23];
+_=*n$13:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 23];
+n$15=*&amp;$irvar1:org.junit.runner.notification.Failure* [line 23];
+n$16=_fun_void RunNotifier.fireTestFailure(Failure)(n$13:org.junit.runner.notification.RunNotifier*,n$15:org.junit.runner.notification.Failure*) virtual [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailure%28java.lang.Throwable%29%3Avoid.b3daa827a1aafa81a5c1e588acfc0178_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    private void addMultipleFailureException(MultipleFailureException mfe) { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888.html">summary for void EachTestNotifier.addMultipleFailureException(MultipleFailureException)</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        for (Throwable each : mfe.getFailures()) { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;mfe:org.junit.runners.model.MultipleFailureException* [line 28];
+_=*n$0:org.junit.runners.model.MultipleFailureException*(root org.junit.runners.model.MultipleFailureException) [line 28];
+n$2=_fun_List MultipleFailureException.getFailures()(n$0:org.junit.runners.model.MultipleFailureException*) virtual [line 28];
+*&amp;$irvar0:java.util.List*=n$2 [line 28];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;$irvar0:java.util.List* [line 28];
+_=*n$3:java.util.List*(root java.util.List) [line 28];
+n$5=_fun_Iterator List.iterator()(n$3:java.util.List*) interface virtual [line 28];
+*&amp;$bcvar2:java.util.Iterator*=n$5 [line 28];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:12 5 succs:9 exn:3 Instructions
+n$6=*&amp;$bcvar2:java.util.Iterator* [line 28];
+_=*n$6:java.util.Iterator*(root java.util.Iterator) [line 28];
+n$8=_fun_boolean Iterator.hasNext()(n$6:java.util.Iterator*) interface virtual [line 28];
+*&amp;$irvar1:_Bool=n$8 [line 28];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:6 succs:7 8 exn: Join
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 28];
+PRUNE(!(n$9 == 0), true); [line 28];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$10=*&amp;$bcvar2:java.util.Iterator* [line 28];
+_=*n$10:java.util.Iterator*(root java.util.Iterator) [line 28];
+n$12=_fun_Object Iterator.next()(n$10:java.util.Iterator*) interface virtual [line 28];
+*&amp;$irvar2:java.lang.Object*=n$12 [line 28];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$13=*&amp;$irvar2:java.lang.Object* [line 28];
+n$14=_fun___cast(n$13:java.lang.Object*,sizeof(t=java.lang.Throwable;sub_t=( sub )(cast)):void) [line 28];
+*&amp;each:java.lang.Throwable*=n$14 [line 28];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:13 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 28];
+PRUNE((n$9 == 0), false); [line 28];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">            addFailure(each); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:6 exn:3 Instructions
+n$15=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 29];
+_=*n$15:org.junit.internal.runners.model.EachTestNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 29];
+n$17=*&amp;each:java.lang.Throwable* [line 29];
+n$18=_fun_void EachTestNotifier.addFailure(Throwable)(n$15:org.junit.internal.runners.model.EachTestNotifier*,n$17:java.lang.Throwable*) virtual [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addMultipleFailureException%28org.junit.runners.mode.7c550a2fc9b3219cd741c1013d866888_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    public void addFailedAssumption(AssumptionViolatedException e) { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86.html">summary for void EachTestNotifier.addFailedAssumption(AssumptionViolatedException)</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        notifier.fireTestAssumptionFailed(new Failure(description, e)); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 34];
+n$1=*n$0.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 34];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier*=n$1 [line 34];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.notification.Failure):org.junit.runner.notification.Failure*) [line 34];
+n$3=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 34];
+n$4=*n$3.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 34];
+n$5=*&amp;e:org.junit.internal.AssumptionViolatedException* [line 34];
+n$6=_fun_Failure.&lt;init&gt;(Description,Throwable)(n$2:org.junit.runner.notification.Failure*,n$4:org.junit.runner.Description*,n$5:org.junit.internal.AssumptionViolatedException*) [line 34];
+*&amp;$irvar1:org.junit.runner.notification.Failure*=n$2 [line 34];
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$7=*&amp;$irvar0:org.junit.runner.notification.RunNotifier* [line 34];
+_=*n$7:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 34];
+n$9=*&amp;$irvar1:org.junit.runner.notification.Failure* [line 34];
+n$10=_fun_void RunNotifier.fireTestAssumptionFailed(Failure)(n$7:org.junit.runner.notification.RunNotifier*,n$9:org.junit.runner.notification.Failure*) virtual [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.addFailedAssumption%28org.junit.internal.AssumptionV.139a59e538cc092ca5a59fbe636d6d86_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">    public void fireTestFinished() { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestFinished%28%29%3Avoid.8e957d1d694315b6f4c1aa60adbe1e5c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.fireTestFinished%28%29%3Avoid.8e957d1d694315b6f4c1aa60adbe1e5c.html">summary for void EachTestNotifier.fireTestFinished()</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        notifier.fireTestFinished(description); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestFinished%28%29%3Avoid.8e957d1d694315b6f4c1aa60adbe1e5c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 38];
+n$1=*n$0.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 38];
+_=*n$1:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 38];
+n$3=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 38];
+n$4=*n$3.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 38];
+n$5=_fun_void RunNotifier.fireTestFinished(Description)(n$1:org.junit.runner.notification.RunNotifier*,n$4:org.junit.runner.Description*) virtual [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestFinished%28%29%3Avoid.8e957d1d694315b6f4c1aa60adbe1e5c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestFinished%28%29%3Avoid.8e957d1d694315b6f4c1aa60adbe1e5c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestFinished%28%29%3Avoid.8e957d1d694315b6f4c1aa60adbe1e5c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    public void fireTestStarted() { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestStarted%28%29%3Avoid.b12fbbdec2c4530d9e3b09850038782b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.fireTestStarted%28%29%3Avoid.b12fbbdec2c4530d9e3b09850038782b.html">summary for void EachTestNotifier.fireTestStarted()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        notifier.fireTestStarted(description); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestStarted%28%29%3Avoid.b12fbbdec2c4530d9e3b09850038782b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 42];
+n$1=*n$0.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 42];
+_=*n$1:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 42];
+n$3=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 42];
+n$4=*n$3.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 42];
+n$5=_fun_void RunNotifier.fireTestStarted(Description)(n$1:org.junit.runner.notification.RunNotifier*,n$4:org.junit.runner.Description*) virtual [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestStarted%28%29%3Avoid.b12fbbdec2c4530d9e3b09850038782b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestStarted%28%29%3Avoid.b12fbbdec2c4530d9e3b09850038782b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestStarted%28%29%3Avoid.b12fbbdec2c4530d9e3b09850038782b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    public void fireTestIgnored() { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestIgnored%28%29%3Avoid.c6a951913d8a91de78d31c90c534b2af_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.fireTestIgnored%28%29%3Avoid.c6a951913d8a91de78d31c90c534b2af.html">summary for void EachTestNotifier.fireTestIgnored()</a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">        notifier.fireTestIgnored(description); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestIgnored%28%29%3Avoid.c6a951913d8a91de78d31c90c534b2af_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 46];
+n$1=*n$0.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 46];
+_=*n$1:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 46];
+n$3=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 46];
+n$4=*n$3.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 46];
+n$5=_fun_void RunNotifier.fireTestIgnored(Description)(n$1:org.junit.runner.notification.RunNotifier*,n$4:org.junit.runner.Description*) virtual [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestIgnored%28%29%3Avoid.c6a951913d8a91de78d31c90c534b2af_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestIgnored%28%29%3Avoid.c6a951913d8a91de78d31c90c534b2af_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestIgnored%28%29%3Avoid.c6a951913d8a91de78d31c90c534b2af_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">     * Calls {@link RunNotifier#fireTestSuiteStarted(Description)}, passing the </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">     * {@link Description} that was passed to the {@code EachTestNotifier} constructor. </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">     * This should be called when a test suite is about to be started. </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">     * @see RunNotifier#fireTestSuiteStarted(Description) </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">    public void fireTestSuiteStarted() { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteStarted%28%29%3Avoid.210dfae70dadbef6dd0973c584897231_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteStarted%28%29%3Avoid.210dfae70dadbef6dd0973c584897231.html">summary for void EachTestNotifier.fireTestSuiteStarted()</a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        notifier.fireTestSuiteStarted(description); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteStarted%28%29%3Avoid.210dfae70dadbef6dd0973c584897231_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 57];
+n$1=*n$0.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 57];
+_=*n$1:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 57];
+n$3=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 57];
+n$4=*n$3.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 57];
+n$5=_fun_void RunNotifier.fireTestSuiteStarted(Description)(n$1:org.junit.runner.notification.RunNotifier*,n$4:org.junit.runner.Description*) virtual [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteStarted%28%29%3Avoid.210dfae70dadbef6dd0973c584897231_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteStarted%28%29%3Avoid.210dfae70dadbef6dd0973c584897231_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteStarted%28%29%3Avoid.210dfae70dadbef6dd0973c584897231_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">     * Calls {@link RunNotifier#fireTestSuiteFinished(Description)}, passing the </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">     * {@link Description} that was passed to the {@code EachTestNotifier} constructor. </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">     * This should be called when a test suite has finished, whether the test suite succeeds </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">     * or fails. </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">     * @see RunNotifier#fireTestSuiteFinished(Description) </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    public void fireTestSuiteFinished() { <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteFinished%28%29%3Avoid.d7b62342c5ed8a14fc96f83076105b89_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteFinished%28%29%3Avoid.d7b62342c5ed8a14fc96f83076105b89.html">summary for void EachTestNotifier.fireTestSuiteFinished()</a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        notifier.fireTestSuiteFinished(description); <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteFinished%28%29%3Avoid.d7b62342c5ed8a14fc96f83076105b89_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 69];
+n$1=*n$0.notifier:org.junit.runner.notification.RunNotifier*(root org.junit.internal.runners.model.EachTestNotifier) [line 69];
+_=*n$1:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 69];
+n$3=*&amp;this:org.junit.internal.runners.model.EachTestNotifier* [line 69];
+n$4=*n$3.description:org.junit.runner.Description*(root org.junit.internal.runners.model.EachTestNotifier) [line 69];
+n$5=_fun_void RunNotifier.fireTestSuiteFinished(Description)(n$1:org.junit.runner.notification.RunNotifier*,n$4:org.junit.runner.Description*) virtual [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    } <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteFinished%28%29%3Avoid.d7b62342c5ed8a14fc96f83076105b89_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteFinished%28%29%3Avoid.d7b62342c5ed8a14fc96f83076105b89_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./EachTestNotifier.java.867dcaad7651ca22ebf827a91c036280/nodes/org.junit.internal.runners.model.EachTestNotifier.fireTestSuiteFinished%28%29%3Avoid.d7b62342c5ed8a14fc96f83076105b89_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/experimental/categories/IncludeCategories.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.experimental.categories; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.HashSet; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.Set; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.experimental.categories.Categories.CategoryFilter; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.runner.manipulation.Filter; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * {@link org.junit.runner.FilterFactory} to include categories. </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * The {@link Filter} that is created will filter out tests that are categorized with any of the </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * given categories. </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * Usage from command line: </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * &lt;code&gt; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> *     --filter=org.junit.experimental.categories.IncludeCategories=pkg.of.Cat1,pkg.of.Cat2 </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * &lt;/code&gt; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * Usage from API: </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * &lt;code&gt; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> *     new IncludeCategories().createFilter(Cat1.class, Cat2.class); </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * &lt;/code&gt; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">public final class IncludeCategories extends CategoryFilterFactory { <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28org.junit.runner.FilterFactoryParam.1abbf268b73ec3ad7abb497bf0f3e06f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.<init>%28%29.d6ad5df7a8b063485c9797188eb29c8f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28org.junit.runner.FilterFactoryParam.1abbf268b73ec3ad7abb497bf0f3e06f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.IncludeCategories* [line 26];
+n$1=*&amp;$bcvar1:org.junit.runner.FilterFactoryParams* [line 26];
+n$2=_fun_Filter CategoryFilterFactory.createFilter(FilterFactoryParams)(n$0:org.junit.experimental.categories.IncludeCategories*,n$1:org.junit.runner.FilterFactoryParams*) [line 26];
+*&amp;$irvar0:org.junit.runner.manipulation.Filter*=n$2 [line 26];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.<init>%28%29.d6ad5df7a8b063485c9797188eb29c8f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.IncludeCategories* [line 26];
+n$1=_fun_CategoryFilterFactory.&lt;init&gt;()(n$0:org.junit.experimental.categories.IncludeCategories*) [line 26];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28org.junit.runner.FilterFactoryParam.1abbf268b73ec3ad7abb497bf0f3e06f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.runner.manipulation.Filter* [line 26];
+*&amp;return:org.junit.runner.manipulation.Filter*=n$3 [line 26];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.<init>%28%29.d6ad5df7a8b063485c9797188eb29c8f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28org.junit.runner.FilterFactoryParam.1abbf268b73ec3ad7abb497bf0f3e06f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.<init>%28%29.d6ad5df7a8b063485c9797188eb29c8f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28org.junit.runner.FilterFactoryParam.1abbf268b73ec3ad7abb497bf0f3e06f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.<init>%28%29.d6ad5df7a8b063485c9797188eb29c8f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/org.junit.experimental.categories.IncludeCategories.createFilter%28org.junit.runner.FilterFactoryParam.1abbf268b73ec3ad7abb497bf0f3e06f.html">summary for Filter IncludeCategories.createFilter(FilterFactoryParams)</a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/org.junit.experimental.categories.IncludeCategories.<init>%28%29.d6ad5df7a8b063485c9797188eb29c8f.html">summary for IncludeCategories.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     * Creates a {@link Filter} which is only passed by tests that are </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">     * categorized with any of the specified categories. </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">     * @param categories Category classes. </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">    protected Filter createFilter(List&lt;Class&lt;?&gt;&gt; categories) { <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28java.util.List%29%3Aorg.junit.runner.ma.45e2eff870231d294ed2792a61327b8e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/org.junit.experimental.categories.IncludeCategories.createFilter%28java.util.List%29%3Aorg.junit.runner.ma.45e2eff870231d294ed2792a61327b8e.html">summary for Filter IncludeCategories.createFilter(List)</a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        return new IncludesAny(categories); <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28java.util.List%29%3Aorg.junit.runner.ma.45e2eff870231d294ed2792a61327b8e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.categories.IncludeCategories$IncludesAny):org.junit.experimental.categories.IncludeCategories$IncludesAny*) [line 35];
+n$1=*&amp;categories:java.util.List* [line 35];
+n$2=_fun_IncludeCategories$IncludesAny.&lt;init&gt;(List)(n$0:org.junit.experimental.categories.IncludeCategories$IncludesAny*,n$1:java.util.List*) [line 35];
+*&amp;$irvar0:org.junit.experimental.categories.IncludeCategories$IncludesAny*=n$0 [line 35];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28java.util.List%29%3Aorg.junit.runner.ma.45e2eff870231d294ed2792a61327b8e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.experimental.categories.IncludeCategories$IncludesAny* [line 35];
+*&amp;return:org.junit.runner.manipulation.Filter*=n$3 [line 35];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28java.util.List%29%3Aorg.junit.runner.ma.45e2eff870231d294ed2792a61327b8e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories.createFilter%28java.util.List%29%3Aorg.junit.runner.ma.45e2eff870231d294ed2792a61327b8e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    private static class IncludesAny extends CategoryFilter { </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        public IncludesAny(List&lt;Class&lt;?&gt;&gt; categories) { </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">            this(new HashSet&lt;Class&lt;?&gt;&gt;(categories)); <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.HashSet):java.util.HashSet*) [line 40];
+n$1=*&amp;categories:java.util.List* [line 40];
+n$2=_fun_HashSet.&lt;init&gt;(Collection)(n$0:java.util.HashSet*,n$1:java.util.List*) [line 40];
+*&amp;$irvar0:java.util.HashSet*=n$0 [line 40];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.experimental.categories.IncludeCategories$IncludesAny* [line 40];
+n$4=*&amp;$irvar0:java.util.HashSet* [line 40];
+n$5=_fun_IncludeCategories$IncludesAny.&lt;init&gt;(Set)(n$3:org.junit.experimental.categories.IncludeCategories$IncludesAny*,n$4:java.util.HashSet*) [line 40];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8.html">summary for IncludeCategories$IncludesAny.&lt;init&gt;(List)</a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        } <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.List%29.36e8d8b1bf1337c56ab67aa2dea5c4d8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        public IncludesAny(Set&lt;Class&lt;?&gt;&gt; categories) { </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">            super(true, categories, true, null); <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.Set%29.aa7afd9c2b24f865ecc34f31d3600639_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.Set%29.aa7afd9c2b24f865ecc34f31d3600639_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.categories.IncludeCategories$IncludesAny* [line 44];
+n$1=*&amp;categories:java.util.Set* [line 44];
+n$2=_fun_Categories$CategoryFilter.&lt;init&gt;(boolean,Set,boolean,Set)(n$0:org.junit.experimental.categories.IncludeCategories$IncludesAny*,1:int,n$1:java.util.Set*,1:int,null:java.lang.Object*) [line 44];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.Set%29.aa7afd9c2b24f865ecc34f31d3600639.html">summary for IncludeCategories$IncludesAny.&lt;init&gt;(Set)</a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        } <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.Set%29.aa7afd9c2b24f865ecc34f31d3600639_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.Set%29.aa7afd9c2b24f865ecc34f31d3600639_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.<init>%28java.util.Set%29.aa7afd9c2b24f865ecc34f31d3600639_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        public String describe() { <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319.html">summary for String IncludeCategories$IncludesAny.describe()</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">            return &quot;includes &quot; + super.describe(); <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 49];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 49];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 49];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuilder* [line 49];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 49];
+n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,"includes ":java.lang.Object*) virtual [line 49];
+*&amp;$irvar1:java.lang.StringBuilder*=n$4 [line 49];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.experimental.categories.IncludeCategories$IncludesAny* [line 49];
+n$6=_fun_String Categories$CategoryFilter.describe()(n$5:org.junit.experimental.categories.IncludeCategories$IncludesAny*) [line 49];
+*&amp;$irvar2:java.lang.String*=n$6 [line 49];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.StringBuilder* [line 49];
+_=*n$7:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 49];
+n$9=*&amp;$irvar2:java.lang.String* [line 49];
+n$10=_fun_StringBuilder StringBuilder.append(String)(n$7:java.lang.StringBuilder*,n$9:java.lang.String*) virtual [line 49];
+*&amp;$irvar3:java.lang.StringBuilder*=n$10 [line 49];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;$irvar3:java.lang.StringBuilder* [line 49];
+_=*n$11:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 49];
+n$13=_fun_String StringBuilder.toString()(n$11:java.lang.StringBuilder*) virtual [line 49];
+*&amp;$irvar4:java.lang.String*=n$13 [line 49];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$14=*&amp;$irvar4:java.lang.String* [line 49];
+*&amp;return:java.lang.String*=n$14 [line 49];
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./IncludeCategories.java.95bcd4ff4c8e0882355223399dd0943f/nodes/org.junit.experimental.categories.IncludeCategories%24IncludesAny.describe%28%29%3Ajava.lang.String.331394aac69b5234061f721d59eb9319_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

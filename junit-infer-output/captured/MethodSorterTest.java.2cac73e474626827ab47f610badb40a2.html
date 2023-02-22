@@ -1,0 +1,653 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MethodSorterTest.java.2cac73e474626827ab47f610badb40a2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/internal/MethodSorterTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.junit.Assert.assertArrayEquals; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.util.Arrays; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.FixMethodOrder; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runners.MethodSorters; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">public class MethodSorterTest { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.<init>%28%29.6380e55776d9205c03bcab6173bb6cdf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.<init>%28%29.6380e55776d9205c03bcab6173bb6cdf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest* [line 15];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest*) [line 15];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.<init>%28%29.6380e55776d9205c03bcab6173bb6cdf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.<init>%28%29.6380e55776d9205c03bcab6173bb6cdf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.<init>%28%29.6380e55776d9205c03bcab6173bb6cdf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.<init>%28%29.6380e55776d9205c03bcab6173bb6cdf.html">summary for MethodSorterTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">    private static final String ALPHA = &quot;java.lang.Object alpha(int,double,java.lang.Thread)&quot;; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">    private static final String BETA = &quot;void beta(int[][])&quot;; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    private static final String GAMMA_VOID = &quot;int gamma()&quot;; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    private static final String GAMMA_BOOLEAN = &quot;void gamma(boolean)&quot;; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    private static final String DELTA = &quot;void delta()&quot;; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    private static final String EPSILON = &quot;void epsilon()&quot;; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private static final String SUPER_METHOD = &quot;void superMario()&quot;; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private static final String SUB_METHOD = &quot;void subBowser()&quot;; </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    static class DummySortWithoutAnnotation { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.<init>%28%29.2da495c150e9d72ce349503b1d860afa_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.<init>%28%29.2da495c150e9d72ce349503b1d860afa_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest$DummySortWithoutAnnotation* [line 25];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest$DummySortWithoutAnnotation*) [line 25];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.<init>%28%29.2da495c150e9d72ce349503b1d860afa_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.<init>%28%29.2da495c150e9d72ce349503b1d860afa_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.<init>%28%29.2da495c150e9d72ce349503b1d860afa_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.<init>%28%29.2da495c150e9d72ce349503b1d860afa.html">summary for MethodSorterTest$DummySortWithoutAnnotation.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">        Object alpha(int i, double d, Thread t) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Aja.c982a0863af191e98ee42398f35a26ab_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Aja.c982a0863af191e98ee42398f35a26ab.html">summary for Object MethodSorterTest$DummySortWithoutAnnotation.alpha(int,double,Thread)</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">            return null; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Aja.c982a0863af191e98ee42398f35a26ab_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Object*=null [line 27];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Aja.c982a0863af191e98ee42398f35a26ab_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Aja.c982a0863af191e98ee42398f35a26ab_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        void beta(int[][] x) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.beta%28int%5B%5D%5B%5D%29%3Avoid.46a82efdd758bb5d38e5d675b1f7aa51_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.beta%28int%5B%5D%5B%5D%29%3Avoid.46a82efdd758bb5d38e5d675b1f7aa51.html">summary for void MethodSorterTest$DummySortWithoutAnnotation.beta(int[][])</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.beta%28int%5B%5D%5B%5D%29%3Avoid.46a82efdd758bb5d38e5d675b1f7aa51_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.beta%28int%5B%5D%5B%5D%29%3Avoid.46a82efdd758bb5d38e5d675b1f7aa51_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.beta%28int%5B%5D%5B%5D%29%3Avoid.46a82efdd758bb5d38e5d675b1f7aa51_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        int gamma() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28%29%3Aint.dbf7ef885965c150bdae56af827fe3d6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28%29%3Aint.dbf7ef885965c150bdae56af827fe3d6.html">summary for int MethodSorterTest$DummySortWithoutAnnotation.gamma()</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">            return 0; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28%29%3Aint.dbf7ef885965c150bdae56af827fe3d6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:int=0 [line 34];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28%29%3Aint.dbf7ef885965c150bdae56af827fe3d6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28%29%3Aint.dbf7ef885965c150bdae56af827fe3d6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        void gamma(boolean b) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28boolean%29%3Avoid.cfdcf211e07113858fa9c315414d56f6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28boolean%29%3Avoid.cfdcf211e07113858fa9c315414d56f6.html">summary for void MethodSorterTest$DummySortWithoutAnnotation.gamma(boolean)</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28boolean%29%3Avoid.cfdcf211e07113858fa9c315414d56f6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28boolean%29%3Avoid.cfdcf211e07113858fa9c315414d56f6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.gamma%28boolean%29%3Avoid.cfdcf211e07113858fa9c315414d56f6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        void delta() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.delta%28%29%3Avoid.8f510af42dc7e4ab5c435fac9707308f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.delta%28%29%3Avoid.8f510af42dc7e4ab5c435fac9707308f.html">summary for void MethodSorterTest$DummySortWithoutAnnotation.delta()</a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.delta%28%29%3Avoid.8f510af42dc7e4ab5c435fac9707308f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.delta%28%29%3Avoid.8f510af42dc7e4ab5c435fac9707308f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.delta%28%29%3Avoid.8f510af42dc7e4ab5c435fac9707308f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        void epsilon() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.epsilon%28%29%3Avoid.937446a8b0c4d451bd267594db4f410a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.epsilon%28%29%3Avoid.937446a8b0c4d451bd267594db4f410a.html">summary for void MethodSorterTest$DummySortWithoutAnnotation.epsilon()</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.epsilon%28%29%3Avoid.937446a8b0c4d451bd267594db4f410a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.epsilon%28%29%3Avoid.937446a8b0c4d451bd267594db4f410a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithoutAnnotation.epsilon%28%29%3Avoid.937446a8b0c4d451bd267594db4f410a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    static class Super { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.<init>%28%29.b757a2165b14f06b1f6e22d7bd9e3f77_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.<init>%28%29.b757a2165b14f06b1f6e22d7bd9e3f77_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest$Super* [line 47];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest$Super*) [line 47];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.<init>%28%29.b757a2165b14f06b1f6e22d7bd9e3f77_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.<init>%28%29.b757a2165b14f06b1f6e22d7bd9e3f77_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.<init>%28%29.b757a2165b14f06b1f6e22d7bd9e3f77_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24Super.<init>%28%29.b757a2165b14f06b1f6e22d7bd9e3f77.html">summary for MethodSorterTest$Super.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        void superMario() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.superMario%28%29%3Avoid.4c4187e28cab3ab9447fcca96560cc24_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24Super.superMario%28%29%3Avoid.4c4187e28cab3ab9447fcca96560cc24.html">summary for void MethodSorterTest$Super.superMario()</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.superMario%28%29%3Avoid.4c4187e28cab3ab9447fcca96560cc24_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.superMario%28%29%3Avoid.4c4187e28cab3ab9447fcca96560cc24_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Super.superMario%28%29%3Avoid.4c4187e28cab3ab9447fcca96560cc24_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    static class Sub extends Super { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.<init>%28%29.00965de9e1d730c5e4cefc03a9ea1f49_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.<init>%28%29.00965de9e1d730c5e4cefc03a9ea1f49_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest$Sub* [line 52];
+n$1=_fun_MethodSorterTest$Super.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest$Sub*) [line 52];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.<init>%28%29.00965de9e1d730c5e4cefc03a9ea1f49_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.<init>%28%29.00965de9e1d730c5e4cefc03a9ea1f49_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.<init>%28%29.00965de9e1d730c5e4cefc03a9ea1f49_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24Sub.<init>%28%29.00965de9e1d730c5e4cefc03a9ea1f49.html">summary for MethodSorterTest$Sub.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        void subBowser() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.subBowser%28%29%3Avoid.ff7d2350a564e84a0ff4ae9d8643ba9c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24Sub.subBowser%28%29%3Avoid.ff7d2350a564e84a0ff4ae9d8643ba9c.html">summary for void MethodSorterTest$Sub.subBowser()</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.subBowser%28%29%3Avoid.ff7d2350a564e84a0ff4ae9d8643ba9c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.subBowser%28%29%3Avoid.ff7d2350a564e84a0ff4ae9d8643ba9c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24Sub.subBowser%28%29%3Avoid.ff7d2350a564e84a0ff4ae9d8643ba9c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    private List&lt;String&gt; getDeclaredMethodNames(Class&lt;?&gt; clazz) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f.html">summary for List MethodSorterTest.getDeclaredMethodNames(Class)</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        Method[] actualMethods = MethodSorter.getDeclaredMethods(clazz); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;clazz:java.lang.Class* [line 58];
+n$1=_fun_Method[] MethodSorter.getDeclaredMethods(Class)(n$0:java.lang.Class*) [line 58];
+*&amp;actualMethods:java.lang.reflect.Method*[_*_](*)=n$1 [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        // Obtain just the names instead of the full methods. </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        List&lt;String&gt; names = new ArrayList&lt;String&gt;(); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 61];
+n$3=_fun_ArrayList.&lt;init&gt;()(n$2:java.util.ArrayList*) [line 61];
+*&amp;names:java.util.ArrayList*=n$2 [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        for (Method m : actualMethods) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;actualMethods:java.lang.reflect.Method*[_*_](*) [line 62];
+*&amp;$bcvar4:java.lang.reflect.Method*[_*_](*)=n$4 [line 62];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$bcvar4:java.lang.reflect.Method*[_*_](*) [line 62];
+_=*n$5:int(root java.lang.reflect.Method*[_*_]) [line 62];
+n$7=_fun___get_array_length(n$5:java.lang.reflect.Method*[_*_](*)) [line 62];
+*&amp;$bcvar5:int=n$7 [line 62];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:11 exn:3 Instructions
+*&amp;$bcvar6:int=0 [line 62];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node11.html"><span class='visited with_tooltip'>J_11<span class='tooltip'>node11 preds:25 8 succs:9 10 exn: Join
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:12 exn:3 Conditional method_body
+n$8=*&amp;$bcvar6:int [line 62];
+n$9=*&amp;$bcvar5:int [line 62];
+PRUNE(!(n$8  &gt;=  n$9), true); [line 62];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$10=*&amp;$bcvar4:java.lang.reflect.Method*[_*_](*) [line 62];
+_=*n$10:java.lang.reflect.Method*(root java.lang.reflect.Method*[_*_]) [line 62];
+n$11=*&amp;$bcvar6:int [line 62];
+n$13=*n$10[n$11]:java.lang.reflect.Method* [line 62];
+*&amp;m:java.lang.reflect.Method*=n$13 [line 62];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 15 succs:11 exn:3 Instructions
+n$44=*&amp;$bcvar6:int [line 62];
+*&amp;$bcvar6:int=(n$44 + 1) [line 62];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:26 exn:3 Conditional method_body
+n$8=*&amp;$bcvar6:int [line 62];
+n$9=*&amp;$bcvar5:int [line 62];
+PRUNE((n$8  &gt;=  n$9), false); [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">            // Filter out synthetic methods from, e.g., coverage tools. </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">            if (!m.isSynthetic()) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:16 exn:3 Instructions
+n$14=*&amp;m:java.lang.reflect.Method* [line 64];
+_=*n$14:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 64];
+n$16=_fun_boolean Method.isSynthetic()(n$14:java.lang.reflect.Method*) virtual [line 64];
+*&amp;$irvar0:_Bool=n$16 [line 64];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node16.html"><span class='visited with_tooltip'>J_16<span class='tooltip'>node16 preds:13 succs:14 15 exn: Join
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:16 succs:17 exn:3 Conditional method_body
+n$17=*&amp;$irvar0:_Bool [line 64];
+PRUNE(!(n$17 != 0), true); [line 64];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:16 succs:25 exn:3 Conditional method_body
+n$17=*&amp;$irvar0:_Bool [line 64];
+PRUNE((n$17 != 0), false); [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">                names.add(m.toString().replace(clazz.getName() + '.', &quot;&quot;)); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:14 succs:18 exn:3 Instructions
+n$18=*&amp;m:java.lang.reflect.Method* [line 65];
+_=*n$18:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 65];
+n$20=_fun_String Method.toString()(n$18:java.lang.reflect.Method*) virtual [line 65];
+*&amp;$irvar1:java.lang.String*=n$20 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$21=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 65];
+n$22=_fun_StringBuilder.&lt;init&gt;()(n$21:java.lang.StringBuilder*) [line 65];
+*&amp;$irvar2:java.lang.StringBuilder*=n$21 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$23=*&amp;clazz:java.lang.Class* [line 65];
+_=*n$23:java.lang.Class*(root java.lang.Class) [line 65];
+n$25=_fun_String Class.getName()(n$23:java.lang.Class*) virtual [line 65];
+*&amp;$irvar3:java.lang.String*=n$25 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$26=*&amp;$irvar2:java.lang.StringBuilder* [line 65];
+_=*n$26:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 65];
+n$28=*&amp;$irvar3:java.lang.String* [line 65];
+n$29=_fun_StringBuilder StringBuilder.append(String)(n$26:java.lang.StringBuilder*,n$28:java.lang.String*) virtual [line 65];
+*&amp;$irvar4:java.lang.StringBuilder*=n$29 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$30=*&amp;$irvar4:java.lang.StringBuilder* [line 65];
+_=*n$30:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 65];
+n$32=_fun_StringBuilder StringBuilder.append(char)(n$30:java.lang.StringBuilder*,46:int) virtual [line 65];
+*&amp;$irvar5:java.lang.StringBuilder*=n$32 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$33=*&amp;$irvar5:java.lang.StringBuilder* [line 65];
+_=*n$33:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 65];
+n$35=_fun_String StringBuilder.toString()(n$33:java.lang.StringBuilder*) virtual [line 65];
+*&amp;$irvar6:java.lang.String*=n$35 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$36=*&amp;$irvar1:java.lang.String* [line 65];
+_=*n$36:java.lang.String*(root java.lang.String) [line 65];
+n$38=*&amp;$irvar6:java.lang.String* [line 65];
+n$39=_fun_String String.replace(CharSequence,CharSequence)(n$36:java.lang.String*,n$38:java.lang.String*,"":java.lang.Object*) virtual [line 65];
+*&amp;$irvar7:java.lang.String*=n$39 [line 65];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$40=*&amp;names:java.util.ArrayList* [line 65];
+_=*n$40:java.util.ArrayList*(root java.util.ArrayList) [line 65];
+n$42=*&amp;$irvar7:java.lang.String* [line 65];
+n$43=_fun_boolean List.add(Object)(n$40:java.util.ArrayList*,n$42:java.lang.String*) interface virtual [line 65];
+*&amp;$irvar8:_Bool=n$43 [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        	} </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        return names; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:10 succs:2 exn:3 Instructions
+n$45=*&amp;names:java.util.ArrayList* [line 69];
+*&amp;return:java.util.List*=n$45 [line 69];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:26 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.getDeclaredMethodNames%28java.lang.Class%29%3Ajava.util.List.d209328f16904aef64497c927c60a00f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    public void testMethodsNullSorterSelf() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82.html">summary for void MethodSorterTest.testMethodsNullSorterSelf()</a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        List&lt;String&gt; expected = Arrays.asList(EPSILON, BETA, ALPHA, DELTA, GAMMA_VOID, GAMMA_BOOLEAN); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.String*[_*_];len=[6]):java.lang.String*[_*_](*)) [line 74];
+*&amp;$irvar0:java.lang.String*[_*_](*)=n$0 [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+*n$1[0]:java.lang.Object*="void epsilon()" [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+*n$2[1]:java.lang.Object*="void beta(int[][])" [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+*n$3[2]:java.lang.Object*="java.lang.Object alpha(int,double,java.lang.Thread)" [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+*n$4[3]:java.lang.Object*="void delta()" [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+*n$5[4]:java.lang.Object*="int gamma()" [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$6=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+*n$6[5]:java.lang.Object*="void gamma(boolean)" [line 74];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$7=*&amp;$irvar0:java.lang.String*[_*_](*) [line 74];
+n$8=_fun_List Arrays.asList(Object[])(n$7:java.lang.String*[_*_](*)) [line 74];
+*&amp;expected:java.util.List*=n$8 [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        List&lt;String&gt; actual = getDeclaredMethodNames(DummySortWithoutAnnotation.class); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$9=*&amp;this:org.junit.internal.MethodSorterTest* [line 75];
+n$10=_fun_List MethodSorterTest.getDeclaredMethodNames(Class)(n$9:org.junit.internal.MethodSorterTest*,org.junit.internal.MethodSorterTest$DummySortWithoutAnnotation:java.lang.Object*) [line 75];
+*&amp;actual:java.util.List*=n$10 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">        assertEquals(expected, actual); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$11=*&amp;expected:java.util.List* [line 76];
+n$12=*&amp;actual:java.util.List* [line 76];
+n$13=_fun_void Assert.assertEquals(Object,Object)(n$11:java.util.List*,n$12:java.util.List*) [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">    } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSelf%28%29%3Avoid.209aa10736878c6ad5668250e8071e82_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">    public void testMethodsNullSorterSuper() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d.html">summary for void MethodSorterTest.testMethodsNullSorterSuper()</a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        List&lt;String&gt; expected = Arrays.asList(SUPER_METHOD); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.String*[_*_];len=[1]):java.lang.String*[_*_](*)) [line 81];
+*&amp;$irvar0:java.lang.String*[_*_](*)=n$0 [line 81];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.String*[_*_](*) [line 81];
+*n$1[0]:java.lang.Object*="void superMario()" [line 81];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String*[_*_](*) [line 81];
+n$3=_fun_List Arrays.asList(Object[])(n$2:java.lang.String*[_*_](*)) [line 81];
+*&amp;expected:java.util.List*=n$3 [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        List&lt;String&gt; actual = getDeclaredMethodNames(Super.class); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.MethodSorterTest* [line 82];
+n$5=_fun_List MethodSorterTest.getDeclaredMethodNames(Class)(n$4:org.junit.internal.MethodSorterTest*,org.junit.internal.MethodSorterTest$Super:java.lang.Object*) [line 82];
+*&amp;actual:java.util.List*=n$5 [line 82];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        assertEquals(expected, actual); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=*&amp;expected:java.util.List* [line 83];
+n$7=*&amp;actual:java.util.List* [line 83];
+n$8=_fun_void Assert.assertEquals(Object,Object)(n$6:java.util.List*,n$7:java.util.List*) [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSuper%28%29%3Avoid.d28137ae86fb5dacf99c3ce72e93509d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public void testMethodsNullSorterSub() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18.html">summary for void MethodSorterTest.testMethodsNullSorterSub()</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        List&lt;String&gt; expected = Arrays.asList(SUB_METHOD); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.String*[_*_];len=[1]):java.lang.String*[_*_](*)) [line 88];
+*&amp;$irvar0:java.lang.String*[_*_](*)=n$0 [line 88];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.String*[_*_](*) [line 88];
+*n$1[0]:java.lang.Object*="void subBowser()" [line 88];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String*[_*_](*) [line 88];
+n$3=_fun_List Arrays.asList(Object[])(n$2:java.lang.String*[_*_](*)) [line 88];
+*&amp;expected:java.util.List*=n$3 [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        List&lt;String&gt; actual = getDeclaredMethodNames(Sub.class); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.MethodSorterTest* [line 89];
+n$5=_fun_List MethodSorterTest.getDeclaredMethodNames(Class)(n$4:org.junit.internal.MethodSorterTest*,org.junit.internal.MethodSorterTest$Sub:java.lang.Object*) [line 89];
+*&amp;actual:java.util.List*=n$5 [line 89];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">        assertEquals(expected, actual); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=*&amp;expected:java.util.List* [line 90];
+n$7=*&amp;actual:java.util.List* [line 90];
+n$8=_fun_void Assert.assertEquals(Object,Object)(n$6:java.util.List*,n$7:java.util.List*) [line 90];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testMethodsNullSorterSub%28%29%3Avoid.4d5c6edab1b6b82ea81162d02a83bc18_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">    @FixMethodOrder(MethodSorters.DEFAULT) </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    static class DummySortWithDefault { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.<init>%28%29.81e8965b800ff991f309e4246e00636c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.<init>%28%29.81e8965b800ff991f309e4246e00636c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest$DummySortWithDefault* [line 94];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest$DummySortWithDefault*) [line 94];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.<init>%28%29.81e8965b800ff991f309e4246e00636c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.<init>%28%29.81e8965b800ff991f309e4246e00636c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.<init>%28%29.81e8965b800ff991f309e4246e00636c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.<init>%28%29.81e8965b800ff991f309e4246e00636c.html">summary for MethodSorterTest$DummySortWithDefault.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        Object alpha(int i, double d, Thread t) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.e37497ef966b220cc639eb3214139aa6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.e37497ef966b220cc639eb3214139aa6.html">summary for Object MethodSorterTest$DummySortWithDefault.alpha(int,double,Thread)</a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">            return null; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.e37497ef966b220cc639eb3214139aa6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Object*=null [line 96];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.e37497ef966b220cc639eb3214139aa6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.e37497ef966b220cc639eb3214139aa6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        void beta(int[][] x) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.beta%28int%5B%5D%5B%5D%29%3Avoid.e979ebb443ba470a178b8c1d0b1c7a54_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.beta%28int%5B%5D%5B%5D%29%3Avoid.e979ebb443ba470a178b8c1d0b1c7a54.html">summary for void MethodSorterTest$DummySortWithDefault.beta(int[][])</a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.beta%28int%5B%5D%5B%5D%29%3Avoid.e979ebb443ba470a178b8c1d0b1c7a54_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.beta%28int%5B%5D%5B%5D%29%3Avoid.e979ebb443ba470a178b8c1d0b1c7a54_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.beta%28int%5B%5D%5B%5D%29%3Avoid.e979ebb443ba470a178b8c1d0b1c7a54_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        int gamma() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28%29%3Aint.a9dc5194fcc571c1cd741801c295dc2a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28%29%3Aint.a9dc5194fcc571c1cd741801c295dc2a.html">summary for int MethodSorterTest$DummySortWithDefault.gamma()</a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">            return 0; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28%29%3Aint.a9dc5194fcc571c1cd741801c295dc2a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:int=0 [line 103];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28%29%3Aint.a9dc5194fcc571c1cd741801c295dc2a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28%29%3Aint.a9dc5194fcc571c1cd741801c295dc2a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        void gamma(boolean b) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28boolean%29%3Avoid.91d0df5bd35dc7f12ee1d1cc72393694_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28boolean%29%3Avoid.91d0df5bd35dc7f12ee1d1cc72393694.html">summary for void MethodSorterTest$DummySortWithDefault.gamma(boolean)</a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28boolean%29%3Avoid.91d0df5bd35dc7f12ee1d1cc72393694_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28boolean%29%3Avoid.91d0df5bd35dc7f12ee1d1cc72393694_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.gamma%28boolean%29%3Avoid.91d0df5bd35dc7f12ee1d1cc72393694_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        void delta() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.delta%28%29%3Avoid.a683c34eb72a380f1df71c287e2fe902_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.delta%28%29%3Avoid.a683c34eb72a380f1df71c287e2fe902.html">summary for void MethodSorterTest$DummySortWithDefault.delta()</a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.delta%28%29%3Avoid.a683c34eb72a380f1df71c287e2fe902_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.delta%28%29%3Avoid.a683c34eb72a380f1df71c287e2fe902_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.delta%28%29%3Avoid.a683c34eb72a380f1df71c287e2fe902_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">        void epsilon() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.epsilon%28%29%3Avoid.728820e699bfdbe3ce22b3e5b208fa6c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithDefault.epsilon%28%29%3Avoid.728820e699bfdbe3ce22b3e5b208fa6c.html">summary for void MethodSorterTest$DummySortWithDefault.epsilon()</a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.epsilon%28%29%3Avoid.728820e699bfdbe3ce22b3e5b208fa6c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.epsilon%28%29%3Avoid.728820e699bfdbe3ce22b3e5b208fa6c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithDefault.epsilon%28%29%3Avoid.728820e699bfdbe3ce22b3e5b208fa6c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    public void testDefaultMethodSorter() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073.html">summary for void MethodSorterTest.testDefaultMethodSorter()</a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        List&lt;String&gt; expected = Arrays.asList(EPSILON, BETA, ALPHA, DELTA, GAMMA_VOID, GAMMA_BOOLEAN); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.String*[_*_];len=[6]):java.lang.String*[_*_](*)) [line 118];
+*&amp;$irvar0:java.lang.String*[_*_](*)=n$0 [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+*n$1[0]:java.lang.Object*="void epsilon()" [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+*n$2[1]:java.lang.Object*="void beta(int[][])" [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+*n$3[2]:java.lang.Object*="java.lang.Object alpha(int,double,java.lang.Thread)" [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+*n$4[3]:java.lang.Object*="void delta()" [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+*n$5[4]:java.lang.Object*="int gamma()" [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$6=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+*n$6[5]:java.lang.Object*="void gamma(boolean)" [line 118];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$7=*&amp;$irvar0:java.lang.String*[_*_](*) [line 118];
+n$8=_fun_List Arrays.asList(Object[])(n$7:java.lang.String*[_*_](*)) [line 118];
+*&amp;expected:java.util.List*=n$8 [line 118];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">        List&lt;String&gt; actual = getDeclaredMethodNames(DummySortWithDefault.class); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$9=*&amp;this:org.junit.internal.MethodSorterTest* [line 119];
+n$10=_fun_List MethodSorterTest.getDeclaredMethodNames(Class)(n$9:org.junit.internal.MethodSorterTest*,org.junit.internal.MethodSorterTest$DummySortWithDefault:java.lang.Object*) [line 119];
+*&amp;actual:java.util.List*=n$10 [line 119];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        assertEquals(expected, actual); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$11=*&amp;expected:java.util.List* [line 120];
+n$12=*&amp;actual:java.util.List* [line 120];
+n$13=_fun_void Assert.assertEquals(Object,Object)(n$11:java.util.List*,n$12:java.util.List*) [line 120];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">    } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testDefaultMethodSorter%28%29%3Avoid.2a9f5a49a9b079a1957bacdcb3acb073_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">    @FixMethodOrder(MethodSorters.JVM) </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    static class DummySortJvm { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.<init>%28%29.0582862099c515f5c925cd754a3d8c73_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.<init>%28%29.0582862099c515f5c925cd754a3d8c73_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest$DummySortJvm* [line 124];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest$DummySortJvm*) [line 124];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.<init>%28%29.0582862099c515f5c925cd754a3d8c73_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.<init>%28%29.0582862099c515f5c925cd754a3d8c73_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.<init>%28%29.0582862099c515f5c925cd754a3d8c73_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.<init>%28%29.0582862099c515f5c925cd754a3d8c73.html">summary for MethodSorterTest$DummySortJvm.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        Object alpha(int i, double d, Thread t) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lang.Object.dbbaea9bc6829383cbb423ce0fb805d4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lang.Object.dbbaea9bc6829383cbb423ce0fb805d4.html">summary for Object MethodSorterTest$DummySortJvm.alpha(int,double,Thread)</a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">            return null; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lang.Object.dbbaea9bc6829383cbb423ce0fb805d4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Object*=null [line 126];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lang.Object.dbbaea9bc6829383cbb423ce0fb805d4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lang.Object.dbbaea9bc6829383cbb423ce0fb805d4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        void beta(int[][] x) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.beta%28int%5B%5D%5B%5D%29%3Avoid.a78bcffd569432f96fcbc38634406085_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.beta%28int%5B%5D%5B%5D%29%3Avoid.a78bcffd569432f96fcbc38634406085.html">summary for void MethodSorterTest$DummySortJvm.beta(int[][])</a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.beta%28int%5B%5D%5B%5D%29%3Avoid.a78bcffd569432f96fcbc38634406085_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.beta%28int%5B%5D%5B%5D%29%3Avoid.a78bcffd569432f96fcbc38634406085_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.beta%28int%5B%5D%5B%5D%29%3Avoid.a78bcffd569432f96fcbc38634406085_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">        int gamma() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28%29%3Aint.8a59618b5d7886f31ae3d7656ab72f67_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28%29%3Aint.8a59618b5d7886f31ae3d7656ab72f67.html">summary for int MethodSorterTest$DummySortJvm.gamma()</a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">            return 0; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28%29%3Aint.8a59618b5d7886f31ae3d7656ab72f67_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:int=0 [line 133];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28%29%3Aint.8a59618b5d7886f31ae3d7656ab72f67_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28%29%3Aint.8a59618b5d7886f31ae3d7656ab72f67_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        void gamma(boolean b) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28boolean%29%3Avoid.509e33b76d6ab2669add59bab5ef6229_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28boolean%29%3Avoid.509e33b76d6ab2669add59bab5ef6229.html">summary for void MethodSorterTest$DummySortJvm.gamma(boolean)</a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28boolean%29%3Avoid.509e33b76d6ab2669add59bab5ef6229_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28boolean%29%3Avoid.509e33b76d6ab2669add59bab5ef6229_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.gamma%28boolean%29%3Avoid.509e33b76d6ab2669add59bab5ef6229_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">        void delta() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.delta%28%29%3Avoid.a4f2e73df7be98a29c3b96436674384d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.delta%28%29%3Avoid.a4f2e73df7be98a29c3b96436674384d.html">summary for void MethodSorterTest$DummySortJvm.delta()</a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.delta%28%29%3Avoid.a4f2e73df7be98a29c3b96436674384d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.delta%28%29%3Avoid.a4f2e73df7be98a29c3b96436674384d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.delta%28%29%3Avoid.a4f2e73df7be98a29c3b96436674384d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        void epsilon() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.epsilon%28%29%3Avoid.1c6c062e1f5c4dab6fce04661d096841_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortJvm.epsilon%28%29%3Avoid.1c6c062e1f5c4dab6fce04661d096841.html">summary for void MethodSorterTest$DummySortJvm.epsilon()</a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.epsilon%28%29%3Avoid.1c6c062e1f5c4dab6fce04661d096841_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.epsilon%28%29%3Avoid.1c6c062e1f5c4dab6fce04661d096841_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortJvm.epsilon%28%29%3Avoid.1c6c062e1f5c4dab6fce04661d096841_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">    public void testJvmMethodSorter() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938.html">summary for void MethodSorterTest.testJvmMethodSorter()</a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        Method[] fromJvmWithSynthetics = DummySortJvm.class.getDeclaredMethods(); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Method[] Class.getDeclaredMethods()(org.junit.internal.MethodSorterTest$DummySortJvm:java.lang.Object*) virtual [line 148];
+*&amp;fromJvmWithSynthetics:java.lang.reflect.Method*[_*_](*)=n$0 [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">        Method[] sorted = MethodSorter.getDeclaredMethods(DummySortJvm.class); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=_fun_Method[] MethodSorter.getDeclaredMethods(Class)(org.junit.internal.MethodSorterTest$DummySortJvm:java.lang.Object*) [line 149];
+*&amp;sorted:java.lang.reflect.Method*[_*_](*)=n$1 [line 149];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">        assertArrayEquals(fromJvmWithSynthetics, sorted); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;fromJvmWithSynthetics:java.lang.reflect.Method*[_*_](*) [line 150];
+n$3=*&amp;sorted:java.lang.reflect.Method*[_*_](*) [line 150];
+n$4=_fun_void Assert.assertArrayEquals(Object[],Object[])(n$2:java.lang.reflect.Method*[_*_](*),n$3:java.lang.reflect.Method*[_*_](*)) [line 150];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testJvmMethodSorter%28%29%3Avoid.5dd7a1bb532ba45828c942fe93fe2938_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">    @FixMethodOrder(MethodSorters.NAME_ASCENDING) </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">    static class DummySortWithNameAsc { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.<init>%28%29.d58e52bab70d3799e2129dbc8e5da67e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.<init>%28%29.d58e52bab70d3799e2129dbc8e5da67e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.MethodSorterTest$DummySortWithNameAsc* [line 154];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.MethodSorterTest$DummySortWithNameAsc*) [line 154];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.<init>%28%29.d58e52bab70d3799e2129dbc8e5da67e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.<init>%28%29.d58e52bab70d3799e2129dbc8e5da67e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.<init>%28%29.d58e52bab70d3799e2129dbc8e5da67e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.<init>%28%29.d58e52bab70d3799e2129dbc8e5da67e.html">summary for MethodSorterTest$DummySortWithNameAsc.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        Object alpha(int i, double d, Thread t) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.5fddf0333af4c7ce32d8040834fe0afb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.5fddf0333af4c7ce32d8040834fe0afb.html">summary for Object MethodSorterTest$DummySortWithNameAsc.alpha(int,double,Thread)</a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">            return null; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.5fddf0333af4c7ce32d8040834fe0afb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Object*=null [line 156];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.5fddf0333af4c7ce32d8040834fe0afb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.alpha%28int%2Cdouble%2Cjava.lang.Thread%29%3Ajava.lan.5fddf0333af4c7ce32d8040834fe0afb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">        void beta(int[][] x) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.beta%28int%5B%5D%5B%5D%29%3Avoid.4ff50e2c437d23cfabc4e9814c21bc2b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.beta%28int%5B%5D%5B%5D%29%3Avoid.4ff50e2c437d23cfabc4e9814c21bc2b.html">summary for void MethodSorterTest$DummySortWithNameAsc.beta(int[][])</a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.beta%28int%5B%5D%5B%5D%29%3Avoid.4ff50e2c437d23cfabc4e9814c21bc2b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.beta%28int%5B%5D%5B%5D%29%3Avoid.4ff50e2c437d23cfabc4e9814c21bc2b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.beta%28int%5B%5D%5B%5D%29%3Avoid.4ff50e2c437d23cfabc4e9814c21bc2b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        int gamma() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28%29%3Aint.57aeac6b03753783c350acff01debfe7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28%29%3Aint.57aeac6b03753783c350acff01debfe7.html">summary for int MethodSorterTest$DummySortWithNameAsc.gamma()</a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">            return 0; <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28%29%3Aint.57aeac6b03753783c350acff01debfe7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:int=0 [line 163];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28%29%3Aint.57aeac6b03753783c350acff01debfe7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28%29%3Aint.57aeac6b03753783c350acff01debfe7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">        void gamma(boolean b) { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28boolean%29%3Avoid.49c8128b99cda95e3e4c48d68bf4b40f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28boolean%29%3Avoid.49c8128b99cda95e3e4c48d68bf4b40f.html">summary for void MethodSorterTest$DummySortWithNameAsc.gamma(boolean)</a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28boolean%29%3Avoid.49c8128b99cda95e3e4c48d68bf4b40f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28boolean%29%3Avoid.49c8128b99cda95e3e4c48d68bf4b40f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.gamma%28boolean%29%3Avoid.49c8128b99cda95e3e4c48d68bf4b40f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">        void delta() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.delta%28%29%3Avoid.c536f48e621191a9139dff52b01d0e6e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.delta%28%29%3Avoid.c536f48e621191a9139dff52b01d0e6e.html">summary for void MethodSorterTest$DummySortWithNameAsc.delta()</a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.delta%28%29%3Avoid.c536f48e621191a9139dff52b01d0e6e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.delta%28%29%3Avoid.c536f48e621191a9139dff52b01d0e6e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.delta%28%29%3Avoid.c536f48e621191a9139dff52b01d0e6e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">        void epsilon() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.epsilon%28%29%3Avoid.e26f628ea37d95a0b74d5fad6c1d0b15_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.epsilon%28%29%3Avoid.e26f628ea37d95a0b74d5fad6c1d0b15.html">summary for void MethodSorterTest$DummySortWithNameAsc.epsilon()</a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">        } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.epsilon%28%29%3Avoid.e26f628ea37d95a0b74d5fad6c1d0b15_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.epsilon%28%29%3Avoid.e26f628ea37d95a0b74d5fad6c1d0b15_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest%24DummySortWithNameAsc.epsilon%28%29%3Avoid.e26f628ea37d95a0b74d5fad6c1d0b15_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">    public void testAscendingMethodSorter() { <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba.html">summary for void MethodSorterTest.testAscendingMethodSorter()</a></td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">        List&lt;String&gt; expected = Arrays.asList(ALPHA, BETA, DELTA, EPSILON, GAMMA_VOID, GAMMA_BOOLEAN); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.String*[_*_];len=[6]):java.lang.String*[_*_](*)) [line 178];
+*&amp;$irvar0:java.lang.String*[_*_](*)=n$0 [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+*n$1[0]:java.lang.Object*="java.lang.Object alpha(int,double,java.lang.Thread)" [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+*n$2[1]:java.lang.Object*="void beta(int[][])" [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+*n$3[2]:java.lang.Object*="void delta()" [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+*n$4[3]:java.lang.Object*="void epsilon()" [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+*n$5[4]:java.lang.Object*="int gamma()" [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$6=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+*n$6[5]:java.lang.Object*="void gamma(boolean)" [line 178];
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$7=*&amp;$irvar0:java.lang.String*[_*_](*) [line 178];
+n$8=_fun_List Arrays.asList(Object[])(n$7:java.lang.String*[_*_](*)) [line 178];
+*&amp;expected:java.util.List*=n$8 [line 178];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">        List&lt;String&gt; actual = getDeclaredMethodNames(DummySortWithNameAsc.class); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$9=*&amp;this:org.junit.internal.MethodSorterTest* [line 179];
+n$10=_fun_List MethodSorterTest.getDeclaredMethodNames(Class)(n$9:org.junit.internal.MethodSorterTest*,org.junit.internal.MethodSorterTest$DummySortWithNameAsc:java.lang.Object*) [line 179];
+*&amp;actual:java.util.List*=n$10 [line 179];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">        assertEquals(expected, actual); <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$11=*&amp;expected:java.util.List* [line 180];
+n$12=*&amp;actual:java.util.List* [line 180];
+n$13=_fun_void Assert.assertEquals(Object,Object)(n$11:java.util.List*,n$12:java.util.List*) [line 180];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">    } <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MethodSorterTest.java.2cac73e474626827ab47f610badb40a2/nodes/org.junit.internal.MethodSorterTest.testAscendingMethodSorter%28%29%3Avoid.29b2c92d54caef8e980ee841b41265ba_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

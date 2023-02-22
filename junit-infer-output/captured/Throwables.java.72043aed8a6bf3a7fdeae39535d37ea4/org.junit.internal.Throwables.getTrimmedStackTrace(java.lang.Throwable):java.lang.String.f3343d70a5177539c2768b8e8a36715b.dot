@@ -1,0 +1,80 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_1" [label="1: Start String Throwables.getTrimmedStackTrace(Throwable)\nFormals:  exception:java.lang.Throwable*\nLocals:  $irvar4:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void result:java.lang.StringBuilder* trimmedStackTraceLines:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_1" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_4" ;
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_2" [label="2: Exit String Throwables.getTrimmedStackTrace(Throwable) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [label="3:  exceptions sink \n   NULLIFY(&result); [line 82]\n  NULLIFY(&$irvar3); [line 82]\n  NULLIFY(&$irvar4); [line 82]\n  NULLIFY(&trimmedStackTraceLines); [line 82]\n  NULLIFY(&$irvar0); [line 82]\n  NULLIFY(&$irvar1); [line 82]\n  NULLIFY(&$irvar2); [line 82]\n  EXIT_SCOPE(result,$irvar3,$irvar4,trimmedStackTraceLines,$irvar0,$irvar1,$irvar2); [line 82]\n  APPLY_ABSTRACTION; [line 82]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_2" ;
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_4" [label="4:  Call List Throwables.getTrimmedStackTraceLines(Throwable) \n   n$0=*&exception:java.lang.Throwable* [line 74]\n  n$1=_fun_List Throwables.getTrimmedStackTraceLines(Throwable)(n$0:java.lang.Throwable*) [line 74]\n  *&trimmedStackTraceLines:java.util.List*=n$1 [line 74]\n  EXIT_SCOPE(n$0,n$1); [line 74]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_4" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_5" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_4" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_5" [label="5:  Call boolean List.isEmpty() \n   n$2=*&trimmedStackTraceLines:java.util.List* [line 75]\n  _=*n$2:java.util.List*(root java.util.List) [line 75]\n  n$4=_fun_boolean List.isEmpty()(n$2:java.util.List*) interface virtual [line 75]\n  *&$irvar0:_Bool=n$4 [line 75]\n  EXIT_SCOPE(_,n$2,n$4); [line 75]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_5" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_6" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_5" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_7" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_5" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_6" [label="6: Prune (true branch, if) \n   n$5=*&$irvar0:_Bool [line 75]\n  PRUNE(!(n$5 == 0), true); [line 75]\n  NULLIFY(&trimmedStackTraceLines); [line 75]\n  NULLIFY(&$irvar0); [line 75]\n  EXIT_SCOPE(n$5,trimmedStackTraceLines,$irvar0); [line 75]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_6" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_8" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_6" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_7" [label="7: Prune (false branch, if) \n   n$5=*&$irvar0:_Bool [line 75]\n  PRUNE((n$5 == 0), false); [line 75]\n  NULLIFY(&$irvar0); [line 75]\n  EXIT_SCOPE(n$5,$irvar0); [line 75]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_7" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_10" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_7" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_8" [label="8:  Call String Throwables.getFullStackTrace(Throwable) \n   n$6=*&exception:java.lang.Throwable* [line 76]\n  n$7=_fun_String Throwables.getFullStackTrace(Throwable)(n$6:java.lang.Throwable*) [line 76]\n  *&$irvar1:java.lang.String*=n$7 [line 76]\n  NULLIFY(&exception); [line 76]\n  EXIT_SCOPE(n$6,n$7,exception); [line 76]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_8" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_9" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_8" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_9" [label="9:  method_body \n   n$8=*&$irvar1:java.lang.String* [line 76]\n  *&return:java.lang.String*=n$8 [line 76]\n  NULLIFY(&$irvar1); [line 76]\n  EXIT_SCOPE(n$8,$irvar1); [line 76]\n  APPLY_ABSTRACTION; [line 76]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_9" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_2" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_9" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_10" [label="10:  Call String Throwable.toString() \n   n$9=*&exception:java.lang.Throwable* [line 79]\n  _=*n$9:java.lang.Throwable*(root java.lang.Throwable) [line 79]\n  n$11=_fun_String Throwable.toString()(n$9:java.lang.Throwable*) virtual [line 79]\n  *&$irvar2:java.lang.String*=n$11 [line 79]\n  EXIT_SCOPE(_,n$9,n$11); [line 79]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_10" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_11" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_10" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_11" [label="11:  Call StringBuilder.<init>(String) \n   n$12=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 79]\n  n$13=*&$irvar2:java.lang.String* [line 79]\n  n$14=_fun_StringBuilder.<init>(String)(n$12:java.lang.StringBuilder*,n$13:java.lang.String*) [line 79]\n  *&result:java.lang.StringBuilder*=n$12 [line 79]\n  NULLIFY(&$irvar2); [line 79]\n  EXIT_SCOPE(n$12,n$13,n$14,$irvar2); [line 79]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_11" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_12" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_11" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_12" [label="12:  Call void Throwables.appendStackTraceLines(List,StringBuilder) \n   n$15=*&trimmedStackTraceLines:java.util.List* [line 80]\n  n$16=*&result:java.lang.StringBuilder* [line 80]\n  n$17=_fun_void Throwables.appendStackTraceLines(List,StringBuilder)(n$15:java.util.List*,n$16:java.lang.StringBuilder*) [line 80]\n  NULLIFY(&trimmedStackTraceLines); [line 80]\n  EXIT_SCOPE(n$15,n$16,n$17,trimmedStackTraceLines); [line 80]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_12" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_13" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_12" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_13" [label="13:  Call List Throwables.getCauseStackTraceLines(Throwable) \n   n$18=*&exception:java.lang.Throwable* [line 81]\n  n$19=_fun_List Throwables.getCauseStackTraceLines(Throwable)(n$18:java.lang.Throwable*) [line 81]\n  *&$irvar3:java.util.List*=n$19 [line 81]\n  NULLIFY(&exception); [line 81]\n  EXIT_SCOPE(n$18,n$19,exception); [line 81]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_13" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_14" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_13" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_14" [label="14:  Call void Throwables.appendStackTraceLines(List,StringBuilder) \n   n$20=*&$irvar3:java.util.List* [line 81]\n  n$21=*&result:java.lang.StringBuilder* [line 81]\n  n$22=_fun_void Throwables.appendStackTraceLines(List,StringBuilder)(n$20:java.util.List*,n$21:java.lang.StringBuilder*) [line 81]\n  NULLIFY(&$irvar3); [line 81]\n  EXIT_SCOPE(n$20,n$21,n$22,$irvar3); [line 81]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_14" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_15" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_14" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_15" [label="15:  Call String StringBuilder.toString() \n   n$23=*&result:java.lang.StringBuilder* [line 82]\n  _=*n$23:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 82]\n  n$25=_fun_String StringBuilder.toString()(n$23:java.lang.StringBuilder*) virtual [line 82]\n  *&$irvar4:java.lang.String*=n$25 [line 82]\n  NULLIFY(&result); [line 82]\n  EXIT_SCOPE(_,n$23,n$25,result); [line 82]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_15" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_16" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_15" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+"org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_16" [label="16:  method_body \n   n$26=*&$irvar4:java.lang.String* [line 82]\n  *&return:java.lang.String*=n$26 [line 82]\n  NULLIFY(&$irvar4); [line 82]\n  EXIT_SCOPE(n$26,$irvar4); [line 82]\n  APPLY_ABSTRACTION; [line 82]\n " shape="box"]
+	
+
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_16" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_2" ;
+	 "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_16" -> "org.junit.internal.Throwables.getTrimmedStackTrace(java.lang.Throwable):java.lang.String.f3343d70a5177539c2768b8e8a36715b_3" [color="red" ];
+}

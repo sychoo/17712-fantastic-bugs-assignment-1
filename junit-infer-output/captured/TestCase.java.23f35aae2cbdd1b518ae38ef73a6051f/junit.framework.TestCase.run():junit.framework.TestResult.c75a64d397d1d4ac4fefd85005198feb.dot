@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_1" [label="1: Start TestResult TestCase.run()\nFormals:  this:junit.framework.TestCase*\nLocals:  result:junit.framework.TestResult* \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_1" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_4" ;
+"junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_2" [label="2: Exit TestResult TestCase.run() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_3" [label="3:  exceptions sink \n   NULLIFY(&result); [line 123]\n  EXIT_SCOPE(result); [line 123]\n  APPLY_ABSTRACTION; [line 123]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_3" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_2" ;
+"junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_4" [label="4:  Call TestResult TestCase.createResult() \n   n$0=*&this:junit.framework.TestCase* [line 121]\n  _=*n$0:junit.framework.TestCase*(root junit.framework.TestCase) [line 121]\n  n$2=_fun_TestResult TestCase.createResult()(n$0:junit.framework.TestCase*) virtual [line 121]\n  *&result:junit.framework.TestResult*=n$2 [line 121]\n  EXIT_SCOPE(_,n$0,n$2); [line 121]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_4" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_5" ;
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_4" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_3" [color="red" ];
+"junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_5" [label="5:  Call void TestCase.run(TestResult) \n   n$3=*&this:junit.framework.TestCase* [line 122]\n  _=*n$3:junit.framework.TestCase*(root junit.framework.TestCase) [line 122]\n  n$5=*&result:junit.framework.TestResult* [line 122]\n  n$6=_fun_void TestCase.run(TestResult)(n$3:junit.framework.TestCase*,n$5:junit.framework.TestResult*) virtual [line 122]\n  NULLIFY(&this); [line 122]\n  EXIT_SCOPE(_,n$3,n$5,n$6,this); [line 122]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_5" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_6" ;
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_5" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_3" [color="red" ];
+"junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_6" [label="6:  method_body \n   n$7=*&result:junit.framework.TestResult* [line 123]\n  *&return:junit.framework.TestResult*=n$7 [line 123]\n  NULLIFY(&result); [line 123]\n  EXIT_SCOPE(n$7,result); [line 123]\n  APPLY_ABSTRACTION; [line 123]\n " shape="box"]
+	
+
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_6" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_2" ;
+	 "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_6" -> "junit.framework.TestCase.run():junit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_3" [color="red" ];
+}

@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_1" [label="1: Start List Sorter.orderItems(Collection)\nFormals:  this:org.junit.runner.manipulation.Sorter* descriptions:java.util.Collection*\nLocals:  sorted:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_1" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_4" ;
+"org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_2" [label="2: Exit List Sorter.orderItems(Collection) \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_3" [label="3:  exceptions sink \n   NULLIFY(&sorted); [line 78]\n  EXIT_SCOPE(sorted); [line 78]\n  APPLY_ABSTRACTION; [line 78]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_3" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_2" ;
+"org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_4" [label="4:  Call ArrayList.<init>(Collection) \n   n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 76]\n  n$1=*&descriptions:java.util.Collection* [line 76]\n  n$2=_fun_ArrayList.<init>(Collection)(n$0:java.util.ArrayList*,n$1:java.util.Collection*) [line 76]\n  *&sorted:java.util.ArrayList*=n$0 [line 76]\n  NULLIFY(&descriptions); [line 76]\n  EXIT_SCOPE(n$0,n$1,n$2,descriptions); [line 76]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_4" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_5" ;
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_4" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_3" [color="red" ];
+"org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_5" [label="5:  Call void Collections.sort(List,Comparator) \n   n$3=*&sorted:java.util.ArrayList* [line 77]\n  n$4=*&this:org.junit.runner.manipulation.Sorter* [line 77]\n  n$5=_fun_void Collections.sort(List,Comparator)(n$3:java.util.ArrayList*,n$4:org.junit.runner.manipulation.Sorter*) [line 77]\n  NULLIFY(&this); [line 77]\n  EXIT_SCOPE(n$3,n$4,n$5,this); [line 77]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_5" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_6" ;
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_5" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_3" [color="red" ];
+"org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_6" [label="6:  method_body \n   n$6=*&sorted:java.util.ArrayList* [line 78]\n  *&return:java.util.List*=n$6 [line 78]\n  NULLIFY(&sorted); [line 78]\n  EXIT_SCOPE(n$6,sorted); [line 78]\n  APPLY_ABSTRACTION; [line 78]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_6" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_2" ;
+	 "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_6" -> "org.junit.runner.manipulation.Sorter.orderItems(java.util.Collection):java.util.List.b34bd60262f506abac541e1f40207d25_3" [color="red" ];
+}

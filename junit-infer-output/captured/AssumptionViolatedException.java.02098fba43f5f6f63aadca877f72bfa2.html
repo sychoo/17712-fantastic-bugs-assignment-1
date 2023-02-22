@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/AssumptionViolatedException.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.io.IOException; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.io.ObjectOutputStream; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.hamcrest.Description; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.hamcrest.Matcher; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.hamcrest.SelfDescribing; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.hamcrest.StringDescription; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * An exception class used to implement &lt;i&gt;assumptions&lt;/i&gt; (state in which a given test </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * is meaningful and should or should not be executed). A test for which an assumption </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * fails should not generate a test case failure. </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * @see org.junit.Assume </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">public class AssumptionViolatedException extends RuntimeException implements SelfDescribing { </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    private static final long serialVersionUID = 2L; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    /* </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">     * We have to use the f prefix until the next major release to ensure </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">     * serialization compatibility.  </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">     * See https://github.com/junit-team/junit4/issues/976 </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    private final String fAssumption; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    private final boolean fValueMatcher; </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    private final Object fValue; </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    private final Matcher&lt;?&gt; fMatcher; </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">     * @deprecated Please use {@link org.junit.AssumptionViolatedException} instead. </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    public AssumptionViolatedException(String assumption, boolean hasValue, Object value, Matcher&lt;?&gt; matcher) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 35];
+n$1=_fun_RuntimeException.&lt;init&gt;()(n$0:org.junit.internal.AssumptionViolatedException*) [line 35];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf.html">summary for AssumptionViolatedException.&lt;init&gt;(String,boolean,Object,Matcher)</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        this.fAssumption = assumption; <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 36];
+n$3=*&amp;assumption:java.lang.String* [line 36];
+*n$2.fAssumption:org.junit.internal.AssumptionViolatedException(root org.junit.internal.AssumptionViolatedException)=n$3 [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        this.fValue = value; <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 37];
+n$5=*&amp;value:java.lang.Object* [line 37];
+*n$4.fValue:org.junit.internal.AssumptionViolatedException(root org.junit.internal.AssumptionViolatedException)=n$5 [line 37];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        this.fMatcher = matcher; <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 38];
+n$7=*&amp;matcher:org.hamcrest.Matcher* [line 38];
+*n$6.fMatcher:org.junit.internal.AssumptionViolatedException(root org.junit.internal.AssumptionViolatedException)=n$7 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        this.fValueMatcher = hasValue; <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 10 exn:3 Instructions
+n$8=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 39];
+n$9=*&amp;hasValue:_Bool [line 39];
+*n$8.fValueMatcher:org.junit.internal.AssumptionViolatedException(root org.junit.internal.AssumptionViolatedException)=n$9 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        if (value instanceof Throwable) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$10=*&amp;value:java.lang.Object* [line 41];
+n$11=_fun___instanceof(n$10:java.lang.Object*,sizeof(t=java.lang.Throwable;sub_t=( sub )(instof)):void) [line 41];
+PRUNE(!(n$11 == 0), true); [line 41];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:12 exn:3 Conditional method_body
+n$10=*&amp;value:java.lang.Object* [line 41];
+n$11=_fun___instanceof(n$10:java.lang.Object*,sizeof(t=java.lang.Throwable;sub_t=( sub )(instof)):void) [line 41];
+PRUNE((n$11 == 0), false); [line 41];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">          initCause((Throwable) value); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:12 exn:3 Instructions
+n$12=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 42];
+_=*n$12:org.junit.internal.AssumptionViolatedException*(root org.junit.internal.AssumptionViolatedException) [line 42];
+n$14=*&amp;value:java.lang.Object* [line 42];
+n$15=_fun___cast(n$14:java.lang.Object*,sizeof(t=java.lang.Throwable;sub_t=( sub )(cast)):void) [line 42];
+n$16=_fun_Throwable AssumptionViolatedException.initCause(Throwable)(n$12:org.junit.internal.AssumptionViolatedException*,n$15:java.lang.Throwable*) virtual [line 42];
+*&amp;$irvar0:java.lang.Throwable*=n$16 [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cboolean%2Cjava.lang.Object%2Corg..7c47105852b7ba00c8741d0f73a7a8bf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">     * An assumption exception with the given &lt;i&gt;value&lt;/i&gt; (String or </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">     * Throwable) and an additional failing {@link Matcher}. </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">     * @deprecated Please use {@link org.junit.AssumptionViolatedException} instead. </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    public AssumptionViolatedException(Object value, Matcher&lt;?&gt; matcher) { </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        this(null, true, value, matcher); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.Object%2Corg.hamcrest.Matcher%29.0d079610add958bb6c1f097e41eec021_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.Object%2Corg.hamcrest.Matcher%29.0d079610add958bb6c1f097e41eec021_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 54];
+n$1=*&amp;value:java.lang.Object* [line 54];
+n$2=*&amp;matcher:org.hamcrest.Matcher* [line 54];
+n$3=_fun_AssumptionViolatedException.&lt;init&gt;(String,boolean,Object,Matcher)(n$0:org.junit.internal.AssumptionViolatedException*,null:java.lang.Object*,1:int,n$1:java.lang.Object*,n$2:org.hamcrest.Matcher*) [line 54];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.Object%2Corg.hamcrest.Matcher%29.0d079610add958bb6c1f097e41eec021.html">summary for AssumptionViolatedException.&lt;init&gt;(Object,Matcher)</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.Object%2Corg.hamcrest.Matcher%29.0d079610add958bb6c1f097e41eec021_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.Object%2Corg.hamcrest.Matcher%29.0d079610add958bb6c1f097e41eec021_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.Object%2Corg.hamcrest.Matcher%29.0d079610add958bb6c1f097e41eec021_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">     * An assumption exception with the given &lt;i&gt;value&lt;/i&gt; (String or </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">     * Throwable) and an additional failing {@link Matcher}. </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">     * @deprecated Please use {@link org.junit.AssumptionViolatedException} instead. </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    public AssumptionViolatedException(String assumption, Object value, Matcher&lt;?&gt; matcher) { </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        this(assumption, true, value, matcher); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.5f9c196660bf19197835ff174e42a59b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.5f9c196660bf19197835ff174e42a59b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 65];
+n$1=*&amp;assumption:java.lang.String* [line 65];
+n$2=*&amp;value:java.lang.Object* [line 65];
+n$3=*&amp;matcher:org.hamcrest.Matcher* [line 65];
+n$4=_fun_AssumptionViolatedException.&lt;init&gt;(String,boolean,Object,Matcher)(n$0:org.junit.internal.AssumptionViolatedException*,n$1:java.lang.String*,1:int,n$2:java.lang.Object*,n$3:org.hamcrest.Matcher*) [line 65];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.5f9c196660bf19197835ff174e42a59b.html">summary for AssumptionViolatedException.&lt;init&gt;(String,Object,Matcher)</a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.5f9c196660bf19197835ff174e42a59b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.5f9c196660bf19197835ff174e42a59b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.5f9c196660bf19197835ff174e42a59b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">     * An assumption exception with the given message only. </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">     * @deprecated Please use {@link org.junit.AssumptionViolatedException} instead. </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">    public AssumptionViolatedException(String assumption) { </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        this(assumption, false, null, null); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%29.ef2c0de0a6db3f778b7cdca475e7b641_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%29.ef2c0de0a6db3f778b7cdca475e7b641_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 75];
+n$1=*&amp;assumption:java.lang.String* [line 75];
+n$2=_fun_AssumptionViolatedException.&lt;init&gt;(String,boolean,Object,Matcher)(n$0:org.junit.internal.AssumptionViolatedException*,n$1:java.lang.String*,0:int,null:java.lang.Object*,null:java.lang.Object*) [line 75];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%29.ef2c0de0a6db3f778b7cdca475e7b641.html">summary for AssumptionViolatedException.&lt;init&gt;(String)</a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `AssumptionViolatedException(...)` at line 75</div></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%29.ef2c0de0a6db3f778b7cdca475e7b641_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%29.ef2c0de0a6db3f778b7cdca475e7b641_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%29.ef2c0de0a6db3f778b7cdca475e7b641_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">     * An assumption exception with the given message and a cause. </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">     * @deprecated Please use {@link org.junit.AssumptionViolatedException} instead. </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    public AssumptionViolatedException(String assumption, Throwable e) { </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">        this(assumption, false, null, null); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 85];
+n$1=*&amp;assumption:java.lang.String* [line 85];
+n$2=_fun_AssumptionViolatedException.&lt;init&gt;(String,boolean,Object,Matcher)(n$0:org.junit.internal.AssumptionViolatedException*,n$1:java.lang.String*,0:int,null:java.lang.Object*,null:java.lang.Object*) [line 85];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c.html">summary for AssumptionViolatedException.&lt;init&gt;(String,Throwable)</a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `AssumptionViolatedException(...)` at line 85</div></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        initCause(e); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 86];
+_=*n$3:org.junit.internal.AssumptionViolatedException*(root org.junit.internal.AssumptionViolatedException) [line 86];
+n$5=*&amp;e:java.lang.Throwable* [line 86];
+n$6=_fun_Throwable AssumptionViolatedException.initCause(Throwable)(n$3:org.junit.internal.AssumptionViolatedException*,n$5:java.lang.Throwable*) virtual [line 86];
+*&amp;$irvar0:java.lang.Throwable*=n$6 [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.<init>%28java.lang.String%2Cjava.lang.Throwable%29.5ca91c85090205bec395ef41eb45c12c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">    public String getMessage() { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.getMessage%28%29%3Ajava.lang.String.ad1ebfdedaed87fba8953400872e5a41_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.getMessage%28%29%3Ajava.lang.String.ad1ebfdedaed87fba8953400872e5a41.html">summary for String AssumptionViolatedException.getMessage()</a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        return StringDescription.asString(this); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.getMessage%28%29%3Ajava.lang.String.ad1ebfdedaed87fba8953400872e5a41_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 91];
+n$1=_fun_String StringDescription.asString(SelfDescribing)(n$0:org.junit.internal.AssumptionViolatedException*) [line 91];
+*&amp;$irvar0:java.lang.String*=n$1 [line 91];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.getMessage%28%29%3Ajava.lang.String.ad1ebfdedaed87fba8953400872e5a41_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String* [line 91];
+*&amp;return:java.lang.String*=n$2 [line 91];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.getMessage%28%29%3Ajava.lang.String.ad1ebfdedaed87fba8953400872e5a41_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.getMessage%28%29%3Ajava.lang.String.ad1ebfdedaed87fba8953400872e5a41_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    public void describeTo(Description description) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa.html">summary for void AssumptionViolatedException.describeTo(Description)</a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        if (fAssumption != null) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 95];
+n$1=*n$0.fAssumption:java.lang.String*(root org.junit.internal.AssumptionViolatedException) [line 95];
+PRUNE(!(n$1 == null), true); [line 95];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 8 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 95];
+n$1=*n$0.fAssumption:java.lang.String*(root org.junit.internal.AssumptionViolatedException) [line 95];
+PRUNE((n$1 == null), false); [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">            description.appendText(fAssumption); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 8 exn:3 Instructions
+n$2=*&amp;description:org.hamcrest.Description* [line 96];
+_=*n$2:org.hamcrest.Description*(root org.hamcrest.Description) [line 96];
+n$4=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 96];
+n$5=*n$4.fAssumption:java.lang.String*(root org.junit.internal.AssumptionViolatedException) [line 96];
+n$6=_fun_Description Description.appendText(String)(n$2:org.hamcrest.Description*,n$5:java.lang.String*) interface virtual [line 96];
+*&amp;$irvar0:org.hamcrest.Description*=n$6 [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        if (fValueMatcher) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 5 succs:9 10 exn:3 Conditional method_body
+n$7=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 99];
+n$8=*n$7.fValueMatcher:_Bool(root org.junit.internal.AssumptionViolatedException) [line 99];
+PRUNE(!(n$8 == 0), true); [line 99];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 5 succs:18 exn:3 Conditional method_body
+n$7=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 99];
+n$8=*n$7.fValueMatcher:_Bool(root org.junit.internal.AssumptionViolatedException) [line 99];
+PRUNE((n$8 == 0), false); [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">            // a value was passed in when this instance was constructed; print it </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">            if (fAssumption != null) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:11 exn:3 Conditional method_body
+n$9=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 101];
+n$10=*n$9.fAssumption:java.lang.String*(root org.junit.internal.AssumptionViolatedException) [line 101];
+PRUNE(!(n$10 == null), true); [line 101];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:7 succs:12 exn:3 Conditional method_body
+n$9=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 101];
+n$10=*n$9.fAssumption:java.lang.String*(root org.junit.internal.AssumptionViolatedException) [line 101];
+PRUNE((n$10 == null), false); [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">                description.appendText(&quot;: &quot;); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:12 exn:3 Instructions
+n$11=*&amp;description:org.hamcrest.Description* [line 102];
+_=*n$11:org.hamcrest.Description*(root org.hamcrest.Description) [line 102];
+n$13=_fun_Description Description.appendText(String)(n$11:org.hamcrest.Description*,": ":java.lang.Object*) interface virtual [line 102];
+*&amp;$irvar1:org.hamcrest.Description*=n$13 [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">            description.appendText(&quot;got: &quot;); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 10 succs:13 exn:3 Instructions
+n$14=*&amp;description:org.hamcrest.Description* [line 105];
+_=*n$14:org.hamcrest.Description*(root org.hamcrest.Description) [line 105];
+n$16=_fun_Description Description.appendText(String)(n$14:org.hamcrest.Description*,"got: ":java.lang.Object*) interface virtual [line 105];
+*&amp;$irvar2:org.hamcrest.Description*=n$16 [line 105];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">            description.appendValue(fValue); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 15 exn:3 Instructions
+n$17=*&amp;description:org.hamcrest.Description* [line 106];
+_=*n$17:org.hamcrest.Description*(root org.hamcrest.Description) [line 106];
+n$19=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 106];
+n$20=*n$19.fValue:java.lang.Object*(root org.junit.internal.AssumptionViolatedException) [line 106];
+n$21=_fun_Description Description.appendValue(Object)(n$17:org.hamcrest.Description*,n$20:java.lang.Object*) interface virtual [line 106];
+*&amp;$irvar3:org.hamcrest.Description*=n$21 [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">            if (fMatcher != null) { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:13 succs:16 exn:3 Conditional method_body
+n$22=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 108];
+n$23=*n$22.fMatcher:org.hamcrest.Matcher*(root org.junit.internal.AssumptionViolatedException) [line 108];
+PRUNE(!(n$23 == null), true); [line 108];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:13 succs:18 exn:3 Conditional method_body
+n$22=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 108];
+n$23=*n$22.fMatcher:org.hamcrest.Matcher*(root org.junit.internal.AssumptionViolatedException) [line 108];
+PRUNE((n$23 == null), false); [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">                description.appendText(&quot;, expected: &quot;); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:14 succs:17 exn:3 Instructions
+n$24=*&amp;description:org.hamcrest.Description* [line 109];
+_=*n$24:org.hamcrest.Description*(root org.hamcrest.Description) [line 109];
+n$26=_fun_Description Description.appendText(String)(n$24:org.hamcrest.Description*,", expected: ":java.lang.Object*) interface virtual [line 109];
+*&amp;$irvar4:org.hamcrest.Description*=n$26 [line 109];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">                description.appendDescriptionOf(fMatcher); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$27=*&amp;description:org.hamcrest.Description* [line 110];
+_=*n$27:org.hamcrest.Description*(root org.hamcrest.Description) [line 110];
+n$29=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 110];
+n$30=*n$29.fMatcher:org.hamcrest.Matcher*(root org.junit.internal.AssumptionViolatedException) [line 110];
+n$31=_fun_Description Description.appendDescriptionOf(SelfDescribing)(n$27:org.hamcrest.Description*,n$30:org.hamcrest.Matcher*) interface virtual [line 110];
+*&amp;$irvar5:org.hamcrest.Description*=n$31 [line 110];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 15 8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:18 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.describeTo%28org.hamcrest.Description%29%3Avoid.fa07498a28d4aa49cf6326f10734c3fa_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">     * Override default Java object serialization to correctly deal with potentially unserializable matchers or values. </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">     * By not implementing readObject, we assure ourselves of backwards compatibility and compatibility with the </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">     * standard way of Java serialization. </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">     * @param objectOutputStream The outputStream to write our representation to </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">     * @throws IOException When serialization fails </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException { <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee.html">summary for void AssumptionViolatedException.writeObject(ObjectOutputStream)</a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        ObjectOutputStream.PutField putField = objectOutputStream.putFields(); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;objectOutputStream:java.io.ObjectOutputStream* [line 124];
+_=*n$0:java.io.ObjectOutputStream*(root java.io.ObjectOutputStream) [line 124];
+n$2=_fun_ObjectOutputStream$PutField ObjectOutputStream.putFields()(n$0:java.io.ObjectOutputStream*) virtual [line 124];
+*&amp;putField:java.io.ObjectOutputStream$PutField*=n$2 [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        putField.put(&quot;fAssumption&quot;, fAssumption); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;putField:java.io.ObjectOutputStream$PutField* [line 125];
+_=*n$3:java.io.ObjectOutputStream$PutField*(root java.io.ObjectOutputStream$PutField) [line 125];
+n$5=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 125];
+n$6=*n$5.fAssumption:java.lang.String*(root org.junit.internal.AssumptionViolatedException) [line 125];
+n$7=_fun_void ObjectOutputStream$PutField.put(String,Object)(n$3:java.io.ObjectOutputStream$PutField*,"fAssumption":java.lang.Object*,n$6:java.lang.String*) virtual [line 125];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">        putField.put(&quot;fValueMatcher&quot;, fValueMatcher); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;putField:java.io.ObjectOutputStream$PutField* [line 126];
+_=*n$8:java.io.ObjectOutputStream$PutField*(root java.io.ObjectOutputStream$PutField) [line 126];
+n$10=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 126];
+n$11=*n$10.fValueMatcher:_Bool(root org.junit.internal.AssumptionViolatedException) [line 126];
+n$12=_fun_void ObjectOutputStream$PutField.put(String,boolean)(n$8:java.io.ObjectOutputStream$PutField*,"fValueMatcher":java.lang.Object*,n$11:_Bool) virtual [line 126];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        // We have to wrap the matcher into a serializable form. </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        putField.put(&quot;fMatcher&quot;, SerializableMatcherDescription.asSerializableMatcher(fMatcher)); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$13=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 129];
+n$14=*n$13.fMatcher:org.hamcrest.Matcher*(root org.junit.internal.AssumptionViolatedException) [line 129];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$14 [line 129];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$15=*&amp;$irvar0:org.hamcrest.Matcher* [line 129];
+n$16=_fun_Matcher SerializableMatcherDescription.asSerializableMatcher(Matcher)(n$15:org.hamcrest.Matcher*) [line 129];
+*&amp;$irvar1:org.hamcrest.Matcher*=n$16 [line 129];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$17=*&amp;putField:java.io.ObjectOutputStream$PutField* [line 129];
+_=*n$17:java.io.ObjectOutputStream$PutField*(root java.io.ObjectOutputStream$PutField) [line 129];
+n$19=*&amp;$irvar1:org.hamcrest.Matcher* [line 129];
+n$20=_fun_void ObjectOutputStream$PutField.put(String,Object)(n$17:java.io.ObjectOutputStream$PutField*,"fMatcher":java.lang.Object*,n$19:org.hamcrest.Matcher*) virtual [line 129];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        // We have to wrap the value inside a non-String class (instead of serializing the String value directly) as </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">        // A Description will handle a String and non-String object differently (1st is surrounded by '&quot;' while the </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        // latter will be surrounded by '&lt;' '&gt;'. Wrapping it makes sure that the description of a serialized and </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        // non-serialized instance produce the exact same description </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        putField.put(&quot;fValue&quot;, SerializableValueDescription.asSerializableValue(fValue)); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$21=*&amp;this:org.junit.internal.AssumptionViolatedException* [line 135];
+n$22=*n$21.fValue:java.lang.Object*(root org.junit.internal.AssumptionViolatedException) [line 135];
+*&amp;$irvar2:java.lang.Object*=n$22 [line 135];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$23=*&amp;$irvar2:java.lang.Object* [line 135];
+n$24=_fun_Object SerializableValueDescription.asSerializableValue(Object)(n$23:java.lang.Object*) [line 135];
+*&amp;$irvar3:java.lang.Object*=n$24 [line 135];
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$25=*&amp;putField:java.io.ObjectOutputStream$PutField* [line 135];
+_=*n$25:java.io.ObjectOutputStream$PutField*(root java.io.ObjectOutputStream$PutField) [line 135];
+n$27=*&amp;$irvar3:java.lang.Object* [line 135];
+n$28=_fun_void ObjectOutputStream$PutField.put(String,Object)(n$25:java.io.ObjectOutputStream$PutField*,"fValue":java.lang.Object*,n$27:java.lang.Object*) virtual [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        objectOutputStream.writeFields(); <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$29=*&amp;objectOutputStream:java.io.ObjectOutputStream* [line 137];
+_=*n$29:java.io.ObjectOutputStream*(root java.io.ObjectOutputStream) [line 137];
+n$31=_fun_void ObjectOutputStream.writeFields()(n$29:java.io.ObjectOutputStream*) virtual [line 137];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    } <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/org.junit.internal.AssumptionViolatedException.writeObject%28java.io.ObjectOutputStream%29%3Avoid.77632fc41ed5e3b4c73cae2b0d84eaee_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+<br>Precondition Not Met in call to `AssumptionViolatedException(...)` at line 85 <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/node4.html#session20">node4#session20</a>(<a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/../AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2.html#LINE85">85</a>)<br>Precondition Not Met in call to `AssumptionViolatedException(...)` at line 75 <a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/nodes/node4.html#session16">node4#session16</a>(<a href="./AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2/../AssumptionViolatedException.java.02098fba43f5f6f63aadca877f72bfa2.html#LINE75">75</a>)
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

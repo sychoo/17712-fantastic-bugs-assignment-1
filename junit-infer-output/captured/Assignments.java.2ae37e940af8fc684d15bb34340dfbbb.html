@@ -1,0 +1,742 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Assignments.java.2ae37e940af8fc684d15bb34340dfbbb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/experimental/theories/internal/Assignments.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.experimental.theories.internal; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static java.util.Collections.emptyList; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.lang.reflect.Constructor; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.experimental.theories.ParameterSignature; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.experimental.theories.ParameterSupplier; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.experimental.theories.ParametersSuppliedBy; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.experimental.theories.PotentialAssignment; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.experimental.theories.PotentialAssignment.CouldNotGenerateValueException; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.runners.model.TestClass; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * A potentially incomplete list of value assignments for a method's formal </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * parameters </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">public class Assignments { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private final List&lt;PotentialAssignment&gt; assigned; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    private final List&lt;ParameterSignature&gt; unassigned; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    private final TestClass clazz; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    private Assignments(List&lt;PotentialAssignment&gt; assigned, </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">            List&lt;ParameterSignature&gt; unassigned, TestClass clazz) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 29];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.theories.internal.Assignments*) [line 29];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa.html">summary for Assignments.&lt;init&gt;(List,List,TestClass)</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        this.unassigned = unassigned; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 30];
+n$3=*&amp;unassigned:java.util.List* [line 30];
+*n$2.unassigned:org.junit.experimental.theories.internal.Assignments(root org.junit.experimental.theories.internal.Assignments)=n$3 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        this.assigned = assigned; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 31];
+n$5=*&amp;assigned:java.util.List* [line 31];
+*n$4.assigned:org.junit.experimental.theories.internal.Assignments(root org.junit.experimental.theories.internal.Assignments)=n$5 [line 31];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        this.clazz = clazz; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 32];
+n$7=*&amp;clazz:org.junit.runners.model.TestClass* [line 32];
+*n$6.clazz:org.junit.experimental.theories.internal.Assignments(root org.junit.experimental.theories.internal.Assignments)=n$7 [line 32];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    } <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.<init>%28java.util.List%2Cjava.util.List%2Corg.junit..16d47720dbc09f72b4922fd94cceb3fa_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">     * Returns a new assignment list for {@code testMethod}, with no params </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">     * assigned. </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    public static Assignments allUnassigned(Method testMethod, <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025.html">summary for Assignments Assignments.allUnassigned(Method,TestClass)</a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">            TestClass testClass) { </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        List&lt;ParameterSignature&gt; signatures; </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        signatures = ParameterSignature.signatures(testClass <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.reflect.Constructor* [line 42];
+n$4=_fun_List ParameterSignature.signatures(Constructor)(n$3:java.lang.reflect.Constructor*) [line 42];
+*&amp;signatures:java.util.List*=n$4 [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">                .getOnlyConstructor()); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;testClass:org.junit.runners.model.TestClass* [line 43];
+_=*n$0:org.junit.runners.model.TestClass*(root org.junit.runners.model.TestClass) [line 43];
+n$2=_fun_Constructor TestClass.getOnlyConstructor()(n$0:org.junit.runners.model.TestClass*) virtual [line 43];
+*&amp;$irvar0:java.lang.reflect.Constructor*=n$2 [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        signatures.addAll(ParameterSignature.signatures(testMethod)); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;testMethod:java.lang.reflect.Method* [line 44];
+n$6=_fun_ArrayList ParameterSignature.signatures(Method)(n$5:java.lang.reflect.Method*) [line 44];
+*&amp;$irvar1:java.util.ArrayList*=n$6 [line 44];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;signatures:java.util.List* [line 44];
+_=*n$7:java.util.List*(root java.util.List) [line 44];
+n$9=*&amp;$irvar1:java.util.ArrayList* [line 44];
+n$10=_fun_boolean List.addAll(Collection)(n$7:java.util.List*,n$9:java.util.ArrayList*) interface virtual [line 44];
+*&amp;$irvar2:_Bool=n$10 [line 44];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        return new Assignments(new ArrayList&lt;PotentialAssignment&gt;(), <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 45];
+n$12=_fun_ArrayList.&lt;init&gt;()(n$11:java.util.ArrayList*) [line 45];
+*&amp;$irvar3:java.util.ArrayList*=n$11 [line 45];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$13=_fun___new(sizeof(t=org.junit.experimental.theories.internal.Assignments):org.junit.experimental.theories.internal.Assignments*) [line 45];
+n$14=*&amp;$irvar3:java.util.ArrayList* [line 45];
+n$15=*&amp;signatures:java.util.List* [line 45];
+n$16=*&amp;testClass:org.junit.runners.model.TestClass* [line 45];
+n$17=_fun_Assignments.&lt;init&gt;(List,List,TestClass)(n$13:org.junit.experimental.theories.internal.Assignments*,n$14:java.util.ArrayList*,n$15:java.util.List*,n$16:org.junit.runners.model.TestClass*) [line 45];
+*&amp;$irvar4:org.junit.experimental.theories.internal.Assignments*=n$13 [line 45];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$18=*&amp;$irvar4:org.junit.experimental.theories.internal.Assignments* [line 45];
+*&amp;return:org.junit.experimental.theories.internal.Assignments*=n$18 [line 45];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.allUnassigned%28java.lang.reflect.Method%2Corg.juni.5ce40a6fa54b92604de0e2e3fcf9f025_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">                signatures, testClass); </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    public boolean isComplete() { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.isComplete%28%29%3Aboolean.66313187166329d2f8af1d29039c6b12_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.isComplete%28%29%3Aboolean.66313187166329d2f8af1d29039c6b12.html">summary for boolean Assignments.isComplete()</a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        return unassigned.isEmpty(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.isComplete%28%29%3Aboolean.66313187166329d2f8af1d29039c6b12_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 50];
+n$1=*n$0.unassigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 50];
+_=*n$1:java.util.List*(root java.util.List) [line 50];
+n$3=_fun_boolean List.isEmpty()(n$1:java.util.List*) interface virtual [line 50];
+*&amp;$irvar0:_Bool=n$3 [line 50];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.isComplete%28%29%3Aboolean.66313187166329d2f8af1d29039c6b12_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:_Bool [line 50];
+*&amp;return:_Bool=n$4 [line 50];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.isComplete%28%29%3Aboolean.66313187166329d2f8af1d29039c6b12_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.isComplete%28%29%3Aboolean.66313187166329d2f8af1d29039c6b12_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    public ParameterSignature nextUnassigned() { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.nextUnassigned%28%29%3Aorg.junit.experimental.theorie.e4569e4508d433755becb1ec9f5487dd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.nextUnassigned%28%29%3Aorg.junit.experimental.theorie.e4569e4508d433755becb1ec9f5487dd.html">summary for ParameterSignature Assignments.nextUnassigned()</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        return unassigned.get(0); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.nextUnassigned%28%29%3Aorg.junit.experimental.theorie.e4569e4508d433755becb1ec9f5487dd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 54];
+n$1=*n$0.unassigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 54];
+_=*n$1:java.util.List*(root java.util.List) [line 54];
+n$3=_fun_Object List.get(int)(n$1:java.util.List*,0:int) interface virtual [line 54];
+*&amp;$irvar0:java.lang.Object*=n$3 [line 54];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.nextUnassigned%28%29%3Aorg.junit.experimental.theorie.e4569e4508d433755becb1ec9f5487dd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.Object* [line 54];
+n$5=_fun___cast(n$4:java.lang.Object*,sizeof(t=org.junit.experimental.theories.ParameterSignature;sub_t=( sub )(cast)):void) [line 54];
+*&amp;return:org.junit.experimental.theories.ParameterSignature*=n$5 [line 54];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.nextUnassigned%28%29%3Aorg.junit.experimental.theorie.e4569e4508d433755becb1ec9f5487dd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.nextUnassigned%28%29%3Aorg.junit.experimental.theorie.e4569e4508d433755becb1ec9f5487dd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    public Assignments assignNext(PotentialAssignment source) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34.html">summary for Assignments Assignments.assignNext(PotentialAssignment)</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        List&lt;PotentialAssignment&gt; potentialAssignments = new ArrayList&lt;PotentialAssignment&gt;(assigned); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 58];
+n$1=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 58];
+n$2=*n$1.assigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 58];
+n$3=_fun_ArrayList.&lt;init&gt;(Collection)(n$0:java.util.ArrayList*,n$2:java.util.List*) [line 58];
+*&amp;potentialAssignments:java.util.ArrayList*=n$0 [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        potentialAssignments.add(source); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;potentialAssignments:java.util.ArrayList* [line 59];
+_=*n$4:java.util.ArrayList*(root java.util.ArrayList) [line 59];
+n$6=*&amp;source:org.junit.experimental.theories.PotentialAssignment* [line 59];
+n$7=_fun_boolean List.add(Object)(n$4:java.util.ArrayList*,n$6:org.junit.experimental.theories.PotentialAssignment*) interface virtual [line 59];
+*&amp;$irvar0:_Bool=n$7 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        return new Assignments(potentialAssignments, unassigned.subList(1, <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$14=*&amp;$irvar2:java.util.List* [line 61];
+_=*n$14:java.util.List*(root java.util.List) [line 61];
+n$16=*&amp;$irvar1:int [line 61];
+n$17=_fun_List List.subList(int,int)(n$14:java.util.List*,1:int,n$16:int) interface virtual [line 61];
+*&amp;$irvar3:java.util.List*=n$17 [line 61];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$18=_fun___new(sizeof(t=org.junit.experimental.theories.internal.Assignments):org.junit.experimental.theories.internal.Assignments*) [line 61];
+n$19=*&amp;potentialAssignments:java.util.ArrayList* [line 61];
+n$20=*&amp;$irvar3:java.util.List* [line 61];
+n$21=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 61];
+n$22=*n$21.clazz:org.junit.runners.model.TestClass*(root org.junit.experimental.theories.internal.Assignments) [line 61];
+n$23=_fun_Assignments.&lt;init&gt;(List,List,TestClass)(n$18:org.junit.experimental.theories.internal.Assignments*,n$19:java.util.ArrayList*,n$20:java.util.List*,n$22:org.junit.runners.model.TestClass*) [line 61];
+*&amp;$irvar4:org.junit.experimental.theories.internal.Assignments*=n$18 [line 61];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$24=*&amp;$irvar4:org.junit.experimental.theories.internal.Assignments* [line 61];
+*&amp;return:org.junit.experimental.theories.internal.Assignments*=n$24 [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">                unassigned.size()), clazz); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 62];
+n$9=*n$8.unassigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 62];
+*&amp;$irvar2:java.util.List*=n$9 [line 62];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 62];
+n$11=*n$10.unassigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 62];
+_=*n$11:java.util.List*(root java.util.List) [line 62];
+n$13=_fun_int List.size()(n$11:java.util.List*) interface virtual [line 62];
+*&amp;$irvar1:int=n$13 [line 62];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.assignNext%28org.junit.experimental.theories.Pote.24068cb7c659beedcc64ff0198702c34_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    public Object[] getActualValues(int start, int stop)  <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049.html">summary for Object[] Assignments.getActualValues(int,int)</a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">            throws CouldNotGenerateValueException { </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        Object[] values = new Object[stop - start]; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;stop:int [line 67];
+n$1=*&amp;start:int [line 67];
+n$2=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[(n$0 - n$1)]):java.lang.Object*[_*_](*)) [line 67];
+*&amp;values:java.lang.Object*[_*_](*)=n$2 [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        for (int i = start; i &lt; stop; i++) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:8 exn:3 Instructions
+n$3=*&amp;start:int [line 68];
+*&amp;i:int=n$3 [line 68];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:12 5 succs:6 7 exn: Join
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$4=*&amp;i:int [line 68];
+n$5=*&amp;stop:int [line 68];
+PRUNE(!(n$4  &gt;=  n$5), true); [line 68];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:8 exn:3 Instructions
+n$19=*&amp;i:int [line 68];
+*&amp;i:int=(n$19 + 1) [line 68];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:13 exn:3 Conditional method_body
+n$4=*&amp;i:int [line 68];
+n$5=*&amp;stop:int [line 68];
+PRUNE((n$4  &gt;=  n$5), false); [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">            values[i - start] = assigned.get(i).getValue(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$6=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 69];
+n$7=*n$6.assigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 69];
+_=*n$7:java.util.List*(root java.util.List) [line 69];
+n$9=*&amp;i:int [line 69];
+n$10=_fun_Object List.get(int)(n$7:java.util.List*,n$9:int) interface virtual [line 69];
+*&amp;$irvar0:java.lang.Object*=n$10 [line 69];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;$irvar0:java.lang.Object* [line 69];
+n$12=_fun___cast(n$11:java.lang.Object*,sizeof(t=org.junit.experimental.theories.PotentialAssignment;sub_t=( sub )(cast)):void) [line 69];
+_=*n$12:org.junit.experimental.theories.PotentialAssignment*(root org.junit.experimental.theories.PotentialAssignment) [line 69];
+n$14=_fun_Object PotentialAssignment.getValue()(n$12:org.junit.experimental.theories.PotentialAssignment*) virtual [line 69];
+*&amp;$irvar1:java.lang.Object*=n$14 [line 69];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=*&amp;values:java.lang.Object*[_*_](*) [line 69];
+n$16=*&amp;i:int [line 69];
+n$17=*&amp;start:int [line 69];
+n$18=*&amp;$irvar1:java.lang.Object* [line 69];
+*n$15[(n$16 - n$17)]:java.lang.Object*=n$18 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        return values; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:7 succs:2 exn:3 Instructions
+n$20=*&amp;values:java.lang.Object*[_*_](*) [line 71];
+*&amp;return:java.lang.Object*[_*_](*)=n$20 [line 71];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getActualValues%28int%2Cint%29%3Ajava.lang.Object%5B%5D.bba0feae754b5f01aa3e1000e529e049_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">    public List&lt;PotentialAssignment&gt; potentialsForNextUnassigned() <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb.html">summary for List Assignments.potentialsForNextUnassigned()</a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">            throws Throwable { </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">        ParameterSignature unassigned = nextUnassigned(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 76];
+_=*n$0:org.junit.experimental.theories.internal.Assignments*(root org.junit.experimental.theories.internal.Assignments) [line 76];
+n$2=_fun_ParameterSignature Assignments.nextUnassigned()(n$0:org.junit.experimental.theories.internal.Assignments*) virtual [line 76];
+*&amp;unassigned:org.junit.experimental.theories.ParameterSignature*=n$2 [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        List&lt;PotentialAssignment&gt; assignments = getSupplier(unassigned).getValueSources(unassigned); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 77];
+n$4=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 77];
+n$5=_fun_ParameterSupplier Assignments.getSupplier(ParameterSignature)(n$3:org.junit.experimental.theories.internal.Assignments*,n$4:org.junit.experimental.theories.ParameterSignature*) [line 77];
+*&amp;$irvar0:org.junit.experimental.theories.ParameterSupplier*=n$5 [line 77];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;$irvar0:org.junit.experimental.theories.ParameterSupplier* [line 77];
+_=*n$6:org.junit.experimental.theories.ParameterSupplier*(root org.junit.experimental.theories.ParameterSupplier) [line 77];
+n$8=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 77];
+n$9=_fun_List ParameterSupplier.getValueSources(ParameterSignature)(n$6:org.junit.experimental.theories.ParameterSupplier*,n$8:org.junit.experimental.theories.ParameterSignature*) virtual [line 77];
+*&amp;assignments:java.util.List*=n$9 [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        if (assignments.isEmpty()) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 9 exn:3 Instructions
+n$10=*&amp;assignments:java.util.List* [line 79];
+_=*n$10:java.util.List*(root java.util.List) [line 79];
+n$12=_fun_boolean List.isEmpty()(n$10:java.util.List*) interface virtual [line 79];
+*&amp;$irvar1:_Bool=n$12 [line 79];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Conditional method_body
+n$13=*&amp;$irvar1:_Bool [line 79];
+PRUNE(!(n$13 == 0), true); [line 79];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:11 exn:3 Conditional method_body
+n$13=*&amp;$irvar1:_Bool [line 79];
+PRUNE((n$13 == 0), false); [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">            assignments = generateAssignmentsFromTypeAlone(unassigned); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$14=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 80];
+n$15=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 80];
+n$16=_fun_List Assignments.generateAssignmentsFromTypeAlone(ParameterSignature)(n$14:org.junit.experimental.theories.internal.Assignments*,n$15:org.junit.experimental.theories.ParameterSignature*) [line 80];
+*&amp;assignments:java.util.List*=n$16 [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        return assignments; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 9 succs:2 exn:3 Instructions
+n$17=*&amp;assignments:java.util.List* [line 83];
+*&amp;return:java.util.List*=n$17 [line 83];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.potentialsForNextUnassigned%28%29%3Ajava.util.List.12a95cef7ca5e357ccabd99b463515cb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">    private List&lt;PotentialAssignment&gt; generateAssignmentsFromTypeAlone(ParameterSignature unassigned) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4.html">summary for List Assignments.generateAssignmentsFromTypeAlone(ParameterSignature)</a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">        Class&lt;?&gt; paramType = unassigned.getType(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 87];
+_=*n$0:org.junit.experimental.theories.ParameterSignature*(root org.junit.experimental.theories.ParameterSignature) [line 87];
+n$2=_fun_Class ParameterSignature.getType()(n$0:org.junit.experimental.theories.ParameterSignature*) virtual [line 87];
+*&amp;paramType:java.lang.Class*=n$2 [line 87];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        if (paramType.isEnum()) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;paramType:java.lang.Class* [line 89];
+_=*n$3:java.lang.Class*(root java.lang.Class) [line 89];
+n$5=_fun_boolean Class.isEnum()(n$3:java.lang.Class*) virtual [line 89];
+*&amp;$irvar0:_Bool=n$5 [line 89];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 89];
+PRUNE(!(n$6 == 0), true); [line 89];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:11 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 89];
+PRUNE((n$6 == 0), false); [line 89];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            return new EnumSupplier(paramType).getValueSources(unassigned);   <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$7=_fun___new(sizeof(t=org.junit.experimental.theories.internal.EnumSupplier):org.junit.experimental.theories.internal.EnumSupplier*) [line 90];
+n$8=*&amp;paramType:java.lang.Class* [line 90];
+n$9=_fun_EnumSupplier.&lt;init&gt;(Class)(n$7:org.junit.experimental.theories.internal.EnumSupplier*,n$8:java.lang.Class*) [line 90];
+*&amp;$irvar1:org.junit.experimental.theories.internal.EnumSupplier*=n$7 [line 90];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;$irvar1:org.junit.experimental.theories.internal.EnumSupplier* [line 90];
+_=*n$10:org.junit.experimental.theories.internal.EnumSupplier*(root org.junit.experimental.theories.internal.EnumSupplier) [line 90];
+n$12=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 90];
+n$13=_fun_List EnumSupplier.getValueSources(ParameterSignature)(n$10:org.junit.experimental.theories.internal.EnumSupplier*,n$12:org.junit.experimental.theories.ParameterSignature*) virtual [line 90];
+*&amp;$irvar2:java.util.List*=n$13 [line 90];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$14=*&amp;$irvar2:java.util.List* [line 90];
+*&amp;return:java.util.List*=n$14 [line 90];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        } else if (paramType.equals(Boolean.class) || paramType.equals(boolean.class)) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:7 succs:12 13 exn:3 Instructions
+n$15=*&amp;paramType:java.lang.Class* [line 91];
+_=*n$15:java.lang.Class*(root java.lang.Class) [line 91];
+n$17=_fun_boolean Object.equals(Object)(n$15:java.lang.Class*,java.lang.Boolean:java.lang.Object*) virtual [line 91];
+*&amp;$irvar3:_Bool=n$17 [line 91];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$18=*&amp;$irvar3:_Bool [line 91];
+PRUNE(!(n$18 != 0), true); [line 91];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:15 16 exn:3 Instructions
+n$19=*&amp;paramType:java.lang.Class* [line 91];
+_=*n$19:java.lang.Class*(root java.lang.Class) [line 91];
+n$21=*&amp;#GB<>$java.lang.Boolean.TYPE:java.lang.Class*(root java.lang.Boolean) [line 91];
+n$22=_fun_boolean Object.equals(Object)(n$19:java.lang.Class*,n$21:java.lang.Class*) virtual [line 91];
+*&amp;$irvar4:_Bool=n$22 [line 91];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:14 succs:17 exn:3 Conditional method_body
+n$23=*&amp;$irvar4:_Bool [line 91];
+PRUNE(!(n$23 == 0), true); [line 91];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:14 succs:20 exn:3 Conditional method_body
+n$23=*&amp;$irvar4:_Bool [line 91];
+PRUNE((n$23 == 0), false); [line 91];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:17 exn:3 Conditional method_body
+n$18=*&amp;$irvar3:_Bool [line 91];
+PRUNE((n$18 != 0), false); [line 91];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            return new BooleanSupplier().getValueSources(unassigned); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:15 13 succs:18 exn:3 Instructions
+n$24=_fun___new(sizeof(t=org.junit.experimental.theories.internal.BooleanSupplier):org.junit.experimental.theories.internal.BooleanSupplier*) [line 92];
+n$25=_fun_BooleanSupplier.&lt;init&gt;()(n$24:org.junit.experimental.theories.internal.BooleanSupplier*) [line 92];
+*&amp;$irvar5:org.junit.experimental.theories.internal.BooleanSupplier*=n$24 [line 92];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$26=*&amp;$irvar5:org.junit.experimental.theories.internal.BooleanSupplier* [line 92];
+_=*n$26:org.junit.experimental.theories.internal.BooleanSupplier*(root org.junit.experimental.theories.internal.BooleanSupplier) [line 92];
+n$28=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 92];
+n$29=_fun_List BooleanSupplier.getValueSources(ParameterSignature)(n$26:org.junit.experimental.theories.internal.BooleanSupplier*,n$28:org.junit.experimental.theories.ParameterSignature*) virtual [line 92];
+*&amp;$irvar6:java.util.List*=n$29 [line 92];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:2 exn:3 Instructions
+n$30=*&amp;$irvar6:java.util.List* [line 92];
+*&amp;return:java.util.List*=n$30 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            return emptyList(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:16 succs:21 exn:3 Instructions
+n$31=_fun_List Collections.emptyList()() [line 94];
+*&amp;$irvar7:java.util.List*=n$31 [line 94];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:2 exn:3 Instructions
+n$32=*&amp;$irvar7:java.util.List* [line 94];
+*&amp;return:java.util.List*=n$32 [line 94];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:21 19 10 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.generateAssignmentsFromTypeAlone%28org.junit.expe.0a7c9f063a4a1420fd049758b88629f4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">    private ParameterSupplier getSupplier(ParameterSignature unassigned) <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1.html">summary for ParameterSupplier Assignments.getSupplier(ParameterSignature)</a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">            throws Exception { </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        ParametersSuppliedBy annotation = unassigned </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">                .findDeepAnnotation(ParametersSuppliedBy.class); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;unassigned:org.junit.experimental.theories.ParameterSignature* [line 101];
+_=*n$0:org.junit.experimental.theories.ParameterSignature*(root org.junit.experimental.theories.ParameterSignature) [line 101];
+n$2=_fun_Annotation ParameterSignature.findDeepAnnotation(Class)(n$0:org.junit.experimental.theories.ParameterSignature*,org.junit.experimental.theories.ParametersSuppliedBy:java.lang.Object*) virtual [line 101];
+*&amp;$irvar0:java.lang.annotation.Annotation*=n$2 [line 101];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.annotation.Annotation* [line 101];
+n$4=_fun___cast(n$3:java.lang.annotation.Annotation*,sizeof(t=org.junit.experimental.theories.ParametersSuppliedBy;sub_t=( sub )(cast)):void) [line 101];
+*&amp;annotation:org.junit.experimental.theories.ParametersSuppliedBy*=n$4 [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        if (annotation != null) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$5=*&amp;annotation:org.junit.experimental.theories.ParametersSuppliedBy* [line 103];
+PRUNE(!(n$5 == null), true); [line 103];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:11 exn:3 Conditional method_body
+n$5=*&amp;annotation:org.junit.experimental.theories.ParametersSuppliedBy* [line 103];
+PRUNE((n$5 == null), false); [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">            return buildParameterSupplierFromClass(annotation.value()); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$6=*&amp;annotation:org.junit.experimental.theories.ParametersSuppliedBy* [line 104];
+_=*n$6:org.junit.experimental.theories.ParametersSuppliedBy*(root org.junit.experimental.theories.ParametersSuppliedBy) [line 104];
+n$8=_fun_Class ParametersSuppliedBy.value()(n$6:org.junit.experimental.theories.ParametersSuppliedBy*) interface virtual [line 104];
+*&amp;$irvar1:java.lang.Class*=n$8 [line 104];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 104];
+n$10=*&amp;$irvar1:java.lang.Class* [line 104];
+n$11=_fun_ParameterSupplier Assignments.buildParameterSupplierFromClass(Class)(n$9:org.junit.experimental.theories.internal.Assignments*,n$10:java.lang.Class*) [line 104];
+*&amp;$irvar2:org.junit.experimental.theories.ParameterSupplier*=n$11 [line 104];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar2:org.junit.experimental.theories.ParameterSupplier* [line 104];
+*&amp;return:org.junit.experimental.theories.ParameterSupplier*=n$12 [line 104];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">            return new AllMembersSupplier(clazz); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:7 succs:12 exn:3 Instructions
+n$13=_fun___new(sizeof(t=org.junit.experimental.theories.internal.AllMembersSupplier):org.junit.experimental.theories.internal.AllMembersSupplier*) [line 106];
+n$14=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 106];
+n$15=*n$14.clazz:org.junit.runners.model.TestClass*(root org.junit.experimental.theories.internal.Assignments) [line 106];
+n$16=_fun_AllMembersSupplier.&lt;init&gt;(TestClass)(n$13:org.junit.experimental.theories.internal.AllMembersSupplier*,n$15:org.junit.runners.model.TestClass*) [line 106];
+*&amp;$irvar3:org.junit.experimental.theories.internal.AllMembersSupplier*=n$13 [line 106];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+n$17=*&amp;$irvar3:org.junit.experimental.theories.internal.AllMembersSupplier* [line 106];
+*&amp;return:org.junit.experimental.theories.ParameterSupplier*=n$17 [line 106];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 10 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getSupplier%28org.junit.experimental.theories.Par.3234540e87ccc03d810300a5a87988f1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    private ParameterSupplier buildParameterSupplierFromClass( <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6.html">summary for ParameterSupplier Assignments.buildParameterSupplierFromClass(Class)</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">            Class&lt;? extends ParameterSupplier&gt; cls) throws Exception { </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">        Constructor&lt;?&gt;[] supplierConstructors = cls.getConstructors(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;cls:java.lang.Class* [line 112];
+_=*n$0:java.lang.Class*(root java.lang.Class) [line 112];
+n$2=_fun_Constructor[] Class.getConstructors()(n$0:java.lang.Class*) virtual [line 112];
+*&amp;supplierConstructors:java.lang.reflect.Constructor*[_*_](*)=n$2 [line 112];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        for (Constructor&lt;?&gt; constructor : supplierConstructors) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;supplierConstructors:java.lang.reflect.Constructor*[_*_](*) [line 114];
+*&amp;$bcvar3:java.lang.reflect.Constructor*[_*_](*)=n$3 [line 114];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$bcvar3:java.lang.reflect.Constructor*[_*_](*) [line 114];
+_=*n$4:int(root java.lang.reflect.Constructor*[_*_]) [line 114];
+n$6=_fun___get_array_length(n$4:java.lang.reflect.Constructor*[_*_](*)) [line 114];
+*&amp;$bcvar4:int=n$6 [line 114];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:10 exn:3 Instructions
+*&amp;$bcvar5:int=0 [line 114];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:24 7 succs:8 9 exn: Join
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$7=*&amp;$bcvar5:int [line 114];
+n$8=*&amp;$bcvar4:int [line 114];
+PRUNE(!(n$7  &gt;=  n$8), true); [line 114];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$9=*&amp;$bcvar3:java.lang.reflect.Constructor*[_*_](*) [line 114];
+_=*n$9:java.lang.reflect.Constructor*(root java.lang.reflect.Constructor*[_*_]) [line 114];
+n$10=*&amp;$bcvar5:int [line 114];
+n$12=*n$9[n$10]:java.lang.reflect.Constructor* [line 114];
+*&amp;constructor:java.lang.reflect.Constructor*=n$12 [line 114];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:18 14 succs:10 exn:3 Instructions
+n$35=*&amp;$bcvar5:int [line 114];
+*&amp;$bcvar5:int=(n$35 + 1) [line 114];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:25 exn:3 Conditional method_body
+n$7=*&amp;$bcvar5:int [line 114];
+n$8=*&amp;$bcvar4:int [line 114];
+PRUNE((n$7  &gt;=  n$8), false); [line 114];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            Class&lt;?&gt;[] parameterTypes = constructor.getParameterTypes(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:15 exn:3 Instructions
+n$13=*&amp;constructor:java.lang.reflect.Constructor* [line 115];
+_=*n$13:java.lang.reflect.Constructor*(root java.lang.reflect.Constructor) [line 115];
+n$15=_fun_Class[] Constructor.getParameterTypes()(n$13:java.lang.reflect.Constructor*) virtual [line 115];
+*&amp;parameterTypes:java.lang.Class*[_*_](*)=n$15 [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">            if (parameterTypes.length == 1 <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node15.html"><span class='visited with_tooltip'>J_15<span class='tooltip'>node15 preds:12 succs:13 14 exn: Join
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:16 exn:3 Conditional method_body
+n$16=*&amp;parameterTypes:java.lang.Class*[_*_](*) [line 116];
+_=*n$16:int(root java.lang.Class*[_*_]) [line 116];
+n$18=_fun___get_array_length(n$16:java.lang.Class*[_*_](*)) [line 116];
+PRUNE(!(n$18 != 1), true); [line 116];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:24 exn:3 Conditional method_body
+n$16=*&amp;parameterTypes:java.lang.Class*[_*_](*) [line 116];
+_=*n$16:int(root java.lang.Class*[_*_]) [line 116];
+n$18=_fun___get_array_length(n$16:java.lang.Class*[_*_](*)) [line 116];
+PRUNE((n$18 != 1), false); [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">                    &amp;&amp; parameterTypes[0].equals(TestClass.class)) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:13 succs:19 exn:3 Instructions
+n$19=*&amp;parameterTypes:java.lang.Class*[_*_](*) [line 117];
+_=*n$19:java.lang.Class*(root java.lang.Class*[_*_]) [line 117];
+n$21=*n$19[0]:java.lang.Class* [line 117];
+_=*n$21:java.lang.Class*(root java.lang.Class) [line 117];
+n$23=_fun_boolean Object.equals(Object)(n$21:java.lang.Class*,org.junit.runners.model.TestClass:java.lang.Object*) virtual [line 117];
+*&amp;$irvar0:_Bool=n$23 [line 117];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node19.html"><span class='visited with_tooltip'>J_19<span class='tooltip'>node19 preds:16 succs:17 18 exn: Join
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:19 succs:24 exn:3 Conditional method_body
+n$24=*&amp;$irvar0:_Bool [line 117];
+PRUNE((n$24 == 0), false); [line 117];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:19 succs:20 exn:3 Conditional method_body
+n$24=*&amp;$irvar0:_Bool [line 117];
+PRUNE(!(n$24 == 0), true); [line 117];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">                return (ParameterSupplier) constructor.newInstance(clazz); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:17 succs:21 exn:3 Instructions
+n$25=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[1]):java.lang.Object*[_*_](*)) [line 118];
+*&amp;$irvar1:java.lang.Object*[_*_](*)=n$25 [line 118];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$26=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 118];
+n$27=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 118];
+n$28=*n$27.clazz:org.junit.runners.model.TestClass*(root org.junit.experimental.theories.internal.Assignments) [line 118];
+*n$26[0]:org.junit.runners.model.TestClass*=n$28 [line 118];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$29=*&amp;constructor:java.lang.reflect.Constructor* [line 118];
+_=*n$29:java.lang.reflect.Constructor*(root java.lang.reflect.Constructor) [line 118];
+n$31=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 118];
+n$32=_fun_Object Constructor.newInstance(Object[])(n$29:java.lang.reflect.Constructor*,n$31:java.lang.Object*[_*_](*)) virtual [line 118];
+*&amp;$irvar2:java.lang.Object*=n$32 [line 118];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:2 exn:3 Instructions
+n$33=*&amp;$irvar2:java.lang.Object* [line 118];
+n$34=_fun___cast(n$33:java.lang.Object*,sizeof(t=org.junit.experimental.theories.ParameterSupplier;sub_t=( sub )(cast)):void) [line 118];
+*&amp;return:org.junit.experimental.theories.ParameterSupplier*=n$34 [line 118];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        return cls.newInstance(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:9 succs:26 exn:3 Instructions
+n$36=*&amp;cls:java.lang.Class* [line 122];
+_=*n$36:java.lang.Class*(root java.lang.Class) [line 122];
+n$38=_fun_Object Class.newInstance()(n$36:java.lang.Class*) virtual [line 122];
+*&amp;$irvar3:java.lang.Object*=n$38 [line 122];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:2 exn:3 Instructions
+n$39=*&amp;$irvar3:java.lang.Object* [line 122];
+n$40=_fun___cast(n$39:java.lang.Object*,sizeof(t=org.junit.experimental.theories.ParameterSupplier;sub_t=( sub )(cast)):void) [line 122];
+*&amp;return:org.junit.experimental.theories.ParameterSupplier*=n$40 [line 122];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:26 23 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.buildParameterSupplierFromClass%28java.lang.Class.38fa3c9fe06714a1f978c7d20ecb1ab6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">    public Object[] getConstructorArguments() <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c.html">summary for Object[] Assignments.getConstructorArguments()</a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">            throws CouldNotGenerateValueException { </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        return getActualValues(0, getConstructorParameterCount()); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 127];
+n$1=_fun_int Assignments.getConstructorParameterCount()(n$0:org.junit.experimental.theories.internal.Assignments*) [line 127];
+*&amp;$irvar0:int=n$1 [line 127];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 127];
+_=*n$2:org.junit.experimental.theories.internal.Assignments*(root org.junit.experimental.theories.internal.Assignments) [line 127];
+n$4=*&amp;$irvar0:int [line 127];
+n$5=_fun_Object[] Assignments.getActualValues(int,int)(n$2:org.junit.experimental.theories.internal.Assignments*,0:int,n$4:int) virtual [line 127];
+*&amp;$irvar1:java.lang.Object*[_*_](*)=n$5 [line 127];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$6=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 127];
+*&amp;return:java.lang.Object*[_*_](*)=n$6 [line 127];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorArguments%28%29%3Ajava.lang.Object%5B%5D.030471b5e06cdaa280a7a57ca6b04a2c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">    public Object[] getMethodArguments() throws CouldNotGenerateValueException { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7.html">summary for Object[] Assignments.getMethodArguments()</a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        return getActualValues(getConstructorParameterCount(), assigned.size()); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 131];
+n$1=_fun_int Assignments.getConstructorParameterCount()(n$0:org.junit.experimental.theories.internal.Assignments*) [line 131];
+*&amp;$irvar0:int=n$1 [line 131];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 131];
+n$3=*n$2.assigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 131];
+_=*n$3:java.util.List*(root java.util.List) [line 131];
+n$5=_fun_int List.size()(n$3:java.util.List*) interface virtual [line 131];
+*&amp;$irvar1:int=n$5 [line 131];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 131];
+_=*n$6:org.junit.experimental.theories.internal.Assignments*(root org.junit.experimental.theories.internal.Assignments) [line 131];
+n$8=*&amp;$irvar0:int [line 131];
+n$9=*&amp;$irvar1:int [line 131];
+n$10=_fun_Object[] Assignments.getActualValues(int,int)(n$6:org.junit.experimental.theories.internal.Assignments*,n$8:int,n$9:int) virtual [line 131];
+*&amp;$irvar2:java.lang.Object*[_*_](*)=n$10 [line 131];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$11=*&amp;$irvar2:java.lang.Object*[_*_](*) [line 131];
+*&amp;return:java.lang.Object*[_*_](*)=n$11 [line 131];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getMethodArguments%28%29%3Ajava.lang.Object%5B%5D.7675a6b7115785b7e8f8b20e2f70d1f7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    public Object[] getAllArguments() throws CouldNotGenerateValueException { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92.html">summary for Object[] Assignments.getAllArguments()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        return getActualValues(0, assigned.size()); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 135];
+n$1=*n$0.assigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 135];
+_=*n$1:java.util.List*(root java.util.List) [line 135];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 135];
+*&amp;$irvar0:int=n$3 [line 135];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 135];
+_=*n$4:org.junit.experimental.theories.internal.Assignments*(root org.junit.experimental.theories.internal.Assignments) [line 135];
+n$6=*&amp;$irvar0:int [line 135];
+n$7=_fun_Object[] Assignments.getActualValues(int,int)(n$4:org.junit.experimental.theories.internal.Assignments*,0:int,n$6:int) virtual [line 135];
+*&amp;$irvar1:java.lang.Object*[_*_](*)=n$7 [line 135];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$8=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 135];
+*&amp;return:java.lang.Object*[_*_](*)=n$8 [line 135];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getAllArguments%28%29%3Ajava.lang.Object%5B%5D.fd06a8e78fc579136055f0a2a64a0d92_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    private int getConstructorParameterCount() { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f.html">summary for int Assignments.getConstructorParameterCount()</a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">        List&lt;ParameterSignature&gt; signatures = ParameterSignature </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">                .signatures(clazz.getOnlyConstructor()); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 140];
+n$1=*n$0.clazz:org.junit.runners.model.TestClass*(root org.junit.experimental.theories.internal.Assignments) [line 140];
+_=*n$1:org.junit.runners.model.TestClass*(root org.junit.runners.model.TestClass) [line 140];
+n$3=_fun_Constructor TestClass.getOnlyConstructor()(n$1:org.junit.runners.model.TestClass*) virtual [line 140];
+*&amp;$irvar0:java.lang.reflect.Constructor*=n$3 [line 140];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.reflect.Constructor* [line 140];
+n$5=_fun_List ParameterSignature.signatures(Constructor)(n$4:java.lang.reflect.Constructor*) [line 140];
+*&amp;signatures:java.util.List*=n$5 [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        int constructorParameterCount = signatures.size(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;signatures:java.util.List* [line 141];
+_=*n$6:java.util.List*(root java.util.List) [line 141];
+n$8=_fun_int List.size()(n$6:java.util.List*) interface virtual [line 141];
+*&amp;constructorParameterCount:int=n$8 [line 141];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        return constructorParameterCount; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$9=*&amp;constructorParameterCount:int [line 142];
+*&amp;return:int=n$9 [line 142];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getConstructorParameterCount%28%29%3Aint.4f96c644990c63ec0a6ef83b65b92b2f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">    public Object[] getArgumentStrings(boolean nullsOk) <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b.html">summary for Object[] Assignments.getArgumentStrings(boolean)</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            throws CouldNotGenerateValueException { </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        Object[] values = new Object[assigned.size()]; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 147];
+n$1=*n$0.assigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 147];
+_=*n$1:java.util.List*(root java.util.List) [line 147];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 147];
+*&amp;$irvar0:int=n$3 [line 147];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 147];
+n$5=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[n$4]):java.lang.Object*[_*_](*)) [line 147];
+*&amp;values:java.lang.Object*[_*_](*)=n$5 [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        for (int i = 0; i &lt; values.length; i++) { <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:9 exn:3 Instructions
+*&amp;i:int=0 [line 148];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:13 6 succs:7 8 exn: Join
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$6=*&amp;i:int [line 148];
+n$7=*&amp;values:java.lang.Object*[_*_](*) [line 148];
+_=*n$7:int(root java.lang.Object*[_*_]) [line 148];
+n$9=_fun___get_array_length(n$7:java.lang.Object*[_*_](*)) [line 148];
+PRUNE(!(n$6  &gt;=  n$9), true); [line 148];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:9 exn:3 Instructions
+n$22=*&amp;i:int [line 148];
+*&amp;i:int=(n$22 + 1) [line 148];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:14 exn:3 Conditional method_body
+n$6=*&amp;i:int [line 148];
+n$7=*&amp;values:java.lang.Object*[_*_](*) [line 148];
+_=*n$7:int(root java.lang.Object*[_*_]) [line 148];
+n$9=_fun___get_array_length(n$7:java.lang.Object*[_*_](*)) [line 148];
+PRUNE((n$6  &gt;=  n$9), false); [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">            values[i] = assigned.get(i).getDescription(); <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$10=*&amp;this:org.junit.experimental.theories.internal.Assignments* [line 149];
+n$11=*n$10.assigned:java.util.List*(root org.junit.experimental.theories.internal.Assignments) [line 149];
+_=*n$11:java.util.List*(root java.util.List) [line 149];
+n$13=*&amp;i:int [line 149];
+n$14=_fun_Object List.get(int)(n$11:java.util.List*,n$13:int) interface virtual [line 149];
+*&amp;$irvar1:java.lang.Object*=n$14 [line 149];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=*&amp;$irvar1:java.lang.Object* [line 149];
+n$16=_fun___cast(n$15:java.lang.Object*,sizeof(t=org.junit.experimental.theories.PotentialAssignment;sub_t=( sub )(cast)):void) [line 149];
+_=*n$16:org.junit.experimental.theories.PotentialAssignment*(root org.junit.experimental.theories.PotentialAssignment) [line 149];
+n$18=_fun_String PotentialAssignment.getDescription()(n$16:org.junit.experimental.theories.PotentialAssignment*) virtual [line 149];
+*&amp;$irvar2:java.lang.String*=n$18 [line 149];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$19=*&amp;values:java.lang.Object*[_*_](*) [line 149];
+n$20=*&amp;i:int [line 149];
+n$21=*&amp;$irvar2:java.lang.String* [line 149];
+*n$19[n$20]:java.lang.String*=n$21 [line 149];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">        return values; <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:8 succs:2 exn:3 Instructions
+n$23=*&amp;values:java.lang.Object*[_*_](*) [line 151];
+*&amp;return:java.lang.Object*[_*_](*)=n$23 [line 151];
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/org.junit.experimental.theories.internal.Assignments.getArgumentStrings%28boolean%29%3Ajava.lang.Object%5B%5D.6565e786beed271026d28d4c04cdfe2b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/nodes/node14.html#session89">node14#session89</a>(<a href="./Assignments.java.2ae37e940af8fc684d15bb34340dfbbb/../Assignments.java.2ae37e940af8fc684d15bb34340dfbbb.html#LINE91">91</a>)</body>
+</html>

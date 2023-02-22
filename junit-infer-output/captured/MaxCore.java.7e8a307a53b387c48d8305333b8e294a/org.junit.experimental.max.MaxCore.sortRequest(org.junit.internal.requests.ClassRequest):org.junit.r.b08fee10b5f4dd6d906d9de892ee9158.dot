@@ -1,0 +1,55 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_1" [label="1: Start Request MaxCore.sortRequest(ClassRequest)\nFormals:  this:org.junit.experimental.max.MaxCore* request:org.junit.internal.requests.ClassRequest*\nLocals:  $irvar1:void $irvar0:void leaves:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_1" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_3" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_1" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_6" ;
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_2" [label="2: Exit Request MaxCore.sortRequest(ClassRequest) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_3" [label="3: Prune (true branch, if) \n   n$0=*&request:org.junit.internal.requests.ClassRequest* [line 96]\n  n$1=_fun___instanceof(n$0:org.junit.runner.Request*,sizeof(t=org.junit.internal.requests.SortingRequest;sub_t=( sub )(instof)):void) [line 96]\n  PRUNE(!(n$1 == 0), true); [line 96]\n  EXIT_SCOPE(n$0,n$1); [line 96]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_3" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_5" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_3" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [label="4:  exceptions sink \n   NULLIFY(&leaves); [line 102]\n  NULLIFY(&$irvar0); [line 102]\n  NULLIFY(&$irvar1); [line 102]\n  EXIT_SCOPE(leaves,$irvar0,$irvar1); [line 102]\n  APPLY_ABSTRACTION; [line 102]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_2" ;
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_5" [label="5:  method_body \n   n$2=*&request:org.junit.internal.requests.ClassRequest* [line 98]\n  *&return:org.junit.runner.Request*=n$2 [line 98]\n  NULLIFY(&request); [line 98]\n  EXIT_SCOPE(n$2,request); [line 98]\n  APPLY_ABSTRACTION; [line 98]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_5" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_2" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_5" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_6" [label="6: Prune (false branch, if) \n   n$0=*&request:org.junit.internal.requests.ClassRequest* [line 96]\n  n$1=_fun___instanceof(n$0:org.junit.runner.Request*,sizeof(t=org.junit.internal.requests.SortingRequest;sub_t=( sub )(instof)):void) [line 96]\n  PRUNE((n$1 == 0), false); [line 96]\n  EXIT_SCOPE(n$0,n$1); [line 96]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_6" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_7" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_6" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_7" [label="7:  Call List MaxCore.findLeaves(Request) \n   n$3=*&this:org.junit.experimental.max.MaxCore* [line 100]\n  n$4=*&request:org.junit.internal.requests.ClassRequest* [line 100]\n  n$5=_fun_List MaxCore.findLeaves(Request)(n$3:org.junit.experimental.max.MaxCore*,n$4:org.junit.runner.Request*) [line 100]\n  *&leaves:java.util.List*=n$5 [line 100]\n  NULLIFY(&request); [line 100]\n  EXIT_SCOPE(n$3,n$4,n$5,request); [line 100]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_7" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_8" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_7" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_8" [label="8:  Call Comparator MaxHistory.testComparator() \n   n$6=*&this:org.junit.experimental.max.MaxCore* [line 101]\n  n$7=*n$6.history:org.junit.experimental.max.MaxHistory*(root org.junit.experimental.max.MaxCore) [line 101]\n  _=*n$7:org.junit.experimental.max.MaxHistory [line 101]\n  n$9=_fun_Comparator MaxHistory.testComparator()(n$7:org.junit.experimental.max.MaxHistory*) virtual [line 101]\n  *&$irvar0:java.util.Comparator*=n$9 [line 101]\n  EXIT_SCOPE(_,n$6,n$7,n$9); [line 101]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_8" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_9" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_8" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_9" [label="9:  Call void Collections.sort(List,Comparator) \n   n$10=*&leaves:java.util.List* [line 101]\n  n$11=*&$irvar0:java.util.Comparator* [line 101]\n  n$12=_fun_void Collections.sort(List,Comparator)(n$10:java.util.List*,n$11:java.util.Comparator*) [line 101]\n  NULLIFY(&$irvar0); [line 101]\n  EXIT_SCOPE(n$10,n$11,n$12,$irvar0); [line 101]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_9" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_10" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_9" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_10" [label="10:  Call Request MaxCore.constructLeafRequest(List) \n   n$13=*&this:org.junit.experimental.max.MaxCore* [line 102]\n  n$14=*&leaves:java.util.List* [line 102]\n  n$15=_fun_Request MaxCore.constructLeafRequest(List)(n$13:org.junit.experimental.max.MaxCore*,n$14:java.util.List*) [line 102]\n  *&$irvar1:org.junit.runner.Request*=n$15 [line 102]\n  NULLIFY(&leaves); [line 102]\n  NULLIFY(&this); [line 102]\n  EXIT_SCOPE(n$13,n$14,n$15,leaves,this); [line 102]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_10" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_11" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_10" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+"org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_11" [label="11:  method_body \n   n$16=*&$irvar1:org.junit.runner.Request* [line 102]\n  *&return:org.junit.runner.Request*=n$16 [line 102]\n  NULLIFY(&$irvar1); [line 102]\n  EXIT_SCOPE(n$16,$irvar1); [line 102]\n  APPLY_ABSTRACTION; [line 102]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_11" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_2" ;
+	 "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_11" -> "org.junit.experimental.max.MaxCore.sortRequest(org.junit.internal.requests.ClassRequest):org.junit.r.b08fee10b5f4dd6d906d9de892ee9158_4" [color="red" ];
+}

@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_1" [label="1: Start int TestSuite.testCount()\nFormals:  this:junit.framework.TestSuite*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_1" -> "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_4" ;
+"junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_2" [label="2: Exit int TestSuite.testCount() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 264]\n  EXIT_SCOPE($irvar0); [line 264]\n  APPLY_ABSTRACTION; [line 264]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_3" -> "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_2" ;
+"junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_4" [label="4:  Call int Vector.size() \n   n$0=*&this:junit.framework.TestSuite* [line 264]\n  n$1=*n$0.fTests:java.util.Vector*(root junit.framework.TestSuite) [line 264]\n  _=*n$1:java.util.Vector*(root java.util.Vector) [line 264]\n  n$3=_fun_int Vector.size()(n$1:java.util.Vector*) virtual [line 264]\n  *&$irvar0:int=n$3 [line 264]\n  NULLIFY(&this); [line 264]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 264]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_4" -> "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_5" ;
+	 "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_4" -> "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_3" [color="red" ];
+"junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_5" [label="5:  method_body \n   n$4=*&$irvar0:int [line 264]\n  *&return:int=n$4 [line 264]\n  NULLIFY(&$irvar0); [line 264]\n  EXIT_SCOPE(n$4,$irvar0); [line 264]\n  APPLY_ABSTRACTION; [line 264]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_5" -> "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_2" ;
+	 "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_5" -> "junit.framework.TestSuite.testCount():int.7d31c0c46d852b595503b2d422722b76_3" [color="red" ];
+}

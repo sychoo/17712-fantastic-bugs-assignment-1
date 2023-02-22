@@ -1,0 +1,791 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/ComparisonCriteria.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.reflect.Array; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.Arrays; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.Assert; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * Defines criteria for finding two items &quot;equal enough&quot;. Concrete subclasses </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * may demand exact equality, or, for example, equality within a given delta. </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">public abstract class ComparisonCriteria { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<init>%28%29.293402fa5ff6444509f1780d4e4e1390_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<init>%28%29.293402fa5ff6444509f1780d4e4e1390_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ComparisonCriteria* [line 12];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.ComparisonCriteria*) [line 12];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<init>%28%29.293402fa5ff6444509f1780d4e4e1390_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<init>%28%29.293402fa5ff6444509f1780d4e4e1390_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<init>%28%29.293402fa5ff6444509f1780d4e4e1390_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.<init>%28%29.293402fa5ff6444509f1780d4e4e1390.html">summary for ComparisonCriteria.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">     * Asserts that two arrays are equal, according to the criteria defined by </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">     * the concrete subclass. If they are not, an {@link AssertionError} is </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">     * thrown with the given message. If &lt;code&gt;expecteds&lt;/code&gt; and </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">     * &lt;code&gt;actuals&lt;/code&gt; are &lt;code&gt;null&lt;/code&gt;, they are considered equal. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">     * @param message the identifying message for the {@link AssertionError} ( </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">     * &lt;code&gt;null&lt;/code&gt; okay) </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">     * @param expecteds Object array or array of arrays (multi-dimensional array) with </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">     * expected values. </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">     * @param actuals Object array or array of arrays (multi-dimensional array) with </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">     * actual values </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    public void arrayEquals(String message, Object expecteds, Object actuals) </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">            throws ArrayComparisonFailure { </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        arrayEquals(message, expecteds, actuals, true); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.4bedd49af9c1c69acf055e066a8aa611_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.4bedd49af9c1c69acf055e066a8aa611_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ComparisonCriteria* [line 28];
+n$1=*&amp;message:java.lang.String* [line 28];
+n$2=*&amp;expecteds:java.lang.Object* [line 28];
+n$3=*&amp;actuals:java.lang.Object* [line 28];
+n$4=_fun_void ComparisonCriteria.arrayEquals(String,Object,Object,boolean)(n$0:org.junit.internal.ComparisonCriteria*,n$1:java.lang.String*,n$2:java.lang.Object*,n$3:java.lang.Object*,1:int) [line 28];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.4bedd49af9c1c69acf055e066a8aa611.html">summary for void ComparisonCriteria.arrayEquals(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    } <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.4bedd49af9c1c69acf055e066a8aa611_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.4bedd49af9c1c69acf055e066a8aa611_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.4bedd49af9c1c69acf055e066a8aa611_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    private void arrayEquals(String message, Object expecteds, Object actuals, boolean outer) <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a.html">summary for void ComparisonCriteria.arrayEquals(String,Object,Object,boolean)</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">            throws ArrayComparisonFailure { </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        if (expecteds == actuals <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;expecteds:java.lang.Object* [line 33];
+n$1=*&amp;actuals:java.lang.Object* [line 33];
+PRUNE(!(n$0 == n$1), true); [line 33];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[1]):java.lang.Object*[_*_](*)) [line 33];
+*&amp;$irvar0:java.lang.Object*[_*_](*)=n$2 [line 33];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Object*[_*_](*) [line 33];
+n$4=*&amp;expecteds:java.lang.Object* [line 33];
+*n$3[0]:java.lang.Object*=n$4 [line 33];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$5=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[1]):java.lang.Object*[_*_](*)) [line 33];
+*&amp;$irvar1:java.lang.Object*[_*_](*)=n$5 [line 33];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$6=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 33];
+n$7=*&amp;actuals:java.lang.Object* [line 33];
+*n$6[0]:java.lang.Object*=n$7 [line 33];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:13 exn:3 Conditional method_body
+n$0=*&amp;expecteds:java.lang.Object* [line 33];
+n$1=*&amp;actuals:java.lang.Object* [line 33];
+PRUNE((n$0 == n$1), false); [line 33];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">            || Arrays.deepEquals(new Object[] {expecteds}, new Object[] {actuals})) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 12 exn:3 Instructions
+n$8=*&amp;$irvar0:java.lang.Object*[_*_](*) [line 34];
+n$9=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 34];
+n$10=_fun_boolean Arrays.deepEquals(Object[],Object[])(n$8:java.lang.Object*[_*_](*),n$9:java.lang.Object*[_*_](*)) [line 34];
+*&amp;$irvar2:_Bool=n$10 [line 34];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:10 succs:13 exn:3 Conditional method_body
+n$11=*&amp;$irvar2:_Bool [line 34];
+PRUNE(!(n$11 == 0), true); [line 34];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:10 succs:14 15 exn:3 Conditional method_body
+n$11=*&amp;$irvar2:_Bool [line 34];
+PRUNE((n$11 == 0), false); [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">            // The reflection-based loop below is potentially very slow, especially for primitive </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            // arrays. The deepEquals check allows us to circumvent it in the usual case where </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">            // the arrays are exactly equal. </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">            return; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 5 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        String header = message == null ? &quot;&quot; : message + &quot;: &quot;; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:12 succs:16 exn:3 Conditional method_body
+n$12=*&amp;message:java.lang.String* [line 40];
+PRUNE(!(n$12 != null), true); [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:14 succs:22 exn:3 Instructions
+*&amp;$T0_56:java.lang.Object*="" [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:12 succs:17 exn:3 Conditional method_body
+n$12=*&amp;message:java.lang.String* [line 40];
+PRUNE((n$12 != null), false); [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:15 succs:18 exn:3 Instructions
+n$13=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 40];
+n$14=_fun_StringBuilder.&lt;init&gt;()(n$13:java.lang.StringBuilder*) [line 40];
+*&amp;$irvar3:java.lang.StringBuilder*=n$13 [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$15=*&amp;$irvar3:java.lang.StringBuilder* [line 40];
+_=*n$15:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 40];
+n$17=*&amp;message:java.lang.String* [line 40];
+n$18=_fun_StringBuilder StringBuilder.append(String)(n$15:java.lang.StringBuilder*,n$17:java.lang.String*) virtual [line 40];
+*&amp;$irvar4:java.lang.StringBuilder*=n$18 [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$19=*&amp;$irvar4:java.lang.StringBuilder* [line 40];
+_=*n$19:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 40];
+n$21=_fun_StringBuilder StringBuilder.append(String)(n$19:java.lang.StringBuilder*,": ":java.lang.Object*) virtual [line 40];
+*&amp;$irvar5:java.lang.StringBuilder*=n$21 [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$22=*&amp;$irvar5:java.lang.StringBuilder* [line 40];
+_=*n$22:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 40];
+n$24=_fun_String StringBuilder.toString()(n$22:java.lang.StringBuilder*) virtual [line 40];
+*&amp;$irvar6:java.lang.String*=n$24 [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$25=*&amp;$irvar6:java.lang.String* [line 40];
+*&amp;$T0_56:java.lang.String*=n$25 [line 40];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 16 succs:23 24 exn:3 Instructions
+n$26=*&amp;$T0_56:java.lang.String* [line 40];
+*&amp;header:java.lang.String*=n$26 [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        // Only include the user-provided message in the outer exception. </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        String exceptionMessage = outer ? header : &quot;&quot;; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node23.html"><span class='visited with_tooltip'>C_23<span class='tooltip'>node23 preds:22 succs:25 exn:3 Conditional method_body
+n$27=*&amp;outer:_Bool [line 43];
+PRUNE(!(n$27 == 0), true); [line 43];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:23 succs:27 exn:3 Instructions
+n$28=*&amp;header:java.lang.String* [line 43];
+*&amp;$T0_70:java.lang.String*=n$28 [line 43];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node24.html"><span class='visited with_tooltip'>C_24<span class='tooltip'>node24 preds:22 succs:26 exn:3 Conditional method_body
+n$27=*&amp;outer:_Bool [line 43];
+PRUNE((n$27 == 0), false); [line 43];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:24 succs:27 exn:3 Instructions
+*&amp;$T0_70:java.lang.Object*="" [line 43];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 25 succs:28 29 exn:3 Instructions
+n$29=*&amp;$T0_70:java.lang.Object* [line 43];
+*&amp;exceptionMessage:java.lang.Object*=n$29 [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        if (expecteds == null) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node28.html"><span class='visited with_tooltip'>C_28<span class='tooltip'>node28 preds:27 succs:30 exn:3 Conditional method_body
+n$30=*&amp;expecteds:java.lang.Object* [line 45];
+PRUNE(!(n$30 != null), true); [line 45];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node29.html"><span class='visited with_tooltip'>C_29<span class='tooltip'>node29 preds:27 succs:35 36 exn:3 Conditional method_body
+n$30=*&amp;expecteds:java.lang.Object* [line 45];
+PRUNE((n$30 != null), false); [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">            Assert.fail(exceptionMessage + &quot;expected array was null&quot;); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:28 succs:31 exn:3 Instructions
+n$31=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 46];
+n$32=_fun_StringBuilder.&lt;init&gt;()(n$31:java.lang.StringBuilder*) [line 46];
+*&amp;$irvar7:java.lang.StringBuilder*=n$31 [line 46];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$33=*&amp;$irvar7:java.lang.StringBuilder* [line 46];
+_=*n$33:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 46];
+n$35=*&amp;exceptionMessage:java.lang.Object* [line 46];
+n$36=_fun_StringBuilder StringBuilder.append(String)(n$33:java.lang.StringBuilder*,n$35:java.lang.Object*) virtual [line 46];
+*&amp;$irvar8:java.lang.StringBuilder*=n$36 [line 46];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:33 exn:3 Instructions
+n$37=*&amp;$irvar8:java.lang.StringBuilder* [line 46];
+_=*n$37:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 46];
+n$39=_fun_StringBuilder StringBuilder.append(String)(n$37:java.lang.StringBuilder*,"expected array was null":java.lang.Object*) virtual [line 46];
+*&amp;$irvar9:java.lang.StringBuilder*=n$39 [line 46];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:32 succs:34 exn:3 Instructions
+n$40=*&amp;$irvar9:java.lang.StringBuilder* [line 46];
+_=*n$40:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 46];
+n$42=_fun_String StringBuilder.toString()(n$40:java.lang.StringBuilder*) virtual [line 46];
+*&amp;$irvar10:java.lang.String*=n$42 [line 46];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:33 succs:35 36 exn:3 Instructions
+n$43=*&amp;$irvar10:java.lang.String* [line 46];
+n$44=_fun_void Assert.fail(String)(n$43:java.lang.String*) [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        if (actuals == null) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node35.html"><span class='visited with_tooltip'>C_35<span class='tooltip'>node35 preds:34 29 succs:37 exn:3 Conditional method_body
+n$45=*&amp;actuals:java.lang.Object* [line 48];
+PRUNE(!(n$45 != null), true); [line 48];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node36.html"><span class='visited with_tooltip'>C_36<span class='tooltip'>node36 preds:34 29 succs:42 exn:3 Conditional method_body
+n$45=*&amp;actuals:java.lang.Object* [line 48];
+PRUNE((n$45 != null), false); [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">            Assert.fail(exceptionMessage + &quot;actual array was null&quot;); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node37.html"><span class='visited with_tooltip'>I_37<span class='tooltip'>node37 preds:35 succs:38 exn:3 Instructions
+n$46=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 49];
+n$47=_fun_StringBuilder.&lt;init&gt;()(n$46:java.lang.StringBuilder*) [line 49];
+*&amp;$irvar11:java.lang.StringBuilder*=n$46 [line 49];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node38.html"><span class='visited with_tooltip'>I_38<span class='tooltip'>node38 preds:37 succs:39 exn:3 Instructions
+n$48=*&amp;$irvar11:java.lang.StringBuilder* [line 49];
+_=*n$48:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 49];
+n$50=*&amp;exceptionMessage:java.lang.Object* [line 49];
+n$51=_fun_StringBuilder StringBuilder.append(String)(n$48:java.lang.StringBuilder*,n$50:java.lang.Object*) virtual [line 49];
+*&amp;$irvar12:java.lang.StringBuilder*=n$51 [line 49];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node39.html"><span class='visited with_tooltip'>I_39<span class='tooltip'>node39 preds:38 succs:40 exn:3 Instructions
+n$52=*&amp;$irvar12:java.lang.StringBuilder* [line 49];
+_=*n$52:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 49];
+n$54=_fun_StringBuilder StringBuilder.append(String)(n$52:java.lang.StringBuilder*,"actual array was null":java.lang.Object*) virtual [line 49];
+*&amp;$irvar13:java.lang.StringBuilder*=n$54 [line 49];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node40.html"><span class='visited with_tooltip'>I_40<span class='tooltip'>node40 preds:39 succs:41 exn:3 Instructions
+n$55=*&amp;$irvar13:java.lang.StringBuilder* [line 49];
+_=*n$55:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 49];
+n$57=_fun_String StringBuilder.toString()(n$55:java.lang.StringBuilder*) virtual [line 49];
+*&amp;$irvar14:java.lang.String*=n$57 [line 49];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node41.html"><span class='visited with_tooltip'>I_41<span class='tooltip'>node41 preds:40 succs:42 exn:3 Instructions
+n$58=*&amp;$irvar14:java.lang.String* [line 49];
+n$59=_fun_void Assert.fail(String)(n$58:java.lang.String*) [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        int actualsLength = Array.getLength(actuals); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node42.html"><span class='visited with_tooltip'>I_42<span class='tooltip'>node42 preds:41 36 succs:43 exn:3 Instructions
+n$60=*&amp;actuals:java.lang.Object* [line 52];
+n$61=_fun_int Array.getLength(Object)(n$60:java.lang.Object*) [line 52];
+*&amp;actualsLength:int=n$61 [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        int expectedsLength = Array.getLength(expecteds); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node43.html"><span class='visited with_tooltip'>I_43<span class='tooltip'>node43 preds:42 succs:44 45 exn:3 Instructions
+n$62=*&amp;expecteds:java.lang.Object* [line 53];
+n$63=_fun_int Array.getLength(Object)(n$62:java.lang.Object*) [line 53];
+*&amp;expectedsLength:int=n$63 [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        if (actualsLength != expectedsLength) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node44.html"><span class='visited with_tooltip'>C_44<span class='tooltip'>node44 preds:43 succs:46 exn:3 Conditional method_body
+n$64=*&amp;actualsLength:int [line 54];
+n$65=*&amp;expectedsLength:int [line 54];
+PRUNE(!(n$64 == n$65), true); [line 54];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node45.html"><span class='visited with_tooltip'>C_45<span class='tooltip'>node45 preds:43 succs:54 exn:3 Conditional method_body
+n$64=*&amp;actualsLength:int [line 54];
+n$65=*&amp;expectedsLength:int [line 54];
+PRUNE((n$64 == n$65), false); [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">            header += &quot;array lengths differed, expected.length=&quot; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node46.html"><span class='visited with_tooltip'>I_46<span class='tooltip'>node46 preds:44 succs:47 exn:3 Instructions
+n$66=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 55];
+n$67=_fun_StringBuilder.&lt;init&gt;()(n$66:java.lang.StringBuilder*) [line 55];
+*&amp;$irvar15:java.lang.StringBuilder*=n$66 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node47.html"><span class='visited with_tooltip'>I_47<span class='tooltip'>node47 preds:46 succs:48 exn:3 Instructions
+n$68=*&amp;$irvar15:java.lang.StringBuilder* [line 55];
+_=*n$68:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$70=*&amp;header:java.lang.String* [line 55];
+n$71=_fun_StringBuilder StringBuilder.append(String)(n$68:java.lang.StringBuilder*,n$70:java.lang.String*) virtual [line 55];
+*&amp;$irvar16:java.lang.StringBuilder*=n$71 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node48.html"><span class='visited with_tooltip'>I_48<span class='tooltip'>node48 preds:47 succs:49 exn:3 Instructions
+n$72=*&amp;$irvar16:java.lang.StringBuilder* [line 55];
+_=*n$72:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$74=_fun_StringBuilder StringBuilder.append(String)(n$72:java.lang.StringBuilder*,"array lengths differed, expected.length=":java.lang.Object*) virtual [line 55];
+*&amp;$irvar17:java.lang.StringBuilder*=n$74 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node49.html"><span class='visited with_tooltip'>I_49<span class='tooltip'>node49 preds:48 succs:50 exn:3 Instructions
+n$75=*&amp;$irvar17:java.lang.StringBuilder* [line 55];
+_=*n$75:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$77=*&amp;expectedsLength:int [line 55];
+n$78=_fun_StringBuilder StringBuilder.append(int)(n$75:java.lang.StringBuilder*,n$77:int) virtual [line 55];
+*&amp;$irvar18:java.lang.StringBuilder*=n$78 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node50.html"><span class='visited with_tooltip'>I_50<span class='tooltip'>node50 preds:49 succs:51 exn:3 Instructions
+n$79=*&amp;$irvar18:java.lang.StringBuilder* [line 55];
+_=*n$79:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$81=_fun_StringBuilder StringBuilder.append(String)(n$79:java.lang.StringBuilder*," actual.length=":java.lang.Object*) virtual [line 55];
+*&amp;$irvar19:java.lang.StringBuilder*=n$81 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node51.html"><span class='visited with_tooltip'>I_51<span class='tooltip'>node51 preds:50 succs:52 exn:3 Instructions
+n$82=*&amp;$irvar19:java.lang.StringBuilder* [line 55];
+_=*n$82:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$84=*&amp;actualsLength:int [line 55];
+n$85=_fun_StringBuilder StringBuilder.append(int)(n$82:java.lang.StringBuilder*,n$84:int) virtual [line 55];
+*&amp;$irvar20:java.lang.StringBuilder*=n$85 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node52.html"><span class='visited with_tooltip'>I_52<span class='tooltip'>node52 preds:51 succs:53 exn:3 Instructions
+n$86=*&amp;$irvar20:java.lang.StringBuilder* [line 55];
+_=*n$86:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$88=_fun_StringBuilder StringBuilder.append(String)(n$86:java.lang.StringBuilder*,"; ":java.lang.Object*) virtual [line 55];
+*&amp;$irvar21:java.lang.StringBuilder*=n$88 [line 55];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node53.html"><span class='visited with_tooltip'>I_53<span class='tooltip'>node53 preds:52 succs:54 exn:3 Instructions
+n$89=*&amp;$irvar21:java.lang.StringBuilder* [line 55];
+_=*n$89:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 55];
+n$91=_fun_String StringBuilder.toString()(n$89:java.lang.StringBuilder*) virtual [line 55];
+*&amp;header:java.lang.String*=n$91 [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">                    + expectedsLength + &quot; actual.length=&quot; + actualsLength + &quot;; &quot;; </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        int prefixLength = Math.min(actualsLength, expectedsLength); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node54.html"><span class='visited with_tooltip'>I_54<span class='tooltip'>node54 preds:53 45 succs:55 exn:3 Instructions
+n$92=*&amp;actualsLength:int [line 58];
+n$93=*&amp;expectedsLength:int [line 58];
+n$94=_fun_int Math.min(int,int)(n$92:int,n$93:int) [line 58];
+*&amp;prefixLength:int=n$94 [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        for (int i = 0; i &lt; prefixLength; i++) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node55.html"><span class='visited with_tooltip'>I_55<span class='tooltip'>node55 preds:54 succs:58 exn:3 Instructions
+*&amp;i:int=0 [line 60];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node58.html"><span class='visited with_tooltip'>J_58<span class='tooltip'>node58 preds:80 55 succs:56 57 exn: Join
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node56.html"><span class='visited with_tooltip'>C_56<span class='tooltip'>node56 preds:58 succs:59 exn:3 Conditional method_body
+n$95=*&amp;i:int [line 60];
+n$96=*&amp;prefixLength:int [line 60];
+PRUNE(!(n$95  &gt;=  n$96), true); [line 60];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node80.html"><span class='visited with_tooltip'>I_80<span class='tooltip'>node80 preds:76 69 succs:58 exn:3 Instructions
+n$141=*&amp;i:int [line 60];
+*&amp;i:int=(n$141 + 1) [line 60];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node57.html"><span class='visited with_tooltip'>C_57<span class='tooltip'>node57 preds:58 succs:81 82 exn:3 Conditional method_body
+n$95=*&amp;i:int [line 60];
+n$96=*&amp;prefixLength:int [line 60];
+PRUNE((n$95  &gt;=  n$96), false); [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">            Object expected = Array.get(expecteds, i); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node59.html"><span class='visited with_tooltip'>I_59<span class='tooltip'>node59 preds:56 succs:60 exn:3 Instructions
+n$97=*&amp;expecteds:java.lang.Object* [line 61];
+n$98=*&amp;i:int [line 61];
+n$99=_fun_Object Array.get(Object,int)(n$97:java.lang.Object*,n$98:int) [line 61];
+*&amp;expected:java.lang.Object*=n$99 [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">            Object actual = Array.get(actuals, i); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node60.html"><span class='visited with_tooltip'>I_60<span class='tooltip'>node60 preds:59 succs:61 exn:3 Instructions
+n$100=*&amp;actuals:java.lang.Object* [line 62];
+n$101=*&amp;i:int [line 62];
+n$102=_fun_Object Array.get(Object,int)(n$100:java.lang.Object*,n$101:int) [line 62];
+*&amp;actual:java.lang.Object*=n$102 [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">            if (isArray(expected) &amp;&amp; isArray(actual)) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node61.html"><span class='visited with_tooltip'>I_61<span class='tooltip'>node61 preds:60 succs:64 exn:3 Instructions
+n$103=*&amp;this:org.junit.internal.ComparisonCriteria* [line 64];
+n$104=*&amp;expected:java.lang.Object* [line 64];
+n$105=_fun_boolean ComparisonCriteria.isArray(Object)(n$103:org.junit.internal.ComparisonCriteria*,n$104:java.lang.Object*) [line 64];
+*&amp;$irvar22:_Bool=n$105 [line 64];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node64.html"><span class='visited with_tooltip'>J_64<span class='tooltip'>node64 preds:61 succs:62 63 exn: Join
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node62.html"><span class='visited with_tooltip'>C_62<span class='tooltip'>node62 preds:64 succs:65 exn:3 Conditional method_body
+n$106=*&amp;$irvar22:_Bool [line 64];
+PRUNE(!(n$106 == 0), true); [line 64];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node65.html"><span class='visited with_tooltip'>I_65<span class='tooltip'>node65 preds:62 succs:68 exn:3 Instructions
+n$107=*&amp;this:org.junit.internal.ComparisonCriteria* [line 64];
+n$108=*&amp;actual:java.lang.Object* [line 64];
+n$109=_fun_boolean ComparisonCriteria.isArray(Object)(n$107:org.junit.internal.ComparisonCriteria*,n$108:java.lang.Object*) [line 64];
+*&amp;$irvar23:_Bool=n$109 [line 64];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node68.html"><span class='visited with_tooltip'>J_68<span class='tooltip'>node68 preds:65 succs:66 67 exn: Join
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node66.html"><span class='visited with_tooltip'>C_66<span class='tooltip'>node66 preds:68 succs:69 exn:3 Conditional method_body
+n$110=*&amp;$irvar23:_Bool [line 64];
+PRUNE(!(n$110 == 0), true); [line 64];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node67.html"><span class='visited with_tooltip'>C_67<span class='tooltip'>node67 preds:68 succs:76 exn:3 Conditional method_body
+n$110=*&amp;$irvar23:_Bool [line 64];
+PRUNE((n$110 == 0), false); [line 64];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node63.html"><span class='visited with_tooltip'>C_63<span class='tooltip'>node63 preds:64 succs:76 exn:3 Conditional method_body
+n$106=*&amp;$irvar22:_Bool [line 64];
+PRUNE((n$106 == 0), false); [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">                    arrayEquals(message, expected, actual, false); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node69.html"><span class='visited with_tooltip'>I_69<span class='tooltip'>node69 preds:66 succs:80 exn:94 Instructions
+n$111=*&amp;this:org.junit.internal.ComparisonCriteria* [line 66];
+n$112=*&amp;message:java.lang.String* [line 66];
+n$113=*&amp;expected:java.lang.Object* [line 66];
+n$114=*&amp;actual:java.lang.Object* [line 66];
+n$115=_fun_void ComparisonCriteria.arrayEquals(String,Object,Object,boolean)(n$111:org.junit.internal.ComparisonCriteria*,n$112:java.lang.String*,n$113:java.lang.Object*,n$114:java.lang.Object*,0:int) [line 66];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">                } catch (ArrayComparisonFailure e) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node70.html"><span class='visited with_tooltip'>I_70<span class='tooltip'>node70 preds:92 succs:71 exn:3 Instructions
+n$116=*&amp;CatchVar253:java.lang.Object* [line 67];
+*&amp;e:java.lang.Object*=n$116 [line 67];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node92.html"><span class='visited with_tooltip'>C_92<span class='tooltip'>node92 preds:94 succs:70 exn:3 Conditional exception handler
+n$167=_fun___instanceof(n$165:org.junit.internal.ArrayComparisonFailure*,sizeof(t=org.junit.internal.ArrayComparisonFailure):void) [line 67];
+PRUNE(n$167, true); [line 67];
+*&amp;CatchVar253:void=n$165 [line 67];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node93.html"><span class='visited with_tooltip'>C_93<span class='tooltip'>node93 preds:94 succs:90 91 exn:3 Conditional exception handler
+n$167=_fun___instanceof(n$165:org.junit.internal.ArrayComparisonFailure*,sizeof(t=org.junit.internal.ArrayComparisonFailure):void) [line 67];
+PRUNE(!n$167, false); [line 67];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node94.html"><span class='visited with_tooltip'>I_94<span class='tooltip'>node94 preds: succs:92 93 exn:3 Instructions
+n$164=*&amp;return:void [line 67];
+*&amp;return:void=null [line 67];
+n$165=_fun___unwrap_exception(n$164:void) [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">                    e.addDimension(i); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node71.html"><span class='visited with_tooltip'>I_71<span class='tooltip'>node71 preds:70 succs:72 exn:3 Instructions
+n$117=*&amp;e:java.lang.Object* [line 68];
+_=*n$117:java.lang.Object*(root java.lang.Object) [line 68];
+n$119=*&amp;i:int [line 68];
+n$120=_fun_void ArrayComparisonFailure.addDimension(int)(n$117:java.lang.Object*,n$119:int) virtual [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">                    throw e; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node72.html"><span class='visited with_tooltip'>I_72<span class='tooltip'>node72 preds:71 succs:2 exn:3 Instructions
+n$121=*&amp;e:java.lang.Object* [line 69];
+*&amp;return:void=EXN n$121 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">                } catch (AssertionError e) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node73.html"><span class='visited with_tooltip'>I_73<span class='tooltip'>node73 preds:90 succs:74 exn:3 Instructions
+n$122=*&amp;CatchVar265:java.lang.Object* [line 70];
+*&amp;e:java.lang.Object*=n$122 [line 70];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node90.html"><span class='visited with_tooltip'>C_90<span class='tooltip'>node90 preds:93 succs:73 exn:3 Conditional exception handler
+n$166=_fun___instanceof(n$165:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 70];
+PRUNE(n$166, true); [line 70];
+*&amp;CatchVar265:void=n$165 [line 70];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node91.html"><span class='visited with_tooltip'>C_91<span class='tooltip'>node91 preds:93 succs:3 exn:3 Conditional exception handler
+n$166=_fun___instanceof(n$165:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 70];
+PRUNE(!n$166, false); [line 70];
+*&amp;return:void=EXN n$165 [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">                    // Array lengths differed. </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">                    throw new ArrayComparisonFailure(header, e, i); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node74.html"><span class='visited with_tooltip'>I_74<span class='tooltip'>node74 preds:73 succs:75 exn:3 Instructions
+n$123=_fun___new(sizeof(t=org.junit.internal.ArrayComparisonFailure):org.junit.internal.ArrayComparisonFailure*) [line 72];
+n$124=*&amp;header:java.lang.String* [line 72];
+n$125=*&amp;e:java.lang.Object* [line 72];
+n$126=*&amp;i:int [line 72];
+n$127=_fun_ArrayComparisonFailure.&lt;init&gt;(String,AssertionError,int)(n$123:org.junit.internal.ArrayComparisonFailure*,n$124:java.lang.String*,n$125:java.lang.Object*,n$126:int) [line 72];
+*&amp;$irvar24:org.junit.internal.ArrayComparisonFailure*=n$123 [line 72];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node75.html"><span class='visited with_tooltip'>I_75<span class='tooltip'>node75 preds:74 succs:2 exn:3 Instructions
+n$128=*&amp;$irvar24:org.junit.internal.ArrayComparisonFailure* [line 72];
+*&amp;return:void=EXN n$128 [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                    assertElementsEqual(expected, actual); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node76.html"><span class='visited with_tooltip'>I_76<span class='tooltip'>node76 preds:67 63 succs:80 exn:100 Instructions
+n$129=*&amp;this:org.junit.internal.ComparisonCriteria* [line 76];
+_=*n$129:org.junit.internal.ComparisonCriteria*(root org.junit.internal.ComparisonCriteria) [line 76];
+n$131=*&amp;expected:java.lang.Object* [line 76];
+n$132=*&amp;actual:java.lang.Object* [line 76];
+n$133=_fun_void ComparisonCriteria.assertElementsEqual(Object,Object)(n$129:org.junit.internal.ComparisonCriteria*,n$131:java.lang.Object*,n$132:java.lang.Object*) virtual [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">                } catch (AssertionError e) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node77.html"><span class='visited with_tooltip'>I_77<span class='tooltip'>node77 preds:98 succs:78 exn:3 Instructions
+n$134=*&amp;CatchVar292:java.lang.Object* [line 77];
+*&amp;e:java.lang.Object*=n$134 [line 77];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node98.html"><span class='visited with_tooltip'>C_98<span class='tooltip'>node98 preds:100 succs:77 exn:3 Conditional exception handler
+n$169=_fun___instanceof(n$165:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 77];
+PRUNE(n$169, true); [line 77];
+*&amp;CatchVar292:void=n$165 [line 77];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node99.html"><span class='visited with_tooltip'>C_99<span class='tooltip'>node99 preds:100 succs:3 exn:3 Conditional exception handler
+n$169=_fun___instanceof(n$165:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 77];
+PRUNE(!n$169, false); [line 77];
+*&amp;return:void=EXN n$165 [line 77];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node100.html"><span class='visited with_tooltip'>I_100<span class='tooltip'>node100 preds: succs:98 99 exn:3 Instructions
+n$164=*&amp;return:void [line 77];
+*&amp;return:void=null [line 77];
+n$165=_fun___unwrap_exception(n$164:void) [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">                    throw new ArrayComparisonFailure(header, e, i); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node78.html"><span class='visited with_tooltip'>I_78<span class='tooltip'>node78 preds:77 succs:79 exn:3 Instructions
+n$135=_fun___new(sizeof(t=org.junit.internal.ArrayComparisonFailure):org.junit.internal.ArrayComparisonFailure*) [line 78];
+n$136=*&amp;header:java.lang.String* [line 78];
+n$137=*&amp;e:java.lang.Object* [line 78];
+n$138=*&amp;i:int [line 78];
+n$139=_fun_ArrayComparisonFailure.&lt;init&gt;(String,AssertionError,int)(n$135:org.junit.internal.ArrayComparisonFailure*,n$136:java.lang.String*,n$137:java.lang.Object*,n$138:int) [line 78];
+*&amp;$irvar25:org.junit.internal.ArrayComparisonFailure*=n$135 [line 78];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node79.html"><span class='visited with_tooltip'>I_79<span class='tooltip'>node79 preds:78 succs:2 exn:3 Instructions
+n$140=*&amp;$irvar25:org.junit.internal.ArrayComparisonFailure* [line 78];
+*&amp;return:void=EXN n$140 [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        if (actualsLength != expectedsLength) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node81.html"><span class='visited with_tooltip'>C_81<span class='tooltip'>node81 preds:57 succs:83 exn:3 Conditional method_body
+n$142=*&amp;actualsLength:int [line 83];
+n$143=*&amp;expectedsLength:int [line 83];
+PRUNE(!(n$142 == n$143), true); [line 83];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node82.html"><span class='visited with_tooltip'>C_82<span class='tooltip'>node82 preds:57 succs:89 exn:3 Conditional method_body
+n$142=*&amp;actualsLength:int [line 83];
+n$143=*&amp;expectedsLength:int [line 83];
+PRUNE((n$142 == n$143), false); [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">            Object expected = getToStringableArrayElement(expecteds, expectedsLength, prefixLength); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node83.html"><span class='visited with_tooltip'>I_83<span class='tooltip'>node83 preds:81 succs:84 exn:3 Instructions
+n$144=*&amp;this:org.junit.internal.ComparisonCriteria* [line 84];
+n$145=*&amp;expecteds:java.lang.Object* [line 84];
+n$146=*&amp;expectedsLength:int [line 84];
+n$147=*&amp;prefixLength:int [line 84];
+n$148=_fun_Object ComparisonCriteria.getToStringableArrayElement(Object,int,int)(n$144:org.junit.internal.ComparisonCriteria*,n$145:java.lang.Object*,n$146:int,n$147:int) [line 84];
+*&amp;expected:java.lang.Object*=n$148 [line 84];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">            Object actual = getToStringableArrayElement(actuals, actualsLength, prefixLength); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node84.html"><span class='visited with_tooltip'>I_84<span class='tooltip'>node84 preds:83 succs:85 exn:3 Instructions
+n$149=*&amp;this:org.junit.internal.ComparisonCriteria* [line 85];
+n$150=*&amp;actuals:java.lang.Object* [line 85];
+n$151=*&amp;actualsLength:int [line 85];
+n$152=*&amp;prefixLength:int [line 85];
+n$153=_fun_Object ComparisonCriteria.getToStringableArrayElement(Object,int,int)(n$149:org.junit.internal.ComparisonCriteria*,n$150:java.lang.Object*,n$151:int,n$152:int) [line 85];
+*&amp;actual:java.lang.Object*=n$153 [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">                Assert.assertEquals(expected, actual); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node85.html"><span class='visited with_tooltip'>I_85<span class='tooltip'>node85 preds:84 succs:89 exn:97 Instructions
+n$154=*&amp;expected:java.lang.Object* [line 87];
+n$155=*&amp;actual:java.lang.Object* [line 87];
+n$156=_fun_void Assert.assertEquals(Object,Object)(n$154:java.lang.Object*,n$155:java.lang.Object*) [line 87];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">            } catch (AssertionError e) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node86.html"><span class='visited with_tooltip'>I_86<span class='tooltip'>node86 preds:95 succs:87 exn:3 Instructions
+n$157=*&amp;CatchVar353:java.lang.Object* [line 88];
+*&amp;e:java.lang.Object*=n$157 [line 88];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node95.html"><span class='visited with_tooltip'>C_95<span class='tooltip'>node95 preds:97 succs:86 exn:3 Conditional exception handler
+n$168=_fun___instanceof(n$165:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 88];
+PRUNE(n$168, true); [line 88];
+*&amp;CatchVar353:void=n$165 [line 88];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node96.html"><span class='visited with_tooltip'>C_96<span class='tooltip'>node96 preds:97 succs:3 exn:3 Conditional exception handler
+n$168=_fun___instanceof(n$165:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 88];
+PRUNE(!n$168, false); [line 88];
+*&amp;return:void=EXN n$165 [line 88];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node97.html"><span class='visited with_tooltip'>I_97<span class='tooltip'>node97 preds: succs:95 96 exn:3 Instructions
+n$164=*&amp;return:void [line 88];
+*&amp;return:void=null [line 88];
+n$165=_fun___unwrap_exception(n$164:void) [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">                throw new ArrayComparisonFailure(header, e, prefixLength); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node87.html"><span class='visited with_tooltip'>I_87<span class='tooltip'>node87 preds:86 succs:88 exn:3 Instructions
+n$158=_fun___new(sizeof(t=org.junit.internal.ArrayComparisonFailure):org.junit.internal.ArrayComparisonFailure*) [line 89];
+n$159=*&amp;header:java.lang.String* [line 89];
+n$160=*&amp;e:java.lang.Object* [line 89];
+n$161=*&amp;prefixLength:int [line 89];
+n$162=_fun_ArrayComparisonFailure.&lt;init&gt;(String,AssertionError,int)(n$158:org.junit.internal.ArrayComparisonFailure*,n$159:java.lang.String*,n$160:java.lang.Object*,n$161:int) [line 89];
+*&amp;$irvar26:org.junit.internal.ArrayComparisonFailure*=n$158 [line 89];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node88.html"><span class='visited with_tooltip'>I_88<span class='tooltip'>node88 preds:87 succs:2 exn:3 Instructions
+n$163=*&amp;$irvar26:org.junit.internal.ArrayComparisonFailure* [line 89];
+*&amp;return:void=EXN n$163 [line 89];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">    } <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node89.html"><span class='visited with_tooltip'>I_89<span class='tooltip'>node89 preds:85 82 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:89 88 79 75 72 13 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.arrayEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object.ce92a561cb5e384ca58f00d6d6366c1a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:99 96 91 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    private static final Object END_OF_ARRAY_SENTINEL = objectWithToString(&quot;end of array&quot;); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Object ComparisonCriteria.objectWithToString(String)("end of array":java.lang.Object*) [line 94];
+*&amp;$irvar0:java.lang.Object*=n$0 [line 94];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Object* [line 94];
+*&amp;#GB<>$org.junit.internal.ComparisonCriteria.END_OF_ARRAY_SENTINEL:org.junit.internal.ComparisonCriteria(root org.junit.internal.ComparisonCriteria)=n$1 [line 94];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.<clinit>%28%29%3Avoid.03e6f3a3d1b2f5e99b26c7ba4b0c651a.html">summary for void ComparisonCriteria.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    private Object getToStringableArrayElement(Object array, int length, int index) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae.html">summary for Object ComparisonCriteria.getToStringableArrayElement(Object,int,int)</a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        if (index &lt; length) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;index:int [line 97];
+n$1=*&amp;length:int [line 97];
+PRUNE(!(n$0  &gt;=  n$1), true); [line 97];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:22 exn:3 Conditional method_body
+n$0=*&amp;index:int [line 97];
+n$1=*&amp;length:int [line 97];
+PRUNE((n$0  &gt;=  n$1), false); [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            Object element = Array.get(array, index); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$2=*&amp;array:java.lang.Object* [line 98];
+n$3=*&amp;index:int [line 98];
+n$4=_fun_Object Array.get(Object,int)(n$2:java.lang.Object*,n$3:int) [line 98];
+*&amp;element:java.lang.Object*=n$4 [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">            if (isArray(element)) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 9 exn:3 Instructions
+n$5=*&amp;this:org.junit.internal.ComparisonCriteria* [line 99];
+n$6=*&amp;element:java.lang.Object* [line 99];
+n$7=_fun_boolean ComparisonCriteria.isArray(Object)(n$5:org.junit.internal.ComparisonCriteria*,n$6:java.lang.Object*) [line 99];
+*&amp;$irvar0:_Bool=n$7 [line 99];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:_Bool [line 99];
+PRUNE(!(n$8 == 0), true); [line 99];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:21 exn:3 Conditional method_body
+n$8=*&amp;$irvar0:_Bool [line 99];
+PRUNE((n$8 == 0), false); [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">                return objectWithToString(componentTypeName(element.getClass()) + &quot;[&quot; + Array.getLength(element) + &quot;]&quot;); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$9=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 100];
+n$10=_fun_StringBuilder.&lt;init&gt;()(n$9:java.lang.StringBuilder*) [line 100];
+*&amp;$irvar1:java.lang.StringBuilder*=n$9 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$11=*&amp;element:java.lang.Object* [line 100];
+_=*n$11:java.lang.Object*(root java.lang.Object) [line 100];
+n$13=_fun_Class Object.getClass()(n$11:java.lang.Object*) virtual [line 100];
+*&amp;$irvar2:java.lang.Class*=n$13 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=*&amp;this:org.junit.internal.ComparisonCriteria* [line 100];
+n$15=*&amp;$irvar2:java.lang.Class* [line 100];
+n$16=_fun_String ComparisonCriteria.componentTypeName(Class)(n$14:org.junit.internal.ComparisonCriteria*,n$15:java.lang.Class*) [line 100];
+*&amp;$irvar3:java.lang.String*=n$16 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;$irvar1:java.lang.StringBuilder* [line 100];
+_=*n$17:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 100];
+n$19=*&amp;$irvar3:java.lang.String* [line 100];
+n$20=_fun_StringBuilder StringBuilder.append(String)(n$17:java.lang.StringBuilder*,n$19:java.lang.String*) virtual [line 100];
+*&amp;$irvar4:java.lang.StringBuilder*=n$20 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$21=*&amp;$irvar4:java.lang.StringBuilder* [line 100];
+_=*n$21:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 100];
+n$23=_fun_StringBuilder StringBuilder.append(String)(n$21:java.lang.StringBuilder*,"[":java.lang.Object*) virtual [line 100];
+*&amp;$irvar5:java.lang.StringBuilder*=n$23 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$24=*&amp;element:java.lang.Object* [line 100];
+n$25=_fun_int Array.getLength(Object)(n$24:java.lang.Object*) [line 100];
+*&amp;$irvar6:int=n$25 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$26=*&amp;$irvar5:java.lang.StringBuilder* [line 100];
+_=*n$26:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 100];
+n$28=*&amp;$irvar6:int [line 100];
+n$29=_fun_StringBuilder StringBuilder.append(int)(n$26:java.lang.StringBuilder*,n$28:int) virtual [line 100];
+*&amp;$irvar7:java.lang.StringBuilder*=n$29 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$30=*&amp;$irvar7:java.lang.StringBuilder* [line 100];
+_=*n$30:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 100];
+n$32=_fun_StringBuilder StringBuilder.append(String)(n$30:java.lang.StringBuilder*,"]":java.lang.Object*) virtual [line 100];
+*&amp;$irvar8:java.lang.StringBuilder*=n$32 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$33=*&amp;$irvar8:java.lang.StringBuilder* [line 100];
+_=*n$33:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 100];
+n$35=_fun_String StringBuilder.toString()(n$33:java.lang.StringBuilder*) virtual [line 100];
+*&amp;$irvar9:java.lang.String*=n$35 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$36=*&amp;$irvar9:java.lang.String* [line 100];
+n$37=_fun_Object ComparisonCriteria.objectWithToString(String)(n$36:java.lang.String*) [line 100];
+*&amp;$irvar10:java.lang.Object*=n$37 [line 100];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:2 exn:3 Instructions
+n$38=*&amp;$irvar10:java.lang.Object* [line 100];
+*&amp;return:java.lang.Object*=n$38 [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">            } else { </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">                return element; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:9 succs:2 exn:3 Instructions
+n$39=*&amp;element:java.lang.Object* [line 102];
+*&amp;return:java.lang.Object*=n$39 [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">            return END_OF_ARRAY_SENTINEL; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:5 succs:2 exn:3 Instructions
+n$40=*&amp;#GB<>$org.junit.internal.ComparisonCriteria.END_OF_ARRAY_SENTINEL:java.lang.Object*(root org.junit.internal.ComparisonCriteria) [line 105];
+*&amp;return:java.lang.Object*=n$40 [line 105];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:22 21 20 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.getToStringableArrayElement%28java.lang.Object%2Cint%2Cint%29%3Ajava.lan.8edcb44b5bbb31a18e59b5386ae0b3ae_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">    private static Object objectWithToString(final String string) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.objectWithToString%28java.lang.String%29%3Ajava.lang.Object.7cb2d4cfa845adfe3f109a93e0f813c8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.objectWithToString%28java.lang.String%29%3Ajava.lang.Object.7cb2d4cfa845adfe3f109a93e0f813c8.html">summary for Object ComparisonCriteria.objectWithToString(String)</a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        return new Object() { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.objectWithToString%28java.lang.String%29%3Ajava.lang.Object.7cb2d4cfa845adfe3f109a93e0f813c8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.internal.ComparisonCriteria$1):org.junit.internal.ComparisonCriteria$1*) [line 110];
+n$1=*&amp;string:java.lang.String* [line 110];
+n$2=_fun_ComparisonCriteria$1.&lt;init&gt;(String)(n$0:org.junit.internal.ComparisonCriteria$1*,n$1:java.lang.String*) [line 110];
+*&amp;$irvar0:org.junit.internal.ComparisonCriteria$1*=n$0 [line 110];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ComparisonCriteria$1* [line 110];
+n$1=*&amp;$bcvar1:java.lang.String* [line 110];
+*n$0.val$string:org.junit.internal.ComparisonCriteria$1(root org.junit.internal.ComparisonCriteria$1)=n$1 [line 110];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.objectWithToString%28java.lang.String%29%3Ajava.lang.Object.7cb2d4cfa845adfe3f109a93e0f813c8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.internal.ComparisonCriteria$1* [line 110];
+*&amp;return:java.lang.Object*=n$3 [line 110];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.ComparisonCriteria$1* [line 110];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.internal.ComparisonCriteria$1*) [line 110];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.objectWithToString%28java.lang.String%29%3Ajava.lang.Object.7cb2d4cfa845adfe3f109a93e0f813c8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.objectWithToString%28java.lang.String%29%3Ajava.lang.Object.7cb2d4cfa845adfe3f109a93e0f813c8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria%241.<init>%28java.lang.String%29.8256e380b15018ae17478df8bf0247da.html">summary for ComparisonCriteria$1.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">            public String toString() { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.toString%28%29%3Ajava.lang.String.24f0e519cc1c319d58cf2ddeea466dc1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria%241.toString%28%29%3Ajava.lang.String.24f0e519cc1c319d58cf2ddeea466dc1.html">summary for String ComparisonCriteria$1.toString()</a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">                return string; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.toString%28%29%3Ajava.lang.String.24f0e519cc1c319d58cf2ddeea466dc1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.ComparisonCriteria$1* [line 113];
+n$1=*n$0.val$string:java.lang.String*(root org.junit.internal.ComparisonCriteria$1) [line 113];
+*&amp;return:java.lang.String*=n$1 [line 113];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.toString%28%29%3Ajava.lang.String.24f0e519cc1c319d58cf2ddeea466dc1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria%241.toString%28%29%3Ajava.lang.String.24f0e519cc1c319d58cf2ddeea466dc1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">    private String componentTypeName(Class&lt;?&gt; arrayClass) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45.html">summary for String ComparisonCriteria.componentTypeName(Class)</a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">        Class&lt;?&gt; componentType = arrayClass.getComponentType(); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;arrayClass:java.lang.Class* [line 119];
+_=*n$0:java.lang.Class*(root java.lang.Class) [line 119];
+n$2=_fun_Class Class.getComponentType()(n$0:java.lang.Class*) virtual [line 119];
+*&amp;componentType:java.lang.Class*=n$2 [line 119];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        if (componentType.isArray()) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;componentType:java.lang.Class* [line 120];
+_=*n$3:java.lang.Class*(root java.lang.Class) [line 120];
+n$5=_fun_boolean Class.isArray()(n$3:java.lang.Class*) virtual [line 120];
+*&amp;$irvar0:_Bool=n$5 [line 120];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 120];
+PRUNE(!(n$6 == 0), true); [line 120];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:14 exn:3 Conditional method_body
+n$6=*&amp;$irvar0:_Bool [line 120];
+PRUNE((n$6 == 0), false); [line 120];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">            return componentTypeName(componentType) + &quot;[]&quot;; <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$7=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 121];
+n$8=_fun_StringBuilder.&lt;init&gt;()(n$7:java.lang.StringBuilder*) [line 121];
+*&amp;$irvar1:java.lang.StringBuilder*=n$7 [line 121];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;this:org.junit.internal.ComparisonCriteria* [line 121];
+n$10=*&amp;componentType:java.lang.Class* [line 121];
+n$11=_fun_String ComparisonCriteria.componentTypeName(Class)(n$9:org.junit.internal.ComparisonCriteria*,n$10:java.lang.Class*) [line 121];
+*&amp;$irvar2:java.lang.String*=n$11 [line 121];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar1:java.lang.StringBuilder* [line 121];
+_=*n$12:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 121];
+n$14=*&amp;$irvar2:java.lang.String* [line 121];
+n$15=_fun_StringBuilder StringBuilder.append(String)(n$12:java.lang.StringBuilder*,n$14:java.lang.String*) virtual [line 121];
+*&amp;$irvar3:java.lang.StringBuilder*=n$15 [line 121];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;$irvar3:java.lang.StringBuilder* [line 121];
+_=*n$16:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 121];
+n$18=_fun_StringBuilder StringBuilder.append(String)(n$16:java.lang.StringBuilder*,"[]":java.lang.Object*) virtual [line 121];
+*&amp;$irvar4:java.lang.StringBuilder*=n$18 [line 121];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$19=*&amp;$irvar4:java.lang.StringBuilder* [line 121];
+_=*n$19:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 121];
+n$21=_fun_String StringBuilder.toString()(n$19:java.lang.StringBuilder*) virtual [line 121];
+*&amp;$irvar5:java.lang.String*=n$21 [line 121];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+n$22=*&amp;$irvar5:java.lang.String* [line 121];
+*&amp;return:java.lang.String*=n$22 [line 121];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">            return componentType.getName(); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:7 succs:15 exn:3 Instructions
+n$23=*&amp;componentType:java.lang.Class* [line 123];
+_=*n$23:java.lang.Class*(root java.lang.Class) [line 123];
+n$25=_fun_String Class.getName()(n$23:java.lang.Class*) virtual [line 123];
+*&amp;$irvar6:java.lang.String*=n$25 [line 123];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:2 exn:3 Instructions
+n$26=*&amp;$irvar6:java.lang.String* [line 123];
+*&amp;return:java.lang.String*=n$26 [line 123];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 13 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.componentTypeName%28java.lang.Class%29%3Ajava.lang.String.039f96333a5183fce066c32c0b606c45_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    private boolean isArray(Object expected) { <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7.html">summary for boolean ComparisonCriteria.isArray(Object)</a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        return expected != null &amp;&amp; expected.getClass().isArray(); <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;expected:java.lang.Object* [line 128];
+PRUNE(!(n$0 == null), true); [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=*&amp;expected:java.lang.Object* [line 128];
+_=*n$1:java.lang.Object*(root java.lang.Object) [line 128];
+n$3=_fun_Class Object.getClass()(n$1:java.lang.Object*) virtual [line 128];
+*&amp;$irvar0:java.lang.Class*=n$3 [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 9 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.Class* [line 128];
+_=*n$4:java.lang.Class*(root java.lang.Class) [line 128];
+n$6=_fun_boolean Class.isArray()(n$4:java.lang.Class*) virtual [line 128];
+*&amp;$irvar1:_Bool=n$6 [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Conditional method_body
+n$7=*&amp;$irvar1:_Bool [line 128];
+PRUNE(!(n$7 == 0), true); [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:12 exn:3 Instructions
+*&amp;$T0_19:int=1 [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:11 exn:3 Conditional method_body
+n$7=*&amp;$irvar1:_Bool [line 128];
+PRUNE((n$7 == 0), false); [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:11 exn:3 Conditional method_body
+n$0=*&amp;expected:java.lang.Object* [line 128];
+PRUNE((n$0 == null), false); [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 5 succs:12 exn:3 Instructions
+*&amp;$T0_19:int=0 [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 10 succs:2 exn:3 Instructions
+n$8=*&amp;$T0_19:int [line 128];
+*&amp;return:_Bool=n$8 [line 128];
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./ComparisonCriteria.java.3fcf469e173bda3100bb04aea22d3dd5/nodes/org.junit.internal.ComparisonCriteria.isArray%28java.lang.Object%29%3Aboolean.3a8453a2cc43d923fa4a7d8ba27a1bf7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    protected abstract void assertElementsEqual(Object expected, Object actual); </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

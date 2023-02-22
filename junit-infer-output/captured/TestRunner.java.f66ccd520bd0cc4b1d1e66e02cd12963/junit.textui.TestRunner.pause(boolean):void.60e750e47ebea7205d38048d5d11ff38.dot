@@ -1,0 +1,66 @@
+/* @generated */
+digraph cfg {
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_1" [label="1: Start void TestRunner.pause(boolean)\nFormals:  this:junit.textui.TestRunner* wait:_Bool\nLocals:  $bcvar2:void CatchVar22:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_1" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_4" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_1" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_5" ;
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_2" [label="2: Exit void TestRunner.pause(boolean) \n  " color=yellow style=filled]
+	
+
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [label="3:  exceptions sink \n   NULLIFY(&CatchVar22); [line 132]\n  EXIT_SCOPE(n$10,CatchVar22); [line 132]\n  APPLY_ABSTRACTION; [line 132]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_2" ;
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_4" [label="4: Prune (true branch, if) \n   n$0=*&wait:_Bool [line 126]\n  PRUNE(!(n$0 != 0), true); [line 126]\n  NULLIFY(&wait); [line 126]\n  EXIT_SCOPE(n$0,wait); [line 126]\n " shape="invhouse"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_4" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_6" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_4" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_5" [label="5: Prune (false branch, if) \n   n$0=*&wait:_Bool [line 126]\n  PRUNE((n$0 != 0), false); [line 126]\n  NULLIFY(&wait); [line 126]\n  EXIT_SCOPE(n$0,wait); [line 126]\n " shape="invhouse"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_5" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_7" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_5" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 126]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_6" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_2" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_6" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_7" [label="7:  Call void ResultPrinter.printWaitPrompt() \n   n$1=*&this:junit.textui.TestRunner* [line 127]\n  n$2=*n$1.fPrinter:junit.textui.ResultPrinter*(root junit.textui.TestRunner) [line 127]\n  _=*n$2:junit.textui.ResultPrinter*(root junit.textui.ResultPrinter) [line 127]\n  n$4=_fun_void ResultPrinter.printWaitPrompt()(n$2:junit.textui.ResultPrinter*) virtual [line 127]\n  NULLIFY(&this); [line 127]\n  EXIT_SCOPE(_,n$1,n$2,n$4,this); [line 127]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_7" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_8" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_7" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_8" [label="8:  Call int InputStream.read() \n   n$5=*&#GB<>$java.lang.System.in:java.io.InputStream*(root java.lang.System) [line 129]\n  _=*n$5:java.io.InputStream*(root java.io.InputStream) [line 129]\n  n$7=_fun_int InputStream.read()(n$5:java.io.InputStream*) virtual [line 129]\n  *&$irvar0:int=n$7 [line 129]\n  NULLIFY(&$irvar0); [line 129]\n  EXIT_SCOPE(_,n$5,n$7,$irvar0); [line 129]\n  APPLY_ABSTRACTION; [line 129]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_8" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_10" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_8" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_13" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_9" [label="9:  method_body \n   n$8=*&CatchVar22:java.lang.Object* [line 130]\n  *&$bcvar2:java.lang.Object*=n$8 [line 130]\n  NULLIFY(&CatchVar22); [line 130]\n  NULLIFY(&$bcvar2); [line 130]\n  EXIT_SCOPE(n$8,CatchVar22,$bcvar2); [line 130]\n  APPLY_ABSTRACTION; [line 130]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_9" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_10" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_9" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_10" [label="10:  method_body \n   APPLY_ABSTRACTION; [line 132]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_10" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_2" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_10" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_11" [label="11: Prune (true branch, switch) \n   n$11=_fun___instanceof(n$10:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 130]\n  PRUNE(n$11, true); [line 130]\n  *&CatchVar22:void=n$10 [line 130]\n  EXIT_SCOPE(n$10,n$11); [line 130]\n " shape="invhouse"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_11" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_9" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_11" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_12" [label="12: Prune (false branch, switch) \n   n$11=_fun___instanceof(n$10:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 130]\n  PRUNE(!n$11, false); [line 130]\n  *&return:void=EXN n$10 [line 130]\n  EXIT_SCOPE(n$10,n$11); [line 130]\n " shape="invhouse"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_12" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_12" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+"junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_13" [label="13:  exception handler \n   n$9=*&return:void [line 130]\n  *&return:void=null [line 130]\n  n$10=_fun___unwrap_exception(n$9:void) [line 130]\n  EXIT_SCOPE(n$9); [line 130]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_13" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_11" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_13" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_12" ;
+	 "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_13" -> "junit.textui.TestRunner.pause(boolean):void.60e750e47ebea7205d38048d5d11ff38_3" [color="red" ];
+}

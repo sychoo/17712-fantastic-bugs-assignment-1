@@ -1,0 +1,69 @@
+/* @generated */
+digraph cfg {
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_1" [label="1: Start void ListTest.setUpOnce()\nFormals: \nLocals:  $irvar3:void $irvar2:void $irvar1:void $irvar0:void i:int\nAnnotation: <_org.junit.BeforeClass> void ListTest.setUpOnce()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_1" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_4" ;
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_2" [label="2: Exit void ListTest.setUpOnce() \n  " color=yellow style=filled]
+	
+
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [label="3:  exceptions sink \n   NULLIFY(&i); [line 32]\n  NULLIFY(&$irvar0); [line 32]\n  NULLIFY(&$irvar1); [line 32]\n  NULLIFY(&$irvar2); [line 32]\n  EXIT_SCOPE(i,$irvar0,$irvar1,$irvar2); [line 32]\n  APPLY_ABSTRACTION; [line 32]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_2" ;
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_4" [label="4:  Call ArrayList.<init>() \n   n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 28]\n  n$1=_fun_ArrayList.<init>()(n$0:java.util.ArrayList*) [line 28]\n  *&$irvar0:java.util.ArrayList*=n$0 [line 28]\n  EXIT_SCOPE(n$0,n$1); [line 28]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_4" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_5" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_4" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_5" [label="5:  method_body \n   n$2=*&$irvar0:java.util.ArrayList* [line 28]\n  *&#GB<>$org.junit.samples.ListTest.fgHeavy:org.junit.samples.ListTest(root org.junit.samples.ListTest)=n$2 [line 28]\n  NULLIFY(&$irvar0); [line 28]\n  EXIT_SCOPE(n$2,$irvar0); [line 28]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_5" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_6" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_5" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_6" [label="6:  method_body \n   *&i:int=0 [line 29]\n  APPLY_ABSTRACTION; [line 29]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_6" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_9" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_6" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_7" [label="7: Prune (true branch, if) \n   n$3=*&i:int [line 29]\n  PRUNE(!(n$3 >= 1000), true); [line 29]\n  EXIT_SCOPE(n$3); [line 29]\n " shape="invhouse"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_7" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_10" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_7" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_8" [label="8: Prune (false branch, if) \n   n$3=*&i:int [line 29]\n  PRUNE((n$3 >= 1000), false); [line 29]\n  NULLIFY(&i); [line 29]\n  EXIT_SCOPE(n$3,i); [line 29]\n " shape="invhouse"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_8" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_14" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_8" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_9" [label="9: + \n  " ]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_9" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_7" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_9" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_8" ;
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_10" [label="10:  method_body \n   n$4=*&#GB<>$org.junit.samples.ListTest.fgHeavy:java.util.List*(root org.junit.samples.ListTest) [line 30]\n  *&$irvar1:java.util.List*=n$4 [line 30]\n  EXIT_SCOPE(n$4); [line 30]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_10" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_11" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_10" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_11" [label="11:  Call Integer Integer.valueOf(int) \n   n$5=*&i:int [line 30]\n  n$6=_fun_Integer Integer.valueOf(int)(n$5:int) [line 30]\n  *&$irvar2:java.lang.Integer*=n$6 [line 30]\n  EXIT_SCOPE(n$5,n$6); [line 30]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_11" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_12" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_11" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_12" [label="12:  Call boolean List.add(Object) \n   n$7=*&$irvar1:java.util.List* [line 30]\n  _=*n$7:java.util.List*(root java.util.List) [line 30]\n  n$9=*&$irvar2:java.lang.Integer* [line 30]\n  n$10=_fun_boolean List.add(Object)(n$7:java.util.List*,n$9:java.lang.Integer*) interface virtual [line 30]\n  *&$irvar3:_Bool=n$10 [line 30]\n  NULLIFY(&$irvar3); [line 30]\n  NULLIFY(&$irvar1); [line 30]\n  NULLIFY(&$irvar2); [line 30]\n  EXIT_SCOPE(_,n$7,n$9,n$10,$irvar3,$irvar1,$irvar2); [line 30]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_12" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_13" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_12" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_13" [label="13:  method_body \n   n$11=*&i:int [line 29]\n  *&i:int=(n$11 + 1) [line 29]\n  EXIT_SCOPE(n$11); [line 29]\n  APPLY_ABSTRACTION; [line 29]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_13" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_9" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_13" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+"org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_14" [label="14:  method_body \n   APPLY_ABSTRACTION; [line 32]\n " shape="box"]
+	
+
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_14" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_2" ;
+	 "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_14" -> "org.junit.samples.ListTest.setUpOnce():void.778bbd71f19e47dfb341093895aa1c70_3" [color="red" ];
+}

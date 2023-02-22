@@ -1,0 +1,34 @@
+/* @generated */
+digraph cfg {
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_1" [label="1: Start void ComparisonFailureTest.testConnection()\nFormals:  this:junit.tests.framework.ComparisonFailureTest*\nLocals:  $irvar0:void failure:junit.framework.ComparisonFailure* \n  " color=yellow style=filled]
+	
+
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_1" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_4" ;
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_2" [label="2: Exit void ComparisonFailureTest.testConnection() \n  " color=yellow style=filled]
+	
+
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_3" [label="3:  exceptions sink \n   NULLIFY(&failure); [line 12]\n  NULLIFY(&$irvar0); [line 12]\n  EXIT_SCOPE(failure,$irvar0); [line 12]\n  APPLY_ABSTRACTION; [line 12]\n " shape="box"]
+	
+
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_3" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_2" ;
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_4" [label="4:  Call ComparisonFailure.<init>(String,String,String) \n   n$0=_fun___new(sizeof(t=junit.framework.ComparisonFailure):junit.framework.ComparisonFailure*) [line 10]\n  n$1=_fun_ComparisonFailure.<init>(String,String,String)(n$0:junit.framework.ComparisonFailure*,\"warning\":java.lang.Object*,\"Mary had a little lamb\":java.lang.Object*,\"Mary had the little lamb\":java.lang.Object*) [line 10]\n  *&failure:junit.framework.ComparisonFailure*=n$0 [line 10]\n  EXIT_SCOPE(n$0,n$1); [line 10]\n " shape="box"]
+	
+
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_4" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_5" ;
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_4" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_3" [color="red" ];
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_5" [label="5:  Call String ComparisonFailure.getMessage() \n   n$2=*&failure:junit.framework.ComparisonFailure* [line 11]\n  _=*n$2:junit.framework.ComparisonFailure*(root junit.framework.ComparisonFailure) [line 11]\n  n$4=_fun_String ComparisonFailure.getMessage()(n$2:junit.framework.ComparisonFailure*) [line 11]\n  *&$irvar0:java.lang.String*=n$4 [line 11]\n  NULLIFY(&failure); [line 11]\n  EXIT_SCOPE(_,n$2,n$4,failure); [line 11]\n " shape="box"]
+	
+
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_5" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_6" ;
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_5" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_3" [color="red" ];
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_6" [label="6:  Call void TestCase.assertEquals(String,String) \n   n$5=*&$irvar0:java.lang.String* [line 11]\n  n$6=_fun_void TestCase.assertEquals(String,String)(\"warning expected:<Mary had [a] little lamb> but was:<Mary had [the] little lamb>\":java.lang.Object*,n$5:java.lang.String*) [line 11]\n  NULLIFY(&$irvar0); [line 11]\n  EXIT_SCOPE(n$5,n$6,$irvar0); [line 11]\n " shape="box"]
+	
+
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_6" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_7" ;
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_6" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_3" [color="red" ];
+"junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_7" [label="7:  method_body \n   APPLY_ABSTRACTION; [line 12]\n " shape="box"]
+	
+
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_7" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_2" ;
+	 "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_7" -> "junit.tests.framework.ComparisonFailureTest.testConnection():void.464557bcbc32b5f10026805575a68051_3" [color="red" ];
+}

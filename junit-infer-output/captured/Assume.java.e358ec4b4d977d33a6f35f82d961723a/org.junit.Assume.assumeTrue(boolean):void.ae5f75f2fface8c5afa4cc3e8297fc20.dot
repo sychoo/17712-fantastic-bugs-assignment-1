@@ -1,0 +1,39 @@
+/* @generated */
+digraph cfg {
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_1" [label="1: Start void Assume.assumeTrue(boolean)\nFormals:  b:_Bool\nLocals:  $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_1" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_4" ;
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_2" [label="2: Exit void Assume.assumeTrue(boolean) \n  " color=yellow style=filled]
+	
+
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 51]\n  NULLIFY(&$irvar1); [line 51]\n  NULLIFY(&$irvar2); [line 51]\n  EXIT_SCOPE($irvar0,$irvar1,$irvar2); [line 51]\n  APPLY_ABSTRACTION; [line 51]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_2" ;
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_4" [label="4:  Call Boolean Boolean.valueOf(boolean) \n   n$0=*&b:_Bool [line 50]\n  n$1=_fun_Boolean Boolean.valueOf(boolean)(n$0:_Bool) [line 50]\n  *&$irvar0:java.lang.Boolean*=n$1 [line 50]\n  NULLIFY(&b); [line 50]\n  EXIT_SCOPE(n$0,n$1,b); [line 50]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_4" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_5" ;
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_4" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" [color="red" ];
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_5" [label="5:  Call Boolean Boolean.valueOf(boolean) \n   n$2=_fun_Boolean Boolean.valueOf(boolean)(1:int) [line 50]\n  *&$irvar1:java.lang.Boolean*=n$2 [line 50]\n  EXIT_SCOPE(n$2); [line 50]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_5" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_6" ;
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_5" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" [color="red" ];
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_6" [label="6:  Call Matcher CoreMatchers.is(Object) \n   n$3=*&$irvar1:java.lang.Boolean* [line 50]\n  n$4=_fun_Matcher CoreMatchers.is(Object)(n$3:java.lang.Boolean*) [line 50]\n  *&$irvar2:org.hamcrest.Matcher*=n$4 [line 50]\n  NULLIFY(&$irvar1); [line 50]\n  EXIT_SCOPE(n$3,n$4,$irvar1); [line 50]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_6" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_7" ;
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_6" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" [color="red" ];
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_7" [label="7:  Call void Assume.assumeThat(Object,Matcher) \n   n$5=*&$irvar0:java.lang.Boolean* [line 50]\n  n$6=*&$irvar2:org.hamcrest.Matcher* [line 50]\n  n$7=_fun_void Assume.assumeThat(Object,Matcher)(n$5:java.lang.Boolean*,n$6:org.hamcrest.Matcher*) [line 50]\n  NULLIFY(&$irvar0); [line 50]\n  NULLIFY(&$irvar2); [line 50]\n  EXIT_SCOPE(n$5,n$6,n$7,$irvar0,$irvar2); [line 50]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_7" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_8" ;
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_7" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" [color="red" ];
+"org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_8" [label="8:  method_body \n   APPLY_ABSTRACTION; [line 51]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_8" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_2" ;
+	 "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_8" -> "org.junit.Assume.assumeTrue(boolean):void.ae5f75f2fface8c5afa4cc3e8297fc20_3" [color="red" ];
+}

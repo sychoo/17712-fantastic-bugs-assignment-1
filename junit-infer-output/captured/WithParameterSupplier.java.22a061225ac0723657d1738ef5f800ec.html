@@ -1,0 +1,517 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/tests/experimental/theories/runner/WithParameterSupplier.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.tests.experimental.theories.runner; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.Arrays; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.experimental.theories.ParameterSignature; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.experimental.theories.ParameterSupplier; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.experimental.theories.ParametersSuppliedBy; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.experimental.theories.PotentialAssignment; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.experimental.theories.Theories; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.experimental.theories.Theory; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import org.junit.rules.ExpectedException; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">import org.junit.runner.RunWith; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">import org.junit.runners.model.InitializationError; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">import org.junit.runners.model.TestClass; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">public class WithParameterSupplier { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.access%24000%28%29%3Ajava.util.List.26133147312a5b2ab7f79fdfa50568cd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.access%24000%28%29%3Ajava.util.List.26133147312a5b2ab7f79fdfa50568cd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.tests.experimental.theories.runner.WithParameterSupplier.DATAPOINTS:java.util.List*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier) [line 23];
+*&amp;return:java.util.List*=n$0 [line 23];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier* [line 23];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier*) [line 23];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.access%24000%28%29%3Ajava.util.List.26133147312a5b2ab7f79fdfa50568cd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.access%24000%28%29%3Ajava.util.List.26133147312a5b2ab7f79fdfa50568cd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.access%24000%28%29%3Ajava.util.List.26133147312a5b2ab7f79fdfa50568cd.html">summary for List WithParameterSupplier.access$000()</a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995.html">summary for WithParameterSupplier.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    @Rule <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    public ExpectedException expected = ExpectedException.none(); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun_ExpectedException ExpectedException.none()() [line 26];
+*&amp;$irvar0:org.junit.rules.ExpectedException*=n$2 [line 26];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier* [line 26];
+n$4=*&amp;$irvar0:org.junit.rules.ExpectedException* [line 26];
+*n$3.expected:org.junit.tests.experimental.theories.runner.WithParameterSupplier(root org.junit.tests.experimental.theories.runner.WithParameterSupplier)=n$4 [line 26];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<init>%28%29.5f21e6dab05512aae6443b7efebba995_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    private static class SimplePotentialAssignment extends PotentialAssignment { </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        private String description; </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        private Object value; </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        public SimplePotentialAssignment(Object value, String description) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment* [line 32];
+n$1=_fun_PotentialAssignment.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment*) [line 32];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630.html">summary for WithParameterSupplier$SimplePotentialAssignment.&lt;init&gt;(Object,String)</a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">            this.value = value; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment* [line 33];
+n$3=*&amp;value:java.lang.Object* [line 33];
+*n$2.value:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment(root org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment)=n$3 [line 33];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">            this.description = description; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment* [line 34];
+n$5=*&amp;description:java.lang.String* [line 34];
+*n$4.description:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment(root org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment)=n$5 [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.<init>%28.64db3222092013e9bf4783bf4cdb8630_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        public Object getValue() throws CouldNotGenerateValueException { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getValu.59ed648ad376b1ea171b5dd74fbbbdd7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getValu.59ed648ad376b1ea171b5dd74fbbbdd7.html">summary for Object WithParameterSupplier$SimplePotentialAssignment.getValue()</a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">            return value; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getValu.59ed648ad376b1ea171b5dd74fbbbdd7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment* [line 39];
+n$1=*n$0.value:java.lang.Object*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment) [line 39];
+*&amp;return:java.lang.Object*=n$1 [line 39];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getValu.59ed648ad376b1ea171b5dd74fbbbdd7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getValu.59ed648ad376b1ea171b5dd74fbbbdd7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        public String getDescription() throws CouldNotGenerateValueException { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getDesc.c9e01681687d5079f74aecae41b20e1b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getDesc.c9e01681687d5079f74aecae41b20e1b.html">summary for String WithParameterSupplier$SimplePotentialAssignment.getDescription()</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">            return description; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getDesc.c9e01681687d5079f74aecae41b20e1b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment* [line 44];
+n$1=*n$0.description:java.lang.String*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment) [line 44];
+*&amp;return:java.lang.String*=n$1 [line 44];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getDesc.c9e01681687d5079f74aecae41b20e1b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimplePotentialAssignment.getDesc.c9e01681687d5079f74aecae41b20e1b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    private static final List&lt;String&gt; DATAPOINTS = Arrays.asList(&quot;qwe&quot;, &quot;asd&quot;); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.String*[_*_];len=[2]):java.lang.String*[_*_](*)) [line 48];
+*&amp;$irvar0:java.lang.String*[_*_](*)=n$0 [line 48];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.String*[_*_](*) [line 48];
+*n$1[0]:java.lang.Object*="qwe" [line 48];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String*[_*_](*) [line 48];
+*n$2[1]:java.lang.Object*="asd" [line 48];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String*[_*_](*) [line 48];
+n$4=_fun_List Arrays.asList(Object[])(n$3:java.lang.String*[_*_](*)) [line 48];
+*&amp;$irvar1:java.util.List*=n$4 [line 48];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$5=*&amp;$irvar1:java.util.List* [line 48];
+*&amp;#GB<>$org.junit.tests.experimental.theories.runner.WithParameterSupplier.DATAPOINTS:org.junit.tests.experimental.theories.runner.WithParameterSupplier(root org.junit.tests.experimental.theories.runner.WithParameterSupplier)=n$5 [line 48];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.<clinit>%28%29%3Avoid.8b00f292d98bc2210fcacf97325a54b4.html">summary for void WithParameterSupplier.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    public static class SimpleSupplier extends ParameterSupplier { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.<init>%28%29.ecd720f77a709ccecf01616e3be70c77_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.<init>%28%29.ecd720f77a709ccecf01616e3be70c77_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimpleSupplier* [line 50];
+n$1=_fun_ParameterSupplier.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimpleSupplier*) [line 50];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.<init>%28%29.ecd720f77a709ccecf01616e3be70c77_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.<init>%28%29.ecd720f77a709ccecf01616e3be70c77_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.<init>%28%29.ecd720f77a709ccecf01616e3be70c77_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.<init>%28%29.ecd720f77a709ccecf01616e3be70c77.html">summary for WithParameterSupplier$SimpleSupplier.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        public List&lt;PotentialAssignment&gt; getValueSources(ParameterSignature sig) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1.html">summary for List WithParameterSupplier$SimpleSupplier.getValueSources(ParameterSignature)</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            List&lt;PotentialAssignment&gt; assignments = new ArrayList&lt;PotentialAssignment&gt;(); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 54];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 54];
+*&amp;assignments:java.util.ArrayList*=n$0 [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">            for (String datapoint : DATAPOINTS) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun_List WithParameterSupplier.access$000()() [line 56];
+*&amp;$irvar0:java.util.List*=n$2 [line 56];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.util.List* [line 56];
+_=*n$3:java.util.List*(root java.util.List) [line 56];
+n$5=_fun_Iterator List.iterator()(n$3:java.util.List*) interface virtual [line 56];
+*&amp;$bcvar3:java.util.Iterator*=n$5 [line 56];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:14 6 succs:10 exn:3 Instructions
+n$6=*&amp;$bcvar3:java.util.Iterator* [line 56];
+_=*n$6:java.util.Iterator*(root java.util.Iterator) [line 56];
+n$8=_fun_boolean Iterator.hasNext()(n$6:java.util.Iterator*) interface virtual [line 56];
+*&amp;$irvar1:_Bool=n$8 [line 56];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:7 succs:8 9 exn: Join
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 56];
+PRUNE(!(n$9 == 0), true); [line 56];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$10=*&amp;$bcvar3:java.util.Iterator* [line 56];
+_=*n$10:java.util.Iterator*(root java.util.Iterator) [line 56];
+n$12=_fun_Object Iterator.next()(n$10:java.util.Iterator*) interface virtual [line 56];
+*&amp;$irvar2:java.lang.Object*=n$12 [line 56];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;$irvar2:java.lang.Object* [line 56];
+n$14=_fun___cast(n$13:java.lang.Object*,sizeof(t=java.lang.String;sub_t=( sub )(cast)):void) [line 56];
+*&amp;datapoint:java.lang.String*=n$14 [line 56];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:15 exn:3 Conditional method_body
+n$9=*&amp;$irvar1:_Bool [line 56];
+PRUNE((n$9 == 0), false); [line 56];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">                assignments.add(new SimplePotentialAssignment(datapoint, <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$15=_fun___new(sizeof(t=org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment):org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment*) [line 57];
+n$16=*&amp;datapoint:java.lang.String* [line 57];
+n$17=*&amp;datapoint:java.lang.String* [line 57];
+n$18=_fun_WithParameterSupplier$SimplePotentialAssignment.&lt;init&gt;(Object,String)(n$15:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment*,n$16:java.lang.String*,n$17:java.lang.String*) [line 57];
+*&amp;$irvar3:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment*=n$15 [line 57];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:7 exn:3 Instructions
+n$19=*&amp;assignments:java.util.ArrayList* [line 57];
+_=*n$19:java.util.ArrayList*(root java.util.ArrayList) [line 57];
+n$21=*&amp;$irvar3:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment* [line 57];
+n$22=_fun_boolean List.add(Object)(n$19:java.util.ArrayList*,n$21:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SimplePotentialAssignment*) interface virtual [line 57];
+*&amp;$irvar4:_Bool=n$22 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">                        datapoint)); </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">            return assignments; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:9 succs:2 exn:3 Instructions
+n$23=*&amp;assignments:java.util.ArrayList* [line 61];
+*&amp;return:java.util.List*=n$23 [line 61];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SimpleSupplier.getValueSources%28or.1fe25dcc00c67a2aa905ab3767088da1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    @RunWith(Theories.class) </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    public static class TestClassUsingParameterSupplier { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.<.6518dbf26e48db8f09a95009df592582_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.<.6518dbf26e48db8f09a95009df592582_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingParameterSupplier* [line 67];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingParameterSupplier*) [line 67];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.<.6518dbf26e48db8f09a95009df592582_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.<.6518dbf26e48db8f09a95009df592582_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.<.6518dbf26e48db8f09a95009df592582_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.<.6518dbf26e48db8f09a95009df592582.html">summary for WithParameterSupplier$TestClassUsingParameterSupplier.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        @Theory </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        public void theoryMethod(@ParametersSuppliedBy(SimpleSupplier.class) String param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.t.d46554e5ec4cca500fa20397c37b3a6b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.t.d46554e5ec4cca500fa20397c37b3a6b.html">summary for void WithParameterSupplier$TestClassUsingParameterSupplier.theoryMethod(String)</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.t.d46554e5ec4cca500fa20397c37b3a6b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.t.d46554e5ec4cca500fa20397c37b3a6b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingParameterSupplier.t.d46554e5ec4cca500fa20397c37b3a6b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    public void shouldPickUpDataPointsFromParameterSupplier() throws Throwable { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732.html">summary for void WithParameterSupplier.shouldPickUpDataPointsFromParameterSupplier()</a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        List&lt;PotentialAssignment&gt; assignments = potentialAssignments(TestClassUsingParameterSupplier.class <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 77];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 77];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 77];
+*n$1[0]:java.lang.Object*=java.lang.String [line 77];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;$irvar1:java.lang.reflect.Method* [line 77];
+n$5=_fun_List TheoryTestUtils.potentialAssignments(Method)(n$4:java.lang.reflect.Method*) [line 77];
+*&amp;assignments:java.util.List*=n$5 [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">                .getMethod(&quot;theoryMethod&quot;, String.class)); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 78];
+n$3=_fun_Method Class.getMethod(String,Class[])(org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingParameterSupplier:java.lang.Object*,"theoryMethod":java.lang.Object*,n$2:java.lang.Class*[_*_](*)) virtual [line 78];
+*&amp;$irvar1:java.lang.reflect.Method*=n$3 [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        assertEquals(2, assignments.size()); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=*&amp;assignments:java.util.List* [line 80];
+_=*n$6:java.util.List*(root java.util.List) [line 80];
+n$8=_fun_int List.size()(n$6:java.util.List*) interface virtual [line 80];
+*&amp;$irvar2:int=n$8 [line 80];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar2:int [line 80];
+n$10=_fun_void Assert.assertEquals(long,long)(2:long,(long)n$9:long) [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        assertEquals(DATAPOINTS.get(0), assignments.get(0).getValue()); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;#GB<>$org.junit.tests.experimental.theories.runner.WithParameterSupplier.DATAPOINTS:java.util.List*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier) [line 81];
+_=*n$11:java.util.List*(root java.util.List) [line 81];
+n$13=_fun_Object List.get(int)(n$11:java.util.List*,0:int) interface virtual [line 81];
+*&amp;$irvar3:java.lang.Object*=n$13 [line 81];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;assignments:java.util.List* [line 81];
+_=*n$14:java.util.List*(root java.util.List) [line 81];
+n$16=_fun_Object List.get(int)(n$14:java.util.List*,0:int) interface virtual [line 81];
+*&amp;$irvar4:java.lang.Object*=n$16 [line 81];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$17=*&amp;$irvar4:java.lang.Object* [line 81];
+n$18=_fun___cast(n$17:java.lang.Object*,sizeof(t=org.junit.experimental.theories.PotentialAssignment;sub_t=( sub )(cast)):void) [line 81];
+_=*n$18:org.junit.experimental.theories.PotentialAssignment*(root org.junit.experimental.theories.PotentialAssignment) [line 81];
+n$20=_fun_Object PotentialAssignment.getValue()(n$18:org.junit.experimental.theories.PotentialAssignment*) virtual [line 81];
+*&amp;$irvar5:java.lang.Object*=n$20 [line 81];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$21=*&amp;$irvar3:java.lang.Object* [line 81];
+n$22=*&amp;$irvar5:java.lang.Object* [line 81];
+n$23=_fun_void Assert.assertEquals(Object,Object)(n$21:java.lang.Object*,n$22:java.lang.Object*) [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        assertEquals(DATAPOINTS.get(1), assignments.get(1).getValue()); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$24=*&amp;#GB<>$org.junit.tests.experimental.theories.runner.WithParameterSupplier.DATAPOINTS:java.util.List*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier) [line 82];
+_=*n$24:java.util.List*(root java.util.List) [line 82];
+n$26=_fun_Object List.get(int)(n$24:java.util.List*,1:int) interface virtual [line 82];
+*&amp;$irvar6:java.lang.Object*=n$26 [line 82];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$27=*&amp;assignments:java.util.List* [line 82];
+_=*n$27:java.util.List*(root java.util.List) [line 82];
+n$29=_fun_Object List.get(int)(n$27:java.util.List*,1:int) interface virtual [line 82];
+*&amp;$irvar7:java.lang.Object*=n$29 [line 82];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$30=*&amp;$irvar7:java.lang.Object* [line 82];
+n$31=_fun___cast(n$30:java.lang.Object*,sizeof(t=org.junit.experimental.theories.PotentialAssignment;sub_t=( sub )(cast)):void) [line 82];
+_=*n$31:org.junit.experimental.theories.PotentialAssignment*(root org.junit.experimental.theories.PotentialAssignment) [line 82];
+n$33=_fun_Object PotentialAssignment.getValue()(n$31:org.junit.experimental.theories.PotentialAssignment*) virtual [line 82];
+*&amp;$irvar8:java.lang.Object*=n$33 [line 82];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$34=*&amp;$irvar6:java.lang.Object* [line 82];
+n$35=*&amp;$irvar8:java.lang.Object* [line 82];
+n$36=_fun_void Assert.assertEquals(Object,Object)(n$34:java.lang.Object*,n$35:java.lang.Object*) [line 82];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:18 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldPickUpDataPointsFromParamet.324218d74769bfbdada0cf49bfe1a732_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">    public static class SupplierWithUnknownConstructor extends ParameterSupplier { </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">        public SupplierWithUnknownConstructor(String param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.<i.e055d3409b0bcbed3cdf4cac6e45bb3d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.<i.e055d3409b0bcbed3cdf4cac6e45bb3d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SupplierWithUnknownConstructor* [line 87];
+n$1=_fun_ParameterSupplier.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SupplierWithUnknownConstructor*) [line 87];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.<i.e055d3409b0bcbed3cdf4cac6e45bb3d.html">summary for WithParameterSupplier$SupplierWithUnknownConstructor.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.<i.e055d3409b0bcbed3cdf4cac6e45bb3d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.<i.e055d3409b0bcbed3cdf4cac6e45bb3d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.<i.e055d3409b0bcbed3cdf4cac6e45bb3d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        public List&lt;PotentialAssignment&gt; getValueSources(ParameterSignature sig) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.ge.89cbd0889e36e715a49323788a27da44_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.ge.89cbd0889e36e715a49323788a27da44.html">summary for List WithParameterSupplier$SupplierWithUnknownConstructor.getValueSources(ParameterSignature)</a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            return null; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.ge.89cbd0889e36e715a49323788a27da44_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.util.List*=null [line 92];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.ge.89cbd0889e36e715a49323788a27da44_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithUnknownConstructor.ge.89cbd0889e36e715a49323788a27da44_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    @RunWith(Theories.class) </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">    public static class TestClassUsingSupplierWithUnknownConstructor { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.71b6de7eada8deb24645c9814640680f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.71b6de7eada8deb24645c9814640680f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithUnknownConstructor* [line 98];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithUnknownConstructor*) [line 98];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.71b6de7eada8deb24645c9814640680f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.71b6de7eada8deb24645c9814640680f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.71b6de7eada8deb24645c9814640680f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.71b6de7eada8deb24645c9814640680f.html">summary for WithParameterSupplier$TestClassUsingSupplierWithUnknownConstructor.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        @Theory </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        public void theory(@ParametersSuppliedBy(SupplierWithUnknownConstructor.class) String param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.672d311a7973a8b3c0a4b2148eea2983_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.672d311a7973a8b3c0a4b2148eea2983.html">summary for void WithParameterSupplier$TestClassUsingSupplierWithUnknownConstructor.theory(String)</a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.672d311a7973a8b3c0a4b2148eea2983_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.672d311a7973a8b3c0a4b2148eea2983_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithUnknown.672d311a7973a8b3c0a4b2148eea2983_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    public void shouldRejectSuppliersWithUnknownConstructors() throws Exception { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f.html">summary for void WithParameterSupplier.shouldRejectSuppliersWithUnknownConstructors()</a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">        expected.expect(InitializationError.class); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier* [line 108];
+n$1=*n$0.expected:org.junit.rules.ExpectedException*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier) [line 108];
+_=*n$1:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 108];
+n$3=_fun_void ExpectedException.expect(Class)(n$1:org.junit.rules.ExpectedException*,org.junit.runners.model.InitializationError:java.lang.Object*) virtual [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        new Theories(TestClassUsingSupplierWithUnknownConstructor.class); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.experimental.theories.Theories):org.junit.experimental.theories.Theories*) [line 109];
+n$5=_fun_Theories.&lt;init&gt;(Class)(n$4:org.junit.experimental.theories.Theories*,org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithUnknownConstructor:java.lang.Object*) [line 109];
+*&amp;$irvar0:org.junit.experimental.theories.Theories*=n$4 [line 109];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithUnknownC.c7519b5f9692ce99f0fdb4d2773c855f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    public static class SupplierWithTwoConstructors extends ParameterSupplier { </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        public SupplierWithTwoConstructors(String param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.<init.1c62a5d0475c5468eb95dfcd3f09f6d4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.<init.1c62a5d0475c5468eb95dfcd3f09f6d4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SupplierWithTwoConstructors* [line 114];
+n$1=_fun_ParameterSupplier.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SupplierWithTwoConstructors*) [line 114];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.<init.1c62a5d0475c5468eb95dfcd3f09f6d4.html">summary for WithParameterSupplier$SupplierWithTwoConstructors.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.<init.1c62a5d0475c5468eb95dfcd3f09f6d4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.<init.1c62a5d0475c5468eb95dfcd3f09f6d4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.<init.1c62a5d0475c5468eb95dfcd3f09f6d4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        public List&lt;PotentialAssignment&gt; getValueSources(ParameterSignature sig) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.getVa.acde60e856bbf69feb0bcb289b315a87_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.getVa.acde60e856bbf69feb0bcb289b315a87.html">summary for List WithParameterSupplier$SupplierWithTwoConstructors.getValueSources(ParameterSignature)</a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">            return null; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.getVa.acde60e856bbf69feb0bcb289b315a87_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.util.List*=null [line 119];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.getVa.acde60e856bbf69feb0bcb289b315a87_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTwoConstructors.getVa.acde60e856bbf69feb0bcb289b315a87_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    @RunWith(Theories.class) </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">    public static class TestClassUsingSupplierWithTwoConstructors { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.75a2b7c97e1fc4287e44613cd81cb28a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.75a2b7c97e1fc4287e44613cd81cb28a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithTwoConstructors* [line 125];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithTwoConstructors*) [line 125];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.75a2b7c97e1fc4287e44613cd81cb28a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.75a2b7c97e1fc4287e44613cd81cb28a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.75a2b7c97e1fc4287e44613cd81cb28a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.75a2b7c97e1fc4287e44613cd81cb28a.html">summary for WithParameterSupplier$TestClassUsingSupplierWithTwoConstructors.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        @Theory </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        public void theory(@ParametersSuppliedBy(SupplierWithTwoConstructors.class) String param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.4f531df73116b888b9ad921423ef119b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.4f531df73116b888b9ad921423ef119b.html">summary for void WithParameterSupplier$TestClassUsingSupplierWithTwoConstructors.theory(String)</a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.4f531df73116b888b9ad921423ef119b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.4f531df73116b888b9ad921423ef119b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTwoCons.4f531df73116b888b9ad921423ef119b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    public void shouldRejectSuppliersWithTwoConstructors() throws Exception { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464.html">summary for void WithParameterSupplier.shouldRejectSuppliersWithTwoConstructors()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        expected.expect(InitializationError.class); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier* [line 135];
+n$1=*n$0.expected:org.junit.rules.ExpectedException*(root org.junit.tests.experimental.theories.runner.WithParameterSupplier) [line 135];
+_=*n$1:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 135];
+n$3=_fun_void ExpectedException.expect(Class)(n$1:org.junit.rules.ExpectedException*,org.junit.runners.model.InitializationError:java.lang.Object*) virtual [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        new Theories(TestClassUsingSupplierWithTwoConstructors.class); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.experimental.theories.Theories):org.junit.experimental.theories.Theories*) [line 136];
+n$5=_fun_Theories.&lt;init&gt;(Class)(n$4:org.junit.experimental.theories.Theories*,org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithTwoConstructors:java.lang.Object*) [line 136];
+*&amp;$irvar0:org.junit.experimental.theories.Theories*=n$4 [line 136];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">    } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldRejectSuppliersWithTwoConst.5a642985d07cd2a36be975936605e464_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    public static class SupplierWithTestClassConstructor extends ParameterSupplier { </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        public SupplierWithTestClassConstructor(TestClass param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..0ae2ea6a41c859499ee22b1a125861d8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..0ae2ea6a41c859499ee22b1a125861d8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SupplierWithTestClassConstructor* [line 141];
+n$1=_fun_ParameterSupplier.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$SupplierWithTestClassConstructor*) [line 141];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..0ae2ea6a41c859499ee22b1a125861d8.html">summary for WithParameterSupplier$SupplierWithTestClassConstructor.&lt;init&gt;(TestClass)</a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..0ae2ea6a41c859499ee22b1a125861d8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..0ae2ea6a41c859499ee22b1a125861d8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..0ae2ea6a41c859499ee22b1a125861d8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        public List&lt;PotentialAssignment&gt; getValueSources(ParameterSignature sig) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..617810f0f217d337169b5e601319f6a1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..617810f0f217d337169b5e601319f6a1.html">summary for List WithParameterSupplier$SupplierWithTestClassConstructor.getValueSources(ParameterSignature)</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            return null; <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..617810f0f217d337169b5e601319f6a1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.util.List*=null [line 146];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..617810f0f217d337169b5e601319f6a1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24SupplierWithTestClassConstructor..617810f0f217d337169b5e601319f6a1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    @RunWith(Theories.class) </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    public static class TestClassUsingSupplierWithTestClassConstructor { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.a613ac64efe33d10edc7ce6711f24859_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.a613ac64efe33d10edc7ce6711f24859_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithTestClassConstructor* [line 152];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithTestClassConstructor*) [line 152];
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.a613ac64efe33d10edc7ce6711f24859_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.a613ac64efe33d10edc7ce6711f24859_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.a613ac64efe33d10edc7ce6711f24859_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.a613ac64efe33d10edc7ce6711f24859.html">summary for WithParameterSupplier$TestClassUsingSupplierWithTestClassConstructor.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        @Theory </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        public void theory(@ParametersSuppliedBy(SupplierWithTestClassConstructor.class) String param) { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.6ee61bf0bd83aaa4770b940523fc81bd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.6ee61bf0bd83aaa4770b940523fc81bd.html">summary for void WithParameterSupplier$TestClassUsingSupplierWithTestClassConstructor.theory(String)</a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">        } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.6ee61bf0bd83aaa4770b940523fc81bd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.6ee61bf0bd83aaa4770b940523fc81bd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier%24TestClassUsingSupplierWithTestCla.6ee61bf0bd83aaa4770b940523fc81bd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">    public void shouldAcceptSuppliersWithTestClassConstructor() throws Exception { <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldAcceptSuppliersWithTestClas.0e050733145d5951edfc484441aee21f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldAcceptSuppliersWithTestClas.0e050733145d5951edfc484441aee21f.html">summary for void WithParameterSupplier.shouldAcceptSuppliersWithTestClassConstructor()</a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        Theories unused = new Theories(TestClassUsingSupplierWithTestClassConstructor.class); <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldAcceptSuppliersWithTestClas.0e050733145d5951edfc484441aee21f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.theories.Theories):org.junit.experimental.theories.Theories*) [line 162];
+n$1=_fun_Theories.&lt;init&gt;(Class)(n$0:org.junit.experimental.theories.Theories*,org.junit.tests.experimental.theories.runner.WithParameterSupplier$TestClassUsingSupplierWithTestClassConstructor:java.lang.Object*) [line 162];
+*&amp;unused:org.junit.experimental.theories.Theories*=n$0 [line 162];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">    } <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldAcceptSuppliersWithTestClas.0e050733145d5951edfc484441aee21f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldAcceptSuppliersWithTestClas.0e050733145d5951edfc484441aee21f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./WithParameterSupplier.java.22a061225ac0723657d1738ef5f800ec/nodes/org.junit.tests.experimental.theories.runner.WithParameterSupplier.shouldAcceptSuppliersWithTestClas.0e050733145d5951edfc484441aee21f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

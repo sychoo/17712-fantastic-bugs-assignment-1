@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TestListenerTest.java.bc10af230047db83492ceaca0599616a</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/junit/tests/framework/TestListenerTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package junit.tests.framework; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import junit.framework.AssertionFailedError; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import junit.framework.Test; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import junit.framework.TestCase; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import junit.framework.TestListener; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import junit.framework.TestResult; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * Test class used in SuiteTest </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">public class TestListenerTest extends TestCase implements TestListener { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.<init>%28%29.7e27f683fd25aa883f0c568e3c60adb9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.<init>%28%29.7e27f683fd25aa883f0c568e3c60adb9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest* [line 12];
+n$1=_fun_TestCase.&lt;init&gt;()(n$0:junit.tests.framework.TestListenerTest*) [line 12];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.<init>%28%29.7e27f683fd25aa883f0c568e3c60adb9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.<init>%28%29.7e27f683fd25aa883f0c568e3c60adb9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.<init>%28%29.7e27f683fd25aa883f0c568e3c60adb9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.<init>%28%29.7e27f683fd25aa883f0c568e3c60adb9.html">summary for TestListenerTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">    private TestResult fResult; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">    private int fStartCount; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">    private int fEndCount; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">    private int fFailureCount; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">    private int fErrorCount; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    public void addError(Test test, Throwable e) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addError%28junit.framework.Test%2Cjava.lang.Throwable%29%3Avoid.4eff3940a72f1fdcbb83fd5b8b3a0952_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.addError%28junit.framework.Test%2Cjava.lang.Throwable%29%3Avoid.4eff3940a72f1fdcbb83fd5b8b3a0952.html">summary for void TestListenerTest.addError(Test,Throwable)</a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">        fErrorCount++; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addError%28junit.framework.Test%2Cjava.lang.Throwable%29%3Avoid.4eff3940a72f1fdcbb83fd5b8b3a0952_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest* [line 20];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 20];
+n$2=*n$1.fErrorCount:int(root junit.tests.framework.TestListenerTest) [line 20];
+*n$0.fErrorCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=(n$2 + 1) [line 20];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addError%28junit.framework.Test%2Cjava.lang.Throwable%29%3Avoid.4eff3940a72f1fdcbb83fd5b8b3a0952_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addError%28junit.framework.Test%2Cjava.lang.Throwable%29%3Avoid.4eff3940a72f1fdcbb83fd5b8b3a0952_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addError%28junit.framework.Test%2Cjava.lang.Throwable%29%3Avoid.4eff3940a72f1fdcbb83fd5b8b3a0952_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    public void addFailure(Test test, AssertionFailedError t) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addFailure%28junit.framework.Test%2Cjunit.framework.AssertionFail.a7a69f20ffbf2e679358926ffab6b453_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.addFailure%28junit.framework.Test%2Cjunit.framework.AssertionFail.a7a69f20ffbf2e679358926ffab6b453.html">summary for void TestListenerTest.addFailure(Test,AssertionFailedError)</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        fFailureCount++; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addFailure%28junit.framework.Test%2Cjunit.framework.AssertionFail.a7a69f20ffbf2e679358926ffab6b453_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest* [line 24];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 24];
+n$2=*n$1.fFailureCount:int(root junit.tests.framework.TestListenerTest) [line 24];
+*n$0.fFailureCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=(n$2 + 1) [line 24];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addFailure%28junit.framework.Test%2Cjunit.framework.AssertionFail.a7a69f20ffbf2e679358926ffab6b453_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addFailure%28junit.framework.Test%2Cjunit.framework.AssertionFail.a7a69f20ffbf2e679358926ffab6b453_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.addFailure%28junit.framework.Test%2Cjunit.framework.AssertionFail.a7a69f20ffbf2e679358926ffab6b453_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    public void endTest(Test test) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.endTest%28junit.framework.Test%29%3Avoid.fcd9850cf2a0302db92afa9d9b92dbb1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.endTest%28junit.framework.Test%29%3Avoid.fcd9850cf2a0302db92afa9d9b92dbb1.html">summary for void TestListenerTest.endTest(Test)</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        fEndCount++; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.endTest%28junit.framework.Test%29%3Avoid.fcd9850cf2a0302db92afa9d9b92dbb1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest* [line 28];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 28];
+n$2=*n$1.fEndCount:int(root junit.tests.framework.TestListenerTest) [line 28];
+*n$0.fEndCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=(n$2 + 1) [line 28];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.endTest%28junit.framework.Test%29%3Avoid.fcd9850cf2a0302db92afa9d9b92dbb1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.endTest%28junit.framework.Test%29%3Avoid.fcd9850cf2a0302db92afa9d9b92dbb1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.endTest%28junit.framework.Test%29%3Avoid.fcd9850cf2a0302db92afa9d9b92dbb1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">    protected void setUp() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19.html">summary for void TestListenerTest.setUp()</a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        fResult = new TestResult(); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.TestResult):junit.framework.TestResult*) [line 33];
+n$1=_fun_TestResult.&lt;init&gt;()(n$0:junit.framework.TestResult*) [line 33];
+*&amp;$irvar0:junit.framework.TestResult*=n$0 [line 33];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.tests.framework.TestListenerTest* [line 33];
+n$3=*&amp;$irvar0:junit.framework.TestResult* [line 33];
+*n$2.fResult:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=n$3 [line 33];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        fResult.addListener(this); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:junit.tests.framework.TestListenerTest* [line 34];
+n$5=*n$4.fResult:junit.framework.TestResult*(root junit.tests.framework.TestListenerTest) [line 34];
+_=*n$5:junit.framework.TestResult*(root junit.framework.TestResult) [line 34];
+n$7=*&amp;this:junit.tests.framework.TestListenerTest* [line 34];
+n$8=_fun_void TestResult.addListener(TestListener)(n$5:junit.framework.TestResult*,n$7:junit.tests.framework.TestListenerTest*) virtual [line 34];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B5] object `TestListenerTest.fResult.fListeners` initialized automatically could be null and is dereferenced by call to `addListener(...)` at line 34</div></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        fStartCount = 0; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$9=*&amp;this:junit.tests.framework.TestListenerTest* [line 36];
+*n$9.fStartCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=0 [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        fEndCount = 0; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$10=*&amp;this:junit.tests.framework.TestListenerTest* [line 37];
+*n$10.fEndCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=0 [line 37];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        fFailureCount = 0; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;this:junit.tests.framework.TestListenerTest* [line 38];
+*n$11.fFailureCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=0 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        fErrorCount = 0; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;this:junit.tests.framework.TestListenerTest* [line 39];
+*n$12.fErrorCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=0 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.setUp%28%29%3Avoid.d13908a49d39bd69eb50aac39dc5ad19_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    public void startTest(Test test) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.startTest%28junit.framework.Test%29%3Avoid.aa816e59bacad523ec01c3429b0160d8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.startTest%28junit.framework.Test%29%3Avoid.aa816e59bacad523ec01c3429b0160d8.html">summary for void TestListenerTest.startTest(Test)</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        fStartCount++; <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.startTest%28junit.framework.Test%29%3Avoid.aa816e59bacad523ec01c3429b0160d8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest* [line 43];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 43];
+n$2=*n$1.fStartCount:int(root junit.tests.framework.TestListenerTest) [line 43];
+*n$0.fStartCount:junit.tests.framework.TestListenerTest(root junit.tests.framework.TestListenerTest)=(n$2 + 1) [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.startTest%28junit.framework.Test%29%3Avoid.aa816e59bacad523ec01c3429b0160d8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.startTest%28junit.framework.Test%29%3Avoid.aa816e59bacad523ec01c3429b0160d8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.startTest%28junit.framework.Test%29%3Avoid.aa816e59bacad523ec01c3429b0160d8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    public void testError() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5.html">summary for void TestListenerTest.testError()</a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        TestCase test = new TestCase(&quot;noop&quot;) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.tests.framework.TestListenerTest$1):junit.tests.framework.TestListenerTest$1*) [line 47];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 47];
+n$2=_fun_TestListenerTest$1.&lt;init&gt;(TestListenerTest,String)(n$0:junit.tests.framework.TestListenerTest$1*,n$1:junit.tests.framework.TestListenerTest*,"noop":java.lang.Object*) [line 47];
+*&amp;test:junit.tests.framework.TestListenerTest$1*=n$0 [line 47];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest$1* [line 47];
+n$1=*&amp;this$0:junit.tests.framework.TestListenerTest* [line 47];
+*n$0.this$0:junit.tests.framework.TestListenerTest$1(root junit.tests.framework.TestListenerTest$1)=n$1 [line 47];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.tests.framework.TestListenerTest$1* [line 47];
+n$3=*&amp;arg0:java.lang.String* [line 47];
+n$4=_fun_TestCase.&lt;init&gt;(String)(n$2:junit.tests.framework.TestListenerTest$1*,n$3:java.lang.String*) [line 47];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest%241.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.c1ae6ffd4d4a5f8e07e2d20d770d3d19.html">summary for TestListenerTest$1.&lt;init&gt;(TestListenerTest,String)</a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">            public void runTest() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.runTest%28%29%3Avoid.436a522d782709e1cfa8c49b2fa08404_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest%241.runTest%28%29%3Avoid.436a522d782709e1cfa8c49b2fa08404.html">summary for void TestListenerTest$1.runTest()</a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">                throw new Error(); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.runTest%28%29%3Avoid.436a522d782709e1cfa8c49b2fa08404_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Error):java.lang.Error*) [line 50];
+n$1=_fun_Error.&lt;init&gt;()(n$0:java.lang.Error*) [line 50];
+*&amp;$irvar0:java.lang.Error*=n$0 [line 50];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.runTest%28%29%3Avoid.436a522d782709e1cfa8c49b2fa08404_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Error* [line 50];
+*&amp;return:void=EXN n$2 [line 50];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.runTest%28%29%3Avoid.436a522d782709e1cfa8c49b2fa08404_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%241.runTest%28%29%3Avoid.436a522d782709e1cfa8c49b2fa08404_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        test.run(fResult); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;test:junit.tests.framework.TestListenerTest$1* [line 53];
+_=*n$3:junit.tests.framework.TestListenerTest$1*(root junit.tests.framework.TestListenerTest$1) [line 53];
+n$5=*&amp;this:junit.tests.framework.TestListenerTest* [line 53];
+n$6=*n$5.fResult:junit.framework.TestResult*(root junit.tests.framework.TestListenerTest) [line 53];
+n$7=_fun_void TestCase.run(TestResult)(n$3:junit.tests.framework.TestListenerTest$1*,n$6:junit.framework.TestResult*) virtual [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        assertEquals(1, fErrorCount); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;this:junit.tests.framework.TestListenerTest* [line 54];
+n$9=*n$8.fErrorCount:int(root junit.tests.framework.TestListenerTest) [line 54];
+*&amp;$irvar0:int=n$9 [line 54];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar0:int [line 54];
+n$11=_fun_void TestCase.assertEquals(int,int)(1:int,n$10:int) [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        assertEquals(1, fEndCount); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;this:junit.tests.framework.TestListenerTest* [line 55];
+n$13=*n$12.fEndCount:int(root junit.tests.framework.TestListenerTest) [line 55];
+*&amp;$irvar1:int=n$13 [line 55];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;$irvar1:int [line 55];
+n$15=_fun_void TestCase.assertEquals(int,int)(1:int,n$14:int) [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testError%28%29%3Avoid.a08bd3f0c9ed1328d454f878205158a5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    public void testFailure() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475.html">summary for void TestListenerTest.testFailure()</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        TestCase test = new TestCase(&quot;noop&quot;) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.tests.framework.TestListenerTest$2):junit.tests.framework.TestListenerTest$2*) [line 59];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 59];
+n$2=_fun_TestListenerTest$2.&lt;init&gt;(TestListenerTest,String)(n$0:junit.tests.framework.TestListenerTest$2*,n$1:junit.tests.framework.TestListenerTest*,"noop":java.lang.Object*) [line 59];
+*&amp;test:junit.tests.framework.TestListenerTest$2*=n$0 [line 59];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest$2* [line 59];
+n$1=*&amp;this$0:junit.tests.framework.TestListenerTest* [line 59];
+*n$0.this$0:junit.tests.framework.TestListenerTest$2(root junit.tests.framework.TestListenerTest$2)=n$1 [line 59];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.tests.framework.TestListenerTest$2* [line 59];
+n$3=*&amp;arg0:java.lang.String* [line 59];
+n$4=_fun_TestCase.&lt;init&gt;(String)(n$2:junit.tests.framework.TestListenerTest$2*,n$3:java.lang.String*) [line 59];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest%242.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.5aeed396a2772e75273a9b90fbfdc011.html">summary for TestListenerTest$2.&lt;init&gt;(TestListenerTest,String)</a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">            public void runTest() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.runTest%28%29%3Avoid.2e14ecb22e8139fc13c2fe5323221292_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest%242.runTest%28%29%3Avoid.2e14ecb22e8139fc13c2fe5323221292.html">summary for void TestListenerTest$2.runTest()</a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">                fail(); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.runTest%28%29%3Avoid.2e14ecb22e8139fc13c2fe5323221292_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void TestCase.fail()() [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">            } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.runTest%28%29%3Avoid.2e14ecb22e8139fc13c2fe5323221292_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.runTest%28%29%3Avoid.2e14ecb22e8139fc13c2fe5323221292_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%242.runTest%28%29%3Avoid.2e14ecb22e8139fc13c2fe5323221292_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        test.run(fResult); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;test:junit.tests.framework.TestListenerTest$2* [line 65];
+_=*n$3:junit.tests.framework.TestListenerTest$2*(root junit.tests.framework.TestListenerTest$2) [line 65];
+n$5=*&amp;this:junit.tests.framework.TestListenerTest* [line 65];
+n$6=*n$5.fResult:junit.framework.TestResult*(root junit.tests.framework.TestListenerTest) [line 65];
+n$7=_fun_void TestCase.run(TestResult)(n$3:junit.tests.framework.TestListenerTest$2*,n$6:junit.framework.TestResult*) virtual [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        assertEquals(1, fFailureCount); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;this:junit.tests.framework.TestListenerTest* [line 66];
+n$9=*n$8.fFailureCount:int(root junit.tests.framework.TestListenerTest) [line 66];
+*&amp;$irvar0:int=n$9 [line 66];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar0:int [line 66];
+n$11=_fun_void TestCase.assertEquals(int,int)(1:int,n$10:int) [line 66];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        assertEquals(1, fEndCount); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;this:junit.tests.framework.TestListenerTest* [line 67];
+n$13=*n$12.fEndCount:int(root junit.tests.framework.TestListenerTest) [line 67];
+*&amp;$irvar1:int=n$13 [line 67];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;$irvar1:int [line 67];
+n$15=_fun_void TestCase.assertEquals(int,int)(1:int,n$14:int) [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testFailure%28%29%3Avoid.efaf6f97e07e715ec4d9763a19759475_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    public void testStartStop() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06.html">summary for void TestListenerTest.testStartStop()</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        TestCase test = new TestCase(&quot;noop&quot;) { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.tests.framework.TestListenerTest$3):junit.tests.framework.TestListenerTest$3*) [line 71];
+n$1=*&amp;this:junit.tests.framework.TestListenerTest* [line 71];
+n$2=_fun_TestListenerTest$3.&lt;init&gt;(TestListenerTest,String)(n$0:junit.tests.framework.TestListenerTest$3*,n$1:junit.tests.framework.TestListenerTest*,"noop":java.lang.Object*) [line 71];
+*&amp;test:junit.tests.framework.TestListenerTest$3*=n$0 [line 71];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.TestListenerTest$3* [line 71];
+n$1=*&amp;this$0:junit.tests.framework.TestListenerTest* [line 71];
+*n$0.this$0:junit.tests.framework.TestListenerTest$3(root junit.tests.framework.TestListenerTest$3)=n$1 [line 71];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.tests.framework.TestListenerTest$3* [line 71];
+n$3=*&amp;arg0:java.lang.String* [line 71];
+n$4=_fun_TestCase.&lt;init&gt;(String)(n$2:junit.tests.framework.TestListenerTest$3*,n$3:java.lang.String*) [line 71];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest%243.<init>%28junit.tests.framework.TestListenerTest%2Cjava.lang.Str.7b014f7a71c7e4885b378518be99dcb4.html">summary for TestListenerTest$3.&lt;init&gt;(TestListenerTest,String)</a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">            public void runTest() { <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.runTest%28%29%3Avoid.fe67d146fe6a26e6d7b51f48ae197757_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/junit.tests.framework.TestListenerTest%243.runTest%28%29%3Avoid.fe67d146fe6a26e6d7b51f48ae197757.html">summary for void TestListenerTest$3.runTest()</a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.runTest%28%29%3Avoid.fe67d146fe6a26e6d7b51f48ae197757_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.runTest%28%29%3Avoid.fe67d146fe6a26e6d7b51f48ae197757_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest%243.runTest%28%29%3Avoid.fe67d146fe6a26e6d7b51f48ae197757_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">        test.run(fResult); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;test:junit.tests.framework.TestListenerTest$3* [line 76];
+_=*n$3:junit.tests.framework.TestListenerTest$3*(root junit.tests.framework.TestListenerTest$3) [line 76];
+n$5=*&amp;this:junit.tests.framework.TestListenerTest* [line 76];
+n$6=*n$5.fResult:junit.framework.TestResult*(root junit.tests.framework.TestListenerTest) [line 76];
+n$7=_fun_void TestCase.run(TestResult)(n$3:junit.tests.framework.TestListenerTest$3*,n$6:junit.framework.TestResult*) virtual [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        assertEquals(1, fStartCount); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;this:junit.tests.framework.TestListenerTest* [line 77];
+n$9=*n$8.fStartCount:int(root junit.tests.framework.TestListenerTest) [line 77];
+*&amp;$irvar0:int=n$9 [line 77];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar0:int [line 77];
+n$11=_fun_void TestCase.assertEquals(int,int)(1:int,n$10:int) [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">        assertEquals(1, fEndCount); <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;this:junit.tests.framework.TestListenerTest* [line 78];
+n$13=*n$12.fEndCount:int(root junit.tests.framework.TestListenerTest) [line 78];
+*&amp;$irvar1:int=n$13 [line 78];
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;$irvar1:int [line 78];
+n$15=_fun_void TestCase.assertEquals(int,int)(1:int,n$14:int) [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">    } <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/junit.tests.framework.TestListenerTest.testStartStop%28%29%3Avoid.8eb994346671d43ade8682afc090ed06_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Null Dereference [B5] object `TestListenerTest.fResult.fListeners` initialized automatically could be null and is dereferenced by call to `addListener(...)` at line 34 <a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/nodes/node6.html#session42">node6#session42</a>(<a href="./TestListenerTest.java.bc10af230047db83492ceaca0599616a/../TestListenerTest.java.bc10af230047db83492ceaca0599616a.html#LINE34">34</a>)</body>
+</html>

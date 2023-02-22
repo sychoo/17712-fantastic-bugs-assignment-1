@@ -1,0 +1,39 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_1" [label="1: Start void SingleMethodTest.filteringAffectsPlan()\nFormals:  this:org.junit.tests.manipulation.SingleMethodTest*\nLocals:  $irvar1:void $irvar0:void runner:org.junit.runner.Runner*\nAnnotation: <_org.junit.Test> void SingleMethodTest.filteringAffectsPlan()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_1" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_4" ;
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_2" [label="2: Exit void SingleMethodTest.filteringAffectsPlan() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 112]\n  NULLIFY(&$irvar1); [line 112]\n  NULLIFY(&runner); [line 112]\n  EXIT_SCOPE($irvar0,$irvar1,runner); [line 112]\n  APPLY_ABSTRACTION; [line 112]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_2" ;
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_4" [label="4:  Call Request Request.method(Class,String) \n   n$0=_fun_Request Request.method(Class,String)(org.junit.tests.manipulation.SingleMethodTest$OneTimeSetup:java.lang.Object*,\"one\":java.lang.Object*) [line 110]\n  *&$irvar0:org.junit.runner.Request*=n$0 [line 110]\n  EXIT_SCOPE(n$0); [line 110]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_4" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_5" ;
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_4" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" [color="red" ];
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_5" [label="5:  Call Runner Request.getRunner() \n   n$1=*&$irvar0:org.junit.runner.Request* [line 110]\n  _=*n$1:org.junit.runner.Request*(root org.junit.runner.Request) [line 110]\n  n$3=_fun_Runner Request.getRunner()(n$1:org.junit.runner.Request*) virtual [line 110]\n  *&runner:org.junit.runner.Runner*=n$3 [line 110]\n  NULLIFY(&$irvar0); [line 110]\n  EXIT_SCOPE(_,n$1,n$3,$irvar0); [line 110]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_5" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_6" ;
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_5" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" [color="red" ];
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_6" [label="6:  Call int Runner.testCount() \n   n$4=*&runner:org.junit.runner.Runner* [line 111]\n  _=*n$4:org.junit.runner.Runner*(root org.junit.runner.Runner) [line 111]\n  n$6=_fun_int Runner.testCount()(n$4:org.junit.runner.Runner*) virtual [line 111]\n  *&$irvar1:int=n$6 [line 111]\n  NULLIFY(&runner); [line 111]\n  EXIT_SCOPE(_,n$4,n$6,runner); [line 111]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_6" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_7" ;
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_6" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" [color="red" ];
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_7" [label="7:  Call void Assert.assertEquals(long,long) \n   n$7=*&$irvar1:int [line 111]\n  n$8=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$7:long) [line 111]\n  NULLIFY(&$irvar1); [line 111]\n  EXIT_SCOPE(n$7,n$8,$irvar1); [line 111]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_7" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_8" ;
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_7" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" [color="red" ];
+"org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_8" [label="8:  method_body \n   APPLY_ABSTRACTION; [line 112]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_8" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_2" ;
+	 "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_8" -> "org.junit.tests.manipulation.SingleMethodTest.filteringAffectsPlan():void.4943ee07a8a3ca1e754bda2928b91083_3" [color="red" ];
+}

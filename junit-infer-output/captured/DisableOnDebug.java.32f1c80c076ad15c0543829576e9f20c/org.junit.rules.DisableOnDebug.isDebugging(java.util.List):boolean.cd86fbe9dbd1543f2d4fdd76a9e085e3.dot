@@ -1,0 +1,99 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_1" [label="1: Start boolean DisableOnDebug.isDebugging(List)\nFormals:  arguments:java.util.List*\nLocals:  $irvar3:void $irvar2:void $irvar1:void $irvar0:void $bcvar1:void argument:java.lang.String* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_1" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_4" ;
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_2" [label="2: Exit boolean DisableOnDebug.isDebugging(List) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 110]\n  NULLIFY(&argument); [line 110]\n  NULLIFY(&$irvar0); [line 110]\n  NULLIFY(&$irvar1); [line 110]\n  NULLIFY(&$irvar2); [line 110]\n  NULLIFY(&$bcvar1); [line 110]\n  EXIT_SCOPE($irvar3,argument,$irvar0,$irvar1,$irvar2,$bcvar1); [line 110]\n  APPLY_ABSTRACTION; [line 110]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_2" ;
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_4" [label="4:  Call Iterator List.iterator() \n   n$0=*&arguments:java.util.List* [line 105]\n  _=*n$0:java.util.List*(root java.util.List) [line 105]\n  n$2=_fun_Iterator List.iterator()(n$0:java.util.List*) interface virtual [line 105]\n  *&$bcvar1:java.util.Iterator*=n$2 [line 105]\n  NULLIFY(&arguments); [line 105]\n  EXIT_SCOPE(_,n$0,n$2,arguments); [line 105]\n  APPLY_ABSTRACTION; [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_4" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_5" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_4" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_5" [label="5:  Call boolean Iterator.hasNext() \n   n$3=*&$bcvar1:java.util.Iterator* [line 105]\n  _=*n$3:java.util.Iterator*(root java.util.Iterator) [line 105]\n  n$5=_fun_boolean Iterator.hasNext()(n$3:java.util.Iterator*) interface virtual [line 105]\n  *&$irvar0:_Bool=n$5 [line 105]\n  EXIT_SCOPE(_,n$3,n$5); [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_5" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_8" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_5" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_6" [label="6: Prune (true branch, if) \n   n$6=*&$irvar0:_Bool [line 105]\n  PRUNE(!(n$6 == 0), true); [line 105]\n  NULLIFY(&$irvar0); [line 105]\n  EXIT_SCOPE(n$6,$irvar0); [line 105]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_6" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_9" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_6" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_7" [label="7: Prune (false branch, if) \n   n$6=*&$irvar0:_Bool [line 105]\n  PRUNE((n$6 == 0), false); [line 105]\n  NULLIFY(&$irvar0); [line 105]\n  NULLIFY(&$bcvar1); [line 105]\n  EXIT_SCOPE(n$6,$irvar0,$bcvar1); [line 105]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_7" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_20" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_7" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_8" [label="8: + \n  " ]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_8" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_6" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_8" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_7" ;
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_9" [label="9:  Call Object Iterator.next() \n   n$7=*&$bcvar1:java.util.Iterator* [line 105]\n  _=*n$7:java.util.Iterator*(root java.util.Iterator) [line 105]\n  n$9=_fun_Object Iterator.next()(n$7:java.util.Iterator*) interface virtual [line 105]\n  *&$irvar1:java.lang.Object*=n$9 [line 105]\n  EXIT_SCOPE(_,n$7,n$9); [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_9" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_10" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_9" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_10" [label="10:  method_body \n   n$10=*&$irvar1:java.lang.Object* [line 105]\n  n$11=_fun___cast(n$10:java.lang.Object*,sizeof(t=java.lang.String;sub_t=( sub )(cast)):void) [line 105]\n  *&argument:java.lang.String*=n$11 [line 105]\n  NULLIFY(&$irvar1); [line 105]\n  EXIT_SCOPE(n$10,n$11,$irvar1); [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_10" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_11" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_10" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_11" [label="11:  Call boolean String.equals(Object) \n   n$12=*&argument:java.lang.String* [line 106]\n  n$13=_fun_boolean String.equals(Object)(\"-Xdebug\":java.lang.Object*,n$12:java.lang.String*) virtual [line 106]\n  *&$irvar2:_Bool=n$13 [line 106]\n  EXIT_SCOPE(n$12,n$13); [line 106]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_11" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_14" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_11" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_12" [label="12: Prune (true branch, if) \n   n$14=*&$irvar2:_Bool [line 106]\n  PRUNE(!(n$14 != 0), true); [line 106]\n  NULLIFY(&$irvar2); [line 106]\n  EXIT_SCOPE(n$14,$irvar2); [line 106]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_12" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_15" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_12" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_13" [label="13: Prune (false branch, if) \n   n$14=*&$irvar2:_Bool [line 106]\n  PRUNE((n$14 != 0), false); [line 106]\n  NULLIFY(&argument); [line 106]\n  NULLIFY(&$irvar2); [line 106]\n  NULLIFY(&$bcvar1); [line 106]\n  EXIT_SCOPE(n$14,argument,$irvar2,$bcvar1); [line 106]\n  APPLY_ABSTRACTION; [line 106]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_13" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_19" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_13" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_14" [label="14: + \n  " ]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_14" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_12" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_14" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_13" ;
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_15" [label="15:  Call boolean String.startsWith(String) \n   n$15=*&argument:java.lang.String* [line 106]\n  _=*n$15:java.lang.String*(root java.lang.String) [line 106]\n  n$17=_fun_boolean String.startsWith(String)(n$15:java.lang.String*,\"-agentlib:jdwp\":java.lang.Object*) virtual [line 106]\n  *&$irvar3:_Bool=n$17 [line 106]\n  NULLIFY(&argument); [line 106]\n  EXIT_SCOPE(_,n$15,n$17,argument); [line 106]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_15" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_18" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_15" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_16" [label="16: Prune (true branch, if) \n   n$18=*&$irvar3:_Bool [line 106]\n  PRUNE(!(n$18 == 0), true); [line 106]\n  NULLIFY(&$irvar3); [line 106]\n  NULLIFY(&$bcvar1); [line 106]\n  EXIT_SCOPE(n$18,$irvar3,$bcvar1); [line 106]\n  APPLY_ABSTRACTION; [line 106]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_16" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_19" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_16" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_17" [label="17: Prune (false branch, if) \n   n$18=*&$irvar3:_Bool [line 106]\n  PRUNE((n$18 == 0), false); [line 106]\n  NULLIFY(&$irvar3); [line 106]\n  EXIT_SCOPE(n$18,$irvar3); [line 106]\n  APPLY_ABSTRACTION; [line 106]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_17" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_5" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_17" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_18" [label="18: + \n  " ]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_18" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_16" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_18" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_17" ;
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_19" [label="19:  method_body \n   *&return:_Bool=1 [line 107]\n  APPLY_ABSTRACTION; [line 107]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_19" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_2" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_19" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+"org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_20" [label="20:  method_body \n   *&return:_Bool=0 [line 110]\n  APPLY_ABSTRACTION; [line 110]\n " shape="box"]
+	
+
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_20" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_2" ;
+	 "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_20" -> "org.junit.rules.DisableOnDebug.isDebugging(java.util.List):boolean.cd86fbe9dbd1543f2d4fdd76a9e085e3_3" [color="red" ];
+}

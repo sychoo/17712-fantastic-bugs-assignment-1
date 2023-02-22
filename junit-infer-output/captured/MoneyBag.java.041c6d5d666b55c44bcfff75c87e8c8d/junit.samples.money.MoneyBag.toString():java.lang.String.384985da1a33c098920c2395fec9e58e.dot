@@ -1,0 +1,79 @@
+/* @generated */
+digraph cfg {
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_1" [label="1: Start String MoneyBag.toString()\nFormals:  this:junit.samples.money.MoneyBag*\nLocals:  $irvar5:void $irvar4:void $irvar3:void $irvar2:void $irvar1:void $bcvar2:void $irvar0:void sb:java.lang.StringBuilder* each:junit.samples.money.Money* \n  " color=yellow style=filled]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_1" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_4" ;
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_2" [label="2: Exit String MoneyBag.toString() \n  " color=yellow style=filled]
+	
+
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [label="3:  exceptions sink \n   NULLIFY(&sb); [line 149]\n  NULLIFY(&$bcvar2); [line 149]\n  NULLIFY(&$irvar5); [line 149]\n  NULLIFY(&each); [line 149]\n  NULLIFY(&$irvar1); [line 149]\n  NULLIFY(&$irvar2); [line 149]\n  EXIT_SCOPE(sb,$bcvar2,$irvar5,each,$irvar1,$irvar2); [line 149]\n  APPLY_ABSTRACTION; [line 149]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_2" ;
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_4" [label="4:  Call StringBuilder.<init>() \n   n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 143]\n  n$1=_fun_StringBuilder.<init>()(n$0:java.lang.StringBuilder*) [line 143]\n  *&sb:java.lang.StringBuilder*=n$0 [line 143]\n  EXIT_SCOPE(n$0,n$1); [line 143]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_4" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_5" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_4" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_5" [label="5:  Call StringBuilder StringBuilder.append(String) \n   n$2=*&sb:java.lang.StringBuilder* [line 144]\n  _=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 144]\n  n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,\"{\":java.lang.Object*) virtual [line 144]\n  *&$irvar0:java.lang.StringBuilder*=n$4 [line 144]\n  NULLIFY(&$irvar0); [line 144]\n  EXIT_SCOPE(_,n$2,n$4,$irvar0); [line 144]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_5" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_6" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_5" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_6" [label="6:  Call Iterator List.iterator() \n   n$5=*&this:junit.samples.money.MoneyBag* [line 145]\n  n$6=*n$5.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 145]\n  _=*n$6:java.util.List*(root java.util.List) [line 145]\n  n$8=_fun_Iterator List.iterator()(n$6:java.util.List*) interface virtual [line 145]\n  *&$bcvar2:java.util.Iterator*=n$8 [line 145]\n  NULLIFY(&this); [line 145]\n  EXIT_SCOPE(_,n$5,n$6,n$8,this); [line 145]\n  APPLY_ABSTRACTION; [line 145]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_6" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_7" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_6" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_7" [label="7:  Call boolean Iterator.hasNext() \n   n$9=*&$bcvar2:java.util.Iterator* [line 145]\n  _=*n$9:java.util.Iterator*(root java.util.Iterator) [line 145]\n  n$11=_fun_boolean Iterator.hasNext()(n$9:java.util.Iterator*) interface virtual [line 145]\n  *&$irvar1:_Bool=n$11 [line 145]\n  EXIT_SCOPE(_,n$9,n$11); [line 145]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_7" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_10" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_7" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_8" [label="8: Prune (true branch, if) \n   n$12=*&$irvar1:_Bool [line 145]\n  PRUNE(!(n$12 == 0), true); [line 145]\n  NULLIFY(&$irvar1); [line 145]\n  EXIT_SCOPE(n$12,$irvar1); [line 145]\n " shape="invhouse"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_8" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_11" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_8" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_9" [label="9: Prune (false branch, if) \n   n$12=*&$irvar1:_Bool [line 145]\n  PRUNE((n$12 == 0), false); [line 145]\n  NULLIFY(&$bcvar2); [line 145]\n  NULLIFY(&$irvar1); [line 145]\n  EXIT_SCOPE(n$12,$bcvar2,$irvar1); [line 145]\n " shape="invhouse"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_9" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_14" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_9" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_10" [label="10: + \n  " ]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_10" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_8" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_10" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_9" ;
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_11" [label="11:  Call Object Iterator.next() \n   n$13=*&$bcvar2:java.util.Iterator* [line 145]\n  _=*n$13:java.util.Iterator*(root java.util.Iterator) [line 145]\n  n$15=_fun_Object Iterator.next()(n$13:java.util.Iterator*) interface virtual [line 145]\n  *&$irvar2:java.lang.Object*=n$15 [line 145]\n  EXIT_SCOPE(_,n$13,n$15); [line 145]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_11" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_12" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_11" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_12" [label="12:  method_body \n   n$16=*&$irvar2:java.lang.Object* [line 145]\n  n$17=_fun___cast(n$16:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 145]\n  *&each:junit.samples.money.Money*=n$17 [line 145]\n  NULLIFY(&$irvar2); [line 145]\n  EXIT_SCOPE(n$16,n$17,$irvar2); [line 145]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_12" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_13" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_12" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_13" [label="13:  Call StringBuilder StringBuilder.append(Object) \n   n$18=*&sb:java.lang.StringBuilder* [line 146]\n  _=*n$18:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 146]\n  n$20=*&each:junit.samples.money.Money* [line 146]\n  n$21=_fun_StringBuilder StringBuilder.append(Object)(n$18:java.lang.StringBuilder*,n$20:junit.samples.money.Money*) virtual [line 146]\n  *&$irvar3:java.lang.StringBuilder*=n$21 [line 146]\n  NULLIFY(&$irvar3); [line 146]\n  NULLIFY(&each); [line 146]\n  EXIT_SCOPE(_,n$18,n$20,n$21,$irvar3,each); [line 146]\n  APPLY_ABSTRACTION; [line 146]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_13" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_7" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_13" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_14" [label="14:  Call StringBuilder StringBuilder.append(String) \n   n$22=*&sb:java.lang.StringBuilder* [line 148]\n  _=*n$22:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 148]\n  n$24=_fun_StringBuilder StringBuilder.append(String)(n$22:java.lang.StringBuilder*,\"}\":java.lang.Object*) virtual [line 148]\n  *&$irvar4:java.lang.StringBuilder*=n$24 [line 148]\n  NULLIFY(&$irvar4); [line 148]\n  EXIT_SCOPE(_,n$22,n$24,$irvar4); [line 148]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_14" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_15" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_14" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_15" [label="15:  Call String StringBuilder.toString() \n   n$25=*&sb:java.lang.StringBuilder* [line 149]\n  _=*n$25:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 149]\n  n$27=_fun_String StringBuilder.toString()(n$25:java.lang.StringBuilder*) virtual [line 149]\n  *&$irvar5:java.lang.String*=n$27 [line 149]\n  NULLIFY(&sb); [line 149]\n  EXIT_SCOPE(_,n$25,n$27,sb); [line 149]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_15" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_16" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_15" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+"junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_16" [label="16:  method_body \n   n$28=*&$irvar5:java.lang.String* [line 149]\n  *&return:java.lang.String*=n$28 [line 149]\n  NULLIFY(&$irvar5); [line 149]\n  EXIT_SCOPE(n$28,$irvar5); [line 149]\n  APPLY_ABSTRACTION; [line 149]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_16" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_2" ;
+	 "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_16" -> "junit.samples.money.MoneyBag.toString():java.lang.String.384985da1a33c098920c2395fec9e58e_3" [color="red" ];
+}

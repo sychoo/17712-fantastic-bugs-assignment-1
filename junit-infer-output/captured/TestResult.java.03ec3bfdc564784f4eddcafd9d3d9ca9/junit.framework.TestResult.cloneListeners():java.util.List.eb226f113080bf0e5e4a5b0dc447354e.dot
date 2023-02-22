@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_1" [label="1: Start List TestResult.cloneListeners()\nFormals:  this:junit.framework.TestResult*\nLocals:  $irvar0:void result:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_1" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_4" ;
+"junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_2" [label="2: Exit List TestResult.cloneListeners() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_3" [label="3:  exceptions sink \n   NULLIFY(&result); [line 74]\n  EXIT_SCOPE(result); [line 74]\n  APPLY_ABSTRACTION; [line 74]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_3" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_2" ;
+"junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_4" [label="4:  Call ArrayList.<init>() \n   n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 72]\n  n$1=_fun_ArrayList.<init>()(n$0:java.util.ArrayList*) [line 72]\n  *&result:java.util.ArrayList*=n$0 [line 72]\n  EXIT_SCOPE(n$0,n$1); [line 72]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_4" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_5" ;
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_4" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_3" [color="red" ];
+"junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_5" [label="5:  Call boolean List.addAll(Collection) \n   n$2=*&result:java.util.ArrayList* [line 73]\n  _=*n$2:java.util.ArrayList*(root java.util.ArrayList) [line 73]\n  n$4=*&this:junit.framework.TestResult* [line 73]\n  n$5=*n$4.fListeners:java.util.List*(root junit.framework.TestResult) [line 73]\n  n$6=_fun_boolean List.addAll(Collection)(n$2:java.util.ArrayList*,n$5:java.util.List*) interface virtual [line 73]\n  *&$irvar0:_Bool=n$6 [line 73]\n  NULLIFY(&$irvar0); [line 73]\n  NULLIFY(&this); [line 73]\n  EXIT_SCOPE(_,n$2,n$4,n$5,n$6,$irvar0,this); [line 73]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_5" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_6" ;
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_5" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_3" [color="red" ];
+"junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_6" [label="6:  method_body \n   n$7=*&result:java.util.ArrayList* [line 74]\n  *&return:java.util.List*=n$7 [line 74]\n  NULLIFY(&result); [line 74]\n  EXIT_SCOPE(n$7,result); [line 74]\n  APPLY_ABSTRACTION; [line 74]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_6" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_2" ;
+	 "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_6" -> "junit.framework.TestResult.cloneListeners():java.util.List.eb226f113080bf0e5e4a5b0dc447354e_3" [color="red" ];
+}

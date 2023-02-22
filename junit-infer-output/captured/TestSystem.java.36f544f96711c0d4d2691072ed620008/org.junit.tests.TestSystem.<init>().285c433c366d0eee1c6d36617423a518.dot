@@ -1,0 +1,44 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_1" [label="1: Start TestSystem.<init>()\nFormals:  this:org.junit.tests.TestSystem*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_1" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_4" ;
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_2" [label="2: Exit TestSystem.<init>() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 17]\n  NULLIFY(&$irvar1); [line 17]\n  EXIT_SCOPE($irvar0,$irvar1); [line 17]\n  APPLY_ABSTRACTION; [line 17]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_2" ;
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_4" [label="4:  Call Object.<init>() \n   n$0=*&this:org.junit.tests.TestSystem* [line 14]\n  n$1=_fun_Object.<init>()(n$0:org.junit.tests.TestSystem*) [line 14]\n  EXIT_SCOPE(n$0,n$1); [line 14]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_4" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_5" ;
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_4" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [color="red" ];
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_5" [label="5:  Call ByteArrayOutputStream.<init>() \n   n$2=_fun___new(sizeof(t=java.io.ByteArrayOutputStream):java.io.ByteArrayOutputStream*) [line 15]\n  n$3=_fun_ByteArrayOutputStream.<init>()(n$2:java.io.ByteArrayOutputStream*) [line 15]\n  *&$irvar0:java.io.ByteArrayOutputStream*=n$2 [line 15]\n  EXIT_SCOPE(n$2,n$3); [line 15]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_5" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_6" ;
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_5" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [color="red" ];
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_6" [label="6:  method_body \n   n$4=*&this:org.junit.tests.TestSystem* [line 15]\n  n$5=*&$irvar0:java.io.ByteArrayOutputStream* [line 15]\n  *n$4.fOutContents:org.junit.tests.TestSystem(root org.junit.tests.TestSystem)=n$5 [line 15]\n  NULLIFY(&$irvar0); [line 15]\n  EXIT_SCOPE(n$4,n$5,$irvar0); [line 15]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_6" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_7" ;
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_6" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [color="red" ];
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_7" [label="7:  Call PrintStream.<init>(OutputStream) \n   n$6=_fun___new(sizeof(t=java.io.PrintStream):java.io.PrintStream*) [line 16]\n  n$7=*&this:org.junit.tests.TestSystem* [line 16]\n  n$8=*n$7.fOutContents:java.io.ByteArrayOutputStream*(root org.junit.tests.TestSystem) [line 16]\n  n$9=_fun_PrintStream.<init>(OutputStream)(n$6:java.io.PrintStream*,n$8:java.io.ByteArrayOutputStream*) [line 16]\n  *&$irvar1:java.io.PrintStream*=n$6 [line 16]\n  EXIT_SCOPE(n$6,n$7,n$8,n$9); [line 16]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_7" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_8" ;
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_7" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [color="red" ];
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_8" [label="8:  method_body \n   n$10=*&this:org.junit.tests.TestSystem* [line 16]\n  n$11=*&$irvar1:java.io.PrintStream* [line 16]\n  *n$10.out:org.junit.tests.TestSystem(root org.junit.tests.TestSystem)=n$11 [line 16]\n  NULLIFY(&$irvar1); [line 16]\n  NULLIFY(&this); [line 16]\n  EXIT_SCOPE(n$10,n$11,$irvar1,this); [line 16]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_8" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_9" ;
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_8" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [color="red" ];
+"org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_9" [label="9:  method_body \n   APPLY_ABSTRACTION; [line 17]\n " shape="box"]
+	
+
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_9" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_2" ;
+	 "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_9" -> "org.junit.tests.TestSystem.<init>().285c433c366d0eee1c6d36617423a518_3" [color="red" ];
+}

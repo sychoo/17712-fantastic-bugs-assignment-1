@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_1" [label="1: Start Timeout Timeout.millis(long)\nFormals:  millis:long\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_1" -> "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_4" ;
+"org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_2" [label="2: Exit Timeout Timeout.millis(long) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 105]\n  EXIT_SCOPE($irvar0); [line 105]\n  APPLY_ABSTRACTION; [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_3" -> "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_2" ;
+"org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_4" [label="4:  Call Timeout.<init>(long,TimeUnit) \n   n$0=_fun___new(sizeof(t=org.junit.rules.Timeout):org.junit.rules.Timeout*) [line 105]\n  n$1=*&millis:long [line 105]\n  n$2=*&#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 105]\n  n$3=_fun_Timeout.<init>(long,TimeUnit)(n$0:org.junit.rules.Timeout*,n$1:long,n$2:java.util.concurrent.TimeUnit*) [line 105]\n  *&$irvar0:org.junit.rules.Timeout*=n$0 [line 105]\n  NULLIFY(&millis); [line 105]\n  EXIT_SCOPE(n$0,n$1,n$2,n$3,millis); [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_4" -> "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_5" ;
+	 "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_4" -> "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_3" [color="red" ];
+"org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_5" [label="5:  method_body \n   n$4=*&$irvar0:org.junit.rules.Timeout* [line 105]\n  *&return:org.junit.rules.Timeout*=n$4 [line 105]\n  NULLIFY(&$irvar0); [line 105]\n  EXIT_SCOPE(n$4,$irvar0); [line 105]\n  APPLY_ABSTRACTION; [line 105]\n " shape="box"]
+	
+
+	 "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_5" -> "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_2" ;
+	 "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_5" -> "org.junit.rules.Timeout.millis(long):org.junit.rules.Timeout.6198fc4cd26cc85ac9821486aa0f3528_3" [color="red" ];
+}

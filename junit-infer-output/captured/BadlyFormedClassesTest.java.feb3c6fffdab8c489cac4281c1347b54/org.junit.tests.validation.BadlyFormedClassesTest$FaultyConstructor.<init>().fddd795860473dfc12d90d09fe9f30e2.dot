@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_1" [label="1: Start BadlyFormedClassesTest$FaultyConstructor.<init>()\nFormals:  this:org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_1" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_4" ;
+"org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_2" [label="2: Exit BadlyFormedClassesTest$FaultyConstructor.<init>() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 19]\n  EXIT_SCOPE($irvar0); [line 19]\n  APPLY_ABSTRACTION; [line 19]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_3" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_2" ;
+"org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_4" [label="4:  Call Object.<init>() \n   n$0=*&this:org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor* [line 18]\n  n$1=_fun_Object.<init>()(n$0:org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor*) [line 18]\n  NULLIFY(&this); [line 18]\n  EXIT_SCOPE(n$0,n$1,this); [line 18]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_4" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_5" ;
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_4" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_3" [color="red" ];
+"org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_5" [label="5:  Call Exception.<init>(String) \n   n$2=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 19]\n  n$3=_fun_Exception.<init>(String)(n$2:java.lang.Exception*,\"Thrown during construction\":java.lang.Object*) [line 19]\n  *&$irvar0:java.lang.Exception*=n$2 [line 19]\n  EXIT_SCOPE(n$2,n$3); [line 19]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_5" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_6" ;
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_5" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_3" [color="red" ];
+"org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_6" [label="6:  throw \n   n$4=*&$irvar0:java.lang.Exception* [line 19]\n  *&return:void=EXN n$4 [line 19]\n  NULLIFY(&$irvar0); [line 19]\n  EXIT_SCOPE(n$4,$irvar0); [line 19]\n  APPLY_ABSTRACTION; [line 19]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_6" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_2" ;
+	 "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_6" -> "org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor.<init>().fddd795860473dfc12d90d09fe9f30e2_3" [color="red" ];
+}

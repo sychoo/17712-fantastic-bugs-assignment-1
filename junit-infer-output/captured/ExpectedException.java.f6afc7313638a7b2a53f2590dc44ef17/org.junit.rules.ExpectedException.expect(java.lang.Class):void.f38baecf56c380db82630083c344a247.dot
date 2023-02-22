@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_1" [label="1: Start void ExpectedException.expect(Class)\nFormals:  this:org.junit.rules.ExpectedException* type:java.lang.Class*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_1" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_4" ;
+"org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_2" [label="2: Exit void ExpectedException.expect(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 198]\n  EXIT_SCOPE($irvar0); [line 198]\n  APPLY_ABSTRACTION; [line 198]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_3" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_2" ;
+"org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_4" [label="4:  Call Matcher CoreMatchers.instanceOf(Class) \n   n$0=*&type:java.lang.Class* [line 197]\n  n$1=_fun_Matcher CoreMatchers.instanceOf(Class)(n$0:java.lang.Class*) [line 197]\n  *&$irvar0:org.hamcrest.Matcher*=n$1 [line 197]\n  NULLIFY(&type); [line 197]\n  EXIT_SCOPE(n$0,n$1,type); [line 197]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_4" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_5" ;
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_4" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_3" [color="red" ];
+"org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_5" [label="5:  Call void ExpectedException.expect(Matcher) \n   n$2=*&this:org.junit.rules.ExpectedException* [line 197]\n  _=*n$2:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 197]\n  n$4=*&$irvar0:org.hamcrest.Matcher* [line 197]\n  n$5=_fun_void ExpectedException.expect(Matcher)(n$2:org.junit.rules.ExpectedException*,n$4:org.hamcrest.Matcher*) virtual [line 197]\n  NULLIFY(&$irvar0); [line 197]\n  NULLIFY(&this); [line 197]\n  EXIT_SCOPE(_,n$2,n$4,n$5,$irvar0,this); [line 197]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_5" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_6" ;
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_5" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_3" [color="red" ];
+"org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 198]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_6" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_2" ;
+	 "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_6" -> "org.junit.rules.ExpectedException.expect(java.lang.Class):void.f38baecf56c380db82630083c344a247_3" [color="red" ];
+}

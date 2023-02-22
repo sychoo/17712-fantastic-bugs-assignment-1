@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_1" [label="1: Start void TestRunner.run(Class)\nFormals:  testClass:java.lang.Class*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_1" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_4" ;
+"junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_2" [label="2: Exit void TestRunner.run(Class) \n  " color=yellow style=filled]
+	
+
+"junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 63]\n  EXIT_SCOPE($irvar0); [line 63]\n  APPLY_ABSTRACTION; [line 63]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_3" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_2" ;
+"junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_4" [label="4:  Call TestSuite.<init>(Class) \n   n$0=_fun___new(sizeof(t=junit.framework.TestSuite):junit.framework.TestSuite*) [line 62]\n  n$1=*&testClass:java.lang.Class* [line 62]\n  n$2=_fun_TestSuite.<init>(Class)(n$0:junit.framework.TestSuite*,n$1:java.lang.Class*) [line 62]\n  *&$irvar0:junit.framework.TestSuite*=n$0 [line 62]\n  NULLIFY(&testClass); [line 62]\n  EXIT_SCOPE(n$0,n$1,n$2,testClass); [line 62]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_4" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_5" ;
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_4" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_3" [color="red" ];
+"junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_5" [label="5:  Call TestResult TestRunner.run(Test) \n   n$3=*&$irvar0:junit.framework.TestSuite* [line 62]\n  n$4=_fun_TestResult TestRunner.run(Test)(n$3:junit.framework.TestSuite*) [line 62]\n  *&$irvar1:junit.framework.TestResult*=n$4 [line 62]\n  NULLIFY(&$irvar0); [line 62]\n  NULLIFY(&$irvar1); [line 62]\n  EXIT_SCOPE(n$3,n$4,$irvar0,$irvar1); [line 62]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_5" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_6" ;
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_5" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_3" [color="red" ];
+"junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 63]\n " shape="box"]
+	
+
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_6" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_2" ;
+	 "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_6" -> "junit.textui.TestRunner.run(java.lang.Class):void.659ff4af5921e8ebff0a269ed4786a61_3" [color="red" ];
+}

@@ -1,0 +1,71 @@
+/* @generated */
+digraph cfg {
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_1" [label="1: Start void Assert.assertEquals(String,float,float,float)\nFormals:  message:java.lang.String* expected:float actual:float delta:float\nLocals:  $irvar3:void $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_1" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_4" ;
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_2" [label="2: Exit void Assert.assertEquals(String,float,float,float) \n  " color=yellow style=filled]
+	
+
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 144]\n  NULLIFY(&$irvar0); [line 144]\n  NULLIFY(&$irvar1); [line 144]\n  NULLIFY(&$irvar2); [line 144]\n  EXIT_SCOPE($irvar3,$irvar0,$irvar1,$irvar2); [line 144]\n  APPLY_ABSTRACTION; [line 144]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_2" ;
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_4" [label="4:  Call int Float.compare(float,float) \n   n$0=*&expected:float [line 138]\n  n$1=*&actual:float [line 138]\n  n$2=_fun_int Float.compare(float,float)(n$0:float,n$1:float) [line 138]\n  *&$irvar0:int=n$2 [line 138]\n  EXIT_SCOPE(n$0,n$1,n$2); [line 138]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_4" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_5" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_4" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_6" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_4" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:int [line 138]\n  PRUNE(!(n$3 != 0), true); [line 138]\n  NULLIFY(&$irvar0); [line 138]\n  EXIT_SCOPE(n$3,$irvar0); [line 138]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_5" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_7" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_5" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:int [line 138]\n  PRUNE((n$3 != 0), false); [line 138]\n  NULLIFY(&$irvar0); [line 138]\n  EXIT_SCOPE(n$3,$irvar0); [line 138]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_6" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_8" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_6" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_7" [label="7:  method_body \n   APPLY_ABSTRACTION; [line 139]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_7" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_2" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_7" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_8" [label="8:  Call float Math.abs(float) \n   n$4=*&expected:float [line 141]\n  n$5=*&actual:float [line 141]\n  n$6=_fun_float Math.abs(float)((n$4 - n$5):float) [line 141]\n  *&$irvar1:float=n$6 [line 141]\n  EXIT_SCOPE(n$4,n$5,n$6); [line 141]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_8" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_9" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_8" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_10" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_8" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_9" [label="9: Prune (true branch, if) \n   n$7=*&$irvar1:float [line 141]\n  n$8=*&delta:float [line 141]\n  PRUNE(!(n$7 <= n$8), true); [line 141]\n  NULLIFY(&delta); [line 141]\n  NULLIFY(&$irvar1); [line 141]\n  EXIT_SCOPE(n$7,n$8,delta,$irvar1); [line 141]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_9" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_11" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_9" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_10" [label="10: Prune (false branch, if) \n   n$7=*&$irvar1:float [line 141]\n  n$8=*&delta:float [line 141]\n  PRUNE((n$7 <= n$8), false); [line 141]\n  NULLIFY(&delta); [line 141]\n  NULLIFY(&$irvar1); [line 141]\n  EXIT_SCOPE(n$7,n$8,delta,$irvar1); [line 141]\n  APPLY_ABSTRACTION; [line 141]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_10" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_14" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_10" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_11" [label="11:  Call Float Float.valueOf(float) \n   n$9=*&expected:float [line 142]\n  n$10=_fun_Float Float.valueOf(float)(n$9:float) [line 142]\n  *&$irvar2:java.lang.Float*=n$10 [line 142]\n  NULLIFY(&expected); [line 142]\n  EXIT_SCOPE(n$9,n$10,expected); [line 142]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_11" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_12" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_11" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_12" [label="12:  Call Float Float.valueOf(float) \n   n$11=*&actual:float [line 142]\n  n$12=_fun_Float Float.valueOf(float)(n$11:float) [line 142]\n  *&$irvar3:java.lang.Float*=n$12 [line 142]\n  NULLIFY(&actual); [line 142]\n  EXIT_SCOPE(n$11,n$12,actual); [line 142]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_12" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_13" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_12" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_13" [label="13:  Call void Assert.failNotEquals(String,Object,Object) \n   n$13=*&message:java.lang.String* [line 142]\n  n$14=*&$irvar2:java.lang.Float* [line 142]\n  n$15=*&$irvar3:java.lang.Float* [line 142]\n  n$16=_fun_void Assert.failNotEquals(String,Object,Object)(n$13:java.lang.String*,n$14:java.lang.Float*,n$15:java.lang.Float*) [line 142]\n  NULLIFY(&$irvar3); [line 142]\n  NULLIFY(&message); [line 142]\n  NULLIFY(&$irvar2); [line 142]\n  EXIT_SCOPE(n$13,n$14,n$15,n$16,$irvar3,message,$irvar2); [line 142]\n  APPLY_ABSTRACTION; [line 142]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_13" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_14" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_13" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+"junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_14" [label="14:  method_body \n   APPLY_ABSTRACTION; [line 144]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_14" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_2" ;
+	 "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_14" -> "junit.framework.Assert.assertEquals(java.lang.String,float,float,float):void.95104aaade8d6767812372469b2fc359_3" [color="red" ];
+}

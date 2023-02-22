@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_1" [label="1: Start void MoneyTest.testPrint()\nFormals:  this:org.junit.samples.money.MoneyTest*\nLocals:  $irvar0:void\nAnnotation: <_org.junit.Test> void MoneyTest.testPrint()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_1" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_4" ;
+"org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_2" [label="2: Exit void MoneyTest.testPrint() \n  " color=yellow style=filled]
+	
+
+"org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 169]\n  EXIT_SCOPE($irvar0); [line 169]\n  APPLY_ABSTRACTION; [line 169]\n " shape="box"]
+	
+
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_3" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_2" ;
+"org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_4" [label="4:  Call String Money.toString() \n   n$0=*&this:org.junit.samples.money.MoneyTest* [line 168]\n  n$1=*n$0.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 168]\n  _=*n$1:junit.samples.money.Money*(root junit.samples.money.Money) [line 168]\n  n$3=_fun_String Money.toString()(n$1:junit.samples.money.Money*) virtual [line 168]\n  *&$irvar0:java.lang.String*=n$3 [line 168]\n  NULLIFY(&this); [line 168]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 168]\n " shape="box"]
+	
+
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_4" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_5" ;
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_4" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_3" [color="red" ];
+"org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_5" [label="5:  Call void Assert.assertEquals(Object,Object) \n   n$4=*&$irvar0:java.lang.String* [line 168]\n  n$5=_fun_void Assert.assertEquals(Object,Object)(\"[12 CHF]\":java.lang.Object*,n$4:java.lang.String*) [line 168]\n  NULLIFY(&$irvar0); [line 168]\n  EXIT_SCOPE(n$4,n$5,$irvar0); [line 168]\n " shape="box"]
+	
+
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_5" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_6" ;
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_5" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_3" [color="red" ];
+"org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 169]\n " shape="box"]
+	
+
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_6" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_2" ;
+	 "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_6" -> "org.junit.samples.money.MoneyTest.testPrint():void.a086818a26dd04585bb85dff2dedb9e6_3" [color="red" ];
+}

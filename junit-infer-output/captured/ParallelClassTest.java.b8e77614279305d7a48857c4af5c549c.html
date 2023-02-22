@@ -1,0 +1,441 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/tests/experimental/parallel/ParallelClassTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.tests.experimental.parallel; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.hamcrest.core.Is.is; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.hamcrest.core.IsNot.not; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.junit.Assert.assertNotNull; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import java.util.concurrent.CountDownLatch; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import java.util.concurrent.TimeUnit; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.experimental.ParallelComputer; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">public class ParallelClassTest { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24402%28java.lang.Thread%29%3Ajava.lang.Threa.c9b8c5e66703fd029927799069f42765_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24302%28java.lang.Thread%29%3Ajava.lang.Threa.6a221b27075f41d3d0a096855866e5c2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24202%28java.lang.Thread%29%3Ajava.lang.Threa.ba1df7fd58ac37ea867ed904fed39329_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24102%28java.lang.Thread%29%3Ajava.lang.Threa.bdd04395e04fefa6a8e44587c1c4fe0c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24000%28%29%3Ajava.util.concurrent.CountDownL.4779f2931612f76856e7ce0763037679_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<init>%28%29.e1bb226e4bddf5338a03a6ffc1123237_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24402%28java.lang.Thread%29%3Ajava.lang.Threa.c9b8c5e66703fd029927799069f42765_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2Two:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=n$0 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24302%28java.lang.Thread%29%3Ajava.lang.Threa.6a221b27075f41d3d0a096855866e5c2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2One:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=n$0 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24202%28java.lang.Thread%29%3Ajava.lang.Threa.ba1df7fd58ac37ea867ed904fed39329_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1Two:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=n$0 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24102%28java.lang.Thread%29%3Ajava.lang.Threa.bdd04395e04fefa6a8e44587c1c4fe0c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1One:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=n$0 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24000%28%29%3Ajava.util.concurrent.CountDownL.4779f2931612f76856e7ce0763037679_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fSynchronizer:java.util.concurrent.CountDownLatch*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 18];
+*&amp;return:java.util.concurrent.CountDownLatch*=n$0 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<init>%28%29.e1bb226e4bddf5338a03a6ffc1123237_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.parallel.ParallelClassTest* [line 18];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.parallel.ParallelClassTest*) [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24000%28%29%3Ajava.util.concurrent.CountDownL.4779f2931612f76856e7ce0763037679_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24402%28java.lang.Thread%29%3Ajava.lang.Threa.c9b8c5e66703fd029927799069f42765_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;return:java.lang.Thread*=n$1 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24302%28java.lang.Thread%29%3Ajava.lang.Threa.6a221b27075f41d3d0a096855866e5c2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;return:java.lang.Thread*=n$1 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24202%28java.lang.Thread%29%3Ajava.lang.Threa.ba1df7fd58ac37ea867ed904fed39329_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;return:java.lang.Thread*=n$1 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24102%28java.lang.Thread%29%3Ajava.lang.Threa.bdd04395e04fefa6a8e44587c1c4fe0c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;x0:java.lang.Thread* [line 18];
+*&amp;return:java.lang.Thread*=n$1 [line 18];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<init>%28%29.e1bb226e4bddf5338a03a6ffc1123237_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24402%28java.lang.Thread%29%3Ajava.lang.Threa.c9b8c5e66703fd029927799069f42765_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24302%28java.lang.Thread%29%3Ajava.lang.Threa.6a221b27075f41d3d0a096855866e5c2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24202%28java.lang.Thread%29%3Ajava.lang.Threa.ba1df7fd58ac37ea867ed904fed39329_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24102%28java.lang.Thread%29%3Ajava.lang.Threa.bdd04395e04fefa6a8e44587c1c4fe0c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<init>%28%29.e1bb226e4bddf5338a03a6ffc1123237_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24402%28java.lang.Thread%29%3Ajava.lang.Threa.c9b8c5e66703fd029927799069f42765_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24302%28java.lang.Thread%29%3Ajava.lang.Threa.6a221b27075f41d3d0a096855866e5c2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24202%28java.lang.Thread%29%3Ajava.lang.Threa.ba1df7fd58ac37ea867ed904fed39329_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24102%28java.lang.Thread%29%3Ajava.lang.Threa.bdd04395e04fefa6a8e44587c1c4fe0c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.access%24000%28%29%3Ajava.util.concurrent.CountDownL.4779f2931612f76856e7ce0763037679_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<init>%28%29.e1bb226e4bddf5338a03a6ffc1123237_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.access%24402%28java.lang.Thread%29%3Ajava.lang.Threa.c9b8c5e66703fd029927799069f42765.html">summary for Thread ParallelClassTest.access$402(Thread)</a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.access%24302%28java.lang.Thread%29%3Ajava.lang.Threa.6a221b27075f41d3d0a096855866e5c2.html">summary for Thread ParallelClassTest.access$302(Thread)</a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.access%24202%28java.lang.Thread%29%3Ajava.lang.Threa.ba1df7fd58ac37ea867ed904fed39329.html">summary for Thread ParallelClassTest.access$202(Thread)</a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.access%24102%28java.lang.Thread%29%3Ajava.lang.Threa.bdd04395e04fefa6a8e44587c1c4fe0c.html">summary for Thread ParallelClassTest.access$102(Thread)</a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.access%24000%28%29%3Ajava.util.concurrent.CountDownL.4779f2931612f76856e7ce0763037679.html">summary for CountDownLatch ParallelClassTest.access$000()</a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.<init>%28%29.e1bb226e4bddf5338a03a6ffc1123237.html">summary for ParallelClassTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    private static final long TIMEOUT = 15; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    private static volatile Thread fExample1One = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1One:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 20];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c.html">summary for void ParallelClassTest.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    private static volatile Thread fExample1Two = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1Two:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 21];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private static volatile Thread fExample2One = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2One:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private static volatile Thread fExample2Two = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2Two:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 23];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.<clinit>%28%29%3Avoid.ed14910e96f1af2b499c34c00a89b04c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    private static volatile CountDownLatch fSynchronizer; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    public static class Example1 { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.<init>%28%29.1deca361c49bc027f1fee870ca513f52_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.<init>%28%29.1deca361c49bc027f1fee870ca513f52_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.parallel.ParallelClassTest$Example1* [line 26];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.parallel.ParallelClassTest$Example1*) [line 26];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.<init>%28%29.1deca361c49bc027f1fee870ca513f52_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.<init>%28%29.1deca361c49bc027f1fee870ca513f52_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.<init>%28%29.1deca361c49bc027f1fee870ca513f52_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.<init>%28%29.1deca361c49bc027f1fee870ca513f52.html">summary for ParallelClassTest$Example1.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        public void one() throws InterruptedException { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5.html">summary for void ParallelClassTest$Example1.one()</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">            fSynchronizer.countDown(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_CountDownLatch ParallelClassTest.access$000()() [line 29];
+*&amp;$irvar0:java.util.concurrent.CountDownLatch*=n$0 [line 29];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.util.concurrent.CountDownLatch* [line 29];
+_=*n$1:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 29];
+n$3=_fun_void CountDownLatch.countDown()(n$1:java.util.concurrent.CountDownLatch*) virtual [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">            assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS)); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun_CountDownLatch ParallelClassTest.access$000()() [line 30];
+*&amp;$irvar1:java.util.concurrent.CountDownLatch*=n$4 [line 30];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:java.util.concurrent.CountDownLatch* [line 30];
+_=*n$5:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 30];
+n$7=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 30];
+n$8=_fun_boolean CountDownLatch.await(long,TimeUnit)(n$5:java.util.concurrent.CountDownLatch*,15:long,n$7:java.util.concurrent.TimeUnit*) virtual [line 30];
+*&amp;$irvar2:_Bool=n$8 [line 30];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar2:_Bool [line 30];
+n$10=_fun_void Assert.assertTrue(boolean)(n$9:_Bool) [line 30];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">            fExample1One = Thread.currentThread(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=_fun_Thread Thread.currentThread()() [line 31];
+*&amp;$irvar3:java.lang.Thread*=n$11 [line 31];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar3:java.lang.Thread* [line 31];
+n$13=_fun_Thread ParallelClassTest.access$102(Thread)(n$12:java.lang.Thread*) [line 31];
+*&amp;$irvar4:java.lang.Thread*=n$13 [line 31];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        } <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.one%28%29%3Avoid.d98593d81f97f721d55149b787bc8cb5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        public void two() throws InterruptedException { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479.html">summary for void ParallelClassTest$Example1.two()</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            fSynchronizer.countDown(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_CountDownLatch ParallelClassTest.access$000()() [line 36];
+*&amp;$irvar0:java.util.concurrent.CountDownLatch*=n$0 [line 36];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.util.concurrent.CountDownLatch* [line 36];
+_=*n$1:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 36];
+n$3=_fun_void CountDownLatch.countDown()(n$1:java.util.concurrent.CountDownLatch*) virtual [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">            assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS)); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun_CountDownLatch ParallelClassTest.access$000()() [line 37];
+*&amp;$irvar1:java.util.concurrent.CountDownLatch*=n$4 [line 37];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:java.util.concurrent.CountDownLatch* [line 37];
+_=*n$5:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 37];
+n$7=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 37];
+n$8=_fun_boolean CountDownLatch.await(long,TimeUnit)(n$5:java.util.concurrent.CountDownLatch*,15:long,n$7:java.util.concurrent.TimeUnit*) virtual [line 37];
+*&amp;$irvar2:_Bool=n$8 [line 37];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar2:_Bool [line 37];
+n$10=_fun_void Assert.assertTrue(boolean)(n$9:_Bool) [line 37];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">            fExample1Two = Thread.currentThread(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=_fun_Thread Thread.currentThread()() [line 38];
+*&amp;$irvar3:java.lang.Thread*=n$11 [line 38];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar3:java.lang.Thread* [line 38];
+n$13=_fun_Thread ParallelClassTest.access$202(Thread)(n$12:java.lang.Thread*) [line 38];
+*&amp;$irvar4:java.lang.Thread*=n$13 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        } <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example1.two%28%29%3Avoid.d51f971be7b9be0edbd773e6a0685479_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    public static class Example2 { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.<init>%28%29.4a90157231f732d731e1a24b99ba8b67_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.<init>%28%29.4a90157231f732d731e1a24b99ba8b67_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.parallel.ParallelClassTest$Example2* [line 42];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.parallel.ParallelClassTest$Example2*) [line 42];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.<init>%28%29.4a90157231f732d731e1a24b99ba8b67_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.<init>%28%29.4a90157231f732d731e1a24b99ba8b67_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.<init>%28%29.4a90157231f732d731e1a24b99ba8b67_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.<init>%28%29.4a90157231f732d731e1a24b99ba8b67.html">summary for ParallelClassTest$Example2.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        public void one() throws InterruptedException { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72.html">summary for void ParallelClassTest$Example2.one()</a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">            fSynchronizer.countDown(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_CountDownLatch ParallelClassTest.access$000()() [line 45];
+*&amp;$irvar0:java.util.concurrent.CountDownLatch*=n$0 [line 45];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.util.concurrent.CountDownLatch* [line 45];
+_=*n$1:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 45];
+n$3=_fun_void CountDownLatch.countDown()(n$1:java.util.concurrent.CountDownLatch*) virtual [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">            assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS)); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun_CountDownLatch ParallelClassTest.access$000()() [line 46];
+*&amp;$irvar1:java.util.concurrent.CountDownLatch*=n$4 [line 46];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:java.util.concurrent.CountDownLatch* [line 46];
+_=*n$5:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 46];
+n$7=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 46];
+n$8=_fun_boolean CountDownLatch.await(long,TimeUnit)(n$5:java.util.concurrent.CountDownLatch*,15:long,n$7:java.util.concurrent.TimeUnit*) virtual [line 46];
+*&amp;$irvar2:_Bool=n$8 [line 46];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar2:_Bool [line 46];
+n$10=_fun_void Assert.assertTrue(boolean)(n$9:_Bool) [line 46];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">            fExample2One = Thread.currentThread(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=_fun_Thread Thread.currentThread()() [line 47];
+*&amp;$irvar3:java.lang.Thread*=n$11 [line 47];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar3:java.lang.Thread* [line 47];
+n$13=_fun_Thread ParallelClassTest.access$302(Thread)(n$12:java.lang.Thread*) [line 47];
+*&amp;$irvar4:java.lang.Thread*=n$13 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        } <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.one%28%29%3Avoid.08028ba92f7af3f7e70b1d5c6b484f72_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        public void two() throws InterruptedException { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e.html">summary for void ParallelClassTest$Example2.two()</a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">            fSynchronizer.countDown(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_CountDownLatch ParallelClassTest.access$000()() [line 52];
+*&amp;$irvar0:java.util.concurrent.CountDownLatch*=n$0 [line 52];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.util.concurrent.CountDownLatch* [line 52];
+_=*n$1:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 52];
+n$3=_fun_void CountDownLatch.countDown()(n$1:java.util.concurrent.CountDownLatch*) virtual [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">            assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS)); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun_CountDownLatch ParallelClassTest.access$000()() [line 53];
+*&amp;$irvar1:java.util.concurrent.CountDownLatch*=n$4 [line 53];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:java.util.concurrent.CountDownLatch* [line 53];
+_=*n$5:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 53];
+n$7=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 53];
+n$8=_fun_boolean CountDownLatch.await(long,TimeUnit)(n$5:java.util.concurrent.CountDownLatch*,15:long,n$7:java.util.concurrent.TimeUnit*) virtual [line 53];
+*&amp;$irvar2:_Bool=n$8 [line 53];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar2:_Bool [line 53];
+n$10=_fun_void Assert.assertTrue(boolean)(n$9:_Bool) [line 53];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            fExample2Two = Thread.currentThread(); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=_fun_Thread Thread.currentThread()() [line 54];
+*&amp;$irvar3:java.lang.Thread*=n$11 [line 54];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar3:java.lang.Thread* [line 54];
+n$13=_fun_Thread ParallelClassTest.access$402(Thread)(n$12:java.lang.Thread*) [line 54];
+*&amp;$irvar4:java.lang.Thread*=n$13 [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        } <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest%24Example2.two%28%29%3Avoid.8dc6602046fb8641eb27256f4e02b11e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    @Before </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    public void init() { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6.html">summary for void ParallelClassTest.init()</a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        fExample1One = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1One:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        fExample1Two = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1Two:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        fExample2One = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2One:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        fExample2Two = null; <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2Two:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=null [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        fSynchronizer = new CountDownLatch(2); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.concurrent.CountDownLatch):java.util.concurrent.CountDownLatch*) [line 64];
+n$1=_fun_CountDownLatch.&lt;init&gt;(int)(n$0:java.util.concurrent.CountDownLatch*,2:int) [line 64];
+*&amp;$irvar0:java.util.concurrent.CountDownLatch*=n$0 [line 64];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$2=*&amp;$irvar0:java.util.concurrent.CountDownLatch* [line 64];
+*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fSynchronizer:org.junit.tests.experimental.parallel.ParallelClassTest(root org.junit.tests.experimental.parallel.ParallelClassTest)=n$2 [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    } <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.init%28%29%3Avoid.0ec5daed476d36edc61479f221e7f1c6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    public void testsRunInParallel() { <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca.html">summary for void ParallelClassTest.testsRunInParallel()</a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        Result result = JUnitCore.runClasses(ParallelComputer.classes(), Example1.class, Example2.class); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Computer ParallelComputer.classes()() [line 69];
+*&amp;$irvar0:org.junit.runner.Computer*=n$0 [line 69];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[2]):java.lang.Class*[_*_](*)) [line 69];
+*&amp;$irvar1:java.lang.Class*[_*_](*)=n$1 [line 69];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 69];
+*n$2[0]:java.lang.Object*=org.junit.tests.experimental.parallel.ParallelClassTest$Example1 [line 69];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 69];
+*n$3[1]:java.lang.Object*=org.junit.tests.experimental.parallel.ParallelClassTest$Example2 [line 69];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.Computer* [line 69];
+n$5=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 69];
+n$6=_fun_Result JUnitCore.runClasses(Computer,Class[])(n$4:org.junit.runner.Computer*,n$5:java.lang.Class*[_*_](*)) [line 69];
+*&amp;result:org.junit.runner.Result*=n$6 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        assertTrue(result.wasSuccessful()); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$7=*&amp;result:org.junit.runner.Result* [line 70];
+_=*n$7:org.junit.runner.Result*(root org.junit.runner.Result) [line 70];
+n$9=_fun_boolean Result.wasSuccessful()(n$7:org.junit.runner.Result*) virtual [line 70];
+*&amp;$irvar2:_Bool=n$9 [line 70];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar2:_Bool [line 70];
+n$11=_fun_void Assert.assertTrue(boolean)(n$10:_Bool) [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        assertNotNull(fExample1One); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1One:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 71];
+*&amp;$irvar3:java.lang.Thread*=n$12 [line 71];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;$irvar3:java.lang.Thread* [line 71];
+n$14=_fun_void Assert.assertNotNull(Object)(n$13:java.lang.Thread*) [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        assertNotNull(fExample1Two); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$15=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1Two:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 72];
+*&amp;$irvar4:java.lang.Thread*=n$15 [line 72];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$16=*&amp;$irvar4:java.lang.Thread* [line 72];
+n$17=_fun_void Assert.assertNotNull(Object)(n$16:java.lang.Thread*) [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        assertNotNull(fExample2One); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$18=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2One:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 73];
+*&amp;$irvar5:java.lang.Thread*=n$18 [line 73];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$19=*&amp;$irvar5:java.lang.Thread* [line 73];
+n$20=_fun_void Assert.assertNotNull(Object)(n$19:java.lang.Thread*) [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        assertNotNull(fExample2Two); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$21=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2Two:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 74];
+*&amp;$irvar6:java.lang.Thread*=n$21 [line 74];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$22=*&amp;$irvar6:java.lang.Thread* [line 74];
+n$23=_fun_void Assert.assertNotNull(Object)(n$22:java.lang.Thread*) [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        assertThat(fExample1One, is(fExample1Two)); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$24=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1One:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 75];
+*&amp;$irvar7:java.lang.Thread*=n$24 [line 75];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$25=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1Two:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 75];
+*&amp;$irvar8:java.lang.Thread*=n$25 [line 75];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$26=*&amp;$irvar8:java.lang.Thread* [line 75];
+n$27=_fun_Matcher Is.is(Object)(n$26:java.lang.Thread*) [line 75];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$27 [line 75];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$28=*&amp;$irvar7:java.lang.Thread* [line 75];
+n$29=*&amp;$irvar9:org.hamcrest.Matcher* [line 75];
+n$30=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$28:java.lang.Thread*,n$29:org.hamcrest.Matcher*) [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">        assertThat(fExample2One, is(fExample2Two)); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$31=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2One:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 76];
+*&amp;$irvar10:java.lang.Thread*=n$31 [line 76];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$32=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2Two:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 76];
+*&amp;$irvar11:java.lang.Thread*=n$32 [line 76];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$33=*&amp;$irvar11:java.lang.Thread* [line 76];
+n$34=_fun_Matcher Is.is(Object)(n$33:java.lang.Thread*) [line 76];
+*&amp;$irvar12:org.hamcrest.Matcher*=n$34 [line 76];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$35=*&amp;$irvar10:java.lang.Thread* [line 76];
+n$36=*&amp;$irvar12:org.hamcrest.Matcher* [line 76];
+n$37=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$35:java.lang.Thread*,n$36:org.hamcrest.Matcher*) [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        assertThat(fExample1One, is(not(fExample2One))); <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$38=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample1One:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 77];
+*&amp;$irvar13:java.lang.Thread*=n$38 [line 77];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$39=*&amp;#GB<>$org.junit.tests.experimental.parallel.ParallelClassTest.fExample2One:java.lang.Thread*(root org.junit.tests.experimental.parallel.ParallelClassTest) [line 77];
+*&amp;$irvar14:java.lang.Thread*=n$39 [line 77];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$40=*&amp;$irvar14:java.lang.Thread* [line 77];
+n$41=_fun_Matcher IsNot.not(Object)(n$40:java.lang.Thread*) [line 77];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$41 [line 77];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$42=*&amp;$irvar15:org.hamcrest.Matcher* [line 77];
+n$43=_fun_Matcher Is.is(Matcher)(n$42:org.hamcrest.Matcher*) [line 77];
+*&amp;$irvar16:org.hamcrest.Matcher*=n$43 [line 77];
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$44=*&amp;$irvar13:java.lang.Thread* [line 77];
+n$45=*&amp;$irvar16:org.hamcrest.Matcher* [line 77];
+n$46=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$44:java.lang.Thread*,n$45:org.hamcrest.Matcher*) [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    } <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 3 succs: exn: Exit
+</span></span></a> <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/org.junit.tests.experimental.parallel.ParallelClassTest.testsRunInParallel%28%29%3Avoid.34040935887ca041732b80ee41cfc1ca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/node7.html#session43">node7#session43</a>(<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/../ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c.html#LINE30">30</a>)<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/node7.html#session43">node7#session43</a>(<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/../ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c.html#LINE37">37</a>)<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/node7.html#session43">node7#session43</a>(<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/../ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c.html#LINE46">46</a>)<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/nodes/node7.html#session43">node7#session43</a>(<a href="./ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c/../ParallelClassTest.java.b8e77614279305d7a48857c4af5c549c.html#LINE53">53</a>)</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/rules/ExpectedException.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static java.lang.String.format; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.hamcrest.CoreMatchers.containsString; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.hamcrest.CoreMatchers.instanceOf; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.junit.Assert.fail; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import static org.junit.internal.matchers.ThrowableCauseMatcher.hasCause; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import static org.junit.internal.matchers.ThrowableMessageMatcher.hasMessage; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.hamcrest.Matcher; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.hamcrest.MatcherAssert; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.hamcrest.StringDescription; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.AssumptionViolatedException; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runners.model.Statement; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * The {@code ExpectedException} rule allows you to verify that your code </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * throws a specific exception. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * &lt;h3&gt;Usage&lt;/h3&gt; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * &lt;pre&gt; public class SimpleExpectedExceptionTest { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> *     &amp;#064;Rule </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> *     public ExpectedException thrown = ExpectedException.none(); </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> *     &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> *     public void throwsNothing() { </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> *         // no exception expected, none thrown: passes. </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> *     &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> *     public void throwsExceptionWithSpecificType() { </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> *         thrown.expect(NullPointerException.class); </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> *         throw new NullPointerException(); </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> *  </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> * &lt;p&gt;You have to add the {@code ExpectedException} rule to your test. </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> * This doesn't affect your existing tests (see {@code throwsNothing()}). </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> * After specifying the type of the expected exception your test is </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> * successful when such an exception is thrown and it fails if a </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> * different or no exception is thrown. </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> * &lt;p&gt;This rule does not perform any special magic to make execution continue </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> * as if the exception had not been thrown. So it is nearly always a mistake </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> * for a test method to have statements after the one that is expected to </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> * throw the exception. </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> * &lt;p&gt;Instead of specifying the exception's type you can characterize the </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> * expected exception based on other criteria, too: </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> * &lt;ul&gt; </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line"> *   &lt;li&gt;The exception's message contains a specific text: {@link #expectMessage(String)}&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> *   &lt;li&gt;The exception's message complies with a Hamcrest matcher: {@link #expectMessage(Matcher)}&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> *   &lt;li&gt;The exception's cause complies with a Hamcrest matcher: {@link #expectCause(Matcher)}&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line"> *   &lt;li&gt;The exception itself complies with a Hamcrest matcher: {@link #expect(Matcher)}&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> * &lt;/ul&gt; </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line"> * &lt;p&gt;You can combine any of the presented expect-methods. The test is </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> * successful if all specifications are met. </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line"> * public void throwsException() { </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line"> *     thrown.expect(NullPointerException.class); </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> *     thrown.expectMessage(&amp;quot;happened&amp;quot;); </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> *     throw new NullPointerException(&amp;quot;What happened?&amp;quot;); </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> * &lt;p&gt;It is recommended to set the {@link org.junit.Rule#order() order} of the </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line"> * {@code ExpectedException} to {@code Integer.MAX_VALUE} if it is used together </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> * with another rule that handles exceptions, e.g. {@link ErrorCollector}. </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line"> * Otherwise failing tests may be successful. </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line"> * &lt;pre&gt; &amp;#064;Rule(order = Integer.MAX_VALUE) </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line"> * public ExpectedException thrown = ExpectedException.none();&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line"> * &lt;h3&gt;AssumptionViolatedExceptions&lt;/h3&gt; </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line"> * &lt;p&gt;JUnit uses {@link AssumptionViolatedException}s for indicating that a test </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line"> * provides no useful information. (See {@link org.junit.Assume} for more </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line"> * information.) You have to call {@code assume} methods before you set </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line"> * expectations of the {@code ExpectedException} rule. In this case the rule </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line"> * will not handle consume the exceptions and it can be handled by the </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> * framework. E.g. the following test is ignored by JUnit's default runner. </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> * public void ignoredBecauseOfFailedAssumption() { </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line"> *     assumeTrue(false); // throws AssumptionViolatedException </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line"> *     thrown.expect(NullPointerException.class); </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line"> * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> * &lt;h3&gt;AssertionErrors&lt;/h3&gt; </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> * &lt;p&gt;JUnit uses {@link AssertionError}s for indicating that a test is failing. You </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line"> * have to call {@code assert} methods before you set expectations of the </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line"> * {@code ExpectedException} rule, if they should be handled by the framework. </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line"> * E.g. the following test fails because of the {@code assertTrue} statement. </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line"> * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line"> * public void throwsUnhandled() { </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line"> *     assertTrue(false); // throws AssertionError </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> *     thrown.expect(NullPointerException.class); </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line"> * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line"> * &lt;h3&gt;Missing Exceptions&lt;/h3&gt; </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line"> * &lt;p&gt;By default missing exceptions are reported with an error message </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line"> * like &quot;Expected test to throw an instance of foo&quot;. You can configure a different </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> * message by means of {@link #reportMissingExceptionWithMessage(String)}. You </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line"> * can use a {@code &#37;s} placeholder for the description of the expected </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line"> * exception. E.g. &quot;Test doesn't throw &#37;s.&quot; will fail with the error message </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line"> * &quot;Test doesn't throw an instance of foo.&quot;. </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line"> * @since 4.7 </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">public class ExpectedException implements TestRule { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24100%28org.junit.rules.ExpectedException%29%3Avoid.47731e6a9c1a886e8c39432972376a12_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24000%28org.junit.rules.ExpectedException%2Cjava.lang.Throwable%29%3A.5dd2178085cbe9091e54eb5430583d09_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24100%28org.junit.rules.ExpectedException%29%3Avoid.47731e6a9c1a886e8c39432972376a12_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.ExpectedException* [line 111];
+n$1=_fun_void ExpectedException.failDueToMissingException()(n$0:org.junit.rules.ExpectedException*) [line 111];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24000%28org.junit.rules.ExpectedException%2Cjava.lang.Throwable%29%3A.5dd2178085cbe9091e54eb5430583d09_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.ExpectedException* [line 111];
+n$1=*&amp;x1:java.lang.Throwable* [line 111];
+n$2=_fun_void ExpectedException.handleException(Throwable)(n$0:org.junit.rules.ExpectedException*,n$1:java.lang.Throwable*) [line 111];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24100%28org.junit.rules.ExpectedException%29%3Avoid.47731e6a9c1a886e8c39432972376a12_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24000%28org.junit.rules.ExpectedException%2Cjava.lang.Throwable%29%3A.5dd2178085cbe9091e54eb5430583d09_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24100%28org.junit.rules.ExpectedException%29%3Avoid.47731e6a9c1a886e8c39432972376a12_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24000%28org.junit.rules.ExpectedException%2Cjava.lang.Throwable%29%3A.5dd2178085cbe9091e54eb5430583d09_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24100%28org.junit.rules.ExpectedException%29%3Avoid.47731e6a9c1a886e8c39432972376a12_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.access%24000%28org.junit.rules.ExpectedException%2Cjava.lang.Throwable%29%3A.5dd2178085cbe9091e54eb5430583d09_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.access%24100%28org.junit.rules.ExpectedException%29%3Avoid.47731e6a9c1a886e8c39432972376a12.html">summary for void ExpectedException.access$100(ExpectedException)</a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.access%24000%28org.junit.rules.ExpectedException%2Cjava.lang.Throwable%29%3A.5dd2178085cbe9091e54eb5430583d09.html">summary for void ExpectedException.access$000(ExpectedException,Throwable)</a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">     * Returns a {@linkplain TestRule rule} that expects no exception to </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">     * be thrown (identical to behavior without this rule). </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">     * @deprecated Since 4.13 </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">     * {@link org.junit.Assert#assertThrows(Class, org.junit.function.ThrowingRunnable) </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">     * Assert.assertThrows} can be used to verify that your code throws a specific </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">     * exception. </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    public static ExpectedException none() { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.none%28%29%3Aorg.junit.rules.ExpectedException.3a7d0f64435c8552e6986461598d0fbe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.none%28%29%3Aorg.junit.rules.ExpectedException.3a7d0f64435c8552e6986461598d0fbe.html">summary for ExpectedException ExpectedException.none()</a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        return new ExpectedException(); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.none%28%29%3Aorg.junit.rules.ExpectedException.3a7d0f64435c8552e6986461598d0fbe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.ExpectedException):org.junit.rules.ExpectedException*) [line 123];
+n$1=_fun_ExpectedException.&lt;init&gt;()(n$0:org.junit.rules.ExpectedException*) [line 123];
+*&amp;$irvar0:org.junit.rules.ExpectedException*=n$0 [line 123];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.none%28%29%3Aorg.junit.rules.ExpectedException.3a7d0f64435c8552e6986461598d0fbe_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.rules.ExpectedException* [line 123];
+*&amp;return:org.junit.rules.ExpectedException*=n$2 [line 123];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.none%28%29%3Aorg.junit.rules.ExpectedException.3a7d0f64435c8552e6986461598d0fbe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.none%28%29%3Aorg.junit.rules.ExpectedException.3a7d0f64435c8552e6986461598d0fbe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    private final ExpectedExceptionMatcherBuilder matcherBuilder = new ExpectedExceptionMatcherBuilder(); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.rules.ExpectedExceptionMatcherBuilder):org.junit.rules.ExpectedExceptionMatcherBuilder*) [line 126];
+n$3=_fun_ExpectedExceptionMatcherBuilder.&lt;init&gt;()(n$2:org.junit.rules.ExpectedExceptionMatcherBuilder*) [line 126];
+*&amp;$irvar0:org.junit.rules.ExpectedExceptionMatcherBuilder*=n$2 [line 126];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ExpectedException* [line 126];
+n$5=*&amp;$irvar0:org.junit.rules.ExpectedExceptionMatcherBuilder* [line 126];
+*n$4.matcherBuilder:org.junit.rules.ExpectedException(root org.junit.rules.ExpectedException)=n$5 [line 126];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    private String missingExceptionMessage= &quot;Expected test to throw &#37;s&quot;; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.ExpectedException* [line 128];
+*n$6.missingExceptionMessage:org.junit.rules.ExpectedException(root org.junit.rules.ExpectedException)="Expected test to throw %s" [line 128];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">    private ExpectedException() { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 130];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.ExpectedException*) [line 130];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122.html">summary for ExpectedException.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.<init>%28%29.7b8f4f8055e6c005c2bbd6a96a0fa122_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">     * This method does nothing. Don't use it. </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">     * @deprecated AssertionErrors are handled by default since JUnit 4.12. Just </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">     *             like in JUnit &amp;lt;= 4.10. </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    public ExpectedException handleAssertionErrors() { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssertionErrors%28%29%3Aorg.junit.rules.ExpectedException.6f9793d919fabf35301c048c92599d63_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.handleAssertionErrors%28%29%3Aorg.junit.rules.ExpectedException.6f9793d919fabf35301c048c92599d63.html">summary for ExpectedException ExpectedException.handleAssertionErrors()</a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        return this; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssertionErrors%28%29%3Aorg.junit.rules.ExpectedException.6f9793d919fabf35301c048c92599d63_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 140];
+*&amp;return:org.junit.rules.ExpectedException*=n$0 [line 140];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssertionErrors%28%29%3Aorg.junit.rules.ExpectedException.6f9793d919fabf35301c048c92599d63_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssertionErrors%28%29%3Aorg.junit.rules.ExpectedException.6f9793d919fabf35301c048c92599d63_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">     * This method does nothing. Don't use it. </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">     * @deprecated AssumptionViolatedExceptions are handled by default since </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">     *             JUnit 4.12. Just like in JUnit &amp;lt;= 4.10. </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    public ExpectedException handleAssumptionViolatedExceptions() { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssumptionViolatedExceptions%28%29%3Aorg.junit.rules.ExpectedExcep.3e99d4d304b9961c79f049b7d96ab92a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.handleAssumptionViolatedExceptions%28%29%3Aorg.junit.rules.ExpectedExcep.3e99d4d304b9961c79f049b7d96ab92a.html">summary for ExpectedException ExpectedException.handleAssumptionViolatedExceptions()</a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">        return this; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssumptionViolatedExceptions%28%29%3Aorg.junit.rules.ExpectedExcep.3e99d4d304b9961c79f049b7d96ab92a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 150];
+*&amp;return:org.junit.rules.ExpectedException*=n$0 [line 150];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssumptionViolatedExceptions%28%29%3Aorg.junit.rules.ExpectedExcep.3e99d4d304b9961c79f049b7d96ab92a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleAssumptionViolatedExceptions%28%29%3Aorg.junit.rules.ExpectedExcep.3e99d4d304b9961c79f049b7d96ab92a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">     * Specifies the failure message for tests that are expected to throw  </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">     * an exception but do not throw any. You can use a {@code &#37;s} placeholder for </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">     * the description of the expected exception. E.g. &quot;Test doesn't throw &#37;s.&quot; </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">     * will fail with the error message </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">     * &quot;Test doesn't throw an instance of foo.&quot;. </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">     * @param message exception detail message </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">     * @return the rule itself </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">    public ExpectedException reportMissingExceptionWithMessage(String message) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.reportMissingExceptionWithMessage%28java.lang.String%29%3Aorg.junit.rule.bc3d864d0b40f4dc8fbe754a3f702d30_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.reportMissingExceptionWithMessage%28java.lang.String%29%3Aorg.junit.rule.bc3d864d0b40f4dc8fbe754a3f702d30.html">summary for ExpectedException ExpectedException.reportMissingExceptionWithMessage(String)</a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">        missingExceptionMessage = message; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.reportMissingExceptionWithMessage%28java.lang.String%29%3Aorg.junit.rule.bc3d864d0b40f4dc8fbe754a3f702d30_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 164];
+n$1=*&amp;message:java.lang.String* [line 164];
+*n$0.missingExceptionMessage:org.junit.rules.ExpectedException(root org.junit.rules.ExpectedException)=n$1 [line 164];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">        return this; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.reportMissingExceptionWithMessage%28java.lang.String%29%3Aorg.junit.rule.bc3d864d0b40f4dc8fbe754a3f702d30_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ExpectedException* [line 165];
+*&amp;return:org.junit.rules.ExpectedException*=n$2 [line 165];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.reportMissingExceptionWithMessage%28java.lang.String%29%3Aorg.junit.rule.bc3d864d0b40f4dc8fbe754a3f702d30_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.reportMissingExceptionWithMessage%28java.lang.String%29%3Aorg.junit.rule.bc3d864d0b40f4dc8fbe754a3f702d30_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    public Statement apply(Statement base, <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Descripti.85836ae3707318bfed41ddd77393831c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Descripti.85836ae3707318bfed41ddd77393831c.html">summary for Statement ExpectedException.apply(Statement,Description)</a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">            org.junit.runner.Description description) { </td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">        return new ExpectedExceptionStatement(base); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Descripti.85836ae3707318bfed41ddd77393831c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.ExpectedException$ExpectedExceptionStatement):org.junit.rules.ExpectedException$ExpectedExceptionStatement*) [line 170];
+n$1=*&amp;this:org.junit.rules.ExpectedException* [line 170];
+n$2=*&amp;base:org.junit.runners.model.Statement* [line 170];
+n$3=_fun_ExpectedException$ExpectedExceptionStatement.&lt;init&gt;(ExpectedException,Statement)(n$0:org.junit.rules.ExpectedException$ExpectedExceptionStatement*,n$1:org.junit.rules.ExpectedException*,n$2:org.junit.runners.model.Statement*) [line 170];
+*&amp;$irvar0:org.junit.rules.ExpectedException$ExpectedExceptionStatement*=n$0 [line 170];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Descripti.85836ae3707318bfed41ddd77393831c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 170];
+*&amp;return:org.junit.runners.model.Statement*=n$4 [line 170];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Descripti.85836ae3707318bfed41ddd77393831c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.apply%28org.junit.runners.model.Statement%2Corg.junit.runner.Descripti.85836ae3707318bfed41ddd77393831c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">     * Verify that your code throws an exception that is matched by </td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">     * a Hamcrest matcher. </td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">     * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">     * public void throwsExceptionThatCompliesWithMatcher() { </td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">     *     NullPointerException e = new NullPointerException(); </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">     *     thrown.expect(is(e)); </td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">     *     throw e; </td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">     * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line">    public void expect(Matcher&lt;?&gt; matcher) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28org.hamcrest.Matcher%29%3Avoid.c682b832a8d30e1831652a516fe8f29c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.expect%28org.hamcrest.Matcher%29%3Avoid.c682b832a8d30e1831652a516fe8f29c.html">summary for void ExpectedException.expect(Matcher)</a></td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line">        matcherBuilder.add(matcher); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28org.hamcrest.Matcher%29%3Avoid.c682b832a8d30e1831652a516fe8f29c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 184];
+n$1=*n$0.matcherBuilder:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedException) [line 184];
+_=*n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedExceptionMatcherBuilder) [line 184];
+n$3=*&amp;matcher:org.hamcrest.Matcher* [line 184];
+n$4=_fun_void ExpectedExceptionMatcherBuilder.add(Matcher)(n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*,n$3:org.hamcrest.Matcher*) virtual [line 184];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28org.hamcrest.Matcher%29%3Avoid.c682b832a8d30e1831652a516fe8f29c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28org.hamcrest.Matcher%29%3Avoid.c682b832a8d30e1831652a516fe8f29c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28org.hamcrest.Matcher%29%3Avoid.c682b832a8d30e1831652a516fe8f29c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">     * Verify that your code throws an exception that is an </td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line">     * instance of specific {@code type}. </td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">     * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line">     * public void throwsExceptionWithSpecificType() { </td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">     *     thrown.expect(NullPointerException.class); </td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">     *     throw new NullPointerException(); </td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line">     * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">    public void expect(Class&lt;? extends Throwable&gt; type) { </td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">        expect(instanceOf(type)); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;type:java.lang.Class* [line 197];
+n$1=_fun_Matcher CoreMatchers.instanceOf(Class)(n$0:java.lang.Class*) [line 197];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$1 [line 197];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ExpectedException* [line 197];
+_=*n$2:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 197];
+n$4=*&amp;$irvar0:org.hamcrest.Matcher* [line 197];
+n$5=_fun_void ExpectedException.expect(Matcher)(n$2:org.junit.rules.ExpectedException*,n$4:org.hamcrest.Matcher*) virtual [line 197];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247.html">summary for void ExpectedException.expect(Class)</a></td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expect%28java.lang.Class%29%3Avoid.f38baecf56c380db82630083c344a247_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">     * Verify that your code throws an exception whose message contains </td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line">     * a specific text. </td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line">     * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">     * public void throwsExceptionWhoseMessageContainsSpecificText() { </td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">     *     thrown.expectMessage(&amp;quot;happened&amp;quot;); </td></tr>
+<tr><td class="num" id="LINE206">206</td><td class="line">     *     throw new NullPointerException(&amp;quot;What happened?&amp;quot;); </td></tr>
+<tr><td class="num" id="LINE207">207</td><td class="line">     * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE208">208</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE209">209</td><td class="line">    public void expectMessage(String substring) { </td></tr>
+<tr><td class="num" id="LINE210">210</td><td class="line">        expectMessage(containsString(substring)); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;substring:java.lang.String* [line 210];
+n$1=_fun_Matcher CoreMatchers.containsString(String)(n$0:java.lang.String*) [line 210];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$1 [line 210];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ExpectedException* [line 210];
+_=*n$2:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 210];
+n$4=*&amp;$irvar0:org.hamcrest.Matcher* [line 210];
+n$5=_fun_void ExpectedException.expectMessage(Matcher)(n$2:org.junit.rules.ExpectedException*,n$4:org.hamcrest.Matcher*) virtual [line 210];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8.html">summary for void ExpectedException.expectMessage(String)</a></td></tr>
+<tr><td class="num" id="LINE211">211</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28java.lang.String%29%3Avoid.5a17c7ae7ecbfd06e25979bc3383abb8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE212">212</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE213">213</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE214">214</td><td class="line">     * Verify that your code throws an exception whose message is matched  </td></tr>
+<tr><td class="num" id="LINE215">215</td><td class="line">     * by a Hamcrest matcher. </td></tr>
+<tr><td class="num" id="LINE216">216</td><td class="line">     * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE217">217</td><td class="line">     * public void throwsExceptionWhoseMessageCompliesWithMatcher() { </td></tr>
+<tr><td class="num" id="LINE218">218</td><td class="line">     *     thrown.expectMessage(startsWith(&amp;quot;What&amp;quot;)); </td></tr>
+<tr><td class="num" id="LINE219">219</td><td class="line">     *     throw new NullPointerException(&amp;quot;What happened?&amp;quot;); </td></tr>
+<tr><td class="num" id="LINE220">220</td><td class="line">     * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE221">221</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE222">222</td><td class="line">    public void expectMessage(Matcher&lt;String&gt; matcher) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329.html">summary for void ExpectedException.expectMessage(Matcher)</a></td></tr>
+<tr><td class="num" id="LINE223">223</td><td class="line">        expect(hasMessage(matcher)); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;matcher:org.hamcrest.Matcher* [line 223];
+n$1=_fun_Matcher ThrowableMessageMatcher.hasMessage(Matcher)(n$0:org.hamcrest.Matcher*) [line 223];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$1 [line 223];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ExpectedException* [line 223];
+_=*n$2:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 223];
+n$4=*&amp;$irvar0:org.hamcrest.Matcher* [line 223];
+n$5=_fun_void ExpectedException.expect(Matcher)(n$2:org.junit.rules.ExpectedException*,n$4:org.hamcrest.Matcher*) virtual [line 223];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE224">224</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectMessage%28org.hamcrest.Matcher%29%3Avoid.2d80510d6a5872e3cc47ac89c5a9a329_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE225">225</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE226">226</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE227">227</td><td class="line">     * Verify that your code throws an exception whose cause is matched by  </td></tr>
+<tr><td class="num" id="LINE228">228</td><td class="line">     * a Hamcrest matcher. </td></tr>
+<tr><td class="num" id="LINE229">229</td><td class="line">     * &lt;pre&gt; &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE230">230</td><td class="line">     * public void throwsExceptionWhoseCauseCompliesWithMatcher() { </td></tr>
+<tr><td class="num" id="LINE231">231</td><td class="line">     *     NullPointerException expectedCause = new NullPointerException(); </td></tr>
+<tr><td class="num" id="LINE232">232</td><td class="line">     *     thrown.expectCause(is(expectedCause)); </td></tr>
+<tr><td class="num" id="LINE233">233</td><td class="line">     *     throw new IllegalArgumentException(&amp;quot;What happened?&amp;quot;, cause); </td></tr>
+<tr><td class="num" id="LINE234">234</td><td class="line">     * }&lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE235">235</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE236">236</td><td class="line">    public void expectCause(Matcher&lt;?&gt; expectedCause) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4.html">summary for void ExpectedException.expectCause(Matcher)</a></td></tr>
+<tr><td class="num" id="LINE237">237</td><td class="line">        expect(hasCause(expectedCause)); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expectedCause:org.hamcrest.Matcher* [line 237];
+n$1=_fun_Matcher ThrowableCauseMatcher.hasCause(Matcher)(n$0:org.hamcrest.Matcher*) [line 237];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$1 [line 237];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ExpectedException* [line 237];
+_=*n$2:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 237];
+n$4=*&amp;$irvar0:org.hamcrest.Matcher* [line 237];
+n$5=_fun_void ExpectedException.expect(Matcher)(n$2:org.junit.rules.ExpectedException*,n$4:org.hamcrest.Matcher*) virtual [line 237];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE238">238</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.expectCause%28org.hamcrest.Matcher%29%3Avoid.987216daddeba9884e9731886390e5a4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE239">239</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE240">240</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE241">241</td><td class="line">     * Check if any Exception is expected. </td></tr>
+<tr><td class="num" id="LINE242">242</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE243">243</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE244">244</td><td class="line">    public final boolean isAnyExceptionExpected() { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.isAnyExceptionExpected%28%29%3Aboolean.5742e242630b13a797e2cd6f49853790_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.isAnyExceptionExpected%28%29%3Aboolean.5742e242630b13a797e2cd6f49853790.html">summary for boolean ExpectedException.isAnyExceptionExpected()</a></td></tr>
+<tr><td class="num" id="LINE245">245</td><td class="line">        return matcherBuilder.expectsThrowable(); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.isAnyExceptionExpected%28%29%3Aboolean.5742e242630b13a797e2cd6f49853790_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 245];
+n$1=*n$0.matcherBuilder:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedException) [line 245];
+_=*n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedExceptionMatcherBuilder) [line 245];
+n$3=_fun_boolean ExpectedExceptionMatcherBuilder.expectsThrowable()(n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*) virtual [line 245];
+*&amp;$irvar0:_Bool=n$3 [line 245];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.isAnyExceptionExpected%28%29%3Aboolean.5742e242630b13a797e2cd6f49853790_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:_Bool [line 245];
+*&amp;return:_Bool=n$4 [line 245];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.isAnyExceptionExpected%28%29%3Aboolean.5742e242630b13a797e2cd6f49853790_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.isAnyExceptionExpected%28%29%3Aboolean.5742e242630b13a797e2cd6f49853790_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE246">246</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE247">247</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE248">248</td><td class="line">    private class ExpectedExceptionStatement extends Statement { </td></tr>
+<tr><td class="num" id="LINE249">249</td><td class="line">        private final Statement next; </td></tr>
+<tr><td class="num" id="LINE250">250</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE251">251</td><td class="line">        public ExpectedExceptionStatement(Statement base) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 251];
+n$1=*&amp;$bcvar1:org.junit.rules.ExpectedException* [line 251];
+*n$0.this$0:org.junit.rules.ExpectedException$ExpectedExceptionStatement(root org.junit.rules.ExpectedException$ExpectedExceptionStatement)=n$1 [line 251];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 251];
+n$3=_fun_Statement.&lt;init&gt;()(n$2:org.junit.rules.ExpectedException$ExpectedExceptionStatement*) [line 251];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad.html">summary for ExpectedException$ExpectedExceptionStatement.&lt;init&gt;(ExpectedException,Statement)</a></td></tr>
+<tr><td class="num" id="LINE252">252</td><td class="line">            next = base; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 252];
+n$5=*&amp;base:org.junit.runners.model.Statement* [line 252];
+*n$4.next:org.junit.rules.ExpectedException$ExpectedExceptionStatement(root org.junit.rules.ExpectedException$ExpectedExceptionStatement)=n$5 [line 252];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE253">253</td><td class="line">        } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.<init>%28org.junit.rules.ExpectedExceptio.8dd60e94ddc3e1a863e384b430375bad_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE254">254</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE255">255</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE256">256</td><td class="line">        public void evaluate() throws Throwable { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa.html">summary for void ExpectedException$ExpectedExceptionStatement.evaluate()</a></td></tr>
+<tr><td class="num" id="LINE257">257</td><td class="line">            try { </td></tr>
+<tr><td class="num" id="LINE258">258</td><td class="line">                next.evaluate(); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:9 exn:17 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 258];
+n$1=*n$0.next:org.junit.runners.model.Statement*(root org.junit.rules.ExpectedException$ExpectedExceptionStatement) [line 258];
+_=*n$1:org.junit.runners.model.Statement*(root org.junit.runners.model.Statement) [line 258];
+n$3=_fun_void Statement.evaluate()(n$1:org.junit.runners.model.Statement*) virtual [line 258];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE259">259</td><td class="line">            } catch (Throwable e) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:15 succs:6 exn:3 Instructions
+n$4=*&amp;CatchVar10:java.lang.Object* [line 259];
+*&amp;e:java.lang.Object*=n$4 [line 259];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:17 succs:5 exn:3 Conditional exception handler
+n$21=_fun___instanceof(n$20:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 259];
+PRUNE(n$21, true); [line 259];
+*&amp;CatchVar10:void=n$20 [line 259];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:17 succs:3 exn:3 Conditional exception handler
+n$21=_fun___instanceof(n$20:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 259];
+PRUNE(!n$21, false); [line 259];
+*&amp;return:void=EXN n$20 [line 259];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds: succs:15 16 exn:3 Instructions
+n$19=*&amp;return:void [line 259];
+*&amp;return:void=null [line 259];
+n$20=_fun___unwrap_exception(n$19:void) [line 259];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE260">260</td><td class="line">                handleException(e); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 260];
+n$6=*n$5.this$0:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException$ExpectedExceptionStatement) [line 260];
+*&amp;$irvar0:org.junit.rules.ExpectedException*=n$6 [line 260];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar0:org.junit.rules.ExpectedException* [line 260];
+n$8=*&amp;e:java.lang.Object* [line 260];
+n$9=_fun_void ExpectedException.access$000(ExpectedException,Throwable)(n$7:org.junit.rules.ExpectedException*,n$8:java.lang.Object*) [line 260];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE261">261</td><td class="line">                return; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE262">262</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE263">263</td><td class="line">            if (isAnyExceptionExpected()) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:4 succs:10 11 exn:3 Instructions
+n$10=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 263];
+n$11=*n$10.this$0:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException$ExpectedExceptionStatement) [line 263];
+_=*n$11:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 263];
+n$13=_fun_boolean ExpectedException.isAnyExceptionExpected()(n$11:org.junit.rules.ExpectedException*) virtual [line 263];
+*&amp;$irvar1:_Bool=n$13 [line 263];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:9 succs:12 exn:3 Conditional method_body
+n$14=*&amp;$irvar1:_Bool [line 263];
+PRUNE(!(n$14 == 0), true); [line 263];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:9 succs:14 exn:3 Conditional method_body
+n$14=*&amp;$irvar1:_Bool [line 263];
+PRUNE((n$14 == 0), false); [line 263];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE264">264</td><td class="line">                failDueToMissingException(); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:13 exn:3 Instructions
+n$15=*&amp;this:org.junit.rules.ExpectedException$ExpectedExceptionStatement* [line 264];
+n$16=*n$15.this$0:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException$ExpectedExceptionStatement) [line 264];
+*&amp;$irvar2:org.junit.rules.ExpectedException*=n$16 [line 264];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;$irvar2:org.junit.rules.ExpectedException* [line 264];
+n$18=_fun_void ExpectedException.access$100(ExpectedException)(n$17:org.junit.rules.ExpectedException*) [line 264];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE265">265</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE266">266</td><td class="line">        } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 8 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException%24ExpectedExceptionStatement.evaluate%28%29%3Avoid.9aa14116122956aa8e6360ac11d149aa_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:16 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE267">267</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE268">268</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE269">269</td><td class="line">    private void handleException(Throwable e) throws Throwable { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91.html">summary for void ExpectedException.handleException(Throwable)</a></td></tr>
+<tr><td class="num" id="LINE270">270</td><td class="line">        if (isAnyExceptionExpected()) { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 270];
+_=*n$0:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 270];
+n$2=_fun_boolean ExpectedException.isAnyExceptionExpected()(n$0:org.junit.rules.ExpectedException*) virtual [line 270];
+*&amp;$irvar0:_Bool=n$2 [line 270];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 270];
+PRUNE(!(n$3 == 0), true); [line 270];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:9 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:_Bool [line 270];
+PRUNE((n$3 == 0), false); [line 270];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE271">271</td><td class="line">            MatcherAssert.assertThat(e, matcherBuilder.build()); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ExpectedException* [line 271];
+n$5=*n$4.matcherBuilder:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedException) [line 271];
+_=*n$5:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedExceptionMatcherBuilder) [line 271];
+n$7=_fun_Matcher ExpectedExceptionMatcherBuilder.build()(n$5:org.junit.rules.ExpectedExceptionMatcherBuilder*) virtual [line 271];
+*&amp;$irvar1:org.hamcrest.Matcher*=n$7 [line 271];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Instructions
+n$8=*&amp;e:java.lang.Throwable* [line 271];
+n$9=*&amp;$irvar1:org.hamcrest.Matcher* [line 271];
+n$10=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$8:java.lang.Throwable*,n$9:org.hamcrest.Matcher*) [line 271];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE272">272</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE273">273</td><td class="line">            throw e; <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:2 exn:3 Instructions
+n$11=*&amp;e:java.lang.Throwable* [line 273];
+*&amp;return:void=EXN n$11 [line 273];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE274">274</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE275">275</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 9 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.handleException%28java.lang.Throwable%29%3Avoid.a938212e375e58aedd46582e7874db91_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE276">276</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE277">277</td><td class="line">    private void failDueToMissingException() throws AssertionError { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288.html">summary for void ExpectedException.failDueToMissingException()</a></td></tr>
+<tr><td class="num" id="LINE278">278</td><td class="line">        fail(missingExceptionMessage()); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 278];
+n$1=_fun_String ExpectedException.missingExceptionMessage()(n$0:org.junit.rules.ExpectedException*) [line 278];
+*&amp;$irvar0:java.lang.String*=n$1 [line 278];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String* [line 278];
+n$3=_fun_void Assert.fail(String)(n$2:java.lang.String*) [line 278];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE279">279</td><td class="line">    } <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.failDueToMissingException%28%29%3Avoid.bfb8451e719d820a7df8a1d825f7e288_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE280">280</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE281">281</td><td class="line">    private String missingExceptionMessage() { <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761.html">summary for String ExpectedException.missingExceptionMessage()</a></td></tr>
+<tr><td class="num" id="LINE282">282</td><td class="line">        String expectation= StringDescription.toString(matcherBuilder.build()); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ExpectedException* [line 282];
+n$1=*n$0.matcherBuilder:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedException) [line 282];
+_=*n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedExceptionMatcherBuilder) [line 282];
+n$3=_fun_Matcher ExpectedExceptionMatcherBuilder.build()(n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*) virtual [line 282];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$3 [line 282];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.hamcrest.Matcher* [line 282];
+n$5=_fun_String StringDescription.toString(SelfDescribing)(n$4:org.hamcrest.Matcher*) [line 282];
+*&amp;expectation:java.lang.String*=n$5 [line 282];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE283">283</td><td class="line">        return format(missingExceptionMessage, expectation); <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[1]):java.lang.Object*[_*_](*)) [line 283];
+*&amp;$irvar1:java.lang.Object*[_*_](*)=n$6 [line 283];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 283];
+n$8=*&amp;expectation:java.lang.String* [line 283];
+*n$7[0]:java.lang.String*=n$8 [line 283];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;this:org.junit.rules.ExpectedException* [line 283];
+n$10=*n$9.missingExceptionMessage:java.lang.String*(root org.junit.rules.ExpectedException) [line 283];
+*&amp;$irvar2:java.lang.String*=n$10 [line 283];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;$irvar2:java.lang.String* [line 283];
+n$12=*&amp;$irvar1:java.lang.Object*[_*_](*) [line 283];
+n$13=_fun_String String.format(String,Object[])(n$11:java.lang.String*,n$12:java.lang.Object*[_*_](*)) [line 283];
+*&amp;$irvar3:java.lang.String*=n$13 [line 283];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$14=*&amp;$irvar3:java.lang.String* [line 283];
+*&amp;return:java.lang.String*=n$14 [line 283];
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./ExpectedException.java.f6afc7313638a7b2a53f2590dc44ef17/nodes/org.junit.rules.ExpectedException.missingExceptionMessage%28%29%3Ajava.lang.String.7167b8ca077a14f43e30c5359ad5f761_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE284">284</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE285">285</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

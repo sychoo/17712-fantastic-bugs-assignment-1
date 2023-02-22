@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/experimental/theories/ParameterSupplier.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.experimental.theories; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> * Abstract parent class for suppliers of input data points for theories. Extend this class to customize how {@link </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> * org.junit.experimental.theories.Theories Theories} runner </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> * finds accepted data points. Then use your class together with &lt;b&gt;&amp;#064;ParametersSuppliedBy&lt;/b&gt; on input </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * parameters for theories. </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * For example, here is a supplier for values between two integers, and an annotation that references it: </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> *     &amp;#064;Retention(RetentionPolicy.RUNTIME) </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> *     &lt;b&gt;&amp;#064;ParametersSuppliedBy&lt;/b&gt;(BetweenSupplier.class) </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> *     public @interface Between { </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> *         int first(); </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> *         int last(); </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> *     public static class BetweenSupplier extends &lt;b&gt;ParameterSupplier&lt;/b&gt; { </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> *         &amp;#064;Override </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> *         public List&amp;lt;&lt;b&gt;PotentialAssignment&lt;/b&gt;&amp;gt; getValueSources(&lt;b&gt;ParameterSignature&lt;/b&gt; sig) { </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> *             List&amp;lt;&lt;b&gt;PotentialAssignment&lt;/b&gt;&amp;gt; list = new ArrayList&amp;lt;PotentialAssignment&amp;gt;(); </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> *             Between annotation = (Between) sig.getSupplierAnnotation(); </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> *             for (int i = annotation.first(); i &amp;lt;= annotation.last(); i++) </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> *                 list.add(&lt;b&gt;PotentialAssignment&lt;/b&gt;.forValue(&quot;ints&quot;, i)); </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> *             return list; </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> *         } </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> * &lt;/p&gt; </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> * @see org.junit.experimental.theories.ParametersSuppliedBy </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> * @see org.junit.experimental.theories.Theories </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> * @see org.junit.experimental.theories.FromDataPoints </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">public abstract class ParameterSupplier { <a href="./ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c/nodes/org.junit.experimental.theories.ParameterSupplier.<init>%28%29.922beba600a89da2ddf6fc737124381a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c/nodes/org.junit.experimental.theories.ParameterSupplier.<init>%28%29.922beba600a89da2ddf6fc737124381a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.theories.ParameterSupplier* [line 41];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.theories.ParameterSupplier*) [line 41];
+</span></span></a> <a href="./ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c/nodes/org.junit.experimental.theories.ParameterSupplier.<init>%28%29.922beba600a89da2ddf6fc737124381a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c/nodes/org.junit.experimental.theories.ParameterSupplier.<init>%28%29.922beba600a89da2ddf6fc737124381a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c/nodes/org.junit.experimental.theories.ParameterSupplier.<init>%28%29.922beba600a89da2ddf6fc737124381a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ParameterSupplier.java.69c6f014ed94c941af9bc4dd6ad13a0c/org.junit.experimental.theories.ParameterSupplier.<init>%28%29.922beba600a89da2ddf6fc737124381a.html">summary for ParameterSupplier.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    public abstract List&lt;PotentialAssignment&gt; getValueSources(ParameterSignature sig) throws Throwable; </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

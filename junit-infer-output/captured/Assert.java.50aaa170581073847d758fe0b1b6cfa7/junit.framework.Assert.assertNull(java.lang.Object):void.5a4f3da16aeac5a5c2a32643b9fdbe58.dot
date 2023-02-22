@@ -1,0 +1,60 @@
+/* @generated */
+digraph cfg {
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_1" [label="1: Start void Assert.assertNull(Object)\nFormals:  object:java.lang.Object*\nLocals:  $irvar4:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_1" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_4" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_1" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_5" ;
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_2" [label="2: Exit void Assert.assertNull(Object) \n  " color=yellow style=filled]
+	
+
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 270]\n  NULLIFY(&$irvar4); [line 270]\n  NULLIFY(&$irvar0); [line 270]\n  NULLIFY(&$irvar1); [line 270]\n  NULLIFY(&$irvar2); [line 270]\n  EXIT_SCOPE($irvar3,$irvar4,$irvar0,$irvar1,$irvar2); [line 270]\n  APPLY_ABSTRACTION; [line 270]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_2" ;
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_4" [label="4: Prune (true branch, if) \n   n$0=*&object:java.lang.Object* [line 267]\n  PRUNE(!(n$0 == null), true); [line 267]\n  EXIT_SCOPE(n$0); [line 267]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_4" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_6" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_4" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_5" [label="5: Prune (false branch, if) \n   n$0=*&object:java.lang.Object* [line 267]\n  PRUNE((n$0 == null), false); [line 267]\n  NULLIFY(&object); [line 267]\n  EXIT_SCOPE(n$0,object); [line 267]\n  APPLY_ABSTRACTION; [line 267]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_5" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_12" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_5" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_6" [label="6:  Call StringBuilder.<init>() \n   n$1=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 268]\n  n$2=_fun_StringBuilder.<init>()(n$1:java.lang.StringBuilder*) [line 268]\n  *&$irvar0:java.lang.StringBuilder*=n$1 [line 268]\n  EXIT_SCOPE(n$1,n$2); [line 268]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_6" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_7" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_6" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_7" [label="7:  Call StringBuilder StringBuilder.append(String) \n   n$3=*&$irvar0:java.lang.StringBuilder* [line 268]\n  _=*n$3:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 268]\n  n$5=_fun_StringBuilder StringBuilder.append(String)(n$3:java.lang.StringBuilder*,\"Expected: <null> but was: \":java.lang.Object*) virtual [line 268]\n  *&$irvar1:java.lang.StringBuilder*=n$5 [line 268]\n  NULLIFY(&$irvar0); [line 268]\n  EXIT_SCOPE(_,n$3,n$5,$irvar0); [line 268]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_7" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_8" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_7" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_8" [label="8:  Call String Object.toString() \n   n$6=*&object:java.lang.Object* [line 268]\n  _=*n$6:java.lang.Object*(root java.lang.Object) [line 268]\n  n$8=_fun_String Object.toString()(n$6:java.lang.Object*) virtual [line 268]\n  *&$irvar2:java.lang.String*=n$8 [line 268]\n  EXIT_SCOPE(_,n$6,n$8); [line 268]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_8" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_9" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_8" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_9" [label="9:  Call StringBuilder StringBuilder.append(String) \n   n$9=*&$irvar1:java.lang.StringBuilder* [line 268]\n  _=*n$9:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 268]\n  n$11=*&$irvar2:java.lang.String* [line 268]\n  n$12=_fun_StringBuilder StringBuilder.append(String)(n$9:java.lang.StringBuilder*,n$11:java.lang.String*) virtual [line 268]\n  *&$irvar3:java.lang.StringBuilder*=n$12 [line 268]\n  NULLIFY(&$irvar1); [line 268]\n  NULLIFY(&$irvar2); [line 268]\n  EXIT_SCOPE(_,n$9,n$11,n$12,$irvar1,$irvar2); [line 268]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_9" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_10" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_9" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_10" [label="10:  Call String StringBuilder.toString() \n   n$13=*&$irvar3:java.lang.StringBuilder* [line 268]\n  _=*n$13:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 268]\n  n$15=_fun_String StringBuilder.toString()(n$13:java.lang.StringBuilder*) virtual [line 268]\n  *&$irvar4:java.lang.String*=n$15 [line 268]\n  NULLIFY(&$irvar3); [line 268]\n  EXIT_SCOPE(_,n$13,n$15,$irvar3); [line 268]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_10" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_11" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_10" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_11" [label="11:  Call void Assert.assertNull(String,Object) \n   n$16=*&$irvar4:java.lang.String* [line 268]\n  n$17=*&object:java.lang.Object* [line 268]\n  n$18=_fun_void Assert.assertNull(String,Object)(n$16:java.lang.String*,n$17:java.lang.Object*) [line 268]\n  NULLIFY(&$irvar4); [line 268]\n  NULLIFY(&object); [line 268]\n  EXIT_SCOPE(n$16,n$17,n$18,$irvar4,object); [line 268]\n  APPLY_ABSTRACTION; [line 268]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_11" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_12" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_11" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+"junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_12" [label="12:  method_body \n   APPLY_ABSTRACTION; [line 270]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_12" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_2" ;
+	 "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_12" -> "junit.framework.Assert.assertNull(java.lang.Object):void.5a4f3da16aeac5a5c2a32643b9fdbe58_3" [color="red" ];
+}

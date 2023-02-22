@@ -1,0 +1,177 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_1" [label="1: Start Thread FailOnTimeout.getStuckThread(Thread)\nFormals:  this:org.junit.internal.runners.statements.FailOnTimeout* mainThread:java.lang.Thread*\nLocals:  $T0_106:void $irvar4:void $irvar3:void $irvar2:void $bcvar6:void $irvar1:void $irvar0:void maxCpuTime:long stuckThread:java.lang.Thread* threadsInGroup:java.util.List* thread:java.lang.Thread* threadCpuTime:long \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_1" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_4" ;
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_2" [label="2: Exit Thread FailOnTimeout.getStuckThread(Thread) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [label="3:  exceptions sink \n   NULLIFY(&$bcvar6); [line 247]\n  NULLIFY(&thread); [line 247]\n  NULLIFY(&$irvar3); [line 247]\n  NULLIFY(&stuckThread); [line 247]\n  NULLIFY(&$irvar4); [line 247]\n  NULLIFY(&$irvar0); [line 247]\n  NULLIFY(&$irvar1); [line 247]\n  NULLIFY(&$T0_106); [line 247]\n  NULLIFY(&$irvar2); [line 247]\n  NULLIFY(&maxCpuTime); [line 247]\n  NULLIFY(&threadCpuTime); [line 247]\n  NULLIFY(&threadsInGroup); [line 247]\n  EXIT_SCOPE($bcvar6,thread,$irvar3,stuckThread,$irvar4,$irvar0,$irvar1,$T0_106,$irvar2,maxCpuTime,threadCpuTime,threadsInGroup); [line 247]\n  APPLY_ABSTRACTION; [line 247]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_2" ;
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_4" [label="4:  Call ThreadGroup Thread.getThreadGroup() \n   n$0=*&mainThread:java.lang.Thread* [line 226]\n  _=*n$0:java.lang.Thread*(root java.lang.Thread) [line 226]\n  n$2=_fun_ThreadGroup Thread.getThreadGroup()(n$0:java.lang.Thread*) virtual [line 226]\n  *&$irvar0:java.lang.ThreadGroup*=n$2 [line 226]\n  EXIT_SCOPE(_,n$0,n$2); [line 226]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_4" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_5" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_4" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_5" [label="5:  Call List FailOnTimeout.getThreadsInGroup(ThreadGroup) \n   n$3=*&this:org.junit.internal.runners.statements.FailOnTimeout* [line 226]\n  n$4=*&$irvar0:java.lang.ThreadGroup* [line 226]\n  n$5=_fun_List FailOnTimeout.getThreadsInGroup(ThreadGroup)(n$3:org.junit.internal.runners.statements.FailOnTimeout*,n$4:java.lang.ThreadGroup*) [line 226]\n  *&threadsInGroup:java.util.List*=n$5 [line 226]\n  NULLIFY(&$irvar0); [line 226]\n  EXIT_SCOPE(n$3,n$4,n$5,$irvar0); [line 226]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_5" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_6" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_5" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_6" [label="6:  Call boolean List.isEmpty() \n   n$6=*&threadsInGroup:java.util.List* [line 227]\n  _=*n$6:java.util.List*(root java.util.List) [line 227]\n  n$8=_fun_boolean List.isEmpty()(n$6:java.util.List*) interface virtual [line 227]\n  *&$irvar1:_Bool=n$8 [line 227]\n  EXIT_SCOPE(_,n$6,n$8); [line 227]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_6" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_7" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_6" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_8" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_6" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_7" [label="7: Prune (true branch, if) \n   n$9=*&$irvar1:_Bool [line 227]\n  PRUNE(!(n$9 == 0), true); [line 227]\n  NULLIFY(&$irvar1); [line 227]\n  NULLIFY(&threadsInGroup); [line 227]\n  EXIT_SCOPE(n$9,$irvar1,threadsInGroup); [line 227]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_7" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_9" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_7" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_8" [label="8: Prune (false branch, if) \n   n$9=*&$irvar1:_Bool [line 227]\n  PRUNE((n$9 == 0), false); [line 227]\n  NULLIFY(&$irvar1); [line 227]\n  EXIT_SCOPE(n$9,$irvar1); [line 227]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_8" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_10" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_8" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_9" [label="9:  method_body \n   *&return:java.lang.Thread*=null [line 228]\n  APPLY_ABSTRACTION; [line 228]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_9" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_2" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_9" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_10" [label="10:  method_body \n   *&stuckThread:java.lang.Object*=null [line 236]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_10" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_11" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_10" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_11" [label="11:  method_body \n   *&maxCpuTime:long=0 [line 237]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_11" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_12" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_11" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_12" [label="12:  Call Iterator List.iterator() \n   n$10=*&threadsInGroup:java.util.List* [line 238]\n  _=*n$10:java.util.List*(root java.util.List) [line 238]\n  n$12=_fun_Iterator List.iterator()(n$10:java.util.List*) interface virtual [line 238]\n  *&$bcvar6:java.util.Iterator*=n$12 [line 238]\n  NULLIFY(&threadsInGroup); [line 238]\n  EXIT_SCOPE(_,n$10,n$12,threadsInGroup); [line 238]\n  APPLY_ABSTRACTION; [line 238]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_12" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_12" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" [label="13:  Call boolean Iterator.hasNext() \n   n$13=*&$bcvar6:java.util.Iterator* [line 238]\n  _=*n$13:java.util.Iterator*(root java.util.Iterator) [line 238]\n  n$15=_fun_boolean Iterator.hasNext()(n$13:java.util.Iterator*) interface virtual [line 238]\n  *&$irvar2:_Bool=n$15 [line 238]\n  EXIT_SCOPE(_,n$13,n$15); [line 238]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_16" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_14" [label="14: Prune (true branch, if) \n   n$16=*&$irvar2:_Bool [line 238]\n  PRUNE(!(n$16 == 0), true); [line 238]\n  NULLIFY(&$irvar2); [line 238]\n  EXIT_SCOPE(n$16,$irvar2); [line 238]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_14" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_17" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_14" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_15" [label="15: Prune (false branch, if) \n   n$16=*&$irvar2:_Bool [line 238]\n  PRUNE((n$16 == 0), false); [line 238]\n  NULLIFY(&$bcvar6); [line 238]\n  NULLIFY(&$irvar2); [line 238]\n  NULLIFY(&maxCpuTime); [line 238]\n  EXIT_SCOPE(n$16,$bcvar6,$irvar2,maxCpuTime); [line 238]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_15" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_31" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_15" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_32" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_15" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_16" [label="16: + \n  " ]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_16" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_14" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_16" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_15" ;
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_17" [label="17:  Call Object Iterator.next() \n   n$17=*&$bcvar6:java.util.Iterator* [line 238]\n  _=*n$17:java.util.Iterator*(root java.util.Iterator) [line 238]\n  n$19=_fun_Object Iterator.next()(n$17:java.util.Iterator*) interface virtual [line 238]\n  *&$irvar3:java.lang.Object*=n$19 [line 238]\n  EXIT_SCOPE(_,n$17,n$19); [line 238]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_17" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_18" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_17" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_18" [label="18:  method_body \n   n$20=*&$irvar3:java.lang.Object* [line 238]\n  n$21=_fun___cast(n$20:java.lang.Object*,sizeof(t=java.lang.Thread;sub_t=( sub )(cast)):void) [line 238]\n  *&thread:java.lang.Thread*=n$21 [line 238]\n  NULLIFY(&$irvar3); [line 238]\n  EXIT_SCOPE(n$20,n$21,$irvar3); [line 238]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_18" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_19" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_18" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_19" [label="19:  Call Thread$State Thread.getState() \n   n$22=*&thread:java.lang.Thread* [line 239]\n  _=*n$22:java.lang.Thread*(root java.lang.Thread) [line 239]\n  n$24=_fun_Thread$State Thread.getState()(n$22:java.lang.Thread*) virtual [line 239]\n  *&$irvar4:java.lang.Thread$State*=n$24 [line 239]\n  EXIT_SCOPE(_,n$22,n$24); [line 239]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_19" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_22" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_19" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_20" [label="20: Prune (true branch, if) \n   n$25=*&$irvar4:java.lang.Thread$State* [line 239]\n  n$26=*&#GB<>$java.lang.Thread$State.RUNNABLE:java.lang.Thread$State*(root java.lang.Thread$State) [line 239]\n  PRUNE(!(n$25 != n$26), true); [line 239]\n  NULLIFY(&$irvar4); [line 239]\n  EXIT_SCOPE(n$25,n$26,$irvar4); [line 239]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_20" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_23" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_20" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_21" [label="21: Prune (false branch, if) \n   n$25=*&$irvar4:java.lang.Thread$State* [line 239]\n  n$26=*&#GB<>$java.lang.Thread$State.RUNNABLE:java.lang.Thread$State*(root java.lang.Thread$State) [line 239]\n  PRUNE((n$25 != n$26), false); [line 239]\n  NULLIFY(&thread); [line 239]\n  NULLIFY(&$irvar4); [line 239]\n  EXIT_SCOPE(n$25,n$26,thread,$irvar4); [line 239]\n  APPLY_ABSTRACTION; [line 239]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_21" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_21" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_22" [label="22: + \n  " ]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_22" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_20" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_22" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_21" ;
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_23" [label="23:  Call long FailOnTimeout.cpuTime(Thread) \n   n$27=*&this:org.junit.internal.runners.statements.FailOnTimeout* [line 240]\n  n$28=*&thread:java.lang.Thread* [line 240]\n  n$29=_fun_long FailOnTimeout.cpuTime(Thread)(n$27:org.junit.internal.runners.statements.FailOnTimeout*,n$28:java.lang.Thread*) [line 240]\n  *&threadCpuTime:long=n$29 [line 240]\n  EXIT_SCOPE(n$27,n$28,n$29); [line 240]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_23" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_26" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_23" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_24" [label="24: Prune (true branch, if) \n   n$30=*&stuckThread:java.lang.Object* [line 241]\n  PRUNE(!(n$30 == null), true); [line 241]\n  EXIT_SCOPE(n$30); [line 241]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_24" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_27" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_24" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_28" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_24" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_25" [label="25: Prune (false branch, if) \n   n$30=*&stuckThread:java.lang.Object* [line 241]\n  PRUNE((n$30 == null), false); [line 241]\n  NULLIFY(&stuckThread); [line 241]\n  NULLIFY(&maxCpuTime); [line 241]\n  EXIT_SCOPE(n$30,stuckThread,maxCpuTime); [line 241]\n  APPLY_ABSTRACTION; [line 241]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_25" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_29" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_25" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_26" [label="26: + \n  " ]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_26" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_24" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_26" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_25" ;
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_27" [label="27: Prune (true branch, if) \n   n$31=*&threadCpuTime:long [line 241]\n  n$32=*&maxCpuTime:long [line 241]\n  PRUNE(!(n$31 <= n$32), true); [line 241]\n  NULLIFY(&stuckThread); [line 241]\n  NULLIFY(&maxCpuTime); [line 241]\n  EXIT_SCOPE(n$31,n$32,stuckThread,maxCpuTime); [line 241]\n  APPLY_ABSTRACTION; [line 241]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_27" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_29" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_27" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_28" [label="28: Prune (false branch, if) \n   n$31=*&threadCpuTime:long [line 241]\n  n$32=*&maxCpuTime:long [line 241]\n  PRUNE((n$31 <= n$32), false); [line 241]\n  NULLIFY(&thread); [line 241]\n  NULLIFY(&threadCpuTime); [line 241]\n  EXIT_SCOPE(n$31,n$32,thread,threadCpuTime); [line 241]\n  APPLY_ABSTRACTION; [line 241]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_28" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_28" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_29" [label="29:  method_body \n   n$33=*&thread:java.lang.Thread* [line 242]\n  *&stuckThread:java.lang.Thread*=n$33 [line 242]\n  NULLIFY(&thread); [line 242]\n  EXIT_SCOPE(n$33,thread); [line 242]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_29" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_30" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_29" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_30" [label="30:  method_body \n   n$34=*&threadCpuTime:long [line 243]\n  *&maxCpuTime:long=n$34 [line 243]\n  NULLIFY(&threadCpuTime); [line 243]\n  EXIT_SCOPE(n$34,threadCpuTime); [line 243]\n  APPLY_ABSTRACTION; [line 243]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_30" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_13" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_30" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_31" [label="31: Prune (true branch, if) \n   n$35=*&stuckThread:java.lang.Thread* [line 247]\n  n$36=*&mainThread:java.lang.Thread* [line 247]\n  PRUNE(!(n$35 != n$36), true); [line 247]\n  NULLIFY(&stuckThread); [line 247]\n  NULLIFY(&mainThread); [line 247]\n  EXIT_SCOPE(n$35,n$36,stuckThread,mainThread); [line 247]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_31" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_33" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_31" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_32" [label="32: Prune (false branch, if) \n   n$35=*&stuckThread:java.lang.Thread* [line 247]\n  n$36=*&mainThread:java.lang.Thread* [line 247]\n  PRUNE((n$35 != n$36), false); [line 247]\n  NULLIFY(&mainThread); [line 247]\n  EXIT_SCOPE(n$35,n$36,mainThread); [line 247]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_32" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_34" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_32" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_33" [label="33:  method_body \n   *&$T0_106:java.lang.Object*=null [line 247]\n  APPLY_ABSTRACTION; [line 247]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_33" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_35" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_33" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_34" [label="34:  method_body \n   n$37=*&stuckThread:java.lang.Thread* [line 247]\n  *&$T0_106:java.lang.Thread*=n$37 [line 247]\n  NULLIFY(&stuckThread); [line 247]\n  EXIT_SCOPE(n$37,stuckThread); [line 247]\n  APPLY_ABSTRACTION; [line 247]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_34" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_35" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_34" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+"org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_35" [label="35:  method_body \n   n$38=*&$T0_106:java.lang.Thread* [line 247]\n  *&return:java.lang.Thread*=n$38 [line 247]\n  NULLIFY(&$T0_106); [line 247]\n  EXIT_SCOPE(n$38,$T0_106); [line 247]\n  APPLY_ABSTRACTION; [line 247]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_35" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_2" ;
+	 "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_35" -> "org.junit.internal.runners.statements.FailOnTimeout.getStuckThread(java.lang.Thread):java.lang.Threa.c3922bff58c13ae19cda741c46aa22e2_3" [color="red" ];
+}

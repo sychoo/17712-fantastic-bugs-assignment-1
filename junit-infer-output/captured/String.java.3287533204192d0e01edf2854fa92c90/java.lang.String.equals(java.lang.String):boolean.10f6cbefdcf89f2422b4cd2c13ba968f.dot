@@ -1,0 +1,40 @@
+/* @generated */
+digraph cfg {
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_1" [label="1: Start boolean String.equals(String)\nFormals:  this:java.lang.String* anObject:java.lang.String*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_1" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_3" ;
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_1" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_6" ;
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_2" [label="2: Exit boolean String.equals(String) \n  " color=yellow style=filled]
+	
+
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_3" [label="3: Prune (true branch, if) \n   n$0=*&this:java.lang.String* [line 51]\n  n$1=*&anObject:java.lang.String* [line 51]\n  PRUNE(!(n$0 != n$1), true); [line 51]\n  NULLIFY(&this); [line 51]\n  NULLIFY(&anObject); [line 51]\n  EXIT_SCOPE(n$0,n$1,this,anObject); [line 51]\n " shape="invhouse"]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_3" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_5" ;
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_3" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" [color="red" ];
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" [label="4:  exceptions sink \n   NULLIFY(&$irvar0); [line 54]\n  EXIT_SCOPE($irvar0); [line 54]\n  APPLY_ABSTRACTION; [line 54]\n " shape="box"]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_2" ;
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_5" [label="5:  method_body \n   *&return:_Bool=1 [line 52]\n  APPLY_ABSTRACTION; [line 52]\n " shape="box"]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_5" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_2" ;
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_5" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" [color="red" ];
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_6" [label="6: Prune (false branch, if) \n   n$0=*&this:java.lang.String* [line 51]\n  n$1=*&anObject:java.lang.String* [line 51]\n  PRUNE((n$0 != n$1), false); [line 51]\n  NULLIFY(&this); [line 51]\n  NULLIFY(&anObject); [line 51]\n  EXIT_SCOPE(n$0,n$1,this,anObject); [line 51]\n " shape="invhouse"]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_6" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_7" ;
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_6" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" [color="red" ];
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_7" [label="7:  Call boolean InferUndefined.boolean_undefined() \n   n$2=_fun_boolean InferUndefined.boolean_undefined()() [line 54]\n  *&$irvar0:_Bool=n$2 [line 54]\n  EXIT_SCOPE(n$2); [line 54]\n " shape="box"]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_7" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_8" ;
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_7" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" [color="red" ];
+"java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_8" [label="8:  method_body \n   n$3=*&$irvar0:_Bool [line 54]\n  *&return:_Bool=n$3 [line 54]\n  NULLIFY(&$irvar0); [line 54]\n  EXIT_SCOPE(n$3,$irvar0); [line 54]\n  APPLY_ABSTRACTION; [line 54]\n " shape="box"]
+	
+
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_8" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_2" ;
+	 "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_8" -> "java.lang.String.equals(java.lang.String):boolean.10f6cbefdcf89f2422b4cd2c13ba968f_4" [color="red" ];
+}

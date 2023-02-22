@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Ordering.java.a3e1794de8bdd48dc28d8013e3d15871</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/runner/manipulation/Ordering.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner.manipulation; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.reflect.Constructor; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.Collection; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.Collections; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.util.Random; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.runner.OrderWith; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * Reorders tests. An {@code Ordering} can reverse the order of tests, sort the </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * order or even shuffle the order. </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * &lt;p&gt;In general you will not need to use a &lt;code&gt;Ordering&lt;/code&gt; directly. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * Instead, use {@link org.junit.runner.Request#orderWith(Ordering)}. </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">public abstract class Ordering { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.<init>%28%29.5ee594b8265990193442d0db067e5f46_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.<init>%28%29.5ee594b8265990193442d0db067e5f46_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.manipulation.Ordering* [line 22];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.manipulation.Ordering*) [line 22];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.<init>%28%29.5ee594b8265990193442d0db067e5f46_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.<init>%28%29.5ee594b8265990193442d0db067e5f46_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.<init>%28%29.5ee594b8265990193442d0db067e5f46_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.<init>%28%29.5ee594b8265990193442d0db067e5f46.html">summary for Ordering.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private static final String CONSTRUCTOR_ERROR_FORMAT </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">            = &quot;Ordering class &#37;s should have a public constructor with signature &quot; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">                    + &quot;&#37;s(Ordering.Context context)&quot;; </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     * Creates an {@link Ordering} that shuffles the items using the given </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">     * {@link Random} instance. </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    public static Ordering shuffledBy(final Random random) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.shuffledBy%28java.util.Random%29%3Aorg.junit.runner.manipulation.Or.883d82c8276e64426be4bede5227a108_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.shuffledBy%28java.util.Random%29%3Aorg.junit.runner.manipulation.Or.883d82c8276e64426be4bede5227a108.html">summary for Ordering Ordering.shuffledBy(Random)</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        return new Ordering() { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.shuffledBy%28java.util.Random%29%3Aorg.junit.runner.manipulation.Or.883d82c8276e64426be4bede5227a108_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.manipulation.Ordering$1):org.junit.runner.manipulation.Ordering$1*) [line 32];
+n$1=*&amp;random:java.util.Random* [line 32];
+n$2=_fun_Ordering$1.&lt;init&gt;(Random)(n$0:org.junit.runner.manipulation.Ordering$1*,n$1:java.util.Random*) [line 32];
+*&amp;$irvar0:org.junit.runner.manipulation.Ordering$1*=n$0 [line 32];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.manipulation.Ordering$1* [line 32];
+n$1=*&amp;$bcvar1:java.util.Random* [line 32];
+*n$0.val$random:org.junit.runner.manipulation.Ordering$1(root org.junit.runner.manipulation.Ordering$1)=n$1 [line 32];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.shuffledBy%28java.util.Random%29%3Aorg.junit.runner.manipulation.Or.883d82c8276e64426be4bede5227a108_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.runner.manipulation.Ordering$1* [line 32];
+*&amp;return:org.junit.runner.manipulation.Ordering*=n$3 [line 32];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.manipulation.Ordering$1* [line 32];
+n$3=_fun_Ordering.&lt;init&gt;()(n$2:org.junit.runner.manipulation.Ordering$1*) [line 32];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.shuffledBy%28java.util.Random%29%3Aorg.junit.runner.manipulation.Or.883d82c8276e64426be4bede5227a108_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.shuffledBy%28java.util.Random%29%3Aorg.junit.runner.manipulation.Or.883d82c8276e64426be4bede5227a108_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering%241.<init>%28java.util.Random%29.975a0a50cc097d5c1189405f1e2497c6.html">summary for Ordering$1.&lt;init&gt;(Random)</a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">            boolean validateOrderingIsCorrect() { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.validateOrderingIsCorrect%28%29%3Aboolean.e455f762f74082616310ac76b289dd23_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering%241.validateOrderingIsCorrect%28%29%3Aboolean.e455f762f74082616310ac76b289dd23.html">summary for boolean Ordering$1.validateOrderingIsCorrect()</a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">                return false; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.validateOrderingIsCorrect%28%29%3Aboolean.e455f762f74082616310ac76b289dd23_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 35];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.validateOrderingIsCorrect%28%29%3Aboolean.e455f762f74082616310ac76b289dd23_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.validateOrderingIsCorrect%28%29%3Aboolean.e455f762f74082616310ac76b289dd23_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">            protected List&lt;Description&gt; orderItems(Collection&lt;Description&gt; descriptions) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a.html">summary for List Ordering$1.orderItems(Collection)</a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">                List&lt;Description&gt; shuffled = new ArrayList&lt;Description&gt;(descriptions); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 40];
+n$1=*&amp;descriptions:java.util.Collection* [line 40];
+n$2=_fun_ArrayList.&lt;init&gt;(Collection)(n$0:java.util.ArrayList*,n$1:java.util.Collection*) [line 40];
+*&amp;shuffled:java.util.ArrayList*=n$0 [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">                Collections.shuffle(shuffled, random); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.runner.manipulation.Ordering$1* [line 41];
+n$4=*n$3.val$random:java.util.Random*(root org.junit.runner.manipulation.Ordering$1) [line 41];
+*&amp;$irvar0:java.util.Random*=n$4 [line 41];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;shuffled:java.util.ArrayList* [line 41];
+n$6=*&amp;$irvar0:java.util.Random* [line 41];
+n$7=_fun_void Collections.shuffle(List,Random)(n$5:java.util.ArrayList*,n$6:java.util.Random*) [line 41];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">                return shuffled; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$8=*&amp;shuffled:java.util.ArrayList* [line 42];
+*&amp;return:java.util.List*=n$8 [line 42];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%241.orderItems%28java.util.Collection%29%3Ajava.util.List.0fd908fc0950817e1703874c5b749a0a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">     * Creates an {@link Ordering} from the given factory class. The class must have a public no-arg </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">     * constructor. </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">     * @param factoryClass class to use to create the ordering </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">     * @param annotatedTestClass test class that is annotated with {@link OrderWith}. </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">     * @throws InvalidOrderingException if the instance could not be created </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    public static Ordering definedBy( <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046.html">summary for Ordering Ordering.definedBy(Class,Description)</a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">            Class&lt;? extends Ordering.Factory&gt; factoryClass, Description annotatedTestClass) </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">            throws InvalidOrderingException { </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        if (factoryClass == null) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;factoryClass:java.lang.Class* [line 58];
+PRUNE(!(n$0 != null), true); [line 58];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 9 exn:3 Conditional method_body
+n$0=*&amp;factoryClass:java.lang.Class* [line 58];
+PRUNE((n$0 != null), false); [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            throw new NullPointerException(&quot;factoryClass cannot be null&quot;); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 59];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"factoryClass cannot be null":java.lang.Object*) [line 59];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 59];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 59];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$3 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        if (annotatedTestClass == null) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$4=*&amp;annotatedTestClass:org.junit.runner.Description* [line 61];
+PRUNE(!(n$4 != null), true); [line 61];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:5 succs:12 exn:3 Conditional method_body
+n$4=*&amp;annotatedTestClass:org.junit.runner.Description* [line 61];
+PRUNE((n$4 != null), false); [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">            throw new NullPointerException(&quot;annotatedTestClass cannot be null&quot;); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$5=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 62];
+n$6=_fun_NullPointerException.&lt;init&gt;(String)(n$5:java.lang.NullPointerException*,"annotatedTestClass cannot be null":java.lang.Object*) [line 62];
+*&amp;$irvar1:java.lang.NullPointerException*=n$5 [line 62];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.NullPointerException* [line 62];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$7 [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        Ordering.Factory factory; </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">            Constructor&lt;? extends Ordering.Factory&gt; constructor = factoryClass.getConstructor(); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:39 Instructions
+n$8=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[0]):java.lang.Class*[_*_](*)) [line 67];
+*&amp;$irvar2:java.lang.Class*[_*_](*)=n$8 [line 67];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:39 Instructions
+n$9=*&amp;factoryClass:java.lang.Class* [line 67];
+_=*n$9:java.lang.Class*(root java.lang.Class) [line 67];
+n$11=*&amp;$irvar2:java.lang.Class*[_*_](*) [line 67];
+n$12=_fun_Constructor Class.getConstructor(Class[])(n$9:java.lang.Class*,n$11:java.lang.Class*[_*_](*)) virtual [line 67];
+*&amp;constructor:java.lang.reflect.Constructor*=n$12 [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">            factory = constructor.newInstance(); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:39 Instructions
+n$13=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[0]):java.lang.Object*[_*_](*)) [line 68];
+*&amp;$irvar3:java.lang.Object*[_*_](*)=n$13 [line 68];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:39 Instructions
+n$14=*&amp;constructor:java.lang.reflect.Constructor* [line 68];
+_=*n$14:java.lang.reflect.Constructor*(root java.lang.reflect.Constructor) [line 68];
+n$16=*&amp;$irvar3:java.lang.Object*[_*_](*) [line 68];
+n$17=_fun_Object Constructor.newInstance(Object[])(n$14:java.lang.reflect.Constructor*,n$16:java.lang.Object*[_*_](*)) virtual [line 68];
+*&amp;$irvar4:java.lang.Object*=n$17 [line 68];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:33 exn:39 Instructions
+n$18=*&amp;$irvar4:java.lang.Object* [line 68];
+n$19=_fun___cast(n$18:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Ordering$Factory;sub_t=( sub )(cast)):void) [line 68];
+*&amp;factory:org.junit.runner.manipulation.Ordering$Factory*=n$19 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        } catch (NoSuchMethodException e) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:37 succs:18 exn:3 Instructions
+n$20=*&amp;CatchVar52:java.lang.Object* [line 69];
+*&amp;e:java.lang.Object*=n$20 [line 69];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node37.html"><span class='visited with_tooltip'>C_37<span class='tooltip'>node37 preds:39 succs:17 exn:3 Conditional exception handler
+n$62=_fun___instanceof(n$60:java.lang.NoSuchMethodException*,sizeof(t=java.lang.NoSuchMethodException):void) [line 69];
+PRUNE(n$62, true); [line 69];
+*&amp;CatchVar52:org.junit.runner.manipulation.Ordering*=n$60 [line 69];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node38.html"><span class='visited with_tooltip'>C_38<span class='tooltip'>node38 preds:39 succs:35 36 exn:3 Conditional exception handler
+n$62=_fun___instanceof(n$60:java.lang.NoSuchMethodException*,sizeof(t=java.lang.NoSuchMethodException):void) [line 69];
+PRUNE(!n$62, false); [line 69];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node39.html"><span class='visited with_tooltip'>I_39<span class='tooltip'>node39 preds: succs:37 38 exn:3 Instructions
+n$59=*&amp;return:org.junit.runner.manipulation.Ordering* [line 69];
+*&amp;return:org.junit.runner.manipulation.Ordering*=null [line 69];
+n$60=_fun___unwrap_exception(n$59:org.junit.runner.manipulation.Ordering*) [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">            throw new InvalidOrderingException(String.format( <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$21=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[2]):java.lang.Object*[_*_](*)) [line 70];
+*&amp;$irvar5:java.lang.Object*[_*_](*)=n$21 [line 70];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$31=*&amp;$irvar5:java.lang.Object*[_*_](*) [line 70];
+n$32=_fun_String String.format(String,Object[])("Ordering class %s should have a public constructor with signature %s(Ordering.Context context)":java.lang.Object*,n$31:java.lang.Object*[_*_](*)) [line 70];
+*&amp;$irvar8:java.lang.String*=n$32 [line 70];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$33=_fun___new(sizeof(t=org.junit.runner.manipulation.InvalidOrderingException):org.junit.runner.manipulation.InvalidOrderingException*) [line 70];
+n$34=*&amp;$irvar8:java.lang.String* [line 70];
+n$35=_fun_InvalidOrderingException.&lt;init&gt;(String)(n$33:org.junit.runner.manipulation.InvalidOrderingException*,n$34:java.lang.String*) [line 70];
+*&amp;$irvar9:org.junit.runner.manipulation.InvalidOrderingException*=n$33 [line 70];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+n$36=*&amp;$irvar9:org.junit.runner.manipulation.InvalidOrderingException* [line 70];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$36 [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">                    CONSTRUCTOR_ERROR_FORMAT, </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">                    getClassName(factoryClass), <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$22=*&amp;factoryClass:java.lang.Class* [line 72];
+n$23=_fun_String Ordering.getClassName(Class)(n$22:java.lang.Class*) [line 72];
+*&amp;$irvar6:java.lang.String*=n$23 [line 72];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$24=*&amp;$irvar5:java.lang.Object*[_*_](*) [line 72];
+n$25=*&amp;$irvar6:java.lang.String* [line 72];
+*n$24[0]:java.lang.String*=n$25 [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">                    factoryClass.getSimpleName())); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$26=*&amp;factoryClass:java.lang.Class* [line 73];
+_=*n$26:java.lang.Class*(root java.lang.Class) [line 73];
+n$28=_fun_String Class.getSimpleName()(n$26:java.lang.Class*) virtual [line 73];
+*&amp;$irvar7:java.lang.String*=n$28 [line 73];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$29=*&amp;$irvar5:java.lang.Object*[_*_](*) [line 73];
+n$30=*&amp;$irvar7:java.lang.String* [line 73];
+*n$29[1]:java.lang.String*=n$30 [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        } catch (Exception e) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:35 succs:27 exn:3 Instructions
+n$37=*&amp;CatchVar84:java.lang.Object* [line 74];
+*&amp;e:java.lang.Object*=n$37 [line 74];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node35.html"><span class='visited with_tooltip'>C_35<span class='tooltip'>node35 preds:38 succs:26 exn:3 Conditional exception handler
+n$61=_fun___instanceof(n$60:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 74];
+PRUNE(n$61, true); [line 74];
+*&amp;CatchVar84:org.junit.runner.manipulation.Ordering*=n$60 [line 74];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node36.html"><span class='visited with_tooltip'>C_36<span class='tooltip'>node36 preds:38 succs:3 exn:3 Conditional exception handler
+n$61=_fun___instanceof(n$60:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 74];
+PRUNE(!n$61, false); [line 74];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$60 [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">            throw new InvalidOrderingException( <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$38=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 75];
+n$39=_fun_StringBuilder.&lt;init&gt;()(n$38:java.lang.StringBuilder*) [line 75];
+*&amp;$irvar10:java.lang.StringBuilder*=n$38 [line 75];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$40=*&amp;$irvar10:java.lang.StringBuilder* [line 75];
+_=*n$40:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 75];
+n$42=_fun_StringBuilder StringBuilder.append(String)(n$40:java.lang.StringBuilder*,"Could not create ordering for ":java.lang.Object*) virtual [line 75];
+*&amp;$irvar11:java.lang.StringBuilder*=n$42 [line 75];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$43=*&amp;$irvar11:java.lang.StringBuilder* [line 75];
+_=*n$43:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 75];
+n$45=*&amp;annotatedTestClass:org.junit.runner.Description* [line 75];
+n$46=_fun_StringBuilder StringBuilder.append(Object)(n$43:java.lang.StringBuilder*,n$45:org.junit.runner.Description*) virtual [line 75];
+*&amp;$irvar12:java.lang.StringBuilder*=n$46 [line 75];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$47=*&amp;$irvar12:java.lang.StringBuilder* [line 75];
+_=*n$47:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 75];
+n$49=_fun_String StringBuilder.toString()(n$47:java.lang.StringBuilder*) virtual [line 75];
+*&amp;$irvar13:java.lang.String*=n$49 [line 75];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$50=_fun___new(sizeof(t=org.junit.runner.manipulation.InvalidOrderingException):org.junit.runner.manipulation.InvalidOrderingException*) [line 75];
+n$51=*&amp;$irvar13:java.lang.String* [line 75];
+n$52=*&amp;e:java.lang.Object* [line 75];
+n$53=_fun_InvalidOrderingException.&lt;init&gt;(String,Throwable)(n$50:org.junit.runner.manipulation.InvalidOrderingException*,n$51:java.lang.String*,n$52:java.lang.Object*) [line 75];
+*&amp;$irvar14:org.junit.runner.manipulation.InvalidOrderingException*=n$50 [line 75];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+n$54=*&amp;$irvar14:org.junit.runner.manipulation.InvalidOrderingException* [line 75];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$54 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                    &quot;Could not create ordering for &quot; + annotatedTestClass, e); </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">        return definedBy(factory, annotatedTestClass); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:16 succs:34 exn:3 Instructions
+n$55=*&amp;factory:org.junit.runner.manipulation.Ordering$Factory* [line 78];
+n$56=*&amp;annotatedTestClass:org.junit.runner.Description* [line 78];
+n$57=_fun_Ordering Ordering.definedBy(Ordering$Factory,Description)(n$55:org.junit.runner.manipulation.Ordering$Factory*,n$56:org.junit.runner.Description*) [line 78];
+*&amp;$irvar15:org.junit.runner.manipulation.Ordering*=n$57 [line 78];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:33 succs:2 exn:3 Instructions
+n$58=*&amp;$irvar15:org.junit.runner.manipulation.Ordering* [line 78];
+*&amp;return:org.junit.runner.manipulation.Ordering*=n$58 [line 78];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:34 32 25 11 7 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28java.lang.Class%2Corg.junit.runner.Description%29%3Aorg.j.ead32ff2f32202cc7ca516853247a046_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:36 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">     * Creates an {@link Ordering} from the given factory. </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     * @param factory factory to use to create the ordering </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * @param annotatedTestClass test class that is annotated with {@link OrderWith}. </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     * @throws InvalidOrderingException if the instance could not be created </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">    public static Ordering definedBy( <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387.html">summary for Ordering Ordering.definedBy(Ordering$Factory,Description)</a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">            Ordering.Factory factory, Description annotatedTestClass) </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            throws InvalidOrderingException { </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        if (factory == null) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;factory:org.junit.runner.manipulation.Ordering$Factory* [line 91];
+PRUNE(!(n$0 != null), true); [line 91];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 9 exn:3 Conditional method_body
+n$0=*&amp;factory:org.junit.runner.manipulation.Ordering$Factory* [line 91];
+PRUNE((n$0 != null), false); [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            throw new NullPointerException(&quot;factory cannot be null&quot;); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 92];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"factory cannot be null":java.lang.Object*) [line 92];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 92];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 92];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$3 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">        if (annotatedTestClass == null) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$4=*&amp;annotatedTestClass:org.junit.runner.Description* [line 94];
+PRUNE(!(n$4 != null), true); [line 94];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:5 succs:12 exn:3 Conditional method_body
+n$4=*&amp;annotatedTestClass:org.junit.runner.Description* [line 94];
+PRUNE((n$4 != null), false); [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">            throw new NullPointerException(&quot;annotatedTestClass cannot be null&quot;); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$5=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 95];
+n$6=_fun_NullPointerException.&lt;init&gt;(String)(n$5:java.lang.NullPointerException*,"annotatedTestClass cannot be null":java.lang.Object*) [line 95];
+*&amp;$irvar1:java.lang.NullPointerException*=n$5 [line 95];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.NullPointerException* [line 95];
+*&amp;return:org.junit.runner.manipulation.Ordering*=EXN n$7 [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">        return factory.create(new Ordering.Context(annotatedTestClass)); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$8=_fun___new(sizeof(t=org.junit.runner.manipulation.Ordering$Context):org.junit.runner.manipulation.Ordering$Context*) [line 98];
+n$9=*&amp;annotatedTestClass:org.junit.runner.Description* [line 98];
+n$10=_fun_Ordering$Context.&lt;init&gt;(Description,Ordering$1)(n$8:org.junit.runner.manipulation.Ordering$Context*,n$9:org.junit.runner.Description*,null:java.lang.Object*) [line 98];
+*&amp;$irvar2:org.junit.runner.manipulation.Ordering$Context*=n$8 [line 98];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$11=*&amp;factory:org.junit.runner.manipulation.Ordering$Factory* [line 98];
+_=*n$11:org.junit.runner.manipulation.Ordering$Factory*(root org.junit.runner.manipulation.Ordering$Factory) [line 98];
+n$13=*&amp;$irvar2:org.junit.runner.manipulation.Ordering$Context* [line 98];
+n$14=_fun_Ordering Ordering$Factory.create(Ordering$Context)(n$11:org.junit.runner.manipulation.Ordering$Factory*,n$13:org.junit.runner.manipulation.Ordering$Context*) interface virtual [line 98];
+*&amp;$irvar3:org.junit.runner.manipulation.Ordering*=n$14 [line 98];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+n$15=*&amp;$irvar3:org.junit.runner.manipulation.Ordering* [line 98];
+*&amp;return:org.junit.runner.manipulation.Ordering*=n$15 [line 98];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 11 7 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.definedBy%28org.junit.runner.manipulation.Ordering%24Factory%2Corg..ebcbfb51cacdb79cf87e6e2a763af387_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">    private static String getClassName(Class&lt;?&gt; clazz) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c.html">summary for String Ordering.getClassName(Class)</a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        String name = clazz.getCanonicalName(); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;clazz:java.lang.Class* [line 102];
+_=*n$0:java.lang.Class*(root java.lang.Class) [line 102];
+n$2=_fun_String Class.getCanonicalName()(n$0:java.lang.Class*) virtual [line 102];
+*&amp;name:java.lang.String*=n$2 [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        if (name == null) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;name:java.lang.String* [line 103];
+PRUNE(!(n$3 != null), true); [line 103];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:9 exn:3 Conditional method_body
+n$3=*&amp;name:java.lang.String* [line 103];
+PRUNE((n$3 != null), false); [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">            return clazz.getName(); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$4=*&amp;clazz:java.lang.Class* [line 104];
+_=*n$4:java.lang.Class*(root java.lang.Class) [line 104];
+n$6=_fun_String Class.getName()(n$4:java.lang.Class*) virtual [line 104];
+*&amp;$irvar0:java.lang.String*=n$6 [line 104];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar0:java.lang.String* [line 104];
+*&amp;return:java.lang.String*=n$7 [line 104];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        return name; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:2 exn:3 Instructions
+n$8=*&amp;name:java.lang.String* [line 106];
+*&amp;return:java.lang.String*=n$8 [line 106];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 8 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.getClassName%28java.lang.Class%29%3Ajava.lang.String.67cc599659f470552f8a335b6ba72d3c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">     * Order the tests in &lt;code&gt;target&lt;/code&gt; using this ordering. </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">     * @throws InvalidOrderingException if ordering does something invalid (like remove or add </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">     * children) </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">    public void apply(Object target) throws InvalidOrderingException { </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        /* </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">         * Note that some subclasses of Ordering override apply(). The Sorter </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">         * subclass of Ordering overrides apply() to apply the sort (this is <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002.html">summary for void Ordering.apply(Object)</a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">         * done because sorting is more efficient than ordering). </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        if (target instanceof Orderable) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;target:java.lang.Object* [line 121];
+n$1=_fun___instanceof(n$0:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Orderable;sub_t=( sub )(instof)):void) [line 121];
+PRUNE(!(n$1 == 0), true); [line 121];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:9 exn:3 Conditional method_body
+n$0=*&amp;target:java.lang.Object* [line 121];
+n$1=_fun___instanceof(n$0:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Orderable;sub_t=( sub )(instof)):void) [line 121];
+PRUNE((n$1 == 0), false); [line 121];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            Orderable orderable = (Orderable) target; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$2=*&amp;target:java.lang.Object* [line 122];
+n$3=_fun___cast(n$2:java.lang.Object*,sizeof(t=org.junit.runner.manipulation.Orderable;sub_t=( sub )(cast)):void) [line 122];
+*&amp;orderable:org.junit.runner.manipulation.Orderable*=n$3 [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">            orderable.order(new Orderer(this)); <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.runner.manipulation.Orderer):org.junit.runner.manipulation.Orderer*) [line 123];
+n$5=*&amp;this:org.junit.runner.manipulation.Ordering* [line 123];
+n$6=_fun_Orderer.&lt;init&gt;(Ordering)(n$4:org.junit.runner.manipulation.Orderer*,n$5:org.junit.runner.manipulation.Ordering*) [line 123];
+*&amp;$irvar0:org.junit.runner.manipulation.Orderer*=n$4 [line 123];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;orderable:org.junit.runner.manipulation.Orderable* [line 123];
+_=*n$7:org.junit.runner.manipulation.Orderable*(root org.junit.runner.manipulation.Orderable) [line 123];
+n$9=*&amp;$irvar0:org.junit.runner.manipulation.Orderer* [line 123];
+n$10=_fun_void Orderable.order(Orderer)(n$7:org.junit.runner.manipulation.Orderable*,n$9:org.junit.runner.manipulation.Orderer*) interface virtual [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">    } <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.apply%28java.lang.Object%29%3Avoid.545980b3ecde8ecc3ada3edbcca79002_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">     * Returns {@code true} if this ordering could produce invalid results (i.e. </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">     * if it could add or remove values). </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    boolean validateOrderingIsCorrect() { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.validateOrderingIsCorrect%28%29%3Aboolean.736328dc6aa59554b668b0410c62f824_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering.validateOrderingIsCorrect%28%29%3Aboolean.736328dc6aa59554b668b0410c62f824.html">summary for boolean Ordering.validateOrderingIsCorrect()</a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">        return true; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.validateOrderingIsCorrect%28%29%3Aboolean.736328dc6aa59554b668b0410c62f824_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:_Bool=1 [line 132];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.validateOrderingIsCorrect%28%29%3Aboolean.736328dc6aa59554b668b0410c62f824_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering.validateOrderingIsCorrect%28%29%3Aboolean.736328dc6aa59554b668b0410c62f824_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">     * Implemented by sub-classes to order the descriptions. </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">     * @return descriptions in order </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">    protected abstract List&lt;Description&gt; orderItems(Collection&lt;Description&gt; descriptions); </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">    /** Context about the ordering being applied. */ </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    public static class Context { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%2Corg.junit.runner..e1424459443428638a09fa1c684e2595_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%2Corg.junit.runner..e1424459443428638a09fa1c684e2595_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.manipulation.Ordering$Context* [line 143];
+n$1=*&amp;x0:org.junit.runner.Description* [line 143];
+n$2=_fun_Ordering$Context.&lt;init&gt;(Description)(n$0:org.junit.runner.manipulation.Ordering$Context*,n$1:org.junit.runner.Description*) [line 143];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%2Corg.junit.runner..e1424459443428638a09fa1c684e2595_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%2Corg.junit.runner..e1424459443428638a09fa1c684e2595_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%2Corg.junit.runner..e1424459443428638a09fa1c684e2595_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%2Corg.junit.runner..e1424459443428638a09fa1c684e2595.html">summary for Ordering$Context.&lt;init&gt;(Description,Ordering$1)</a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        private final Description description; </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">         * Gets the description for the top-level target being ordered. </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">        public Description getTarget() { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.getTarget%28%29%3Aorg.junit.runner.Description.768a935ac1af72f7c5339ba0feb16fbe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering%24Context.getTarget%28%29%3Aorg.junit.runner.Description.768a935ac1af72f7c5339ba0feb16fbe.html">summary for Description Ordering$Context.getTarget()</a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">            return description; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.getTarget%28%29%3Aorg.junit.runner.Description.768a935ac1af72f7c5339ba0feb16fbe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.manipulation.Ordering$Context* [line 150];
+n$1=*n$0.description:org.junit.runner.Description*(root org.junit.runner.manipulation.Ordering$Context) [line 150];
+*&amp;return:org.junit.runner.Description*=n$1 [line 150];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.getTarget%28%29%3Aorg.junit.runner.Description.768a935ac1af72f7c5339ba0feb16fbe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.getTarget%28%29%3Aorg.junit.runner.Description.768a935ac1af72f7c5339ba0feb16fbe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        private Context(Description description) { <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.manipulation.Ordering$Context* [line 153];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.manipulation.Ordering$Context*) [line 153];
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957.html">summary for Ordering$Context.&lt;init&gt;(Description)</a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">            this.description = description; <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.manipulation.Ordering$Context* [line 154];
+n$3=*&amp;description:org.junit.runner.Description* [line 154];
+*n$2.description:org.junit.runner.manipulation.Ordering$Context(root org.junit.runner.manipulation.Ordering$Context)=n$3 [line 154];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        } <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./Ordering.java.a3e1794de8bdd48dc28d8013e3d15871/nodes/org.junit.runner.manipulation.Ordering%24Context.<init>%28org.junit.runner.Description%29.159784c9bdae1dd35a050d8460a28957_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">     * Factory for creating {@link Ordering} instances. </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">     * &lt;p&gt;For a factory to be used with {@code @OrderWith} it needs to have a public no-arg </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">     * constructor. </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">    public interface Factory { </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">         * Creates an Ordering instance using the given context. Implementations </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">         * of this method that do not need to use the context can return the </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">         * same instance every time. </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">        Ordering create(Context context); </td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

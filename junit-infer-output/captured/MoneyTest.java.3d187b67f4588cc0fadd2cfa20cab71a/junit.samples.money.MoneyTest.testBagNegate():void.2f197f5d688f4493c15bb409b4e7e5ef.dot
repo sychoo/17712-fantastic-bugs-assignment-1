@@ -1,0 +1,44 @@
+/* @generated */
+digraph cfg {
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_1" [label="1: Start void MoneyTest.testBagNegate()\nFormals:  this:junit.samples.money.MoneyTest*\nLocals:  $irvar2:void $irvar1:void $irvar0:void expected:junit.samples.money.IMoney* \n  " color=yellow style=filled]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_1" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_4" ;
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_2" [label="2: Exit void MoneyTest.testBagNegate() \n  " color=yellow style=filled]
+	
+
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 41]\n  NULLIFY(&$irvar1); [line 41]\n  NULLIFY(&$irvar2); [line 41]\n  NULLIFY(&expected); [line 41]\n  EXIT_SCOPE($irvar0,$irvar1,$irvar2,expected); [line 41]\n  APPLY_ABSTRACTION; [line 41]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_2" ;
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_4" [label="4:  Call Money.<init>(int,String) \n   n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 39]\n  n$1=_fun_Money.<init>(int,String)(n$0:junit.samples.money.Money*,-12:int,\"CHF\":java.lang.Object*) [line 39]\n  *&$irvar0:junit.samples.money.Money*=n$0 [line 39]\n  EXIT_SCOPE(n$0,n$1); [line 39]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_4" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_5" ;
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_4" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [color="red" ];
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_5" [label="5:  Call Money.<init>(int,String) \n   n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 39]\n  n$3=_fun_Money.<init>(int,String)(n$2:junit.samples.money.Money*,-7:int,\"USD\":java.lang.Object*) [line 39]\n  *&$irvar1:junit.samples.money.Money*=n$2 [line 39]\n  EXIT_SCOPE(n$2,n$3); [line 39]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_5" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_6" ;
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_5" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [color="red" ];
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_6" [label="6:  Call IMoney MoneyBag.create(IMoney,IMoney) \n   n$4=*&$irvar0:junit.samples.money.Money* [line 39]\n  n$5=*&$irvar1:junit.samples.money.Money* [line 39]\n  n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 39]\n  *&expected:junit.samples.money.IMoney*=n$6 [line 39]\n  NULLIFY(&$irvar0); [line 39]\n  NULLIFY(&$irvar1); [line 39]\n  EXIT_SCOPE(n$4,n$5,n$6,$irvar0,$irvar1); [line 39]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_6" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_7" ;
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_6" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [color="red" ];
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_7" [label="7:  Call IMoney IMoney.negate() \n   n$7=*&this:junit.samples.money.MoneyTest* [line 40]\n  n$8=*n$7.fMB1:junit.samples.money.IMoney*(root junit.samples.money.MoneyTest) [line 40]\n  _=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 40]\n  n$10=_fun_IMoney IMoney.negate()(n$8:junit.samples.money.IMoney*) interface virtual [line 40]\n  *&$irvar2:junit.samples.money.IMoney*=n$10 [line 40]\n  NULLIFY(&this); [line 40]\n  EXIT_SCOPE(_,n$7,n$8,n$10,this); [line 40]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_7" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_8" ;
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_7" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [color="red" ];
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_8" [label="8:  Call void TestCase.assertEquals(Object,Object) \n   n$11=*&expected:junit.samples.money.IMoney* [line 40]\n  n$12=*&$irvar2:junit.samples.money.IMoney* [line 40]\n  n$13=_fun_void TestCase.assertEquals(Object,Object)(n$11:junit.samples.money.IMoney*,n$12:junit.samples.money.IMoney*) [line 40]\n  NULLIFY(&$irvar2); [line 40]\n  NULLIFY(&expected); [line 40]\n  EXIT_SCOPE(n$11,n$12,n$13,$irvar2,expected); [line 40]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_8" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_9" ;
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_8" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [color="red" ];
+"junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_9" [label="9:  method_body \n   APPLY_ABSTRACTION; [line 41]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_9" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_2" ;
+	 "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_9" -> "junit.samples.money.MoneyTest.testBagNegate():void.2f197f5d688f4493c15bb409b4e7e5ef_3" [color="red" ];
+}

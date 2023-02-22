@@ -1,0 +1,39 @@
+/* @generated */
+digraph cfg {
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_1" [label="1: Start void ResultPrinter.printDefectTrace(TestFailure)\nFormals:  this:junit.textui.ResultPrinter* booBoo:junit.framework.TestFailure*\nLocals:  $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_1" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_4" ;
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_2" [label="2: Exit void ResultPrinter.printDefectTrace(TestFailure) \n  " color=yellow style=filled]
+	
+
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 76]\n  NULLIFY(&$irvar1); [line 76]\n  NULLIFY(&$irvar2); [line 76]\n  EXIT_SCOPE($irvar0,$irvar1,$irvar2); [line 76]\n  APPLY_ABSTRACTION; [line 76]\n " shape="box"]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_2" ;
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_4" [label="4:  Call PrintStream ResultPrinter.getWriter() \n   n$0=*&this:junit.textui.ResultPrinter* [line 75]\n  _=*n$0:junit.textui.ResultPrinter*(root junit.textui.ResultPrinter) [line 75]\n  n$2=_fun_PrintStream ResultPrinter.getWriter()(n$0:junit.textui.ResultPrinter*) virtual [line 75]\n  *&$irvar0:java.io.PrintStream*=n$2 [line 75]\n  NULLIFY(&this); [line 75]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 75]\n " shape="box"]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_4" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_5" ;
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_4" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" [color="red" ];
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_5" [label="5:  Call String TestFailure.trace() \n   n$3=*&booBoo:junit.framework.TestFailure* [line 75]\n  _=*n$3:junit.framework.TestFailure*(root junit.framework.TestFailure) [line 75]\n  n$5=_fun_String TestFailure.trace()(n$3:junit.framework.TestFailure*) virtual [line 75]\n  *&$irvar1:java.lang.String*=n$5 [line 75]\n  NULLIFY(&booBoo); [line 75]\n  EXIT_SCOPE(_,n$3,n$5,booBoo); [line 75]\n " shape="box"]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_5" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_6" ;
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_5" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" [color="red" ];
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_6" [label="6:  Call String BaseTestRunner.getFilteredTrace(String) \n   n$6=*&$irvar1:java.lang.String* [line 75]\n  n$7=_fun_String BaseTestRunner.getFilteredTrace(String)(n$6:java.lang.String*) [line 75]\n  *&$irvar2:java.lang.String*=n$7 [line 75]\n  NULLIFY(&$irvar1); [line 75]\n  EXIT_SCOPE(n$6,n$7,$irvar1); [line 75]\n " shape="box"]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_6" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_7" ;
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_6" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" [color="red" ];
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_7" [label="7:  Call void PrintStream.print(String) \n   n$8=*&$irvar0:java.io.PrintStream* [line 75]\n  _=*n$8:java.io.PrintStream*(root java.io.PrintStream) [line 75]\n  n$10=*&$irvar2:java.lang.String* [line 75]\n  n$11=_fun_void PrintStream.print(String)(n$8:java.io.PrintStream*,n$10:java.lang.String*) virtual [line 75]\n  NULLIFY(&$irvar0); [line 75]\n  NULLIFY(&$irvar2); [line 75]\n  EXIT_SCOPE(_,n$8,n$10,n$11,$irvar0,$irvar2); [line 75]\n " shape="box"]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_7" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_8" ;
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_7" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" [color="red" ];
+"junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_8" [label="8:  method_body \n   APPLY_ABSTRACTION; [line 76]\n " shape="box"]
+	
+
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_8" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_2" ;
+	 "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_8" -> "junit.textui.ResultPrinter.printDefectTrace(junit.framework.TestFailure):void.4973ad9d4d287ef95717a3b91c291ba9_3" [color="red" ];
+}

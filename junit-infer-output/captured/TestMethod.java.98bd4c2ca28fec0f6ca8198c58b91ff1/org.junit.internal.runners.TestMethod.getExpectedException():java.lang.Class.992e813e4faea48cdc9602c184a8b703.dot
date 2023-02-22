@@ -1,0 +1,66 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_1" [label="1: Start Class TestMethod.getExpectedException()\nFormals:  this:org.junit.internal.runners.TestMethod*\nLocals:  $irvar2:void $irvar1:void $irvar0:void annotation:org.junit.Test* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_1" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_4" ;
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_2" [label="2: Exit Class TestMethod.getExpectedException() \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [label="3:  exceptions sink \n   NULLIFY(&annotation); [line 47]\n  NULLIFY(&$irvar0); [line 47]\n  NULLIFY(&$irvar1); [line 47]\n  NULLIFY(&$irvar2); [line 47]\n  EXIT_SCOPE(annotation,$irvar0,$irvar1,$irvar2); [line 47]\n  APPLY_ABSTRACTION; [line 47]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_2" ;
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_4" [label="4:  Call Annotation Method.getAnnotation(Class) \n   n$0=*&this:org.junit.internal.runners.TestMethod* [line 43]\n  n$1=*n$0.method:java.lang.reflect.Method*(root org.junit.internal.runners.TestMethod) [line 43]\n  _=*n$1:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 43]\n  n$3=_fun_Annotation Method.getAnnotation(Class)(n$1:java.lang.reflect.Method*,org.junit.Test:java.lang.Object*) virtual [line 43]\n  *&$irvar0:java.lang.annotation.Annotation*=n$3 [line 43]\n  NULLIFY(&this); [line 43]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 43]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_4" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_5" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_4" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_5" [label="5:  method_body \n   n$4=*&$irvar0:java.lang.annotation.Annotation* [line 43]\n  n$5=_fun___cast(n$4:java.lang.annotation.Annotation*,sizeof(t=org.junit.Test;sub_t=( sub )(cast)):void) [line 43]\n  *&annotation:org.junit.Test*=n$5 [line 43]\n  NULLIFY(&$irvar0); [line 43]\n  EXIT_SCOPE(n$4,n$5,$irvar0); [line 43]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_5" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_6" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_5" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_7" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_5" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_6" [label="6: Prune (true branch, if) \n   n$6=*&annotation:org.junit.Test* [line 44]\n  PRUNE(!(n$6 == null), true); [line 44]\n  EXIT_SCOPE(n$6); [line 44]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_6" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_8" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_6" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_7" [label="7: Prune (false branch, if) \n   n$6=*&annotation:org.junit.Test* [line 44]\n  PRUNE((n$6 == null), false); [line 44]\n  NULLIFY(&annotation); [line 44]\n  EXIT_SCOPE(n$6,annotation); [line 44]\n  APPLY_ABSTRACTION; [line 44]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_7" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_11" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_7" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_8" [label="8:  Call Class Test.expected() \n   n$7=*&annotation:org.junit.Test* [line 44]\n  _=*n$7:org.junit.Test*(root org.junit.Test) [line 44]\n  n$9=_fun_Class Test.expected()(n$7:org.junit.Test*) interface virtual [line 44]\n  *&$irvar1:java.lang.Class*=n$9 [line 44]\n  EXIT_SCOPE(_,n$7,n$9); [line 44]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_8" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_9" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_8" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_10" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_8" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_9" [label="9: Prune (true branch, if) \n   n$10=*&$irvar1:java.lang.Class* [line 44]\n  PRUNE(!(n$10 != org.junit.Test$None), true); [line 44]\n  NULLIFY(&annotation); [line 44]\n  NULLIFY(&$irvar1); [line 44]\n  EXIT_SCOPE(n$10,annotation,$irvar1); [line 44]\n  APPLY_ABSTRACTION; [line 44]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_9" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_11" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_9" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_10" [label="10: Prune (false branch, if) \n   n$10=*&$irvar1:java.lang.Class* [line 44]\n  PRUNE((n$10 != org.junit.Test$None), false); [line 44]\n  NULLIFY(&$irvar1); [line 44]\n  EXIT_SCOPE(n$10,$irvar1); [line 44]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_10" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_12" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_10" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_11" [label="11:  method_body \n   *&return:java.lang.Class*=null [line 45]\n  APPLY_ABSTRACTION; [line 45]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_11" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_2" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_11" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_12" [label="12:  Call Class Test.expected() \n   n$11=*&annotation:org.junit.Test* [line 47]\n  _=*n$11:org.junit.Test*(root org.junit.Test) [line 47]\n  n$13=_fun_Class Test.expected()(n$11:org.junit.Test*) interface virtual [line 47]\n  *&$irvar2:java.lang.Class*=n$13 [line 47]\n  NULLIFY(&annotation); [line 47]\n  EXIT_SCOPE(_,n$11,n$13,annotation); [line 47]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_12" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_13" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_12" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+"org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_13" [label="13:  method_body \n   n$14=*&$irvar2:java.lang.Class* [line 47]\n  *&return:java.lang.Class*=n$14 [line 47]\n  NULLIFY(&$irvar2); [line 47]\n  EXIT_SCOPE(n$14,$irvar2); [line 47]\n  APPLY_ABSTRACTION; [line 47]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_13" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_2" ;
+	 "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_13" -> "org.junit.internal.runners.TestMethod.getExpectedException():java.lang.Class.992e813e4faea48cdc9602c184a8b703_3" [color="red" ];
+}

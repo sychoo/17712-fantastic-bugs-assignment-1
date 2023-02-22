@@ -1,0 +1,35 @@
+/* @generated */
+digraph cfg {
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_1" [label="1: Start void Assert.assertTrue(String,boolean)\nFormals:  message:java.lang.String* condition:_Bool\nLocals:  \n  " color=yellow style=filled]
+	
+
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_1" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_4" ;
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_1" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_5" ;
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_2" [label="2: Exit void Assert.assertTrue(String,boolean) \n  " color=yellow style=filled]
+	
+
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_3" [label="3:  exceptions sink \n   APPLY_ABSTRACTION; [line 44]\n " shape="box"]
+	
+
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_3" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_2" ;
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_4" [label="4: Prune (true branch, if) \n   n$0=*&condition:_Bool [line 41]\n  PRUNE(!(n$0 != 0), true); [line 41]\n  NULLIFY(&condition); [line 41]\n  EXIT_SCOPE(n$0,condition); [line 41]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_4" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_6" ;
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_4" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_3" [color="red" ];
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_5" [label="5: Prune (false branch, if) \n   n$0=*&condition:_Bool [line 41]\n  PRUNE((n$0 != 0), false); [line 41]\n  NULLIFY(&condition); [line 41]\n  EXIT_SCOPE(n$0,condition); [line 41]\n  APPLY_ABSTRACTION; [line 41]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_5" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_7" ;
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_5" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_3" [color="red" ];
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_6" [label="6:  Call void Assert.fail(String) \n   n$1=*&message:java.lang.String* [line 42]\n  n$2=_fun_void Assert.fail(String)(n$1:java.lang.String*) [line 42]\n  NULLIFY(&message); [line 42]\n  EXIT_SCOPE(n$1,n$2,message); [line 42]\n  APPLY_ABSTRACTION; [line 42]\n " shape="box"]
+	
+
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_6" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_7" ;
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_6" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_3" [color="red" ];
+"org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_7" [label="7:  method_body \n   APPLY_ABSTRACTION; [line 44]\n " shape="box"]
+	
+
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_7" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_2" ;
+	 "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_7" -> "org.junit.Assert.assertTrue(java.lang.String,boolean):void.b6a074b6825ae87bd3bc74b00da1d18e_3" [color="red" ];
+}

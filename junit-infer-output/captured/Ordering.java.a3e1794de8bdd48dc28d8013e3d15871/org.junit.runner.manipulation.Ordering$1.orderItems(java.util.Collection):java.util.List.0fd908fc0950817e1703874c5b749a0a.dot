@@ -1,0 +1,34 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_1" [label="1: Start List Ordering$1.orderItems(Collection)\nFormals:  this:org.junit.runner.manipulation.Ordering$1* descriptions:java.util.Collection*\nLocals:  $irvar0:void shuffled:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_1" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_4" ;
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_2" [label="2: Exit List Ordering$1.orderItems(Collection) \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 42]\n  NULLIFY(&shuffled); [line 42]\n  EXIT_SCOPE($irvar0,shuffled); [line 42]\n  APPLY_ABSTRACTION; [line 42]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_3" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_2" ;
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_4" [label="4:  Call ArrayList.<init>(Collection) \n   n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 40]\n  n$1=*&descriptions:java.util.Collection* [line 40]\n  n$2=_fun_ArrayList.<init>(Collection)(n$0:java.util.ArrayList*,n$1:java.util.Collection*) [line 40]\n  *&shuffled:java.util.ArrayList*=n$0 [line 40]\n  NULLIFY(&descriptions); [line 40]\n  EXIT_SCOPE(n$0,n$1,n$2,descriptions); [line 40]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_4" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_5" ;
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_4" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_5" [label="5:  method_body \n   n$3=*&this:org.junit.runner.manipulation.Ordering$1* [line 41]\n  n$4=*n$3.val$random:java.util.Random*(root org.junit.runner.manipulation.Ordering$1) [line 41]\n  *&$irvar0:java.util.Random*=n$4 [line 41]\n  NULLIFY(&this); [line 41]\n  EXIT_SCOPE(n$3,n$4,this); [line 41]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_5" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_6" ;
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_5" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_6" [label="6:  Call void Collections.shuffle(List,Random) \n   n$5=*&shuffled:java.util.ArrayList* [line 41]\n  n$6=*&$irvar0:java.util.Random* [line 41]\n  n$7=_fun_void Collections.shuffle(List,Random)(n$5:java.util.ArrayList*,n$6:java.util.Random*) [line 41]\n  NULLIFY(&$irvar0); [line 41]\n  EXIT_SCOPE(n$5,n$6,n$7,$irvar0); [line 41]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_6" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_7" ;
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_6" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_7" [label="7:  method_body \n   n$8=*&shuffled:java.util.ArrayList* [line 42]\n  *&return:java.util.List*=n$8 [line 42]\n  NULLIFY(&shuffled); [line 42]\n  EXIT_SCOPE(n$8,shuffled); [line 42]\n  APPLY_ABSTRACTION; [line 42]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_7" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_2" ;
+	 "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_7" -> "org.junit.runner.manipulation.Ordering$1.orderItems(java.util.Collection):java.util.List.0fd908fc0950817e1703874c5b749a0a_3" [color="red" ];
+}

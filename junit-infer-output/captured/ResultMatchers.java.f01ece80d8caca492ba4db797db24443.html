@@ -1,0 +1,560 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ResultMatchers.java.f01ece80d8caca492ba4db797db24443</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/experimental/results/ResultMatchers.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.experimental.results; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import org.hamcrest.BaseMatcher; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import org.hamcrest.Description; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import org.hamcrest.Matcher; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.hamcrest.TypeSafeMatcher; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * Matchers on a PrintableResult, to enable JUnit self-tests. </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * For example: </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * assertThat(testResult(HasExpectedException.class), isSuccessful()); </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">public class ResultMatchers { </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">     * Do not instantiate. </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">     * @deprecated will be private soon. </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    @Deprecated </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    public ResultMatchers() { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.<init>%28%29.190a3ddb6abd301fd5d67d8aaa1cc897_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.<init>%28%29.190a3ddb6abd301fd5d67d8aaa1cc897_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers* [line 23];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.experimental.results.ResultMatchers*) [line 23];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers.<init>%28%29.190a3ddb6abd301fd5d67d8aaa1cc897.html">summary for ResultMatchers.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    } <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.<init>%28%29.190a3ddb6abd301fd5d67d8aaa1cc897_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.<init>%28%29.190a3ddb6abd301fd5d67d8aaa1cc897_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.<init>%28%29.190a3ddb6abd301fd5d67d8aaa1cc897_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">     * Matches if the tests are all successful </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    public static Matcher&lt;PrintableResult&gt; isSuccessful() { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.isSuccessful%28%29%3Aorg.hamcrest.Matcher.8e08a2f9eb0b7e3256bce3c7e4004240_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers.isSuccessful%28%29%3Aorg.hamcrest.Matcher.8e08a2f9eb0b7e3256bce3c7e4004240.html">summary for Matcher ResultMatchers.isSuccessful()</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        return failureCountIs(0); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.isSuccessful%28%29%3Aorg.hamcrest.Matcher.8e08a2f9eb0b7e3256bce3c7e4004240_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Matcher ResultMatchers.failureCountIs(int)(0:int) [line 30];
+*&amp;$irvar0:org.hamcrest.Matcher*=n$0 [line 30];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.isSuccessful%28%29%3Aorg.hamcrest.Matcher.8e08a2f9eb0b7e3256bce3c7e4004240_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;$irvar0:org.hamcrest.Matcher* [line 30];
+*&amp;return:org.hamcrest.Matcher*=n$1 [line 30];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.isSuccessful%28%29%3Aorg.hamcrest.Matcher.8e08a2f9eb0b7e3256bce3c7e4004240_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.isSuccessful%28%29%3Aorg.hamcrest.Matcher.8e08a2f9eb0b7e3256bce3c7e4004240_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">     * Matches if there are {@code count} failures </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">    public static Matcher&lt;PrintableResult&gt; failureCountIs(final int count) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.failureCountIs%28int%29%3Aorg.hamcrest.Matcher.d0152a56fdc4b84d3ed8f6a99d7775d7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers.failureCountIs%28int%29%3Aorg.hamcrest.Matcher.d0152a56fdc4b84d3ed8f6a99d7775d7.html">summary for Matcher ResultMatchers.failureCountIs(int)</a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        return new TypeSafeMatcher&lt;PrintableResult&gt;() { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28java.lang.Object%29%3Aboolean.304aacc8c04cb4ea5d0dfcfee6145d72_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28java.lang.Object%29%3Aboolean.304aacc8c04cb4ea5d0dfcfee6145d72_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$1* [line 37];
+_=*n$0:org.junit.experimental.results.ResultMatchers$1*(root org.junit.experimental.results.ResultMatchers$1) [line 37];
+n$2=*&amp;$bcvar1:java.lang.Object* [line 37];
+n$3=_fun___cast(n$2:java.lang.Object*,sizeof(t=org.junit.experimental.results.PrintableResult;sub_t=( sub )(cast)):void) [line 37];
+n$4=_fun_boolean ResultMatchers$1.matchesSafely(PrintableResult)(n$0:org.junit.experimental.results.ResultMatchers$1*,n$3:org.junit.experimental.results.PrintableResult*) virtual [line 37];
+*&amp;$irvar0:_Bool=n$4 [line 37];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.failureCountIs%28int%29%3Aorg.hamcrest.Matcher.d0152a56fdc4b84d3ed8f6a99d7775d7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.results.ResultMatchers$1):org.junit.experimental.results.ResultMatchers$1*) [line 37];
+n$1=*&amp;count:int [line 37];
+n$2=_fun_ResultMatchers$1.&lt;init&gt;(int)(n$0:org.junit.experimental.results.ResultMatchers$1*,n$1:int) [line 37];
+*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$1*=n$0 [line 37];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$1* [line 37];
+n$1=*&amp;$bcvar1:int [line 37];
+*n$0.val$count:org.junit.experimental.results.ResultMatchers$1(root org.junit.experimental.results.ResultMatchers$1)=n$1 [line 37];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28java.lang.Object%29%3Aboolean.304aacc8c04cb4ea5d0dfcfee6145d72_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar0:_Bool [line 37];
+*&amp;return:_Bool=n$5 [line 37];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.failureCountIs%28int%29%3Aorg.hamcrest.Matcher.d0152a56fdc4b84d3ed8f6a99d7775d7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$1* [line 37];
+*&amp;return:org.hamcrest.Matcher*=n$3 [line 37];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.results.ResultMatchers$1* [line 37];
+n$3=_fun_TypeSafeMatcher.&lt;init&gt;()(n$2:org.junit.experimental.results.ResultMatchers$1*) [line 37];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28java.lang.Object%29%3Aboolean.304aacc8c04cb4ea5d0dfcfee6145d72_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.failureCountIs%28int%29%3Aorg.hamcrest.Matcher.d0152a56fdc4b84d3ed8f6a99d7775d7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28java.lang.Object%29%3Aboolean.304aacc8c04cb4ea5d0dfcfee6145d72_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.failureCountIs%28int%29%3Aorg.hamcrest.Matcher.d0152a56fdc4b84d3ed8f6a99d7775d7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28java.lang.Object%29%3Aboolean.304aacc8c04cb4ea5d0dfcfee6145d72.html">summary for boolean ResultMatchers$1.matchesSafely(Object)</a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%241.<init>%28int%29.c896b5e848b3534ac47bed0450b6b393.html">summary for ResultMatchers$1.&lt;init&gt;(int)</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">            public void describeTo(Description description) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc.html">summary for void ResultMatchers$1.describeTo(Description)</a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">                description.appendText(&quot;has &quot; + count + &quot; failures&quot;); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 39];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 39];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 39];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuilder* [line 39];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 39];
+n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,"has ":java.lang.Object*) virtual [line 39];
+*&amp;$irvar1:java.lang.StringBuilder*=n$4 [line 39];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar1:java.lang.StringBuilder* [line 39];
+_=*n$5:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 39];
+n$7=*&amp;this:org.junit.experimental.results.ResultMatchers$1* [line 39];
+n$8=*n$7.val$count:int(root org.junit.experimental.results.ResultMatchers$1) [line 39];
+n$9=_fun_StringBuilder StringBuilder.append(int)(n$5:java.lang.StringBuilder*,n$8:int) virtual [line 39];
+*&amp;$irvar2:java.lang.StringBuilder*=n$9 [line 39];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar2:java.lang.StringBuilder* [line 39];
+_=*n$10:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 39];
+n$12=_fun_StringBuilder StringBuilder.append(String)(n$10:java.lang.StringBuilder*," failures":java.lang.Object*) virtual [line 39];
+*&amp;$irvar3:java.lang.StringBuilder*=n$12 [line 39];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;$irvar3:java.lang.StringBuilder* [line 39];
+_=*n$13:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 39];
+n$15=_fun_String StringBuilder.toString()(n$13:java.lang.StringBuilder*) virtual [line 39];
+*&amp;$irvar4:java.lang.String*=n$15 [line 39];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$16=*&amp;description:org.hamcrest.Description* [line 39];
+_=*n$16:org.hamcrest.Description*(root org.hamcrest.Description) [line 39];
+n$18=*&amp;$irvar4:java.lang.String* [line 39];
+n$19=_fun_Description Description.appendText(String)(n$16:org.hamcrest.Description*,n$18:java.lang.String*) interface virtual [line 39];
+*&amp;$irvar5:org.hamcrest.Description*=n$19 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">            } <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.describeTo%28org.hamcrest.Description%29%3Avoid.8b7f089dc51140768f36e23609b31bbc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">            public boolean matchesSafely(PrintableResult item) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e.html">summary for boolean ResultMatchers$1.matchesSafely(PrintableResult)</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">                return item.failureCount() == count; <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;item:org.junit.experimental.results.PrintableResult* [line 44];
+_=*n$0:org.junit.experimental.results.PrintableResult*(root org.junit.experimental.results.PrintableResult) [line 44];
+n$2=_fun_int PrintableResult.failureCount()(n$0:org.junit.experimental.results.PrintableResult*) virtual [line 44];
+*&amp;$irvar0:int=n$2 [line 44];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:int [line 44];
+n$4=*&amp;this:org.junit.experimental.results.ResultMatchers$1* [line 44];
+n$5=*n$4.val$count:int(root org.junit.experimental.results.ResultMatchers$1) [line 44];
+PRUNE(!(n$3 != n$5), true); [line 44];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_16:int=1 [line 44];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:int [line 44];
+n$4=*&amp;this:org.junit.experimental.results.ResultMatchers$1* [line 44];
+n$5=*n$4.val$count:int(root org.junit.experimental.results.ResultMatchers$1) [line 44];
+PRUNE((n$3 != n$5), false); [line 44];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_16:int=0 [line 44];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:2 exn:3 Instructions
+n$6=*&amp;$T0_16:int [line 44];
+*&amp;return:_Bool=n$6 [line 44];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%241.matchesSafely%28org.junit.experimental.results.Printab.072cb71af40e947a8e34b61ef72beb0e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">     * Matches if the result has exactly one failure, and it contains {@code string} </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    public static Matcher&lt;Object&gt; hasSingleFailureContaining(final String string) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining%28java.lang.String%29%3Aorg.hamcr.4ea18203e302fca5397a9e7147141de9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining%28java.lang.String%29%3Aorg.hamcr.4ea18203e302fca5397a9e7147141de9.html">summary for Matcher ResultMatchers.hasSingleFailureContaining(String)</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        return new BaseMatcher&lt;Object&gt;() { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining%28java.lang.String%29%3Aorg.hamcr.4ea18203e302fca5397a9e7147141de9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.results.ResultMatchers$2):org.junit.experimental.results.ResultMatchers$2*) [line 53];
+n$1=*&amp;string:java.lang.String* [line 53];
+n$2=_fun_ResultMatchers$2.&lt;init&gt;(String)(n$0:org.junit.experimental.results.ResultMatchers$2*,n$1:java.lang.String*) [line 53];
+*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$2*=n$0 [line 53];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$2* [line 53];
+n$1=*&amp;$bcvar1:java.lang.String* [line 53];
+*n$0.val$string:org.junit.experimental.results.ResultMatchers$2(root org.junit.experimental.results.ResultMatchers$2)=n$1 [line 53];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining%28java.lang.String%29%3Aorg.hamcr.4ea18203e302fca5397a9e7147141de9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$2* [line 53];
+*&amp;return:org.hamcrest.Matcher*=n$3 [line 53];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.results.ResultMatchers$2* [line 53];
+n$3=_fun_BaseMatcher.&lt;init&gt;()(n$2:org.junit.experimental.results.ResultMatchers$2*) [line 53];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining%28java.lang.String%29%3Aorg.hamcr.4ea18203e302fca5397a9e7147141de9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining%28java.lang.String%29%3Aorg.hamcr.4ea18203e302fca5397a9e7147141de9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%242.<init>%28java.lang.String%29.b56be31fc526b291824ac1eee9e7b981.html">summary for ResultMatchers$2.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            public boolean matches(Object item) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1.html">summary for boolean ResultMatchers$2.matches(Object)</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">                return item.toString().contains(string) &amp;&amp; failureCountIs(1).matches(item); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;item:java.lang.Object* [line 55];
+_=*n$0:java.lang.Object*(root java.lang.Object) [line 55];
+n$2=_fun_String Object.toString()(n$0:java.lang.Object*) virtual [line 55];
+*&amp;$irvar0:java.lang.String*=n$2 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.String* [line 55];
+_=*n$3:java.lang.String*(root java.lang.String) [line 55];
+n$5=*&amp;this:org.junit.experimental.results.ResultMatchers$2* [line 55];
+n$6=*n$5.val$string:java.lang.String*(root org.junit.experimental.results.ResultMatchers$2) [line 55];
+n$7=_fun_boolean String.contains(CharSequence)(n$3:java.lang.String*,n$6:java.lang.String*) virtual [line 55];
+*&amp;$irvar1:_Bool=n$7 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$8=*&amp;$irvar1:_Bool [line 55];
+PRUNE(!(n$8 == 0), true); [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+n$9=_fun_Matcher ResultMatchers.failureCountIs(int)(1:int) [line 55];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$9 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 11 exn:3 Instructions
+n$10=*&amp;$irvar2:org.hamcrest.Matcher* [line 55];
+_=*n$10:org.hamcrest.Matcher*(root org.hamcrest.Matcher) [line 55];
+n$12=*&amp;item:java.lang.Object* [line 55];
+n$13=_fun_boolean Matcher.matches(Object)(n$10:org.hamcrest.Matcher*,n$12:java.lang.Object*) interface virtual [line 55];
+*&amp;$irvar3:_Bool=n$13 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:9 succs:12 exn:3 Conditional method_body
+n$14=*&amp;$irvar3:_Bool [line 55];
+PRUNE(!(n$14 == 0), true); [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:14 exn:3 Instructions
+*&amp;$T0_32:int=1 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:9 succs:13 exn:3 Conditional method_body
+n$14=*&amp;$irvar3:_Bool [line 55];
+PRUNE((n$14 == 0), false); [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:13 exn:3 Conditional method_body
+n$8=*&amp;$irvar1:_Bool [line 55];
+PRUNE((n$8 == 0), false); [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 7 succs:14 exn:3 Instructions
+*&amp;$T0_32:int=0 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 12 succs:2 exn:3 Instructions
+n$15=*&amp;$T0_32:int [line 55];
+*&amp;return:_Bool=n$15 [line 55];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.matches%28java.lang.Object%29%3Aboolean.d8679216bbd052cdcb01ef48d7757af1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">            public void describeTo(Description description) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97.html">summary for void ResultMatchers$2.describeTo(Description)</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">                description.appendText(&quot;has single failure containing &quot; + string); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 59];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 59];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 59];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuilder* [line 59];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 59];
+n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,"has single failure containing ":java.lang.Object*) virtual [line 59];
+*&amp;$irvar1:java.lang.StringBuilder*=n$4 [line 59];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar1:java.lang.StringBuilder* [line 59];
+_=*n$5:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 59];
+n$7=*&amp;this:org.junit.experimental.results.ResultMatchers$2* [line 59];
+n$8=*n$7.val$string:java.lang.String*(root org.junit.experimental.results.ResultMatchers$2) [line 59];
+n$9=_fun_StringBuilder StringBuilder.append(String)(n$5:java.lang.StringBuilder*,n$8:java.lang.String*) virtual [line 59];
+*&amp;$irvar2:java.lang.StringBuilder*=n$9 [line 59];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar2:java.lang.StringBuilder* [line 59];
+_=*n$10:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 59];
+n$12=_fun_String StringBuilder.toString()(n$10:java.lang.StringBuilder*) virtual [line 59];
+*&amp;$irvar3:java.lang.String*=n$12 [line 59];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;description:org.hamcrest.Description* [line 59];
+_=*n$13:org.hamcrest.Description*(root org.hamcrest.Description) [line 59];
+n$15=*&amp;$irvar3:java.lang.String* [line 59];
+n$16=_fun_Description Description.appendText(String)(n$13:org.hamcrest.Description*,n$15:java.lang.String*) interface virtual [line 59];
+*&amp;$irvar4:org.hamcrest.Description*=n$16 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">            } <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%242.describeTo%28org.hamcrest.Description%29%3Avoid.3b14a9d03d050501b976c60c37d11b97_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">     * Matches if the result has exactly one failure matching the given matcher. </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    public static Matcher&lt;PrintableResult&gt; hasSingleFailureMatching(final Matcher&lt;Throwable&gt; matcher) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureMatching%28org.hamcrest.Matcher%29%3Aorg.ham.fe7b83ae9db24bf3267c1535fe148d46_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers.hasSingleFailureMatching%28org.hamcrest.Matcher%29%3Aorg.ham.fe7b83ae9db24bf3267c1535fe148d46.html">summary for Matcher ResultMatchers.hasSingleFailureMatching(Matcher)</a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        return new TypeSafeMatcher&lt;PrintableResult&gt;() { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28java.lang.Object%29%3Aboolean.376dba48ea10d20de8356565c9e333dd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28java.lang.Object%29%3Aboolean.376dba48ea10d20de8356565c9e333dd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$3* [line 70];
+_=*n$0:org.junit.experimental.results.ResultMatchers$3*(root org.junit.experimental.results.ResultMatchers$3) [line 70];
+n$2=*&amp;$bcvar1:java.lang.Object* [line 70];
+n$3=_fun___cast(n$2:java.lang.Object*,sizeof(t=org.junit.experimental.results.PrintableResult;sub_t=( sub )(cast)):void) [line 70];
+n$4=_fun_boolean ResultMatchers$3.matchesSafely(PrintableResult)(n$0:org.junit.experimental.results.ResultMatchers$3*,n$3:org.junit.experimental.results.PrintableResult*) virtual [line 70];
+*&amp;$irvar0:_Bool=n$4 [line 70];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureMatching%28org.hamcrest.Matcher%29%3Aorg.ham.fe7b83ae9db24bf3267c1535fe148d46_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.results.ResultMatchers$3):org.junit.experimental.results.ResultMatchers$3*) [line 70];
+n$1=*&amp;matcher:org.hamcrest.Matcher* [line 70];
+n$2=_fun_ResultMatchers$3.&lt;init&gt;(Matcher)(n$0:org.junit.experimental.results.ResultMatchers$3*,n$1:org.hamcrest.Matcher*) [line 70];
+*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$3*=n$0 [line 70];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$3* [line 70];
+n$1=*&amp;$bcvar1:org.hamcrest.Matcher* [line 70];
+*n$0.val$matcher:org.junit.experimental.results.ResultMatchers$3(root org.junit.experimental.results.ResultMatchers$3)=n$1 [line 70];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28java.lang.Object%29%3Aboolean.376dba48ea10d20de8356565c9e333dd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar0:_Bool [line 70];
+*&amp;return:_Bool=n$5 [line 70];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureMatching%28org.hamcrest.Matcher%29%3Aorg.ham.fe7b83ae9db24bf3267c1535fe148d46_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$3* [line 70];
+*&amp;return:org.hamcrest.Matcher*=n$3 [line 70];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.results.ResultMatchers$3* [line 70];
+n$3=_fun_TypeSafeMatcher.&lt;init&gt;()(n$2:org.junit.experimental.results.ResultMatchers$3*) [line 70];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28java.lang.Object%29%3Aboolean.376dba48ea10d20de8356565c9e333dd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureMatching%28org.hamcrest.Matcher%29%3Aorg.ham.fe7b83ae9db24bf3267c1535fe148d46_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28java.lang.Object%29%3Aboolean.376dba48ea10d20de8356565c9e333dd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasSingleFailureMatching%28org.hamcrest.Matcher%29%3Aorg.ham.fe7b83ae9db24bf3267c1535fe148d46_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28java.lang.Object%29%3Aboolean.376dba48ea10d20de8356565c9e333dd.html">summary for boolean ResultMatchers$3.matchesSafely(Object)</a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%243.<init>%28org.hamcrest.Matcher%29.9f19afc2ecddaec0089c0277585dedad.html">summary for ResultMatchers$3.&lt;init&gt;(Matcher)</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">            public boolean matchesSafely(PrintableResult item) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe.html">summary for boolean ResultMatchers$3.matchesSafely(PrintableResult)</a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">                return item.failureCount() == 1 &amp;&amp; matcher.matches(item.failures().get(0).getException()); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;item:org.junit.experimental.results.PrintableResult* [line 73];
+_=*n$0:org.junit.experimental.results.PrintableResult*(root org.junit.experimental.results.PrintableResult) [line 73];
+n$2=_fun_int PrintableResult.failureCount()(n$0:org.junit.experimental.results.PrintableResult*) virtual [line 73];
+*&amp;$irvar0:int=n$2 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:int [line 73];
+PRUNE(!(n$3 != 1), true); [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$4=*&amp;this:org.junit.experimental.results.ResultMatchers$3* [line 73];
+n$5=*n$4.val$matcher:org.hamcrest.Matcher*(root org.junit.experimental.results.ResultMatchers$3) [line 73];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$5 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=*&amp;item:org.junit.experimental.results.PrintableResult* [line 73];
+_=*n$6:org.junit.experimental.results.PrintableResult*(root org.junit.experimental.results.PrintableResult) [line 73];
+n$8=_fun_List PrintableResult.failures()(n$6:org.junit.experimental.results.PrintableResult*) virtual [line 73];
+*&amp;$irvar1:java.util.List*=n$8 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar1:java.util.List* [line 73];
+_=*n$9:java.util.List*(root java.util.List) [line 73];
+n$11=_fun_Object List.get(int)(n$9:java.util.List*,0:int) interface virtual [line 73];
+*&amp;$irvar3:java.lang.Object*=n$11 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar3:java.lang.Object* [line 73];
+n$13=_fun___cast(n$12:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 73];
+_=*n$13:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 73];
+n$15=_fun_Throwable Failure.getException()(n$13:org.junit.runner.notification.Failure*) virtual [line 73];
+*&amp;$irvar4:java.lang.Throwable*=n$15 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 13 exn:3 Instructions
+n$16=*&amp;$irvar2:org.hamcrest.Matcher* [line 73];
+_=*n$16:org.hamcrest.Matcher*(root org.hamcrest.Matcher) [line 73];
+n$18=*&amp;$irvar4:java.lang.Throwable* [line 73];
+n$19=_fun_boolean Matcher.matches(Object)(n$16:org.hamcrest.Matcher*,n$18:java.lang.Throwable*) interface virtual [line 73];
+*&amp;$irvar5:_Bool=n$19 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$20=*&amp;$irvar5:_Bool [line 73];
+PRUNE(!(n$20 == 0), true); [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:16 exn:3 Instructions
+*&amp;$T0_41:int=1 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:15 exn:3 Conditional method_body
+n$20=*&amp;$irvar5:_Bool [line 73];
+PRUNE((n$20 == 0), false); [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:15 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:int [line 73];
+PRUNE((n$3 != 1), false); [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:13 6 succs:16 exn:3 Instructions
+*&amp;$T0_41:int=0 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 14 succs:2 exn:3 Instructions
+n$21=*&amp;$T0_41:int [line 73];
+*&amp;return:_Bool=n$21 [line 73];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.matchesSafely%28org.junit.experimental.results.Printab.2a312b296b189390cfff4f5603468cbe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">            public void describeTo(Description description) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b.html">summary for void ResultMatchers$3.describeTo(Description)</a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">                description.appendText(&quot;has failure with exception matching &quot;); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;description:org.hamcrest.Description* [line 77];
+_=*n$0:org.hamcrest.Description*(root org.hamcrest.Description) [line 77];
+n$2=_fun_Description Description.appendText(String)(n$0:org.hamcrest.Description*,"has failure with exception matching ":java.lang.Object*) interface virtual [line 77];
+*&amp;$irvar0:org.hamcrest.Description*=n$2 [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">                matcher.describeTo(description); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.experimental.results.ResultMatchers$3* [line 78];
+n$4=*n$3.val$matcher:org.hamcrest.Matcher*(root org.junit.experimental.results.ResultMatchers$3) [line 78];
+_=*n$4:org.hamcrest.Matcher*(root org.hamcrest.Matcher) [line 78];
+n$6=*&amp;description:org.hamcrest.Description* [line 78];
+n$7=_fun_void Matcher.describeTo(Description)(n$4:org.hamcrest.Matcher*,n$6:org.hamcrest.Description*) interface virtual [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            } <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%243.describeTo%28org.hamcrest.Description%29%3Avoid.99ad32e4efd17c82d81d384ef844f49b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     * Matches if the result has one or more failures, and at least one of them </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * contains {@code string} </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public static Matcher&lt;PrintableResult&gt; hasFailureContaining(final String string) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasFailureContaining%28java.lang.String%29%3Aorg.hamcrest.Ma.93c2cabdd642125f394ae6cdeedeffb8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers.hasFailureContaining%28java.lang.String%29%3Aorg.hamcrest.Ma.93c2cabdd642125f394ae6cdeedeffb8.html">summary for Matcher ResultMatchers.hasFailureContaining(String)</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        return new TypeSafeMatcher&lt;PrintableResult&gt;() { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28java.lang.Object%29%3Aboolean.35856a75d4d9522c731cb050102500ba_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28java.lang.Object%29%3Aboolean.35856a75d4d9522c731cb050102500ba_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$4* [line 88];
+_=*n$0:org.junit.experimental.results.ResultMatchers$4*(root org.junit.experimental.results.ResultMatchers$4) [line 88];
+n$2=*&amp;$bcvar1:java.lang.Object* [line 88];
+n$3=_fun___cast(n$2:java.lang.Object*,sizeof(t=org.junit.experimental.results.PrintableResult;sub_t=( sub )(cast)):void) [line 88];
+n$4=_fun_boolean ResultMatchers$4.matchesSafely(PrintableResult)(n$0:org.junit.experimental.results.ResultMatchers$4*,n$3:org.junit.experimental.results.PrintableResult*) virtual [line 88];
+*&amp;$irvar0:_Bool=n$4 [line 88];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasFailureContaining%28java.lang.String%29%3Aorg.hamcrest.Ma.93c2cabdd642125f394ae6cdeedeffb8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.results.ResultMatchers$4):org.junit.experimental.results.ResultMatchers$4*) [line 88];
+n$1=*&amp;string:java.lang.String* [line 88];
+n$2=_fun_ResultMatchers$4.&lt;init&gt;(String)(n$0:org.junit.experimental.results.ResultMatchers$4*,n$1:java.lang.String*) [line 88];
+*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$4*=n$0 [line 88];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.experimental.results.ResultMatchers$4* [line 88];
+n$1=*&amp;$bcvar1:java.lang.String* [line 88];
+*n$0.val$string:org.junit.experimental.results.ResultMatchers$4(root org.junit.experimental.results.ResultMatchers$4)=n$1 [line 88];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28java.lang.Object%29%3Aboolean.35856a75d4d9522c731cb050102500ba_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar0:_Bool [line 88];
+*&amp;return:_Bool=n$5 [line 88];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasFailureContaining%28java.lang.String%29%3Aorg.hamcrest.Ma.93c2cabdd642125f394ae6cdeedeffb8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.experimental.results.ResultMatchers$4* [line 88];
+*&amp;return:org.hamcrest.Matcher*=n$3 [line 88];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.experimental.results.ResultMatchers$4* [line 88];
+n$3=_fun_TypeSafeMatcher.&lt;init&gt;()(n$2:org.junit.experimental.results.ResultMatchers$4*) [line 88];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28java.lang.Object%29%3Aboolean.35856a75d4d9522c731cb050102500ba_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasFailureContaining%28java.lang.String%29%3Aorg.hamcrest.Ma.93c2cabdd642125f394ae6cdeedeffb8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28java.lang.Object%29%3Aboolean.35856a75d4d9522c731cb050102500ba_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers.hasFailureContaining%28java.lang.String%29%3Aorg.hamcrest.Ma.93c2cabdd642125f394ae6cdeedeffb8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28java.lang.Object%29%3Aboolean.35856a75d4d9522c731cb050102500ba.html">summary for boolean ResultMatchers$4.matchesSafely(Object)</a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%244.<init>%28java.lang.String%29.69de3f58aaa3d23b7c6253772d998620.html">summary for ResultMatchers$4.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            public boolean matchesSafely(PrintableResult item) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5.html">summary for boolean ResultMatchers$4.matchesSafely(PrintableResult)</a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">                return item.failureCount() &gt; 0 &amp;&amp; item.toString().contains(string); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;item:org.junit.experimental.results.PrintableResult* [line 91];
+_=*n$0:org.junit.experimental.results.PrintableResult*(root org.junit.experimental.results.PrintableResult) [line 91];
+n$2=_fun_int PrintableResult.failureCount()(n$0:org.junit.experimental.results.PrintableResult*) virtual [line 91];
+*&amp;$irvar0:int=n$2 [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:int [line 91];
+PRUNE(!(n$3  &lt;=  0), true); [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$4=*&amp;item:org.junit.experimental.results.PrintableResult* [line 91];
+_=*n$4:org.junit.experimental.results.PrintableResult*(root org.junit.experimental.results.PrintableResult) [line 91];
+n$6=_fun_String PrintableResult.toString()(n$4:org.junit.experimental.results.PrintableResult*) virtual [line 91];
+*&amp;$irvar1:java.lang.String*=n$6 [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 10 exn:3 Instructions
+n$7=*&amp;$irvar1:java.lang.String* [line 91];
+_=*n$7:java.lang.String*(root java.lang.String) [line 91];
+n$9=*&amp;this:org.junit.experimental.results.ResultMatchers$4* [line 91];
+n$10=*n$9.val$string:java.lang.String*(root org.junit.experimental.results.ResultMatchers$4) [line 91];
+n$11=_fun_boolean String.contains(CharSequence)(n$7:java.lang.String*,n$10:java.lang.String*) virtual [line 91];
+*&amp;$irvar2:_Bool=n$11 [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$12=*&amp;$irvar2:_Bool [line 91];
+PRUNE(!(n$12 == 0), true); [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:13 exn:3 Instructions
+*&amp;$T0_26:int=1 [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:12 exn:3 Conditional method_body
+n$12=*&amp;$irvar2:_Bool [line 91];
+PRUNE((n$12 == 0), false); [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:12 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:int [line 91];
+PRUNE((n$3  &lt;=  0), false); [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 6 succs:13 exn:3 Instructions
+*&amp;$T0_26:int=0 [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 11 succs:2 exn:3 Instructions
+n$13=*&amp;$T0_26:int [line 91];
+*&amp;return:_Bool=n$13 [line 91];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.matchesSafely%28org.junit.experimental.results.Printab.fa4a69423fd47eff4134bbc9b0835fc5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            public void describeTo(Description description) { <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818.html">summary for void ResultMatchers$4.describeTo(Description)</a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">                description.appendText(&quot;has failure containing &quot; + string); <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 95];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 95];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 95];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuilder* [line 95];
+_=*n$2:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 95];
+n$4=_fun_StringBuilder StringBuilder.append(String)(n$2:java.lang.StringBuilder*,"has failure containing ":java.lang.Object*) virtual [line 95];
+*&amp;$irvar1:java.lang.StringBuilder*=n$4 [line 95];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar1:java.lang.StringBuilder* [line 95];
+_=*n$5:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 95];
+n$7=*&amp;this:org.junit.experimental.results.ResultMatchers$4* [line 95];
+n$8=*n$7.val$string:java.lang.String*(root org.junit.experimental.results.ResultMatchers$4) [line 95];
+n$9=_fun_StringBuilder StringBuilder.append(String)(n$5:java.lang.StringBuilder*,n$8:java.lang.String*) virtual [line 95];
+*&amp;$irvar2:java.lang.StringBuilder*=n$9 [line 95];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$10=*&amp;$irvar2:java.lang.StringBuilder* [line 95];
+_=*n$10:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 95];
+n$12=_fun_String StringBuilder.toString()(n$10:java.lang.StringBuilder*) virtual [line 95];
+*&amp;$irvar3:java.lang.String*=n$12 [line 95];
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;description:org.hamcrest.Description* [line 95];
+_=*n$13:org.hamcrest.Description*(root org.hamcrest.Description) [line 95];
+n$15=*&amp;$irvar3:java.lang.String* [line 95];
+n$16=_fun_Description Description.appendText(String)(n$13:org.hamcrest.Description*,n$15:java.lang.String*) interface virtual [line 95];
+*&amp;$irvar4:org.hamcrest.Description*=n$16 [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">            } <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./ResultMatchers.java.f01ece80d8caca492ba4db797db24443/nodes/org.junit.experimental.results.ResultMatchers%244.describeTo%28org.hamcrest.Description%29%3Avoid.1d4b821bb983644f3336167328323818_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

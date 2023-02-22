@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_1" [label="1: Start void BadlyFormedClassesTest.constructorException()\nFormals:  this:org.junit.tests.validation.BadlyFormedClassesTest*\nLocals:  message:java.lang.String*\nAnnotation: <_org.junit.Test> void BadlyFormedClassesTest.constructorException()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_1" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_4" ;
+"org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_2" [label="2: Exit void BadlyFormedClassesTest.constructorException() \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_3" [label="3:  exceptions sink \n   NULLIFY(&message); [line 51]\n  EXIT_SCOPE(message); [line 51]\n  APPLY_ABSTRACTION; [line 51]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_3" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_2" ;
+"org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_4" [label="4:  Call String BadlyFormedClassesTest.exceptionMessageFrom(Class) \n   n$0=*&this:org.junit.tests.validation.BadlyFormedClassesTest* [line 49]\n  n$1=_fun_String BadlyFormedClassesTest.exceptionMessageFrom(Class)(n$0:org.junit.tests.validation.BadlyFormedClassesTest*,org.junit.tests.validation.BadlyFormedClassesTest$FaultyConstructor:java.lang.Object*) [line 49]\n  *&message:java.lang.String*=n$1 [line 49]\n  NULLIFY(&this); [line 49]\n  EXIT_SCOPE(n$0,n$1,this); [line 49]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_4" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_5" ;
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_4" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_3" [color="red" ];
+"org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_5" [label="5:  Call void Assert.assertEquals(Object,Object) \n   n$2=*&message:java.lang.String* [line 50]\n  n$3=_fun_void Assert.assertEquals(Object,Object)(\"Thrown during construction\":java.lang.Object*,n$2:java.lang.String*) [line 50]\n  NULLIFY(&message); [line 50]\n  EXIT_SCOPE(n$2,n$3,message); [line 50]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_5" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_6" ;
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_5" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_3" [color="red" ];
+"org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_6" [label="6:  method_body \n   APPLY_ABSTRACTION; [line 51]\n " shape="box"]
+	
+
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_6" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_2" ;
+	 "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_6" -> "org.junit.tests.validation.BadlyFormedClassesTest.constructorException():void.e1b55c89552357c36a486ff3030bef26_3" [color="red" ];
+}

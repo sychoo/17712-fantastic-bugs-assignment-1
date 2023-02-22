@@ -1,0 +1,40 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_1" [label="1: Start Object Checks.notNull(Object)\nFormals:  value:java.lang.Object*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_1" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_4" ;
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_1" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_5" ;
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_2" [label="2: Exit Object Checks.notNull(Object) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 19]\n  EXIT_SCOPE($irvar0); [line 19]\n  APPLY_ABSTRACTION; [line 19]\n " shape="box"]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_2" ;
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_4" [label="4: Prune (true branch, if) \n   n$0=*&value:java.lang.Object* [line 16]\n  PRUNE(!(n$0 != null), true); [line 16]\n  NULLIFY(&value); [line 16]\n  EXIT_SCOPE(n$0,value); [line 16]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_4" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_6" ;
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_4" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" [color="red" ];
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_5" [label="5: Prune (false branch, if) \n   n$0=*&value:java.lang.Object* [line 16]\n  PRUNE((n$0 != null), false); [line 16]\n  EXIT_SCOPE(n$0); [line 16]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_5" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_8" ;
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_5" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" [color="red" ];
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_6" [label="6:  Call NullPointerException.<init>() \n   n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 17]\n  n$2=_fun_NullPointerException.<init>()(n$1:java.lang.NullPointerException*) [line 17]\n  *&$irvar0:java.lang.NullPointerException*=n$1 [line 17]\n  EXIT_SCOPE(n$1,n$2); [line 17]\n " shape="box"]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_6" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_7" ;
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_6" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" [color="red" ];
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_7" [label="7:  throw \n   n$3=*&$irvar0:java.lang.NullPointerException* [line 17]\n  *&return:java.lang.Object*=EXN n$3 [line 17]\n  NULLIFY(&$irvar0); [line 17]\n  EXIT_SCOPE(n$3,$irvar0); [line 17]\n  APPLY_ABSTRACTION; [line 17]\n " shape="box"]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_7" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_2" ;
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_7" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" [color="red" ];
+"org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_8" [label="8:  method_body \n   n$4=*&value:java.lang.Object* [line 19]\n  *&return:java.lang.Object*=n$4 [line 19]\n  NULLIFY(&value); [line 19]\n  EXIT_SCOPE(n$4,value); [line 19]\n  APPLY_ABSTRACTION; [line 19]\n " shape="box"]
+	
+
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_8" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_2" ;
+	 "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_8" -> "org.junit.internal.Checks.notNull(java.lang.Object):java.lang.Object.be5418e20a6f9ee86bb356b0b2f84270_3" [color="red" ];
+}

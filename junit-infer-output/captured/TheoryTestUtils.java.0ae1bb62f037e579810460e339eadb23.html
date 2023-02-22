@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/tests/experimental/theories/TheoryTestUtils.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.tests.experimental.theories; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.experimental.theories.PotentialAssignment; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.experimental.theories.Theories; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.experimental.theories.internal.Assignments; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runner.Request; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.runner.Runner; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runners.model.InitializationError; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.runners.model.TestClass; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">public final class TheoryTestUtils { </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    private TheoryTestUtils() { } <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.<init>%28%29.571b1ae170d77f7ddffb8dc590d0271a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.<init>%28%29.571b1ae170d77f7ddffb8dc590d0271a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.tests.experimental.theories.TheoryTestUtils* [line 18];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.tests.experimental.theories.TheoryTestUtils*) [line 18];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.<init>%28%29.571b1ae170d77f7ddffb8dc590d0271a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.<init>%28%29.571b1ae170d77f7ddffb8dc590d0271a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.<init>%28%29.571b1ae170d77f7ddffb8dc590d0271a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/org.junit.tests.experimental.theories.TheoryTestUtils.<init>%28%29.571b1ae170d77f7ddffb8dc590d0271a.html">summary for TheoryTestUtils.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    public static List&lt;PotentialAssignment&gt; potentialAssignments(Method method) <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5.html">summary for List TheoryTestUtils.potentialAssignments(Method)</a></td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">            throws Throwable { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">        return Assignments.allUnassigned(method, <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;method:java.lang.reflect.Method* [line 22];
+n$7=*&amp;$irvar1:org.junit.runners.model.TestClass* [line 22];
+n$8=_fun_Assignments Assignments.allUnassigned(Method,TestClass)(n$6:java.lang.reflect.Method*,n$7:org.junit.runners.model.TestClass*) [line 22];
+*&amp;$irvar2:org.junit.experimental.theories.internal.Assignments*=n$8 [line 22];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar3:java.util.List* [line 22];
+*&amp;return:java.util.List*=n$12 [line 22];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B5] object `__new(org.junit.runners.model.TestClass).clazz` could be null and is dereferenced by call to `allUnassigned(...)` at line 22</div></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">                new TestClass(method.getDeclaringClass())) <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;method:java.lang.reflect.Method* [line 23];
+_=*n$0:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 23];
+n$2=_fun_Class Method.getDeclaringClass()(n$0:java.lang.reflect.Method*) virtual [line 23];
+*&amp;$irvar0:java.lang.Class*=n$2 [line 23];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new(sizeof(t=org.junit.runners.model.TestClass):org.junit.runners.model.TestClass*) [line 23];
+n$4=*&amp;$irvar0:java.lang.Class* [line 23];
+n$5=_fun_TestClass.&lt;init&gt;(Class)(n$3:org.junit.runners.model.TestClass*,n$4:java.lang.Class*) [line 23];
+*&amp;$irvar1:org.junit.runners.model.TestClass*=n$3 [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">                .potentialsForNextUnassigned(); <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$9=*&amp;$irvar2:org.junit.experimental.theories.internal.Assignments* [line 24];
+_=*n$9:org.junit.experimental.theories.internal.Assignments*(root org.junit.experimental.theories.internal.Assignments) [line 24];
+n$11=_fun_List Assignments.potentialsForNextUnassigned()(n$9:org.junit.experimental.theories.internal.Assignments*) virtual [line 24];
+*&amp;$irvar3:java.util.List*=n$11 [line 24];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.potentialAssignments%28java.lang.reflect.Method%29.1133443e4bacb01f5e9c34118c27cfc5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    public static Result runTheoryClass(Class&lt;?&gt; testClass) throws InitializationError { <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe.html">summary for Result TheoryTestUtils.runTheoryClass(Class)</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        Runner theoryRunner = new Theories(testClass); <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.experimental.theories.Theories):org.junit.experimental.theories.Theories*) [line 28];
+n$1=*&amp;testClass:java.lang.Class* [line 28];
+n$2=_fun_Theories.&lt;init&gt;(Class)(n$0:org.junit.experimental.theories.Theories*,n$1:java.lang.Class*) [line 28];
+*&amp;theoryRunner:org.junit.experimental.theories.Theories*=n$0 [line 28];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        Request request = Request.runner(theoryRunner); <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;theoryRunner:org.junit.experimental.theories.Theories* [line 29];
+n$4=_fun_Request Request.runner(Runner)(n$3:org.junit.experimental.theories.Theories*) [line 29];
+*&amp;request:org.junit.runner.Request*=n$4 [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        return new JUnitCore().run(request); <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 30];
+n$6=_fun_JUnitCore.&lt;init&gt;()(n$5:org.junit.runner.JUnitCore*) [line 30];
+*&amp;$irvar0:org.junit.runner.JUnitCore*=n$5 [line 30];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar0:org.junit.runner.JUnitCore* [line 30];
+_=*n$7:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 30];
+n$9=*&amp;request:org.junit.runner.Request* [line 30];
+n$10=_fun_Result JUnitCore.run(Request)(n$7:org.junit.runner.JUnitCore*,n$9:org.junit.runner.Request*) virtual [line 30];
+*&amp;$irvar1:org.junit.runner.Result*=n$10 [line 30];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$11=*&amp;$irvar1:org.junit.runner.Result* [line 30];
+*&amp;return:org.junit.runner.Result*=n$11 [line 30];
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/org.junit.tests.experimental.theories.TheoryTestUtils.runTheoryClass%28java.lang.Class%29%3Aorg.junit.runn.c4306212716621922aa96b1123d107fe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Null Dereference [B5] object `__new(org.junit.runners.model.TestClass).clazz` could be null and is dereferenced by call to `allUnassigned(...)` at line 22 <a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/nodes/node6.html#session30">node6#session30</a>(<a href="./TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23/../TheoryTestUtils.java.0ae1bb62f037e579810460e339eadb23.html#LINE22">22</a>)</body>
+</html>

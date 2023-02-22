@@ -1,0 +1,910 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/runner/notification/ConcurrentRunNotifierTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner.notification; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.Random; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.concurrent.Callable; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.util.concurrent.CountDownLatch; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import java.util.concurrent.CyclicBarrier; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import java.util.concurrent.Executors; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import java.util.concurrent.ExecutorService; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import java.util.concurrent.TimeUnit; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import java.util.concurrent.atomic.AtomicBoolean; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import java.util.concurrent.atomic.AtomicInteger; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import static org.hamcrest.core.Is.is; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * Testing RunNotifier in concurrent access. </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * @author Tibor Digana (tibor17) </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * @version 4.12 </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">public final class ConcurrentRunNotifierTest { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24200%28org.junit.runner.notification.Con.8b1e4c2856d24d873002ae8b23094aae_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24100%28org.junit.runner.notification.Con.a93be7ab480625fae7e2f5240279ffca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24200%28org.junit.runner.notification.Con.8b1e4c2856d24d873002ae8b23094aae_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 27];
+n$1=_fun_int ConcurrentRunNotifierTest.countReportedTestFailures(ConcurrentRunNotifierTest$ExaminedListener[])(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 27];
+*&amp;$irvar0:int=n$1 [line 27];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24100%28org.junit.runner.notification.Con.a93be7ab480625fae7e2f5240279ffca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;x0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 27];
+n$1=*n$0.fNotifier:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.ConcurrentRunNotifierTest) [line 27];
+*&amp;return:org.junit.runner.notification.RunNotifier*=n$1 [line 27];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 27];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 27];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24100%28org.junit.runner.notification.Con.a93be7ab480625fae7e2f5240279ffca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24200%28org.junit.runner.notification.Con.8b1e4c2856d24d873002ae8b23094aae_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:int [line 27];
+*&amp;return:int=n$2 [line 27];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24200%28org.junit.runner.notification.Con.8b1e4c2856d24d873002ae8b23094aae_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24200%28org.junit.runner.notification.Con.8b1e4c2856d24d873002ae8b23094aae_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24100%28org.junit.runner.notification.Con.a93be7ab480625fae7e2f5240279ffca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24200%28org.junit.runner.notification.Con.8b1e4c2856d24d873002ae8b23094aae.html">summary for int ConcurrentRunNotifierTest.access$200(ConcurrentRunNotifierTest$ExaminedListener[])</a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.access%24100%28org.junit.runner.notification.Con.a93be7ab480625fae7e2f5240279ffca.html">summary for RunNotifier ConcurrentRunNotifierTest.access$100(ConcurrentRunNotifierTest)</a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56.html">summary for ConcurrentRunNotifierTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    private static final long TIMEOUT = 3; </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    private final RunNotifier fNotifier = new RunNotifier(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.notification.RunNotifier):org.junit.runner.notification.RunNotifier*) [line 29];
+n$3=_fun_RunNotifier.&lt;init&gt;()(n$2:org.junit.runner.notification.RunNotifier*) [line 29];
+*&amp;$irvar0:org.junit.runner.notification.RunNotifier*=n$2 [line 29];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 29];
+n$5=*&amp;$irvar0:org.junit.runner.notification.RunNotifier* [line 29];
+*n$4.fNotifier:org.junit.runner.notification.ConcurrentRunNotifierTest(root org.junit.runner.notification.ConcurrentRunNotifierTest)=n$5 [line 29];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.<init>%28%29.02a6149d63bc5f51bc1f2cf37d8bef56_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    private static class ConcurrentRunListener extends RunListener { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28org.junit.runne.3def593dba89e4165761730f4195635d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28org.junit.runne.3def593dba89e4165761730f4195635d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 31];
+n$1=_fun_ConcurrentRunNotifierTest$ConcurrentRunListener.&lt;init&gt;()(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) [line 31];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 31];
+n$1=_fun_RunListener.&lt;init&gt;()(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) [line 31];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28org.junit.runne.3def593dba89e4165761730f4195635d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28org.junit.runne.3def593dba89e4165761730f4195635d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28org.junit.runne.3def593dba89e4165761730f4195635d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28org.junit.runne.3def593dba89e4165761730f4195635d.html">summary for ConcurrentRunNotifierTest$ConcurrentRunListener.&lt;init&gt;(ConcurrentRunNotifierTest$1)</a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50.html">summary for ConcurrentRunNotifierTest$ConcurrentRunListener.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        final AtomicInteger fTestStarted = new AtomicInteger(0); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.concurrent.atomic.AtomicInteger):java.util.concurrent.atomic.AtomicInteger*) [line 32];
+n$3=_fun_AtomicInteger.&lt;init&gt;(int)(n$2:java.util.concurrent.atomic.AtomicInteger*,0:int) [line 32];
+*&amp;$irvar0:java.util.concurrent.atomic.AtomicInteger*=n$2 [line 32];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 32];
+n$5=*&amp;$irvar0:java.util.concurrent.atomic.AtomicInteger* [line 32];
+*n$4.fTestStarted:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener(root org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener)=n$5 [line 32];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.<init>%28%29.45ab20785ba254b898992634dbcdcb50_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        public void testStarted(Description description) throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.testStarted%28org.junit..eda737e7d8dfe0928a1c6988df437249_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.testStarted%28org.junit..eda737e7d8dfe0928a1c6988df437249.html">summary for void ConcurrentRunNotifierTest$ConcurrentRunListener.testStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            fTestStarted.incrementAndGet(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.testStarted%28org.junit..eda737e7d8dfe0928a1c6988df437249_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 36];
+n$1=*n$0.fTestStarted:java.util.concurrent.atomic.AtomicInteger*(root org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener) [line 36];
+_=*n$1:java.util.concurrent.atomic.AtomicInteger*(root java.util.concurrent.atomic.AtomicInteger) [line 36];
+n$3=_fun_int AtomicInteger.incrementAndGet()(n$1:java.util.concurrent.atomic.AtomicInteger*) virtual [line 36];
+*&amp;$irvar0:int=n$3 [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.testStarted%28org.junit..eda737e7d8dfe0928a1c6988df437249_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.testStarted%28org.junit..eda737e7d8dfe0928a1c6988df437249_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ConcurrentRunListener.testStarted%28org.junit..eda737e7d8dfe0928a1c6988df437249_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    public void realUsage() throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24.html">summary for void ConcurrentRunNotifierTest.realUsage()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        ConcurrentRunListener listener1 = new ConcurrentRunListener(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener):org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) [line 42];
+n$1=_fun_ConcurrentRunNotifierTest$ConcurrentRunListener.&lt;init&gt;(ConcurrentRunNotifierTest$1)(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*,null:java.lang.Object*) [line 42];
+*&amp;listener1:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*=n$0 [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        ConcurrentRunListener listener2 = new ConcurrentRunListener(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener):org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) [line 43];
+n$3=_fun_ConcurrentRunNotifierTest$ConcurrentRunListener.&lt;init&gt;(ConcurrentRunNotifierTest$1)(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*,null:java.lang.Object*) [line 43];
+*&amp;listener2:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*=n$2 [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        fNotifier.addListener(listener1); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 44];
+n$5=*n$4.fNotifier:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.ConcurrentRunNotifierTest) [line 44];
+_=*n$5:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 44];
+n$7=*&amp;listener1:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 44];
+n$8=_fun_void RunNotifier.addListener(RunListener)(n$5:org.junit.runner.notification.RunNotifier*,n$7:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) virtual [line 44];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        fNotifier.addListener(listener2); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$9=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 45];
+n$10=*n$9.fNotifier:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.ConcurrentRunNotifierTest) [line 45];
+_=*n$10:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 45];
+n$12=*&amp;listener2:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 45];
+n$13=_fun_void RunNotifier.addListener(RunListener)(n$10:org.junit.runner.notification.RunNotifier*,n$12:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) virtual [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        final int numParallelTests = 4; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+*&amp;numParallelTests:int=4 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        ExecutorService pool = Executors.newFixedThreadPool(numParallelTests); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=_fun_ExecutorService Executors.newFixedThreadPool(int)(4:int) [line 48];
+*&amp;pool:java.util.concurrent.ExecutorService*=n$14 [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        for (int i = 0; i &lt; numParallelTests; ++i) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:13 exn:3 Instructions
+*&amp;i:int=0 [line 49];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node13.html"><span class='visited with_tooltip'>J_13<span class='tooltip'>node13 preds:16 10 succs:11 12 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:14 exn:3 Conditional method_body
+n$15=*&amp;i:int [line 49];
+PRUNE(!(n$15  &gt;=  4), true); [line 49];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:13 exn:3 Instructions
+n$23=*&amp;i:int [line 49];
+*&amp;i:int=(n$23 + 1) [line 49];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:17 exn:3 Conditional method_body
+n$15=*&amp;i:int [line 49];
+PRUNE((n$15  &gt;=  4), false); [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">            pool.submit(new Runnable() { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$1* [line 50];
+n$1=*&amp;this$0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 50];
+*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest$1(root org.junit.runner.notification.ConcurrentRunNotifierTest$1)=n$1 [line 50];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$1* [line 50];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest$1*) [line 50];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:11 succs:15 exn:3 Instructions
+n$16=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$1):org.junit.runner.notification.ConcurrentRunNotifierTest$1*) [line 50];
+n$17=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 50];
+n$18=_fun_ConcurrentRunNotifierTest$1.&lt;init&gt;(ConcurrentRunNotifierTest)(n$16:org.junit.runner.notification.ConcurrentRunNotifierTest$1*,n$17:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 50];
+*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest$1*=n$16 [line 50];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$19=*&amp;pool:java.util.concurrent.ExecutorService* [line 50];
+_=*n$19:java.util.concurrent.ExecutorService*(root java.util.concurrent.ExecutorService) [line 50];
+n$21=*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest$1* [line 50];
+n$22=_fun_Future ExecutorService.submit(Runnable)(n$19:java.util.concurrent.ExecutorService*,n$21:org.junit.runner.notification.ConcurrentRunNotifierTest$1*) interface virtual [line 50];
+*&amp;$irvar1:java.util.concurrent.Future*=n$22 [line 50];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%241.<init>%28org.junit.runner.notification.Concu.caf4e63fee3145cbf69d702392720d9c.html">summary for ConcurrentRunNotifierTest$1.&lt;init&gt;(ConcurrentRunNotifierTest)</a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">                public void run() { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da.html">summary for void ConcurrentRunNotifierTest$1.run()</a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">                    fNotifier.fireTestStarted(null); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$1* [line 52];
+n$1=*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$1) [line 52];
+*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest*=n$1 [line 52];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 52];
+n$3=_fun_RunNotifier ConcurrentRunNotifierTest.access$100(ConcurrentRunNotifierTest)(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 52];
+*&amp;$irvar1:org.junit.runner.notification.RunNotifier*=n$3 [line 52];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar1:org.junit.runner.notification.RunNotifier* [line 52];
+_=*n$4:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 52];
+n$6=_fun_void RunNotifier.fireTestStarted(Description)(n$4:org.junit.runner.notification.RunNotifier*,null:java.lang.Object*) virtual [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">                } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%241.run%28%29%3Avoid.0e3895c2dede599eb1115f0557aa78da_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            }); </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        pool.shutdown(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:12 succs:18 exn:3 Instructions
+n$24=*&amp;pool:java.util.concurrent.ExecutorService* [line 56];
+_=*n$24:java.util.concurrent.ExecutorService*(root java.util.concurrent.ExecutorService) [line 56];
+n$26=_fun_void ExecutorService.shutdown()(n$24:java.util.concurrent.ExecutorService*) interface virtual [line 56];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        assertTrue(pool.awaitTermination(TIMEOUT, TimeUnit.SECONDS)); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$27=*&amp;pool:java.util.concurrent.ExecutorService* [line 57];
+_=*n$27:java.util.concurrent.ExecutorService*(root java.util.concurrent.ExecutorService) [line 57];
+n$29=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 57];
+n$30=_fun_boolean ExecutorService.awaitTermination(long,TimeUnit)(n$27:java.util.concurrent.ExecutorService*,3:long,n$29:java.util.concurrent.TimeUnit*) interface virtual [line 57];
+*&amp;$irvar2:_Bool=n$30 [line 57];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$31=*&amp;$irvar2:_Bool [line 57];
+n$32=_fun_void Assert.assertTrue(boolean)(n$31:_Bool) [line 57];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        fNotifier.removeListener(listener1); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$33=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 59];
+n$34=*n$33.fNotifier:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.ConcurrentRunNotifierTest) [line 59];
+_=*n$34:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 59];
+n$36=*&amp;listener1:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 59];
+n$37=_fun_void RunNotifier.removeListener(RunListener)(n$34:org.junit.runner.notification.RunNotifier*,n$36:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) virtual [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        fNotifier.removeListener(listener2); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$38=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 60];
+n$39=*n$38.fNotifier:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.ConcurrentRunNotifierTest) [line 60];
+_=*n$39:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 60];
+n$41=*&amp;listener2:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 60];
+n$42=_fun_void RunNotifier.removeListener(RunListener)(n$39:org.junit.runner.notification.RunNotifier*,n$41:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener*) virtual [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        assertThat(listener1.fTestStarted.get(), is(numParallelTests)); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$43=*&amp;listener1:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 62];
+n$44=*n$43.fTestStarted:java.util.concurrent.atomic.AtomicInteger*(root org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener) [line 62];
+_=*n$44:java.util.concurrent.atomic.AtomicInteger*(root java.util.concurrent.atomic.AtomicInteger) [line 62];
+n$46=_fun_int AtomicInteger.get()(n$44:java.util.concurrent.atomic.AtomicInteger*) virtual [line 62];
+*&amp;$irvar3:int=n$46 [line 62];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$47=*&amp;$irvar3:int [line 62];
+n$48=_fun_Integer Integer.valueOf(int)(n$47:int) [line 62];
+*&amp;$irvar4:java.lang.Integer*=n$48 [line 62];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$49=_fun_Integer Integer.valueOf(int)(4:int) [line 62];
+*&amp;$irvar5:java.lang.Integer*=n$49 [line 62];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$50=*&amp;$irvar5:java.lang.Integer* [line 62];
+n$51=_fun_Matcher Is.is(Object)(n$50:java.lang.Integer*) [line 62];
+*&amp;$irvar6:org.hamcrest.Matcher*=n$51 [line 62];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$52=*&amp;$irvar4:java.lang.Integer* [line 62];
+n$53=*&amp;$irvar6:org.hamcrest.Matcher* [line 62];
+n$54=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$52:java.lang.Integer*,n$53:org.hamcrest.Matcher*) [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        assertThat(listener2.fTestStarted.get(), is(numParallelTests)); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$55=*&amp;listener2:org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener* [line 63];
+n$56=*n$55.fTestStarted:java.util.concurrent.atomic.AtomicInteger*(root org.junit.runner.notification.ConcurrentRunNotifierTest$ConcurrentRunListener) [line 63];
+_=*n$56:java.util.concurrent.atomic.AtomicInteger*(root java.util.concurrent.atomic.AtomicInteger) [line 63];
+n$58=_fun_int AtomicInteger.get()(n$56:java.util.concurrent.atomic.AtomicInteger*) virtual [line 63];
+*&amp;$irvar7:int=n$58 [line 63];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$59=*&amp;$irvar7:int [line 63];
+n$60=_fun_Integer Integer.valueOf(int)(n$59:int) [line 63];
+*&amp;$irvar8:java.lang.Integer*=n$60 [line 63];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$61=_fun_Integer Integer.valueOf(int)(4:int) [line 63];
+*&amp;$irvar9:java.lang.Integer*=n$61 [line 63];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$62=*&amp;$irvar9:java.lang.Integer* [line 63];
+n$63=_fun_Matcher Is.is(Object)(n$62:java.lang.Integer*) [line 63];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$63 [line 63];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$64=*&amp;$irvar8:java.lang.Integer* [line 63];
+n$65=*&amp;$irvar10:org.hamcrest.Matcher* [line 63];
+n$66=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$64:java.lang.Integer*,n$65:org.hamcrest.Matcher*) [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.realUsage%28%29%3Avoid.892e38a0954628d1b92b864a1f251b24_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    private static class ExaminedListener extends RunListener { </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        final boolean throwFromTestStarted; </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        volatile boolean hasTestFailure = false; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 68];
+*n$2.hasTestFailure:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener)=0 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        ExaminedListener(boolean throwFromTestStarted) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 70];
+n$1=_fun_RunListener.&lt;init&gt;()(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*) [line 70];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d.html">summary for ConcurrentRunNotifierTest$ExaminedListener.&lt;init&gt;(boolean)</a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">            this.throwFromTestStarted = throwFromTestStarted; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 71];
+n$4=*&amp;throwFromTestStarted:_Bool [line 71];
+*n$3.throwFromTestStarted:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener)=n$4 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.<init>%28boolean%29.48e53cc40dd2a26211a9d4693d4e7d0d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        public void testStarted(Description description) throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269.html">summary for void ConcurrentRunNotifierTest$ExaminedListener.testStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">            if (throwFromTestStarted) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 76];
+n$1=*n$0.throwFromTestStarted:_Bool(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener) [line 76];
+PRUNE(!(n$1 == 0), true); [line 76];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 76];
+n$1=*n$0.throwFromTestStarted:_Bool(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener) [line 76];
+PRUNE((n$1 == 0), false); [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">                throw new Exception(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 77];
+n$3=_fun_Exception.&lt;init&gt;()(n$2:java.lang.Exception*) [line 77];
+*&amp;$irvar0:java.lang.Exception*=n$2 [line 77];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.Exception* [line 77];
+*&amp;return:void=EXN n$4 [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testStarted%28org.junit.runne.32ae6fe3c5d22bdaba9867662036c269_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        public void testFailure(Failure failure) throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testFailure%28org.junit.runne.938d1d6a5790c1ac5e31932520553ad0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testFailure%28org.junit.runne.938d1d6a5790c1ac5e31932520553ad0.html">summary for void ConcurrentRunNotifierTest$ExaminedListener.testFailure(Failure)</a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">            hasTestFailure = true; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testFailure%28org.junit.runne.938d1d6a5790c1ac5e31932520553ad0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 83];
+*n$0.hasTestFailure:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener)=1 [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testFailure%28org.junit.runne.938d1d6a5790c1ac5e31932520553ad0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testFailure%28org.junit.runne.938d1d6a5790c1ac5e31932520553ad0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24ExaminedListener.testFailure%28org.junit.runne.938d1d6a5790c1ac5e31932520553ad0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    private abstract class AbstractConcurrentFailuresTest { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.57a4321a4a147a987187165b91134dac_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.57a4321a4a147a987187165b91134dac_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest* [line 87];
+n$1=*&amp;x0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 87];
+n$2=_fun_ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.&lt;init&gt;(ConcurrentRunNotifierTest)(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*,n$1:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 87];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest* [line 87];
+n$1=*&amp;$bcvar1:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 87];
+*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest)=n$1 [line 87];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.57a4321a4a147a987187165b91134dac_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest* [line 87];
+n$3=_fun_Object.&lt;init&gt;()(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*) [line 87];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.57a4321a4a147a987187165b91134dac_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.57a4321a4a147a987187165b91134dac_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.57a4321a4a147a987187165b91134dac.html">summary for ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.&lt;init&gt;(ConcurrentRunNotifierTest,ConcurrentRunNotifierTest$1)</a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.<init>%28org.ju.af4f0421608909ec2c0097d9bd0e16e1.html">summary for ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.&lt;init&gt;(ConcurrentRunNotifierTest)</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        protected abstract void addListener(ExaminedListener listener); </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        public void test() throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2.html">summary for void ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.test()</a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            int totalListenersFailures = 0; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;totalListenersFailures:int=0 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            Random random = new Random(42); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.Random):java.util.Random*) [line 94];
+n$1=_fun_Random.&lt;init&gt;(long)(n$0:java.util.Random*,42:long) [line 94];
+*&amp;random:java.util.Random*=n$0 [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">            ExaminedListener[] examinedListeners = new ExaminedListener[1000]; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_];len=[1000]):org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 95];
+*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)=n$2 [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">            for (int i = 0; i &lt; examinedListeners.length; ++i) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:10 exn:3 Instructions
+*&amp;i:int=0 [line 96];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:24 7 succs:8 9 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$3=*&amp;i:int [line 96];
+n$4=*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 96];
+_=*n$4:int(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 96];
+n$6=_fun___get_array_length(n$4:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 96];
+PRUNE(!(n$3  &gt;=  n$6), true); [line 96];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:10 exn:3 Instructions
+n$20=*&amp;i:int [line 96];
+*&amp;i:int=(n$20 + 1) [line 96];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:25 exn:3 Conditional method_body
+n$3=*&amp;i:int [line 96];
+n$4=*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 96];
+_=*n$4:int(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 96];
+n$6=_fun___get_array_length(n$4:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 96];
+PRUNE((n$3  &gt;=  n$6), false); [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">                boolean fail = random.nextDouble() &gt;= 0.5d; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:14 exn:3 Instructions
+n$7=*&amp;random:java.util.Random* [line 97];
+_=*n$7:java.util.Random*(root java.util.Random) [line 97];
+n$9=_fun_double Random.nextDouble()(n$7:java.util.Random*) virtual [line 97];
+*&amp;$irvar0:double=n$9 [line 97];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node14.html"><span class='visited with_tooltip'>J_14<span class='tooltip'>node14 preds:11 succs:12 13 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:14 succs:15 exn:3 Conditional method_body
+n$10=*&amp;$irvar0:double [line 97];
+PRUNE(!(n$10  &lt;  0.5), true); [line 97];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:12 succs:17 exn:3 Instructions
+*&amp;$T0_46:int=1 [line 97];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:14 succs:16 exn:3 Conditional method_body
+n$10=*&amp;$irvar0:double [line 97];
+PRUNE((n$10  &lt;  0.5), false); [line 97];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:13 succs:17 exn:3 Instructions
+*&amp;$T0_46:int=0 [line 97];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 15 succs:20 exn:3 Instructions
+n$11=*&amp;$T0_46:int [line 97];
+*&amp;fail:int=n$11 [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">                if (fail) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node20.html"><span class='visited with_tooltip'>J_20<span class='tooltip'>node20 preds:17 succs:18 19 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:20 succs:21 exn:3 Conditional method_body
+n$12=*&amp;fail:int [line 98];
+PRUNE(!(n$12 == 0), true); [line 98];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:20 succs:22 exn:3 Conditional method_body
+n$12=*&amp;fail:int [line 98];
+PRUNE((n$12 == 0), false); [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">                    ++totalListenersFailures; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:18 succs:22 exn:3 Instructions
+n$13=*&amp;totalListenersFailures:int [line 99];
+*&amp;totalListenersFailures:int=(n$13 + 1) [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">                examinedListeners[i] = new ExaminedListener(fail); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 19 succs:23 exn:3 Instructions
+n$14=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener):org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*) [line 101];
+n$15=*&amp;fail:int [line 101];
+n$16=_fun_ConcurrentRunNotifierTest$ExaminedListener.&lt;init&gt;(boolean)(n$14:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*,n$15:int) [line 101];
+*&amp;$irvar1:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*=n$14 [line 101];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$17=*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 101];
+n$18=*&amp;i:int [line 101];
+n$19=*&amp;$irvar1:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 101];
+*n$17[n$18]:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*=n$19 [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">            final AtomicBoolean condition = new AtomicBoolean(true); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:9 succs:26 exn:3 Instructions
+n$21=_fun___new(sizeof(t=java.util.concurrent.atomic.AtomicBoolean):java.util.concurrent.atomic.AtomicBoolean*) [line 104];
+n$22=_fun_AtomicBoolean.&lt;init&gt;(boolean)(n$21:java.util.concurrent.atomic.AtomicBoolean*,1:int) [line 104];
+*&amp;condition:java.util.concurrent.atomic.AtomicBoolean*=n$21 [line 104];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">            final CyclicBarrier trigger = new CyclicBarrier(2); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$23=_fun___new(sizeof(t=java.util.concurrent.CyclicBarrier):java.util.concurrent.CyclicBarrier*) [line 105];
+n$24=_fun_CyclicBarrier.&lt;init&gt;(int)(n$23:java.util.concurrent.CyclicBarrier*,2:int) [line 105];
+*&amp;trigger:java.util.concurrent.CyclicBarrier*=n$23 [line 105];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">            final CountDownLatch latch = new CountDownLatch(10); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$25=_fun___new(sizeof(t=java.util.concurrent.CountDownLatch):java.util.concurrent.CountDownLatch*) [line 106];
+n$26=_fun_CountDownLatch.&lt;init&gt;(int)(n$25:java.util.concurrent.CountDownLatch*,10:int) [line 106];
+*&amp;latch:java.util.concurrent.CountDownLatch*=n$25 [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">            ExecutorService notificationsPool = Executors.newFixedThreadPool(4); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$27=_fun_ExecutorService Executors.newFixedThreadPool(int)(4:int) [line 108];
+*&amp;notificationsPool:java.util.concurrent.ExecutorService*=n$27 [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">            notificationsPool.submit(new Callable&lt;Void&gt;() { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.15bb824c7a4d84d2da1c7e228f39c1b1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.15bb824c7a4d84d2da1c7e228f39c1b1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+_=*n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1) [line 109];
+n$2=_fun_Void ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1.call()(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*) virtual [line 109];
+*&amp;$irvar0:java.lang.Void*=n$2 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+n$1=*&amp;this$1:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest* [line 109];
+*n$0.this$1:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1)=n$1 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.15bb824c7a4d84d2da1c7e228f39c1b1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Void* [line 109];
+*&amp;return:java.lang.Object*=n$3 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+n$3=*&amp;$bcvar2:java.util.concurrent.CyclicBarrier* [line 109];
+*n$2.val$trigger:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1)=n$3 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.15bb824c7a4d84d2da1c7e228f39c1b1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+n$5=*&amp;$bcvar3:java.util.concurrent.atomic.AtomicBoolean* [line 109];
+*n$4.val$condition:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1)=n$5 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+n$7=*&amp;$bcvar4:java.util.concurrent.CountDownLatch* [line 109];
+*n$6.val$latch:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1)=n$7 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+n$9=_fun_Object.&lt;init&gt;()(n$8:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*) [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$28=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1):org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*) [line 109];
+n$29=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest* [line 109];
+n$30=*&amp;trigger:java.util.concurrent.CyclicBarrier* [line 109];
+n$31=*&amp;condition:java.util.concurrent.atomic.AtomicBoolean* [line 109];
+n$32=*&amp;latch:java.util.concurrent.CountDownLatch* [line 109];
+n$33=_fun_ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1.&lt;init&gt;(ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest,CyclicBarrier,AtomicBoolean,CountDownLatch)(n$28:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*,n$29:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*,n$30:java.util.concurrent.CyclicBarrier*,n$31:java.util.concurrent.atomic.AtomicBoolean*,n$32:java.util.concurrent.CountDownLatch*) [line 109];
+*&amp;$irvar2:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*=n$28 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$34=*&amp;notificationsPool:java.util.concurrent.ExecutorService* [line 109];
+_=*n$34:java.util.concurrent.ExecutorService*(root java.util.concurrent.ExecutorService) [line 109];
+n$36=*&amp;$irvar2:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 109];
+n$37=_fun_Future ExecutorService.submit(Callable)(n$34:java.util.concurrent.ExecutorService*,n$36:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1*) interface virtual [line 109];
+*&amp;$irvar3:java.util.concurrent.Future*=n$37 [line 109];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.15bb824c7a4d84d2da1c7e228f39c1b1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.15bb824c7a4d84d2da1c7e228f39c1b1.html">summary for Object ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1.call()</a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.<init>%28org..dacdc032af4f57f03f4b2621c0af3d89.html">summary for ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1.&lt;init&gt;(ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest,CyclicBarrier,AtomicBoolean,CountDownLatch)</a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">                public Void call() throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3.html">summary for Void ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1.call()</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">                    trigger.await(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 111];
+n$1=*n$0.val$trigger:java.util.concurrent.CyclicBarrier*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1) [line 111];
+_=*n$1:java.util.concurrent.CyclicBarrier*(root java.util.concurrent.CyclicBarrier) [line 111];
+n$3=_fun_int CyclicBarrier.await()(n$1:java.util.concurrent.CyclicBarrier*) virtual [line 111];
+*&amp;$irvar0:int=n$3 [line 111];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">                    while (condition.get()) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:12 4 succs:8 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 112];
+n$5=*n$4.val$condition:java.util.concurrent.atomic.AtomicBoolean*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1) [line 112];
+_=*n$5:java.util.concurrent.atomic.AtomicBoolean*(root java.util.concurrent.atomic.AtomicBoolean) [line 112];
+n$7=_fun_boolean AtomicBoolean.get()(n$5:java.util.concurrent.atomic.AtomicBoolean*) virtual [line 112];
+*&amp;$irvar1:_Bool=n$7 [line 112];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$8=*&amp;$irvar1:_Bool [line 112];
+PRUNE(!(n$8 == 0), true); [line 112];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:13 exn:3 Conditional method_body
+n$8=*&amp;$irvar1:_Bool [line 112];
+PRUNE((n$8 == 0), false); [line 112];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">                        fNotifier.fireTestStarted(null); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$9=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 113];
+n$10=*n$9.this$1:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1) [line 113];
+n$11=*n$10.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest) [line 113];
+*&amp;$irvar2:org.junit.runner.notification.ConcurrentRunNotifierTest*=n$11 [line 113];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar2:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 113];
+n$13=_fun_RunNotifier ConcurrentRunNotifierTest.access$100(ConcurrentRunNotifierTest)(n$12:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 113];
+*&amp;$irvar3:org.junit.runner.notification.RunNotifier*=n$13 [line 113];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;$irvar3:org.junit.runner.notification.RunNotifier* [line 113];
+_=*n$14:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 113];
+n$16=_fun_void RunNotifier.fireTestStarted(Description)(n$14:org.junit.runner.notification.RunNotifier*,null:java.lang.Object*) virtual [line 113];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">                        latch.countDown(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:5 exn:3 Instructions
+n$17=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 114];
+n$18=*n$17.val$latch:java.util.concurrent.CountDownLatch*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1) [line 114];
+_=*n$18:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 114];
+n$20=_fun_void CountDownLatch.countDown()(n$18:java.util.concurrent.CountDownLatch*) virtual [line 114];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">                    } </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">                    fNotifier.fireTestStarted(null); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:7 succs:14 exn:3 Instructions
+n$21=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1* [line 116];
+n$22=*n$21.this$1:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest$1) [line 116];
+n$23=*n$22.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest) [line 116];
+*&amp;$irvar4:org.junit.runner.notification.ConcurrentRunNotifierTest*=n$23 [line 116];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$24=*&amp;$irvar4:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 116];
+n$25=_fun_RunNotifier ConcurrentRunNotifierTest.access$100(ConcurrentRunNotifierTest)(n$24:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 116];
+*&amp;$irvar5:org.junit.runner.notification.RunNotifier*=n$25 [line 116];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$26=*&amp;$irvar5:org.junit.runner.notification.RunNotifier* [line 116];
+_=*n$26:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 116];
+n$28=_fun_void RunNotifier.fireTestStarted(Description)(n$26:org.junit.runner.notification.RunNotifier*,null:java.lang.Object*) virtual [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">                    return null; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Void*=null [line 117];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest%241.call%28%29%3Ajava.79d25d384c1b007fae4f17a3736aa3c3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">                } </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">            }); </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">            // Wait for callable to start </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            trigger.await(TIMEOUT, TimeUnit.SECONDS); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$38=*&amp;trigger:java.util.concurrent.CyclicBarrier* [line 122];
+_=*n$38:java.util.concurrent.CyclicBarrier*(root java.util.concurrent.CyclicBarrier) [line 122];
+n$40=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 122];
+n$41=_fun_int CyclicBarrier.await(long,TimeUnit)(n$38:java.util.concurrent.CyclicBarrier*,3:long,n$40:java.util.concurrent.TimeUnit*) virtual [line 122];
+*&amp;$irvar4:int=n$41 [line 122];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">            // Wait for callable to fire a few events </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">            latch.await(TIMEOUT, TimeUnit.SECONDS); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:33 exn:3 Instructions
+n$42=*&amp;latch:java.util.concurrent.CountDownLatch* [line 125];
+_=*n$42:java.util.concurrent.CountDownLatch*(root java.util.concurrent.CountDownLatch) [line 125];
+n$44=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 125];
+n$45=_fun_boolean CountDownLatch.await(long,TimeUnit)(n$42:java.util.concurrent.CountDownLatch*,3:long,n$44:java.util.concurrent.TimeUnit*) virtual [line 125];
+*&amp;$irvar5:_Bool=n$45 [line 125];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">            for (ExaminedListener examinedListener : examinedListeners) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:32 succs:34 exn:3 Instructions
+n$46=*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 127];
+*&amp;$bcvar8:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)=n$46 [line 127];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:33 succs:35 exn:3 Instructions
+n$47=*&amp;$bcvar8:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 127];
+_=*n$47:int(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 127];
+n$49=_fun___get_array_length(n$47:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 127];
+*&amp;$bcvar9:int=n$49 [line 127];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:34 succs:38 exn:3 Instructions
+*&amp;$bcvar10:int=0 [line 127];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node38.html"><span class='visited with_tooltip'>J_38<span class='tooltip'>node38 preds:41 35 succs:36 37 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node36.html"><span class='visited with_tooltip'>C_36<span class='tooltip'>node36 preds:38 succs:39 exn:3 Conditional method_body
+n$50=*&amp;$bcvar10:int [line 127];
+n$51=*&amp;$bcvar9:int [line 127];
+PRUNE(!(n$50  &gt;=  n$51), true); [line 127];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node39.html"><span class='visited with_tooltip'>I_39<span class='tooltip'>node39 preds:36 succs:40 exn:3 Instructions
+n$52=*&amp;$bcvar8:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 127];
+_=*n$52:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 127];
+n$53=*&amp;$bcvar10:int [line 127];
+n$55=*n$52[n$53]:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 127];
+*&amp;examinedListener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*=n$55 [line 127];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node41.html"><span class='visited with_tooltip'>I_41<span class='tooltip'>node41 preds:40 succs:38 exn:3 Instructions
+n$60=*&amp;$bcvar10:int [line 127];
+*&amp;$bcvar10:int=(n$60 + 1) [line 127];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node37.html"><span class='visited with_tooltip'>C_37<span class='tooltip'>node37 preds:38 succs:42 exn:3 Conditional method_body
+n$50=*&amp;$bcvar10:int [line 127];
+n$51=*&amp;$bcvar9:int [line 127];
+PRUNE((n$50  &gt;=  n$51), false); [line 127];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">              addListener(examinedListener); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node40.html"><span class='visited with_tooltip'>I_40<span class='tooltip'>node40 preds:39 succs:41 exn:3 Instructions
+n$56=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest* [line 128];
+_=*n$56:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest) [line 128];
+n$58=*&amp;examinedListener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 128];
+n$59=_fun_void ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.addListener(ConcurrentRunNotifierTest$ExaminedListener)(n$56:org.junit.runner.notification.ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest*,n$58:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*) virtual [line 128];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">            notificationsPool.shutdown(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node42.html"><span class='visited with_tooltip'>I_42<span class='tooltip'>node42 preds:37 succs:43 exn:3 Instructions
+n$61=*&amp;notificationsPool:java.util.concurrent.ExecutorService* [line 131];
+_=*n$61:java.util.concurrent.ExecutorService*(root java.util.concurrent.ExecutorService) [line 131];
+n$63=_fun_void ExecutorService.shutdown()(n$61:java.util.concurrent.ExecutorService*) interface virtual [line 131];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">            condition.set(false); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node43.html"><span class='visited with_tooltip'>I_43<span class='tooltip'>node43 preds:42 succs:44 exn:3 Instructions
+n$64=*&amp;condition:java.util.concurrent.atomic.AtomicBoolean* [line 132];
+_=*n$64:java.util.concurrent.atomic.AtomicBoolean*(root java.util.concurrent.atomic.AtomicBoolean) [line 132];
+n$66=_fun_void AtomicBoolean.set(boolean)(n$64:java.util.concurrent.atomic.AtomicBoolean*,0:int) virtual [line 132];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">            assertTrue(notificationsPool.awaitTermination(TIMEOUT, TimeUnit.SECONDS)); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node44.html"><span class='visited with_tooltip'>I_44<span class='tooltip'>node44 preds:43 succs:45 exn:3 Instructions
+n$67=*&amp;notificationsPool:java.util.concurrent.ExecutorService* [line 133];
+_=*n$67:java.util.concurrent.ExecutorService*(root java.util.concurrent.ExecutorService) [line 133];
+n$69=*&amp;#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 133];
+n$70=_fun_boolean ExecutorService.awaitTermination(long,TimeUnit)(n$67:java.util.concurrent.ExecutorService*,3:long,n$69:java.util.concurrent.TimeUnit*) interface virtual [line 133];
+*&amp;$irvar6:_Bool=n$70 [line 133];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node45.html"><span class='visited with_tooltip'>I_45<span class='tooltip'>node45 preds:44 succs:46 47 exn:3 Instructions
+n$71=*&amp;$irvar6:_Bool [line 133];
+n$72=_fun_void Assert.assertTrue(boolean)(n$71:_Bool) [line 133];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">            if (totalListenersFailures != 0) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node46.html"><span class='visited with_tooltip'>C_46<span class='tooltip'>node46 preds:45 succs:48 exn:3 Conditional method_body
+n$73=*&amp;totalListenersFailures:int [line 135];
+PRUNE(!(n$73 == 0), true); [line 135];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node47.html"><span class='visited with_tooltip'>C_47<span class='tooltip'>node47 preds:45 succs:54 exn:3 Conditional method_body
+n$73=*&amp;totalListenersFailures:int [line 135];
+PRUNE((n$73 == 0), false); [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">                // If no listener failures, then all the listeners do not report any failure. </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">                int countTestFailures = examinedListeners.length - countReportedTestFailures(examinedListeners); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node48.html"><span class='visited with_tooltip'>I_48<span class='tooltip'>node48 preds:46 succs:49 exn:3 Instructions
+n$74=*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 137];
+n$75=_fun_int ConcurrentRunNotifierTest.access$200(ConcurrentRunNotifierTest$ExaminedListener[])(n$74:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 137];
+*&amp;$irvar7:int=n$75 [line 137];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node49.html"><span class='visited with_tooltip'>I_49<span class='tooltip'>node49 preds:48 succs:50 exn:3 Instructions
+n$76=*&amp;examinedListeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 137];
+_=*n$76:int(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 137];
+n$78=_fun___get_array_length(n$76:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 137];
+n$79=*&amp;$irvar7:int [line 137];
+*&amp;countTestFailures:int=(n$78 - n$79) [line 137];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">                assertThat(totalListenersFailures, is(countTestFailures)); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node50.html"><span class='visited with_tooltip'>I_50<span class='tooltip'>node50 preds:49 succs:51 exn:3 Instructions
+n$80=*&amp;totalListenersFailures:int [line 138];
+n$81=_fun_Integer Integer.valueOf(int)(n$80:int) [line 138];
+*&amp;$irvar8:java.lang.Integer*=n$81 [line 138];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node51.html"><span class='visited with_tooltip'>I_51<span class='tooltip'>node51 preds:50 succs:52 exn:3 Instructions
+n$82=*&amp;countTestFailures:int [line 138];
+n$83=_fun_Integer Integer.valueOf(int)(n$82:int) [line 138];
+*&amp;$irvar9:java.lang.Integer*=n$83 [line 138];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node52.html"><span class='visited with_tooltip'>I_52<span class='tooltip'>node52 preds:51 succs:53 exn:3 Instructions
+n$84=*&amp;$irvar9:java.lang.Integer* [line 138];
+n$85=_fun_Matcher Is.is(Object)(n$84:java.lang.Integer*) [line 138];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$85 [line 138];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node53.html"><span class='visited with_tooltip'>I_53<span class='tooltip'>node53 preds:52 succs:54 exn:3 Instructions
+n$86=*&amp;$irvar8:java.lang.Integer* [line 138];
+n$87=*&amp;$irvar10:org.hamcrest.Matcher* [line 138];
+n$88=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$86:java.lang.Integer*,n$87:org.hamcrest.Matcher*) [line 138];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node54.html"><span class='visited with_tooltip'>I_54<span class='tooltip'>node54 preds:53 47 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:54 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%24AbstractConcurrentFailuresTest.test%28%29%3Avoid.50b8860f115885779dc505bfc3bdf1c2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">     * Verifies that listeners added while tests are run concurrently are </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">     * notified about test failures. </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">    public void reportConcurrentFailuresAfterAddListener() throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe.html">summary for void ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener()</a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">        new AbstractConcurrentFailuresTest() { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$2):org.junit.runner.notification.ConcurrentRunNotifierTest$2*) [line 149];
+n$1=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 149];
+n$2=_fun_ConcurrentRunNotifierTest$2.&lt;init&gt;(ConcurrentRunNotifierTest)(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$2*,n$1:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 149];
+*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest$2*=n$0 [line 149];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$2* [line 149];
+n$1=*&amp;this$0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 149];
+*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest$2(root org.junit.runner.notification.ConcurrentRunNotifierTest$2)=n$1 [line 149];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$2* [line 149];
+n$3=*&amp;this$0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 149];
+n$4=_fun_ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.&lt;init&gt;(ConcurrentRunNotifierTest,ConcurrentRunNotifierTest$1)(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest$2*,n$3:org.junit.runner.notification.ConcurrentRunNotifierTest*,null:java.lang.Object*) [line 149];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%242.<init>%28org.junit.runner.notification.Concu.ab6344f90f5ac54981f7ffcb372a13ca.html">summary for ConcurrentRunNotifierTest$2.&lt;init&gt;(ConcurrentRunNotifierTest)</a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">            protected void addListener(ExaminedListener listener) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1.html">summary for void ConcurrentRunNotifierTest$2.addListener(ConcurrentRunNotifierTest$ExaminedListener)</a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">                fNotifier.addListener(listener); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$2* [line 152];
+n$1=*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$2) [line 152];
+*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest*=n$1 [line 152];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 152];
+n$3=_fun_RunNotifier ConcurrentRunNotifierTest.access$100(ConcurrentRunNotifierTest)(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 152];
+*&amp;$irvar1:org.junit.runner.notification.RunNotifier*=n$3 [line 152];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar1:org.junit.runner.notification.RunNotifier* [line 152];
+_=*n$4:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 152];
+n$6=*&amp;listener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 152];
+n$7=_fun_void RunNotifier.addListener(RunListener)(n$4:org.junit.runner.notification.RunNotifier*,n$6:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*) virtual [line 152];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">            } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%242.addListener%28org.junit.runner.notification..8be98b0b806d05749b1314f7897d6fc1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        }.test(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest$2* [line 154];
+_=*n$3:org.junit.runner.notification.ConcurrentRunNotifierTest$2*(root org.junit.runner.notification.ConcurrentRunNotifierTest$2) [line 154];
+n$5=_fun_void ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.test()(n$3:org.junit.runner.notification.ConcurrentRunNotifierTest$2*) virtual [line 154];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">    } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddListener%28%29%3Av.86e8a914882645d166867d91e480ecfe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">     * Verifies that listeners added with addFirstListener() while tests are run concurrently are </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">     * notified about test failures. </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">    public void reportConcurrentFailuresAfterAddFirstListener() throws Exception { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e.html">summary for void ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListener()</a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">        new AbstractConcurrentFailuresTest() { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.ConcurrentRunNotifierTest$3):org.junit.runner.notification.ConcurrentRunNotifierTest$3*) [line 163];
+n$1=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 163];
+n$2=_fun_ConcurrentRunNotifierTest$3.&lt;init&gt;(ConcurrentRunNotifierTest)(n$0:org.junit.runner.notification.ConcurrentRunNotifierTest$3*,n$1:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 163];
+*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest$3*=n$0 [line 163];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$3* [line 163];
+n$1=*&amp;this$0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 163];
+*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest$3(root org.junit.runner.notification.ConcurrentRunNotifierTest$3)=n$1 [line 163];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$3* [line 163];
+n$3=*&amp;this$0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 163];
+n$4=_fun_ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.&lt;init&gt;(ConcurrentRunNotifierTest,ConcurrentRunNotifierTest$1)(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest$3*,n$3:org.junit.runner.notification.ConcurrentRunNotifierTest*,null:java.lang.Object*) [line 163];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%243.<init>%28org.junit.runner.notification.Concu.07308dc9e4d7765e07dfcc912b41793d.html">summary for ConcurrentRunNotifierTest$3.&lt;init&gt;(ConcurrentRunNotifierTest)</a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">            protected void addListener(ExaminedListener listener) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c.html">summary for void ConcurrentRunNotifierTest$3.addListener(ConcurrentRunNotifierTest$ExaminedListener)</a></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">                fNotifier.addFirstListener(listener); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.ConcurrentRunNotifierTest$3* [line 166];
+n$1=*n$0.this$0:org.junit.runner.notification.ConcurrentRunNotifierTest*(root org.junit.runner.notification.ConcurrentRunNotifierTest$3) [line 166];
+*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest*=n$1 [line 166];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest* [line 166];
+n$3=_fun_RunNotifier ConcurrentRunNotifierTest.access$100(ConcurrentRunNotifierTest)(n$2:org.junit.runner.notification.ConcurrentRunNotifierTest*) [line 166];
+*&amp;$irvar1:org.junit.runner.notification.RunNotifier*=n$3 [line 166];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar1:org.junit.runner.notification.RunNotifier* [line 166];
+_=*n$4:org.junit.runner.notification.RunNotifier*(root org.junit.runner.notification.RunNotifier) [line 166];
+n$6=*&amp;listener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 166];
+n$7=_fun_void RunNotifier.addFirstListener(RunListener)(n$4:org.junit.runner.notification.RunNotifier*,n$6:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*) virtual [line 166];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">            } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest%243.addListener%28org.junit.runner.notification..81a0551f0484358c8f745108630d268c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">        }.test(); <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.runner.notification.ConcurrentRunNotifierTest$3* [line 168];
+_=*n$3:org.junit.runner.notification.ConcurrentRunNotifierTest$3*(root org.junit.runner.notification.ConcurrentRunNotifierTest$3) [line 168];
+n$5=_fun_void ConcurrentRunNotifierTest$AbstractConcurrentFailuresTest.test()(n$3:org.junit.runner.notification.ConcurrentRunNotifierTest$3*) virtual [line 168];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">    } <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.reportConcurrentFailuresAfterAddFirstListene.025745b5ec7ae13ae62499274158d62e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">    private static int countReportedTestFailures(ExaminedListener[] listeners) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423.html">summary for int ConcurrentRunNotifierTest.countReportedTestFailures(ConcurrentRunNotifierTest$ExaminedListener[])</a></td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">        int count = 0; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;count:int=0 [line 172];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">        for (ExaminedListener listener : listeners) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=*&amp;listeners:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 173];
+*&amp;$bcvar2:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)=n$0 [line 173];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$1=*&amp;$bcvar2:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 173];
+_=*n$1:int(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 173];
+n$3=_fun___get_array_length(n$1:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*)) [line 173];
+*&amp;$bcvar3:int=n$3 [line 173];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:10 exn:3 Instructions
+*&amp;$bcvar4:int=0 [line 173];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:16 7 succs:8 9 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$4=*&amp;$bcvar4:int [line 173];
+n$5=*&amp;$bcvar3:int [line 173];
+PRUNE(!(n$4  &gt;=  n$5), true); [line 173];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:14 exn:3 Instructions
+n$6=*&amp;$bcvar2:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_](*) [line 173];
+_=*n$6:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*[_*_]) [line 173];
+n$7=*&amp;$bcvar4:int [line 173];
+n$9=*n$6[n$7]:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 173];
+*&amp;listener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener*=n$9 [line 173];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 13 succs:10 exn:3 Instructions
+n$13=*&amp;$bcvar4:int [line 173];
+*&amp;$bcvar4:int=(n$13 + 1) [line 173];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:17 exn:3 Conditional method_body
+n$4=*&amp;$bcvar4:int [line 173];
+n$5=*&amp;$bcvar3:int [line 173];
+PRUNE((n$4  &gt;=  n$5), false); [line 173];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">            if (listener.hasTestFailure) { <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node14.html"><span class='visited with_tooltip'>J_14<span class='tooltip'>node14 preds:11 succs:12 13 exn: Join
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:14 succs:15 exn:3 Conditional method_body
+n$10=*&amp;listener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 174];
+n$11=*n$10.hasTestFailure:_Bool(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener) [line 174];
+PRUNE(!(n$11 == 0), true); [line 174];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:14 succs:16 exn:3 Conditional method_body
+n$10=*&amp;listener:org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener* [line 174];
+n$11=*n$10.hasTestFailure:_Bool(root org.junit.runner.notification.ConcurrentRunNotifierTest$ExaminedListener) [line 174];
+PRUNE((n$11 == 0), false); [line 174];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">                ++count; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:12 succs:16 exn:3 Instructions
+n$12=*&amp;count:int [line 175];
+*&amp;count:int=(n$12 + 1) [line 175];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">        return count; <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:9 succs:2 exn:3 Instructions
+n$14=*&amp;count:int [line 178];
+*&amp;return:int=n$14 [line 178];
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:17 3 succs: exn: Exit
+</span></span></a> <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/org.junit.runner.notification.ConcurrentRunNotifierTest.countReportedTestFailures%28org.junit.runner.n.75222acc93a8992c543112466f933423_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/node18.html#session156">node18#session156</a>(<a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/../ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800.html#LINE57">57</a>)<a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/nodes/node31.html#session326">node31#session326</a>(<a href="./ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800/../ConcurrentRunNotifierTest.java.5f0e824e068a6856ecadca044369a800.html#LINE122">122</a>)</body>
+</html>

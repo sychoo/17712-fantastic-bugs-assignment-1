@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/runner/notification/RunListener.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner.notification; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.annotation.Documented; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.lang.annotation.ElementType; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.lang.annotation.Retention; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.lang.annotation.RetentionPolicy; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.lang.annotation.Target; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> * Register an instance of this class with {@link RunNotifier} to be notified </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * of events that occur during a test run. All of the methods in this class </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * are abstract and have no implementation; override one or more methods to </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * receive events. </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * For example, suppose you have a &lt;code&gt;Cowbell&lt;/code&gt; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * class that you want to make a noise whenever a test fails. You could write: </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * public class RingingListener extends RunListener { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> *    public void testFailure(Failure failure) { </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> *       Cowbell.ring(); </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> *    } </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> * To invoke your listener, you need to run your tests through &lt;code&gt;JUnitCore&lt;/code&gt;. </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> * public void main(String... args) { </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> *    JUnitCore core= new JUnitCore(); </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> *    core.addListener(new RingingListener()); </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> *    core.run(MyTestClass.class); </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> * If a listener throws an exception for a test event, the other listeners will </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> * have their {@link RunListener#testFailure(Failure)} called with a {@code Description} </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> * of {@link Description#TEST_MECHANISM} to indicate the failure. </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> * By default, JUnit will synchronize calls to your listener. If your listener </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> * is thread-safe and you want to allow JUnit to call your listener from </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> * multiple threads when tests are run in parallel, you can annotate your </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> * test class with {@link RunListener.ThreadSafe}. </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> * &lt;p&gt; </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> * Listener methods will be called from the same thread as is running </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> * the test, unless otherwise indicated by the method Javadoc </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> * @see org.junit.runner.JUnitCore </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> * @since 4.0 </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">public class RunListener { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.<init>%28%29.c83ee9c00971367607fa133da5e0eec3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.<init>%28%29.c83ee9c00971367607fa133da5e0eec3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.RunListener* [line 52];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.notification.RunListener*) [line 52];
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.<init>%28%29.c83ee9c00971367607fa133da5e0eec3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.<init>%28%29.c83ee9c00971367607fa133da5e0eec3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.<init>%28%29.c83ee9c00971367607fa133da5e0eec3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.<init>%28%29.c83ee9c00971367607fa133da5e0eec3.html">summary for RunListener.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">     * Called before any tests have been run. This may be called on an </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">     * arbitrary thread. </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">     * @param description describes the tests to be run </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">    public void testRunStarted(Description description) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunStarted%28org.junit.runner.Description%29%3Avoid.4a6fcfa5d7bfbdbb5cf20d06f9c793ca_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testRunStarted%28org.junit.runner.Description%29%3Avoid.4a6fcfa5d7bfbdbb5cf20d06f9c793ca.html">summary for void RunListener.testRunStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunStarted%28org.junit.runner.Description%29%3Avoid.4a6fcfa5d7bfbdbb5cf20d06f9c793ca_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunStarted%28org.junit.runner.Description%29%3Avoid.4a6fcfa5d7bfbdbb5cf20d06f9c793ca_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunStarted%28org.junit.runner.Description%29%3Avoid.4a6fcfa5d7bfbdbb5cf20d06f9c793ca_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">     * Called when all tests have finished. This may be called on an </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">     * arbitrary thread. </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">     * @param result the summary of the test run, including all the tests that failed </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    public void testRunFinished(Result result) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunFinished%28org.junit.runner.Result%29%3Avoid.725bd78dc5b2a8afbffc2a85ca18bf2f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testRunFinished%28org.junit.runner.Result%29%3Avoid.725bd78dc5b2a8afbffc2a85ca18bf2f.html">summary for void RunListener.testRunFinished(Result)</a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunFinished%28org.junit.runner.Result%29%3Avoid.725bd78dc5b2a8afbffc2a85ca18bf2f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunFinished%28org.junit.runner.Result%29%3Avoid.725bd78dc5b2a8afbffc2a85ca18bf2f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testRunFinished%28org.junit.runner.Result%29%3Avoid.725bd78dc5b2a8afbffc2a85ca18bf2f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">     * Called when a test suite is about to be started. If this method is </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">     * called for a given {@link Description}, then {@link #testSuiteFinished(Description)} </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">     * will also be called for the same {@code Description}. </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">     * &lt;p&gt;Note that not all runners will call this method, so runners should </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">     * be prepared to handle {@link #testStarted(Description)} calls for tests </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">     * where there was no corresponding {@code testSuiteStarted()} call for </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">     * the parent {@code Description}. </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">     * @param description the description of the test suite that is about to be run </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">     *                    (generally a class name) </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">    public void testSuiteStarted(Description description) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteStarted%28org.junit.runner.Description%29%3Avoid.ddc0e92603a0354bdaec54478f4b4445_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testSuiteStarted%28org.junit.runner.Description%29%3Avoid.ddc0e92603a0354bdaec54478f4b4445.html">summary for void RunListener.testSuiteStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteStarted%28org.junit.runner.Description%29%3Avoid.ddc0e92603a0354bdaec54478f4b4445_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteStarted%28org.junit.runner.Description%29%3Avoid.ddc0e92603a0354bdaec54478f4b4445_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteStarted%28org.junit.runner.Description%29%3Avoid.ddc0e92603a0354bdaec54478f4b4445_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">     * Called when a test suite has finished, whether the test suite succeeds or fails. </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">     * This method will not be called for a given {@link Description} unless </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">     * {@link #testSuiteStarted(Description)} was called for the same @code Description}. </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">     * @param description the description of the test suite that just ran </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    public void testSuiteFinished(Description description) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteFinished%28org.junit.runner.Description%29%3Avoid.ca866134f900b0f42ee82364f9a92c02_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testSuiteFinished%28org.junit.runner.Description%29%3Avoid.ca866134f900b0f42ee82364f9a92c02.html">summary for void RunListener.testSuiteFinished(Description)</a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteFinished%28org.junit.runner.Description%29%3Avoid.ca866134f900b0f42ee82364f9a92c02_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteFinished%28org.junit.runner.Description%29%3Avoid.ca866134f900b0f42ee82364f9a92c02_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testSuiteFinished%28org.junit.runner.Description%29%3Avoid.ca866134f900b0f42ee82364f9a92c02_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">     * Called when an atomic test is about to be started. </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">     * @param description the description of the test that is about to be run </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">     * (generally a class and method name) </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    public void testStarted(Description description) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testStarted%28org.junit.runner.Description%29%3Avoid.89448abda551866df8a5e15621be6c81_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testStarted%28org.junit.runner.Description%29%3Avoid.89448abda551866df8a5e15621be6c81.html">summary for void RunListener.testStarted(Description)</a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testStarted%28org.junit.runner.Description%29%3Avoid.89448abda551866df8a5e15621be6c81_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testStarted%28org.junit.runner.Description%29%3Avoid.89448abda551866df8a5e15621be6c81_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testStarted%28org.junit.runner.Description%29%3Avoid.89448abda551866df8a5e15621be6c81_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">     * Called when an atomic test has finished, whether the test succeeds or fails. </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">     * @param description the description of the test that just ran </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">    public void testFinished(Description description) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFinished%28org.junit.runner.Description%29%3Avoid.09a5ff1bdcc2b51d0a6fe418189258c3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testFinished%28org.junit.runner.Description%29%3Avoid.09a5ff1bdcc2b51d0a6fe418189258c3.html">summary for void RunListener.testFinished(Description)</a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFinished%28org.junit.runner.Description%29%3Avoid.09a5ff1bdcc2b51d0a6fe418189258c3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFinished%28org.junit.runner.Description%29%3Avoid.09a5ff1bdcc2b51d0a6fe418189258c3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFinished%28org.junit.runner.Description%29%3Avoid.09a5ff1bdcc2b51d0a6fe418189258c3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">     * Called when an atomic test fails, or when a listener throws an exception. </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">     * &lt;p&gt;In the case of a failure of an atomic test, this method will be called </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">     * with the same {@code Description} passed to </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">     * {@link #testStarted(Description)}, from the same thread that called </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">     * {@link #testStarted(Description)}. </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">     * &lt;p&gt;In the case of a listener throwing an exception, this will be called with </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">     * a {@code Description} of {@link Description#TEST_MECHANISM}, and may be called </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">     * on an arbitrary thread. </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">     * @param failure describes the test that failed and the exception that was thrown </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    public void testFailure(Failure failure) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFailure%28org.junit.runner.notification.Failure%29%3Avoid.01c56b032cefdce7736f46a7835f04ad_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testFailure%28org.junit.runner.notification.Failure%29%3Avoid.01c56b032cefdce7736f46a7835f04ad.html">summary for void RunListener.testFailure(Failure)</a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFailure%28org.junit.runner.notification.Failure%29%3Avoid.01c56b032cefdce7736f46a7835f04ad_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFailure%28org.junit.runner.notification.Failure%29%3Avoid.01c56b032cefdce7736f46a7835f04ad_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testFailure%28org.junit.runner.notification.Failure%29%3Avoid.01c56b032cefdce7736f46a7835f04ad_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">     * Called when an atomic test flags that it assumes a condition that is </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">     * false </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">     * @param failure describes the test that failed and the </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">     * {@link org.junit.AssumptionViolatedException} that was thrown </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">    public void testAssumptionFailure(Failure failure) { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testAssumptionFailure%28org.junit.runner.notification.Failur.00c05be958b1aa37b756284a3690328b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testAssumptionFailure%28org.junit.runner.notification.Failur.00c05be958b1aa37b756284a3690328b.html">summary for void RunListener.testAssumptionFailure(Failure)</a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testAssumptionFailure%28org.junit.runner.notification.Failur.00c05be958b1aa37b756284a3690328b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testAssumptionFailure%28org.junit.runner.notification.Failur.00c05be958b1aa37b756284a3690328b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testAssumptionFailure%28org.junit.runner.notification.Failur.00c05be958b1aa37b756284a3690328b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">     * Called when a test will not be run, generally because a test method is annotated </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">     * with {@link org.junit.Ignore}. </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">     * @param description describes the test that will not be run </td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">    public void testIgnored(Description description) throws Exception { <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testIgnored%28org.junit.runner.Description%29%3Avoid.fbd3910ca38a3757825a923b61a23a5b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/org.junit.runner.notification.RunListener.testIgnored%28org.junit.runner.Description%29%3Avoid.fbd3910ca38a3757825a923b61a23a5b.html">summary for void RunListener.testIgnored(Description)</a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    } <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testIgnored%28org.junit.runner.Description%29%3Avoid.fbd3910ca38a3757825a923b61a23a5b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testIgnored%28org.junit.runner.Description%29%3Avoid.fbd3910ca38a3757825a923b61a23a5b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./RunListener.java.3e6dbd648e2027e6cc14c72faa7414e5/nodes/org.junit.runner.notification.RunListener.testIgnored%28org.junit.runner.Description%29%3Avoid.fbd3910ca38a3757825a923b61a23a5b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">     * Indicates a {@code RunListener} that can have its methods called </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">     * concurrently. This implies that the class is thread-safe (i.e. no set of </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">     * listener calls can put the listener into an invalid state, even if those </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">     * listener calls are being made by multiple threads without </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">     * synchronization). </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">     * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">    @Documented </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">    @Target(ElementType.TYPE) </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">    @Retention(RetentionPolicy.RUNTIME) </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    public @interface ThreadSafe { </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

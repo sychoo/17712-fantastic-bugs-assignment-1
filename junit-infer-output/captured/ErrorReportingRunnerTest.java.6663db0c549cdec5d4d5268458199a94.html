@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/internal/runners/ErrorReportingRunnerTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.runners; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import org.junit.After; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.runner.notification.Failure; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.runner.notification.RunNotifier; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.runners.model.InvalidTestClassError; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import java.util.Arrays; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import static org.hamcrest.CoreMatchers.allOf; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import static org.hamcrest.CoreMatchers.containsString; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import static org.hamcrest.CoreMatchers.instanceOf; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">import static org.hamcrest.CoreMatchers.is; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">import static org.hamcrest.CoreMatchers.startsWith; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">public class ErrorReportingRunnerTest { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.<init>%28%29.353e0a675ebfdff6ce40484046df6397_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.<init>%28%29.353e0a675ebfdff6ce40484046df6397_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest* [line 23];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.runners.ErrorReportingRunnerTest*) [line 23];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.<init>%28%29.353e0a675ebfdff6ce40484046df6397_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.<init>%28%29.353e0a675ebfdff6ce40484046df6397_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.<init>%28%29.353e0a675ebfdff6ce40484046df6397_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.<init>%28%29.353e0a675ebfdff6ce40484046df6397.html">summary for ErrorReportingRunnerTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    @Test(expected = NullPointerException.class) </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    public void cannotCreateWithNullClass() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d.html">summary for void ErrorReportingRunnerTest.cannotCreateWithNullClass()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">        new ErrorReportingRunner(null, new RuntimeException()); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 27];
+n$1=_fun_RuntimeException.&lt;init&gt;()(n$0:java.lang.RuntimeException*) [line 27];
+*&amp;$irvar0:java.lang.RuntimeException*=n$0 [line 27];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunner):org.junit.internal.runners.ErrorReportingRunner*) [line 27];
+n$3=*&amp;$irvar0:java.lang.RuntimeException* [line 27];
+n$4=_fun_ErrorReportingRunner.&lt;init&gt;(Class,Throwable)(n$2:org.junit.internal.runners.ErrorReportingRunner*,null:java.lang.Object*,n$3:java.lang.RuntimeException*) [line 27];
+*&amp;$irvar1:org.junit.internal.runners.ErrorReportingRunner*=n$2 [line 27];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass%28%29%3Avoid.01ca3ce9426d4b9eb8164aa7c7492b7d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    @Test(expected = NullPointerException.class) </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    public void cannotCreateWithNullClass2() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2.html">summary for void ErrorReportingRunnerTest.cannotCreateWithNullClass2()</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        new ErrorReportingRunner(new RuntimeException(), (Class&lt;?&gt;) null); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 32];
+n$1=_fun_RuntimeException.&lt;init&gt;()(n$0:java.lang.RuntimeException*) [line 32];
+*&amp;$irvar0:java.lang.RuntimeException*=n$0 [line 32];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 32];
+*&amp;$irvar1:java.lang.Class*[_*_](*)=n$2 [line 32];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 32];
+n$4=_fun___cast(null:java.lang.Object*,sizeof(t=java.lang.Class;sub_t=( sub )(cast)):void) [line 32];
+*n$3[0]:java.lang.Class*=n$4 [line 32];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunner):org.junit.internal.runners.ErrorReportingRunner*) [line 32];
+n$6=*&amp;$irvar0:java.lang.RuntimeException* [line 32];
+n$7=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 32];
+n$8=_fun_ErrorReportingRunner.&lt;init&gt;(Throwable,Class[])(n$5:org.junit.internal.runners.ErrorReportingRunner*,n$6:java.lang.RuntimeException*,n$7:java.lang.Class*[_*_](*)) [line 32];
+*&amp;$irvar2:org.junit.internal.runners.ErrorReportingRunner*=n$5 [line 32];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET possible array out of bounds in call to `ErrorReportingRunner(...)` at line 32</div></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClass2%28%29%3Avoid.9b2705cc0194e5a5df981e7e804a06b2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    @Test(expected = NullPointerException.class) </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">    public void cannotCreateWithNullClasses() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3.html">summary for void ErrorReportingRunnerTest.cannotCreateWithNullClasses()</a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        new ErrorReportingRunner(new RuntimeException(), (Class&lt;?&gt;[]) null); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 37];
+n$1=_fun_RuntimeException.&lt;init&gt;()(n$0:java.lang.RuntimeException*) [line 37];
+*&amp;$irvar0:java.lang.RuntimeException*=n$0 [line 37];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunner):org.junit.internal.runners.ErrorReportingRunner*) [line 37];
+n$3=*&amp;$irvar0:java.lang.RuntimeException* [line 37];
+n$4=_fun___cast(null:java.lang.Object*,sizeof(t=java.lang.Class*[_*_];sub_t=( sub )(cast)):void) [line 37];
+n$5=_fun_ErrorReportingRunner.&lt;init&gt;(Throwable,Class[])(n$2:org.junit.internal.runners.ErrorReportingRunner*,n$3:java.lang.RuntimeException*,n$4:java.lang.Class*[_*_](*)) [line 37];
+*&amp;$irvar1:org.junit.internal.runners.ErrorReportingRunner*=n$2 [line 37];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithNullClasses%28%29%3Avoid.cf7c78e38550b9c8878b8821d523f9a3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    @Test(expected = NullPointerException.class) </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    public void cannotCreateWithoutClass() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a.html">summary for void ErrorReportingRunnerTest.cannotCreateWithoutClass()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        new ErrorReportingRunner(new RuntimeException()); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.RuntimeException):java.lang.RuntimeException*) [line 42];
+n$1=_fun_RuntimeException.&lt;init&gt;()(n$0:java.lang.RuntimeException*) [line 42];
+*&amp;$irvar0:java.lang.RuntimeException*=n$0 [line 42];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[0]):java.lang.Class*[_*_](*)) [line 42];
+*&amp;$irvar1:java.lang.Class*[_*_](*)=n$2 [line 42];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunner):org.junit.internal.runners.ErrorReportingRunner*) [line 42];
+n$4=*&amp;$irvar0:java.lang.RuntimeException* [line 42];
+n$5=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 42];
+n$6=_fun_ErrorReportingRunner.&lt;init&gt;(Throwable,Class[])(n$3:org.junit.internal.runners.ErrorReportingRunner*,n$4:java.lang.RuntimeException*,n$5:java.lang.Class*[_*_](*)) [line 42];
+*&amp;$irvar2:org.junit.internal.runners.ErrorReportingRunner*=n$3 [line 42];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET possible array out of bounds in call to `ErrorReportingRunner(...)` at line 42</div></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.cannotCreateWithoutClass%28%29%3Avoid.68a7c6af73aad24c1036b234f96f623a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    public void givenInvalidTestClassErrorAsCause() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d.html">summary for void ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause()</a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        final List&lt;Failure&gt; firedFailures = new ArrayList&lt;Failure&gt;(); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 47];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 47];
+*&amp;firedFailures:java.util.ArrayList*=n$0 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        InvalidTestClassError testClassError = new InvalidTestClassError(TestClassWithErrors.class, <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new_array(sizeof(t=java.lang.Throwable*[_*_];len=[2]):java.lang.Throwable*[_*_](*)) [line 48];
+*&amp;$irvar0:java.lang.Throwable*[_*_](*)=n$2 [line 48];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=_fun___new(sizeof(t=java.lang.Throwable):java.lang.Throwable*) [line 48];
+n$4=_fun_Throwable.&lt;init&gt;(String)(n$3:java.lang.Throwable*,"validation error 1":java.lang.Object*) [line 48];
+*&amp;$irvar1:java.lang.Throwable*=n$3 [line 48];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.Throwable*[_*_](*) [line 48];
+n$6=*&amp;$irvar1:java.lang.Throwable* [line 48];
+*n$5[0]:java.lang.Throwable*=n$6 [line 48];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=_fun___new(sizeof(t=java.lang.Throwable):java.lang.Throwable*) [line 48];
+n$8=_fun_Throwable.&lt;init&gt;(String)(n$7:java.lang.Throwable*,"validation error 2":java.lang.Object*) [line 48];
+*&amp;$irvar2:java.lang.Throwable*=n$7 [line 48];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar0:java.lang.Throwable*[_*_](*) [line 48];
+n$10=*&amp;$irvar2:java.lang.Throwable* [line 48];
+*n$9[1]:java.lang.Throwable*=n$10 [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">                Arrays.asList(new Throwable(&quot;validation error 1&quot;), new Throwable(&quot;validation error 2&quot;))); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;$irvar0:java.lang.Throwable*[_*_](*) [line 49];
+n$12=_fun_List Arrays.asList(Object[])(n$11:java.lang.Throwable*[_*_](*)) [line 49];
+*&amp;$irvar3:java.util.List*=n$12 [line 49];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$13=_fun___new(sizeof(t=org.junit.runners.model.InvalidTestClassError):org.junit.runners.model.InvalidTestClassError*) [line 49];
+n$14=*&amp;$irvar3:java.util.List* [line 49];
+n$15=_fun_InvalidTestClassError.&lt;init&gt;(Class,List)(n$13:org.junit.runners.model.InvalidTestClassError*,org.junit.internal.runners.ErrorReportingRunnerTest$TestClassWithErrors:java.lang.Object*,n$14:java.util.List*) [line 49];
+*&amp;testClassError:org.junit.runners.model.InvalidTestClassError*=n$13 [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        ErrorReportingRunner sut = new ErrorReportingRunner(TestClassWithErrors.class, testClassError); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunner):org.junit.internal.runners.ErrorReportingRunner*) [line 50];
+n$17=*&amp;testClassError:org.junit.runners.model.InvalidTestClassError* [line 50];
+n$18=_fun_ErrorReportingRunner.&lt;init&gt;(Class,Throwable)(n$16:org.junit.internal.runners.ErrorReportingRunner*,org.junit.internal.runners.ErrorReportingRunnerTest$TestClassWithErrors:java.lang.Object*,n$17:org.junit.runners.model.InvalidTestClassError*) [line 50];
+*&amp;sut:org.junit.internal.runners.ErrorReportingRunner*=n$16 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        sut.run(new RunNotifier() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest$1* [line 52];
+n$1=*&amp;this$0:org.junit.internal.runners.ErrorReportingRunnerTest* [line 52];
+*n$0.this$0:org.junit.internal.runners.ErrorReportingRunnerTest$1(root org.junit.internal.runners.ErrorReportingRunnerTest$1)=n$1 [line 52];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest$1* [line 52];
+n$3=*&amp;$bcvar2:java.util.List* [line 52];
+*n$2.val$firedFailures:org.junit.internal.runners.ErrorReportingRunnerTest$1(root org.junit.internal.runners.ErrorReportingRunnerTest$1)=n$3 [line 52];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest$1* [line 52];
+n$5=_fun_RunNotifier.&lt;init&gt;()(n$4:org.junit.internal.runners.ErrorReportingRunnerTest$1*) [line 52];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$19=_fun___new(sizeof(t=org.junit.internal.runners.ErrorReportingRunnerTest$1):org.junit.internal.runners.ErrorReportingRunnerTest$1*) [line 52];
+n$20=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest* [line 52];
+n$21=*&amp;firedFailures:java.util.ArrayList* [line 52];
+n$22=_fun_ErrorReportingRunnerTest$1.&lt;init&gt;(ErrorReportingRunnerTest,List)(n$19:org.junit.internal.runners.ErrorReportingRunnerTest$1*,n$20:org.junit.internal.runners.ErrorReportingRunnerTest*,n$21:java.util.ArrayList*) [line 52];
+*&amp;$irvar4:org.junit.internal.runners.ErrorReportingRunnerTest$1*=n$19 [line 52];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$23=*&amp;sut:org.junit.internal.runners.ErrorReportingRunner* [line 52];
+_=*n$23:org.junit.internal.runners.ErrorReportingRunner*(root org.junit.internal.runners.ErrorReportingRunner) [line 52];
+n$25=*&amp;$irvar4:org.junit.internal.runners.ErrorReportingRunnerTest$1* [line 52];
+n$26=_fun_void ErrorReportingRunner.run(RunNotifier)(n$23:org.junit.internal.runners.ErrorReportingRunner*,n$25:org.junit.internal.runners.ErrorReportingRunnerTest$1*) virtual [line 52];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest%241.<init>%28org.junit.internal.runners.ErrorReporti.62af1e987dbcbc9c466b4fd338d00c4f.html">summary for ErrorReportingRunnerTest$1.&lt;init&gt;(ErrorReportingRunnerTest,List)</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            public void fireTestFailure(Failure failure) { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9.html">summary for void ErrorReportingRunnerTest$1.fireTestFailure(Failure)</a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">                super.fireTestFailure(failure); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest$1* [line 55];
+n$1=*&amp;failure:org.junit.runner.notification.Failure* [line 55];
+n$2=_fun_void RunNotifier.fireTestFailure(Failure)(n$0:org.junit.internal.runners.ErrorReportingRunnerTest$1*,n$1:org.junit.runner.notification.Failure*) [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">                firedFailures.add(failure); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest$1* [line 56];
+n$4=*n$3.val$firedFailures:java.util.List*(root org.junit.internal.runners.ErrorReportingRunnerTest$1) [line 56];
+_=*n$4:java.util.List*(root java.util.List) [line 56];
+n$6=*&amp;failure:org.junit.runner.notification.Failure* [line 56];
+n$7=_fun_boolean List.add(Object)(n$4:java.util.List*,n$6:org.junit.runner.notification.Failure*) interface virtual [line 56];
+*&amp;$irvar0:_Bool=n$7 [line 56];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">            } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%241.fireTestFailure%28org.junit.runner.notification..9e645c8cfa29f3b74fbe78c4160269e9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        }); </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        assertThat(firedFailures.size(), is(1)); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$27=*&amp;firedFailures:java.util.ArrayList* [line 60];
+_=*n$27:java.util.ArrayList*(root java.util.ArrayList) [line 60];
+n$29=_fun_int List.size()(n$27:java.util.ArrayList*) interface virtual [line 60];
+*&amp;$irvar5:int=n$29 [line 60];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$30=*&amp;$irvar5:int [line 60];
+n$31=_fun_Integer Integer.valueOf(int)(n$30:int) [line 60];
+*&amp;$irvar6:java.lang.Integer*=n$31 [line 60];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$32=_fun_Integer Integer.valueOf(int)(1:int) [line 60];
+*&amp;$irvar7:java.lang.Integer*=n$32 [line 60];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$33=*&amp;$irvar7:java.lang.Integer* [line 60];
+n$34=_fun_Matcher CoreMatchers.is(Object)(n$33:java.lang.Integer*) [line 60];
+*&amp;$irvar8:org.hamcrest.Matcher*=n$34 [line 60];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$35=*&amp;$irvar6:java.lang.Integer* [line 60];
+n$36=*&amp;$irvar8:org.hamcrest.Matcher* [line 60];
+n$37=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$35:java.lang.Integer*,n$36:org.hamcrest.Matcher*) [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        Throwable exception = firedFailures.get(0).getException(); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$38=*&amp;firedFailures:java.util.ArrayList* [line 61];
+_=*n$38:java.util.ArrayList*(root java.util.ArrayList) [line 61];
+n$40=_fun_Object List.get(int)(n$38:java.util.ArrayList*,0:int) interface virtual [line 61];
+*&amp;$irvar9:java.lang.Object*=n$40 [line 61];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$41=*&amp;$irvar9:java.lang.Object* [line 61];
+n$42=_fun___cast(n$41:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 61];
+_=*n$42:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 61];
+n$44=_fun_Throwable Failure.getException()(n$42:org.junit.runner.notification.Failure*) virtual [line 61];
+*&amp;exception:java.lang.Throwable*=n$44 [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        assertThat(exception, instanceOf(InvalidTestClassError.class)); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$45=_fun_Matcher CoreMatchers.instanceOf(Class)(org.junit.runners.model.InvalidTestClassError:java.lang.Object*) [line 62];
+*&amp;$irvar10:org.hamcrest.Matcher*=n$45 [line 62];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$46=*&amp;exception:java.lang.Throwable* [line 62];
+n$47=*&amp;$irvar10:org.hamcrest.Matcher* [line 62];
+n$48=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$46:java.lang.Throwable*,n$47:org.hamcrest.Matcher*) [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        assertThat(((InvalidTestClassError) exception), is(testClassError)); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$49=*&amp;testClassError:org.junit.runners.model.InvalidTestClassError* [line 63];
+n$50=_fun_Matcher CoreMatchers.is(Object)(n$49:org.junit.runners.model.InvalidTestClassError*) [line 63];
+*&amp;$irvar11:org.hamcrest.Matcher*=n$50 [line 63];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$51=*&amp;exception:java.lang.Throwable* [line 63];
+n$52=_fun___cast(n$51:java.lang.Throwable*,sizeof(t=org.junit.runners.model.InvalidTestClassError;sub_t=( sub )(cast)):void) [line 63];
+n$53=*&amp;$irvar11:org.hamcrest.Matcher* [line 63];
+n$54=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$52:org.junit.runners.model.InvalidTestClassError*,n$53:org.hamcrest.Matcher*) [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:26 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClassErrorAsCause%28%29%3Avoid.63707d1ea182eca3c3f7c14b75ef4a1d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    public void givenInvalidTestClass_integrationTest() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2.html">summary for void ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest()</a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        Result result = JUnitCore.runClasses(TestClassWithErrors.class); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 68];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 68];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 68];
+*n$1[0]:java.lang.Object*=org.junit.internal.runners.ErrorReportingRunnerTest$TestClassWithErrors [line 68];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 68];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 68];
+*&amp;result:org.junit.runner.Result*=n$3 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        assertThat(result.getFailureCount(), is(1)); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 70];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 70];
+n$6=_fun_int Result.getFailureCount()(n$4:org.junit.runner.Result*) virtual [line 70];
+*&amp;$irvar1:int=n$6 [line 70];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 70];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 70];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 70];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=_fun_Integer Integer.valueOf(int)(1:int) [line 70];
+*&amp;$irvar3:java.lang.Integer*=n$9 [line 70];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$10=*&amp;$irvar3:java.lang.Integer* [line 70];
+n$11=_fun_Matcher CoreMatchers.is(Object)(n$10:java.lang.Integer*) [line 70];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$11 [line 70];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$12=*&amp;$irvar2:java.lang.Integer* [line 70];
+n$13=*&amp;$irvar4:org.hamcrest.Matcher* [line 70];
+n$14=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$12:java.lang.Integer*,n$13:org.hamcrest.Matcher*) [line 70];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        Throwable failure = result.getFailures().get(0).getException(); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$15=*&amp;result:org.junit.runner.Result* [line 71];
+_=*n$15:org.junit.runner.Result*(root org.junit.runner.Result) [line 71];
+n$17=_fun_List Result.getFailures()(n$15:org.junit.runner.Result*) virtual [line 71];
+*&amp;$irvar5:java.util.List*=n$17 [line 71];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar5:java.util.List* [line 71];
+_=*n$18:java.util.List*(root java.util.List) [line 71];
+n$20=_fun_Object List.get(int)(n$18:java.util.List*,0:int) interface virtual [line 71];
+*&amp;$irvar6:java.lang.Object*=n$20 [line 71];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$21=*&amp;$irvar6:java.lang.Object* [line 71];
+n$22=_fun___cast(n$21:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 71];
+_=*n$22:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 71];
+n$24=_fun_Throwable Failure.getException()(n$22:org.junit.runner.notification.Failure*) virtual [line 71];
+*&amp;failure:java.lang.Throwable*=n$24 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        assertThat(failure, instanceOf(InvalidTestClassError.class)); <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$25=_fun_Matcher CoreMatchers.instanceOf(Class)(org.junit.runners.model.InvalidTestClassError:java.lang.Object*) [line 72];
+*&amp;$irvar7:org.hamcrest.Matcher*=n$25 [line 72];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$26=*&amp;failure:java.lang.Throwable* [line 72];
+n$27=*&amp;$irvar7:org.hamcrest.Matcher* [line 72];
+n$28=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$26:java.lang.Throwable*,n$27:org.hamcrest.Matcher*) [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        assertThat(failure.getMessage(), allOf( <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$29=*&amp;failure:java.lang.Throwable* [line 73];
+_=*n$29:java.lang.Throwable*(root java.lang.Throwable) [line 73];
+n$31=_fun_String Throwable.getMessage()(n$29:java.lang.Throwable*) virtual [line 73];
+*&amp;$irvar8:java.lang.String*=n$31 [line 73];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$32=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 73];
+n$33=_fun_StringBuilder.&lt;init&gt;()(n$32:java.lang.StringBuilder*) [line 73];
+*&amp;$irvar9:java.lang.StringBuilder*=n$32 [line 73];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$34=*&amp;$irvar9:java.lang.StringBuilder* [line 73];
+_=*n$34:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 73];
+n$36=_fun_StringBuilder StringBuilder.append(String)(n$34:java.lang.StringBuilder*,"Invalid test class '":java.lang.Object*) virtual [line 73];
+*&amp;$irvar10:java.lang.StringBuilder*=n$36 [line 73];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$52=*&amp;$irvar15:org.hamcrest.Matcher* [line 73];
+n$53=*&amp;$irvar16:org.hamcrest.Matcher* [line 73];
+n$54=*&amp;$irvar17:org.hamcrest.Matcher* [line 73];
+n$55=_fun_Matcher CoreMatchers.allOf(Matcher,Matcher,Matcher)(n$52:org.hamcrest.Matcher*,n$53:org.hamcrest.Matcher*,n$54:org.hamcrest.Matcher*) [line 73];
+*&amp;$irvar18:org.hamcrest.Matcher*=n$55 [line 73];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$56=*&amp;$irvar8:java.lang.String* [line 73];
+n$57=*&amp;$irvar18:org.hamcrest.Matcher* [line 73];
+n$58=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$56:java.lang.String*,n$57:org.hamcrest.Matcher*) [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">                startsWith(&quot;Invalid test class '&quot; + TestClassWithErrors.class.getName() + &quot;'&quot;), <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$37=_fun_String Class.getName()(org.junit.internal.runners.ErrorReportingRunnerTest$TestClassWithErrors:java.lang.Object*) virtual [line 74];
+*&amp;$irvar11:java.lang.String*=n$37 [line 74];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$38=*&amp;$irvar10:java.lang.StringBuilder* [line 74];
+_=*n$38:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 74];
+n$40=*&amp;$irvar11:java.lang.String* [line 74];
+n$41=_fun_StringBuilder StringBuilder.append(String)(n$38:java.lang.StringBuilder*,n$40:java.lang.String*) virtual [line 74];
+*&amp;$irvar12:java.lang.StringBuilder*=n$41 [line 74];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$42=*&amp;$irvar12:java.lang.StringBuilder* [line 74];
+_=*n$42:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 74];
+n$44=_fun_StringBuilder StringBuilder.append(String)(n$42:java.lang.StringBuilder*,"'":java.lang.Object*) virtual [line 74];
+*&amp;$irvar13:java.lang.StringBuilder*=n$44 [line 74];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$45=*&amp;$irvar13:java.lang.StringBuilder* [line 74];
+_=*n$45:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 74];
+n$47=_fun_String StringBuilder.toString()(n$45:java.lang.StringBuilder*) virtual [line 74];
+*&amp;$irvar14:java.lang.String*=n$47 [line 74];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$48=*&amp;$irvar14:java.lang.String* [line 74];
+n$49=_fun_Matcher CoreMatchers.startsWith(String)(n$48:java.lang.String*) [line 74];
+*&amp;$irvar15:org.hamcrest.Matcher*=n$49 [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                containsString(&quot;\n  1. &quot;), <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$50=_fun_Matcher CoreMatchers.containsString(String)("\\n  1. ":java.lang.Object*) [line 75];
+*&amp;$irvar16:org.hamcrest.Matcher*=n$50 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                containsString(&quot;\n  2. &quot;) <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$51=_fun_Matcher CoreMatchers.containsString(String)("\\n  2. ":java.lang.Object*) [line 76];
+*&amp;$irvar17:org.hamcrest.Matcher*=n$51 [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        )); </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    } <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:29 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest.givenInvalidTestClass_integrationTest%28%29%3Avoid.b22bb1b89327f488c8a9efae422929e2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">    private static class TestClassWithErrors { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.<init>%28%29.2acf9730347f44b1d0ef9b04aff06983_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.<init>%28%29.2acf9730347f44b1d0ef9b04aff06983_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.ErrorReportingRunnerTest$TestClassWithErrors* [line 80];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.runners.ErrorReportingRunnerTest$TestClassWithErrors*) [line 80];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.<init>%28%29.2acf9730347f44b1d0ef9b04aff06983_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.<init>%28%29.2acf9730347f44b1d0ef9b04aff06983_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.<init>%28%29.2acf9730347f44b1d0ef9b04aff06983_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.<init>%28%29.2acf9730347f44b1d0ef9b04aff06983.html">summary for ErrorReportingRunnerTest$TestClassWithErrors.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        @Before public static void staticBeforeMethod() {} <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticBeforeMethod%28%29%3Avoid.cb2db8655639510120fb64ba26c07d83_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticBeforeMethod%28%29%3Avoid.cb2db8655639510120fb64ba26c07d83_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticBeforeMethod%28%29%3Avoid.cb2db8655639510120fb64ba26c07d83_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticBeforeMethod%28%29%3Avoid.cb2db8655639510120fb64ba26c07d83_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticBeforeMethod%28%29%3Avoid.cb2db8655639510120fb64ba26c07d83.html">summary for void ErrorReportingRunnerTest$TestClassWithErrors.staticBeforeMethod()</a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        @After public static void staticAfterMethod() {} <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticAfterMethod%28%29%3Avoid.8e97371e47a8c8a42f9c82fdb41eb0d2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticAfterMethod%28%29%3Avoid.8e97371e47a8c8a42f9c82fdb41eb0d2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticAfterMethod%28%29%3Avoid.8e97371e47a8c8a42f9c82fdb41eb0d2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticAfterMethod%28%29%3Avoid.8e97371e47a8c8a42f9c82fdb41eb0d2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.staticAfterMethod%28%29%3Avoid.8e97371e47a8c8a42f9c82fdb41eb0d2.html">summary for void ErrorReportingRunnerTest$TestClassWithErrors.staticAfterMethod()</a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        @Test public String testMethodReturningString() { <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.testMethodReturningString%28%29%3A.a5ff6fe40c5084159b821a984114f9dd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.testMethodReturningString%28%29%3A.a5ff6fe40c5084159b821a984114f9dd.html">summary for String ErrorReportingRunnerTest$TestClassWithErrors.testMethodReturningString()</a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">            return &quot;this should not be allowed&quot;; <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.testMethodReturningString%28%29%3A.a5ff6fe40c5084159b821a984114f9dd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.String*="this should not be allowed" [line 85];
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.testMethodReturningString%28%29%3A.a5ff6fe40c5084159b821a984114f9dd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/org.junit.internal.runners.ErrorReportingRunnerTest%24TestClassWithErrors.testMethodReturningString%28%29%3A.a5ff6fe40c5084159b821a984114f9dd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+<br>Precondition Not Met possible array out of bounds in call to `ErrorReportingRunner(...)` at line 32 <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/node7.html#session31">node7#session31</a>(<a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/../ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94.html#LINE32">32</a>)<br>Precondition Not Met possible array out of bounds in call to `ErrorReportingRunner(...)` at line 42 <a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/nodes/node6.html#session26">node6#session26</a>(<a href="./ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94/../ErrorReportingRunnerTest.java.6663db0c549cdec5d4d5268458199a94.html#LINE42">42</a>)
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

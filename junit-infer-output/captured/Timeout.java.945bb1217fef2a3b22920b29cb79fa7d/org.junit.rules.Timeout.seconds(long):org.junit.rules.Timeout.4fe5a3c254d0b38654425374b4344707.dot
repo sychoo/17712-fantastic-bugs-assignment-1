@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_1" [label="1: Start Timeout Timeout.seconds(long)\nFormals:  seconds:long\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_1" -> "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_4" ;
+"org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_2" [label="2: Exit Timeout Timeout.seconds(long) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 115]\n  EXIT_SCOPE($irvar0); [line 115]\n  APPLY_ABSTRACTION; [line 115]\n " shape="box"]
+	
+
+	 "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_3" -> "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_2" ;
+"org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_4" [label="4:  Call Timeout.<init>(long,TimeUnit) \n   n$0=_fun___new(sizeof(t=org.junit.rules.Timeout):org.junit.rules.Timeout*) [line 115]\n  n$1=*&seconds:long [line 115]\n  n$2=*&#GB<>$java.util.concurrent.TimeUnit.SECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 115]\n  n$3=_fun_Timeout.<init>(long,TimeUnit)(n$0:org.junit.rules.Timeout*,n$1:long,n$2:java.util.concurrent.TimeUnit*) [line 115]\n  *&$irvar0:org.junit.rules.Timeout*=n$0 [line 115]\n  NULLIFY(&seconds); [line 115]\n  EXIT_SCOPE(n$0,n$1,n$2,n$3,seconds); [line 115]\n " shape="box"]
+	
+
+	 "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_4" -> "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_5" ;
+	 "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_4" -> "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_3" [color="red" ];
+"org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_5" [label="5:  method_body \n   n$4=*&$irvar0:org.junit.rules.Timeout* [line 115]\n  *&return:org.junit.rules.Timeout*=n$4 [line 115]\n  NULLIFY(&$irvar0); [line 115]\n  EXIT_SCOPE(n$4,$irvar0); [line 115]\n  APPLY_ABSTRACTION; [line 115]\n " shape="box"]
+	
+
+	 "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_5" -> "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_2" ;
+	 "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_5" -> "org.junit.rules.Timeout.seconds(long):org.junit.rules.Timeout.4fe5a3c254d0b38654425374b4344707_3" [color="red" ];
+}

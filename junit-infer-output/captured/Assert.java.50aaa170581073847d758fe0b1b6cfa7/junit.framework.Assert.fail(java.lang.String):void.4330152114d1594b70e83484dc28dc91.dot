@@ -1,0 +1,45 @@
+/* @generated */
+digraph cfg {
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_1" [label="1: Start void Assert.fail(String)\nFormals:  message:java.lang.String*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_1" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_4" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_1" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_5" ;
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_2" [label="2: Exit void Assert.fail(String) \n  " color=yellow style=filled]
+	
+
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 57]\n  NULLIFY(&$irvar1); [line 57]\n  EXIT_SCOPE($irvar0,$irvar1); [line 57]\n  APPLY_ABSTRACTION; [line 57]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_2" ;
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_4" [label="4: Prune (true branch, if) \n   n$0=*&message:java.lang.String* [line 54]\n  PRUNE(!(n$0 != null), true); [line 54]\n  NULLIFY(&message); [line 54]\n  EXIT_SCOPE(n$0,message); [line 54]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_4" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_6" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_4" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [color="red" ];
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_5" [label="5: Prune (false branch, if) \n   n$0=*&message:java.lang.String* [line 54]\n  PRUNE((n$0 != null), false); [line 54]\n  EXIT_SCOPE(n$0); [line 54]\n " shape="invhouse"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_5" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_8" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_5" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [color="red" ];
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_6" [label="6:  Call AssertionFailedError.<init>() \n   n$1=_fun___new(sizeof(t=junit.framework.AssertionFailedError):junit.framework.AssertionFailedError*) [line 55]\n  n$2=_fun_AssertionFailedError.<init>()(n$1:junit.framework.AssertionFailedError*) [line 55]\n  *&$irvar0:junit.framework.AssertionFailedError*=n$1 [line 55]\n  EXIT_SCOPE(n$1,n$2); [line 55]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_6" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_7" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_6" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [color="red" ];
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_7" [label="7:  throw \n   n$3=*&$irvar0:junit.framework.AssertionFailedError* [line 55]\n  *&return:void=EXN n$3 [line 55]\n  NULLIFY(&$irvar0); [line 55]\n  EXIT_SCOPE(n$3,$irvar0); [line 55]\n  APPLY_ABSTRACTION; [line 55]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_7" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_2" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_7" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [color="red" ];
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_8" [label="8:  Call AssertionFailedError.<init>(String) \n   n$4=_fun___new(sizeof(t=junit.framework.AssertionFailedError):junit.framework.AssertionFailedError*) [line 57]\n  n$5=*&message:java.lang.String* [line 57]\n  n$6=_fun_AssertionFailedError.<init>(String)(n$4:junit.framework.AssertionFailedError*,n$5:java.lang.String*) [line 57]\n  *&$irvar1:junit.framework.AssertionFailedError*=n$4 [line 57]\n  NULLIFY(&message); [line 57]\n  EXIT_SCOPE(n$4,n$5,n$6,message); [line 57]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_8" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_9" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_8" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [color="red" ];
+"junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_9" [label="9:  throw \n   n$7=*&$irvar1:junit.framework.AssertionFailedError* [line 57]\n  *&return:void=EXN n$7 [line 57]\n  NULLIFY(&$irvar1); [line 57]\n  EXIT_SCOPE(n$7,$irvar1); [line 57]\n  APPLY_ABSTRACTION; [line 57]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_9" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_2" ;
+	 "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_9" -> "junit.framework.Assert.fail(java.lang.String):void.4330152114d1594b70e83484dc28dc91_3" [color="red" ];
+}

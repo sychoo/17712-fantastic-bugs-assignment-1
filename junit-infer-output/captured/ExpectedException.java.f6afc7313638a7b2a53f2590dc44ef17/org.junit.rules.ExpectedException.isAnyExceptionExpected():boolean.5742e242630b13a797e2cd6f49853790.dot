@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_1" [label="1: Start boolean ExpectedException.isAnyExceptionExpected()\nFormals:  this:org.junit.rules.ExpectedException*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_1" -> "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_4" ;
+"org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_2" [label="2: Exit boolean ExpectedException.isAnyExceptionExpected() \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 245]\n  EXIT_SCOPE($irvar0); [line 245]\n  APPLY_ABSTRACTION; [line 245]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_3" -> "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_2" ;
+"org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_4" [label="4:  Call boolean ExpectedExceptionMatcherBuilder.expectsThrowable() \n   n$0=*&this:org.junit.rules.ExpectedException* [line 245]\n  n$1=*n$0.matcherBuilder:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedException) [line 245]\n  _=*n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*(root org.junit.rules.ExpectedExceptionMatcherBuilder) [line 245]\n  n$3=_fun_boolean ExpectedExceptionMatcherBuilder.expectsThrowable()(n$1:org.junit.rules.ExpectedExceptionMatcherBuilder*) virtual [line 245]\n  *&$irvar0:_Bool=n$3 [line 245]\n  NULLIFY(&this); [line 245]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 245]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_4" -> "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_5" ;
+	 "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_4" -> "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_3" [color="red" ];
+"org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_5" [label="5:  method_body \n   n$4=*&$irvar0:_Bool [line 245]\n  *&return:_Bool=n$4 [line 245]\n  NULLIFY(&$irvar0); [line 245]\n  EXIT_SCOPE(n$4,$irvar0); [line 245]\n  APPLY_ABSTRACTION; [line 245]\n " shape="box"]
+	
+
+	 "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_5" -> "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_2" ;
+	 "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_5" -> "org.junit.rules.ExpectedException.isAnyExceptionExpected():boolean.5742e242630b13a797e2cd6f49853790_3" [color="red" ];
+}

@@ -1,0 +1,61 @@
+/* @generated */
+digraph cfg {
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_1" [label="1: Start boolean TestClass.runsTopToBottom(Class)\nFormals:  this:org.junit.internal.runners.TestClass* annotation:java.lang.Class*\nLocals:  $T0_23:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_1" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_4" ;
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_2" [label="2: Exit boolean TestClass.runsTopToBottom(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 60]\n  NULLIFY(&$T0_23); [line 60]\n  NULLIFY(&$irvar1); [line 60]\n  EXIT_SCOPE($irvar0,$T0_23,$irvar1); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_2" ;
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_4" [label="4:  Call boolean Object.equals(Object) \n   n$0=*&annotation:java.lang.Class* [line 60]\n  _=*n$0:java.lang.Class*(root java.lang.Class) [line 60]\n  n$2=_fun_boolean Object.equals(Object)(n$0:java.lang.Class*,org.junit.Before:java.lang.Object*) virtual [line 60]\n  *&$irvar0:_Bool=n$2 [line 60]\n  EXIT_SCOPE(_,n$0,n$2); [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_4" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_5" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_4" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_6" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_4" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:_Bool [line 60]\n  PRUNE(!(n$3 != 0), true); [line 60]\n  NULLIFY(&$irvar0); [line 60]\n  EXIT_SCOPE(n$3,$irvar0); [line 60]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_5" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_7" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_5" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:_Bool [line 60]\n  PRUNE((n$3 != 0), false); [line 60]\n  NULLIFY(&$irvar0); [line 60]\n  EXIT_SCOPE(n$3,$irvar0); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_6" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_10" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_6" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_7" [label="7:  Call boolean Object.equals(Object) \n   n$4=*&annotation:java.lang.Class* [line 60]\n  _=*n$4:java.lang.Class*(root java.lang.Class) [line 60]\n  n$6=_fun_boolean Object.equals(Object)(n$4:java.lang.Class*,org.junit.BeforeClass:java.lang.Object*) virtual [line 60]\n  *&$irvar1:_Bool=n$6 [line 60]\n  NULLIFY(&annotation); [line 60]\n  EXIT_SCOPE(_,n$4,n$6,annotation); [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_7" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_8" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_7" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_9" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_7" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_8" [label="8: Prune (true branch, if) \n   n$7=*&$irvar1:_Bool [line 60]\n  PRUNE(!(n$7 == 0), true); [line 60]\n  NULLIFY(&$irvar1); [line 60]\n  EXIT_SCOPE(n$7,$irvar1); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_8" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_10" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_8" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_9" [label="9: Prune (false branch, if) \n   n$7=*&$irvar1:_Bool [line 60]\n  PRUNE((n$7 == 0), false); [line 60]\n  NULLIFY(&$irvar1); [line 60]\n  EXIT_SCOPE(n$7,$irvar1); [line 60]\n " shape="invhouse"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_9" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_11" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_9" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_10" [label="10:  method_body \n   *&$T0_23:int=1 [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_10" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_12" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_10" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_11" [label="11:  method_body \n   *&$T0_23:int=0 [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_11" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_12" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_11" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+"org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_12" [label="12:  method_body \n   n$8=*&$T0_23:int [line 60]\n  *&return:_Bool=n$8 [line 60]\n  NULLIFY(&$T0_23); [line 60]\n  EXIT_SCOPE(n$8,$T0_23); [line 60]\n  APPLY_ABSTRACTION; [line 60]\n " shape="box"]
+	
+
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_12" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_2" ;
+	 "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_12" -> "org.junit.internal.runners.TestClass.runsTopToBottom(java.lang.Class):boolean.a94d8b2101035b2988546b79d947012e_3" [color="red" ];
+}

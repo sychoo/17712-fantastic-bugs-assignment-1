@@ -1,0 +1,66 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_1" [label="1: Start boolean TestSuite.isPublicTestMethod(Method)\nFormals:  this:junit.framework.TestSuite* m:java.lang.reflect.Method*\nLocals:  $T0_23:void $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_1" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_4" ;
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_2" [label="2: Exit boolean TestSuite.isPublicTestMethod(Method) \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 300]\n  NULLIFY(&$T0_23); [line 300]\n  NULLIFY(&$irvar1); [line 300]\n  NULLIFY(&$irvar2); [line 300]\n  EXIT_SCOPE($irvar0,$T0_23,$irvar1,$irvar2); [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_2" ;
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_4" [label="4:  Call boolean TestSuite.isTestMethod(Method) \n   n$0=*&this:junit.framework.TestSuite* [line 300]\n  n$1=*&m:java.lang.reflect.Method* [line 300]\n  n$2=_fun_boolean TestSuite.isTestMethod(Method)(n$0:junit.framework.TestSuite*,n$1:java.lang.reflect.Method*) [line 300]\n  *&$irvar0:_Bool=n$2 [line 300]\n  NULLIFY(&this); [line 300]\n  EXIT_SCOPE(n$0,n$1,n$2,this); [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_4" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_5" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_4" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_6" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_4" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:_Bool [line 300]\n  PRUNE(!(n$3 == 0), true); [line 300]\n  NULLIFY(&$irvar0); [line 300]\n  EXIT_SCOPE(n$3,$irvar0); [line 300]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_5" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_7" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_5" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:_Bool [line 300]\n  PRUNE((n$3 == 0), false); [line 300]\n  NULLIFY(&$irvar0); [line 300]\n  EXIT_SCOPE(n$3,$irvar0); [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_6" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_12" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_6" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_7" [label="7:  Call int Method.getModifiers() \n   n$4=*&m:java.lang.reflect.Method* [line 300]\n  _=*n$4:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 300]\n  n$6=_fun_int Method.getModifiers()(n$4:java.lang.reflect.Method*) virtual [line 300]\n  *&$irvar1:int=n$6 [line 300]\n  NULLIFY(&m); [line 300]\n  EXIT_SCOPE(_,n$4,n$6,m); [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_7" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_8" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_7" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_8" [label="8:  Call boolean Modifier.isPublic(int) \n   n$7=*&$irvar1:int [line 300]\n  n$8=_fun_boolean Modifier.isPublic(int)(n$7:int) [line 300]\n  *&$irvar2:_Bool=n$8 [line 300]\n  NULLIFY(&$irvar1); [line 300]\n  EXIT_SCOPE(n$7,n$8,$irvar1); [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_8" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_9" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_8" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_10" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_8" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_9" [label="9: Prune (true branch, if) \n   n$9=*&$irvar2:_Bool [line 300]\n  PRUNE(!(n$9 == 0), true); [line 300]\n  NULLIFY(&$irvar2); [line 300]\n  EXIT_SCOPE(n$9,$irvar2); [line 300]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_9" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_11" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_9" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_10" [label="10: Prune (false branch, if) \n   n$9=*&$irvar2:_Bool [line 300]\n  PRUNE((n$9 == 0), false); [line 300]\n  NULLIFY(&$irvar2); [line 300]\n  EXIT_SCOPE(n$9,$irvar2); [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_10" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_12" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_10" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_11" [label="11:  method_body \n   *&$T0_23:int=1 [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_11" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_13" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_11" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_12" [label="12:  method_body \n   *&$T0_23:int=0 [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_12" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_13" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_12" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+"junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_13" [label="13:  method_body \n   n$10=*&$T0_23:int [line 300]\n  *&return:_Bool=n$10 [line 300]\n  NULLIFY(&$T0_23); [line 300]\n  EXIT_SCOPE(n$10,$T0_23); [line 300]\n  APPLY_ABSTRACTION; [line 300]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_13" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_2" ;
+	 "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_13" -> "junit.framework.TestSuite.isPublicTestMethod(java.lang.reflect.Method):boolean.bc5f82f01acec79345986fd24cc9e861_3" [color="red" ];
+}

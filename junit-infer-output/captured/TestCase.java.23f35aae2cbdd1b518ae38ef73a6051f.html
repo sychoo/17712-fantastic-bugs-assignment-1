@@ -1,0 +1,1314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/junit/framework/TestCase.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package junit.framework; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.reflect.InvocationTargetException; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.lang.reflect.Modifier; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> * A test case defines the fixture to run multiple tests. To define a test case&lt;br/&gt; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * &lt;ol&gt; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> *   &lt;li&gt;implement a subclass of &lt;code&gt;TestCase&lt;/code&gt;&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> *   &lt;li&gt;define instance variables that store the state of the fixture&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> *   &lt;li&gt;initialize the fixture state by overriding {@link #setUp()}&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> *   &lt;li&gt;clean-up after a test by overriding {@link #tearDown()}.&lt;/li&gt; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> * &lt;/ol&gt; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * Each test runs in its own fixture so there </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * can be no side effects among test runs. </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * Here is an example: </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * public class MathTest extends TestCase { </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> *    protected double fValue1; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> *    protected double fValue2; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> *    protected void setUp() { </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> *       fValue1= 2.0; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> *       fValue2= 3.0; </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> *    } </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> * For each test implement a method which interacts </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> * with the fixture. Verify the expected results with assertions specified </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> * by calling {@link junit.framework.Assert#assertTrue(String, boolean)} with a boolean. </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> *    public void testAdd() { </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> *       double result= fValue1 + fValue2; </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> *       assertTrue(result == 5.0); </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> *    } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> * Once the methods are defined you can run them. The framework supports </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> * both a static type safe and more dynamic way to run a test. </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> * In the static way you override the runTest method and define the method to </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> * be invoked. A convenient way to do so is with an anonymous inner class. </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> * TestCase test= new MathTest(&quot;add&quot;) { </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> *    public void runTest() { </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> *       testAdd(); </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> *    } </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line"> * }; </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> * test.run(); </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line"> * The dynamic way uses reflection to implement {@link #runTest()}. It dynamically finds </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> * and invokes a method. </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> * In this case the name of the test case has to correspond to the test method </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line"> * to be run. </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line"> * TestCase test= new MathTest(&quot;testAdd&quot;); </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line"> * test.run(); </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line"> * The tests to be run can be collected into a TestSuite. JUnit provides </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line"> * different &lt;i&gt;test runners&lt;/i&gt; which can run a test suite and collect the results. </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> * A test runner either expects a static method &lt;code&gt;suite&lt;/code&gt; as the entry </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> * point to get a test to run or it will extract the suite automatically. </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> * public static Test suite() { </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> *    suite.addTest(new MathTest(&quot;testAdd&quot;)); </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line"> *    suite.addTest(new MathTest(&quot;testDivideByZero&quot;)); </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> *    return suite; </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> * @see TestResult </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line"> * @see TestSuite </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">@SuppressWarnings(&quot;deprecation&quot;) </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">public abstract class TestCase extends Assert implements Test { </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">     * the name of the test case </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    private String fName; </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     * No-arg constructor to enable serialization. This method </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * is not intended to be used by mere mortals without calling setName(). </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public TestCase() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 87];
+n$1=_fun_Assert.&lt;init&gt;()(n$0:junit.framework.TestCase*) [line 87];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0.html">summary for TestCase.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        fName = null; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.framework.TestCase* [line 88];
+*n$2.fName:junit.framework.TestCase(root junit.framework.TestCase)=null [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28%29.8c30c69f48864e36ddde506db4eca5c0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">     * Constructs a test case with the given name. </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    public TestCase(String name) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 94];
+n$1=_fun_Assert.&lt;init&gt;()(n$0:junit.framework.TestCase*) [line 94];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58.html">summary for TestCase.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        fName = name; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.framework.TestCase* [line 95];
+n$3=*&amp;name:java.lang.String* [line 95];
+*n$2.fName:junit.framework.TestCase(root junit.framework.TestCase)=n$3 [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.<init>%28java.lang.String%29.b486f69a00097ff83ec91520410aad58_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">     * Counts the number of test cases executed by run(TestResult result). </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">    public int countTestCases() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.countTestCases%28%29%3Aint.72691d1a0f2413c45aaa3715d04f7d69_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.countTestCases%28%29%3Aint.72691d1a0f2413c45aaa3715d04f7d69.html">summary for int TestCase.countTestCases()</a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        return 1; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.countTestCases%28%29%3Aint.72691d1a0f2413c45aaa3715d04f7d69_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:int=1 [line 102];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.countTestCases%28%29%3Aint.72691d1a0f2413c45aaa3715d04f7d69_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.countTestCases%28%29%3Aint.72691d1a0f2413c45aaa3715d04f7d69_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">     * Creates a default TestResult object. </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">     * @see TestResult </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    protected TestResult createResult() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.createResult%28%29%3Ajunit.framework.TestResult.afb4f7680a7687380217a2aa9d11364b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.createResult%28%29%3Ajunit.framework.TestResult.afb4f7680a7687380217a2aa9d11364b.html">summary for TestResult TestCase.createResult()</a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        return new TestResult(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.createResult%28%29%3Ajunit.framework.TestResult.afb4f7680a7687380217a2aa9d11364b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.TestResult):junit.framework.TestResult*) [line 111];
+n$1=_fun_TestResult.&lt;init&gt;()(n$0:junit.framework.TestResult*) [line 111];
+*&amp;$irvar0:junit.framework.TestResult*=n$0 [line 111];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.createResult%28%29%3Ajunit.framework.TestResult.afb4f7680a7687380217a2aa9d11364b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:junit.framework.TestResult* [line 111];
+*&amp;return:junit.framework.TestResult*=n$2 [line 111];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.createResult%28%29%3Ajunit.framework.TestResult.afb4f7680a7687380217a2aa9d11364b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.createResult%28%29%3Ajunit.framework.TestResult.afb4f7680a7687380217a2aa9d11364b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">     * A convenience method to run this test, collecting the results with a </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">     * default TestResult object. </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">     * @see TestResult </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    public TestResult run() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb.html">summary for TestResult TestCase.run()</a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        TestResult result = createResult(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 121];
+_=*n$0:junit.framework.TestCase*(root junit.framework.TestCase) [line 121];
+n$2=_fun_TestResult TestCase.createResult()(n$0:junit.framework.TestCase*) virtual [line 121];
+*&amp;result:junit.framework.TestResult*=n$2 [line 121];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        run(result); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:junit.framework.TestCase* [line 122];
+_=*n$3:junit.framework.TestCase*(root junit.framework.TestCase) [line 122];
+n$5=*&amp;result:junit.framework.TestResult* [line 122];
+n$6=_fun_void TestCase.run(TestResult)(n$3:junit.framework.TestCase*,n$5:junit.framework.TestResult*) virtual [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        return result; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$7=*&amp;result:junit.framework.TestResult* [line 123];
+*&amp;return:junit.framework.TestResult*=n$7 [line 123];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28%29%3Ajunit.framework.TestResult.c75a64d397d1d4ac4fefd85005198feb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">     * Runs the test case and collects the results in TestResult. </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">    public void run(TestResult result) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28junit.framework.TestResult%29%3Avoid.04aaae425abea6db0e6a13668bdbfaa9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.run%28junit.framework.TestResult%29%3Avoid.04aaae425abea6db0e6a13668bdbfaa9.html">summary for void TestCase.run(TestResult)</a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        result.run(this); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28junit.framework.TestResult%29%3Avoid.04aaae425abea6db0e6a13668bdbfaa9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;result:junit.framework.TestResult* [line 130];
+_=*n$0:junit.framework.TestResult*(root junit.framework.TestResult) [line 130];
+n$2=*&amp;this:junit.framework.TestCase* [line 130];
+n$3=_fun_void TestResult.run(TestCase)(n$0:junit.framework.TestResult*,n$2:junit.framework.TestCase*) virtual [line 130];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28junit.framework.TestResult%29%3Avoid.04aaae425abea6db0e6a13668bdbfaa9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28junit.framework.TestResult%29%3Avoid.04aaae425abea6db0e6a13668bdbfaa9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.run%28junit.framework.TestResult%29%3Avoid.04aaae425abea6db0e6a13668bdbfaa9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">     * Runs the bare test sequence. </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">     * @throws Throwable if any exception is thrown </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    public void runBare() throws Throwable { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f.html">summary for void TestCase.runBare()</a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">        Throwable exception = null; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;exception:java.lang.Object*=null [line 139];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        setUp(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 140];
+_=*n$0:junit.framework.TestCase*(root junit.framework.TestCase) [line 140];
+n$2=_fun_void TestCase.setUp()(n$0:junit.framework.TestCase*) virtual [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">            runTest(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:39 Instructions
+n$3=*&amp;this:junit.framework.TestCase* [line 142];
+_=*n$3:junit.framework.TestCase*(root junit.framework.TestCase) [line 142];
+n$5=_fun_void TestCase.runTest()(n$3:junit.framework.TestCase*) virtual [line 142];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        } catch (Throwable running) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:37 succs:13 exn:41 Instructions
+n$12=*&amp;CatchVar27:java.lang.Object* [line 143];
+*&amp;running:java.lang.Object*=n$12 [line 143];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node37.html"><span class='visited with_tooltip'>C_37<span class='tooltip'>node37 preds:39 succs:12 exn:3 Conditional exception handler
+n$34=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 143];
+PRUNE(n$34, true); [line 143];
+*&amp;CatchVar27:void=n$31 [line 143];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node38.html"><span class='visited with_tooltip'>C_38<span class='tooltip'>node38 preds:39 succs:36 exn:3 Conditional exception handler
+n$34=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 143];
+PRUNE(!n$34, false); [line 143];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node39.html"><span class='visited with_tooltip'>I_39<span class='tooltip'>node39 preds: succs:37 38 exn:3 Instructions
+n$30=*&amp;return:void [line 143];
+*&amp;return:void=null [line 143];
+n$31=_fun___unwrap_exception(n$30:void) [line 143];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">            exception = running; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:41 Instructions
+n$13=*&amp;running:java.lang.Object* [line 144];
+*&amp;exception:java.lang.Object*=n$13 [line 144];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        } finally { </td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            try { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:40 36 succs:20 exn:3 Instructions
+n$20=*&amp;CatchVar47:java.lang.Object* [line 146];
+*&amp;$bcvar3:java.lang.Object*=n$20 [line 146];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node36.html"><span class='visited with_tooltip'>I_36<span class='tooltip'>node36 preds:38 succs:19 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node40.html"><span class='visited with_tooltip'>I_40<span class='tooltip'>node40 preds:41 succs:19 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node41.html"><span class='visited with_tooltip'>I_41<span class='tooltip'>node41 preds: succs:40 exn:3 Instructions
+n$30=*&amp;return:void [line 146];
+*&amp;return:void=null [line 146];
+n$31=_fun___unwrap_exception(n$30:void) [line 146];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">                tearDown(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:26 27 exn:32 Instructions
+n$6=*&amp;this:junit.framework.TestCase* [line 147];
+_=*n$6:junit.framework.TestCase*(root junit.framework.TestCase) [line 147];
+n$8=_fun_void TestCase.tearDown()(n$6:junit.framework.TestCase*) virtual [line 147];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:26 27 exn:35 Instructions
+n$14=*&amp;this:junit.framework.TestCase* [line 147];
+_=*n$14:junit.framework.TestCase*(root junit.framework.TestCase) [line 147];
+n$16=_fun_void TestCase.tearDown()(n$14:junit.framework.TestCase*) virtual [line 147];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:25 exn:44 Instructions
+n$21=*&amp;this:junit.framework.TestCase* [line 147];
+_=*n$21:junit.framework.TestCase*(root junit.framework.TestCase) [line 147];
+n$23=_fun_void TestCase.tearDown()(n$21:junit.framework.TestCase*) virtual [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">            } catch (Throwable tearingDown) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:30 succs:9 10 exn:3 Instructions
+n$9=*&amp;CatchVar17:java.lang.Object* [line 148];
+*&amp;tearingDown:java.lang.Object*=n$9 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:33 succs:16 17 exn:3 Instructions
+n$17=*&amp;CatchVar37:java.lang.Object* [line 148];
+*&amp;tearingDown:java.lang.Object*=n$17 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:42 succs:22 23 exn:3 Instructions
+n$24=*&amp;CatchVar55:java.lang.Object* [line 148];
+*&amp;tearingDown:java.lang.Object*=n$24 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node30.html"><span class='visited with_tooltip'>C_30<span class='tooltip'>node30 preds:32 succs:8 exn:3 Conditional exception handler
+n$32=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 148];
+PRUNE(n$32, true); [line 148];
+*&amp;CatchVar17:void=n$31 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node31.html"><span class='visited with_tooltip'>C_31<span class='tooltip'>node31 preds:32 succs:3 exn:3 Conditional exception handler
+n$32=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 148];
+PRUNE(!n$32, false); [line 148];
+*&amp;return:void=EXN n$31 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds: succs:30 31 exn:3 Instructions
+n$30=*&amp;return:void [line 148];
+*&amp;return:void=null [line 148];
+n$31=_fun___unwrap_exception(n$30:void) [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node33.html"><span class='visited with_tooltip'>C_33<span class='tooltip'>node33 preds:35 succs:15 exn:3 Conditional exception handler
+n$33=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 148];
+PRUNE(n$33, true); [line 148];
+*&amp;CatchVar37:void=n$31 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node34.html"><span class='visited with_tooltip'>C_34<span class='tooltip'>node34 preds:35 succs:3 exn:3 Conditional exception handler
+n$33=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 148];
+PRUNE(!n$33, false); [line 148];
+*&amp;return:void=EXN n$31 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds: succs:33 34 exn:3 Instructions
+n$30=*&amp;return:void [line 148];
+*&amp;return:void=null [line 148];
+n$31=_fun___unwrap_exception(n$30:void) [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node42.html"><span class='visited with_tooltip'>C_42<span class='tooltip'>node42 preds:44 succs:21 exn:3 Conditional exception handler
+n$35=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 148];
+PRUNE(n$35, true); [line 148];
+*&amp;CatchVar55:void=n$31 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node43.html"><span class='visited with_tooltip'>C_43<span class='tooltip'>node43 preds:44 succs:3 exn:3 Conditional exception handler
+n$35=_fun___instanceof(n$31:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 148];
+PRUNE(!n$35, false); [line 148];
+*&amp;return:void=EXN n$31 [line 148];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node44.html"><span class='visited with_tooltip'>I_44<span class='tooltip'>node44 preds: succs:42 43 exn:3 Instructions
+n$30=*&amp;return:void [line 148];
+*&amp;return:void=null [line 148];
+n$31=_fun___unwrap_exception(n$30:void) [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">                if (exception == null) exception = tearingDown; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$10=*&amp;exception:java.lang.Object* [line 149];
+PRUNE(!(n$10 != null), true); [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:26 27 exn:3 Conditional method_body
+n$10=*&amp;exception:java.lang.Object* [line 149];
+PRUNE((n$10 != null), false); [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:26 27 exn:3 Instructions
+n$11=*&amp;tearingDown:java.lang.Object* [line 149];
+*&amp;exception:java.lang.Object*=n$11 [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:15 succs:18 exn:3 Conditional method_body
+n$18=*&amp;exception:java.lang.Object* [line 149];
+PRUNE(!(n$18 != null), true); [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:15 succs:26 27 exn:3 Conditional method_body
+n$18=*&amp;exception:java.lang.Object* [line 149];
+PRUNE((n$18 != null), false); [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:16 succs:26 27 exn:3 Instructions
+n$19=*&amp;tearingDown:java.lang.Object* [line 149];
+*&amp;exception:java.lang.Object*=n$19 [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node22.html"><span class='visited with_tooltip'>C_22<span class='tooltip'>node22 preds:21 succs:24 exn:3 Conditional method_body
+n$25=*&amp;exception:java.lang.Object* [line 149];
+PRUNE(!(n$25 != null), true); [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node23.html"><span class='visited with_tooltip'>C_23<span class='tooltip'>node23 preds:21 succs:25 exn:3 Conditional method_body
+n$25=*&amp;exception:java.lang.Object* [line 149];
+PRUNE((n$25 != null), false); [line 149];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:22 succs:25 exn:3 Instructions
+n$26=*&amp;tearingDown:java.lang.Object* [line 149];
+*&amp;exception:java.lang.Object*=n$26 [line 149];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">        } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 23 20 succs:2 exn:3 Instructions
+n$27=*&amp;$bcvar3:java.lang.Object* [line 151];
+*&amp;return:void=EXN n$27 [line 151];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">        if (exception != null) throw exception; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node26.html"><span class='visited with_tooltip'>C_26<span class='tooltip'>node26 preds:18 17 14 11 10 7 succs:28 exn:3 Conditional method_body
+n$28=*&amp;exception:java.lang.Object* [line 152];
+PRUNE(!(n$28 == null), true); [line 152];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:26 succs:2 exn:3 Instructions
+n$29=*&amp;exception:java.lang.Object* [line 152];
+*&amp;return:void=EXN n$29 [line 152];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node27.html"><span class='visited with_tooltip'>C_27<span class='tooltip'>node27 preds:18 17 14 11 10 7 succs:29 exn:3 Conditional method_body
+n$28=*&amp;exception:java.lang.Object* [line 152];
+PRUNE((n$28 == null), false); [line 152];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:27 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:29 28 25 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runBare%28%29%3Avoid.dc35098142ac1af3b0e84dbb5a5c4c8f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:43 34 31 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">     * Override to run the test and assert its state. </td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">     * @throws Throwable if any exception is thrown </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">    protected void runTest() throws Throwable { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3.html">summary for void TestCase.runTest()</a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">        assertNotNull(&quot;TestCase.fName cannot be null&quot;, fName); // Some VMs crash when calling getMethod(null,null); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 161];
+n$1=*n$0.fName:java.lang.String*(root junit.framework.TestCase) [line 161];
+*&amp;$irvar0:java.lang.String*=n$1 [line 161];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.String* [line 161];
+n$3=_fun_void TestCase.assertNotNull(String,Object)("TestCase.fName cannot be null":java.lang.Object*,n$2:java.lang.String*) [line 161];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        Method runMethod = null; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+*&amp;runMethod:java.lang.Object*=null [line 162];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">            // use getMethod to get all public inherited </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">            // methods. getDeclaredMethods returns all </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">            // methods of this class but excludes the </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">            // inherited ones. </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">            runMethod = getClass().getMethod(fName, (Class[]) null); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:38 Instructions
+n$4=*&amp;this:junit.framework.TestCase* [line 168];
+_=*n$4:junit.framework.TestCase*(root junit.framework.TestCase) [line 168];
+n$6=_fun_Class Object.getClass()(n$4:junit.framework.TestCase*) virtual [line 168];
+*&amp;$irvar1:java.lang.Class*=n$6 [line 168];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:16 exn:38 Instructions
+n$7=*&amp;$irvar1:java.lang.Class* [line 168];
+_=*n$7:java.lang.Class*(root java.lang.Class) [line 168];
+n$9=*&amp;this:junit.framework.TestCase* [line 168];
+n$10=*n$9.fName:java.lang.String*(root junit.framework.TestCase) [line 168];
+n$11=_fun___cast(null:java.lang.Object*,sizeof(t=java.lang.Class*[_*_];sub_t=( sub )(cast)):void) [line 168];
+n$12=_fun_Method Class.getMethod(String,Class[])(n$7:java.lang.Class*,n$10:java.lang.String*,n$11:java.lang.Class*[_*_](*)) virtual [line 168];
+*&amp;runMethod:java.lang.reflect.Method*=n$12 [line 168];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">        } catch (NoSuchMethodException e) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:36 succs:10 exn:3 Instructions
+n$13=*&amp;CatchVar30:java.lang.Object* [line 169];
+*&amp;e:java.lang.Object*=n$13 [line 169];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node36.html"><span class='visited with_tooltip'>C_36<span class='tooltip'>node36 preds:38 succs:9 exn:3 Conditional exception handler
+n$77=_fun___instanceof(n$76:java.lang.NoSuchMethodException*,sizeof(t=java.lang.NoSuchMethodException):void) [line 169];
+PRUNE(n$77, true); [line 169];
+*&amp;CatchVar30:void=n$76 [line 169];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node37.html"><span class='visited with_tooltip'>C_37<span class='tooltip'>node37 preds:38 succs:3 exn:3 Conditional exception handler
+n$77=_fun___instanceof(n$76:java.lang.NoSuchMethodException*,sizeof(t=java.lang.NoSuchMethodException):void) [line 169];
+PRUNE(!n$77, false); [line 169];
+*&amp;return:void=EXN n$76 [line 169];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node38.html"><span class='visited with_tooltip'>I_38<span class='tooltip'>node38 preds: succs:36 37 exn:3 Instructions
+n$75=*&amp;return:void [line 169];
+*&amp;return:void=null [line 169];
+n$76=_fun___unwrap_exception(n$75:void) [line 169];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">            fail(&quot;Method \&quot;&quot; + fName + &quot;\&quot; not found&quot;); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$14=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 170];
+n$15=_fun_StringBuilder.&lt;init&gt;()(n$14:java.lang.StringBuilder*) [line 170];
+*&amp;$irvar2:java.lang.StringBuilder*=n$14 [line 170];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;$irvar2:java.lang.StringBuilder* [line 170];
+_=*n$16:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 170];
+n$18=_fun_StringBuilder StringBuilder.append(String)(n$16:java.lang.StringBuilder*,"Method \\\"":java.lang.Object*) virtual [line 170];
+*&amp;$irvar3:java.lang.StringBuilder*=n$18 [line 170];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$19=*&amp;$irvar3:java.lang.StringBuilder* [line 170];
+_=*n$19:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 170];
+n$21=*&amp;this:junit.framework.TestCase* [line 170];
+n$22=*n$21.fName:java.lang.String*(root junit.framework.TestCase) [line 170];
+n$23=_fun_StringBuilder StringBuilder.append(String)(n$19:java.lang.StringBuilder*,n$22:java.lang.String*) virtual [line 170];
+*&amp;$irvar4:java.lang.StringBuilder*=n$23 [line 170];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$24=*&amp;$irvar4:java.lang.StringBuilder* [line 170];
+_=*n$24:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 170];
+n$26=_fun_StringBuilder StringBuilder.append(String)(n$24:java.lang.StringBuilder*,"\\\" not found":java.lang.Object*) virtual [line 170];
+*&amp;$irvar5:java.lang.StringBuilder*=n$26 [line 170];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$27=*&amp;$irvar5:java.lang.StringBuilder* [line 170];
+_=*n$27:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 170];
+n$29=_fun_String StringBuilder.toString()(n$27:java.lang.StringBuilder*) virtual [line 170];
+*&amp;$irvar6:java.lang.String*=n$29 [line 170];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$30=*&amp;$irvar6:java.lang.String* [line 170];
+n$31=_fun_void TestCase.fail(String)(n$30:java.lang.String*) [line 170];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">        if (!Modifier.isPublic(runMethod.getModifiers())) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 8 succs:17 exn:3 Instructions
+n$32=*&amp;runMethod:java.lang.reflect.Method* [line 172];
+_=*n$32:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 172];
+n$34=_fun_int Method.getModifiers()(n$32:java.lang.reflect.Method*) virtual [line 172];
+*&amp;$irvar7:int=n$34 [line 172];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 19 exn:3 Instructions
+n$35=*&amp;$irvar7:int [line 172];
+n$36=_fun_boolean Modifier.isPublic(int)(n$35:int) [line 172];
+*&amp;$irvar8:_Bool=n$36 [line 172];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:17 succs:20 exn:3 Conditional method_body
+n$37=*&amp;$irvar8:_Bool [line 172];
+PRUNE(!(n$37 != 0), true); [line 172];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:17 succs:26 exn:3 Conditional method_body
+n$37=*&amp;$irvar8:_Bool [line 172];
+PRUNE((n$37 != 0), false); [line 172];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">            fail(&quot;Method \&quot;&quot; + fName + &quot;\&quot; should be public&quot;); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:18 succs:21 exn:3 Instructions
+n$38=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 173];
+n$39=_fun_StringBuilder.&lt;init&gt;()(n$38:java.lang.StringBuilder*) [line 173];
+*&amp;$irvar9:java.lang.StringBuilder*=n$38 [line 173];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$40=*&amp;$irvar9:java.lang.StringBuilder* [line 173];
+_=*n$40:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 173];
+n$42=_fun_StringBuilder StringBuilder.append(String)(n$40:java.lang.StringBuilder*,"Method \\\"":java.lang.Object*) virtual [line 173];
+*&amp;$irvar10:java.lang.StringBuilder*=n$42 [line 173];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$43=*&amp;$irvar10:java.lang.StringBuilder* [line 173];
+_=*n$43:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 173];
+n$45=*&amp;this:junit.framework.TestCase* [line 173];
+n$46=*n$45.fName:java.lang.String*(root junit.framework.TestCase) [line 173];
+n$47=_fun_StringBuilder StringBuilder.append(String)(n$43:java.lang.StringBuilder*,n$46:java.lang.String*) virtual [line 173];
+*&amp;$irvar11:java.lang.StringBuilder*=n$47 [line 173];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$48=*&amp;$irvar11:java.lang.StringBuilder* [line 173];
+_=*n$48:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 173];
+n$50=_fun_StringBuilder StringBuilder.append(String)(n$48:java.lang.StringBuilder*,"\\\" should be public":java.lang.Object*) virtual [line 173];
+*&amp;$irvar12:java.lang.StringBuilder*=n$50 [line 173];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$51=*&amp;$irvar12:java.lang.StringBuilder* [line 173];
+_=*n$51:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 173];
+n$53=_fun_String StringBuilder.toString()(n$51:java.lang.StringBuilder*) virtual [line 173];
+*&amp;$irvar13:java.lang.String*=n$53 [line 173];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$54=*&amp;$irvar13:java.lang.String* [line 173];
+n$55=_fun_void TestCase.fail(String)(n$54:java.lang.String*) [line 173];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">            runMethod.invoke(this); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 19 succs:27 exn:43 Instructions
+n$56=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[0]):java.lang.Object*[_*_](*)) [line 177];
+*&amp;$irvar14:java.lang.Object*[_*_](*)=n$56 [line 177];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:35 exn:43 Instructions
+n$57=*&amp;runMethod:java.lang.reflect.Method* [line 177];
+_=*n$57:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 177];
+n$59=*&amp;this:junit.framework.TestCase* [line 177];
+n$60=*&amp;$irvar14:java.lang.Object*[_*_](*) [line 177];
+n$61=_fun_Object Method.invoke(Object,Object[])(n$57:java.lang.reflect.Method*,n$59:junit.framework.TestCase*,n$60:java.lang.Object*[_*_](*)) virtual [line 177];
+*&amp;$irvar15:java.lang.Object*=n$61 [line 177];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">        } catch (InvocationTargetException e) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:41 succs:29 exn:3 Instructions
+n$62=*&amp;CatchVar114:java.lang.Object* [line 178];
+*&amp;e:java.lang.Object*=n$62 [line 178];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node41.html"><span class='visited with_tooltip'>C_41<span class='tooltip'>node41 preds:43 succs:28 exn:3 Conditional exception handler
+n$79=_fun___instanceof(n$76:java.lang.reflect.InvocationTargetException*,sizeof(t=java.lang.reflect.InvocationTargetException):void) [line 178];
+PRUNE(n$79, true); [line 178];
+*&amp;CatchVar114:void=n$76 [line 178];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node42.html"><span class='visited with_tooltip'>C_42<span class='tooltip'>node42 preds:43 succs:39 40 exn:3 Conditional exception handler
+n$79=_fun___instanceof(n$76:java.lang.reflect.InvocationTargetException*,sizeof(t=java.lang.reflect.InvocationTargetException):void) [line 178];
+PRUNE(!n$79, false); [line 178];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node43.html"><span class='visited with_tooltip'>I_43<span class='tooltip'>node43 preds: succs:41 42 exn:3 Instructions
+n$75=*&amp;return:void [line 178];
+*&amp;return:void=null [line 178];
+n$76=_fun___unwrap_exception(n$75:void) [line 178];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">            e.fillInStackTrace(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$63=*&amp;e:java.lang.Object* [line 179];
+_=*n$63:java.lang.Object*(root java.lang.Object) [line 179];
+n$65=_fun_Throwable InvocationTargetException.fillInStackTrace()(n$63:java.lang.Object*) virtual [line 179];
+*&amp;$irvar16:java.lang.Throwable*=n$65 [line 179];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">            throw e.getTargetException(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$66=*&amp;e:java.lang.Object* [line 180];
+_=*n$66:java.lang.Object*(root java.lang.Object) [line 180];
+n$68=_fun_Throwable InvocationTargetException.getTargetException()(n$66:java.lang.Object*) virtual [line 180];
+*&amp;$irvar17:java.lang.Throwable*=n$68 [line 180];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:2 exn:3 Instructions
+n$69=*&amp;$irvar17:java.lang.Throwable* [line 180];
+*&amp;return:void=EXN n$69 [line 180];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">        } catch (IllegalAccessException e) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:39 succs:33 exn:3 Instructions
+n$70=*&amp;CatchVar125:java.lang.Object* [line 181];
+*&amp;e:java.lang.Object*=n$70 [line 181];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node39.html"><span class='visited with_tooltip'>C_39<span class='tooltip'>node39 preds:42 succs:32 exn:3 Conditional exception handler
+n$78=_fun___instanceof(n$76:java.lang.IllegalAccessException*,sizeof(t=java.lang.IllegalAccessException):void) [line 181];
+PRUNE(n$78, true); [line 181];
+*&amp;CatchVar125:void=n$76 [line 181];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node40.html"><span class='visited with_tooltip'>C_40<span class='tooltip'>node40 preds:42 succs:3 exn:3 Conditional exception handler
+n$78=_fun___instanceof(n$76:java.lang.IllegalAccessException*,sizeof(t=java.lang.IllegalAccessException):void) [line 181];
+PRUNE(!n$78, false); [line 181];
+*&amp;return:void=EXN n$76 [line 181];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">            e.fillInStackTrace(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:32 succs:34 exn:3 Instructions
+n$71=*&amp;e:java.lang.Object* [line 182];
+_=*n$71:java.lang.Object*(root java.lang.Object) [line 182];
+n$73=_fun_Throwable IllegalAccessException.fillInStackTrace()(n$71:java.lang.Object*) virtual [line 182];
+*&amp;$irvar18:java.lang.Throwable*=n$73 [line 182];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line">            throw e; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:33 succs:2 exn:3 Instructions
+n$74=*&amp;e:java.lang.Object* [line 183];
+*&amp;return:void=EXN n$74 [line 183];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:27 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:35 34 31 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.runTest%28%29%3Avoid.93b3b404f3b6113503f024ef5d3212f3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:40 37 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">     * Asserts that a condition is true. If it isn't it throws </td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line">     * an AssertionFailedError with the given message. </td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line">    public static void assertTrue(String message, boolean condition) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28java.lang.String%2Cboolean%29%3Avoid.485683838f7573a20cbd8b1402be9fc8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertTrue%28java.lang.String%2Cboolean%29%3Avoid.485683838f7573a20cbd8b1402be9fc8.html">summary for void TestCase.assertTrue(String,boolean)</a></td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">        Assert.assertTrue(message, condition); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28java.lang.String%2Cboolean%29%3Avoid.485683838f7573a20cbd8b1402be9fc8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 192];
+n$1=*&amp;condition:_Bool [line 192];
+n$2=_fun_void Assert.assertTrue(String,boolean)(n$0:java.lang.String*,n$1:_Bool) [line 192];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28java.lang.String%2Cboolean%29%3Avoid.485683838f7573a20cbd8b1402be9fc8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28java.lang.String%2Cboolean%29%3Avoid.485683838f7573a20cbd8b1402be9fc8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28java.lang.String%2Cboolean%29%3Avoid.485683838f7573a20cbd8b1402be9fc8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">     * Asserts that a condition is true. If it isn't it throws </td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">     * an AssertionFailedError. </td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line">    public static void assertTrue(boolean condition) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28boolean%29%3Avoid.6f502cd298547a9ac588d1e752475618_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertTrue%28boolean%29%3Avoid.6f502cd298547a9ac588d1e752475618.html">summary for void TestCase.assertTrue(boolean)</a></td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line">        Assert.assertTrue(condition); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28boolean%29%3Avoid.6f502cd298547a9ac588d1e752475618_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;condition:_Bool [line 200];
+n$1=_fun_void Assert.assertTrue(boolean)(n$0:_Bool) [line 200];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28boolean%29%3Avoid.6f502cd298547a9ac588d1e752475618_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28boolean%29%3Avoid.6f502cd298547a9ac588d1e752475618_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertTrue%28boolean%29%3Avoid.6f502cd298547a9ac588d1e752475618_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">     * Asserts that a condition is false. If it isn't it throws </td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">     * an AssertionFailedError with the given message. </td></tr>
+<tr><td class="num" id="LINE206">206</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE207">207</td><td class="line">    public static void assertFalse(String message, boolean condition) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28java.lang.String%2Cboolean%29%3Avoid.7bdd5c09d9abb52285d6b628dd04e583_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertFalse%28java.lang.String%2Cboolean%29%3Avoid.7bdd5c09d9abb52285d6b628dd04e583.html">summary for void TestCase.assertFalse(String,boolean)</a></td></tr>
+<tr><td class="num" id="LINE208">208</td><td class="line">        Assert.assertFalse(message, condition); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28java.lang.String%2Cboolean%29%3Avoid.7bdd5c09d9abb52285d6b628dd04e583_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 208];
+n$1=*&amp;condition:_Bool [line 208];
+n$2=_fun_void Assert.assertFalse(String,boolean)(n$0:java.lang.String*,n$1:_Bool) [line 208];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE209">209</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28java.lang.String%2Cboolean%29%3Avoid.7bdd5c09d9abb52285d6b628dd04e583_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28java.lang.String%2Cboolean%29%3Avoid.7bdd5c09d9abb52285d6b628dd04e583_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28java.lang.String%2Cboolean%29%3Avoid.7bdd5c09d9abb52285d6b628dd04e583_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE210">210</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE211">211</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE212">212</td><td class="line">     * Asserts that a condition is false. If it isn't it throws </td></tr>
+<tr><td class="num" id="LINE213">213</td><td class="line">     * an AssertionFailedError. </td></tr>
+<tr><td class="num" id="LINE214">214</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE215">215</td><td class="line">    public static void assertFalse(boolean condition) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28boolean%29%3Avoid.642cc1c3b7001e6fd361689841945202_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertFalse%28boolean%29%3Avoid.642cc1c3b7001e6fd361689841945202.html">summary for void TestCase.assertFalse(boolean)</a></td></tr>
+<tr><td class="num" id="LINE216">216</td><td class="line">        Assert.assertFalse(condition); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28boolean%29%3Avoid.642cc1c3b7001e6fd361689841945202_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;condition:_Bool [line 216];
+n$1=_fun_void Assert.assertFalse(boolean)(n$0:_Bool) [line 216];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE217">217</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28boolean%29%3Avoid.642cc1c3b7001e6fd361689841945202_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28boolean%29%3Avoid.642cc1c3b7001e6fd361689841945202_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertFalse%28boolean%29%3Avoid.642cc1c3b7001e6fd361689841945202_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE218">218</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE219">219</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE220">220</td><td class="line">     * Fails a test with the given message. </td></tr>
+<tr><td class="num" id="LINE221">221</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE222">222</td><td class="line">    public static void fail(String message) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28java.lang.String%29%3Avoid.1311adaed5f88c4ebb756404e66b47ba_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.fail%28java.lang.String%29%3Avoid.1311adaed5f88c4ebb756404e66b47ba.html">summary for void TestCase.fail(String)</a></td></tr>
+<tr><td class="num" id="LINE223">223</td><td class="line">        Assert.fail(message); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28java.lang.String%29%3Avoid.1311adaed5f88c4ebb756404e66b47ba_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 223];
+n$1=_fun_void Assert.fail(String)(n$0:java.lang.String*) [line 223];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE224">224</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28java.lang.String%29%3Avoid.1311adaed5f88c4ebb756404e66b47ba_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28java.lang.String%29%3Avoid.1311adaed5f88c4ebb756404e66b47ba_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28java.lang.String%29%3Avoid.1311adaed5f88c4ebb756404e66b47ba_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE225">225</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE226">226</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE227">227</td><td class="line">     * Fails a test with no message. </td></tr>
+<tr><td class="num" id="LINE228">228</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE229">229</td><td class="line">    public static void fail() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28%29%3Avoid.397d4fef0c9e8997296f54d3990091f1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.fail%28%29%3Avoid.397d4fef0c9e8997296f54d3990091f1.html">summary for void TestCase.fail()</a></td></tr>
+<tr><td class="num" id="LINE230">230</td><td class="line">        Assert.fail(); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28%29%3Avoid.397d4fef0c9e8997296f54d3990091f1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 230];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE231">231</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28%29%3Avoid.397d4fef0c9e8997296f54d3990091f1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28%29%3Avoid.397d4fef0c9e8997296f54d3990091f1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.fail%28%29%3Avoid.397d4fef0c9e8997296f54d3990091f1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE232">232</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE233">233</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE234">234</td><td class="line">     * Asserts that two objects are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE235">235</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE236">236</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE237">237</td><td class="line">    public static void assertEquals(String message, Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.3e19a4756f5c0acdb60aed3b889d1cba_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.3e19a4756f5c0acdb60aed3b889d1cba.html">summary for void TestCase.assertEquals(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE238">238</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.3e19a4756f5c0acdb60aed3b889d1cba_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 238];
+n$1=*&amp;expected:java.lang.Object* [line 238];
+n$2=*&amp;actual:java.lang.Object* [line 238];
+n$3=_fun_void Assert.assertEquals(String,Object,Object)(n$0:java.lang.String*,n$1:java.lang.Object*,n$2:java.lang.Object*) [line 238];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE239">239</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.3e19a4756f5c0acdb60aed3b889d1cba_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.3e19a4756f5c0acdb60aed3b889d1cba_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.3e19a4756f5c0acdb60aed3b889d1cba_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE240">240</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE241">241</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE242">242</td><td class="line">     * Asserts that two objects are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE243">243</td><td class="line">     * an AssertionFailedError is thrown. </td></tr>
+<tr><td class="num" id="LINE244">244</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE245">245</td><td class="line">    public static void assertEquals(Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.7dff30a1a2eae51075e1409b12935ad6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.7dff30a1a2eae51075e1409b12935ad6.html">summary for void TestCase.assertEquals(Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE246">246</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.7dff30a1a2eae51075e1409b12935ad6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:java.lang.Object* [line 246];
+n$1=*&amp;actual:java.lang.Object* [line 246];
+n$2=_fun_void Assert.assertEquals(Object,Object)(n$0:java.lang.Object*,n$1:java.lang.Object*) [line 246];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE247">247</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.7dff30a1a2eae51075e1409b12935ad6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.7dff30a1a2eae51075e1409b12935ad6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.7dff30a1a2eae51075e1409b12935ad6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE248">248</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE249">249</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE250">250</td><td class="line">     * Asserts that two Strings are equal. </td></tr>
+<tr><td class="num" id="LINE251">251</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE252">252</td><td class="line">    public static void assertEquals(String message, String expected, String actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29%3Avoid.7b6d754dafb8960342ed268e570d5304_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29%3Avoid.7b6d754dafb8960342ed268e570d5304.html">summary for void TestCase.assertEquals(String,String,String)</a></td></tr>
+<tr><td class="num" id="LINE253">253</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29%3Avoid.7b6d754dafb8960342ed268e570d5304_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 253];
+n$1=*&amp;expected:java.lang.String* [line 253];
+n$2=*&amp;actual:java.lang.String* [line 253];
+n$3=_fun_void Assert.assertEquals(String,String,String)(n$0:java.lang.String*,n$1:java.lang.String*,n$2:java.lang.String*) [line 253];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE254">254</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29%3Avoid.7b6d754dafb8960342ed268e570d5304_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29%3Avoid.7b6d754dafb8960342ed268e570d5304_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%2Cjava.lang.String%29%3Avoid.7b6d754dafb8960342ed268e570d5304_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE255">255</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE256">256</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE257">257</td><td class="line">     * Asserts that two Strings are equal. </td></tr>
+<tr><td class="num" id="LINE258">258</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE259">259</td><td class="line">    public static void assertEquals(String expected, String actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%29%3Avoid.42b3c65d3d1b64b0b40e98dc948b596f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%29%3Avoid.42b3c65d3d1b64b0b40e98dc948b596f.html">summary for void TestCase.assertEquals(String,String)</a></td></tr>
+<tr><td class="num" id="LINE260">260</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%29%3Avoid.42b3c65d3d1b64b0b40e98dc948b596f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:java.lang.String* [line 260];
+n$1=*&amp;actual:java.lang.String* [line 260];
+n$2=_fun_void Assert.assertEquals(String,String)(n$0:java.lang.String*,n$1:java.lang.String*) [line 260];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE261">261</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%29%3Avoid.42b3c65d3d1b64b0b40e98dc948b596f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%29%3Avoid.42b3c65d3d1b64b0b40e98dc948b596f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cjava.lang.String%29%3Avoid.42b3c65d3d1b64b0b40e98dc948b596f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE262">262</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE263">263</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE264">264</td><td class="line">     * Asserts that two doubles are equal concerning a delta.  If they are not </td></tr>
+<tr><td class="num" id="LINE265">265</td><td class="line">     * an AssertionFailedError is thrown with the given message.  If the expected </td></tr>
+<tr><td class="num" id="LINE266">266</td><td class="line">     * value is infinity then the delta value is ignored. </td></tr>
+<tr><td class="num" id="LINE267">267</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE268">268</td><td class="line">    public static void assertEquals(String message, double expected, double actual, double delta) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cdouble%2Cdouble%2Cdouble%29%3Avoid.b46ffac8321a0cc868ba605b15d2a9ac_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cdouble%2Cdouble%2Cdouble%29%3Avoid.b46ffac8321a0cc868ba605b15d2a9ac.html">summary for void TestCase.assertEquals(String,double,double,double)</a></td></tr>
+<tr><td class="num" id="LINE269">269</td><td class="line">        Assert.assertEquals(message, expected, actual, delta); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cdouble%2Cdouble%2Cdouble%29%3Avoid.b46ffac8321a0cc868ba605b15d2a9ac_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 269];
+n$1=*&amp;expected:double [line 269];
+n$2=*&amp;actual:double [line 269];
+n$3=*&amp;delta:double [line 269];
+n$4=_fun_void Assert.assertEquals(String,double,double,double)(n$0:java.lang.String*,n$1:double,n$2:double,n$3:double) [line 269];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE270">270</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cdouble%2Cdouble%2Cdouble%29%3Avoid.b46ffac8321a0cc868ba605b15d2a9ac_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cdouble%2Cdouble%2Cdouble%29%3Avoid.b46ffac8321a0cc868ba605b15d2a9ac_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cdouble%2Cdouble%2Cdouble%29%3Avoid.b46ffac8321a0cc868ba605b15d2a9ac_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE271">271</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE272">272</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE273">273</td><td class="line">     * Asserts that two doubles are equal concerning a delta. If the expected </td></tr>
+<tr><td class="num" id="LINE274">274</td><td class="line">     * value is infinity then the delta value is ignored. </td></tr>
+<tr><td class="num" id="LINE275">275</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE276">276</td><td class="line">    public static void assertEquals(double expected, double actual, double delta) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28double%2Cdouble%2Cdouble%29%3Avoid.e3cbb826251ff0f03b57c8988e211ffb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28double%2Cdouble%2Cdouble%29%3Avoid.e3cbb826251ff0f03b57c8988e211ffb.html">summary for void TestCase.assertEquals(double,double,double)</a></td></tr>
+<tr><td class="num" id="LINE277">277</td><td class="line">        Assert.assertEquals(expected, actual, delta); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28double%2Cdouble%2Cdouble%29%3Avoid.e3cbb826251ff0f03b57c8988e211ffb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:double [line 277];
+n$1=*&amp;actual:double [line 277];
+n$2=*&amp;delta:double [line 277];
+n$3=_fun_void Assert.assertEquals(double,double,double)(n$0:double,n$1:double,n$2:double) [line 277];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE278">278</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28double%2Cdouble%2Cdouble%29%3Avoid.e3cbb826251ff0f03b57c8988e211ffb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28double%2Cdouble%2Cdouble%29%3Avoid.e3cbb826251ff0f03b57c8988e211ffb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28double%2Cdouble%2Cdouble%29%3Avoid.e3cbb826251ff0f03b57c8988e211ffb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE279">279</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE280">280</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE281">281</td><td class="line">     * Asserts that two floats are equal concerning a positive delta. If they </td></tr>
+<tr><td class="num" id="LINE282">282</td><td class="line">     * are not an AssertionFailedError is thrown with the given message. If the </td></tr>
+<tr><td class="num" id="LINE283">283</td><td class="line">     * expected value is infinity then the delta value is ignored. </td></tr>
+<tr><td class="num" id="LINE284">284</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE285">285</td><td class="line">    public static void assertEquals(String message, float expected, float actual, float delta) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cfloat%2Cfloat%2Cfloat%29%3Avoid.40a3b2e9b2832eeea96e15e48b823e98_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cfloat%2Cfloat%2Cfloat%29%3Avoid.40a3b2e9b2832eeea96e15e48b823e98.html">summary for void TestCase.assertEquals(String,float,float,float)</a></td></tr>
+<tr><td class="num" id="LINE286">286</td><td class="line">        Assert.assertEquals(message, expected, actual, delta); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cfloat%2Cfloat%2Cfloat%29%3Avoid.40a3b2e9b2832eeea96e15e48b823e98_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 286];
+n$1=*&amp;expected:float [line 286];
+n$2=*&amp;actual:float [line 286];
+n$3=*&amp;delta:float [line 286];
+n$4=_fun_void Assert.assertEquals(String,float,float,float)(n$0:java.lang.String*,n$1:float,n$2:float,n$3:float) [line 286];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE287">287</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cfloat%2Cfloat%2Cfloat%29%3Avoid.40a3b2e9b2832eeea96e15e48b823e98_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cfloat%2Cfloat%2Cfloat%29%3Avoid.40a3b2e9b2832eeea96e15e48b823e98_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cfloat%2Cfloat%2Cfloat%29%3Avoid.40a3b2e9b2832eeea96e15e48b823e98_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE288">288</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE289">289</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE290">290</td><td class="line">     * Asserts that two floats are equal concerning a delta. If the expected </td></tr>
+<tr><td class="num" id="LINE291">291</td><td class="line">     * value is infinity then the delta value is ignored. </td></tr>
+<tr><td class="num" id="LINE292">292</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE293">293</td><td class="line">    public static void assertEquals(float expected, float actual, float delta) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28float%2Cfloat%2Cfloat%29%3Avoid.99ed4549d4688baf1e21b39f281bab91_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28float%2Cfloat%2Cfloat%29%3Avoid.99ed4549d4688baf1e21b39f281bab91.html">summary for void TestCase.assertEquals(float,float,float)</a></td></tr>
+<tr><td class="num" id="LINE294">294</td><td class="line">        Assert.assertEquals(expected, actual, delta); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28float%2Cfloat%2Cfloat%29%3Avoid.99ed4549d4688baf1e21b39f281bab91_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:float [line 294];
+n$1=*&amp;actual:float [line 294];
+n$2=*&amp;delta:float [line 294];
+n$3=_fun_void Assert.assertEquals(float,float,float)(n$0:float,n$1:float,n$2:float) [line 294];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE295">295</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28float%2Cfloat%2Cfloat%29%3Avoid.99ed4549d4688baf1e21b39f281bab91_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28float%2Cfloat%2Cfloat%29%3Avoid.99ed4549d4688baf1e21b39f281bab91_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28float%2Cfloat%2Cfloat%29%3Avoid.99ed4549d4688baf1e21b39f281bab91_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE296">296</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE297">297</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE298">298</td><td class="line">     * Asserts that two longs are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE299">299</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE300">300</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE301">301</td><td class="line">    public static void assertEquals(String message, long expected, long actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Clong%2Clong%29%3Avoid.96e8c7d372be043021bc7803ad9f4ea4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Clong%2Clong%29%3Avoid.96e8c7d372be043021bc7803ad9f4ea4.html">summary for void TestCase.assertEquals(String,long,long)</a></td></tr>
+<tr><td class="num" id="LINE302">302</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Clong%2Clong%29%3Avoid.96e8c7d372be043021bc7803ad9f4ea4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 302];
+n$1=*&amp;expected:long [line 302];
+n$2=*&amp;actual:long [line 302];
+n$3=_fun_void Assert.assertEquals(String,long,long)(n$0:java.lang.String*,n$1:long,n$2:long) [line 302];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE303">303</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Clong%2Clong%29%3Avoid.96e8c7d372be043021bc7803ad9f4ea4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Clong%2Clong%29%3Avoid.96e8c7d372be043021bc7803ad9f4ea4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Clong%2Clong%29%3Avoid.96e8c7d372be043021bc7803ad9f4ea4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE304">304</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE305">305</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE306">306</td><td class="line">     * Asserts that two longs are equal. </td></tr>
+<tr><td class="num" id="LINE307">307</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE308">308</td><td class="line">    public static void assertEquals(long expected, long actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28long%2Clong%29%3Avoid.aedcbe2a2b121abdcb61ec1e2ce1b189_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28long%2Clong%29%3Avoid.aedcbe2a2b121abdcb61ec1e2ce1b189.html">summary for void TestCase.assertEquals(long,long)</a></td></tr>
+<tr><td class="num" id="LINE309">309</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28long%2Clong%29%3Avoid.aedcbe2a2b121abdcb61ec1e2ce1b189_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:long [line 309];
+n$1=*&amp;actual:long [line 309];
+n$2=_fun_void Assert.assertEquals(long,long)(n$0:long,n$1:long) [line 309];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE310">310</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28long%2Clong%29%3Avoid.aedcbe2a2b121abdcb61ec1e2ce1b189_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28long%2Clong%29%3Avoid.aedcbe2a2b121abdcb61ec1e2ce1b189_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28long%2Clong%29%3Avoid.aedcbe2a2b121abdcb61ec1e2ce1b189_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE311">311</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE312">312</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE313">313</td><td class="line">     * Asserts that two booleans are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE314">314</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE315">315</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE316">316</td><td class="line">    public static void assertEquals(String message, boolean expected, boolean actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cboolean%2Cboolean%29%3Avoid.c5a15707f785a6afb93c10281d7571a9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cboolean%2Cboolean%29%3Avoid.c5a15707f785a6afb93c10281d7571a9.html">summary for void TestCase.assertEquals(String,boolean,boolean)</a></td></tr>
+<tr><td class="num" id="LINE317">317</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cboolean%2Cboolean%29%3Avoid.c5a15707f785a6afb93c10281d7571a9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 317];
+n$1=*&amp;expected:_Bool [line 317];
+n$2=*&amp;actual:_Bool [line 317];
+n$3=_fun_void Assert.assertEquals(String,boolean,boolean)(n$0:java.lang.String*,n$1:_Bool,n$2:_Bool) [line 317];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE318">318</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cboolean%2Cboolean%29%3Avoid.c5a15707f785a6afb93c10281d7571a9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cboolean%2Cboolean%29%3Avoid.c5a15707f785a6afb93c10281d7571a9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cboolean%2Cboolean%29%3Avoid.c5a15707f785a6afb93c10281d7571a9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE319">319</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE320">320</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE321">321</td><td class="line">     * Asserts that two booleans are equal. </td></tr>
+<tr><td class="num" id="LINE322">322</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE323">323</td><td class="line">    public static void assertEquals(boolean expected, boolean actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28boolean%2Cboolean%29%3Avoid.ed906e23ff3a2b715a03fe67d6f5d3e0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28boolean%2Cboolean%29%3Avoid.ed906e23ff3a2b715a03fe67d6f5d3e0.html">summary for void TestCase.assertEquals(boolean,boolean)</a></td></tr>
+<tr><td class="num" id="LINE324">324</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28boolean%2Cboolean%29%3Avoid.ed906e23ff3a2b715a03fe67d6f5d3e0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:_Bool [line 324];
+n$1=*&amp;actual:_Bool [line 324];
+n$2=_fun_void Assert.assertEquals(boolean,boolean)(n$0:_Bool,n$1:_Bool) [line 324];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE325">325</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28boolean%2Cboolean%29%3Avoid.ed906e23ff3a2b715a03fe67d6f5d3e0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28boolean%2Cboolean%29%3Avoid.ed906e23ff3a2b715a03fe67d6f5d3e0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28boolean%2Cboolean%29%3Avoid.ed906e23ff3a2b715a03fe67d6f5d3e0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE326">326</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE327">327</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE328">328</td><td class="line">     * Asserts that two bytes are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE329">329</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE330">330</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE331">331</td><td class="line">    public static void assertEquals(String message, byte expected, byte actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cbyte%2Cbyte%29%3Avoid.baf32dd7534b4f60e33cce8bb49976e7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cbyte%2Cbyte%29%3Avoid.baf32dd7534b4f60e33cce8bb49976e7.html">summary for void TestCase.assertEquals(String,byte,byte)</a></td></tr>
+<tr><td class="num" id="LINE332">332</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cbyte%2Cbyte%29%3Avoid.baf32dd7534b4f60e33cce8bb49976e7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 332];
+n$1=*&amp;expected:signed char [line 332];
+n$2=*&amp;actual:signed char [line 332];
+n$3=_fun_void Assert.assertEquals(String,byte,byte)(n$0:java.lang.String*,n$1:signed char,n$2:signed char) [line 332];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE333">333</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cbyte%2Cbyte%29%3Avoid.baf32dd7534b4f60e33cce8bb49976e7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cbyte%2Cbyte%29%3Avoid.baf32dd7534b4f60e33cce8bb49976e7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cbyte%2Cbyte%29%3Avoid.baf32dd7534b4f60e33cce8bb49976e7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE334">334</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE335">335</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE336">336</td><td class="line">     * Asserts that two bytes are equal. </td></tr>
+<tr><td class="num" id="LINE337">337</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE338">338</td><td class="line">    public static void assertEquals(byte expected, byte actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28byte%2Cbyte%29%3Avoid.53d65d4afa2e4eabfe0dca59fe9190ab_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28byte%2Cbyte%29%3Avoid.53d65d4afa2e4eabfe0dca59fe9190ab.html">summary for void TestCase.assertEquals(byte,byte)</a></td></tr>
+<tr><td class="num" id="LINE339">339</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28byte%2Cbyte%29%3Avoid.53d65d4afa2e4eabfe0dca59fe9190ab_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:signed char [line 339];
+n$1=*&amp;actual:signed char [line 339];
+n$2=_fun_void Assert.assertEquals(byte,byte)(n$0:signed char,n$1:signed char) [line 339];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE340">340</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28byte%2Cbyte%29%3Avoid.53d65d4afa2e4eabfe0dca59fe9190ab_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28byte%2Cbyte%29%3Avoid.53d65d4afa2e4eabfe0dca59fe9190ab_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28byte%2Cbyte%29%3Avoid.53d65d4afa2e4eabfe0dca59fe9190ab_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE341">341</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE342">342</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE343">343</td><td class="line">     * Asserts that two chars are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE344">344</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE345">345</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE346">346</td><td class="line">    public static void assertEquals(String message, char expected, char actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cchar%2Cchar%29%3Avoid.341fc2c6f2a13e6c0a4d7082667edd89_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cchar%2Cchar%29%3Avoid.341fc2c6f2a13e6c0a4d7082667edd89.html">summary for void TestCase.assertEquals(String,char,char)</a></td></tr>
+<tr><td class="num" id="LINE347">347</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cchar%2Cchar%29%3Avoid.341fc2c6f2a13e6c0a4d7082667edd89_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 347];
+n$1=*&amp;expected:unsigned short [line 347];
+n$2=*&amp;actual:unsigned short [line 347];
+n$3=_fun_void Assert.assertEquals(String,char,char)(n$0:java.lang.String*,n$1:unsigned short,n$2:unsigned short) [line 347];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE348">348</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cchar%2Cchar%29%3Avoid.341fc2c6f2a13e6c0a4d7082667edd89_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cchar%2Cchar%29%3Avoid.341fc2c6f2a13e6c0a4d7082667edd89_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cchar%2Cchar%29%3Avoid.341fc2c6f2a13e6c0a4d7082667edd89_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE349">349</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE350">350</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE351">351</td><td class="line">     * Asserts that two chars are equal. </td></tr>
+<tr><td class="num" id="LINE352">352</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE353">353</td><td class="line">    public static void assertEquals(char expected, char actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28char%2Cchar%29%3Avoid.7aae8441c2be02b5439c0c4a95f55e7c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28char%2Cchar%29%3Avoid.7aae8441c2be02b5439c0c4a95f55e7c.html">summary for void TestCase.assertEquals(char,char)</a></td></tr>
+<tr><td class="num" id="LINE354">354</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28char%2Cchar%29%3Avoid.7aae8441c2be02b5439c0c4a95f55e7c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:unsigned short [line 354];
+n$1=*&amp;actual:unsigned short [line 354];
+n$2=_fun_void Assert.assertEquals(char,char)(n$0:unsigned short,n$1:unsigned short) [line 354];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE355">355</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28char%2Cchar%29%3Avoid.7aae8441c2be02b5439c0c4a95f55e7c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28char%2Cchar%29%3Avoid.7aae8441c2be02b5439c0c4a95f55e7c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28char%2Cchar%29%3Avoid.7aae8441c2be02b5439c0c4a95f55e7c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE356">356</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE357">357</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE358">358</td><td class="line">     * Asserts that two shorts are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE359">359</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE360">360</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE361">361</td><td class="line">    public static void assertEquals(String message, short expected, short actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cshort%2Cshort%29%3Avoid.ee03cc92103eefd8fc7fbdbcbe937e0d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cshort%2Cshort%29%3Avoid.ee03cc92103eefd8fc7fbdbcbe937e0d.html">summary for void TestCase.assertEquals(String,short,short)</a></td></tr>
+<tr><td class="num" id="LINE362">362</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cshort%2Cshort%29%3Avoid.ee03cc92103eefd8fc7fbdbcbe937e0d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 362];
+n$1=*&amp;expected:short [line 362];
+n$2=*&amp;actual:short [line 362];
+n$3=_fun_void Assert.assertEquals(String,short,short)(n$0:java.lang.String*,n$1:short,n$2:short) [line 362];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE363">363</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cshort%2Cshort%29%3Avoid.ee03cc92103eefd8fc7fbdbcbe937e0d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cshort%2Cshort%29%3Avoid.ee03cc92103eefd8fc7fbdbcbe937e0d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cshort%2Cshort%29%3Avoid.ee03cc92103eefd8fc7fbdbcbe937e0d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE364">364</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE365">365</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE366">366</td><td class="line">     * Asserts that two shorts are equal. </td></tr>
+<tr><td class="num" id="LINE367">367</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE368">368</td><td class="line">    public static void assertEquals(short expected, short actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28short%2Cshort%29%3Avoid.165554e916243bae1f69c65edf14be66_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28short%2Cshort%29%3Avoid.165554e916243bae1f69c65edf14be66.html">summary for void TestCase.assertEquals(short,short)</a></td></tr>
+<tr><td class="num" id="LINE369">369</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28short%2Cshort%29%3Avoid.165554e916243bae1f69c65edf14be66_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:short [line 369];
+n$1=*&amp;actual:short [line 369];
+n$2=_fun_void Assert.assertEquals(short,short)(n$0:short,n$1:short) [line 369];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE370">370</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28short%2Cshort%29%3Avoid.165554e916243bae1f69c65edf14be66_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28short%2Cshort%29%3Avoid.165554e916243bae1f69c65edf14be66_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28short%2Cshort%29%3Avoid.165554e916243bae1f69c65edf14be66_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE371">371</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE372">372</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE373">373</td><td class="line">     * Asserts that two ints are equal. If they are not </td></tr>
+<tr><td class="num" id="LINE374">374</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE375">375</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE376">376</td><td class="line">    public static void assertEquals(String message, int expected, int actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cint%2Cint%29%3Avoid.f94dafba1f9e635dd58e77517ae350bf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28java.lang.String%2Cint%2Cint%29%3Avoid.f94dafba1f9e635dd58e77517ae350bf.html">summary for void TestCase.assertEquals(String,int,int)</a></td></tr>
+<tr><td class="num" id="LINE377">377</td><td class="line">        Assert.assertEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cint%2Cint%29%3Avoid.f94dafba1f9e635dd58e77517ae350bf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 377];
+n$1=*&amp;expected:int [line 377];
+n$2=*&amp;actual:int [line 377];
+n$3=_fun_void Assert.assertEquals(String,int,int)(n$0:java.lang.String*,n$1:int,n$2:int) [line 377];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE378">378</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cint%2Cint%29%3Avoid.f94dafba1f9e635dd58e77517ae350bf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cint%2Cint%29%3Avoid.f94dafba1f9e635dd58e77517ae350bf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28java.lang.String%2Cint%2Cint%29%3Avoid.f94dafba1f9e635dd58e77517ae350bf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE379">379</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE380">380</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE381">381</td><td class="line">     * Asserts that two ints are equal. </td></tr>
+<tr><td class="num" id="LINE382">382</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE383">383</td><td class="line">    public static void assertEquals(int expected, int actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28int%2Cint%29%3Avoid.835d2b25855c11f55eaee824e3ebc958_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertEquals%28int%2Cint%29%3Avoid.835d2b25855c11f55eaee824e3ebc958.html">summary for void TestCase.assertEquals(int,int)</a></td></tr>
+<tr><td class="num" id="LINE384">384</td><td class="line">        Assert.assertEquals(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28int%2Cint%29%3Avoid.835d2b25855c11f55eaee824e3ebc958_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:int [line 384];
+n$1=*&amp;actual:int [line 384];
+n$2=_fun_void Assert.assertEquals(int,int)(n$0:int,n$1:int) [line 384];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE385">385</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28int%2Cint%29%3Avoid.835d2b25855c11f55eaee824e3ebc958_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28int%2Cint%29%3Avoid.835d2b25855c11f55eaee824e3ebc958_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertEquals%28int%2Cint%29%3Avoid.835d2b25855c11f55eaee824e3ebc958_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE386">386</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE387">387</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE388">388</td><td class="line">     * Asserts that an object isn't null. </td></tr>
+<tr><td class="num" id="LINE389">389</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE390">390</td><td class="line">    public static void assertNotNull(Object object) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.Object%29%3Avoid.10d9240645b278b3ccfd0de7fb79fc79_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertNotNull%28java.lang.Object%29%3Avoid.10d9240645b278b3ccfd0de7fb79fc79.html">summary for void TestCase.assertNotNull(Object)</a></td></tr>
+<tr><td class="num" id="LINE391">391</td><td class="line">        Assert.assertNotNull(object); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.Object%29%3Avoid.10d9240645b278b3ccfd0de7fb79fc79_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;object:java.lang.Object* [line 391];
+n$1=_fun_void Assert.assertNotNull(Object)(n$0:java.lang.Object*) [line 391];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE392">392</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.Object%29%3Avoid.10d9240645b278b3ccfd0de7fb79fc79_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.Object%29%3Avoid.10d9240645b278b3ccfd0de7fb79fc79_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.Object%29%3Avoid.10d9240645b278b3ccfd0de7fb79fc79_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE393">393</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE394">394</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE395">395</td><td class="line">     * Asserts that an object isn't null. If it is </td></tr>
+<tr><td class="num" id="LINE396">396</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE397">397</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE398">398</td><td class="line">    public static void assertNotNull(String message, Object object) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.614d58b9199bee311f5fee34a3444fdc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertNotNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.614d58b9199bee311f5fee34a3444fdc.html">summary for void TestCase.assertNotNull(String,Object)</a></td></tr>
+<tr><td class="num" id="LINE399">399</td><td class="line">        Assert.assertNotNull(message, object); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.614d58b9199bee311f5fee34a3444fdc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 399];
+n$1=*&amp;object:java.lang.Object* [line 399];
+n$2=_fun_void Assert.assertNotNull(String,Object)(n$0:java.lang.String*,n$1:java.lang.Object*) [line 399];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE400">400</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.614d58b9199bee311f5fee34a3444fdc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.614d58b9199bee311f5fee34a3444fdc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.614d58b9199bee311f5fee34a3444fdc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE401">401</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE402">402</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE403">403</td><td class="line">     * Asserts that an object is null. If it isn't an {@link AssertionError} is </td></tr>
+<tr><td class="num" id="LINE404">404</td><td class="line">     * thrown. </td></tr>
+<tr><td class="num" id="LINE405">405</td><td class="line">     * Message contains: Expected: &lt;null&gt; but was: object </td></tr>
+<tr><td class="num" id="LINE406">406</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE407">407</td><td class="line">     * @param object Object to check or &lt;code&gt;null&lt;/code&gt; </td></tr>
+<tr><td class="num" id="LINE408">408</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE409">409</td><td class="line">    public static void assertNull(Object object) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.Object%29%3Avoid.dcc9c2e0a177dcdce18ef81d83913aa5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertNull%28java.lang.Object%29%3Avoid.dcc9c2e0a177dcdce18ef81d83913aa5.html">summary for void TestCase.assertNull(Object)</a></td></tr>
+<tr><td class="num" id="LINE410">410</td><td class="line">        Assert.assertNull(object); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.Object%29%3Avoid.dcc9c2e0a177dcdce18ef81d83913aa5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;object:java.lang.Object* [line 410];
+n$1=_fun_void Assert.assertNull(Object)(n$0:java.lang.Object*) [line 410];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE411">411</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.Object%29%3Avoid.dcc9c2e0a177dcdce18ef81d83913aa5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.Object%29%3Avoid.dcc9c2e0a177dcdce18ef81d83913aa5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.Object%29%3Avoid.dcc9c2e0a177dcdce18ef81d83913aa5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE412">412</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE413">413</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE414">414</td><td class="line">     * Asserts that an object is null.  If it is not </td></tr>
+<tr><td class="num" id="LINE415">415</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE416">416</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE417">417</td><td class="line">    public static void assertNull(String message, Object object) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.6502e930901a4a796b680a9f04853272_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.6502e930901a4a796b680a9f04853272.html">summary for void TestCase.assertNull(String,Object)</a></td></tr>
+<tr><td class="num" id="LINE418">418</td><td class="line">        Assert.assertNull(message, object); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.6502e930901a4a796b680a9f04853272_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 418];
+n$1=*&amp;object:java.lang.Object* [line 418];
+n$2=_fun_void Assert.assertNull(String,Object)(n$0:java.lang.String*,n$1:java.lang.Object*) [line 418];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE419">419</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.6502e930901a4a796b680a9f04853272_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.6502e930901a4a796b680a9f04853272_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNull%28java.lang.String%2Cjava.lang.Object%29%3Avoid.6502e930901a4a796b680a9f04853272_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE420">420</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE421">421</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE422">422</td><td class="line">     * Asserts that two objects refer to the same object. If they are not </td></tr>
+<tr><td class="num" id="LINE423">423</td><td class="line">     * an AssertionFailedError is thrown with the given message. </td></tr>
+<tr><td class="num" id="LINE424">424</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE425">425</td><td class="line">    public static void assertSame(String message, Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.d6c570746705825eaae89630fb1ecf23_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.d6c570746705825eaae89630fb1ecf23.html">summary for void TestCase.assertSame(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE426">426</td><td class="line">        Assert.assertSame(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.d6c570746705825eaae89630fb1ecf23_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 426];
+n$1=*&amp;expected:java.lang.Object* [line 426];
+n$2=*&amp;actual:java.lang.Object* [line 426];
+n$3=_fun_void Assert.assertSame(String,Object,Object)(n$0:java.lang.String*,n$1:java.lang.Object*,n$2:java.lang.Object*) [line 426];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE427">427</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.d6c570746705825eaae89630fb1ecf23_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.d6c570746705825eaae89630fb1ecf23_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.d6c570746705825eaae89630fb1ecf23_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE428">428</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE429">429</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE430">430</td><td class="line">     * Asserts that two objects refer to the same object. If they are not </td></tr>
+<tr><td class="num" id="LINE431">431</td><td class="line">     * the same an AssertionFailedError is thrown. </td></tr>
+<tr><td class="num" id="LINE432">432</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE433">433</td><td class="line">    public static void assertSame(Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.a171dd0fc02ff32172d9bb8b9ca127dc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.a171dd0fc02ff32172d9bb8b9ca127dc.html">summary for void TestCase.assertSame(Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE434">434</td><td class="line">        Assert.assertSame(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.a171dd0fc02ff32172d9bb8b9ca127dc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:java.lang.Object* [line 434];
+n$1=*&amp;actual:java.lang.Object* [line 434];
+n$2=_fun_void Assert.assertSame(Object,Object)(n$0:java.lang.Object*,n$1:java.lang.Object*) [line 434];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE435">435</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.a171dd0fc02ff32172d9bb8b9ca127dc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.a171dd0fc02ff32172d9bb8b9ca127dc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.a171dd0fc02ff32172d9bb8b9ca127dc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE436">436</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE437">437</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE438">438</td><td class="line">     * Asserts that two objects do not refer to the same object. If they do </td></tr>
+<tr><td class="num" id="LINE439">439</td><td class="line">     * refer to the same object an AssertionFailedError is thrown with the </td></tr>
+<tr><td class="num" id="LINE440">440</td><td class="line">     * given message. </td></tr>
+<tr><td class="num" id="LINE441">441</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE442">442</td><td class="line">    public static void assertNotSame(String message, Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.65e2b580b16522249d06d1af4dc0f40f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.65e2b580b16522249d06d1af4dc0f40f.html">summary for void TestCase.assertNotSame(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE443">443</td><td class="line">        Assert.assertNotSame(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.65e2b580b16522249d06d1af4dc0f40f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 443];
+n$1=*&amp;expected:java.lang.Object* [line 443];
+n$2=*&amp;actual:java.lang.Object* [line 443];
+n$3=_fun_void Assert.assertNotSame(String,Object,Object)(n$0:java.lang.String*,n$1:java.lang.Object*,n$2:java.lang.Object*) [line 443];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE444">444</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.65e2b580b16522249d06d1af4dc0f40f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.65e2b580b16522249d06d1af4dc0f40f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.65e2b580b16522249d06d1af4dc0f40f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE445">445</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE446">446</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE447">447</td><td class="line">     * Asserts that two objects do not refer to the same object. If they do </td></tr>
+<tr><td class="num" id="LINE448">448</td><td class="line">     * refer to the same object an AssertionFailedError is thrown. </td></tr>
+<tr><td class="num" id="LINE449">449</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE450">450</td><td class="line">    public static void assertNotSame(Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.22452edd904079c7bd68c28fa9972e49_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.assertNotSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.22452edd904079c7bd68c28fa9972e49.html">summary for void TestCase.assertNotSame(Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE451">451</td><td class="line">        Assert.assertNotSame(expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.22452edd904079c7bd68c28fa9972e49_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;expected:java.lang.Object* [line 451];
+n$1=*&amp;actual:java.lang.Object* [line 451];
+n$2=_fun_void Assert.assertNotSame(Object,Object)(n$0:java.lang.Object*,n$1:java.lang.Object*) [line 451];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE452">452</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.22452edd904079c7bd68c28fa9972e49_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.22452edd904079c7bd68c28fa9972e49_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.assertNotSame%28java.lang.Object%2Cjava.lang.Object%29%3Avoid.22452edd904079c7bd68c28fa9972e49_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE453">453</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE454">454</td><td class="line">    public static void failSame(String message) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failSame%28java.lang.String%29%3Avoid.cf889cbfd8a470580437ad8ff1f35de3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.failSame%28java.lang.String%29%3Avoid.cf889cbfd8a470580437ad8ff1f35de3.html">summary for void TestCase.failSame(String)</a></td></tr>
+<tr><td class="num" id="LINE455">455</td><td class="line">        Assert.failSame(message); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failSame%28java.lang.String%29%3Avoid.cf889cbfd8a470580437ad8ff1f35de3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 455];
+n$1=_fun_void Assert.failSame(String)(n$0:java.lang.String*) [line 455];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE456">456</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failSame%28java.lang.String%29%3Avoid.cf889cbfd8a470580437ad8ff1f35de3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failSame%28java.lang.String%29%3Avoid.cf889cbfd8a470580437ad8ff1f35de3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failSame%28java.lang.String%29%3Avoid.cf889cbfd8a470580437ad8ff1f35de3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE457">457</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE458">458</td><td class="line">    public static void failNotSame(String message, Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.84142124ef2b3687b976560e367ebad6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.failNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.84142124ef2b3687b976560e367ebad6.html">summary for void TestCase.failNotSame(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE459">459</td><td class="line">        Assert.failNotSame(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.84142124ef2b3687b976560e367ebad6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 459];
+n$1=*&amp;expected:java.lang.Object* [line 459];
+n$2=*&amp;actual:java.lang.Object* [line 459];
+n$3=_fun_void Assert.failNotSame(String,Object,Object)(n$0:java.lang.String*,n$1:java.lang.Object*,n$2:java.lang.Object*) [line 459];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE460">460</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.84142124ef2b3687b976560e367ebad6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.84142124ef2b3687b976560e367ebad6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotSame%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.84142124ef2b3687b976560e367ebad6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE461">461</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE462">462</td><td class="line">    public static void failNotEquals(String message, Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.f51695d0de1c34b401fb275f22289722_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.failNotEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.f51695d0de1c34b401fb275f22289722.html">summary for void TestCase.failNotEquals(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE463">463</td><td class="line">        Assert.failNotEquals(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.f51695d0de1c34b401fb275f22289722_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 463];
+n$1=*&amp;expected:java.lang.Object* [line 463];
+n$2=*&amp;actual:java.lang.Object* [line 463];
+n$3=_fun_void Assert.failNotEquals(String,Object,Object)(n$0:java.lang.String*,n$1:java.lang.Object*,n$2:java.lang.Object*) [line 463];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE464">464</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.f51695d0de1c34b401fb275f22289722_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.f51695d0de1c34b401fb275f22289722_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.failNotEquals%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Avoid.f51695d0de1c34b401fb275f22289722_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE465">465</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE466">466</td><td class="line">    public static String format(String message, Object expected, Object actual) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.format%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Ajava.lang.String.fd573900c4c8e5739035c29bd2680ff8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.format%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Ajava.lang.String.fd573900c4c8e5739035c29bd2680ff8.html">summary for String TestCase.format(String,Object,Object)</a></td></tr>
+<tr><td class="num" id="LINE467">467</td><td class="line">        return Assert.format(message, expected, actual); <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.format%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Ajava.lang.String.fd573900c4c8e5739035c29bd2680ff8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;message:java.lang.String* [line 467];
+n$1=*&amp;expected:java.lang.Object* [line 467];
+n$2=*&amp;actual:java.lang.Object* [line 467];
+n$3=_fun_String Assert.format(String,Object,Object)(n$0:java.lang.String*,n$1:java.lang.Object*,n$2:java.lang.Object*) [line 467];
+*&amp;$irvar0:java.lang.String*=n$3 [line 467];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.format%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Ajava.lang.String.fd573900c4c8e5739035c29bd2680ff8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String* [line 467];
+*&amp;return:java.lang.String*=n$4 [line 467];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.format%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Ajava.lang.String.fd573900c4c8e5739035c29bd2680ff8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.format%28java.lang.String%2Cjava.lang.Object%2Cjava.lang.Object%29%3Ajava.lang.String.fd573900c4c8e5739035c29bd2680ff8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE468">468</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE469">469</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE470">470</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE471">471</td><td class="line">     * Sets up the fixture, for example, open a network connection. </td></tr>
+<tr><td class="num" id="LINE472">472</td><td class="line">     * This method is called before a test is executed. </td></tr>
+<tr><td class="num" id="LINE473">473</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE474">474</td><td class="line">    protected void setUp() throws Exception { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setUp%28%29%3Avoid.54f2ee4708ef2a3ef7c9a65e01b25a89_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.setUp%28%29%3Avoid.54f2ee4708ef2a3ef7c9a65e01b25a89.html">summary for void TestCase.setUp()</a></td></tr>
+<tr><td class="num" id="LINE475">475</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setUp%28%29%3Avoid.54f2ee4708ef2a3ef7c9a65e01b25a89_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setUp%28%29%3Avoid.54f2ee4708ef2a3ef7c9a65e01b25a89_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setUp%28%29%3Avoid.54f2ee4708ef2a3ef7c9a65e01b25a89_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE476">476</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE477">477</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE478">478</td><td class="line">     * Tears down the fixture, for example, close a network connection. </td></tr>
+<tr><td class="num" id="LINE479">479</td><td class="line">     * This method is called after a test is executed. </td></tr>
+<tr><td class="num" id="LINE480">480</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE481">481</td><td class="line">    protected void tearDown() throws Exception { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.tearDown%28%29%3Avoid.01a29278312df1d0363740a4ae1455e1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.tearDown%28%29%3Avoid.01a29278312df1d0363740a4ae1455e1.html">summary for void TestCase.tearDown()</a></td></tr>
+<tr><td class="num" id="LINE482">482</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.tearDown%28%29%3Avoid.01a29278312df1d0363740a4ae1455e1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.tearDown%28%29%3Avoid.01a29278312df1d0363740a4ae1455e1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.tearDown%28%29%3Avoid.01a29278312df1d0363740a4ae1455e1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE483">483</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE484">484</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE485">485</td><td class="line">     * Returns a string representation of the test case. </td></tr>
+<tr><td class="num" id="LINE486">486</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE487">487</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE488">488</td><td class="line">    public String toString() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153.html">summary for String TestCase.toString()</a></td></tr>
+<tr><td class="num" id="LINE489">489</td><td class="line">        return getName() + &quot;(&quot; + getClass().getName() + &quot;)&quot;; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 489];
+n$1=_fun_StringBuilder.&lt;init&gt;()(n$0:java.lang.StringBuilder*) [line 489];
+*&amp;$irvar0:java.lang.StringBuilder*=n$0 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.framework.TestCase* [line 489];
+_=*n$2:junit.framework.TestCase*(root junit.framework.TestCase) [line 489];
+n$4=_fun_String TestCase.getName()(n$2:junit.framework.TestCase*) virtual [line 489];
+*&amp;$irvar1:java.lang.String*=n$4 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.StringBuilder* [line 489];
+_=*n$5:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 489];
+n$7=*&amp;$irvar1:java.lang.String* [line 489];
+n$8=_fun_StringBuilder StringBuilder.append(String)(n$5:java.lang.StringBuilder*,n$7:java.lang.String*) virtual [line 489];
+*&amp;$irvar2:java.lang.StringBuilder*=n$8 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$9=*&amp;$irvar2:java.lang.StringBuilder* [line 489];
+_=*n$9:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 489];
+n$11=_fun_StringBuilder StringBuilder.append(String)(n$9:java.lang.StringBuilder*,"(":java.lang.Object*) virtual [line 489];
+*&amp;$irvar3:java.lang.StringBuilder*=n$11 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;this:junit.framework.TestCase* [line 489];
+_=*n$12:junit.framework.TestCase*(root junit.framework.TestCase) [line 489];
+n$14=_fun_Class Object.getClass()(n$12:junit.framework.TestCase*) virtual [line 489];
+*&amp;$irvar4:java.lang.Class*=n$14 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$15=*&amp;$irvar4:java.lang.Class* [line 489];
+_=*n$15:java.lang.Class*(root java.lang.Class) [line 489];
+n$17=_fun_String Class.getName()(n$15:java.lang.Class*) virtual [line 489];
+*&amp;$irvar5:java.lang.String*=n$17 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$18=*&amp;$irvar3:java.lang.StringBuilder* [line 489];
+_=*n$18:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 489];
+n$20=*&amp;$irvar5:java.lang.String* [line 489];
+n$21=_fun_StringBuilder StringBuilder.append(String)(n$18:java.lang.StringBuilder*,n$20:java.lang.String*) virtual [line 489];
+*&amp;$irvar6:java.lang.StringBuilder*=n$21 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$22=*&amp;$irvar6:java.lang.StringBuilder* [line 489];
+_=*n$22:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 489];
+n$24=_fun_StringBuilder StringBuilder.append(String)(n$22:java.lang.StringBuilder*,")":java.lang.Object*) virtual [line 489];
+*&amp;$irvar7:java.lang.StringBuilder*=n$24 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$25=*&amp;$irvar7:java.lang.StringBuilder* [line 489];
+_=*n$25:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 489];
+n$27=_fun_String StringBuilder.toString()(n$25:java.lang.StringBuilder*) virtual [line 489];
+*&amp;$irvar8:java.lang.String*=n$27 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+n$28=*&amp;$irvar8:java.lang.String* [line 489];
+*&amp;return:java.lang.String*=n$28 [line 489];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.toString%28%29%3Ajava.lang.String.446fc57f3c733e9e5ef156678b8b5153_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE490">490</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE491">491</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE492">492</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE493">493</td><td class="line">     * Gets the name of a TestCase. </td></tr>
+<tr><td class="num" id="LINE494">494</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE495">495</td><td class="line">     * @return the name of the TestCase </td></tr>
+<tr><td class="num" id="LINE496">496</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE497">497</td><td class="line">    public String getName() { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.getName%28%29%3Ajava.lang.String.ef1d5840a4f89140a4764d69213eb240_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.getName%28%29%3Ajava.lang.String.ef1d5840a4f89140a4764d69213eb240.html">summary for String TestCase.getName()</a></td></tr>
+<tr><td class="num" id="LINE498">498</td><td class="line">        return fName; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.getName%28%29%3Ajava.lang.String.ef1d5840a4f89140a4764d69213eb240_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 498];
+n$1=*n$0.fName:java.lang.String*(root junit.framework.TestCase) [line 498];
+*&amp;return:java.lang.String*=n$1 [line 498];
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.getName%28%29%3Ajava.lang.String.ef1d5840a4f89140a4764d69213eb240_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.getName%28%29%3Ajava.lang.String.ef1d5840a4f89140a4764d69213eb240_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE499">499</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE500">500</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE501">501</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE502">502</td><td class="line">     * Sets the name of a TestCase. </td></tr>
+<tr><td class="num" id="LINE503">503</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE504">504</td><td class="line">     * @param name the name to set </td></tr>
+<tr><td class="num" id="LINE505">505</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE506">506</td><td class="line">    public void setName(String name) { <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setName%28java.lang.String%29%3Avoid.7b132f33bb6852cf3c112d898544a664_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/junit.framework.TestCase.setName%28java.lang.String%29%3Avoid.7b132f33bb6852cf3c112d898544a664.html">summary for void TestCase.setName(String)</a></td></tr>
+<tr><td class="num" id="LINE507">507</td><td class="line">        fName = name; <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setName%28java.lang.String%29%3Avoid.7b132f33bb6852cf3c112d898544a664_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.framework.TestCase* [line 507];
+n$1=*&amp;name:java.lang.String* [line 507];
+*n$0.fName:junit.framework.TestCase(root junit.framework.TestCase)=n$1 [line 507];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE508">508</td><td class="line">    } <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setName%28java.lang.String%29%3Avoid.7b132f33bb6852cf3c112d898544a664_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setName%28java.lang.String%29%3Avoid.7b132f33bb6852cf3c112d898544a664_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestCase.java.23f35aae2cbdd1b518ae38ef73a6051f/nodes/junit.framework.TestCase.setName%28java.lang.String%29%3Avoid.7b132f33bb6852cf3c112d898544a664_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE509">509</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

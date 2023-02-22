@@ -1,0 +1,80 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_1" [label="1: Start File TemporaryFolder.newFile(String)\nFormals:  this:org.junit.rules.TemporaryFolder* fileName:java.lang.String*\nLocals:  $irvar7:void $irvar6:void $irvar5:void $irvar4:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void file:java.io.File* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_1" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_4" ;
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_2" [label="2: Exit File TemporaryFolder.newFile(String) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 162]\n  NULLIFY(&$irvar5); [line 162]\n  NULLIFY(&file); [line 162]\n  NULLIFY(&$irvar4); [line 162]\n  NULLIFY(&$irvar7); [line 162]\n  NULLIFY(&$irvar6); [line 162]\n  NULLIFY(&$irvar0); [line 162]\n  NULLIFY(&$irvar1); [line 162]\n  NULLIFY(&$irvar2); [line 162]\n  EXIT_SCOPE($irvar3,$irvar5,file,$irvar4,$irvar7,$irvar6,$irvar0,$irvar1,$irvar2); [line 162]\n  APPLY_ABSTRACTION; [line 162]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_2" ;
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_4" [label="4:  Call File TemporaryFolder.getRoot() \n   n$0=*&this:org.junit.rules.TemporaryFolder* [line 157]\n  _=*n$0:org.junit.rules.TemporaryFolder*(root org.junit.rules.TemporaryFolder) [line 157]\n  n$2=_fun_File TemporaryFolder.getRoot()(n$0:org.junit.rules.TemporaryFolder*) virtual [line 157]\n  *&$irvar0:java.io.File*=n$2 [line 157]\n  NULLIFY(&this); [line 157]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 157]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_4" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_5" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_4" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_5" [label="5:  Call File.<init>(File,String) \n   n$3=_fun___new(sizeof(t=java.io.File):java.io.File*) [line 157]\n  n$4=*&$irvar0:java.io.File* [line 157]\n  n$5=*&fileName:java.lang.String* [line 157]\n  n$6=_fun_File.<init>(File,String)(n$3:java.io.File*,n$4:java.io.File*,n$5:java.lang.String*) [line 157]\n  *&file:java.io.File*=n$3 [line 157]\n  NULLIFY(&$irvar0); [line 157]\n  EXIT_SCOPE(n$3,n$4,n$5,n$6,$irvar0); [line 157]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_5" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_6" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_5" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_6" [label="6:  Call boolean File.createNewFile() \n   n$7=*&file:java.io.File* [line 158]\n  _=*n$7:java.io.File*(root java.io.File) [line 158]\n  n$9=_fun_boolean File.createNewFile()(n$7:java.io.File*) virtual [line 158]\n  *&$irvar1:_Bool=n$9 [line 158]\n  EXIT_SCOPE(_,n$7,n$9); [line 158]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_6" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_7" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_6" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_8" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_6" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_7" [label="7: Prune (true branch, if) \n   n$10=*&$irvar1:_Bool [line 158]\n  PRUNE(!(n$10 != 0), true); [line 158]\n  NULLIFY(&file); [line 158]\n  NULLIFY(&$irvar1); [line 158]\n  EXIT_SCOPE(n$10,file,$irvar1); [line 158]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_7" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_9" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_7" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_8" [label="8: Prune (false branch, if) \n   n$10=*&$irvar1:_Bool [line 158]\n  PRUNE((n$10 != 0), false); [line 158]\n  NULLIFY(&$irvar1); [line 158]\n  EXIT_SCOPE(n$10,$irvar1); [line 158]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_8" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_16" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_8" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_9" [label="9:  Call StringBuilder.<init>() \n   n$11=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 159]\n  n$12=_fun_StringBuilder.<init>()(n$11:java.lang.StringBuilder*) [line 159]\n  *&$irvar2:java.lang.StringBuilder*=n$11 [line 159]\n  EXIT_SCOPE(n$11,n$12); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_9" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_10" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_9" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_10" [label="10:  Call StringBuilder StringBuilder.append(String) \n   n$13=*&$irvar2:java.lang.StringBuilder* [line 159]\n  _=*n$13:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 159]\n  n$15=_fun_StringBuilder StringBuilder.append(String)(n$13:java.lang.StringBuilder*,\"a file with the name '\":java.lang.Object*) virtual [line 159]\n  *&$irvar3:java.lang.StringBuilder*=n$15 [line 159]\n  NULLIFY(&$irvar2); [line 159]\n  EXIT_SCOPE(_,n$13,n$15,$irvar2); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_10" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_11" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_10" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_11" [label="11:  Call StringBuilder StringBuilder.append(String) \n   n$16=*&$irvar3:java.lang.StringBuilder* [line 159]\n  _=*n$16:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 159]\n  n$18=*&fileName:java.lang.String* [line 159]\n  n$19=_fun_StringBuilder StringBuilder.append(String)(n$16:java.lang.StringBuilder*,n$18:java.lang.String*) virtual [line 159]\n  *&$irvar4:java.lang.StringBuilder*=n$19 [line 159]\n  NULLIFY(&$irvar3); [line 159]\n  NULLIFY(&fileName); [line 159]\n  EXIT_SCOPE(_,n$16,n$18,n$19,$irvar3,fileName); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_11" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_12" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_11" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_12" [label="12:  Call StringBuilder StringBuilder.append(String) \n   n$20=*&$irvar4:java.lang.StringBuilder* [line 159]\n  _=*n$20:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 159]\n  n$22=_fun_StringBuilder StringBuilder.append(String)(n$20:java.lang.StringBuilder*,\"' already exists in the test folder\":java.lang.Object*) virtual [line 159]\n  *&$irvar5:java.lang.StringBuilder*=n$22 [line 159]\n  NULLIFY(&$irvar4); [line 159]\n  EXIT_SCOPE(_,n$20,n$22,$irvar4); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_12" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_13" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_12" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_13" [label="13:  Call String StringBuilder.toString() \n   n$23=*&$irvar5:java.lang.StringBuilder* [line 159]\n  _=*n$23:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 159]\n  n$25=_fun_String StringBuilder.toString()(n$23:java.lang.StringBuilder*) virtual [line 159]\n  *&$irvar6:java.lang.String*=n$25 [line 159]\n  NULLIFY(&$irvar5); [line 159]\n  EXIT_SCOPE(_,n$23,n$25,$irvar5); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_13" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_14" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_13" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_14" [label="14:  Call IOException.<init>(String) \n   n$26=_fun___new(sizeof(t=java.io.IOException):java.io.IOException*) [line 159]\n  n$27=*&$irvar6:java.lang.String* [line 159]\n  n$28=_fun_IOException.<init>(String)(n$26:java.io.IOException*,n$27:java.lang.String*) [line 159]\n  *&$irvar7:java.io.IOException*=n$26 [line 159]\n  NULLIFY(&$irvar6); [line 159]\n  EXIT_SCOPE(n$26,n$27,n$28,$irvar6); [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_14" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_15" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_14" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_15" [label="15:  throw \n   n$29=*&$irvar7:java.io.IOException* [line 159]\n  *&return:java.io.File*=EXN n$29 [line 159]\n  NULLIFY(&$irvar7); [line 159]\n  EXIT_SCOPE(n$29,$irvar7); [line 159]\n  APPLY_ABSTRACTION; [line 159]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_15" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_2" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_15" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+"org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_16" [label="16:  method_body \n   n$30=*&file:java.io.File* [line 162]\n  *&return:java.io.File*=n$30 [line 162]\n  NULLIFY(&file); [line 162]\n  EXIT_SCOPE(n$30,file); [line 162]\n  APPLY_ABSTRACTION; [line 162]\n " shape="box"]
+	
+
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_16" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_2" ;
+	 "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_16" -> "org.junit.rules.TemporaryFolder.newFile(java.lang.String):java.io.File.92baf4c140d0a6093bdc09339ba502f5_3" [color="red" ];
+}

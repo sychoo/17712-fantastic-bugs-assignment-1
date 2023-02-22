@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_1" [label="1: Start int Result.getFailureCount()\nFormals:  this:org.junit.runner.Result*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_1" -> "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_4" ;
+"org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_2" [label="2: Exit int Result.getFailureCount() \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 68]\n  EXIT_SCOPE($irvar0); [line 68]\n  APPLY_ABSTRACTION; [line 68]\n " shape="box"]
+	
+
+	 "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_3" -> "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_2" ;
+"org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_4" [label="4:  Call int CopyOnWriteArrayList.size() \n   n$0=*&this:org.junit.runner.Result* [line 68]\n  n$1=*n$0.failures:java.util.concurrent.CopyOnWriteArrayList*(root org.junit.runner.Result) [line 68]\n  _=*n$1:java.util.concurrent.CopyOnWriteArrayList*(root java.util.concurrent.CopyOnWriteArrayList) [line 68]\n  n$3=_fun_int CopyOnWriteArrayList.size()(n$1:java.util.concurrent.CopyOnWriteArrayList*) virtual [line 68]\n  *&$irvar0:int=n$3 [line 68]\n  NULLIFY(&this); [line 68]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 68]\n " shape="box"]
+	
+
+	 "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_4" -> "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_5" ;
+	 "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_4" -> "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_3" [color="red" ];
+"org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_5" [label="5:  method_body \n   n$4=*&$irvar0:int [line 68]\n  *&return:int=n$4 [line 68]\n  NULLIFY(&$irvar0); [line 68]\n  EXIT_SCOPE(n$4,$irvar0); [line 68]\n  APPLY_ABSTRACTION; [line 68]\n " shape="box"]
+	
+
+	 "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_5" -> "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_2" ;
+	 "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_5" -> "org.junit.runner.Result.getFailureCount():int.3ebc989c0d50cc137a9d5cf280cc7e50_3" [color="red" ];
+}

@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_1" [label="1: Start int TestResult.errorCount()\nFormals:  this:junit.framework.TestResult*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_1" -> "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_4" ;
+"junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_2" [label="2: Exit int TestResult.errorCount() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 90]\n  EXIT_SCOPE($irvar0); [line 90]\n  APPLY_ABSTRACTION; [line 90]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_3" -> "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_2" ;
+"junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_4" [label="4:  Call int List.size() \n   n$0=*&this:junit.framework.TestResult* [line 90]\n  n$1=*n$0.fErrors:java.util.List*(root junit.framework.TestResult) [line 90]\n  _=*n$1:java.util.List*(root java.util.List) [line 90]\n  n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 90]\n  *&$irvar0:int=n$3 [line 90]\n  NULLIFY(&this); [line 90]\n  EXIT_SCOPE(_,n$0,n$1,n$3,this); [line 90]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_4" -> "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_5" ;
+	 "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_4" -> "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_3" [color="red" ];
+"junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_5" [label="5:  method_body \n   n$4=*&$irvar0:int [line 90]\n  *&return:int=n$4 [line 90]\n  NULLIFY(&$irvar0); [line 90]\n  EXIT_SCOPE(n$4,$irvar0); [line 90]\n  APPLY_ABSTRACTION; [line 90]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_5" -> "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_2" ;
+	 "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_5" -> "junit.framework.TestResult.errorCount():int.2c0cdb0c2b298b00b1c6e3efc6520071_3" [color="red" ];
+}

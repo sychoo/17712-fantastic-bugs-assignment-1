@@ -1,0 +1,69 @@
+/* @generated */
+digraph cfg {
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_1" [label="1: Start void BaseTestRunner.savePreferences()\nFormals: \nLocals:  $bcvar1:void CatchVar27:void $irvar1:void $irvar0:void fos:java.io.FileOutputStream* \n  " color=yellow style=filled]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_1" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_4" ;
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_2" [label="2: Exit void BaseTestRunner.savePreferences() \n  " color=yellow style=filled]
+	
+
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 65]\n  NULLIFY(&fos); [line 65]\n  NULLIFY(&$bcvar1); [line 65]\n  EXIT_SCOPE($irvar0,fos,$bcvar1); [line 65]\n  APPLY_ABSTRACTION; [line 65]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_2" ;
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_4" [label="4:  Call File BaseTestRunner.getPreferencesFile() \n   n$0=_fun_File BaseTestRunner.getPreferencesFile()() [line 59]\n  *&$irvar0:java.io.File*=n$0 [line 59]\n  EXIT_SCOPE(n$0); [line 59]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_4" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_5" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_4" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_5" [label="5:  Call FileOutputStream.<init>(File) \n   n$1=_fun___new(sizeof(t=java.io.FileOutputStream):java.io.FileOutputStream*) [line 59]\n  n$2=*&$irvar0:java.io.File* [line 59]\n  n$3=_fun_FileOutputStream.<init>(File)(n$1:java.io.FileOutputStream*,n$2:java.io.File*) [line 59]\n  *&fos:java.io.FileOutputStream*=n$1 [line 59]\n  NULLIFY(&$irvar0); [line 59]\n  EXIT_SCOPE(n$1,n$2,n$3,$irvar0); [line 59]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_5" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_6" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_5" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_6" [label="6:  Call Properties BaseTestRunner.getPreferences() \n   n$4=_fun_Properties BaseTestRunner.getPreferences()() [line 61]\n  *&$irvar1:java.util.Properties*=n$4 [line 61]\n  EXIT_SCOPE(n$4); [line 61]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_6" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_7" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_6" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_14" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_7" [label="7:  Call void Properties.store(OutputStream,String) \n   n$5=*&$irvar1:java.util.Properties* [line 61]\n  _=*n$5:java.util.Properties*(root java.util.Properties) [line 61]\n  n$7=*&fos:java.io.FileOutputStream* [line 61]\n  n$8=_fun_void Properties.store(OutputStream,String)(n$5:java.util.Properties*,n$7:java.io.FileOutputStream*,\"\":java.lang.Object*) virtual [line 61]\n  NULLIFY(&$irvar1); [line 61]\n  EXIT_SCOPE(_,n$5,n$7,n$8,$irvar1); [line 61]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_7" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_8" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_7" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_14" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_8" [label="8:  Call void FileOutputStream.close() \n   n$9=*&fos:java.io.FileOutputStream* [line 63]\n  _=*n$9:java.io.FileOutputStream*(root java.io.FileOutputStream) [line 63]\n  n$11=_fun_void FileOutputStream.close()(n$9:java.io.FileOutputStream*) virtual [line 63]\n  NULLIFY(&fos); [line 63]\n  EXIT_SCOPE(_,n$9,n$11,fos); [line 63]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_8" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_12" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_8" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_9" [label="9:  method_body \n   n$12=*&CatchVar27:java.lang.Object* [line 63]\n  *&$bcvar1:java.lang.Object*=n$12 [line 63]\n  NULLIFY(&CatchVar27); [line 63]\n  EXIT_SCOPE(n$12,CatchVar27); [line 63]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_9" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_10" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_9" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_10" [label="10:  Call void FileOutputStream.close() \n   n$13=*&fos:java.io.FileOutputStream* [line 63]\n  _=*n$13:java.io.FileOutputStream*(root java.io.FileOutputStream) [line 63]\n  n$15=_fun_void FileOutputStream.close()(n$13:java.io.FileOutputStream*) virtual [line 63]\n  NULLIFY(&fos); [line 63]\n  EXIT_SCOPE(_,n$13,n$15,fos); [line 63]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_10" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_11" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_10" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_11" [label="11:  throw \n   n$16=*&$bcvar1:java.lang.Object* [line 64]\n  *&return:void=EXN n$16 [line 64]\n  NULLIFY(&$bcvar1); [line 64]\n  EXIT_SCOPE(n$16,$bcvar1); [line 64]\n  APPLY_ABSTRACTION; [line 64]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_11" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_2" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_11" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_12" [label="12:  method_body \n   APPLY_ABSTRACTION; [line 65]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_12" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_2" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_12" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_13" [label="13:  Finally branch \n  " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_13" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_9" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_13" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+"junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_14" [label="14:  exception handler \n   n$17=*&return:void [line 63]\n  *&return:void=null [line 63]\n  n$18=_fun___unwrap_exception(n$17:void) [line 63]\n  NULLIFY(&$irvar1); [line 63]\n  EXIT_SCOPE(n$17,n$18,$irvar1); [line 63]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_14" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_13" ;
+	 "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_14" -> "junit.runner.BaseTestRunner.savePreferences():void.6b256db86e5215d4cfe6f12478d1586c_3" [color="red" ];
+}

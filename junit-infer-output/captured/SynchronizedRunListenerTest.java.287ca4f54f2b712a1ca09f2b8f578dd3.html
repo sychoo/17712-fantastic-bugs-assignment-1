@@ -1,0 +1,738 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/runner/notification/SynchronizedRunListenerTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner.notification; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.junit.Assert.assertFalse; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.junit.Assert.assertNotEquals; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import java.util.Arrays; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import java.util.HashSet; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import java.util.Set; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * Tests for {@link SynchronizedRunListener}. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * @author kcooney (Kevin Cooney) </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">public class SynchronizedRunListenerTest { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.<init>%28%29.844a6821bf37444390bd9c441d206011_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.<init>%28%29.844a6821bf37444390bd9c441d206011_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 21];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.notification.SynchronizedRunListenerTest*) [line 21];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.<init>%28%29.844a6821bf37444390bd9c441d206011_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.<init>%28%29.844a6821bf37444390bd9c441d206011_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.<init>%28%29.844a6821bf37444390bd9c441d206011_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.<init>%28%29.844a6821bf37444390bd9c441d206011.html">summary for SynchronizedRunListenerTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    private static class MethodSignature { </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        private final Method fMethod; </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        private final String fName; </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">        private final List&lt;Class&lt;?&gt;&gt; fParameterTypes; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        public MethodSignature(Method method) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 28];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature*) [line 28];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d.html">summary for SynchronizedRunListenerTest$MethodSignature.&lt;init&gt;(Method)</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">            fMethod = method; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 29];
+n$3=*&amp;method:java.lang.reflect.Method* [line 29];
+*n$2.fMethod:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature)=n$3 [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">            fName = method.getName(); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;method:java.lang.reflect.Method* [line 30];
+_=*n$4:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 30];
+n$6=_fun_String Method.getName()(n$4:java.lang.reflect.Method*) virtual [line 30];
+*&amp;$irvar0:java.lang.String*=n$6 [line 30];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 30];
+n$8=*&amp;$irvar0:java.lang.String* [line 30];
+*n$7.fName:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature)=n$8 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">            fParameterTypes = Arrays.asList(method.getParameterTypes()); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;method:java.lang.reflect.Method* [line 31];
+_=*n$9:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 31];
+n$11=_fun_Class[] Method.getParameterTypes()(n$9:java.lang.reflect.Method*) virtual [line 31];
+*&amp;$irvar1:java.lang.Class*[_*_](*)=n$11 [line 31];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$12=*&amp;$irvar1:java.lang.Class*[_*_](*) [line 31];
+n$13=_fun_List Arrays.asList(Object[])(n$12:java.lang.Class*[_*_](*)) [line 31];
+*&amp;$irvar2:java.util.List*=n$13 [line 31];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$14=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 31];
+n$15=*&amp;$irvar2:java.util.List* [line 31];
+*n$14.fParameterTypes:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature)=n$15 [line 31];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.<init>%28java.lang.reflect.M.3165ccb3190a55f74cc649ed43d15a1d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        public String toString() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.toString%28%29%3Ajava.lang.Strin.95100b3e2d33807752f80d4e5009f165_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.toString%28%29%3Ajava.lang.Strin.95100b3e2d33807752f80d4e5009f165.html">summary for String SynchronizedRunListenerTest$MethodSignature.toString()</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            return fMethod.toString(); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.toString%28%29%3Ajava.lang.Strin.95100b3e2d33807752f80d4e5009f165_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 36];
+n$1=*n$0.fMethod:java.lang.reflect.Method*(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature) [line 36];
+_=*n$1:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 36];
+n$3=_fun_String Method.toString()(n$1:java.lang.reflect.Method*) virtual [line 36];
+*&amp;$irvar0:java.lang.String*=n$3 [line 36];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.toString%28%29%3Ajava.lang.Strin.95100b3e2d33807752f80d4e5009f165_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String* [line 36];
+*&amp;return:java.lang.String*=n$4 [line 36];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.toString%28%29%3Ajava.lang.Strin.95100b3e2d33807752f80d4e5009f165_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.toString%28%29%3Ajava.lang.Strin.95100b3e2d33807752f80d4e5009f165_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        public int hashCode() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.hashCode%28%29%3Aint.f239b50ffa61197223afef69a4e24041_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.hashCode%28%29%3Aint.f239b50ffa61197223afef69a4e24041.html">summary for int SynchronizedRunListenerTest$MethodSignature.hashCode()</a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">            return fName.hashCode(); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.hashCode%28%29%3Aint.f239b50ffa61197223afef69a4e24041_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 41];
+n$1=*n$0.fName:java.lang.String*(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature) [line 41];
+_=*n$1:java.lang.String*(root java.lang.String) [line 41];
+n$3=_fun_int String.hashCode()(n$1:java.lang.String*) virtual [line 41];
+*&amp;$irvar0:int=n$3 [line 41];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.hashCode%28%29%3Aint.f239b50ffa61197223afef69a4e24041_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 41];
+*&amp;return:int=n$4 [line 41];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.hashCode%28%29%3Aint.f239b50ffa61197223afef69a4e24041_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.hashCode%28%29%3Aint.f239b50ffa61197223afef69a4e24041_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        public boolean equals(Object obj) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8.html">summary for boolean SynchronizedRunListenerTest$MethodSignature.equals(Object)</a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">            if (this == obj) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 46];
+n$1=*&amp;obj:java.lang.Object* [line 46];
+PRUNE(!(n$0 != n$1), true); [line 46];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 8 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 46];
+n$1=*&amp;obj:java.lang.Object* [line 46];
+PRUNE((n$0 != n$1), false); [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">                return true; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:2 exn:3 Instructions
+*&amp;return:_Bool=1 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">            if (!(obj instanceof MethodSignature)) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$2=*&amp;obj:java.lang.Object* [line 49];
+n$3=_fun___instanceof(n$2:java.lang.Object*,sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature;sub_t=( sub )(instof)):void) [line 49];
+PRUNE(!(n$3 != 0), true); [line 49];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$2=*&amp;obj:java.lang.Object* [line 49];
+n$3=_fun___instanceof(n$2:java.lang.Object*,sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature;sub_t=( sub )(instof)):void) [line 49];
+PRUNE((n$3 != 0), false); [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">                return false; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">            MethodSignature that = (MethodSignature) obj; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$4=*&amp;obj:java.lang.Object* [line 52];
+n$5=_fun___cast(n$4:java.lang.Object*,sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature;sub_t=( sub )(cast)):void) [line 52];
+*&amp;that:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature*=n$5 [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">            return fName.equals(that.fName) &amp;&amp; fParameterTypes.equals(that.fParameterTypes); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 13 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 53];
+n$7=*n$6.fName:java.lang.String*(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature) [line 53];
+_=*n$7:java.lang.String*(root java.lang.String) [line 53];
+n$9=*&amp;that:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 53];
+n$10=*n$9.fName:java.lang.String*(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature) [line 53];
+n$11=_fun_boolean String.equals(Object)(n$7:java.lang.String*,n$10:java.lang.String*) virtual [line 53];
+*&amp;$irvar0:_Bool=n$11 [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:11 succs:14 exn:3 Conditional method_body
+n$12=*&amp;$irvar0:_Bool [line 53];
+PRUNE(!(n$12 == 0), true); [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:15 16 exn:3 Instructions
+n$13=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 53];
+n$14=*n$13.fParameterTypes:java.util.List*(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature) [line 53];
+_=*n$14:java.util.List*(root java.util.List) [line 53];
+n$16=*&amp;that:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 53];
+n$17=*n$16.fParameterTypes:java.util.List*(root org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature) [line 53];
+n$18=_fun_boolean List.equals(Object)(n$14:java.util.List*,n$17:java.util.List*) interface virtual [line 53];
+*&amp;$irvar1:_Bool=n$18 [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:14 succs:17 exn:3 Conditional method_body
+n$19=*&amp;$irvar1:_Bool [line 53];
+PRUNE(!(n$19 == 0), true); [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:15 succs:19 exn:3 Instructions
+*&amp;$T0_56:int=1 [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:14 succs:18 exn:3 Conditional method_body
+n$19=*&amp;$irvar1:_Bool [line 53];
+PRUNE((n$19 == 0), false); [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:11 succs:18 exn:3 Conditional method_body
+n$12=*&amp;$irvar0:_Bool [line 53];
+PRUNE((n$12 == 0), false); [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:16 13 succs:19 exn:3 Instructions
+*&amp;$T0_56:int=0 [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 17 succs:2 exn:3 Instructions
+n$20=*&amp;$T0_56:int [line 53];
+*&amp;return:_Bool=n$20 [line 53];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:19 9 6 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24MethodSignature.equals%28java.lang.Object%29%3Ab.c0361c005ad1b1c5dbc20a64549fa3e8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    private Set&lt;MethodSignature&gt; getAllDeclaredMethods(Class&lt;?&gt; type) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b.html">summary for Set SynchronizedRunListenerTest.getAllDeclaredMethods(Class)</a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        Set&lt;MethodSignature&gt; methods = new HashSet&lt;MethodSignature&gt;(); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.HashSet):java.util.HashSet*) [line 58];
+n$1=_fun_HashSet.&lt;init&gt;()(n$0:java.util.HashSet*) [line 58];
+*&amp;methods:java.util.HashSet*=n$0 [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        for (Method method : type.getDeclaredMethods()) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;type:java.lang.Class* [line 59];
+_=*n$2:java.lang.Class*(root java.lang.Class) [line 59];
+n$4=_fun_Method[] Class.getDeclaredMethods()(n$2:java.lang.Class*) virtual [line 59];
+*&amp;$bcvar3:java.lang.reflect.Method*[_*_](*)=n$4 [line 59];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$bcvar3:java.lang.reflect.Method*[_*_](*) [line 59];
+_=*n$5:int(root java.lang.reflect.Method*[_*_]) [line 59];
+n$7=_fun___get_array_length(n$5:java.lang.reflect.Method*[_*_](*)) [line 59];
+*&amp;$bcvar4:int=n$7 [line 59];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:10 exn:3 Instructions
+*&amp;$bcvar5:int=0 [line 59];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node10.html"><span class='visited with_tooltip'>J_10<span class='tooltip'>node10 preds:14 7 succs:8 9 exn: Join
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:11 exn:3 Conditional method_body
+n$8=*&amp;$bcvar5:int [line 59];
+n$9=*&amp;$bcvar4:int [line 59];
+PRUNE(!(n$8  &gt;=  n$9), true); [line 59];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$10=*&amp;$bcvar3:java.lang.reflect.Method*[_*_](*) [line 59];
+_=*n$10:java.lang.reflect.Method*(root java.lang.reflect.Method*[_*_]) [line 59];
+n$11=*&amp;$bcvar5:int [line 59];
+n$13=*n$10[n$11]:java.lang.reflect.Method* [line 59];
+*&amp;method:java.lang.reflect.Method*=n$13 [line 59];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:10 exn:3 Instructions
+n$21=*&amp;$bcvar5:int [line 59];
+*&amp;$bcvar5:int=(n$21 + 1) [line 59];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:15 exn:3 Conditional method_body
+n$8=*&amp;$bcvar5:int [line 59];
+n$9=*&amp;$bcvar4:int [line 59];
+PRUNE((n$8  &gt;=  n$9), false); [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">          methods.add(new MethodSignature(method)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$14=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature):org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature*) [line 60];
+n$15=*&amp;method:java.lang.reflect.Method* [line 60];
+n$16=_fun_SynchronizedRunListenerTest$MethodSignature.&lt;init&gt;(Method)(n$14:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature*,n$15:java.lang.reflect.Method*) [line 60];
+*&amp;$irvar0:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature*=n$14 [line 60];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;methods:java.util.HashSet* [line 60];
+_=*n$17:java.util.HashSet*(root java.util.HashSet) [line 60];
+n$19=*&amp;$irvar0:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature* [line 60];
+n$20=_fun_boolean Set.add(Object)(n$17:java.util.HashSet*,n$19:org.junit.runner.notification.SynchronizedRunListenerTest$MethodSignature*) interface virtual [line 60];
+*&amp;$irvar1:_Bool=n$20 [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        return methods; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:9 succs:2 exn:3 Instructions
+n$22=*&amp;methods:java.util.HashSet* [line 62];
+*&amp;return:java.util.Set*=n$22 [line 62];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.getAllDeclaredMethods%28java.lang.Class%29%3Ajav.cdac4790aed71953c8fb35a518faa71b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    public void overridesAllMethodsInRunListener() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c.html">summary for void SynchronizedRunListenerTest.overridesAllMethodsInRunListener()</a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        Set&lt;MethodSignature&gt; runListenerMethods = getAllDeclaredMethods(RunListener.class); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 67];
+n$1=_fun_Set SynchronizedRunListenerTest.getAllDeclaredMethods(Class)(n$0:org.junit.runner.notification.SynchronizedRunListenerTest*,org.junit.runner.notification.RunListener:java.lang.Object*) [line 67];
+*&amp;runListenerMethods:java.util.Set*=n$1 [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        Set&lt;MethodSignature&gt; synchronizedRunListenerMethods = getAllDeclaredMethods( <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 68];
+n$3=_fun_Set SynchronizedRunListenerTest.getAllDeclaredMethods(Class)(n$2:org.junit.runner.notification.SynchronizedRunListenerTest*,org.junit.runner.notification.SynchronizedRunListener:java.lang.Object*) [line 68];
+*&amp;synchronizedRunListenerMethods:java.util.Set*=n$3 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">                SynchronizedRunListener.class); </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        assertTrue(synchronizedRunListenerMethods.containsAll(runListenerMethods)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;synchronizedRunListenerMethods:java.util.Set* [line 71];
+_=*n$4:java.util.Set*(root java.util.Set) [line 71];
+n$6=*&amp;runListenerMethods:java.util.Set* [line 71];
+n$7=_fun_boolean Set.containsAll(Collection)(n$4:java.util.Set*,n$6:java.util.Set*) interface virtual [line 71];
+*&amp;$irvar0:_Bool=n$7 [line 71];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=*&amp;$irvar0:_Bool [line 71];
+n$9=_fun_void Assert.assertTrue(boolean)(n$8:_Bool) [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.overridesAllMethodsInRunListener%28%29%3Avoid.497eedcee6ed0c2bc18409819149784c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">    private static class NamedListener extends RunListener { </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        private final String fName; </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        public NamedListener(String name) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 77];
+n$1=_fun_RunListener.&lt;init&gt;()(n$0:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 77];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349.html">summary for SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)</a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            fName = name; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 78];
+n$3=*&amp;name:java.lang.String* [line 78];
+*n$2.fName:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener)=n$3 [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.<init>%28java.lang.String%29.cc9953c9986e27db1ea0ce97682a8349_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        public String toString() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.toString%28%29%3Ajava.lang.String.b2198ffdbf88707ebac8d7eb31f7e6c0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.toString%28%29%3Ajava.lang.String.b2198ffdbf88707ebac8d7eb31f7e6c0.html">summary for String SynchronizedRunListenerTest$NamedListener.toString()</a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">          return &quot;NamedListener&quot;; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.toString%28%29%3Ajava.lang.String.b2198ffdbf88707ebac8d7eb31f7e6c0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.String*="NamedListener" [line 83];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.toString%28%29%3Ajava.lang.String.b2198ffdbf88707ebac8d7eb31f7e6c0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.toString%28%29%3Ajava.lang.String.b2198ffdbf88707ebac8d7eb31f7e6c0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">        public int hashCode() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.hashCode%28%29%3Aint.4c3bbdd1e7fe0e9bc9f44305ad8caab3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.hashCode%28%29%3Aint.4c3bbdd1e7fe0e9bc9f44305ad8caab3.html">summary for int SynchronizedRunListenerTest$NamedListener.hashCode()</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">            return fName.hashCode(); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.hashCode%28%29%3Aint.4c3bbdd1e7fe0e9bc9f44305ad8caab3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 88];
+n$1=*n$0.fName:java.lang.String*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 88];
+_=*n$1:java.lang.String*(root java.lang.String) [line 88];
+n$3=_fun_int String.hashCode()(n$1:java.lang.String*) virtual [line 88];
+*&amp;$irvar0:int=n$3 [line 88];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.hashCode%28%29%3Aint.4c3bbdd1e7fe0e9bc9f44305ad8caab3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 88];
+*&amp;return:int=n$4 [line 88];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.hashCode%28%29%3Aint.4c3bbdd1e7fe0e9bc9f44305ad8caab3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.hashCode%28%29%3Aint.4c3bbdd1e7fe0e9bc9f44305ad8caab3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">        public boolean equals(Object obj) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c.html">summary for boolean SynchronizedRunListenerTest$NamedListener.equals(Object)</a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">            if (this == obj) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 93];
+n$1=*&amp;obj:java.lang.Object* [line 93];
+PRUNE(!(n$0 != n$1), true); [line 93];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:7 8 exn:3 Conditional method_body
+n$0=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 93];
+n$1=*&amp;obj:java.lang.Object* [line 93];
+PRUNE((n$0 != n$1), false); [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">                return true; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:2 exn:3 Instructions
+*&amp;return:_Bool=1 [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">            if (!(obj instanceof NamedListener)) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$2=*&amp;obj:java.lang.Object* [line 96];
+n$3=_fun___instanceof(n$2:java.lang.Object*,sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener;sub_t=( sub )(instof)):void) [line 96];
+PRUNE(!(n$3 != 0), true); [line 96];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$2=*&amp;obj:java.lang.Object* [line 96];
+n$3=_fun___instanceof(n$2:java.lang.Object*,sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener;sub_t=( sub )(instof)):void) [line 96];
+PRUNE((n$3 != 0), false); [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">                return false; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">            NamedListener that = (NamedListener) obj; <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$4=*&amp;obj:java.lang.Object* [line 99];
+n$5=_fun___cast(n$4:java.lang.Object*,sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener;sub_t=( sub )(cast)):void) [line 99];
+*&amp;that:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$5 [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">            return this.fName.equals(that.fName); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 100];
+n$7=*n$6.fName:java.lang.String*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 100];
+_=*n$7:java.lang.String*(root java.lang.String) [line 100];
+n$9=*&amp;that:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 100];
+n$10=*n$9.fName:java.lang.String*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 100];
+n$11=_fun_boolean String.equals(Object)(n$7:java.lang.String*,n$10:java.lang.String*) virtual [line 100];
+*&amp;$irvar0:_Bool=n$11 [line 100];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar0:_Bool [line 100];
+*&amp;return:_Bool=n$12 [line 100];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 9 6 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest%24NamedListener.equals%28java.lang.Object%29%3Aboo.872ef5cab213ba7946f523b1a0358c3c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">    public void namedListenerCorrectlyImplementsEqualsAndHashCode() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a.html">summary for void SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndHashCode()</a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        NamedListener listener1 = new NamedListener(&quot;blue&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 106];
+n$1=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$0:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"blue":java.lang.Object*) [line 106];
+*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$0 [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        NamedListener listener2 = new NamedListener(&quot;blue&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 107];
+n$3=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"blue":java.lang.Object*) [line 107];
+*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$2 [line 107];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">        NamedListener listener3 = new NamedListener(&quot;red&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 108];
+n$5=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$4:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"red":java.lang.Object*) [line 108];
+*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$4 [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        assertTrue(listener1.equals(listener1)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 110];
+_=*n$6:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 110];
+n$8=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 110];
+n$9=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$6:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$8:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 110];
+*&amp;$irvar0:_Bool=n$9 [line 110];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$10=*&amp;$irvar0:_Bool [line 110];
+n$11=_fun_void Assert.assertTrue(boolean)(n$10:_Bool) [line 110];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        assertTrue(listener2.equals(listener2)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$12=*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 111];
+_=*n$12:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 111];
+n$14=*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 111];
+n$15=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$12:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$14:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 111];
+*&amp;$irvar1:_Bool=n$15 [line 111];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$16=*&amp;$irvar1:_Bool [line 111];
+n$17=_fun_void Assert.assertTrue(boolean)(n$16:_Bool) [line 111];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">        assertTrue(listener3.equals(listener3)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$18=*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 112];
+_=*n$18:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 112];
+n$20=*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 112];
+n$21=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$18:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$20:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 112];
+*&amp;$irvar2:_Bool=n$21 [line 112];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$22=*&amp;$irvar2:_Bool [line 112];
+n$23=_fun_void Assert.assertTrue(boolean)(n$22:_Bool) [line 112];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        assertFalse(listener1.equals(null)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$24=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 114];
+_=*n$24:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 114];
+n$26=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$24:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,null:java.lang.Object*) virtual [line 114];
+*&amp;$irvar3:_Bool=n$26 [line 114];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$27=*&amp;$irvar3:_Bool [line 114];
+n$28=_fun_void Assert.assertFalse(boolean)(n$27:_Bool) [line 114];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `equals(...)` at line 114</div></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        assertFalse(listener1.equals(new Object())); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$29=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 115];
+n$30=_fun_Object.&lt;init&gt;()(n$29:java.lang.Object*) [line 115];
+*&amp;$irvar4:java.lang.Object*=n$29 [line 115];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$31=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 115];
+_=*n$31:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 115];
+n$33=*&amp;$irvar4:java.lang.Object* [line 115];
+n$34=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$31:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$33:java.lang.Object*) virtual [line 115];
+*&amp;$irvar5:_Bool=n$34 [line 115];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$35=*&amp;$irvar5:_Bool [line 115];
+n$36=_fun_void Assert.assertFalse(boolean)(n$35:_Bool) [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">        assertTrue(listener1.equals(listener2)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$37=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 117];
+_=*n$37:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 117];
+n$39=*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 117];
+n$40=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$37:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$39:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 117];
+*&amp;$irvar6:_Bool=n$40 [line 117];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$41=*&amp;$irvar6:_Bool [line 117];
+n$42=_fun_void Assert.assertTrue(boolean)(n$41:_Bool) [line 117];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        assertTrue(listener2.equals(listener1)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$43=*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 118];
+_=*n$43:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 118];
+n$45=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 118];
+n$46=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$43:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$45:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 118];
+*&amp;$irvar7:_Bool=n$46 [line 118];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$47=*&amp;$irvar7:_Bool [line 118];
+n$48=_fun_void Assert.assertTrue(boolean)(n$47:_Bool) [line 118];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">        assertFalse(listener1.equals(listener3)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$49=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 119];
+_=*n$49:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 119];
+n$51=*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 119];
+n$52=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$49:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$51:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 119];
+*&amp;$irvar8:_Bool=n$52 [line 119];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$53=*&amp;$irvar8:_Bool [line 119];
+n$54=_fun_void Assert.assertFalse(boolean)(n$53:_Bool) [line 119];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        assertFalse(listener3.equals(listener1)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$55=*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 120];
+_=*n$55:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 120];
+n$57=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 120];
+n$58=_fun_boolean SynchronizedRunListenerTest$NamedListener.equals(Object)(n$55:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$57:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 120];
+*&amp;$irvar9:_Bool=n$58 [line 120];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$59=*&amp;$irvar9:_Bool [line 120];
+n$60=_fun_void Assert.assertFalse(boolean)(n$59:_Bool) [line 120];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        assertEquals(listener1.hashCode(), listener2.hashCode()); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$61=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 122];
+_=*n$61:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 122];
+n$63=_fun_int SynchronizedRunListenerTest$NamedListener.hashCode()(n$61:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 122];
+*&amp;$irvar10:int=n$63 [line 122];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$64=*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 122];
+_=*n$64:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 122];
+n$66=_fun_int SynchronizedRunListenerTest$NamedListener.hashCode()(n$64:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 122];
+*&amp;$irvar11:int=n$66 [line 122];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$67=*&amp;$irvar10:int [line 122];
+n$68=*&amp;$irvar11:int [line 122];
+n$69=_fun_void Assert.assertEquals(long,long)((long)n$67:long,(long)n$68:long) [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        assertNotEquals(listener1.hashCode(), listener3.hashCode()); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$70=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 123];
+_=*n$70:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 123];
+n$72=_fun_int SynchronizedRunListenerTest$NamedListener.hashCode()(n$70:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 123];
+*&amp;$irvar12:int=n$72 [line 123];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$73=*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 123];
+_=*n$73:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 123];
+n$75=_fun_int SynchronizedRunListenerTest$NamedListener.hashCode()(n$73:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 123];
+*&amp;$irvar13:int=n$75 [line 123];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$76=*&amp;$irvar12:int [line 123];
+n$77=*&amp;$irvar13:int [line 123];
+n$78=_fun_void Assert.assertNotEquals(long,long)((long)n$76:long,(long)n$77:long) [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.namedListenerCorrectlyImplementsEqualsAndH.4e1d506201a2927abd16179bfde2c75a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    public void toStringDelegates() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5.html">summary for void SynchronizedRunListenerTest.toStringDelegates()</a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        NamedListener listener = new NamedListener(&quot;blue&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 128];
+n$1=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$0:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"blue":java.lang.Object*) [line 128];
+*&amp;listener:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$0 [line 128];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        assertEquals(&quot;NamedListener&quot;, listener.toString()); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;listener:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 130];
+_=*n$2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 130];
+n$4=_fun_String SynchronizedRunListenerTest$NamedListener.toString()(n$2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 130];
+*&amp;$irvar0:java.lang.String*=n$4 [line 130];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String* [line 130];
+n$6=_fun_void Assert.assertEquals(Object,Object)("NamedListener":java.lang.Object*,n$5:java.lang.String*) [line 130];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        assertEquals(&quot;NamedListener (with synchronization wrapper)&quot;, wrap(listener).toString()); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 131];
+n$8=*&amp;listener:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 131];
+n$9=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$7:org.junit.runner.notification.SynchronizedRunListenerTest*,n$8:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 131];
+*&amp;$irvar1:org.junit.runner.notification.SynchronizedRunListener*=n$9 [line 131];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$10=*&amp;$irvar1:org.junit.runner.notification.SynchronizedRunListener* [line 131];
+_=*n$10:org.junit.runner.notification.SynchronizedRunListener*(root org.junit.runner.notification.SynchronizedRunListener) [line 131];
+n$12=_fun_String SynchronizedRunListener.toString()(n$10:org.junit.runner.notification.SynchronizedRunListener*) virtual [line 131];
+*&amp;$irvar2:java.lang.String*=n$12 [line 131];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$13=*&amp;$irvar2:java.lang.String* [line 131];
+n$14=_fun_void Assert.assertEquals(Object,Object)("NamedListener (with synchronization wrapper)":java.lang.Object*,n$13:java.lang.String*) [line 131];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.toStringDelegates%28%29%3Avoid.9af117be9609f6d2a4bef4456f9e4cd5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">    public void equalsDelegates() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a.html">summary for void SynchronizedRunListenerTest.equalsDelegates()</a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        NamedListener listener1 = new NamedListener(&quot;blue&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 136];
+n$1=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$0:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"blue":java.lang.Object*) [line 136];
+*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$0 [line 136];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        NamedListener listener2 = new NamedListener(&quot;blue&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 137];
+n$3=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"blue":java.lang.Object*) [line 137];
+*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$2 [line 137];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">        NamedListener listener3 = new NamedListener(&quot;red&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 138];
+n$5=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$4:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"red":java.lang.Object*) [line 138];
+*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$4 [line 138];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        assertEquals(wrap(listener1), wrap(listener1)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 140];
+n$7=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 140];
+n$8=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$6:org.junit.runner.notification.SynchronizedRunListenerTest*,n$7:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 140];
+*&amp;$irvar0:org.junit.runner.notification.SynchronizedRunListener*=n$8 [line 140];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 140];
+n$10=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 140];
+n$11=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$9:org.junit.runner.notification.SynchronizedRunListenerTest*,n$10:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 140];
+*&amp;$irvar1:org.junit.runner.notification.SynchronizedRunListener*=n$11 [line 140];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$12=*&amp;$irvar0:org.junit.runner.notification.SynchronizedRunListener* [line 140];
+n$13=*&amp;$irvar1:org.junit.runner.notification.SynchronizedRunListener* [line 140];
+n$14=_fun_void Assert.assertEquals(Object,Object)(n$12:org.junit.runner.notification.SynchronizedRunListener*,n$13:org.junit.runner.notification.SynchronizedRunListener*) [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        assertEquals(wrap(listener1), wrap(listener2)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$15=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 141];
+n$16=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 141];
+n$17=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$15:org.junit.runner.notification.SynchronizedRunListenerTest*,n$16:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 141];
+*&amp;$irvar2:org.junit.runner.notification.SynchronizedRunListener*=n$17 [line 141];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$18=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 141];
+n$19=*&amp;listener2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 141];
+n$20=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$18:org.junit.runner.notification.SynchronizedRunListenerTest*,n$19:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 141];
+*&amp;$irvar3:org.junit.runner.notification.SynchronizedRunListener*=n$20 [line 141];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$21=*&amp;$irvar2:org.junit.runner.notification.SynchronizedRunListener* [line 141];
+n$22=*&amp;$irvar3:org.junit.runner.notification.SynchronizedRunListener* [line 141];
+n$23=_fun_void Assert.assertEquals(Object,Object)(n$21:org.junit.runner.notification.SynchronizedRunListener*,n$22:org.junit.runner.notification.SynchronizedRunListener*) [line 141];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        assertNotEquals(wrap(listener1), wrap(listener3)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$24=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 142];
+n$25=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 142];
+n$26=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$24:org.junit.runner.notification.SynchronizedRunListenerTest*,n$25:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 142];
+*&amp;$irvar4:org.junit.runner.notification.SynchronizedRunListener*=n$26 [line 142];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$27=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 142];
+n$28=*&amp;listener3:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 142];
+n$29=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$27:org.junit.runner.notification.SynchronizedRunListenerTest*,n$28:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 142];
+*&amp;$irvar5:org.junit.runner.notification.SynchronizedRunListener*=n$29 [line 142];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$30=*&amp;$irvar4:org.junit.runner.notification.SynchronizedRunListener* [line 142];
+n$31=*&amp;$irvar5:org.junit.runner.notification.SynchronizedRunListener* [line 142];
+n$32=_fun_void Assert.assertNotEquals(Object,Object)(n$30:org.junit.runner.notification.SynchronizedRunListener*,n$31:org.junit.runner.notification.SynchronizedRunListener*) [line 142];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        assertNotEquals(wrap(listener1), listener1); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$33=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 143];
+n$34=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 143];
+n$35=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$33:org.junit.runner.notification.SynchronizedRunListenerTest*,n$34:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 143];
+*&amp;$irvar6:org.junit.runner.notification.SynchronizedRunListener*=n$35 [line 143];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$36=*&amp;$irvar6:org.junit.runner.notification.SynchronizedRunListener* [line 143];
+n$37=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 143];
+n$38=_fun_void Assert.assertNotEquals(Object,Object)(n$36:org.junit.runner.notification.SynchronizedRunListener*,n$37:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 143];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        assertNotEquals(listener1, wrap(listener1)); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$39=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 144];
+n$40=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 144];
+n$41=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$39:org.junit.runner.notification.SynchronizedRunListenerTest*,n$40:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 144];
+*&amp;$irvar7:org.junit.runner.notification.SynchronizedRunListener*=n$41 [line 144];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$42=*&amp;listener1:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 144];
+n$43=*&amp;$irvar7:org.junit.runner.notification.SynchronizedRunListener* [line 144];
+n$44=_fun_void Assert.assertNotEquals(Object,Object)(n$42:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,n$43:org.junit.runner.notification.SynchronizedRunListener*) [line 144];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">    } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:20 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.equalsDelegates%28%29%3Avoid.e4d5556875d18ed570afc52dec531b4a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">    public void hashCodeDelegates() { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e.html">summary for void SynchronizedRunListenerTest.hashCodeDelegates()</a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">        NamedListener listener = new NamedListener(&quot;blue&quot;); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener):org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 149];
+n$1=_fun_SynchronizedRunListenerTest$NamedListener.&lt;init&gt;(String)(n$0:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*,"blue":java.lang.Object*) [line 149];
+*&amp;listener:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*=n$0 [line 149];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">        assertEquals(listener.hashCode(), wrap(listener).hashCode()); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;listener:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 150];
+_=*n$2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*(root org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener) [line 150];
+n$4=_fun_int SynchronizedRunListenerTest$NamedListener.hashCode()(n$2:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) virtual [line 150];
+*&amp;$irvar0:int=n$4 [line 150];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 150];
+n$6=*&amp;listener:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener* [line 150];
+n$7=_fun_SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)(n$5:org.junit.runner.notification.SynchronizedRunListenerTest*,n$6:org.junit.runner.notification.SynchronizedRunListenerTest$NamedListener*) [line 150];
+*&amp;$irvar1:org.junit.runner.notification.SynchronizedRunListener*=n$7 [line 150];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=*&amp;$irvar1:org.junit.runner.notification.SynchronizedRunListener* [line 150];
+_=*n$8:org.junit.runner.notification.SynchronizedRunListener*(root org.junit.runner.notification.SynchronizedRunListener) [line 150];
+n$10=_fun_int SynchronizedRunListener.hashCode()(n$8:org.junit.runner.notification.SynchronizedRunListener*) virtual [line 150];
+*&amp;$irvar2:int=n$10 [line 150];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;$irvar0:int [line 150];
+n$12=*&amp;$irvar2:int [line 150];
+n$13=_fun_void Assert.assertEquals(long,long)((long)n$11:long,(long)n$12:long) [line 150];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    } <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.hashCodeDelegates%28%29%3Avoid.8a33ca58ebeba88de21d414ef768116e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">    private SynchronizedRunListener wrap(RunListener listener) { <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.wrap%28org.junit.runner.notification.RunList.61966ca8b81f06e80d67c6ed6de3d3a2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/org.junit.runner.notification.SynchronizedRunListenerTest.wrap%28org.junit.runner.notification.RunList.61966ca8b81f06e80d67c6ed6de3d3a2.html">summary for SynchronizedRunListener SynchronizedRunListenerTest.wrap(RunListener)</a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        return new SynchronizedRunListener(listener, this); <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.wrap%28org.junit.runner.notification.RunList.61966ca8b81f06e80d67c6ed6de3d3a2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.notification.SynchronizedRunListener):org.junit.runner.notification.SynchronizedRunListener*) [line 154];
+n$1=*&amp;listener:org.junit.runner.notification.RunListener* [line 154];
+n$2=*&amp;this:org.junit.runner.notification.SynchronizedRunListenerTest* [line 154];
+n$3=_fun_SynchronizedRunListener.&lt;init&gt;(RunListener,Object)(n$0:org.junit.runner.notification.SynchronizedRunListener*,n$1:org.junit.runner.notification.RunListener*,n$2:org.junit.runner.notification.SynchronizedRunListenerTest*) [line 154];
+*&amp;$irvar0:org.junit.runner.notification.SynchronizedRunListener*=n$0 [line 154];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.wrap%28org.junit.runner.notification.RunList.61966ca8b81f06e80d67c6ed6de3d3a2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.notification.SynchronizedRunListener* [line 154];
+*&amp;return:org.junit.runner.notification.SynchronizedRunListener*=n$4 [line 154];
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.wrap%28org.junit.runner.notification.RunList.61966ca8b81f06e80d67c6ed6de3d3a2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/org.junit.runner.notification.SynchronizedRunListenerTest.wrap%28org.junit.runner.notification.RunList.61966ca8b81f06e80d67c6ed6de3d3a2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+<br>Precondition Not Met in call to `equals(...)` at line 114 <a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/nodes/node13.html#session133">node13#session133</a>(<a href="./SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3/../SynchronizedRunListenerTest.java.287ca4f54f2b712a1ca09f2b8f578dd3.html#LINE114">114</a>)
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

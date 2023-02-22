@@ -1,0 +1,34 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_1" [label="1: Start List ComparatorBasedOrdering.orderItems(Collection)\nFormals:  this:org.junit.tests.manipulation.ComparatorBasedOrdering* descriptions:java.util.Collection*\nLocals:  $irvar0:void ordered:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_1" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_4" ;
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_2" [label="2: Exit List ComparatorBasedOrdering.orderItems(Collection) \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_3" [label="3:  exceptions sink \n   NULLIFY(&ordered); [line 26]\n  NULLIFY(&$irvar0); [line 26]\n  EXIT_SCOPE(ordered,$irvar0); [line 26]\n  APPLY_ABSTRACTION; [line 26]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_3" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_2" ;
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_4" [label="4:  Call ArrayList.<init>(Collection) \n   n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 24]\n  n$1=*&descriptions:java.util.Collection* [line 24]\n  n$2=_fun_ArrayList.<init>(Collection)(n$0:java.util.ArrayList*,n$1:java.util.Collection*) [line 24]\n  *&ordered:java.util.ArrayList*=n$0 [line 24]\n  NULLIFY(&descriptions); [line 24]\n  EXIT_SCOPE(n$0,n$1,n$2,descriptions); [line 24]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_4" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_5" ;
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_4" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_3" [color="red" ];
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_5" [label="5:  method_body \n   n$3=*&this:org.junit.tests.manipulation.ComparatorBasedOrdering* [line 25]\n  n$4=*n$3.comparator:java.util.Comparator*(root org.junit.tests.manipulation.ComparatorBasedOrdering) [line 25]\n  *&$irvar0:java.util.Comparator*=n$4 [line 25]\n  NULLIFY(&this); [line 25]\n  EXIT_SCOPE(n$3,n$4,this); [line 25]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_5" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_6" ;
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_5" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_3" [color="red" ];
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_6" [label="6:  Call void Collections.sort(List,Comparator) \n   n$5=*&ordered:java.util.ArrayList* [line 25]\n  n$6=*&$irvar0:java.util.Comparator* [line 25]\n  n$7=_fun_void Collections.sort(List,Comparator)(n$5:java.util.ArrayList*,n$6:java.util.Comparator*) [line 25]\n  NULLIFY(&$irvar0); [line 25]\n  EXIT_SCOPE(n$5,n$6,n$7,$irvar0); [line 25]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_6" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_7" ;
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_6" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_3" [color="red" ];
+"org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_7" [label="7:  method_body \n   n$8=*&ordered:java.util.ArrayList* [line 26]\n  *&return:java.util.List*=n$8 [line 26]\n  NULLIFY(&ordered); [line 26]\n  EXIT_SCOPE(n$8,ordered); [line 26]\n  APPLY_ABSTRACTION; [line 26]\n " shape="box"]
+	
+
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_7" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_2" ;
+	 "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_7" -> "org.junit.tests.manipulation.ComparatorBasedOrdering.orderItems(java.util.Collection):java.util.List.66bf3dedbfd721e21ee9eeb6fb188486_3" [color="red" ];
+}

@@ -1,0 +1,79 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_1" [label="1: Start void TestResult.addError(JUnit4TestCaseFacade,Throwable)\nFormals:  this:junit.framework.TestResult* test:junit.framework.JUnit4TestCaseFacade* e:java.lang.Throwable*\nLocals:  $irvar5:void $irvar4:void $bcvar3:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void each:junit.framework.TestListener* \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_1" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_3" ;
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_2" [label="2: Exit void TestResult.addError(JUnit4TestCaseFacade,Throwable) \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_3" [label="3:  method_body \n   n$0=*&this:junit.framework.TestResult* [line 37]\n  n$1=*n$0.fErrors:java.util.List*(root junit.framework.TestResult) [line 37]\n  *&$irvar0:java.util.List*=n$1 [line 37]\n  EXIT_SCOPE(n$0,n$1); [line 37]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_3" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_5" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_3" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [label="4:  exceptions sink \n   NULLIFY(&$irvar3); [line 41]\n  NULLIFY(&$bcvar3); [line 41]\n  NULLIFY(&$irvar5); [line 41]\n  NULLIFY(&$irvar4); [line 41]\n  NULLIFY(&each); [line 41]\n  NULLIFY(&$irvar0); [line 41]\n  NULLIFY(&$irvar1); [line 41]\n  EXIT_SCOPE($irvar3,$bcvar3,$irvar5,$irvar4,each,$irvar0,$irvar1); [line 41]\n  APPLY_ABSTRACTION; [line 41]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_2" ;
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_5" [label="5:  Call TestFailure.<init>(Test,Throwable) \n   n$2=_fun___new(sizeof(t=junit.framework.TestFailure):junit.framework.TestFailure*) [line 37]\n  n$3=*&test:junit.framework.JUnit4TestCaseFacade* [line 37]\n  n$4=*&e:java.lang.Throwable* [line 37]\n  n$5=_fun_TestFailure.<init>(Test,Throwable)(n$2:junit.framework.TestFailure*,n$3:junit.framework.Test*,n$4:java.lang.Throwable*) [line 37]\n  *&$irvar1:junit.framework.TestFailure*=n$2 [line 37]\n  EXIT_SCOPE(n$2,n$3,n$4,n$5); [line 37]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_5" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_6" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_5" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_6" [label="6:  Call boolean List.add(Object) \n   n$6=*&$irvar0:java.util.List* [line 37]\n  _=*n$6:java.util.List [line 37]\n  n$8=*&$irvar1:junit.framework.TestFailure* [line 37]\n  n$9=_fun_boolean List.add(Object)(n$6:java.util.List*,n$8:junit.framework.TestFailure*) interface virtual [line 37]\n  *&$irvar2:_Bool=n$9 [line 37]\n  NULLIFY(&$irvar0); [line 37]\n  NULLIFY(&$irvar1); [line 37]\n  NULLIFY(&$irvar2); [line 37]\n  EXIT_SCOPE(_,n$6,n$8,n$9,$irvar0,$irvar1,$irvar2); [line 37]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_6" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_7" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_6" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_7" [label="7:  Call List TestResult.cloneListeners() \n   n$10=*&this:junit.framework.TestResult* [line 38]\n  n$11=_fun_List TestResult.cloneListeners()(n$10:junit.framework.TestResult*) [line 38]\n  *&$irvar3:java.util.List*=n$11 [line 38]\n  NULLIFY(&this); [line 38]\n  EXIT_SCOPE(n$10,n$11,this); [line 38]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_7" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_8" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_7" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_8" [label="8:  Call Iterator List.iterator() \n   n$12=*&$irvar3:java.util.List* [line 38]\n  _=*n$12:java.util.List [line 38]\n  n$14=_fun_Iterator List.iterator()(n$12:java.util.List*) interface virtual [line 38]\n  *&$bcvar3:java.util.Iterator*=n$14 [line 38]\n  NULLIFY(&$irvar3); [line 38]\n  EXIT_SCOPE(_,n$12,n$14,$irvar3); [line 38]\n  APPLY_ABSTRACTION; [line 38]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_8" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_9" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_8" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_9" [label="9:  Call boolean Iterator.hasNext() \n   n$15=*&$bcvar3:java.util.Iterator* [line 38]\n  _=*n$15:java.util.Iterator [line 38]\n  n$17=_fun_boolean Iterator.hasNext()(n$15:java.util.Iterator*) interface virtual [line 38]\n  *&$irvar4:_Bool=n$17 [line 38]\n  EXIT_SCOPE(_,n$15,n$17); [line 38]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_9" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_10" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_9" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_10" [label="10: + \n  " ]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_10" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_11" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_10" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_15" ;
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_11" [label="11: Prune (true branch, if) \n   n$18=*&$irvar4:_Bool [line 38]\n  PRUNE(!(n$18 == 0), true); [line 38]\n  NULLIFY(&$irvar4); [line 38]\n  EXIT_SCOPE(n$18,$irvar4); [line 38]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_11" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_12" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_11" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_12" [label="12:  Call Object Iterator.next() \n   n$19=*&$bcvar3:java.util.Iterator* [line 38]\n  _=*n$19:java.util.Iterator [line 38]\n  n$21=_fun_Object Iterator.next()(n$19:java.util.Iterator*) interface virtual [line 38]\n  *&$irvar5:java.lang.Object*=n$21 [line 38]\n  EXIT_SCOPE(_,n$19,n$21); [line 38]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_12" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_13" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_12" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_13" [label="13:  method_body \n   n$22=*&$irvar5:java.lang.Object* [line 38]\n  n$23=_fun___cast(n$22:java.lang.Object*,sizeof(t=junit.framework.TestListener;sub_t=( sub )(cast)):void) [line 38]\n  *&each:junit.framework.TestListener*=n$23 [line 38]\n  NULLIFY(&$irvar5); [line 38]\n  EXIT_SCOPE(n$22,n$23,$irvar5); [line 38]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_13" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_14" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_13" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_14" [label="14:  Call void TestListener.addError(Test,Throwable) \n   n$24=*&each:junit.framework.TestListener* [line 39]\n  _=*n$24:junit.framework.TestListener [line 39]\n  n$26=*&test:junit.framework.JUnit4TestCaseFacade* [line 39]\n  n$27=*&e:java.lang.Throwable* [line 39]\n  n$28=_fun_void TestListener.addError(Test,Throwable)(n$24:junit.framework.TestListener*,n$26:junit.framework.Test*,n$27:java.lang.Throwable*) interface virtual [line 39]\n  NULLIFY(&each); [line 39]\n  EXIT_SCOPE(_,n$24,n$26,n$27,n$28,each); [line 39]\n  APPLY_ABSTRACTION; [line 39]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_14" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_9" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_14" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_15" [label="15: Prune (false branch, if) \n   n$18=*&$irvar4:_Bool [line 38]\n  PRUNE((n$18 == 0), false); [line 38]\n  NULLIFY(&$bcvar3); [line 38]\n  NULLIFY(&$irvar4); [line 38]\n  EXIT_SCOPE(n$18,$bcvar3,$irvar4); [line 38]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_15" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_16" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_15" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+"junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_16" [label="16:  method_body \n   APPLY_ABSTRACTION; [line 41]\n " shape="box"]
+	
+
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_16" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_2" ;
+	 "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_16" -> "junit.framework.TestResult.addError(junit.framework.JUnit4TestCaseFacade,java.lang.Throwable):void.d60b200d2eaae821a789ff0a01397db7_4" [color="red" ];
+}

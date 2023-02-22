@@ -1,0 +1,50 @@
+/* @generated */
+digraph cfg {
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_1" [label="1: Start RepeatedTest.<init>(Test,int)\nFormals:  this:junit.extensions.RepeatedTest* test:junit.framework.Test* repeat:int\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_1" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_4" ;
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_2" [label="2: Exit RepeatedTest.<init>(Test,int) \n  " color=yellow style=filled]
+	
+
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 18]\n  EXIT_SCOPE($irvar0); [line 18]\n  APPLY_ABSTRACTION; [line 18]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_2" ;
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_4" [label="4:  Call TestDecorator.<init>(Test) \n   n$0=*&this:junit.extensions.RepeatedTest* [line 13]\n  n$1=*&test:junit.framework.Test* [line 13]\n  n$2=_fun_TestDecorator.<init>(Test)(n$0:junit.extensions.RepeatedTest*,n$1:junit.framework.Test*) [line 13]\n  NULLIFY(&test); [line 13]\n  EXIT_SCOPE(n$0,n$1,n$2,test); [line 13]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_4" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_5" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_4" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_6" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_4" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_5" [label="5: Prune (true branch, if) \n   n$3=*&repeat:int [line 14]\n  PRUNE(!(n$3 >= 0), true); [line 14]\n  NULLIFY(&repeat); [line 14]\n  EXIT_SCOPE(n$3,repeat); [line 14]\n " shape="invhouse"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_5" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_7" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_5" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_6" [label="6: Prune (false branch, if) \n   n$3=*&repeat:int [line 14]\n  PRUNE((n$3 >= 0), false); [line 14]\n  EXIT_SCOPE(n$3); [line 14]\n " shape="invhouse"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_6" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_9" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_6" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_7" [label="7:  Call IllegalArgumentException.<init>(String) \n   n$4=_fun___new(sizeof(t=java.lang.IllegalArgumentException):java.lang.IllegalArgumentException*) [line 15]\n  n$5=_fun_IllegalArgumentException.<init>(String)(n$4:java.lang.IllegalArgumentException*,\"Repetition count must be >= 0\":java.lang.Object*) [line 15]\n  *&$irvar0:java.lang.IllegalArgumentException*=n$4 [line 15]\n  EXIT_SCOPE(n$4,n$5); [line 15]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_7" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_8" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_7" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_8" [label="8:  throw \n   n$6=*&$irvar0:java.lang.IllegalArgumentException* [line 15]\n  *&return:void=EXN n$6 [line 15]\n  NULLIFY(&$irvar0); [line 15]\n  EXIT_SCOPE(n$6,$irvar0); [line 15]\n  APPLY_ABSTRACTION; [line 15]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_8" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_2" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_8" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_9" [label="9:  method_body \n   n$7=*&this:junit.extensions.RepeatedTest* [line 17]\n  n$8=*&repeat:int [line 17]\n  *n$7.fTimesRepeat:junit.extensions.RepeatedTest(root junit.extensions.RepeatedTest)=n$8 [line 17]\n  NULLIFY(&repeat); [line 17]\n  NULLIFY(&this); [line 17]\n  EXIT_SCOPE(n$7,n$8,repeat,this); [line 17]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_9" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_10" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_9" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+"junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_10" [label="10:  method_body \n   APPLY_ABSTRACTION; [line 18]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_10" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_2" ;
+	 "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_10" -> "junit.extensions.RepeatedTest.<init>(junit.framework.Test,int).77382fd1df64acf473fa3bf98596d1d7_3" [color="red" ];
+}

@@ -1,0 +1,45 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_1" [label="1: Start String Ordering.getClassName(Class)\nFormals:  clazz:java.lang.Class*\nLocals:  $irvar0:void name:java.lang.String* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_1" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_4" ;
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_2" [label="2: Exit String Ordering.getClassName(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [label="3:  exceptions sink \n   NULLIFY(&name); [line 106]\n  NULLIFY(&$irvar0); [line 106]\n  EXIT_SCOPE(name,$irvar0); [line 106]\n  APPLY_ABSTRACTION; [line 106]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_2" ;
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_4" [label="4:  Call String Class.getCanonicalName() \n   n$0=*&clazz:java.lang.Class* [line 102]\n  _=*n$0:java.lang.Class*(root java.lang.Class) [line 102]\n  n$2=_fun_String Class.getCanonicalName()(n$0:java.lang.Class*) virtual [line 102]\n  *&name:java.lang.String*=n$2 [line 102]\n  EXIT_SCOPE(_,n$0,n$2); [line 102]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_4" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_5" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_4" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_6" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_4" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_5" [label="5: Prune (true branch, if) \n   n$3=*&name:java.lang.String* [line 103]\n  PRUNE(!(n$3 != null), true); [line 103]\n  NULLIFY(&name); [line 103]\n  EXIT_SCOPE(n$3,name); [line 103]\n " shape="invhouse"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_5" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_7" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_5" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_6" [label="6: Prune (false branch, if) \n   n$3=*&name:java.lang.String* [line 103]\n  PRUNE((n$3 != null), false); [line 103]\n  EXIT_SCOPE(n$3); [line 103]\n " shape="invhouse"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_6" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_9" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_6" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_7" [label="7:  Call String Class.getName() \n   n$4=*&clazz:java.lang.Class* [line 104]\n  _=*n$4:java.lang.Class*(root java.lang.Class) [line 104]\n  n$6=_fun_String Class.getName()(n$4:java.lang.Class*) virtual [line 104]\n  *&$irvar0:java.lang.String*=n$6 [line 104]\n  NULLIFY(&clazz); [line 104]\n  EXIT_SCOPE(_,n$4,n$6,clazz); [line 104]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_7" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_8" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_7" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_8" [label="8:  method_body \n   n$7=*&$irvar0:java.lang.String* [line 104]\n  *&return:java.lang.String*=n$7 [line 104]\n  NULLIFY(&$irvar0); [line 104]\n  EXIT_SCOPE(n$7,$irvar0); [line 104]\n  APPLY_ABSTRACTION; [line 104]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_8" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_2" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_8" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [color="red" ];
+"org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_9" [label="9:  method_body \n   n$8=*&name:java.lang.String* [line 106]\n  *&return:java.lang.String*=n$8 [line 106]\n  NULLIFY(&name); [line 106]\n  EXIT_SCOPE(n$8,name); [line 106]\n  APPLY_ABSTRACTION; [line 106]\n " shape="box"]
+	
+
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_9" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_2" ;
+	 "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_9" -> "org.junit.runner.manipulation.Ordering.getClassName(java.lang.Class):java.lang.String.67cc599659f470552f8a335b6ba72d3c_3" [color="red" ];
+}

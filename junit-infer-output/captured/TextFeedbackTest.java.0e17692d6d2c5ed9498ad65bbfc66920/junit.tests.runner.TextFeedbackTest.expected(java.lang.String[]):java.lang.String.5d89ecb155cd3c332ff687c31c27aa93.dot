@@ -1,0 +1,64 @@
+/* @generated */
+digraph cfg {
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_1" [label="1: Start String TextFeedbackTest.expected(String[])\nFormals:  this:junit.tests.runner.TextFeedbackTest* lines:java.lang.String*[_*_](*)\nLocals:  $irvar0:void expectedWriter:java.io.PrintStream* expected:java.io.OutputStream* i:int \n  " color=yellow style=filled]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_1" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_4" ;
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_2" [label="2: Exit String TextFeedbackTest.expected(String[]) \n  " color=yellow style=filled]
+	
+
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [label="3:  exceptions sink \n   NULLIFY(&expectedWriter); [line 123]\n  NULLIFY(&i); [line 123]\n  NULLIFY(&$irvar0); [line 123]\n  NULLIFY(&expected); [line 123]\n  EXIT_SCOPE(expectedWriter,i,$irvar0,expected); [line 123]\n  APPLY_ABSTRACTION; [line 123]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_2" ;
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_4" [label="4:  Call ByteArrayOutputStream.<init>() \n   n$0=_fun___new(sizeof(t=java.io.ByteArrayOutputStream):java.io.ByteArrayOutputStream*) [line 118]\n  n$1=_fun_ByteArrayOutputStream.<init>()(n$0:java.io.ByteArrayOutputStream*) [line 118]\n  *&expected:java.io.ByteArrayOutputStream*=n$0 [line 118]\n  EXIT_SCOPE(n$0,n$1); [line 118]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_4" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_5" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_4" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_5" [label="5:  Call PrintStream.<init>(OutputStream) \n   n$2=_fun___new(sizeof(t=java.io.PrintStream):java.io.PrintStream*) [line 119]\n  n$3=*&expected:java.io.ByteArrayOutputStream* [line 119]\n  n$4=_fun_PrintStream.<init>(OutputStream)(n$2:java.io.PrintStream*,n$3:java.io.ByteArrayOutputStream*) [line 119]\n  *&expectedWriter:java.io.PrintStream*=n$2 [line 119]\n  EXIT_SCOPE(n$2,n$3,n$4); [line 119]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_5" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_6" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_5" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_6" [label="6:  method_body \n   *&i:int=0 [line 120]\n  APPLY_ABSTRACTION; [line 120]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_6" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_9" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_6" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_7" [label="7: Prune (true branch, if) \n   n$5=*&i:int [line 120]\n  n$6=*&lines:java.lang.String*[_*_](*) [line 120]\n  _=*n$6:int(root java.lang.String*[_*_]) [line 120]\n  n$8=_fun___get_array_length(n$6:java.lang.String*[_*_](*)) [line 120]\n  PRUNE(!(n$5 >= n$8), true); [line 120]\n  EXIT_SCOPE(_,n$5,n$6,n$8); [line 120]\n " shape="invhouse"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_7" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_10" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_7" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_8" [label="8: Prune (false branch, if) \n   n$5=*&i:int [line 120]\n  n$6=*&lines:java.lang.String*[_*_](*) [line 120]\n  _=*n$6:int(root java.lang.String*[_*_]) [line 120]\n  n$8=_fun___get_array_length(n$6:java.lang.String*[_*_](*)) [line 120]\n  PRUNE((n$5 >= n$8), false); [line 120]\n  NULLIFY(&expectedWriter); [line 120]\n  NULLIFY(&i); [line 120]\n  NULLIFY(&lines); [line 120]\n  EXIT_SCOPE(_,n$5,n$6,n$8,expectedWriter,i,lines); [line 120]\n " shape="invhouse"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_8" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_12" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_8" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_9" [label="9: + \n  " ]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_9" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_7" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_9" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_8" ;
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_10" [label="10:  Call void PrintStream.println(String) \n   n$9=*&expectedWriter:java.io.PrintStream* [line 121]\n  _=*n$9:java.io.PrintStream*(root java.io.PrintStream) [line 121]\n  n$11=*&lines:java.lang.String*[_*_](*) [line 121]\n  _=*n$11:java.lang.String*(root java.lang.String*[_*_]) [line 121]\n  n$12=*&i:int [line 121]\n  n$14=*n$11[n$12]:java.lang.String* [line 121]\n  n$15=_fun_void PrintStream.println(String)(n$9:java.io.PrintStream*,n$14:java.lang.String*) virtual [line 121]\n  EXIT_SCOPE(_,_,n$9,n$11,n$12,n$14,n$15); [line 121]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_10" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_11" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_10" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_11" [label="11:  method_body \n   n$16=*&i:int [line 120]\n  *&i:int=(n$16 + 1) [line 120]\n  EXIT_SCOPE(n$16); [line 120]\n  APPLY_ABSTRACTION; [line 120]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_11" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_9" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_11" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_12" [label="12:  Call String Object.toString() \n   n$17=*&expected:java.io.ByteArrayOutputStream* [line 123]\n  _=*n$17:java.io.ByteArrayOutputStream*(root java.io.ByteArrayOutputStream) [line 123]\n  n$19=_fun_String Object.toString()(n$17:java.io.ByteArrayOutputStream*) virtual [line 123]\n  *&$irvar0:java.lang.String*=n$19 [line 123]\n  NULLIFY(&expected); [line 123]\n  EXIT_SCOPE(_,n$17,n$19,expected); [line 123]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_12" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_13" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_12" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+"junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_13" [label="13:  method_body \n   n$20=*&$irvar0:java.lang.String* [line 123]\n  *&return:java.lang.String*=n$20 [line 123]\n  NULLIFY(&$irvar0); [line 123]\n  EXIT_SCOPE(n$20,$irvar0); [line 123]\n  APPLY_ABSTRACTION; [line 123]\n " shape="box"]
+	
+
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_13" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_2" ;
+	 "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_13" -> "junit.tests.runner.TextFeedbackTest.expected(java.lang.String[]):java.lang.String.5d89ecb155cd3c332ff687c31c27aa93_3" [color="red" ];
+}

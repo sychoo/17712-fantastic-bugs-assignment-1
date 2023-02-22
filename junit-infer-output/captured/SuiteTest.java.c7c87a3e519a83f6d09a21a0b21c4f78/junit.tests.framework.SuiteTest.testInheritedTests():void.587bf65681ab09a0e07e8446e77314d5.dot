@@ -1,0 +1,49 @@
+/* @generated */
+digraph cfg {
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_1" [label="1: Start void SuiteTest.testInheritedTests()\nFormals:  this:junit.tests.framework.SuiteTest*\nLocals:  $irvar1:void $irvar0:void suite:junit.framework.TestSuite* \n  " color=yellow style=filled]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_1" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_4" ;
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_2" [label="2: Exit void SuiteTest.testInheritedTests() \n  " color=yellow style=filled]
+	
+
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 49]\n  NULLIFY(&suite); [line 49]\n  NULLIFY(&$irvar1); [line 49]\n  EXIT_SCOPE($irvar0,suite,$irvar1); [line 49]\n  APPLY_ABSTRACTION; [line 49]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_2" ;
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_4" [label="4:  Call TestSuite.<init>(Class) \n   n$0=_fun___new(sizeof(t=junit.framework.TestSuite):junit.framework.TestSuite*) [line 45]\n  n$1=_fun_TestSuite.<init>(Class)(n$0:junit.framework.TestSuite*,junit.tests.framework.InheritedTestCase:java.lang.Object*) [line 45]\n  *&suite:junit.framework.TestSuite*=n$0 [line 45]\n  EXIT_SCOPE(n$0,n$1); [line 45]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_4" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_5" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_4" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_5" [label="5:  Call void TestSuite.run(TestResult) \n   n$2=*&suite:junit.framework.TestSuite* [line 46]\n  _=*n$2:junit.framework.TestSuite*(root junit.framework.TestSuite) [line 46]\n  n$4=*&this:junit.tests.framework.SuiteTest* [line 46]\n  n$5=*n$4.fResult:junit.framework.TestResult*(root junit.tests.framework.SuiteTest) [line 46]\n  n$6=_fun_void TestSuite.run(TestResult)(n$2:junit.framework.TestSuite*,n$5:junit.framework.TestResult*) [line 46]\n  NULLIFY(&suite); [line 46]\n  EXIT_SCOPE(_,n$2,n$4,n$5,n$6,suite); [line 46]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_5" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_6" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_5" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_6" [label="6:  Call boolean TestResult.wasSuccessful() \n   n$7=*&this:junit.tests.framework.SuiteTest* [line 47]\n  n$8=*n$7.fResult:junit.framework.TestResult*(root junit.tests.framework.SuiteTest) [line 47]\n  _=*n$8:junit.framework.TestResult*(root junit.framework.TestResult) [line 47]\n  n$10=_fun_boolean TestResult.wasSuccessful()(n$8:junit.framework.TestResult*) virtual [line 47]\n  *&$irvar0:_Bool=n$10 [line 47]\n  EXIT_SCOPE(_,n$7,n$8,n$10); [line 47]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_6" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_7" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_6" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_7" [label="7:  Call void TestCase.assertTrue(boolean) \n   n$11=*&$irvar0:_Bool [line 47]\n  n$12=_fun_void TestCase.assertTrue(boolean)(n$11:_Bool) [line 47]\n  NULLIFY(&$irvar0); [line 47]\n  EXIT_SCOPE(n$11,n$12,$irvar0); [line 47]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_7" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_8" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_7" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_8" [label="8:  Call int TestResult.runCount() \n   n$13=*&this:junit.tests.framework.SuiteTest* [line 48]\n  n$14=*n$13.fResult:junit.framework.TestResult*(root junit.tests.framework.SuiteTest) [line 48]\n  _=*n$14:junit.framework.TestResult*(root junit.framework.TestResult) [line 48]\n  n$16=_fun_int TestResult.runCount()(n$14:junit.framework.TestResult*) virtual [line 48]\n  *&$irvar1:int=n$16 [line 48]\n  NULLIFY(&this); [line 48]\n  EXIT_SCOPE(_,n$13,n$14,n$16,this); [line 48]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_8" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_9" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_8" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_9" [label="9:  Call void TestCase.assertEquals(int,int) \n   n$17=*&$irvar1:int [line 48]\n  n$18=_fun_void TestCase.assertEquals(int,int)(2:int,n$17:int) [line 48]\n  NULLIFY(&$irvar1); [line 48]\n  EXIT_SCOPE(n$17,n$18,$irvar1); [line 48]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_9" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_10" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_9" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_10" [label="10:  method_body \n   APPLY_ABSTRACTION; [line 49]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_10" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_2" ;
+	 "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_10" -> "junit.tests.framework.SuiteTest.testInheritedTests():void.587bf65681ab09a0e07e8446e77314d5_3" [color="red" ];
+}

@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_1" [label="1: Start boolean AllTests.isJDK11()\nFormals: \nLocals:  $irvar0:void version:java.lang.String* \n  " color=yellow style=filled]
+	
+
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_1" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_4" ;
+"junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_2" [label="2: Exit boolean AllTests.isJDK11() \n  " color=yellow style=filled]
+	
+
+"junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_3" [label="3:  exceptions sink \n   NULLIFY(&version); [line 28]\n  NULLIFY(&$irvar0); [line 28]\n  EXIT_SCOPE(version,$irvar0); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="box"]
+	
+
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_3" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_2" ;
+"junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_4" [label="4:  Call String System.getProperty(String) \n   n$0=_fun_String System.getProperty(String)(\"java.version\":java.lang.Object*) [line 27]\n  *&version:java.lang.String*=n$0 [line 27]\n  EXIT_SCOPE(n$0); [line 27]\n " shape="box"]
+	
+
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_4" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_5" ;
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_4" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_3" [color="red" ];
+"junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_5" [label="5:  Call boolean String.startsWith(String) \n   n$1=*&version:java.lang.String* [line 28]\n  _=*n$1:java.lang.String*(root java.lang.String) [line 28]\n  n$3=_fun_boolean String.startsWith(String)(n$1:java.lang.String*,\"1.1\":java.lang.Object*) virtual [line 28]\n  *&$irvar0:_Bool=n$3 [line 28]\n  NULLIFY(&version); [line 28]\n  EXIT_SCOPE(_,n$1,n$3,version); [line 28]\n " shape="box"]
+	
+
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_5" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_6" ;
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_5" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_3" [color="red" ];
+"junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_6" [label="6:  method_body \n   n$4=*&$irvar0:_Bool [line 28]\n  *&return:_Bool=n$4 [line 28]\n  NULLIFY(&$irvar0); [line 28]\n  EXIT_SCOPE(n$4,$irvar0); [line 28]\n  APPLY_ABSTRACTION; [line 28]\n " shape="box"]
+	
+
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_6" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_2" ;
+	 "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_6" -> "junit.tests.runner.AllTests.isJDK11():boolean.f1402c8a1b7467bc390aa6c2678cd335_3" [color="red" ];
+}

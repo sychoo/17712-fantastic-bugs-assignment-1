@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/rules/ErrorCollector.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.assertThrows; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.concurrent.Callable; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.function.ThrowingRunnable; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.internal.AssumptionViolatedException; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.hamcrest.Matcher; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.hamcrest.MatcherAssert; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runners.model.MultipleFailureException; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> * The ErrorCollector rule allows execution of a test to continue after the </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * first problem is found (for example, to collect _all_ the incorrect rows in a </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> * table, and report them all at once): </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> * &lt;pre&gt; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> * public static class UsesErrorCollectorTwice { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> * 	&amp;#064;Rule </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * 	public ErrorCollector collector= new ErrorCollector(); </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> * &amp;#064;Test </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> * public void example() { </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> *      collector.addError(new Throwable(&amp;quot;first thing went wrong&amp;quot;)); </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> *      collector.addError(new Throwable(&amp;quot;second thing went wrong&amp;quot;)); </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> *      collector.checkThat(getResult(), not(containsString(&amp;quot;ERROR!&amp;quot;))); </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> *      // all lines will run, and then a combined failure logged at the end. </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> *     } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> * } </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> * &lt;/pre&gt; </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> * @since 4.7 </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">public class ErrorCollector extends Verifier { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ErrorCollector* [line 37];
+n$1=_fun_Verifier.&lt;init&gt;()(n$0:org.junit.rules.ErrorCollector*) [line 37];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504.html">summary for ErrorCollector.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    private List&lt;Throwable&gt; errors = new ArrayList&lt;Throwable&gt;(); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 38];
+n$3=_fun_ArrayList.&lt;init&gt;()(n$2:java.util.ArrayList*) [line 38];
+*&amp;$irvar0:java.util.ArrayList*=n$2 [line 38];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ErrorCollector* [line 38];
+n$5=*&amp;$irvar0:java.util.ArrayList* [line 38];
+*n$4.errors:org.junit.rules.ErrorCollector(root org.junit.rules.ErrorCollector)=n$5 [line 38];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.<init>%28%29.3561213a9978a7c988d555a79d4b4504_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    protected void verify() throws Throwable { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3.html">summary for void ErrorCollector.verify()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        MultipleFailureException.assertEmpty(errors); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ErrorCollector* [line 42];
+n$1=*n$0.errors:java.util.List*(root org.junit.rules.ErrorCollector) [line 42];
+*&amp;$irvar0:java.util.List*=n$1 [line 42];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.util.List* [line 42];
+n$3=_fun_void MultipleFailureException.assertEmpty(List)(n$2:java.util.List*) [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.verify%28%29%3Avoid.21849e8222f5d18b8456bd6753250ce3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">     * Adds a Throwable to the table.  Execution continues, but the test will fail at the end. </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    public void addError(Throwable error) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 5 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e.html">summary for void ErrorCollector.addError(Throwable)</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        if (error == null) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node4.html"><span class='visited with_tooltip'>C_4<span class='tooltip'>node4 preds:1 succs:6 exn:3 Conditional method_body
+n$0=*&amp;error:java.lang.Throwable* [line 49];
+PRUNE(!(n$0 != null), true); [line 49];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:1 succs:8 9 exn:3 Conditional method_body
+n$0=*&amp;error:java.lang.Throwable* [line 49];
+PRUNE((n$0 != null), false); [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">            throw new NullPointerException(&quot;Error cannot be null&quot;); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:4 succs:7 exn:3 Instructions
+n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 50];
+n$2=_fun_NullPointerException.&lt;init&gt;(String)(n$1:java.lang.NullPointerException*,"Error cannot be null":java.lang.Object*) [line 50];
+*&amp;$irvar0:java.lang.NullPointerException*=n$1 [line 50];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.NullPointerException* [line 50];
+*&amp;return:void=EXN n$3 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        if (error instanceof AssumptionViolatedException) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:5 succs:10 exn:3 Conditional method_body
+n$4=*&amp;error:java.lang.Throwable* [line 52];
+n$5=_fun___instanceof(n$4:java.lang.Throwable*,sizeof(t=org.junit.internal.AssumptionViolatedException;sub_t=( sub )(instof)):void) [line 52];
+PRUNE(!(n$5 == 0), true); [line 52];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:5 succs:14 exn:3 Conditional method_body
+n$4=*&amp;error:java.lang.Throwable* [line 52];
+n$5=_fun___instanceof(n$4:java.lang.Throwable*,sizeof(t=org.junit.internal.AssumptionViolatedException;sub_t=( sub )(instof)):void) [line 52];
+PRUNE((n$5 == 0), false); [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">            AssertionError e = new AssertionError(error.getMessage()); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+n$6=*&amp;error:java.lang.Throwable* [line 53];
+_=*n$6:java.lang.Throwable*(root java.lang.Throwable) [line 53];
+n$8=_fun_String Throwable.getMessage()(n$6:java.lang.Throwable*) virtual [line 53];
+*&amp;$irvar1:java.lang.String*=n$8 [line 53];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$9=_fun___new(sizeof(t=java.lang.AssertionError):java.lang.AssertionError*) [line 53];
+n$10=*&amp;$irvar1:java.lang.String* [line 53];
+n$11=_fun_AssertionError.&lt;init&gt;(Object)(n$9:java.lang.AssertionError*,n$10:java.lang.String*) [line 53];
+*&amp;e:java.lang.AssertionError*=n$9 [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">            e.initCause(error); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$12=*&amp;e:java.lang.AssertionError* [line 54];
+_=*n$12:java.lang.AssertionError*(root java.lang.AssertionError) [line 54];
+n$14=*&amp;error:java.lang.Throwable* [line 54];
+n$15=_fun_Throwable AssertionError.initCause(Throwable)(n$12:java.lang.AssertionError*,n$14:java.lang.Throwable*) virtual [line 54];
+*&amp;$irvar2:java.lang.Throwable*=n$15 [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">            errors.add(e); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:15 exn:3 Instructions
+n$16=*&amp;this:org.junit.rules.ErrorCollector* [line 55];
+n$17=*n$16.errors:java.util.List*(root org.junit.rules.ErrorCollector) [line 55];
+_=*n$17:java.util.List*(root java.util.List) [line 55];
+n$19=*&amp;e:java.lang.AssertionError* [line 55];
+n$20=_fun_boolean List.add(Object)(n$17:java.util.List*,n$19:java.lang.AssertionError*) interface virtual [line 55];
+*&amp;$irvar3:_Bool=n$20 [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">            errors.add(error); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:9 succs:15 exn:3 Instructions
+n$21=*&amp;this:org.junit.rules.ErrorCollector* [line 57];
+n$22=*n$21.errors:java.util.List*(root org.junit.rules.ErrorCollector) [line 57];
+_=*n$22:java.util.List*(root java.util.List) [line 57];
+n$24=*&amp;error:java.lang.Throwable* [line 57];
+n$25=_fun_boolean List.add(Object)(n$22:java.util.List*,n$24:java.lang.Throwable*) interface virtual [line 57];
+*&amp;$irvar4:_Bool=n$25 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    } <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 7 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.addError%28java.lang.Throwable%29%3Avoid.405967b3f02da787d5ecad04ee85eb1e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">     * Adds a failure to the table if {@code matcher} does not match {@code value}. </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">     * Execution continues, but the test will fail at the end if the match fails. </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    public &lt;T&gt; void checkThat(final T value, final Matcher&lt;T&gt; matcher) { </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        checkThat(&quot;&quot;, value, matcher); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.Object%2Corg.hamcrest.Matcher%29%3Avoid.d618de1fe8d07f2edd886615c36a674b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.Object%2Corg.hamcrest.Matcher%29%3Avoid.d618de1fe8d07f2edd886615c36a674b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ErrorCollector* [line 66];
+_=*n$0:org.junit.rules.ErrorCollector*(root org.junit.rules.ErrorCollector) [line 66];
+n$2=*&amp;value:java.lang.Object* [line 66];
+n$3=*&amp;matcher:org.hamcrest.Matcher* [line 66];
+n$4=_fun_void ErrorCollector.checkThat(String,Object,Matcher)(n$0:org.junit.rules.ErrorCollector*,"":java.lang.Object*,n$2:java.lang.Object*,n$3:org.hamcrest.Matcher*) virtual [line 66];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.checkThat%28java.lang.Object%2Corg.hamcrest.Matcher%29%3Avoid.d618de1fe8d07f2edd886615c36a674b.html">summary for void ErrorCollector.checkThat(Object,Matcher)</a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    } <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.Object%2Corg.hamcrest.Matcher%29%3Avoid.d618de1fe8d07f2edd886615c36a674b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.Object%2Corg.hamcrest.Matcher%29%3Avoid.d618de1fe8d07f2edd886615c36a674b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.Object%2Corg.hamcrest.Matcher%29%3Avoid.d618de1fe8d07f2edd886615c36a674b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">     * Adds a failure with the given {@code reason} </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">     * to the table if {@code matcher} does not match {@code value}. </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">     * Execution continues, but the test will fail at the end if the match fails. </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">    public &lt;T&gt; void checkThat(final String reason, final T value, final Matcher&lt;T&gt; matcher) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e.html">summary for void ErrorCollector.checkThat(String,Object,Matcher)</a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        checkSucceeds(new Callable&lt;Object&gt;() { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.ErrorCollector$1):org.junit.rules.ErrorCollector$1*) [line 75];
+n$1=*&amp;this:org.junit.rules.ErrorCollector* [line 75];
+n$2=*&amp;reason:java.lang.String* [line 75];
+n$3=*&amp;value:java.lang.Object* [line 75];
+n$4=*&amp;matcher:org.hamcrest.Matcher* [line 75];
+n$5=_fun_ErrorCollector$1.&lt;init&gt;(ErrorCollector,String,Object,Matcher)(n$0:org.junit.rules.ErrorCollector$1*,n$1:org.junit.rules.ErrorCollector*,n$2:java.lang.String*,n$3:java.lang.Object*,n$4:org.hamcrest.Matcher*) [line 75];
+*&amp;$irvar0:org.junit.rules.ErrorCollector$1*=n$0 [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ErrorCollector$1* [line 75];
+n$1=*&amp;this$0:org.junit.rules.ErrorCollector* [line 75];
+*n$0.this$0:org.junit.rules.ErrorCollector$1(root org.junit.rules.ErrorCollector$1)=n$1 [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.ErrorCollector* [line 75];
+_=*n$6:org.junit.rules.ErrorCollector*(root org.junit.rules.ErrorCollector) [line 75];
+n$8=*&amp;$irvar0:org.junit.rules.ErrorCollector$1* [line 75];
+n$9=_fun_Object ErrorCollector.checkSucceeds(Callable)(n$6:org.junit.rules.ErrorCollector*,n$8:org.junit.rules.ErrorCollector$1*) virtual [line 75];
+*&amp;$irvar1:java.lang.Object*=n$9 [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ErrorCollector$1* [line 75];
+n$3=*&amp;$bcvar2:java.lang.String* [line 75];
+*n$2.val$reason:org.junit.rules.ErrorCollector$1(root org.junit.rules.ErrorCollector$1)=n$3 [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ErrorCollector$1* [line 75];
+n$5=*&amp;$bcvar3:java.lang.Object* [line 75];
+*n$4.val$value:org.junit.rules.ErrorCollector$1(root org.junit.rules.ErrorCollector$1)=n$5 [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.ErrorCollector$1* [line 75];
+n$7=*&amp;$bcvar4:org.hamcrest.Matcher* [line 75];
+*n$6.val$matcher:org.junit.rules.ErrorCollector$1(root org.junit.rules.ErrorCollector$1)=n$7 [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;this:org.junit.rules.ErrorCollector$1* [line 75];
+n$9=_fun_Object.&lt;init&gt;()(n$8:org.junit.rules.ErrorCollector$1*) [line 75];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector%241.<init>%28org.junit.rules.ErrorCollector%2Cjava.lang.String%2Cjava.lang.Ob.9d502e60aee3eb223c8daa7d9a060beb.html">summary for ErrorCollector$1.&lt;init&gt;(ErrorCollector,String,Object,Matcher)</a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">            public Object call() throws Exception { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87.html">summary for Object ErrorCollector$1.call()</a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">                MatcherAssert.assertThat(reason, value, matcher); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.ErrorCollector$1* [line 77];
+n$1=*n$0.val$matcher:org.hamcrest.Matcher*(root org.junit.rules.ErrorCollector$1) [line 77];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$1 [line 77];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.ErrorCollector$1* [line 77];
+n$3=*n$2.val$value:java.lang.Object*(root org.junit.rules.ErrorCollector$1) [line 77];
+*&amp;$irvar1:java.lang.Object*=n$3 [line 77];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ErrorCollector$1* [line 77];
+n$5=*n$4.val$reason:java.lang.String*(root org.junit.rules.ErrorCollector$1) [line 77];
+*&amp;$irvar0:java.lang.String*=n$5 [line 77];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;$irvar0:java.lang.String* [line 77];
+n$7=*&amp;$irvar1:java.lang.Object* [line 77];
+n$8=*&amp;$irvar2:org.hamcrest.Matcher* [line 77];
+n$9=_fun_void MatcherAssert.assertThat(String,Object,Matcher)(n$6:java.lang.String*,n$7:java.lang.Object*,n$8:org.hamcrest.Matcher*) [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">                return value; <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$10=*&amp;this:org.junit.rules.ErrorCollector$1* [line 78];
+n$11=*n$10.val$value:java.lang.Object*(root org.junit.rules.ErrorCollector$1) [line 78];
+*&amp;return:java.lang.Object*=n$11 [line 78];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector%241.call%28%29%3Ajava.lang.Object.9ab37aed33723e6e6813e95532b79f87_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        }); </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    } <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThat%28java.lang.String%2Cjava.lang.Object%2Corg.hamcrest.Matcher%29%3Avoi.1012df5f3902a4f8cc0be24a1561174e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">     * Adds to the table the exception, if any, thrown from {@code callable}. </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">     * Execution continues, but the test will fail at the end if </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">     * {@code callable} threw an exception. </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">    public &lt;T&gt; T checkSucceeds(Callable&lt;T&gt; callable) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f.html">summary for Object ErrorCollector.checkSucceeds(Callable)</a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            return callable.call(); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:18 Instructions
+n$0=*&amp;callable:java.util.concurrent.Callable* [line 90];
+_=*n$0:java.util.concurrent.Callable*(root java.util.concurrent.Callable) [line 90];
+n$2=_fun_Object Callable.call()(n$0:java.util.concurrent.Callable*) interface virtual [line 90];
+*&amp;$irvar0:java.lang.Object*=n$2 [line 90];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Object* [line 90];
+*&amp;return:java.lang.Object*=n$3 [line 90];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        } catch (AssumptionViolatedException e) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:16 succs:7 exn:3 Instructions
+n$4=*&amp;CatchVar7:java.lang.Object* [line 91];
+*&amp;e:java.lang.Object*=n$4 [line 91];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node16.html"><span class='visited with_tooltip'>C_16<span class='tooltip'>node16 preds:18 succs:6 exn:3 Conditional exception handler
+n$23=_fun___instanceof(n$21:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.internal.AssumptionViolatedException):void) [line 91];
+PRUNE(n$23, true); [line 91];
+*&amp;CatchVar7:java.lang.Object*=n$21 [line 91];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:18 succs:14 15 exn:3 Conditional exception handler
+n$23=_fun___instanceof(n$21:org.junit.internal.AssumptionViolatedException*,sizeof(t=org.junit.internal.AssumptionViolatedException):void) [line 91];
+PRUNE(!n$23, false); [line 91];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds: succs:16 17 exn:3 Instructions
+n$20=*&amp;return:java.lang.Object* [line 91];
+*&amp;return:java.lang.Object*=null [line 91];
+n$21=_fun___unwrap_exception(n$20:java.lang.Object*) [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            AssertionError error = new AssertionError(&quot;Callable threw AssumptionViolatedException&quot;); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=_fun___new(sizeof(t=java.lang.AssertionError):java.lang.AssertionError*) [line 92];
+n$6=_fun_AssertionError.&lt;init&gt;(Object)(n$5:java.lang.AssertionError*,"Callable threw AssumptionViolatedException":java.lang.Object*) [line 92];
+*&amp;error:java.lang.AssertionError*=n$5 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">            error.initCause(e); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;error:java.lang.AssertionError* [line 93];
+_=*n$7:java.lang.AssertionError*(root java.lang.AssertionError) [line 93];
+n$9=*&amp;e:java.lang.Object* [line 93];
+n$10=_fun_Throwable AssertionError.initCause(Throwable)(n$7:java.lang.AssertionError*,n$9:java.lang.Object*) virtual [line 93];
+*&amp;$irvar1:java.lang.Throwable*=n$10 [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            addError(error); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;this:org.junit.rules.ErrorCollector* [line 94];
+_=*n$11:org.junit.rules.ErrorCollector*(root org.junit.rules.ErrorCollector) [line 94];
+n$13=*&amp;error:java.lang.AssertionError* [line 94];
+n$14=_fun_void ErrorCollector.addError(Throwable)(n$11:org.junit.rules.ErrorCollector*,n$13:java.lang.AssertionError*) virtual [line 94];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">            return null; <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Object*=null [line 95];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        } catch (Throwable e) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:14 succs:12 exn:3 Instructions
+n$15=*&amp;CatchVar31:java.lang.Object* [line 96];
+*&amp;e:java.lang.Object*=n$15 [line 96];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:17 succs:11 exn:3 Conditional exception handler
+n$22=_fun___instanceof(n$21:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 96];
+PRUNE(n$22, true); [line 96];
+*&amp;CatchVar31:java.lang.Object*=n$21 [line 96];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:17 succs:3 exn:3 Conditional exception handler
+n$22=_fun___instanceof(n$21:java.lang.Throwable*,sizeof(t=java.lang.Throwable):void) [line 96];
+PRUNE(!n$22, false); [line 96];
+*&amp;return:java.lang.Object*=EXN n$21 [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">            addError(e); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;this:org.junit.rules.ErrorCollector* [line 97];
+_=*n$16:org.junit.rules.ErrorCollector*(root org.junit.rules.ErrorCollector) [line 97];
+n$18=*&amp;e:java.lang.Object* [line 97];
+n$19=_fun_void ErrorCollector.addError(Throwable)(n$16:org.junit.rules.ErrorCollector*,n$18:java.lang.Object*) virtual [line 97];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            return null; <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 10 5 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:15 succs:2 exn:2 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkSucceeds%28java.util.concurrent.Callable%29%3Ajava.lang.Object.008335f4007a9b89ca5b9557a8b40d5f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Object*=null [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">     * Adds a failure to the table if {@code runnable} does not throw an </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">     * exception of type {@code expectedThrowable} when executed. </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">     * Execution continues, but the test will fail at the end if the runnable </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">     * does not throw an exception, or if it throws a different exception. </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">     * </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">     * @param expectedThrowable the expected type of the exception </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">     * @param runnable       a function that is expected to throw an exception when executed </td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">     * @since 4.13 </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    public void checkThrows(Class&lt;? extends Throwable&gt; expectedThrowable, ThrowingRunnable runnable) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b.html">summary for void ErrorCollector.checkThrows(Class,ThrowingRunnable)</a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">            assertThrows(expectedThrowable, runnable); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:10 Instructions
+n$0=*&amp;expectedThrowable:java.lang.Class* [line 114];
+n$1=*&amp;runnable:org.junit.function.ThrowingRunnable* [line 114];
+n$2=_fun_Throwable Assert.assertThrows(Class,ThrowingRunnable)(n$0:java.lang.Class*,n$1:org.junit.function.ThrowingRunnable*) [line 114];
+*&amp;$irvar0:java.lang.Throwable*=n$2 [line 114];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        } catch (AssertionError e) { <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:8 succs:6 exn:3 Instructions
+n$3=*&amp;CatchVar9:java.lang.Object* [line 115];
+*&amp;e:java.lang.Object*=n$3 [line 115];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:5 exn:3 Conditional exception handler
+n$10=_fun___instanceof(n$9:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 115];
+PRUNE(n$10, true); [line 115];
+*&amp;CatchVar9:void=n$9 [line 115];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:3 exn:3 Conditional exception handler
+n$10=_fun___instanceof(n$9:java.lang.AssertionError*,sizeof(t=java.lang.AssertionError):void) [line 115];
+PRUNE(!n$10, false); [line 115];
+*&amp;return:void=EXN n$9 [line 115];
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds: succs:8 9 exn:3 Instructions
+n$8=*&amp;return:void [line 115];
+*&amp;return:void=null [line 115];
+n$9=_fun___unwrap_exception(n$8:void) [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">            addError(e); <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.ErrorCollector* [line 116];
+_=*n$4:org.junit.rules.ErrorCollector*(root org.junit.rules.ErrorCollector) [line 116];
+n$6=*&amp;e:java.lang.Object* [line 116];
+n$7=_fun_void ErrorCollector.addError(Throwable)(n$4:org.junit.rules.ErrorCollector*,n$6:java.lang.Object*) virtual [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">    } <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./ErrorCollector.java.572ca47a97c2ffbb3a38d177cca6c52b/nodes/org.junit.rules.ErrorCollector.checkThrows%28java.lang.Class%2Corg.junit.function.ThrowingRunnable%29%3Avoid.c4e9e10d633d4944dc9792a95ffc7a9b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:9 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

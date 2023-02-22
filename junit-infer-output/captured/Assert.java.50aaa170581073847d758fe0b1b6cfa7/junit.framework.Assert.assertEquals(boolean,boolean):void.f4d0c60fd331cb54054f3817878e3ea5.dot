@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_1" [label="1: Start void Assert.assertEquals(boolean,boolean)\nFormals:  expected:_Bool actual:_Bool\nLocals:  \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_1" -> "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_4" ;
+"junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_2" [label="2: Exit void Assert.assertEquals(boolean,boolean) \n  " color=yellow style=filled]
+	
+
+"junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_3" [label="3:  exceptions sink \n   APPLY_ABSTRACTION; [line 182]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_3" -> "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_2" ;
+"junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_4" [label="4:  Call void Assert.assertEquals(String,boolean,boolean) \n   n$0=*&expected:_Bool [line 181]\n  n$1=*&actual:_Bool [line 181]\n  n$2=_fun_void Assert.assertEquals(String,boolean,boolean)(null:java.lang.Object*,n$0:_Bool,n$1:_Bool) [line 181]\n  NULLIFY(&actual); [line 181]\n  NULLIFY(&expected); [line 181]\n  EXIT_SCOPE(n$0,n$1,n$2,actual,expected); [line 181]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_4" -> "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_5" ;
+	 "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_4" -> "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_3" [color="red" ];
+"junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_5" [label="5:  method_body \n   APPLY_ABSTRACTION; [line 182]\n " shape="box"]
+	
+
+	 "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_5" -> "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_2" ;
+	 "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_5" -> "junit.framework.Assert.assertEquals(boolean,boolean):void.f4d0c60fd331cb54054f3817878e3ea5_3" [color="red" ];
+}

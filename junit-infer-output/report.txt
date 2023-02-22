@@ -1,0 +1,1542 @@
+#0
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:9: warning: Precondition Not Met
+  in call to `compact(...)` at line 9.
+   7.   
+   8.       public void testMessage() {
+   9. >         String failure = new ComparisonCompactor(0, "b", "c").compact("a");
+  10.           assertTrue("a expected:<[b]> but was:<[c]>".equals(failure));
+  11.       }
+
+#1
+src/test/java/org/junit/runner/MainRunner.java:9: error: Bad Footprint
+  .
+   7.   
+   8.       public static int runMain(String... args) {
+   9. >         PrintStream oldOut = System.out;
+  10.           System.setOut(new PrintStream(new NullOutputStream()));
+  11.           try {
+
+#2
+src/test/java/junit/tests/framework/ComparisonFailureTest.java:11: warning: Precondition Not Met
+  in call to `getMessage()` at line 11.
+   9.       public void testConnection() {
+  10.           ComparisonFailure failure = new ComparisonFailure("warning", "Mary had a little lamb", "Mary had the little lamb");
+  11. >         assertEquals("warning expected:<Mary had [a] little lamb> but was:<Mary had [the] little lamb>", failure.getMessage());
+  12.       }
+  13.   
+
+#3
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:14: warning: Precondition Not Met
+  in call to `compact(...)` at line 14.
+  12.   
+  13.       public void testStartSame() {
+  14. >         String failure = new ComparisonCompactor(1, "ba", "bc").compact(null);
+  15.           assertEquals("expected:<b[a]> but was:<b[c]>", failure);
+  16.       }
+
+#4
+src/main/java/junit/runner/Version.java:16: error: Bad Footprint
+  .
+  14.   	
+  15.   	public static void main(String[] args) {
+  16. > 		System.out.println(id());
+  17.   	}
+  18.   }
+
+#5
+src/main/java/org/junit/internal/RealSystem.java:16: error: Bad Footprint
+  .
+  14.   
+  15.       public PrintStream out() {
+  16. >         return System.out;
+  17.       }
+  18.   
+
+#6
+java/src/java/io/BufferedReader.java:17: error: Bad Footprint
+  .
+
+#7
+java/src/java/io/ObjectInputStream.java:18: error: Bad Footprint
+  .
+
+#8
+java/src/java/io/ObjectOutputStream.java:17: error: Bad Footprint
+  .
+
+#9
+src/main/java/org/junit/experimental/theories/suppliers/TestedOnSupplier.java:19: error: Null Dereference
+  [B2] object `testedOn` last assigned on line 18 could be null and is dereferenced at line 19.
+  17.           List<PotentialAssignment> list = new ArrayList<PotentialAssignment>();
+  18.           TestedOn testedOn = sig.getAnnotation(TestedOn.class);
+  19. >         int[] ints = testedOn.ints();
+  20.           for (final int i : ints) {
+  21.               list.add(PotentialAssignment.forValue("ints", i));
+
+#10
+src/main/java/org/junit/experimental/theories/ParameterSignature.java:20: error: Bad Footprint
+  .
+  18.           Map<Class<?>, Class<?>> map = new HashMap<Class<?>, Class<?>>();
+  19.   
+  20. >         putSymmetrically(map, boolean.class, Boolean.class);
+  21.           putSymmetrically(map, byte.class, Byte.class);
+  22.           putSymmetrically(map, short.class, Short.class);
+
+#11
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:19: warning: Precondition Not Met
+  in call to `compact(...)` at line 19.
+  17.   
+  18.       public void testEndSame() {
+  19. >         String failure = new ComparisonCompactor(1, "ab", "cb").compact(null);
+  20.           assertEquals("expected:<[a]b> but was:<[c]b>", failure);
+  21.       }
+
+#12
+src/main/java/org/junit/internal/runners/ErrorReportingRunner.java:21: warning: Precondition Not Met
+  possible array out of bounds in call to `ErrorReportingRunner(...)` at line 21.
+  19.   
+  20.       public ErrorReportingRunner(Class<?> testClass, Throwable cause) {
+  21. >         this(cause, testClass);
+  22.       }
+  23.       
+
+#13
+src/test/java/org/junit/tests/listening/RunnerTest.java:23: error: Abduction Case Not Implemented
+  .
+  21.           public void testRunStarted(Description description) {
+  22.               this.testCount = description.testCount();
+  23. >         }
+  24.       }
+  25.   
+
+#14
+src/test/java/org/junit/tests/running/core/CommandLineTest.java:22: error: Bad Footprint
+  .
+  20.       @Before
+  21.       public void before() {
+  22. >         oldOut = System.out;
+  23.           results = new ByteArrayOutputStream();
+  24.           System.setOut(new PrintStream(results));
+
+#15
+src/main/java/junit/framework/ComparisonCompactor.java:29: warning: Precondition Not Met
+  in call to `compactString(...)` at line 29.
+  27.           findCommonPrefix();
+  28.           findCommonSuffix();
+  29. >         String expected = compactString(fExpected);
+  30.           String actual = compactString(fActual);
+  31.           return Assert.format(message, expected, actual);
+
+#16
+src/main/java/org/junit/internal/management/ReflectiveThreadMXBean.java:26: error: Bad Footprint
+  .
+  24.         try {
+  25.           Class<?> threadMXBeanClass = Classes.getClass("java.lang.management.ThreadMXBean");
+  26. >         threadCpuTime = threadMXBeanClass.getMethod("getThreadCpuTime", long.class);
+  27.           threadCpuTimeSupported = threadMXBeanClass.getMethod("isThreadCpuTimeSupported");
+  28.         } catch (ClassNotFoundException e) {
+
+#17
+src/test/java/org/junit/tests/running/core/SystemExitTest.java:23: error: Bad Footprint
+  .
+  21.       @Test
+  22.       public void failureCausesExitCodeOf1() throws Exception {
+  23. >         String java = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+  24.           String classPath = getClass().getClassLoader().getResource(".").getFile() + File.pathSeparator + System.getProperty("java.class.path");
+  25.           String[] cmd = {java, "-cp", classPath, getClass().getName() + "$Exit"};
+
+#18
+src/main/java/org/junit/experimental/theories/internal/SpecificDataPointsSupplier.java:25: error: Null Dereference
+  [B2] object returned by `sig.getAnnotation(org.junit.experimental.theories.FromDataPoints)` could be null and is dereferenced at line 25.
+  23.       protected Collection<Field> getSingleDataPointFields(ParameterSignature sig) {
+  24.           Collection<Field> fields = super.getSingleDataPointFields(sig);        
+  25. >         String requestedName = sig.getAnnotation(FromDataPoints.class).value();
+  26.   
+  27.           List<Field> fieldsWithMatchingNames = new ArrayList<Field>();
+
+#19
+src/main/java/junit/textui/ResultPrinter.java:26: error: Cannot Star
+  .
+  24.       synchronized void print(TestResult result, long runTime) {
+  25.           printHeader(runTime);
+  26. >         printErrors(result);
+  27.           printFailures(result);
+  28.           printFooter(result);
+
+#20
+src/main/java/org/junit/internal/runners/ErrorReportingRunner.java:33: warning: Precondition Not Met
+  in call to `getClassNames(...)` at line 33.
+  31.               }
+  32.           }
+  33. >         classNames = getClassNames(testClasses);
+  34.           causes = getCauses(cause);
+  35.       }
+
+#21
+src/test/java/org/junit/tests/experimental/theories/ParameterSignatureTest.java:27: error: Bad Footprint
+  .
+  25.       public static Method getType() throws SecurityException,
+  26.               NoSuchMethodException {
+  27. >         return ParameterSignatureTest.class.getMethod("getType", Method.class,
+  28.                   int.class);
+  29.       }
+
+#22
+src/test/java/junit/tests/runner/AllTests.java:28: error: Null Dereference
+  [B1] object `version` last assigned on line 27 could be null and is dereferenced at line 28.
+  26.       static boolean isJDK11() {
+  27.           String version = System.getProperty("java.version");
+  28. >         return version.startsWith("1.1");
+  29.       }
+  30.   }
+
+#23
+java/src/java/lang/Integer.java:28: error: Bad Footprint
+  .
+
+#24
+src/test/java/junit/tests/runner/TextRunnerTest.java:28: error: Bad Footprint
+  .
+  26.   
+  27.       void execTest(String testClass, boolean success) throws Exception {
+  28. >         String java = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+  29.           String cp = System.getProperty("java.class.path");
+  30.           //use -classpath for JDK 1.1.7 compatibility
+
+#25
+src/test/java/org/junit/tests/experimental/theories/TestedOnSupplierTest.java:28: error: Bad Footprint
+  .
+  26.   
+  27.       private ParameterSignature signatureOfFoo() throws NoSuchMethodException {
+  28. >         Method method = getClass().getMethod("foo", int.class);
+  29.           return ParameterSignature.signatures(method).get(0);
+  30.       }
+
+#26
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:29: warning: Precondition Not Met
+  in call to `compact(...)` at line 29.
+  27.   
+  28.       public void testNoContextStartAndEndSame() {
+  29. >         String failure = new ComparisonCompactor(0, "abc", "adc").compact(null);
+  30.           assertEquals("expected:<...[b]...> but was:<...[d]...>", failure);
+  31.       }
+
+#27
+src/test/java/junit/tests/runner/TextRunnerSingleMethodTest.java:36: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 36.
+  34.           fgWasInvoked = false;
+  35.           t.start(args);
+  36. >         assertTrue(fgWasInvoked);
+  37.       }
+  38.   
+
+#28
+src/test/java/org/junit/tests/experimental/parallel/ParallelClassTest.java:30: error: Bad Footprint
+  .
+  28.           public void one() throws InterruptedException {
+  29.               fSynchronizer.countDown();
+  30. >             assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS));
+  31.               fExample1One = Thread.currentThread();
+  32.           }
+
+#29
+src/test/java/junit/samples/money/MoneyTest.java:34: error: Null Dereference
+  [B1] object returned by `MoneyTest.fMB1.multiply(0)` could be null and is dereferenced at line 34.
+  32.           assertEquals(expected, fMB1.multiply(2));
+  33.           assertEquals(fMB1, fMB1.multiply(1));
+  34. >         assertTrue(fMB1.multiply(0).isZero());
+  35.       }
+  36.   
+
+#30
+src/test/java/junit/samples/ListTest.java:36: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 36.
+  34.               fullList.add(i);
+  35.           }
+  36. >         assertTrue(fullList.size() == 100 + size);
+  37.       }
+  38.   
+
+#31
+src/test/java/org/junit/internal/runners/ErrorReportingRunnerTest.java:32: warning: Precondition Not Met
+  possible array out of bounds in call to `ErrorReportingRunner(...)` at line 32.
+  30.       @Test(expected = NullPointerException.class)
+  31.       public void cannotCreateWithNullClass2() {
+  32. >         new ErrorReportingRunner(new RuntimeException(), (Class<?>) null);
+  33.       }
+  34.       
+
+#32
+src/test/java/org/junit/tests/experimental/theories/runner/WithAutoGeneratedDataPoints.java:33: error: Bad Footprint
+  .
+  31.       @Test
+  32.       public void shouldAutomaticallyGenerateBooleanDataPoints() throws Throwable {
+  33. >         assertEquals(2, potentialAssignments(
+  34.                   TheoryTestClassWithAutogeneratedParameterValues.class.getMethod("theory", boolean.class)).size());
+  35.       }
+
+#33
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:34: warning: Precondition Not Met
+  in call to `compact(...)` at line 34.
+  32.   
+  33.       public void testStartAndEndContext() {
+  34. >         String failure = new ComparisonCompactor(1, "abc", "adc").compact(null);
+  35.           assertEquals("expected:<a[b]c> but was:<a[d]c>", failure);
+  36.       }
+
+#34
+src/test/java/org/junit/tests/experimental/parallel/ParallelMethodTest.java:35: error: Bad Footprint
+  .
+  33.           public void one() throws InterruptedException {
+  34.               fSynchronizer.countDown();
+  35. >             assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS));
+  36.               fOne = Thread.currentThread();
+  37.           }
+
+#35
+src/test/java/org/junit/tests/junit3compatibility/JUnit38ClassRunnerTest.java:36: error: Abduction Case Not Implemented
+  .
+  34.       public void plansDecoratorCorrectly() {
+  35.           JUnit38ClassRunner runner = new JUnit38ClassRunner(new TestDecorator(new TestSuite(MyTest.class)));
+  36. >         assertEquals(1, runner.testCount());
+  37.       }
+  38.   
+
+#36
+src/test/java/org/junit/tests/experimental/parallel/ParallelClassTest.java:37: error: Bad Footprint
+  .
+  35.           public void two() throws InterruptedException {
+  36.               fSynchronizer.countDown();
+  37. >             assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS));
+  38.               fExample1Two = Thread.currentThread();
+  39.           }
+
+#37
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:39: warning: Precondition Not Met
+  in call to `compact(...)` at line 39.
+  37.   
+  38.       public void testStartAndEndContextWithEllipses() {
+  39. >         String failure = new ComparisonCompactor(1, "abcde", "abfde").compact(null);
+  40.           assertEquals("expected:<...b[c]d...> but was:<...b[f]d...>", failure);
+  41.       }
+
+#38
+src/test/java/org/junit/tests/experimental/theories/extendingwithstubs/Guesser.java:43: error: Bad Footprint
+  .
+  41.               }
+  42.               if (returnType.equals(Integer.class)
+  43. >                     || returnType.equals(int.class)) {
+  44.                   return new Random().nextInt();
+  45.               }
+
+#39
+src/test/java/org/junit/samples/money/MoneyTest.java:44: error: Null Dereference
+  [B1] object returned by `MoneyTest.fMB1.multiply(0)` could be null and is dereferenced at line 44.
+  42.           assertEquals(expected, fMB1.multiply(2));
+  43.           assertEquals(fMB1, fMB1.multiply(1));
+  44. >         assertTrue(fMB1.multiply(0).isZero());
+  45.       }
+  46.   
+
+#40
+src/main/java/org/junit/experimental/theories/internal/SpecificDataPointsSupplier.java:42: error: Null Dereference
+  [B2] object returned by `sig.getAnnotation(org.junit.experimental.theories.FromDataPoints)` could be null and is dereferenced at line 42.
+  40.       protected Collection<Field> getDataPointsFields(ParameterSignature sig) {
+  41.           Collection<Field> fields = super.getDataPointsFields(sig);        
+  42. >         String requestedName = sig.getAnnotation(FromDataPoints.class).value();
+  43.           
+  44.           List<Field> fieldsWithMatchingNames = new ArrayList<Field>();
+
+#41
+src/main/java/org/junit/runner/Runner.java:41: error: Abduction Case Not Implemented
+  .
+  39.        */
+  40.       public int testCount() {
+  41. >         return getDescription().testCount();
+  42.       }
+  43.   }
+
+#42
+src/test/java/org/junit/tests/experimental/parallel/ParallelMethodTest.java:42: error: Bad Footprint
+  .
+  40.           public void two() throws InterruptedException {
+  41.               fSynchronizer.countDown();
+  42. >             assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS));
+  43.               fTwo = Thread.currentThread();
+  44.           }
+
+#43
+src/main/java/junit/textui/TestRunner.java:41: error: Bad Footprint
+  .
+  39.        */
+  40.       public TestRunner() {
+  41. >         this(System.out);
+  42.       }
+  43.   
+
+#44
+src/main/java/org/junit/experimental/ParallelComputer.java:44: error: Bad Footprint
+  .
+  42.                       try {
+  43.                           fService.shutdown();
+  44. >                         fService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+  45.                       } catch (InterruptedException e) {
+  46.                           e.printStackTrace(System.err);
+
+#45
+src/main/java/org/junit/runner/JUnitCommandLineParseResult.java:44: error: Cannot Star
+  .
+  42.           JUnitCommandLineParseResult result = new JUnitCommandLineParseResult();
+  43.   
+  44. >         result.parseArgs(args);
+  45.   
+  46.           return result;
+
+#46
+src/test/java/org/junit/internal/runners/ErrorReportingRunnerTest.java:42: warning: Precondition Not Met
+  possible array out of bounds in call to `ErrorReportingRunner(...)` at line 42.
+  40.       @Test(expected = NullPointerException.class)
+  41.       public void cannotCreateWithoutClass() {
+  42. >         new ErrorReportingRunner(new RuntimeException());
+  43.       }
+  44.   
+
+#47
+src/test/java/org/junit/runner/notification/ConcurrentRunNotifierTest.java:57: error: Bad Footprint
+  .
+  55.           }
+  56.           pool.shutdown();
+  57. >         assertTrue(pool.awaitTermination(TIMEOUT, TimeUnit.SECONDS));
+  58.   
+  59.           fNotifier.removeListener(listener1);
+
+#48
+src/test/java/org/junit/internal/runners/statements/FailOnTimeoutTest.java:43: error: Bad Footprint
+  .
+  41.       @Parameters(name = "lookingForStuckThread = {0}")
+  42.       public static Iterable<Boolean> getParameters() {
+  43. >         return Arrays.asList(Boolean.TRUE, Boolean.FALSE);
+  44.       }
+  45.   
+
+#49
+src/main/java/org/junit/internal/runners/statements/FailOnTimeout.java:43: error: Bad Footprint
+  .
+  41.       @Deprecated
+  42.       public FailOnTimeout(Statement statement, long timeoutMillis) {
+  43. >         this(builder().withTimeout(timeoutMillis, TimeUnit.MILLISECONDS), statement);
+  44.       }
+  45.   
+
+#50
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:44: warning: Precondition Not Met
+  in call to `compact(...)` at line 44.
+  42.   
+  43.       public void testComparisonErrorStartSameComplete() {
+  44. >         String failure = new ComparisonCompactor(2, "ab", "abc").compact(null);
+  45.           assertEquals("expected:<ab[]> but was:<ab[c]>", failure);
+  46.       }
+
+#51
+src/test/java/org/junit/tests/junit3compatibility/AllTestsTest.java:45: error: Abduction Case Not Implemented
+  .
+  43.       public void correctTestCount() throws Throwable {
+  44.           AllTests tests = new AllTests(All.class);
+  45. >         assertEquals(1, tests.testCount());
+  46.       }
+  47.   
+
+#52
+src/test/java/junit/tests/framework/SuiteTest.java:47: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 47.
+  45.           TestSuite suite = new TestSuite(InheritedTestCase.class);
+  46.           suite.run(fResult);
+  47. >         assertTrue(fResult.wasSuccessful());
+  48.           assertEquals(2, fResult.runCount());
+  49.       }
+
+#53
+src/test/java/junit/tests/runner/TextRunnerTest.java:45: error: Bad Footprint
+  .
+  43.   
+  44.       public void testRunReturnsResult() {
+  45. >         PrintStream oldOut = System.out;
+  46.           System.setOut(new PrintStream(
+  47.                   new OutputStream() {
+
+#54
+src/test/java/org/junit/rules/RuleChainTest.java:46: warning: Precondition Not Met
+  in call to `outerRule(...)` at line 46.
+  44.       public static class UseRuleChain {
+  45.           @Rule
+  46. >         public final RuleChain chain = outerRule(new LoggingRule("outer rule"))
+  47.                   .around(new LoggingRule("middle rule")).around(
+  48.                           new LoggingRule("inner rule"));
+
+#55
+src/test/java/org/junit/tests/experimental/parallel/ParallelClassTest.java:46: error: Bad Footprint
+  .
+  44.           public void one() throws InterruptedException {
+  45.               fSynchronizer.countDown();
+  46. >             assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS));
+  47.               fExample2One = Thread.currentThread();
+  48.           }
+
+#56
+src/main/java/junit/framework/JUnit4TestAdapter.java:46: error: Abduction Case Not Implemented
+  .
+  44.   
+  45.       public int countTestCases() {
+  46. >         return fRunner.testCount();
+  47.       }
+  48.   
+
+#57
+src/test/java/junit/samples/SimpleTest.java:49: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 49.
+  47.           double result = fValue1 + fValue2;
+  48.           // forced failure result == 5
+  49. >         assertTrue(result == 6);
+  50.       }
+  51.   
+
+#58
+src/test/java/junit/tests/framework/TestCaseTest.java:60: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 60.
+  58.           };
+  59.           verifyError(fails);
+  60. >         assertTrue(fails.fTornDown);
+  61.       }
+  62.   
+
+#59
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:49: warning: Precondition Not Met
+  in call to `compact(...)` at line 49.
+  47.   
+  48.       public void testComparisonErrorEndSameComplete() {
+  49. >         String failure = new ComparisonCompactor(0, "bc", "abc").compact(null);
+  50.           assertEquals("expected:<[]...> but was:<[a]...>", failure);
+  51.       }
+
+#60
+src/test/java/org/junit/tests/experimental/theories/ParameterSignatureTest.java:50: error: Bad Footprint
+  .
+  48.       public void getAnnotations() throws SecurityException,
+  49.               NoSuchMethodException {
+  50. >         Method method = getClass().getMethod("foo", int.class);
+  51.           List<Annotation> annotations = ParameterSignature.signatures(method)
+  52.                   .get(0).getAnnotations();
+
+#61
+src/test/java/org/junit/tests/listening/TextListenerTest.java:52: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 52.
+  50.           runner.run(ErrorTest.class);
+  51.           assertTrue(results.toString().startsWith(convert(".E\nTime: ")));
+  52. >         assertTrue(results.toString().indexOf(convert("\nThere was 1 failure:\n1) error(org.junit.tests.listening.TextListenerTest$ErrorTest)\njava.lang.Exception")) != -1);
+  53.       }
+  54.   
+
+#62
+src/main/java/org/junit/internal/runners/TestMethod.java:52: error: Null Dereference
+  [B2] object returned by `getExpectedException()` could be null and is dereferenced at line 52.
+  50.   
+  51.       boolean isUnexpected(Throwable exception) {
+  52. >         return !getExpectedException().isAssignableFrom(exception.getClass());
+  53.       }
+  54.   
+
+#63
+src/test/java/junit/tests/framework/SuiteTest.java:55: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 55.
+  53.           t.run(fResult);
+  54.           assertEquals(1, fResult.runCount());  // warning test
+  55. >         assertTrue(!fResult.wasSuccessful());
+  56.       }
+  57.   
+
+#64
+src/test/java/org/junit/tests/experimental/parallel/ParallelClassTest.java:53: error: Bad Footprint
+  .
+  51.           public void two() throws InterruptedException {
+  52.               fSynchronizer.countDown();
+  53. >             assertTrue(fSynchronizer.await(TIMEOUT, TimeUnit.SECONDS));
+  54.               fExample2Two = Thread.currentThread();
+  55.           }
+
+#65
+src/test/java/org/junit/rules/StopwatchTest.java:99: warning: Precondition Not Met
+  in call to `outerRule(...)` at line 99.
+   97.           @Rule
+   98.           public final RuleChain chain = RuleChain
+   99. >             .outerRule(watcher)
+  100.               .around(stopwatch);
+  101.   
+
+#66
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:54: warning: Precondition Not Met
+  in call to `compact(...)` at line 54.
+  52.   
+  53.       public void testComparisonErrorEndSameCompleteContext() {
+  54. >         String failure = new ComparisonCompactor(2, "bc", "abc").compact(null);
+  55.           assertEquals("expected:<[]bc> but was:<[a]bc>", failure);
+  56.       }
+
+#67
+src/test/java/junit/samples/ListTest.java:59: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 59.
+  57.           fullList.removeAll(fullList);
+  58.           emptyList.removeAll(emptyList);
+  59. >         assertTrue(fullList.isEmpty());
+  60.           assertTrue(emptyList.isEmpty());
+  61.       }
+
+#68
+src/main/java/org/junit/experimental/theories/internal/SpecificDataPointsSupplier.java:59: error: Null Dereference
+  [B2] object returned by `sig.getAnnotation(org.junit.experimental.theories.FromDataPoints)` could be null and is dereferenced at line 59.
+  57.       protected Collection<FrameworkMethod> getSingleDataPointMethods(ParameterSignature sig) {
+  58.           Collection<FrameworkMethod> methods = super.getSingleDataPointMethods(sig);
+  59. >         String requestedName = sig.getAnnotation(FromDataPoints.class).value();
+  60.           
+  61.           List<FrameworkMethod> methodsWithMatchingNames = new ArrayList<FrameworkMethod>();
+
+#69
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:59: warning: Precondition Not Met
+  in call to `compact(...)` at line 59.
+  57.   
+  58.       public void testComparisonErrorOverlappingMatches() {
+  59. >         String failure = new ComparisonCompactor(0, "abc", "abbc").compact(null);
+  60.           assertEquals("expected:<...[]...> but was:<...[b]...>", failure);
+  61.       }
+
+#70
+src/test/java/junit/tests/framework/SuiteTest.java:61: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 61.
+  59.           Test t = new TestSuite(NoTestCases.class);
+  60.           t.run(fResult);
+  61. >         assertTrue(fResult.runCount() == 1);  // warning test
+  62.           assertTrue(fResult.failureCount() == 1);
+  63.           assertTrue(!fResult.wasSuccessful());
+
+#71
+src/test/java/junit/tests/framework/SuiteTest.java:62: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 62.
+  60.           t.run(fResult);
+  61.           assertTrue(fResult.runCount() == 1);  // warning test
+  62. >         assertTrue(fResult.failureCount() == 1);
+  63.           assertTrue(!fResult.wasSuccessful());
+  64.       }
+
+#72
+src/test/java/junit/tests/framework/SuiteTest.java:63: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 63.
+  61.           assertTrue(fResult.runCount() == 1);  // warning test
+  62.           assertTrue(fResult.failureCount() == 1);
+  63. >         assertTrue(!fResult.wasSuccessful());
+  64.       }
+  65.   
+
+#73
+src/main/java/org/junit/internal/runners/MethodRoadie.java:71: error: Bad Footprint
+  .
+  69.                   service.shutdown();
+  70.                   try {
+  71. >                     boolean terminated = service.awaitTermination(timeout,
+  72.                               TimeUnit.MILLISECONDS);
+  73.                       if (!terminated) {
+
+#74
+src/main/java/org/junit/internal/runners/statements/FailOnTimeout.java:61: error: Bad Footprint
+  .
+  59.           private boolean lookForStuckThread = false;
+  60.           private long timeout = 0;
+  61. >         private TimeUnit unit = TimeUnit.SECONDS;
+  62.   
+  63.           private Builder() {
+
+#75
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:64: warning: Precondition Not Met
+  in call to `compact(...)` at line 64.
+  62.   
+  63.       public void testComparisonErrorOverlappingMatchesContext() {
+  64. >         String failure = new ComparisonCompactor(2, "abc", "abbc").compact(null);
+  65.           assertEquals("expected:<ab[]c> but was:<ab[b]c>", failure);
+  66.       }
+
+#76
+src/test/java/org/junit/tests/description/AnnotatedDescriptionTest.java:68: error: Null Dereference
+  [B1] object returned by `description.getAnnotation(org.junit.tests.description.AnnotatedDescriptionTest$ValuedAnnotation)` could be null and is dereferenced at line 68.
+  66.           Description description = describe(ValueAnnotatedClass.class);
+  67.           assertEquals("hello", description.getAnnotation(ValuedAnnotation.class)
+  68. >                 .value());
+  69.       }
+  70.   
+
+#77
+src/test/java/junit/tests/framework/SuiteTest.java:69: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 69.
+  67.           Test t = new SuiteTest("notExistingMethod");
+  68.           t.run(fResult);
+  69. >         assertTrue(fResult.runCount() == 1);
+  70.           assertTrue(fResult.failureCount() == 1);
+  71.           assertTrue(fResult.errorCount() == 0);
+
+#78
+src/test/java/junit/tests/framework/SuiteTest.java:70: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 70.
+  68.           t.run(fResult);
+  69.           assertTrue(fResult.runCount() == 1);
+  70. >         assertTrue(fResult.failureCount() == 1);
+  71.           assertTrue(fResult.errorCount() == 0);
+  72.       }
+
+#79
+src/test/java/junit/tests/framework/SuiteTest.java:71: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 71.
+  69.           assertTrue(fResult.runCount() == 1);
+  70.           assertTrue(fResult.failureCount() == 1);
+  71. >         assertTrue(fResult.errorCount() == 0);
+  72.       }
+  73.   
+
+#80
+src/test/java/org/junit/tests/experimental/theories/runner/WithAutoGeneratedDataPoints.java:67: error: Bad Footprint
+  .
+  65.       @Test
+  66.       public void shouldNotAutogenerateBooleanDataPointsWhenSpecificDataPointGiven() throws Throwable {
+  67. >         assertEquals(1, potentialAssignments(
+  68.                   TheoryTestClassWithSpecificBooleanDataPoint.class.getMethod("theory", boolean.class)).size());
+  69.       }    
+
+#81
+src/test/java/org/junit/tests/experimental/theories/ParameterSignatureTest.java:72: error: Bad Footprint
+  .
+  70.           ParameterSignature integerSignature = signatures.get(0);
+  71.   
+  72. >         assertTrue(integerSignature.canAcceptType(int.class));
+  73.       }
+  74.       
+
+#82
+src/main/java/org/junit/rules/Timeout.java:68: error: Bad Footprint
+  .
+  66.       @Deprecated
+  67.       public Timeout(int millis) {
+  68. >         this(millis, TimeUnit.MILLISECONDS);
+  69.       }
+  70.   
+
+#83
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:69: warning: Precondition Not Met
+  in call to `compact(...)` at line 69.
+  67.   
+  68.       public void testComparisonErrorOverlappingMatches2() {
+  69. >         String failure = new ComparisonCompactor(0, "abcdde", "abcde").compact(null);
+  70.           assertEquals("expected:<...[d]...> but was:<...[]...>", failure);
+  71.       }
+
+#84
+src/main/java/org/junit/internal/runners/MethodValidator.java:87: error: Bad Footprint
+  .
+  85.   						+ " should be public"));
+  86.               }
+  87. >             if (each.getReturnType() != Void.TYPE) {
+  88.                   errors.add(new Exception("Method " + each.getName()
+  89.   						+ "should have a return type of void"));
+
+#85
+src/test/java/org/junit/tests/junit3compatibility/AllTestsTest.java:73: error: Abduction Case Not Implemented
+  .
+  71.       public void correctTestCountAdapted() throws Throwable {
+  72.           AllTests tests = new AllTests(AllJUnit4.class);
+  73. >         assertEquals(1, tests.testCount());
+  74.       }
+  75.   
+
+#86
+src/test/java/org/junit/tests/description/AnnotatedDescriptionTest.java:75: error: Null Dereference
+  [B1] object returned by `description.childlessCopy().getAnnotation(org.junit.tests.description.AnnotatedDescriptionTest$ValuedAnnotation)` could be null and is dereferenced at line 75.
+  73.           Description description = describe(ValueAnnotatedClass.class);
+  74.           assertEquals("hello", description.childlessCopy().getAnnotation(ValuedAnnotation.class)
+  75. >                 .value());
+  76.       }
+  77.   
+
+#87
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:74: warning: Precondition Not Met
+  in call to `compact(...)` at line 74.
+  72.   
+  73.       public void testComparisonErrorOverlappingMatches2Context() {
+  74. >         String failure = new ComparisonCompactor(2, "abcdde", "abcde").compact(null);
+  75.           assertEquals("expected:<...cd[d]e> but was:<...cd[]e>", failure);
+  76.       }
+
+#88
+src/main/java/org/junit/experimental/theories/internal/SpecificDataPointsSupplier.java:76: error: Null Dereference
+  [B2] object returned by `sig.getAnnotation(org.junit.experimental.theories.FromDataPoints)` could be null and is dereferenced at line 76.
+  74.       protected Collection<FrameworkMethod> getDataPointsMethods(ParameterSignature sig) {
+  75.           Collection<FrameworkMethod> methods = super.getDataPointsMethods(sig);
+  76. >         String requestedName = sig.getAnnotation(FromDataPoints.class).value();
+  77.           
+  78.           List<FrameworkMethod> methodsWithMatchingNames = new ArrayList<FrameworkMethod>();
+
+#89
+src/main/java/org/junit/internal/AssumptionViolatedException.java:75: warning: Precondition Not Met
+  in call to `AssumptionViolatedException(...)` at line 75.
+  73.       @Deprecated
+  74.       public AssumptionViolatedException(String assumption) {
+  75. >         this(assumption, false, null, null);
+  76.       }
+  77.   
+
+#90
+src/test/java/org/junit/tests/experimental/theories/ParameterSignatureTest.java:81: error: Bad Footprint
+  .
+  79.           ParameterSignature numberSignature = signatures.get(0);
+  80.   
+  81. >         assertTrue(numberSignature.canAcceptType(int.class));
+  82.       }
+  83.       
+
+#91
+src/test/java/junit/samples/money/MoneyTest.java:78: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 78.
+  76.   
+  77.       public void testMoneyBagEquals() {
+  78. >         assertTrue(!fMB1.equals(null));
+  79.   
+  80.           assertEquals(fMB1, fMB1);
+
+#92
+src/test/java/junit/samples/money/MoneyTest.java:82: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 82.
+  80.           assertEquals(fMB1, fMB1);
+  81.           IMoney equal = MoneyBag.create(new Money(12, "CHF"), new Money(7, "USD"));
+  82. >         assertTrue(fMB1.equals(equal));
+  83.           assertTrue(!fMB1.equals(f12CHF));
+  84.           assertTrue(!f12CHF.equals(fMB1));
+
+#93
+src/test/java/org/junit/rules/RuleChainTest.java:79: warning: Precondition Not Met
+  in call to `outerRule(...)` at line 79.
+  77.       public static class RuleChainWithNullRules {
+  78.           @Rule
+  79. >         public final RuleChain chain = outerRule(new LoggingRule("outer rule"))
+  80.                   .around(null);
+  81.   
+
+#94
+src/test/java/junit/tests/framework/SuiteTest.java:82: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 82.
+  80.       public void testNotVoidTestCase() {
+  81.           TestSuite suite = new TestSuite(NotVoidTestCase.class);
+  82. >         assertTrue(suite.countTestCases() == 1);
+  83.       }
+  84.   
+
+#95
+src/test/java/org/junit/tests/experimental/theories/internal/ParameterizedAssertionErrorTest.java:83: warning: Precondition Not Met
+  in call to `equals(...)` at line 83.
+  81.       @Theory
+  82.       public void isNotEqualToNull(ParameterizedAssertionError a) {
+  83. >         assertFalse(a.equals(null));
+  84.       }
+  85.   
+
+#96
+src/main/java/org/junit/internal/AssumptionViolatedException.java:85: warning: Precondition Not Met
+  in call to `AssumptionViolatedException(...)` at line 85.
+  83.       @Deprecated
+  84.       public AssumptionViolatedException(String assumption, Throwable e) {
+  85. >         this(assumption, false, null, null);
+  86.           initCause(e);
+  87.       }
+
+#97
+src/test/java/junit/tests/framework/SuiteTest.java:88: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 88.
+  86.           TestSuite t = new TestSuite(OneTestCase.class);
+  87.           t.run(fResult);
+  88. >         assertTrue(fResult.runCount() == 1);
+  89.           assertTrue(fResult.failureCount() == 0);
+  90.           assertTrue(fResult.errorCount() == 0);
+
+#98
+src/test/java/junit/tests/framework/SuiteTest.java:89: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 89.
+  87.           t.run(fResult);
+  88.           assertTrue(fResult.runCount() == 1);
+  89. >         assertTrue(fResult.failureCount() == 0);
+  90.           assertTrue(fResult.errorCount() == 0);
+  91.           assertTrue(fResult.wasSuccessful());
+
+#99
+src/test/java/junit/tests/framework/SuiteTest.java:90: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 90.
+  88.           assertTrue(fResult.runCount() == 1);
+  89.           assertTrue(fResult.failureCount() == 0);
+  90. >         assertTrue(fResult.errorCount() == 0);
+  91.           assertTrue(fResult.wasSuccessful());
+  92.       }
+
+#100
+src/test/java/junit/tests/framework/SuiteTest.java:91: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 91.
+  89.           assertTrue(fResult.failureCount() == 0);
+  90.           assertTrue(fResult.errorCount() == 0);
+  91. >         assertTrue(fResult.wasSuccessful());
+  92.       }
+  93.   
+
+#101
+src/test/java/org/junit/tests/experimental/theories/ParameterSignatureTest.java:87: error: Bad Footprint
+  .
+  85.       public void wrapperTypesShouldBeAcceptedAsPrimitiveTypes() throws Exception {
+  86.           List<ParameterSignature> signatures = ParameterSignature
+  87. >                 .signatures(getClass().getMethod("intMethod", int.class));
+  88.           ParameterSignature intSignature = signatures.get(0);
+  89.   
+
+#102
+src/main/java/org/junit/experimental/theories/internal/Assignments.java:91: error: Bad Footprint
+  .
+  89.           if (paramType.isEnum()) {
+  90.               return new EnumSupplier(paramType).getValueSources(unassigned);  
+  91. >         } else if (paramType.equals(Boolean.class) || paramType.equals(boolean.class)) {
+  92.               return new BooleanSupplier().getValueSources(unassigned);
+  93.           } else {
+
+#103
+src/main/java/org/junit/internal/runners/MethodRoadie.java:87: warning: Precondition Not Met
+  in call to `runBeforesThenTestThenAfters(...)` at line 87.
+  85.   
+  86.       public void runTest() {
+  87. >         runBeforesThenTestThenAfters(new Runnable() {
+  88.               public void run() {
+  89.                   runTestMethod();
+
+#104
+src/test/java/org/junit/runner/notification/ConcurrentRunNotifierTest.java:122: error: Bad Footprint
+  .
+  120.   
+  121.               // Wait for callable to start
+  122. >             trigger.await(TIMEOUT, TimeUnit.SECONDS);
+  123.   
+  124.               // Wait for callable to fire a few events
+
+#105
+src/test/java/junit/samples/money/MoneyTest.java:94: error: Null Dereference
+  [B1] object `null` is dereferenced by call to `equals(...)` at line 94.
+  92.   
+  93.       public void testMoneyEquals() {
+  94. >         assertTrue(!f12CHF.equals(null));
+  95.           Money equalMoney = new Money(12, "CHF");
+  96.           assertEquals(f12CHF, f12CHF);
+
+#106
+src/main/java/org/junit/ComparisonFailure.java:103: warning: Precondition Not Met
+  in call to `expectedDiff()` at line 103.
+  101.                   String compactedSuffix = extractor.compactSuffix();
+  102.                   return Assert.format(message,
+  103. >                         compactedPrefix + extractor.expectedDiff() + compactedSuffix,
+  104.                           compactedPrefix + extractor.actualDiff() + compactedSuffix);
+  105.               }
+
+#107
+src/test/java/junit/tests/framework/TestCaseTest.java:99: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 99.
+   97.           TornDown fails = new TornDown();
+   98.           verifyError(fails);
+   99. >         assertTrue(fails.fTornDown);
+  100.       }
+  101.   
+
+#108
+src/test/java/org/junit/rules/TimeoutRuleTest.java:99: error: Bad Footprint
+  .
+   97.       public static class HasGlobalTimeUnitTimeout extends AbstractTimeoutTest {
+   98.   
+   99. >         @Rule
+  100.           public final TestRule globalTimeout = new Timeout(200, TimeUnit.MILLISECONDS);
+  101.       }
+
+#109
+src/main/java/org/junit/rules/Stopwatch.java:99: error: Bad Footprint
+  .
+   97.        */
+   98.       public long runtime(TimeUnit unit) {
+   99. >         return unit.convert(getNanos(), TimeUnit.NANOSECONDS);
+  100.       }
+  101.   
+
+#110
+src/test/java/junit/tests/framework/ComparisonCompactorTest.java:99: warning: Precondition Not Met
+  in call to `compact(...)` at line 99.
+   97.   
+   98.       public void testBug609972() {
+   99. >         String failure = new ComparisonCompactor(10, "S&P500", "0").compact(null);
+  100.           assertEquals("expected:<[S&P50]0> but was:<[]0>", failure);
+  101.       }
+
+#111
+src/main/java/org/junit/runners/model/FrameworkMethod.java:107: error: Bad Footprint
+  .
+  105.               errors.add(new Exception("Method " + method.getName() + "() should be public"));
+  106.           }
+  107. >         if (method.getReturnType() != Void.TYPE) {
+  108.               errors.add(new Exception("Method " + method.getName() + "() should be void"));
+  109.           }
+
+#112
+src/test/java/junit/tests/framework/AssertTest.java:102: warning: Precondition Not Met
+  in call to `assertNull(...)` at line 102.
+  100.           assertNull(null);
+  101.           try {
+  102. >             assertNull(new Object());
+  103.           } catch (AssertionFailedError e) {
+  104.               return;
+
+#113
+src/test/java/org/junit/tests/running/classes/ParentRunnerTest.java:101: error: Null Dereference
+  [B2] object returned by `description.getMethodName()` could be null and is dereferenced at line 101.
+   99.           @Override
+  100.           public boolean shouldRun(Description description) {
+  101. >             return !description.getMethodName().equals(methodName);
+  102.           }
+  103.   
+
+#114
+src/test/java/junit/samples/money/MoneyTest.java:103: error: Null Dereference
+  [B1] object `null` is dereferenced by call to `equals(...)` at line 103.
+  101.   
+  102.       public void testMoneyHash() {
+  103. >         assertTrue(!f12CHF.equals(null));
+  104.           Money equal = new Money(12, "CHF");
+  105.           assertEquals(f12CHF.hashCode(), equal.hashCode());
+
+#115
+src/test/java/org/junit/rules/TempFolderRuleTest.java:105: error: Bad Footprint
+  .
+  103.               StringBuilder path = new StringBuilder();
+  104.               for (String folderName : folderNames) {
+  105. >                 path.append(File.separator).append(folderName);
+  106.               }
+  107.               return path.toString();
+
+#116
+src/main/java/org/junit/rules/Timeout.java:105: error: Bad Footprint
+  .
+  103.        */
+  104.       public static Timeout millis(long millis) {
+  105. >         return new Timeout(millis, TimeUnit.MILLISECONDS);
+  106.       }
+  107.   
+
+#117
+src/test/java/org/junit/runner/notification/SynchronizedRunListenerTest.java:114: warning: Precondition Not Met
+  in call to `equals(...)` at line 114.
+  112.           assertTrue(listener3.equals(listener3));
+  113.   
+  114. >         assertFalse(listener1.equals(null));
+  115.           assertFalse(listener1.equals(new Object()));
+  116.   
+
+#118
+src/main/java/org/junit/internal/runners/MethodRoadie.java:110: error: Null Dereference
+  [B1] object returned by `MethodRoadie.testMethod.getExpectedException()` could be null and is dereferenced at line 110.
+  108.               testMethod.invoke(test);
+  109.               if (testMethod.expectsException()) {
+  110. >                 addFailure(new AssertionError("Expected exception: " + testMethod.getExpectedException().getName()));
+  111.               }
+  112.           } catch (InvocationTargetException e) {
+
+#119
+src/test/java/junit/tests/framework/AssertTest.java:112: warning: Precondition Not Met
+  in call to `assertNotNull(...)` at line 112.
+  110.           assertNotNull(new Object());
+  111.           try {
+  112. >             assertNotNull(null);
+  113.           } catch (AssertionFailedError e) {
+  114.               return;
+
+#120
+src/test/java/org/junit/tests/manipulation/SingleMethodTest.java:111: error: Abduction Case Not Implemented
+  .
+  109.       public void filteringAffectsPlan() throws Exception {
+  110.           Runner runner = Request.method(OneTimeSetup.class, "one").getRunner();
+  111. >         assertEquals(1, runner.testCount());
+  112.       }
+  113.   
+
+#121
+src/test/java/org/junit/rules/TemporaryFolderUsageTest.java:117: error: Bad Footprint
+  .
+  115.               fileAtRoot = roots[0].getAbsolutePath() + "temp1";
+  116.           } else {
+  117. >             fileAtRoot = File.separator + "temp1";
+  118.           }
+  119.           tempFolder.create();
+
+#122
+src/test/java/org/junit/samples/money/MoneyTest.java:114: error: Null Dereference
+  [B1] object `null` is dereferenced by call to `equals(...)` at line 114.
+  112.       @Test
+  113.       public void testMoneyEquals() {
+  114. >         assertTrue(!f12CHF.equals(null));
+  115.           Money equalMoney = new Money(12, "CHF");
+  116.           assertEquals(f12CHF, f12CHF);
+
+#123
+src/main/java/org/junit/rules/Timeout.java:115: error: Bad Footprint
+  .
+  113.        */
+  114.       public static Timeout seconds(long seconds) {
+  115. >         return new Timeout(seconds, TimeUnit.SECONDS);
+  116.       }
+  117.   
+
+#124
+src/test/java/junit/tests/framework/AssertTest.java:122: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 122.
+  120.           assertTrue(true);
+  121.           try {
+  122. >             assertTrue(false);
+  123.           } catch (AssertionFailedError e) {
+  124.               return;
+
+#125
+src/main/java/org/junit/experimental/categories/Categories.java:122: warning: Precondition Not Met
+  in call to `Categories$CategoryFilter(...)` at line 122.
+  120.   
+  121.           public static CategoryFilter include(boolean matchAny, Class<?>... categories) {
+  122. >             return new CategoryFilter(matchAny, categories, true, null);
+  123.           }
+  124.   
+
+#126
+src/main/java/junit/textui/TestRunner.java:129: error: Bad Footprint
+  .
+  127.           fPrinter.printWaitPrompt();
+  128.           try {
+  129. >             System.in.read();
+  130.           } catch (Exception e) {
+  131.           }
+
+#127
+src/test/java/org/junit/rules/TemporaryFolderUsageTest.java:129: error: Bad Footprint
+  .
+  127.               throws IOException {
+  128.           tempFolder.create();
+  129. >         tempFolder.newFolder("temp1" + File.separator + "temp2");
+  130.           File temp1 = new File(tempFolder.getRoot(), "temp1");
+  131.           assertFileIsDirectory(temp1);
+
+#128
+src/test/java/junit/tests/framework/TestCaseTest.java:130: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 130.
+  128.           WasRun test = new WasRun();
+  129.           test.run();
+  130. >         assertTrue(test.fWasRun);
+  131.       }
+  132.   
+
+#129
+src/test/java/org/junit/rules/StopwatchTest.java:130: error: Bad Footprint
+  .
+  128.           public void duration() {
+  129.               simulateTimePassing(300L);
+  130. >             assertEquals(300L, stopwatch.runtime(MILLISECONDS));
+  131.               simulateTimePassing(500L);
+  132.               assertEquals(800L, stopwatch.runtime(MILLISECONDS));
+
+#130
+src/test/java/org/junit/samples/money/MoneyTest.java:133: error: Null Dereference
+  [B1] object `null` is dereferenced by call to `equals(...)` at line 133.
+  131.       @Test
+  132.       public void testMoneyHash() {
+  133. >         assertTrue(!f12CHF.equals(null));
+  134.           Money equal = new Money(12, "CHF");
+  135.           assertEquals(f12CHF.hashCode(), equal.hashCode());
+
+#131
+src/main/java/org/junit/experimental/categories/Categories.java:134: warning: Precondition Not Met
+  in call to `Categories$CategoryFilter(...)` at line 134.
+  132.   
+  133.           public static CategoryFilter exclude(boolean matchAny, Class<?>... categories) {
+  134. >             return new CategoryFilter(true, null, matchAny, categories);
+  135.           }
+  136.   
+
+#132
+src/test/java/org/junit/rules/StopwatchTest.java:140: error: Bad Footprint
+  .
+  138.           public void duration() {
+  139.               simulateTimePassing(300L);
+  140. >             assertEquals(300L, stopwatch.runtime(MILLISECONDS));
+  141.           }
+  142.   
+
+#133
+src/test/java/org/junit/rules/StopwatchTest.java:145: error: Bad Footprint
+  .
+  143.           @Override
+  144.           protected void afterStopwatchRule() {
+  145. >             assertEquals(300L, stopwatch.runtime(MILLISECONDS));
+  146.               simulateTimePassing(500L);
+  147.               assertEquals(300L, stopwatch.runtime(MILLISECONDS));
+
+#134
+src/test/java/org/junit/rules/TemporaryFolderUsageTest.java:151: error: Bad Footprint
+  .
+  149.   
+  150.           thrown.expect(IOException.class);
+  151. >         String path = "level1" + File.separator + "level2" + File.separator + "level3";
+  152.           thrown.expectMessage("a folder with the path '" + path + "' already exists");
+  153.           tempFolder.newFolder("level1", "level2", "level3");
+
+#135
+src/test/java/junit/tests/framework/TestCaseTest.java:163: warning: Precondition Not Met
+  in call to `runBare()` at line 163.
+  161.           };
+  162.           try {
+  163. >             t.runBare();
+  164.           } catch (Throwable thrown) {
+  165.               assertSame(running, thrown);
+
+#136
+src/main/java/junit/textui/TestRunner.java:168: error: Bad Footprint
+  .
+  166.                   method = arg.substring(lastIndex + 1);
+  167.               } else if (args[i].equals("-v")) {
+  168. >                 System.err.println("JUnit " + Version.id() + " by Kent Beck and Erich Gamma");
+  169.               } else {
+  170.                   testCase = args[i];
+
+#137
+src/main/java/junit/runner/BaseTestRunner.java:166: error: Bad Footprint
+  .
+  164.                       suiteName = extractClassName(args[i + 1]);
+  165.                   } else {
+  166. >                     System.out.println("Missing Test class name");
+  167.                   }
+  168.                   i++;
+
+#138
+src/test/java/org/junit/rules/StopwatchTest.java:165: error: Bad Footprint
+  .
+  163.   
+  164.       private static void simulateTimePassing(long millis) {
+  165. >         fakeTimeNanos += TimeUnit.MILLISECONDS.toNanos(millis);
+  166.       }
+  167.   
+
+#139
+src/test/java/org/junit/rules/TempFolderRuleTest.java:167: warning: Precondition Not Met
+  in call to `create()` at line 167.
+  165.       public void recursiveDeleteFolderWithOneElement() throws IOException {
+  166.           TemporaryFolder folder = new TemporaryFolder();
+  167. >         folder.create();
+  168.           File file = folder.newFile("a");
+  169.           folder.delete();
+
+#140
+src/test/java/junit/tests/framework/TestCaseTest.java:173: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 173.
+  171.           TestResult result = new TestResult();
+  172.           t.run(result);
+  173. >         assertTrue(result.runCount() == 1);
+  174.           assertTrue(result.failureCount() == 0);
+  175.           assertTrue(result.errorCount() == 0);
+
+#141
+src/main/java/org/junit/rules/Timeout.java:173: error: Bad Footprint
+  .
+  171.           private boolean lookForStuckThread = false;
+  172.           private long timeout = 0;
+  173. >         private TimeUnit timeUnit = TimeUnit.SECONDS;
+  174.   
+  175.           protected Builder() {
+
+#142
+src/test/java/org/junit/rules/TempFolderRuleTest.java:177: warning: Precondition Not Met
+  in call to `create()` at line 177.
+  175.       public void recursiveDeleteFolderWithOneRandomElement() throws IOException {
+  176.           TemporaryFolder folder = new TemporaryFolder();
+  177. >         folder.create();
+  178.           File file = folder.newFile();
+  179.           folder.delete();
+
+#143
+src/test/java/org/junit/rules/TemporaryFolderUsageTest.java:181: error: Bad Footprint
+  .
+  179.               throws IOException {
+  180.           tempFolder.create();
+  181. >         tempFolder.newFolder("temp1", "temp2", "temp3" + File.separator + "temp4");
+  182.   
+  183.           File directory = new File(tempFolder.getRoot(), "temp1");
+
+#144
+src/test/java/org/junit/rules/TempFolderRuleTest.java:187: warning: Precondition Not Met
+  in call to `create()` at line 187.
+  185.       public void recursiveDeleteFolderWithZeroElements() throws IOException {
+  186.           TemporaryFolder folder = new TemporaryFolder();
+  187. >         folder.create();
+  188.           folder.delete();
+  189.           assertFalse(folder.getRoot().exists());
+
+#145
+src/main/java/org/junit/runners/model/FrameworkMethod.java:190: error: Missing Field
+  org.junit.runners.model.FrameworkMethod.method.
+  188.       public boolean producesType(Type type) {
+  189.           return getParameterTypes().length == 0 && type instanceof Class<?>
+  190. >                 && ((Class<?>) type).isAssignableFrom(method.getReturnType());
+  191.       }
+  192.   
+
+#146
+src/test/java/org/junit/rules/TempFolderRuleTest.java:195: warning: Precondition Not Met
+  in call to `create()` at line 195.
+  193.       public void tempFolderIsOnlyAccessibleByOwner() throws IOException {
+  194.           TemporaryFolder folder = new TemporaryFolder();
+  195. >         folder.create();
+  196.   
+  197.           Set<String> expectedPermissions = new TreeSet<String>(Arrays.asList("OWNER_READ", "OWNER_WRITE", "OWNER_EXECUTE"));
+
+#147
+src/main/java/junit/textui/TestRunner.java:197: error: Bad Footprint
+  .
+  195.       @Override
+  196.       protected void runFailed(String message) {
+  197. >         System.err.println(message);
+  198.           System.exit(FAILURE_EXIT);
+  199.       }
+
+#148
+src/test/java/org/junit/tests/experimental/max/MaxStarterTest.java:203: error: Abduction Case Not Implemented
+  .
+  201.           JUnit38ClassRunner child = new JUnit38ClassRunner(TwoOldTests.class);
+  202.           child.filter(filter);
+  203. >         assertEquals(1, child.testCount());
+  204.       }
+  205.   
+
+#149
+src/test/java/org/junit/tests/running/methods/TimeoutTest.java:203: error: Bad Footprint
+  .
+  201.           @Rule
+  202.           public TestRule globalTimeout = Timeout.builder()
+  203. >             .withTimeout(100, TimeUnit.MILLISECONDS)
+  204.               .withLookingForStuckThread(true)
+  205.               .build();
+
+#150
+src/test/java/org/junit/experimental/categories/CategoryTest.java:213: error: Abduction Case Not Implemented
+  .
+  211.           BlockJUnit4ClassRunner runner = new BlockJUnit4ClassRunner(A.class);
+  212.           filter.apply(runner);
+  213. >         assertEquals(1, runner.testCount());
+  214.       }
+  215.   
+
+#151
+src/test/java/org/junit/tests/running/methods/TimeoutTest.java:216: error: Bad Footprint
+  .
+  214.           @Rule
+  215.           public TestRule globalTimeout = Timeout.builder()
+  216. >             .withTimeout(100, TimeUnit.MILLISECONDS)
+  217.               .withLookingForStuckThread(true)
+  218.               .build();
+
+#152
+src/test/java/org/junit/experimental/categories/CategoryTest.java:222: error: Abduction Case Not Implemented
+  .
+  220.           BlockJUnit4ClassRunner runner = new BlockJUnit4ClassRunner(A.class);
+  221.           filter.apply(runner);
+  222. >         assertEquals(1, runner.testCount());
+  223.       }
+  224.   
+
+#153
+src/test/java/org/junit/tests/running/methods/TimeoutTest.java:222: warning: Precondition Not Met
+  in call to `failure(...)` at line 222.
+  220.           @Test
+  221.           public void failure() throws Exception {
+  222. >             (new InfiniteLoopMultithreaded()).failure(true);
+  223.           }
+  224.       }
+
+#154
+src/main/java/org/junit/internal/runners/statements/FailOnTimeout.java:239: error: Bad Footprint
+  .
+  237.           long maxCpuTime = 0;
+  238.           for (Thread thread : threadsInGroup) {
+  239. >             if (thread.getState() == Thread.State.RUNNABLE) {
+  240.                   long threadCpuTime = cpuTime(thread);
+  241.                   if (stuckThread == null || threadCpuTime > maxCpuTime) {
+
+#155
+src/test/java/org/junit/internal/runners/statements/FailOnTimeoutTest.java:232: error: Bad Footprint
+  .
+  230.       private FailOnTimeout failAfter50Ms(Statement statement) {
+  231.           return FailOnTimeout.builder()
+  232. >                 .withTimeout(50, MILLISECONDS)
+  233.                   .withLookingForStuckThread(lookingForStuckThread)
+  234.                   .build(statement);
+
+#156
+src/test/java/org/junit/experimental/categories/CategoryTest.java:246: error: Abduction Case Not Implemented
+  .
+  244.                   OneFastOneSlow.class);
+  245.           filter.apply(runner);
+  246. >         assertEquals(1, runner.testCount());
+  247.       }
+  248.   
+
+#157
+src/main/java/junit/framework/Assert.java:256: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 256.
+  254.        */
+  255.       public static void assertNotNull(String message, Object object) {
+  256. >         assertTrue(message, object != null);
+  257.       }
+  258.   
+
+#158
+src/main/java/junit/framework/Assert.java:268: warning: Precondition Not Met
+  in call to `assertNull(...)` at line 268.
+  266.       public static void assertNull(Object object) {
+  267.           if (object != null) {
+  268. >             assertNull("Expected: <null> but was: " + object.toString(), object);
+  269.           }
+  270.       }
+
+#159
+src/main/java/junit/framework/Assert.java:277: warning: Precondition Not Met
+  in call to `assertTrue(...)` at line 277.
+  275.        */
+  276.       public static void assertNull(String message, Object object) {
+  277. >         assertTrue(message, object == null);
+  278.       }
+  279.   
+
+#160
+src/main/java/junit/framework/TestSuite.java:306: error: Bad Footprint
+  .
+  304.           return m.getParameterTypes().length == 0 &&
+  305.                   m.getName().startsWith("test") &&
+  306. >                 m.getReturnType().equals(Void.TYPE);
+  307.       }
+  308.   }
+
+#161
+src/main/java/org/junit/runners/Parameterized.java:303: warning: Precondition Not Met
+  in call to `Parameterized(...)` at line 303.
+  301.        */
+  302.       public Parameterized(Class<?> klass) throws Throwable {
+  303. >         this(klass, new RunnersFactory(klass));
+  304.       }
+  305.   
+
+#162
+src/test/java/org/junit/tests/running/methods/TimeoutTest.java:318: error: Bad Footprint
+  .
+  316.   
+  317.       public static class TimeOutOneSecond {
+  318. >         @Rule
+  319.           public TimeoutSubclass timeout = new TimeoutSubclass(1, TimeUnit.SECONDS);
+  320.   
+
+#163
+src/test/java/org/junit/tests/running/methods/TimeoutTest.java:323: error: Bad Footprint
+  .
+  321.           @Test
+  322.           public void test() {
+  323. >             assertEquals(1000, timeout.getTimeoutFromSuperclass(TimeUnit.MILLISECONDS));
+  324.           }
+  325.       }
+
+#164
+src/main/java/org/junit/runners/BlockJUnit4ClassRunner.java:364: error: Bad Footprint
+  .
+  362.           }
+  363.           return FailOnTimeout.builder()
+  364. >                .withTimeout(timeout, TimeUnit.MILLISECONDS)
+  365.                  .build(next);
+  366.       }
+
+#165
+src/main/java/org/junit/runners/BlockJUnit4ClassRunner.java:401: error: Null Dereference
+  [B2] object returned by `rules(target)` could be null and is dereferenced at line 401.
+  399.           try {
+  400.               List<TestRule> testRules = getTestRules(target);
+  401. >             for (MethodRule each : rules(target)) {
+  402.                   if (!(each instanceof TestRule && testRules.contains(each))) {
+  403.                       ruleContainer.add(each);
+
+#166
+src/test/java/org/junit/tests/running/classes/ParameterizedTestTest.java:583: error: Cannot Star
+  .
+  581.       @Test(expected = InitializationError.class)
+  582.       public void exceptionWhenPrivateConstructor() throws Throwable {
+  583. >         new Parameterized(PrivateConstructor.class);
+  584.       }
+  585.   
+
+#167
+src/main/java/junit/textui/ResultPrinter.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ResultPrinter.printDefect(...)` indirectly writes to field `runner.BaseTestRunner.fPreferences` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  63.       public void printDefect(TestFailure booBoo, int count) { // only public for testing purposes
+  64.           printDefectHeader(booBoo, count);
+  65. >         printDefectTrace(booBoo);
+  66.       }
+  67.   
+
+#168
+src/main/java/junit/textui/ResultPrinter.java:75: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ResultPrinter.printDefectTrace(...)` indirectly writes to field `runner.BaseTestRunner.fPreferences` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  73.   
+  74.       protected void printDefectTrace(TestFailure booBoo) {
+  75. >         getWriter().print(BaseTestRunner.getFilteredTrace(booBoo.trace()));
+  76.       }
+  77.   
+
+#169
+src/main/java/junit/textui/ResultPrinter.java:59: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ResultPrinter.printDefects(...)` indirectly writes to field `runner.BaseTestRunner.fPreferences` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  57.           }
+  58.           for (int i = 1; booBoos.hasMoreElements(); i++) {
+  59. >             printDefect(booBoos.nextElement(), i);
+  60.           }
+  61.       }
+
+#170
+src/main/java/junit/textui/ResultPrinter.java:44: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ResultPrinter.printErrors(...)` indirectly writes to field `runner.BaseTestRunner.fPreferences` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  42.   
+  43.       protected void printErrors(TestResult result) {
+  44. >         printDefects(result.errors(), result.errorCount(), "error");
+  45.       }
+  46.   
+
+#171
+src/main/java/junit/textui/ResultPrinter.java:48: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ResultPrinter.printFailures(...)` indirectly writes to field `runner.BaseTestRunner.fPreferences` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not.
+  46.   
+  47.       protected void printFailures(TestResult result) {
+  48. >         printDefects(result.failures(), result.failureCount(), "failure");
+  49.       }
+  50.   
+
+Found 172 issues
+                                      Issue Type(ISSUED_TYPE_ID): #
+                      Precondition Not Met(PRECONDITION_NOT_MET): 68
+                                    Bad Footprint(Bad_footprint): 66
+                              Null Dereference(NULL_DEREFERENCE): 18
+  Abduction Case Not Implemented(Abduction_case_not_implemented): 11
+                Thread Safety Violation(THREAD_SAFETY_VIOLATION): 5
+                                        Cannot Star(Cannot_star): 3
+                                      Missing Field(Missing_fld): 1

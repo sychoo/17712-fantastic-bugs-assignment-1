@@ -1,0 +1,87 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_1" [label="1: Start boolean TestSuite.isTestMethod(Method)\nFormals:  this:junit.framework.TestSuite* m:java.lang.reflect.Method*\nLocals:  $T0_38:void $irvar4:void $irvar3:void $irvar2:void $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_1" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_4" ;
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_2" [label="2: Exit boolean TestSuite.isTestMethod(Method) \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 306]\n  NULLIFY(&$irvar4); [line 306]\n  NULLIFY(&$T0_38); [line 306]\n  NULLIFY(&$irvar0); [line 306]\n  NULLIFY(&$irvar1); [line 306]\n  NULLIFY(&$irvar2); [line 306]\n  EXIT_SCOPE($irvar3,$irvar4,$T0_38,$irvar0,$irvar1,$irvar2); [line 306]\n  APPLY_ABSTRACTION; [line 306]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_2" ;
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_4" [label="4:  Call Class[] Method.getParameterTypes() \n   n$0=*&m:java.lang.reflect.Method* [line 304]\n  _=*n$0:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 304]\n  n$2=_fun_Class[] Method.getParameterTypes()(n$0:java.lang.reflect.Method*) virtual [line 304]\n  *&$irvar0:java.lang.Class*[_*_](*)=n$2 [line 304]\n  EXIT_SCOPE(_,n$0,n$2); [line 304]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_4" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_5" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_4" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_6" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_4" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_5" [label="5: Prune (true branch, if) \n   n$3=*&$irvar0:java.lang.Class*[_*_](*) [line 304]\n  _=*n$3:int(root java.lang.Class*[_*_]) [line 304]\n  n$5=_fun___get_array_length(n$3:java.lang.Class*[_*_](*)) [line 304]\n  PRUNE(!(n$5 != 0), true); [line 304]\n  NULLIFY(&$irvar0); [line 304]\n  EXIT_SCOPE(_,n$3,n$5,$irvar0); [line 304]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_5" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_7" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_5" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_6" [label="6: Prune (false branch, if) \n   n$3=*&$irvar0:java.lang.Class*[_*_](*) [line 304]\n  _=*n$3:int(root java.lang.Class*[_*_]) [line 304]\n  n$5=_fun___get_array_length(n$3:java.lang.Class*[_*_](*)) [line 304]\n  PRUNE((n$5 != 0), false); [line 304]\n  NULLIFY(&$irvar0); [line 304]\n  EXIT_SCOPE(_,n$3,n$5,$irvar0); [line 304]\n  APPLY_ABSTRACTION; [line 304]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_6" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_16" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_6" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_7" [label="7:  Call String Method.getName() \n   n$6=*&m:java.lang.reflect.Method* [line 305]\n  _=*n$6:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 305]\n  n$8=_fun_String Method.getName()(n$6:java.lang.reflect.Method*) virtual [line 305]\n  *&$irvar1:java.lang.String*=n$8 [line 305]\n  EXIT_SCOPE(_,n$6,n$8); [line 305]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_7" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_8" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_7" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_8" [label="8:  Call boolean String.startsWith(String) \n   n$9=*&$irvar1:java.lang.String* [line 305]\n  _=*n$9:java.lang.String*(root java.lang.String) [line 305]\n  n$11=_fun_boolean String.startsWith(String)(n$9:java.lang.String*,\"test\":java.lang.Object*) virtual [line 305]\n  *&$irvar2:_Bool=n$11 [line 305]\n  NULLIFY(&$irvar1); [line 305]\n  EXIT_SCOPE(_,n$9,n$11,$irvar1); [line 305]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_8" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_9" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_8" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_10" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_8" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_9" [label="9: Prune (true branch, if) \n   n$12=*&$irvar2:_Bool [line 305]\n  PRUNE(!(n$12 == 0), true); [line 305]\n  NULLIFY(&$irvar2); [line 305]\n  EXIT_SCOPE(n$12,$irvar2); [line 305]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_9" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_11" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_9" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_10" [label="10: Prune (false branch, if) \n   n$12=*&$irvar2:_Bool [line 305]\n  PRUNE((n$12 == 0), false); [line 305]\n  NULLIFY(&$irvar2); [line 305]\n  EXIT_SCOPE(n$12,$irvar2); [line 305]\n  APPLY_ABSTRACTION; [line 305]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_10" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_16" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_10" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_11" [label="11:  Call Class Method.getReturnType() \n   n$13=*&m:java.lang.reflect.Method* [line 306]\n  _=*n$13:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 306]\n  n$15=_fun_Class Method.getReturnType()(n$13:java.lang.reflect.Method*) virtual [line 306]\n  *&$irvar3:java.lang.Class*=n$15 [line 306]\n  NULLIFY(&m); [line 306]\n  EXIT_SCOPE(_,n$13,n$15,m); [line 306]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_11" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_12" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_11" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_12" [label="12:  Call boolean Object.equals(Object) \n   n$16=*&$irvar3:java.lang.Class* [line 306]\n  _=*n$16:java.lang.Class*(root java.lang.Class) [line 306]\n  n$18=*&#GB<>$java.lang.Void.TYPE:java.lang.Class*(root java.lang.Void) [line 306]\n  n$19=_fun_boolean Object.equals(Object)(n$16:java.lang.Class*,n$18:java.lang.Class*) virtual [line 306]\n  *&$irvar4:_Bool=n$19 [line 306]\n  NULLIFY(&$irvar3); [line 306]\n  EXIT_SCOPE(_,n$16,n$18,n$19,$irvar3); [line 306]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_12" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_13" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_12" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_14" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_12" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_13" [label="13: Prune (true branch, if) \n   n$20=*&$irvar4:_Bool [line 306]\n  PRUNE(!(n$20 == 0), true); [line 306]\n  NULLIFY(&$irvar4); [line 306]\n  EXIT_SCOPE(n$20,$irvar4); [line 306]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_13" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_15" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_13" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_14" [label="14: Prune (false branch, if) \n   n$20=*&$irvar4:_Bool [line 306]\n  PRUNE((n$20 == 0), false); [line 306]\n  NULLIFY(&$irvar4); [line 306]\n  EXIT_SCOPE(n$20,$irvar4); [line 306]\n  APPLY_ABSTRACTION; [line 306]\n " shape="invhouse"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_14" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_16" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_14" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_15" [label="15:  method_body \n   *&$T0_38:int=1 [line 306]\n  APPLY_ABSTRACTION; [line 306]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_15" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_17" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_15" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_16" [label="16:  method_body \n   *&$T0_38:int=0 [line 306]\n  APPLY_ABSTRACTION; [line 306]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_16" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_17" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_16" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+"junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_17" [label="17:  method_body \n   n$21=*&$T0_38:int [line 304]\n  *&return:_Bool=n$21 [line 304]\n  NULLIFY(&$T0_38); [line 304]\n  EXIT_SCOPE(n$21,$T0_38); [line 304]\n  APPLY_ABSTRACTION; [line 304]\n " shape="box"]
+	
+
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_17" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_2" ;
+	 "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_17" -> "junit.framework.TestSuite.isTestMethod(java.lang.reflect.Method):boolean.1ad94f454e9f97b8e20cd28d48f29d27_3" [color="red" ];
+}

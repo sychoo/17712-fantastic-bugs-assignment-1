@@ -1,0 +1,549 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>ListTest.java.3098bc2762fa424d2eae61ac3bf55318</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/samples/ListTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.samples; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import junit.framework.JUnit4TestAdapter; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.BeforeClass; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.Ignore; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * A sample test case, testing {@link java.util.ArrayList}. </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">public class ListTest { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.<init>%28%29.749c2817180b377934cb1f2c8681b222_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.<init>%28%29.749c2817180b377934cb1f2c8681b222_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 17];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.samples.ListTest*) [line 17];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.<init>%28%29.749c2817180b377934cb1f2c8681b222_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.<init>%28%29.749c2817180b377934cb1f2c8681b222_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.<init>%28%29.749c2817180b377934cb1f2c8681b222_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.<init>%28%29.749c2817180b377934cb1f2c8681b222.html">summary for ListTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    protected List&lt;Integer&gt; fEmpty; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    protected List&lt;Integer&gt; fFull; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    protected static List&lt;Integer&gt; fgHeavy; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    public static void main(String... args) { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48.html">summary for void ListTest.main(String[])</a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">        junit.textui.TestRunner.run(suite()); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Test ListTest.suite()() [line 23];
+*&amp;$irvar0:junit.framework.Test*=n$0 [line 23];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:junit.framework.Test* [line 23];
+n$2=_fun_TestResult TestRunner.run(Test)(n$1:junit.framework.Test*) [line 23];
+*&amp;$irvar1:junit.framework.TestResult*=n$2 [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.main%28java.lang.String%5B%5D%29%3Avoid.1a6285145c0eca13ba26a23bf6303f48_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    @BeforeClass </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    public static void setUpOnce() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70.html">summary for void ListTest.setUpOnce()</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        fgHeavy = new ArrayList&lt;Integer&gt;(); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 28];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 28];
+*&amp;$irvar0:java.util.ArrayList*=n$0 [line 28];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.util.ArrayList* [line 28];
+*&amp;#GB<>$org.junit.samples.ListTest.fgHeavy:org.junit.samples.ListTest(root org.junit.samples.ListTest)=n$2 [line 28];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        for (int i = 0; i &lt; 1000; i++) { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:9 exn:3 Instructions
+*&amp;i:int=0 [line 29];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:13 6 succs:7 8 exn: Join
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$3=*&amp;i:int [line 29];
+PRUNE(!(n$3  &gt;=  1000), true); [line 29];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:9 exn:3 Instructions
+n$11=*&amp;i:int [line 29];
+*&amp;i:int=(n$11 + 1) [line 29];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:14 exn:3 Conditional method_body
+n$3=*&amp;i:int [line 29];
+PRUNE((n$3  &gt;=  1000), false); [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">            fgHeavy.add(i); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$4=*&amp;#GB<>$org.junit.samples.ListTest.fgHeavy:java.util.List*(root org.junit.samples.ListTest) [line 30];
+*&amp;$irvar1:java.util.List*=n$4 [line 30];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$5=*&amp;i:int [line 30];
+n$6=_fun_Integer Integer.valueOf(int)(n$5:int) [line 30];
+*&amp;$irvar2:java.lang.Integer*=n$6 [line 30];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$7=*&amp;$irvar1:java.util.List* [line 30];
+_=*n$7:java.util.List*(root java.util.List) [line 30];
+n$9=*&amp;$irvar2:java.lang.Integer* [line 30];
+n$10=_fun_boolean List.add(Object)(n$7:java.util.List*,n$9:java.lang.Integer*) interface virtual [line 30];
+*&amp;$irvar3:_Bool=n$10 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUpOnce%28%29%3Avoid.778bbd71f19e47dfb341093895aa1c70_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">    @Before </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    public void setUp() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573.html">summary for void ListTest.setUp()</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        fEmpty = new ArrayList&lt;Integer&gt;(); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 36];
+n$1=_fun_ArrayList.&lt;init&gt;()(n$0:java.util.ArrayList*) [line 36];
+*&amp;$irvar0:java.util.ArrayList*=n$0 [line 36];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.ListTest* [line 36];
+n$3=*&amp;$irvar0:java.util.ArrayList* [line 36];
+*n$2.fEmpty:org.junit.samples.ListTest(root org.junit.samples.ListTest)=n$3 [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        fFull = new ArrayList&lt;Integer&gt;(); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 37];
+n$5=_fun_ArrayList.&lt;init&gt;()(n$4:java.util.ArrayList*) [line 37];
+*&amp;$irvar1:java.util.ArrayList*=n$4 [line 37];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.samples.ListTest* [line 37];
+n$7=*&amp;$irvar1:java.util.ArrayList* [line 37];
+*n$6.fFull:org.junit.samples.ListTest(root org.junit.samples.ListTest)=n$7 [line 37];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        fFull.add(1); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;this:org.junit.samples.ListTest* [line 38];
+n$9=*n$8.fFull:java.util.List*(root org.junit.samples.ListTest) [line 38];
+*&amp;$irvar2:java.util.List*=n$9 [line 38];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=_fun_Integer Integer.valueOf(int)(1:int) [line 38];
+*&amp;$irvar3:java.lang.Integer*=n$10 [line 38];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$11=*&amp;$irvar2:java.util.List* [line 38];
+_=*n$11:java.util.List*(root java.util.List) [line 38];
+n$13=*&amp;$irvar3:java.lang.Integer* [line 38];
+n$14=_fun_boolean List.add(Object)(n$11:java.util.List*,n$13:java.lang.Integer*) interface virtual [line 38];
+*&amp;$irvar4:_Bool=n$14 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        fFull.add(2); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=*&amp;this:org.junit.samples.ListTest* [line 39];
+n$16=*n$15.fFull:java.util.List*(root org.junit.samples.ListTest) [line 39];
+*&amp;$irvar5:java.util.List*=n$16 [line 39];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$17=_fun_Integer Integer.valueOf(int)(2:int) [line 39];
+*&amp;$irvar6:java.lang.Integer*=n$17 [line 39];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar5:java.util.List* [line 39];
+_=*n$18:java.util.List*(root java.util.List) [line 39];
+n$20=*&amp;$irvar6:java.lang.Integer* [line 39];
+n$21=_fun_boolean List.add(Object)(n$18:java.util.List*,n$20:java.lang.Integer*) interface virtual [line 39];
+*&amp;$irvar7:_Bool=n$21 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        fFull.add(3); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$22=*&amp;this:org.junit.samples.ListTest* [line 40];
+n$23=*n$22.fFull:java.util.List*(root org.junit.samples.ListTest) [line 40];
+*&amp;$irvar8:java.util.List*=n$23 [line 40];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$24=_fun_Integer Integer.valueOf(int)(3:int) [line 40];
+*&amp;$irvar9:java.lang.Integer*=n$24 [line 40];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$25=*&amp;$irvar8:java.util.List* [line 40];
+_=*n$25:java.util.List*(root java.util.List) [line 40];
+n$27=*&amp;$irvar9:java.lang.Integer* [line 40];
+n$28=_fun_boolean List.add(Object)(n$25:java.util.List*,n$27:java.lang.Integer*) interface virtual [line 40];
+*&amp;$irvar10:_Bool=n$28 [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:17 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.setUp%28%29%3Avoid.9f0dd13d6348c0a348727667bbdd2573_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    public static junit.framework.Test suite() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.suite%28%29%3Ajunit.framework.Test.249c9b6881dca48b6baed73dfb317732_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.suite%28%29%3Ajunit.framework.Test.249c9b6881dca48b6baed73dfb317732.html">summary for Test ListTest.suite()</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        return new JUnit4TestAdapter(ListTest.class); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.suite%28%29%3Ajunit.framework.Test.249c9b6881dca48b6baed73dfb317732_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.JUnit4TestAdapter):junit.framework.JUnit4TestAdapter*) [line 44];
+n$1=_fun_JUnit4TestAdapter.&lt;init&gt;(Class)(n$0:junit.framework.JUnit4TestAdapter*,org.junit.samples.ListTest:java.lang.Object*) [line 44];
+*&amp;$irvar0:junit.framework.JUnit4TestAdapter*=n$0 [line 44];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.suite%28%29%3Ajunit.framework.Test.249c9b6881dca48b6baed73dfb317732_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:junit.framework.JUnit4TestAdapter* [line 44];
+*&amp;return:junit.framework.Test*=n$2 [line 44];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.suite%28%29%3Ajunit.framework.Test.249c9b6881dca48b6baed73dfb317732_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.suite%28%29%3Ajunit.framework.Test.249c9b6881dca48b6baed73dfb317732_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    @Ignore(&quot;not today&quot;) </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    public void capacity() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea.html">summary for void ListTest.capacity()</a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        int size = fFull.size(); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 50];
+n$1=*n$0.fFull:java.util.List*(root org.junit.samples.ListTest) [line 50];
+_=*n$1:java.util.List*(root java.util.List) [line 50];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 50];
+*&amp;size:int=n$3 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        for (int i = 0; i &lt; 100; i++) { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:8 exn:3 Instructions
+*&amp;i:int=0 [line 51];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:12 5 succs:6 7 exn: Join
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:9 exn:3 Conditional method_body
+n$4=*&amp;i:int [line 51];
+PRUNE(!(n$4  &gt;=  100), true); [line 51];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:8 exn:3 Instructions
+n$13=*&amp;i:int [line 51];
+*&amp;i:int=(n$13 + 1) [line 51];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:13 exn:3 Conditional method_body
+n$4=*&amp;i:int [line 51];
+PRUNE((n$4  &gt;=  100), false); [line 51];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">            fFull.add(i); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$5=*&amp;this:org.junit.samples.ListTest* [line 52];
+n$6=*n$5.fFull:java.util.List*(root org.junit.samples.ListTest) [line 52];
+*&amp;$irvar0:java.util.List*=n$6 [line 52];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$7=*&amp;i:int [line 52];
+n$8=_fun_Integer Integer.valueOf(int)(n$7:int) [line 52];
+*&amp;$irvar1:java.lang.Integer*=n$8 [line 52];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$9=*&amp;$irvar0:java.util.List* [line 52];
+_=*n$9:java.util.List*(root java.util.List) [line 52];
+n$11=*&amp;$irvar1:java.lang.Integer* [line 52];
+n$12=_fun_boolean List.add(Object)(n$9:java.util.List*,n$11:java.lang.Integer*) interface virtual [line 52];
+*&amp;$irvar2:_Bool=n$12 [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        assertTrue(fFull.size() == 100 + size); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:7 succs:14 15 exn:3 Instructions
+n$14=*&amp;this:org.junit.samples.ListTest* [line 54];
+n$15=*n$14.fFull:java.util.List*(root org.junit.samples.ListTest) [line 54];
+_=*n$15:java.util.List*(root java.util.List) [line 54];
+n$17=_fun_int List.size()(n$15:java.util.List*) interface virtual [line 54];
+*&amp;$irvar3:int=n$17 [line 54];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:13 succs:16 exn:3 Conditional method_body
+n$18=*&amp;$irvar3:int [line 54];
+n$19=*&amp;size:int [line 54];
+PRUNE(!(n$18 != (100 + n$19)), true); [line 54];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:14 succs:18 exn:3 Instructions
+*&amp;$T0_59:int=1 [line 54];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:13 succs:17 exn:3 Conditional method_body
+n$18=*&amp;$irvar3:int [line 54];
+n$19=*&amp;size:int [line 54];
+PRUNE((n$18 != (100 + n$19)), false); [line 54];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:15 succs:18 exn:3 Instructions
+*&amp;$T0_59:int=0 [line 54];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 16 succs:19 exn:3 Instructions
+n$20=*&amp;$T0_59:int [line 54];
+n$21=_fun_void Assert.assertTrue(boolean)(n$20:int) [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:19 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.capacity%28%29%3Avoid.95ae9aab6730198ad9bb969dcd60d9ea_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">    public void testCopy() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562.html">summary for void ListTest.testCopy()</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">        List&lt;Integer&gt; copy = new ArrayList&lt;Integer&gt;(fFull.size()); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 59];
+n$1=*n$0.fFull:java.util.List*(root org.junit.samples.ListTest) [line 59];
+_=*n$1:java.util.List*(root java.util.List) [line 59];
+n$3=_fun_int List.size()(n$1:java.util.List*) interface virtual [line 59];
+*&amp;$irvar0:int=n$3 [line 59];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 59];
+n$5=*&amp;$irvar0:int [line 59];
+n$6=_fun_ArrayList.&lt;init&gt;(int)(n$4:java.util.ArrayList*,n$5:int) [line 59];
+*&amp;copy:java.util.ArrayList*=n$4 [line 59];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        copy.addAll(fFull); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$7=*&amp;copy:java.util.ArrayList* [line 60];
+_=*n$7:java.util.ArrayList*(root java.util.ArrayList) [line 60];
+n$9=*&amp;this:org.junit.samples.ListTest* [line 60];
+n$10=*n$9.fFull:java.util.List*(root org.junit.samples.ListTest) [line 60];
+n$11=_fun_boolean List.addAll(Collection)(n$7:java.util.ArrayList*,n$10:java.util.List*) interface virtual [line 60];
+*&amp;$irvar1:_Bool=n$11 [line 60];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        assertTrue(copy.size() == fFull.size()); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$12=*&amp;copy:java.util.ArrayList* [line 61];
+_=*n$12:java.util.ArrayList*(root java.util.ArrayList) [line 61];
+n$14=_fun_int List.size()(n$12:java.util.ArrayList*) interface virtual [line 61];
+*&amp;$irvar2:int=n$14 [line 61];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 10 exn:3 Instructions
+n$15=*&amp;this:org.junit.samples.ListTest* [line 61];
+n$16=*n$15.fFull:java.util.List*(root org.junit.samples.ListTest) [line 61];
+_=*n$16:java.util.List*(root java.util.List) [line 61];
+n$18=_fun_int List.size()(n$16:java.util.List*) interface virtual [line 61];
+*&amp;$irvar3:int=n$18 [line 61];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$19=*&amp;$irvar2:int [line 61];
+n$20=*&amp;$irvar3:int [line 61];
+PRUNE(!(n$19 != n$20), true); [line 61];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:13 exn:3 Instructions
+*&amp;$T0_51:int=1 [line 61];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:12 exn:3 Conditional method_body
+n$19=*&amp;$irvar2:int [line 61];
+n$20=*&amp;$irvar3:int [line 61];
+PRUNE((n$19 != n$20), false); [line 61];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:13 exn:3 Instructions
+*&amp;$T0_51:int=0 [line 61];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 11 succs:14 exn:3 Instructions
+n$21=*&amp;$T0_51:int [line 61];
+n$22=_fun_void Assert.assertTrue(boolean)(n$21:int) [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        assertTrue(copy.contains(1)); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$23=_fun_Integer Integer.valueOf(int)(1:int) [line 62];
+*&amp;$irvar4:java.lang.Integer*=n$23 [line 62];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$24=*&amp;copy:java.util.ArrayList* [line 62];
+_=*n$24:java.util.ArrayList*(root java.util.ArrayList) [line 62];
+n$26=*&amp;$irvar4:java.lang.Integer* [line 62];
+n$27=_fun_boolean List.contains(Object)(n$24:java.util.ArrayList*,n$26:java.lang.Integer*) interface virtual [line 62];
+*&amp;$irvar5:_Bool=n$27 [line 62];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$28=*&amp;$irvar5:_Bool [line 62];
+n$29=_fun_void Assert.assertTrue(boolean)(n$28:_Bool) [line 62];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:17 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.testCopy%28%29%3Avoid.34c775590c8e93f1a1b3b2f5edb81562_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    public void contains() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c.html">summary for void ListTest.contains()</a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        assertTrue(fFull.contains(1)); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 67];
+n$1=*n$0.fFull:java.util.List*(root org.junit.samples.ListTest) [line 67];
+*&amp;$irvar0:java.util.List*=n$1 [line 67];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun_Integer Integer.valueOf(int)(1:int) [line 67];
+*&amp;$irvar1:java.lang.Integer*=n$2 [line 67];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:java.util.List* [line 67];
+_=*n$3:java.util.List*(root java.util.List) [line 67];
+n$5=*&amp;$irvar1:java.lang.Integer* [line 67];
+n$6=_fun_boolean List.contains(Object)(n$3:java.util.List*,n$5:java.lang.Integer*) interface virtual [line 67];
+*&amp;$irvar2:_Bool=n$6 [line 67];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar2:_Bool [line 67];
+n$8=_fun_void Assert.assertTrue(boolean)(n$7:_Bool) [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        assertTrue(!fEmpty.contains(1)); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;this:org.junit.samples.ListTest* [line 68];
+n$10=*n$9.fEmpty:java.util.List*(root org.junit.samples.ListTest) [line 68];
+*&amp;$irvar3:java.util.List*=n$10 [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=_fun_Integer Integer.valueOf(int)(1:int) [line 68];
+*&amp;$irvar4:java.lang.Integer*=n$11 [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 12 exn:3 Instructions
+n$12=*&amp;$irvar3:java.util.List* [line 68];
+_=*n$12:java.util.List*(root java.util.List) [line 68];
+n$14=*&amp;$irvar4:java.lang.Integer* [line 68];
+n$15=_fun_boolean List.contains(Object)(n$12:java.util.List*,n$14:java.lang.Integer*) interface virtual [line 68];
+*&amp;$irvar5:_Bool=n$15 [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:10 succs:13 exn:3 Conditional method_body
+n$16=*&amp;$irvar5:_Bool [line 68];
+PRUNE(!(n$16 != 0), true); [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 succs:15 exn:3 Instructions
+*&amp;$T0_37:int=1 [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:10 succs:14 exn:3 Conditional method_body
+n$16=*&amp;$irvar5:_Bool [line 68];
+PRUNE((n$16 != 0), false); [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:12 succs:15 exn:3 Instructions
+*&amp;$T0_37:int=0 [line 68];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 13 succs:16 exn:3 Instructions
+n$17=*&amp;$T0_37:int [line 68];
+n$18=_fun_void Assert.assertTrue(boolean)(n$17:int) [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.contains%28%29%3Avoid.0f86466587dad645d7c0fec416ff472c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">    @Test(expected = IndexOutOfBoundsException.class) </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    public void elementAt() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346.html">summary for void ListTest.elementAt()</a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        int i = fFull.get(0); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 73];
+n$1=*n$0.fFull:java.util.List*(root org.junit.samples.ListTest) [line 73];
+_=*n$1:java.util.List*(root java.util.List) [line 73];
+n$3=_fun_Object List.get(int)(n$1:java.util.List*,0:int) interface virtual [line 73];
+*&amp;$irvar0:java.lang.Object*=n$3 [line 73];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.Object* [line 73];
+n$5=_fun___cast(n$4:java.lang.Object*,sizeof(t=java.lang.Integer;sub_t=( sub )(cast)):void) [line 73];
+_=*n$5:java.lang.Integer*(root java.lang.Integer) [line 73];
+n$7=_fun_int Integer.intValue()(n$5:java.lang.Integer*) virtual [line 73];
+*&amp;i:int=n$7 [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        assertTrue(i == 1); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$8=*&amp;i:int [line 74];
+PRUNE(!(n$8 != 1), true); [line 74];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:10 exn:3 Instructions
+*&amp;$T0_27:int=1 [line 74];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$8=*&amp;i:int [line 74];
+PRUNE((n$8 != 1), false); [line 74];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 exn:3 Instructions
+*&amp;$T0_27:int=0 [line 74];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 8 succs:11 exn:3 Instructions
+n$9=*&amp;$T0_27:int [line 74];
+n$10=_fun_void Assert.assertTrue(boolean)(n$9:int) [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">        fFull.get(fFull.size()); // Should throw IndexOutOfBoundsException <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$11=*&amp;this:org.junit.samples.ListTest* [line 75];
+n$12=*n$11.fFull:java.util.List*(root org.junit.samples.ListTest) [line 75];
+*&amp;$irvar2:java.util.List*=n$12 [line 75];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;this:org.junit.samples.ListTest* [line 75];
+n$14=*n$13.fFull:java.util.List*(root org.junit.samples.ListTest) [line 75];
+_=*n$14:java.util.List*(root java.util.List) [line 75];
+n$16=_fun_int List.size()(n$14:java.util.List*) interface virtual [line 75];
+*&amp;$irvar1:int=n$16 [line 75];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$17=*&amp;$irvar2:java.util.List* [line 75];
+_=*n$17:java.util.List*(root java.util.List) [line 75];
+n$19=*&amp;$irvar1:int [line 75];
+n$20=_fun_Object List.get(int)(n$17:java.util.List*,n$19:int) interface virtual [line 75];
+*&amp;$irvar3:java.lang.Object*=n$20 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.elementAt%28%29%3Avoid.e441858050cdc13eb478f7c1fc52e346_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">    public void removeAll() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7.html">summary for void ListTest.removeAll()</a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">        fFull.removeAll(fFull); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 80];
+n$1=*n$0.fFull:java.util.List*(root org.junit.samples.ListTest) [line 80];
+_=*n$1:java.util.List*(root java.util.List) [line 80];
+n$3=*&amp;this:org.junit.samples.ListTest* [line 80];
+n$4=*n$3.fFull:java.util.List*(root org.junit.samples.ListTest) [line 80];
+n$5=_fun_boolean List.removeAll(Collection)(n$1:java.util.List*,n$4:java.util.List*) interface virtual [line 80];
+*&amp;$irvar0:_Bool=n$5 [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        fEmpty.removeAll(fEmpty); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$6=*&amp;this:org.junit.samples.ListTest* [line 81];
+n$7=*n$6.fEmpty:java.util.List*(root org.junit.samples.ListTest) [line 81];
+_=*n$7:java.util.List*(root java.util.List) [line 81];
+n$9=*&amp;this:org.junit.samples.ListTest* [line 81];
+n$10=*n$9.fEmpty:java.util.List*(root org.junit.samples.ListTest) [line 81];
+n$11=_fun_boolean List.removeAll(Collection)(n$7:java.util.List*,n$10:java.util.List*) interface virtual [line 81];
+*&amp;$irvar1:_Bool=n$11 [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">        assertTrue(fFull.isEmpty()); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$12=*&amp;this:org.junit.samples.ListTest* [line 82];
+n$13=*n$12.fFull:java.util.List*(root org.junit.samples.ListTest) [line 82];
+_=*n$13:java.util.List*(root java.util.List) [line 82];
+n$15=_fun_boolean List.isEmpty()(n$13:java.util.List*) interface virtual [line 82];
+*&amp;$irvar2:_Bool=n$15 [line 82];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$16=*&amp;$irvar2:_Bool [line 82];
+n$17=_fun_void Assert.assertTrue(boolean)(n$16:_Bool) [line 82];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        assertTrue(fEmpty.isEmpty()); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$18=*&amp;this:org.junit.samples.ListTest* [line 83];
+n$19=*n$18.fEmpty:java.util.List*(root org.junit.samples.ListTest) [line 83];
+_=*n$19:java.util.List*(root java.util.List) [line 83];
+n$21=_fun_boolean List.isEmpty()(n$19:java.util.List*) interface virtual [line 83];
+*&amp;$irvar3:_Bool=n$21 [line 83];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$22=*&amp;$irvar3:_Bool [line 83];
+n$23=_fun_void Assert.assertTrue(boolean)(n$22:_Bool) [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeAll%28%29%3Avoid.4ebce98dfba4aa7be6d4c5cb4a378ac7_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public void removeElement() { <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972.html">summary for void ListTest.removeElement()</a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        fFull.remove(new Integer(3)); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.ListTest* [line 88];
+n$1=*n$0.fFull:java.util.List*(root org.junit.samples.ListTest) [line 88];
+*&amp;$irvar0:java.util.List*=n$1 [line 88];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 88];
+n$3=_fun_Integer.&lt;init&gt;(int)(n$2:java.lang.Integer*,3:int) [line 88];
+*&amp;$irvar1:java.lang.Integer*=n$2 [line 88];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.util.List* [line 88];
+_=*n$4:java.util.List*(root java.util.List) [line 88];
+n$6=*&amp;$irvar1:java.lang.Integer* [line 88];
+n$7=_fun_boolean List.remove(Object)(n$4:java.util.List*,n$6:java.lang.Integer*) interface virtual [line 88];
+*&amp;$irvar2:_Bool=n$7 [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        assertTrue(!fFull.contains(3)); <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=*&amp;this:org.junit.samples.ListTest* [line 89];
+n$9=*n$8.fFull:java.util.List*(root org.junit.samples.ListTest) [line 89];
+*&amp;$irvar3:java.util.List*=n$9 [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$10=_fun_Integer Integer.valueOf(int)(3:int) [line 89];
+*&amp;$irvar4:java.lang.Integer*=n$10 [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 11 exn:3 Instructions
+n$11=*&amp;$irvar3:java.util.List* [line 89];
+_=*n$11:java.util.List*(root java.util.List) [line 89];
+n$13=*&amp;$irvar4:java.lang.Integer* [line 89];
+n$14=_fun_boolean List.contains(Object)(n$11:java.util.List*,n$13:java.lang.Integer*) interface virtual [line 89];
+*&amp;$irvar5:_Bool=n$14 [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:9 succs:12 exn:3 Conditional method_body
+n$15=*&amp;$irvar5:_Bool [line 89];
+PRUNE(!(n$15 != 0), true); [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:14 exn:3 Instructions
+*&amp;$T0_39:int=1 [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:9 succs:13 exn:3 Conditional method_body
+n$15=*&amp;$irvar5:_Bool [line 89];
+PRUNE((n$15 != 0), false); [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:11 succs:14 exn:3 Instructions
+*&amp;$T0_39:int=0 [line 89];
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 12 succs:15 exn:3 Instructions
+n$16=*&amp;$T0_39:int [line 89];
+n$17=_fun_void Assert.assertTrue(boolean)(n$16:int) [line 89];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">    } <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:2 exn:3 Instructions
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./ListTest.java.3098bc2762fa424d2eae61ac3bf55318/nodes/org.junit.samples.ListTest.removeElement%28%29%3Avoid.292b91382b299e73149f89f19d491972_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

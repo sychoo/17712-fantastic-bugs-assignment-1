@@ -1,0 +1,69 @@
+/* @generated */
+digraph cfg {
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_1" [label="1: Start IMoney MoneyBag.negate()\nFormals:  this:junit.samples.money.MoneyBag*\nLocals:  $irvar2:void $irvar1:void $irvar0:void $bcvar2:void result:junit.samples.money.MoneyBag* each:junit.samples.money.Money* \n  " color=yellow style=filled]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_1" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_4" ;
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_2" [label="2: Exit IMoney MoneyBag.negate() \n  " color=yellow style=filled]
+	
+
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [label="3:  exceptions sink \n   NULLIFY(&result); [line 127]\n  NULLIFY(&$bcvar2); [line 127]\n  NULLIFY(&each); [line 127]\n  NULLIFY(&$irvar0); [line 127]\n  NULLIFY(&$irvar1); [line 127]\n  NULLIFY(&$irvar2); [line 127]\n  EXIT_SCOPE(result,$bcvar2,each,$irvar0,$irvar1,$irvar2); [line 127]\n  APPLY_ABSTRACTION; [line 127]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_2" ;
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_4" [label="4:  Call MoneyBag.<init>() \n   n$0=_fun___new(sizeof(t=junit.samples.money.MoneyBag):junit.samples.money.MoneyBag*) [line 123]\n  n$1=_fun_MoneyBag.<init>()(n$0:junit.samples.money.MoneyBag*) [line 123]\n  *&result:junit.samples.money.MoneyBag*=n$0 [line 123]\n  EXIT_SCOPE(n$0,n$1); [line 123]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_4" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_5" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_4" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_5" [label="5:  Call Iterator List.iterator() \n   n$2=*&this:junit.samples.money.MoneyBag* [line 124]\n  n$3=*n$2.fMonies:java.util.List*(root junit.samples.money.MoneyBag) [line 124]\n  _=*n$3:java.util.List*(root java.util.List) [line 124]\n  n$5=_fun_Iterator List.iterator()(n$3:java.util.List*) interface virtual [line 124]\n  *&$bcvar2:java.util.Iterator*=n$5 [line 124]\n  NULLIFY(&this); [line 124]\n  EXIT_SCOPE(_,n$2,n$3,n$5,this); [line 124]\n  APPLY_ABSTRACTION; [line 124]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_5" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_6" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_5" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_6" [label="6:  Call boolean Iterator.hasNext() \n   n$6=*&$bcvar2:java.util.Iterator* [line 124]\n  _=*n$6:java.util.Iterator*(root java.util.Iterator) [line 124]\n  n$8=_fun_boolean Iterator.hasNext()(n$6:java.util.Iterator*) interface virtual [line 124]\n  *&$irvar0:_Bool=n$8 [line 124]\n  EXIT_SCOPE(_,n$6,n$8); [line 124]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_6" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_9" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_6" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_7" [label="7: Prune (true branch, if) \n   n$9=*&$irvar0:_Bool [line 124]\n  PRUNE(!(n$9 == 0), true); [line 124]\n  NULLIFY(&$irvar0); [line 124]\n  EXIT_SCOPE(n$9,$irvar0); [line 124]\n " shape="invhouse"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_7" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_10" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_7" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_8" [label="8: Prune (false branch, if) \n   n$9=*&$irvar0:_Bool [line 124]\n  PRUNE((n$9 == 0), false); [line 124]\n  NULLIFY(&$bcvar2); [line 124]\n  NULLIFY(&$irvar0); [line 124]\n  EXIT_SCOPE(n$9,$bcvar2,$irvar0); [line 124]\n " shape="invhouse"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_8" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_14" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_8" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_9" [label="9: + \n  " ]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_9" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_7" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_9" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_8" ;
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_10" [label="10:  Call Object Iterator.next() \n   n$10=*&$bcvar2:java.util.Iterator* [line 124]\n  _=*n$10:java.util.Iterator*(root java.util.Iterator) [line 124]\n  n$12=_fun_Object Iterator.next()(n$10:java.util.Iterator*) interface virtual [line 124]\n  *&$irvar1:java.lang.Object*=n$12 [line 124]\n  EXIT_SCOPE(_,n$10,n$12); [line 124]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_10" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_11" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_10" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_11" [label="11:  method_body \n   n$13=*&$irvar1:java.lang.Object* [line 124]\n  n$14=_fun___cast(n$13:java.lang.Object*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 124]\n  *&each:junit.samples.money.Money*=n$14 [line 124]\n  NULLIFY(&$irvar1); [line 124]\n  EXIT_SCOPE(n$13,n$14,$irvar1); [line 124]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_11" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_12" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_11" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_12" [label="12:  Call IMoney Money.negate() \n   n$15=*&each:junit.samples.money.Money* [line 125]\n  _=*n$15:junit.samples.money.Money*(root junit.samples.money.Money) [line 125]\n  n$17=_fun_IMoney Money.negate()(n$15:junit.samples.money.Money*) virtual [line 125]\n  *&$irvar2:junit.samples.money.IMoney*=n$17 [line 125]\n  NULLIFY(&each); [line 125]\n  EXIT_SCOPE(_,n$15,n$17,each); [line 125]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_12" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_13" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_12" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_13" [label="13:  Call void MoneyBag.appendMoney(Money) \n   n$18=*&result:junit.samples.money.MoneyBag* [line 125]\n  _=*n$18:junit.samples.money.MoneyBag*(root junit.samples.money.MoneyBag) [line 125]\n  n$20=*&$irvar2:junit.samples.money.IMoney* [line 125]\n  n$21=_fun___cast(n$20:junit.samples.money.IMoney*,sizeof(t=junit.samples.money.Money;sub_t=( sub )(cast)):void) [line 125]\n  n$22=_fun_void MoneyBag.appendMoney(Money)(n$18:junit.samples.money.MoneyBag*,n$21:junit.samples.money.Money*) [line 125]\n  NULLIFY(&$irvar2); [line 125]\n  EXIT_SCOPE(_,n$18,n$20,n$21,n$22,$irvar2); [line 125]\n  APPLY_ABSTRACTION; [line 125]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_13" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_6" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_13" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+"junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_14" [label="14:  method_body \n   n$23=*&result:junit.samples.money.MoneyBag* [line 127]\n  *&return:junit.samples.money.IMoney*=n$23 [line 127]\n  NULLIFY(&result); [line 127]\n  EXIT_SCOPE(n$23,result); [line 127]\n  APPLY_ABSTRACTION; [line 127]\n " shape="box"]
+	
+
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_14" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_2" ;
+	 "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_14" -> "junit.samples.money.MoneyBag.negate():junit.samples.money.IMoney.5f77cb6317098559821b1784bdfdf29b_3" [color="red" ];
+}

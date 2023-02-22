@@ -1,0 +1,66 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_1" [label="1: Start boolean Categories.isAnyIncluded(Class)\nFormals:  klass:java.lang.Class*\nLocals:  $T0_28:void $irvar1:void $irvar0:void annotation:org.junit.experimental.categories.Categories$IncludeCategory* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_1" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_4" ;
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_2" [label="2: Exit boolean Categories.isAnyIncluded(Class) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [label="3:  exceptions sink \n   NULLIFY(&$T0_28); [line 329]\n  NULLIFY(&annotation); [line 329]\n  NULLIFY(&$irvar0); [line 329]\n  NULLIFY(&$irvar1); [line 329]\n  EXIT_SCOPE($T0_28,annotation,$irvar0,$irvar1); [line 329]\n  APPLY_ABSTRACTION; [line 329]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_2" ;
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_4" [label="4:  Call Annotation Class.getAnnotation(Class) \n   n$0=*&klass:java.lang.Class* [line 328]\n  _=*n$0:java.lang.Class*(root java.lang.Class) [line 328]\n  n$2=_fun_Annotation Class.getAnnotation(Class)(n$0:java.lang.Class*,org.junit.experimental.categories.Categories$IncludeCategory:java.lang.Object*) virtual [line 328]\n  *&$irvar0:java.lang.annotation.Annotation*=n$2 [line 328]\n  NULLIFY(&klass); [line 328]\n  EXIT_SCOPE(_,n$0,n$2,klass); [line 328]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_4" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_5" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_4" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_5" [label="5:  method_body \n   n$3=*&$irvar0:java.lang.annotation.Annotation* [line 328]\n  n$4=_fun___cast(n$3:java.lang.annotation.Annotation*,sizeof(t=org.junit.experimental.categories.Categories$IncludeCategory;sub_t=( sub )(cast)):void) [line 328]\n  *&annotation:org.junit.experimental.categories.Categories$IncludeCategory*=n$4 [line 328]\n  NULLIFY(&$irvar0); [line 328]\n  EXIT_SCOPE(n$3,n$4,$irvar0); [line 328]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_5" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_6" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_5" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_7" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_5" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_6" [label="6: Prune (true branch, if) \n   n$5=*&annotation:org.junit.experimental.categories.Categories$IncludeCategory* [line 329]\n  PRUNE(!(n$5 == null), true); [line 329]\n  EXIT_SCOPE(n$5); [line 329]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_6" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_8" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_6" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_7" [label="7: Prune (false branch, if) \n   n$5=*&annotation:org.junit.experimental.categories.Categories$IncludeCategory* [line 329]\n  PRUNE((n$5 == null), false); [line 329]\n  NULLIFY(&annotation); [line 329]\n  EXIT_SCOPE(n$5,annotation); [line 329]\n  APPLY_ABSTRACTION; [line 329]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_7" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_11" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_7" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_8" [label="8:  Call boolean Categories$IncludeCategory.matchAny() \n   n$6=*&annotation:org.junit.experimental.categories.Categories$IncludeCategory* [line 329]\n  _=*n$6:org.junit.experimental.categories.Categories$IncludeCategory*(root org.junit.experimental.categories.Categories$IncludeCategory) [line 329]\n  n$8=_fun_boolean Categories$IncludeCategory.matchAny()(n$6:org.junit.experimental.categories.Categories$IncludeCategory*) interface virtual [line 329]\n  *&$irvar1:_Bool=n$8 [line 329]\n  NULLIFY(&annotation); [line 329]\n  EXIT_SCOPE(_,n$6,n$8,annotation); [line 329]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_8" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_9" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_8" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_10" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_8" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_9" [label="9: Prune (true branch, if) \n   n$9=*&$irvar1:_Bool [line 329]\n  PRUNE(!(n$9 == 0), true); [line 329]\n  NULLIFY(&$irvar1); [line 329]\n  EXIT_SCOPE(n$9,$irvar1); [line 329]\n  APPLY_ABSTRACTION; [line 329]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_9" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_11" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_9" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_10" [label="10: Prune (false branch, if) \n   n$9=*&$irvar1:_Bool [line 329]\n  PRUNE((n$9 == 0), false); [line 329]\n  NULLIFY(&$irvar1); [line 329]\n  EXIT_SCOPE(n$9,$irvar1); [line 329]\n " shape="invhouse"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_10" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_12" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_10" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_11" [label="11:  method_body \n   *&$T0_28:int=1 [line 329]\n  APPLY_ABSTRACTION; [line 329]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_11" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_13" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_11" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_12" [label="12:  method_body \n   *&$T0_28:int=0 [line 329]\n  APPLY_ABSTRACTION; [line 329]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_12" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_13" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_12" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+"org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_13" [label="13:  method_body \n   n$10=*&$T0_28:int [line 329]\n  *&return:_Bool=n$10 [line 329]\n  NULLIFY(&$T0_28); [line 329]\n  EXIT_SCOPE(n$10,$T0_28); [line 329]\n  APPLY_ABSTRACTION; [line 329]\n " shape="box"]
+	
+
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_13" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_2" ;
+	 "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_13" -> "org.junit.experimental.categories.Categories.isAnyIncluded(java.lang.Class):boolean.1eceb4a90d6a58dd893a99ff033730bf_3" [color="red" ];
+}

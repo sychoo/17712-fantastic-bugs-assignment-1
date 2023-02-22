@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_1" [label="1: Start String BaseTestRunner.elapsedTimeAsString(long)\nFormals:  this:junit.runner.BaseTestRunner* runTime:long\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_1" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_4" ;
+"junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_2" [label="2: Exit String BaseTestRunner.elapsedTimeAsString(long) \n  " color=yellow style=filled]
+	
+
+"junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 148]\n  NULLIFY(&$irvar1); [line 148]\n  EXIT_SCOPE($irvar0,$irvar1); [line 148]\n  APPLY_ABSTRACTION; [line 148]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_3" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_2" ;
+"junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_4" [label="4:  Call NumberFormat NumberFormat.getInstance() \n   n$0=_fun_NumberFormat NumberFormat.getInstance()() [line 148]\n  *&$irvar0:java.text.NumberFormat*=n$0 [line 148]\n  EXIT_SCOPE(n$0); [line 148]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_4" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_5" ;
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_4" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_3" [color="red" ];
+"junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_5" [label="5:  Call String NumberFormat.format(double) \n   n$1=*&$irvar0:java.text.NumberFormat* [line 148]\n  _=*n$1:java.text.NumberFormat*(root java.text.NumberFormat) [line 148]\n  n$3=*&runTime:long [line 148]\n  n$4=_fun_String NumberFormat.format(double)(n$1:java.text.NumberFormat*,((double)n$3 / 1000.):double) virtual [line 148]\n  *&$irvar1:java.lang.String*=n$4 [line 148]\n  NULLIFY(&runTime); [line 148]\n  NULLIFY(&$irvar0); [line 148]\n  EXIT_SCOPE(_,n$1,n$3,n$4,runTime,$irvar0); [line 148]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_5" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_6" ;
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_5" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_3" [color="red" ];
+"junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_6" [label="6:  method_body \n   n$5=*&$irvar1:java.lang.String* [line 148]\n  *&return:java.lang.String*=n$5 [line 148]\n  NULLIFY(&$irvar1); [line 148]\n  EXIT_SCOPE(n$5,$irvar1); [line 148]\n  APPLY_ABSTRACTION; [line 148]\n " shape="box"]
+	
+
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_6" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_2" ;
+	 "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_6" -> "junit.runner.BaseTestRunner.elapsedTimeAsString(long):java.lang.String.1ec957f7f7efe78b7b20d426110ea19b_3" [color="red" ];
+}

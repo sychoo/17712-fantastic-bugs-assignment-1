@@ -1,0 +1,24 @@
+/* @generated */
+digraph cfg {
+"junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_1" [label="1: Start int RepeatedTest.countTestCases()\nFormals:  this:junit.extensions.RepeatedTest*\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_1" -> "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_4" ;
+"junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_2" [label="2: Exit int RepeatedTest.countTestCases() \n  " color=yellow style=filled]
+	
+
+"junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 22]\n  EXIT_SCOPE($irvar0); [line 22]\n  APPLY_ABSTRACTION; [line 22]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_3" -> "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_2" ;
+"junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_4" [label="4:  Call int TestDecorator.countTestCases() \n   n$0=*&this:junit.extensions.RepeatedTest* [line 22]\n  n$1=_fun_int TestDecorator.countTestCases()(n$0:junit.extensions.RepeatedTest*) [line 22]\n  *&$irvar0:int=n$1 [line 22]\n  EXIT_SCOPE(n$0,n$1); [line 22]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_4" -> "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_5" ;
+	 "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_4" -> "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_3" [color="red" ];
+"junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_5" [label="5:  method_body \n   n$2=*&$irvar0:int [line 22]\n  n$3=*&this:junit.extensions.RepeatedTest* [line 22]\n  n$4=*n$3.fTimesRepeat:int(root junit.extensions.RepeatedTest) [line 22]\n  *&return:int=(n$2 * n$4) [line 22]\n  NULLIFY(&$irvar0); [line 22]\n  NULLIFY(&this); [line 22]\n  EXIT_SCOPE(n$2,n$3,n$4,$irvar0,this); [line 22]\n  APPLY_ABSTRACTION; [line 22]\n " shape="box"]
+	
+
+	 "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_5" -> "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_2" ;
+	 "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_5" -> "junit.extensions.RepeatedTest.countTestCases():int.44418c90c5f70fd2234da3af3e15917e_3" [color="red" ];
+}

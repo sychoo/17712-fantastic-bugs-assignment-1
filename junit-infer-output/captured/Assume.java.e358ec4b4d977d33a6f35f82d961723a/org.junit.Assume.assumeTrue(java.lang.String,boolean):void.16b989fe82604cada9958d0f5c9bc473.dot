@@ -1,0 +1,40 @@
+/* @generated */
+digraph cfg {
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_1" [label="1: Start void Assume.assumeTrue(String,boolean)\nFormals:  message:java.lang.String* b:_Bool\nLocals:  $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_1" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_4" ;
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_1" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_5" ;
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_2" [label="2: Exit void Assume.assumeTrue(String,boolean) \n  " color=yellow style=filled]
+	
+
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 69]\n  EXIT_SCOPE($irvar0); [line 69]\n  APPLY_ABSTRACTION; [line 69]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_2" ;
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_4" [label="4: Prune (true branch, if) \n   n$0=*&b:_Bool [line 68]\n  PRUNE(!(n$0 != 0), true); [line 68]\n  NULLIFY(&b); [line 68]\n  EXIT_SCOPE(n$0,b); [line 68]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_4" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_6" ;
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_4" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" [color="red" ];
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_5" [label="5: Prune (false branch, if) \n   n$0=*&b:_Bool [line 68]\n  PRUNE((n$0 != 0), false); [line 68]\n  NULLIFY(&b); [line 68]\n  EXIT_SCOPE(n$0,b); [line 68]\n " shape="invhouse"]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_5" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_8" ;
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_5" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" [color="red" ];
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_6" [label="6:  Call AssumptionViolatedException.<init>(String) \n   n$1=_fun___new(sizeof(t=org.junit.AssumptionViolatedException):org.junit.AssumptionViolatedException*) [line 68]\n  n$2=*&message:java.lang.String* [line 68]\n  n$3=_fun_AssumptionViolatedException.<init>(String)(n$1:org.junit.AssumptionViolatedException*,n$2:java.lang.String*) [line 68]\n  *&$irvar0:org.junit.AssumptionViolatedException*=n$1 [line 68]\n  NULLIFY(&message); [line 68]\n  EXIT_SCOPE(n$1,n$2,n$3,message); [line 68]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_6" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_7" ;
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_6" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" [color="red" ];
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_7" [label="7:  throw \n   n$4=*&$irvar0:org.junit.AssumptionViolatedException* [line 68]\n  *&return:void=EXN n$4 [line 68]\n  NULLIFY(&$irvar0); [line 68]\n  EXIT_SCOPE(n$4,$irvar0); [line 68]\n  APPLY_ABSTRACTION; [line 68]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_7" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_2" ;
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_7" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" [color="red" ];
+"org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_8" [label="8:  method_body \n   APPLY_ABSTRACTION; [line 69]\n " shape="box"]
+	
+
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_8" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_2" ;
+	 "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_8" -> "org.junit.Assume.assumeTrue(java.lang.String,boolean):void.16b989fe82604cada9958d0f5c9bc473_3" [color="red" ];
+}

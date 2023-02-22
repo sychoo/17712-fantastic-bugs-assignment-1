@@ -1,0 +1,1151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MoneyTest.java.3448c98ab9c42e1c6337650fe590d459</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/samples/money/MoneyTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.samples.money; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.junit.Assert.assertFalse; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import junit.framework.JUnit4TestAdapter; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import junit.samples.money.IMoney; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import junit.samples.money.Money; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import junit.samples.money.MoneyBag; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">public class MoneyTest { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.<init>%28%29.5b07386958b497b40b72c40f9404045d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.<init>%28%29.5b07386958b497b40b72c40f9404045d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 14];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.samples.money.MoneyTest*) [line 14];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.<init>%28%29.5b07386958b497b40b72c40f9404045d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.<init>%28%29.5b07386958b497b40b72c40f9404045d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.<init>%28%29.5b07386958b497b40b72c40f9404045d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.<init>%28%29.5b07386958b497b40b72c40f9404045d.html">summary for MoneyTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">    private Money f12CHF; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">    private Money f14CHF; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">    private Money f7USD; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    private Money f21USD; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    private IMoney fMB1; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    private IMoney fMB2; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    public static junit.framework.Test suite() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.suite%28%29%3Ajunit.framework.Test.a2ad7e57607c148776fd9dec0b695778_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.suite%28%29%3Ajunit.framework.Test.a2ad7e57607c148776fd9dec0b695778.html">summary for Test MoneyTest.suite()</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        return new JUnit4TestAdapter(MoneyTest.class); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.suite%28%29%3Ajunit.framework.Test.a2ad7e57607c148776fd9dec0b695778_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.framework.JUnit4TestAdapter):junit.framework.JUnit4TestAdapter*) [line 24];
+n$1=_fun_JUnit4TestAdapter.&lt;init&gt;(Class)(n$0:junit.framework.JUnit4TestAdapter*,org.junit.samples.money.MoneyTest:java.lang.Object*) [line 24];
+*&amp;$irvar0:junit.framework.JUnit4TestAdapter*=n$0 [line 24];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.suite%28%29%3Ajunit.framework.Test.a2ad7e57607c148776fd9dec0b695778_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:junit.framework.JUnit4TestAdapter* [line 24];
+*&amp;return:junit.framework.Test*=n$2 [line 24];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.suite%28%29%3Ajunit.framework.Test.a2ad7e57607c148776fd9dec0b695778_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.suite%28%29%3Ajunit.framework.Test.a2ad7e57607c148776fd9dec0b695778_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    @Before </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    public void setUp() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07.html">summary for void MoneyTest.setUp()</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        f12CHF = new Money(12, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 29];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 29];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 29];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 29];
+n$3=*&amp;$irvar0:junit.samples.money.Money* [line 29];
+*n$2.f12CHF:org.junit.samples.money.MoneyTest(root org.junit.samples.money.MoneyTest)=n$3 [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        f14CHF = new Money(14, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 30];
+n$5=_fun_Money.&lt;init&gt;(int,String)(n$4:junit.samples.money.Money*,14:int,"CHF":java.lang.Object*) [line 30];
+*&amp;$irvar1:junit.samples.money.Money*=n$4 [line 30];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.samples.money.MoneyTest* [line 30];
+n$7=*&amp;$irvar1:junit.samples.money.Money* [line 30];
+*n$6.f14CHF:org.junit.samples.money.MoneyTest(root org.junit.samples.money.MoneyTest)=n$7 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        f7USD = new Money(7, &quot;USD&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 31];
+n$9=_fun_Money.&lt;init&gt;(int,String)(n$8:junit.samples.money.Money*,7:int,"USD":java.lang.Object*) [line 31];
+*&amp;$irvar2:junit.samples.money.Money*=n$8 [line 31];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;this:org.junit.samples.money.MoneyTest* [line 31];
+n$11=*&amp;$irvar2:junit.samples.money.Money* [line 31];
+*n$10.f7USD:org.junit.samples.money.MoneyTest(root org.junit.samples.money.MoneyTest)=n$11 [line 31];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        f21USD = new Money(21, &quot;USD&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 32];
+n$13=_fun_Money.&lt;init&gt;(int,String)(n$12:junit.samples.money.Money*,21:int,"USD":java.lang.Object*) [line 32];
+*&amp;$irvar3:junit.samples.money.Money*=n$12 [line 32];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;this:org.junit.samples.money.MoneyTest* [line 32];
+n$15=*&amp;$irvar3:junit.samples.money.Money* [line 32];
+*n$14.f21USD:org.junit.samples.money.MoneyTest(root org.junit.samples.money.MoneyTest)=n$15 [line 32];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        fMB1 = MoneyBag.create(f12CHF, f7USD); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;this:org.junit.samples.money.MoneyTest* [line 34];
+n$17=*n$16.f7USD:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 34];
+*&amp;$irvar5:junit.samples.money.Money*=n$17 [line 34];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;this:org.junit.samples.money.MoneyTest* [line 34];
+n$19=*n$18.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 34];
+*&amp;$irvar4:junit.samples.money.Money*=n$19 [line 34];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$20=*&amp;$irvar4:junit.samples.money.Money* [line 34];
+n$21=*&amp;$irvar5:junit.samples.money.Money* [line 34];
+n$22=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$20:junit.samples.money.Money*,n$21:junit.samples.money.Money*) [line 34];
+*&amp;$irvar6:junit.samples.money.IMoney*=n$22 [line 34];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;this:org.junit.samples.money.MoneyTest* [line 34];
+n$24=*&amp;$irvar6:junit.samples.money.IMoney* [line 34];
+*n$23.fMB1:org.junit.samples.money.MoneyTest(root org.junit.samples.money.MoneyTest)=n$24 [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        fMB2 = MoneyBag.create(f14CHF, f21USD); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$25=*&amp;this:org.junit.samples.money.MoneyTest* [line 35];
+n$26=*n$25.f21USD:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 35];
+*&amp;$irvar8:junit.samples.money.Money*=n$26 [line 35];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$27=*&amp;this:org.junit.samples.money.MoneyTest* [line 35];
+n$28=*n$27.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 35];
+*&amp;$irvar7:junit.samples.money.Money*=n$28 [line 35];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$29=*&amp;$irvar7:junit.samples.money.Money* [line 35];
+n$30=*&amp;$irvar8:junit.samples.money.Money* [line 35];
+n$31=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$29:junit.samples.money.Money*,n$30:junit.samples.money.Money*) [line 35];
+*&amp;$irvar9:junit.samples.money.IMoney*=n$31 [line 35];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$32=*&amp;this:org.junit.samples.money.MoneyTest* [line 35];
+n$33=*&amp;$irvar9:junit.samples.money.IMoney* [line 35];
+*n$32.fMB2:org.junit.samples.money.MoneyTest(root org.junit.samples.money.MoneyTest)=n$33 [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:20 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.setUp%28%29%3Avoid.e9c9bf25041e97b88c56a16254590c07_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    public void testBagMultiply() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b.html">summary for void MoneyTest.testBagMultiply()</a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        // {[12 CHF][7 USD]} *2 == {[24 CHF][14 USD]} </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        IMoney expected = MoneyBag.create(new Money(24, &quot;CHF&quot;), new Money(14, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 41];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,24:int,"CHF":java.lang.Object*) [line 41];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 41];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 41];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,14:int,"USD":java.lang.Object*) [line 41];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 41];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 41];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 41];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 41];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 41];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        assertEquals(expected, fMB1.multiply(2)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 42];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 42];
+_=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 42];
+n$10=_fun_IMoney IMoney.multiply(int)(n$8:junit.samples.money.IMoney*,2:int) interface virtual [line 42];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$10 [line 42];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;expected:junit.samples.money.IMoney* [line 42];
+n$12=*&amp;$irvar2:junit.samples.money.IMoney* [line 42];
+n$13=_fun_void Assert.assertEquals(Object,Object)(n$11:junit.samples.money.IMoney*,n$12:junit.samples.money.IMoney*) [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        assertEquals(fMB1, fMB1.multiply(1)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;this:org.junit.samples.money.MoneyTest* [line 43];
+n$15=*n$14.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 43];
+*&amp;$irvar4:junit.samples.money.IMoney*=n$15 [line 43];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$16=*&amp;this:org.junit.samples.money.MoneyTest* [line 43];
+n$17=*n$16.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 43];
+_=*n$17:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 43];
+n$19=_fun_IMoney IMoney.multiply(int)(n$17:junit.samples.money.IMoney*,1:int) interface virtual [line 43];
+*&amp;$irvar3:junit.samples.money.IMoney*=n$19 [line 43];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$20=*&amp;$irvar4:junit.samples.money.IMoney* [line 43];
+n$21=*&amp;$irvar3:junit.samples.money.IMoney* [line 43];
+n$22=_fun_void Assert.assertEquals(Object,Object)(n$20:junit.samples.money.IMoney*,n$21:junit.samples.money.IMoney*) [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        assertTrue(fMB1.multiply(0).isZero()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$23=*&amp;this:org.junit.samples.money.MoneyTest* [line 44];
+n$24=*n$23.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 44];
+_=*n$24:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 44];
+n$26=_fun_IMoney IMoney.multiply(int)(n$24:junit.samples.money.IMoney*,0:int) interface virtual [line 44];
+*&amp;$irvar5:junit.samples.money.IMoney*=n$26 [line 44];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$27=*&amp;$irvar5:junit.samples.money.IMoney* [line 44];
+_=*n$27:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 44];
+n$29=_fun_boolean IMoney.isZero()(n$27:junit.samples.money.IMoney*) interface virtual [line 44];
+*&amp;$irvar6:_Bool=n$29 [line 44];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$30=*&amp;$irvar6:_Bool [line 44];
+n$31=_fun_void Assert.assertTrue(boolean)(n$30:_Bool) [line 44];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B1] object returned by `MoneyTest.fMB1.multiply(0)` could be null and is dereferenced at line 44</div></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagMultiply%28%29%3Avoid.946e9dd0401a2ce31279aab67f25b94b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    public void testBagNegate() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e.html">summary for void MoneyTest.testBagNegate()</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        // {[12 CHF][7 USD]} negate == {[-12 CHF][-7 USD]} </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        IMoney expected = MoneyBag.create(new Money(-12, &quot;CHF&quot;), new Money(-7, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 50];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,-12:int,"CHF":java.lang.Object*) [line 50];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 50];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 50];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,-7:int,"USD":java.lang.Object*) [line 50];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 50];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 50];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 50];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 50];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        assertEquals(expected, fMB1.negate()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 51];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 51];
+_=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 51];
+n$10=_fun_IMoney IMoney.negate()(n$8:junit.samples.money.IMoney*) interface virtual [line 51];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$10 [line 51];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;expected:junit.samples.money.IMoney* [line 51];
+n$12=*&amp;$irvar2:junit.samples.money.IMoney* [line 51];
+n$13=_fun_void Assert.assertEquals(Object,Object)(n$11:junit.samples.money.IMoney*,n$12:junit.samples.money.IMoney*) [line 51];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNegate%28%29%3Avoid.3a33e650531a1c5b8c97c470c5ff4f3e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    public void testBagSimpleAdd() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06.html">summary for void MoneyTest.testBagSimpleAdd()</a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        // {[12 CHF][7 USD]} + [14 CHF] == {[26 CHF][7 USD]} </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">        IMoney expected = MoneyBag.create(new Money(26, &quot;CHF&quot;), new Money(7, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 57];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,26:int,"CHF":java.lang.Object*) [line 57];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 57];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 57];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,7:int,"USD":java.lang.Object*) [line 57];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 57];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 57];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 57];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 57];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        assertEquals(expected, fMB1.add(f14CHF)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 58];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 58];
+_=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 58];
+n$10=*&amp;this:org.junit.samples.money.MoneyTest* [line 58];
+n$11=*n$10.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 58];
+n$12=_fun_IMoney IMoney.add(IMoney)(n$8:junit.samples.money.IMoney*,n$11:junit.samples.money.Money*) interface virtual [line 58];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$12 [line 58];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;expected:junit.samples.money.IMoney* [line 58];
+n$14=*&amp;$irvar2:junit.samples.money.IMoney* [line 58];
+n$15=_fun_void Assert.assertEquals(Object,Object)(n$13:junit.samples.money.IMoney*,n$14:junit.samples.money.IMoney*) [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSimpleAdd%28%29%3Avoid.5c08490822bb2a15f7efa92d906aab06_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">    public void testBagSubtract() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9.html">summary for void MoneyTest.testBagSubtract()</a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        // {[12 CHF][7 USD]} - {[14 CHF][21 USD] == {[-2 CHF][-14 USD]} </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        IMoney expected = MoneyBag.create(new Money(-2, &quot;CHF&quot;), new Money(-14, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 64];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,-2:int,"CHF":java.lang.Object*) [line 64];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 64];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 64];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,-14:int,"USD":java.lang.Object*) [line 64];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 64];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 64];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 64];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 64];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        assertEquals(expected, fMB1.subtract(fMB2)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 65];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 65];
+_=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 65];
+n$10=*&amp;this:org.junit.samples.money.MoneyTest* [line 65];
+n$11=*n$10.fMB2:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 65];
+n$12=_fun_IMoney IMoney.subtract(IMoney)(n$8:junit.samples.money.IMoney*,n$11:junit.samples.money.IMoney*) interface virtual [line 65];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$12 [line 65];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;expected:junit.samples.money.IMoney* [line 65];
+n$14=*&amp;$irvar2:junit.samples.money.IMoney* [line 65];
+n$15=_fun_void Assert.assertEquals(Object,Object)(n$13:junit.samples.money.IMoney*,n$14:junit.samples.money.IMoney*) [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSubtract%28%29%3Avoid.79f1ccf4540b415c7fe45b7ee77ef9f9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    public void testBagSumAdd() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb.html">summary for void MoneyTest.testBagSumAdd()</a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">        // {[12 CHF][7 USD]} + {[14 CHF][21 USD]} == {[26 CHF][28 USD]} </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        IMoney expected = MoneyBag.create(new Money(26, &quot;CHF&quot;), new Money(28, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 71];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,26:int,"CHF":java.lang.Object*) [line 71];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 71];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 71];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,28:int,"USD":java.lang.Object*) [line 71];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 71];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 71];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 71];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 71];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        assertEquals(expected, fMB1.add(fMB2)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 72];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 72];
+_=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 72];
+n$10=*&amp;this:org.junit.samples.money.MoneyTest* [line 72];
+n$11=*n$10.fMB2:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 72];
+n$12=_fun_IMoney IMoney.add(IMoney)(n$8:junit.samples.money.IMoney*,n$11:junit.samples.money.IMoney*) interface virtual [line 72];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$12 [line 72];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;expected:junit.samples.money.IMoney* [line 72];
+n$14=*&amp;$irvar2:junit.samples.money.IMoney* [line 72];
+n$15=_fun_void Assert.assertEquals(Object,Object)(n$13:junit.samples.money.IMoney*,n$14:junit.samples.money.IMoney*) [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagSumAdd%28%29%3Avoid.5e18c86efce96c7b138f1cf884395bbb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">    public void testIsZero() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164.html">summary for void MoneyTest.testIsZero()</a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        assertTrue(fMB1.subtract(fMB1).isZero()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 77];
+n$1=*n$0.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 77];
+_=*n$1:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 77];
+n$3=*&amp;this:org.junit.samples.money.MoneyTest* [line 77];
+n$4=*n$3.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 77];
+n$5=_fun_IMoney IMoney.subtract(IMoney)(n$1:junit.samples.money.IMoney*,n$4:junit.samples.money.IMoney*) interface virtual [line 77];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$5 [line 77];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$6=*&amp;$irvar0:junit.samples.money.IMoney* [line 77];
+_=*n$6:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 77];
+n$8=_fun_boolean IMoney.isZero()(n$6:junit.samples.money.IMoney*) interface virtual [line 77];
+*&amp;$irvar1:_Bool=n$8 [line 77];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$9=*&amp;$irvar1:_Bool [line 77];
+n$10=_fun_void Assert.assertTrue(boolean)(n$9:_Bool) [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">        assertTrue(MoneyBag.create(new Money(0, &quot;CHF&quot;), new Money(0, &quot;USD&quot;)).isZero()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$11=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 78];
+n$12=_fun_Money.&lt;init&gt;(int,String)(n$11:junit.samples.money.Money*,0:int,"CHF":java.lang.Object*) [line 78];
+*&amp;$irvar2:junit.samples.money.Money*=n$11 [line 78];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 78];
+n$14=_fun_Money.&lt;init&gt;(int,String)(n$13:junit.samples.money.Money*,0:int,"USD":java.lang.Object*) [line 78];
+*&amp;$irvar3:junit.samples.money.Money*=n$13 [line 78];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$15=*&amp;$irvar2:junit.samples.money.Money* [line 78];
+n$16=*&amp;$irvar3:junit.samples.money.Money* [line 78];
+n$17=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$15:junit.samples.money.Money*,n$16:junit.samples.money.Money*) [line 78];
+*&amp;$irvar4:junit.samples.money.IMoney*=n$17 [line 78];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$18=*&amp;$irvar4:junit.samples.money.IMoney* [line 78];
+_=*n$18:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 78];
+n$20=_fun_boolean IMoney.isZero()(n$18:junit.samples.money.IMoney*) interface virtual [line 78];
+*&amp;$irvar5:_Bool=n$20 [line 78];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$21=*&amp;$irvar5:_Bool [line 78];
+n$22=_fun_void Assert.assertTrue(boolean)(n$21:_Bool) [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testIsZero%28%29%3Avoid.c0c62133943f3cf22ffe621b959c5164_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">    public void testMixedSimpleAdd() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628.html">summary for void MoneyTest.testMixedSimpleAdd()</a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        // [12 CHF] + [7 USD] == {[12 CHF][7 USD]} </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        IMoney expected = MoneyBag.create(f12CHF, f7USD); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 84];
+n$1=*n$0.f7USD:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 84];
+*&amp;$irvar1:junit.samples.money.Money*=n$1 [line 84];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 84];
+n$3=*n$2.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 84];
+*&amp;$irvar0:junit.samples.money.Money*=n$3 [line 84];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 84];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 84];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 84];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 84];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">        assertEquals(expected, f12CHF.add(f7USD)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 85];
+n$8=*n$7.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 85];
+_=*n$8:junit.samples.money.Money*(root junit.samples.money.Money) [line 85];
+n$10=*&amp;this:org.junit.samples.money.MoneyTest* [line 85];
+n$11=*n$10.f7USD:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 85];
+n$12=_fun_IMoney Money.add(IMoney)(n$8:junit.samples.money.Money*,n$11:junit.samples.money.Money*) virtual [line 85];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$12 [line 85];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;expected:junit.samples.money.IMoney* [line 85];
+n$14=*&amp;$irvar2:junit.samples.money.IMoney* [line 85];
+n$15=_fun_void Assert.assertEquals(Object,Object)(n$13:junit.samples.money.IMoney*,n$14:junit.samples.money.IMoney*) [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMixedSimpleAdd%28%29%3Avoid.3ed6109287b50ecd749e895fb9154628_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    public void testBagNotEquals() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea.html">summary for void MoneyTest.testBagNotEquals()</a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">        IMoney bag = MoneyBag.create(f12CHF, f7USD); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 90];
+n$1=*n$0.f7USD:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 90];
+*&amp;$irvar1:junit.samples.money.Money*=n$1 [line 90];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 90];
+n$3=*n$2.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 90];
+*&amp;$irvar0:junit.samples.money.Money*=n$3 [line 90];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 90];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 90];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 90];
+*&amp;bag:junit.samples.money.IMoney*=n$6 [line 90];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        assertFalse(bag.equals(new Money(12, &quot;DEM&quot;).add(f7USD))); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 91];
+n$8=_fun_Money.&lt;init&gt;(int,String)(n$7:junit.samples.money.Money*,12:int,"DEM":java.lang.Object*) [line 91];
+*&amp;$irvar2:junit.samples.money.Money*=n$7 [line 91];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar2:junit.samples.money.Money* [line 91];
+_=*n$9:junit.samples.money.Money*(root junit.samples.money.Money) [line 91];
+n$11=*&amp;this:org.junit.samples.money.MoneyTest* [line 91];
+n$12=*n$11.f7USD:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 91];
+n$13=_fun_IMoney Money.add(IMoney)(n$9:junit.samples.money.Money*,n$12:junit.samples.money.Money*) virtual [line 91];
+*&amp;$irvar3:junit.samples.money.IMoney*=n$13 [line 91];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;bag:junit.samples.money.IMoney* [line 91];
+_=*n$14:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 91];
+n$16=*&amp;$irvar3:junit.samples.money.IMoney* [line 91];
+n$17=_fun_boolean IMoney.equals(Object)(n$14:junit.samples.money.IMoney*,n$16:junit.samples.money.IMoney*) interface virtual [line 91];
+*&amp;$irvar4:_Bool=n$17 [line 91];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$18=*&amp;$irvar4:_Bool [line 91];
+n$19=_fun_void Assert.assertFalse(boolean)(n$18:_Bool) [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testBagNotEquals%28%29%3Avoid.47f1eef2272855074ddc7a426eccc0ea_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">    public void testMoneyBagEquals() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8.html">summary for void MoneyTest.testMoneyBagEquals()</a></td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        assertTrue(!fMB1.equals(null)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 96];
+n$1=*n$0.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 96];
+_=*n$1:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 96];
+n$3=_fun_boolean IMoney.equals(Object)(n$1:junit.samples.money.IMoney*,null:java.lang.Object*) interface virtual [line 96];
+*&amp;$irvar0:_Bool=n$3 [line 96];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 96];
+PRUNE(!(n$4 != 0), true); [line 96];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_18:int=1 [line 96];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 96];
+PRUNE((n$4 != 0), false); [line 96];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_18:int=0 [line 96];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:10 exn:3 Instructions
+n$5=*&amp;$T0_18:int [line 96];
+n$6=_fun_void Assert.assertTrue(boolean)(n$5:int) [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">        assertEquals(fMB1, fMB1); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 98];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 98];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$8 [line 98];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$9=*&amp;this:org.junit.samples.money.MoneyTest* [line 98];
+n$10=*n$9.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 98];
+*&amp;$irvar1:junit.samples.money.IMoney*=n$10 [line 98];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$11=*&amp;$irvar1:junit.samples.money.IMoney* [line 98];
+n$12=*&amp;$irvar2:junit.samples.money.IMoney* [line 98];
+n$13=_fun_void Assert.assertEquals(Object,Object)(n$11:junit.samples.money.IMoney*,n$12:junit.samples.money.IMoney*) [line 98];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        IMoney equal = MoneyBag.create(new Money(12, &quot;CHF&quot;), new Money(7, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$14=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 99];
+n$15=_fun_Money.&lt;init&gt;(int,String)(n$14:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 99];
+*&amp;$irvar3:junit.samples.money.Money*=n$14 [line 99];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$16=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 99];
+n$17=_fun_Money.&lt;init&gt;(int,String)(n$16:junit.samples.money.Money*,7:int,"USD":java.lang.Object*) [line 99];
+*&amp;$irvar4:junit.samples.money.Money*=n$16 [line 99];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$18=*&amp;$irvar3:junit.samples.money.Money* [line 99];
+n$19=*&amp;$irvar4:junit.samples.money.Money* [line 99];
+n$20=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$18:junit.samples.money.Money*,n$19:junit.samples.money.Money*) [line 99];
+*&amp;equal:junit.samples.money.IMoney*=n$20 [line 99];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        assertTrue(fMB1.equals(equal)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$21=*&amp;this:org.junit.samples.money.MoneyTest* [line 100];
+n$22=*n$21.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 100];
+_=*n$22:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 100];
+n$24=*&amp;equal:junit.samples.money.IMoney* [line 100];
+n$25=_fun_boolean IMoney.equals(Object)(n$22:junit.samples.money.IMoney*,n$24:junit.samples.money.IMoney*) interface virtual [line 100];
+*&amp;$irvar5:_Bool=n$25 [line 100];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$26=*&amp;$irvar5:_Bool [line 100];
+n$27=_fun_void Assert.assertTrue(boolean)(n$26:_Bool) [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        assertTrue(!fMB1.equals(f12CHF)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 20 exn:3 Instructions
+n$28=*&amp;this:org.junit.samples.money.MoneyTest* [line 101];
+n$29=*n$28.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 101];
+_=*n$29:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 101];
+n$31=*&amp;this:org.junit.samples.money.MoneyTest* [line 101];
+n$32=*n$31.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 101];
+n$33=_fun_boolean IMoney.equals(Object)(n$29:junit.samples.money.IMoney*,n$32:junit.samples.money.Money*) interface virtual [line 101];
+*&amp;$irvar6:_Bool=n$33 [line 101];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:18 succs:21 exn:3 Conditional method_body
+n$34=*&amp;$irvar6:_Bool [line 101];
+PRUNE(!(n$34 != 0), true); [line 101];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:19 succs:23 exn:3 Instructions
+*&amp;$T0_92:int=1 [line 101];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:18 succs:22 exn:3 Conditional method_body
+n$34=*&amp;$irvar6:_Bool [line 101];
+PRUNE((n$34 != 0), false); [line 101];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:20 succs:23 exn:3 Instructions
+*&amp;$T0_92:int=0 [line 101];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 21 succs:24 exn:3 Instructions
+n$35=*&amp;$T0_92:int [line 101];
+n$36=_fun_void Assert.assertTrue(boolean)(n$35:int) [line 101];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        assertTrue(!f12CHF.equals(fMB1)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 26 exn:3 Instructions
+n$37=*&amp;this:org.junit.samples.money.MoneyTest* [line 102];
+n$38=*n$37.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 102];
+_=*n$38:junit.samples.money.Money*(root junit.samples.money.Money) [line 102];
+n$40=*&amp;this:org.junit.samples.money.MoneyTest* [line 102];
+n$41=*n$40.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 102];
+n$42=_fun_boolean Money.equals(Object)(n$38:junit.samples.money.Money*,n$41:junit.samples.money.IMoney*) virtual [line 102];
+*&amp;$irvar7:_Bool=n$42 [line 102];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node25.html"><span class='visited with_tooltip'>C_25<span class='tooltip'>node25 preds:24 succs:27 exn:3 Conditional method_body
+n$43=*&amp;$irvar7:_Bool [line 102];
+PRUNE(!(n$43 != 0), true); [line 102];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:25 succs:29 exn:3 Instructions
+*&amp;$T0_114:int=1 [line 102];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node26.html"><span class='visited with_tooltip'>C_26<span class='tooltip'>node26 preds:24 succs:28 exn:3 Conditional method_body
+n$43=*&amp;$irvar7:_Bool [line 102];
+PRUNE((n$43 != 0), false); [line 102];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:26 succs:29 exn:3 Instructions
+*&amp;$T0_114:int=0 [line 102];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 27 succs:30 exn:3 Instructions
+n$44=*&amp;$T0_114:int [line 102];
+n$45=_fun_void Assert.assertTrue(boolean)(n$44:int) [line 102];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        assertTrue(!fMB1.equals(fMB2)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 32 exn:3 Instructions
+n$46=*&amp;this:org.junit.samples.money.MoneyTest* [line 103];
+n$47=*n$46.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 103];
+_=*n$47:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 103];
+n$49=*&amp;this:org.junit.samples.money.MoneyTest* [line 103];
+n$50=*n$49.fMB2:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 103];
+n$51=_fun_boolean IMoney.equals(Object)(n$47:junit.samples.money.IMoney*,n$50:junit.samples.money.IMoney*) interface virtual [line 103];
+*&amp;$irvar8:_Bool=n$51 [line 103];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node31.html"><span class='visited with_tooltip'>C_31<span class='tooltip'>node31 preds:30 succs:33 exn:3 Conditional method_body
+n$52=*&amp;$irvar8:_Bool [line 103];
+PRUNE(!(n$52 != 0), true); [line 103];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:31 succs:35 exn:3 Instructions
+*&amp;$T0_138:int=1 [line 103];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node32.html"><span class='visited with_tooltip'>C_32<span class='tooltip'>node32 preds:30 succs:34 exn:3 Conditional method_body
+n$52=*&amp;$irvar8:_Bool [line 103];
+PRUNE((n$52 != 0), false); [line 103];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:32 succs:35 exn:3 Instructions
+*&amp;$T0_138:int=0 [line 103];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:34 33 succs:36 exn:3 Instructions
+n$53=*&amp;$T0_138:int [line 103];
+n$54=_fun_void Assert.assertTrue(boolean)(n$53:int) [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node36.html"><span class='visited with_tooltip'>I_36<span class='tooltip'>node36 preds:35 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:36 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagEquals%28%29%3Avoid.949e0cac780f8409629bf1f7ce94b3e8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    public void testMoneyBagHash() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e.html">summary for void MoneyTest.testMoneyBagHash()</a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">        IMoney equal = MoneyBag.create(new Money(12, &quot;CHF&quot;), new Money(7, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 108];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 108];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 108];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 108];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,7:int,"USD":java.lang.Object*) [line 108];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 108];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 108];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 108];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 108];
+*&amp;equal:junit.samples.money.IMoney*=n$6 [line 108];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        assertEquals(fMB1.hashCode(), equal.hashCode()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 109];
+n$8=*n$7.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 109];
+_=*n$8:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 109];
+n$10=_fun_int IMoney.hashCode()(n$8:junit.samples.money.IMoney*) interface virtual [line 109];
+*&amp;$irvar2:int=n$10 [line 109];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;equal:junit.samples.money.IMoney* [line 109];
+_=*n$11:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 109];
+n$13=_fun_int IMoney.hashCode()(n$11:junit.samples.money.IMoney*) interface virtual [line 109];
+*&amp;$irvar3:int=n$13 [line 109];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;$irvar2:int [line 109];
+n$15=*&amp;$irvar3:int [line 109];
+n$16=_fun_void Assert.assertEquals(long,long)((long)n$14:long,(long)n$15:long) [line 109];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyBagHash%28%29%3Avoid.f7cc2979c5b7f615be9f4c804cb61c0e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">    public void testMoneyEquals() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d.html">summary for void MoneyTest.testMoneyEquals()</a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        assertTrue(!f12CHF.equals(null)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 114];
+n$1=*n$0.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 114];
+_=*n$1:junit.samples.money.Money*(root junit.samples.money.Money) [line 114];
+n$3=_fun_boolean Money.equals(Object)(n$1:junit.samples.money.Money*,null:java.lang.Object*) virtual [line 114];
+*&amp;$irvar0:_Bool=n$3 [line 114];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 114];
+PRUNE(!(n$4 != 0), true); [line 114];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_16:int=1 [line 114];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 114];
+PRUNE((n$4 != 0), false); [line 114];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_16:int=0 [line 114];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:10 exn:3 Instructions
+n$5=*&amp;$T0_16:int [line 114];
+n$6=_fun_void Assert.assertTrue(boolean)(n$5:int) [line 114];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B1] object `null` is dereferenced by call to `equals(...)` at line 114</div></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        Money equalMoney = new Money(12, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 115];
+n$8=_fun_Money.&lt;init&gt;(int,String)(n$7:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 115];
+*&amp;equalMoney:junit.samples.money.Money*=n$7 [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        assertEquals(f12CHF, f12CHF); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$9=*&amp;this:org.junit.samples.money.MoneyTest* [line 116];
+n$10=*n$9.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 116];
+*&amp;$irvar2:junit.samples.money.Money*=n$10 [line 116];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$11=*&amp;this:org.junit.samples.money.MoneyTest* [line 116];
+n$12=*n$11.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 116];
+*&amp;$irvar1:junit.samples.money.Money*=n$12 [line 116];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$13=*&amp;$irvar1:junit.samples.money.Money* [line 116];
+n$14=*&amp;$irvar2:junit.samples.money.Money* [line 116];
+n$15=_fun_void Assert.assertEquals(Object,Object)(n$13:junit.samples.money.Money*,n$14:junit.samples.money.Money*) [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">        assertEquals(f12CHF, equalMoney); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$16=*&amp;this:org.junit.samples.money.MoneyTest* [line 117];
+n$17=*n$16.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 117];
+*&amp;$irvar3:junit.samples.money.Money*=n$17 [line 117];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$18=*&amp;$irvar3:junit.samples.money.Money* [line 117];
+n$19=*&amp;equalMoney:junit.samples.money.Money* [line 117];
+n$20=_fun_void Assert.assertEquals(Object,Object)(n$18:junit.samples.money.Money*,n$19:junit.samples.money.Money*) [line 117];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        assertEquals(f12CHF.hashCode(), equalMoney.hashCode()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$21=*&amp;this:org.junit.samples.money.MoneyTest* [line 118];
+n$22=*n$21.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 118];
+_=*n$22:junit.samples.money.Money*(root junit.samples.money.Money) [line 118];
+n$24=_fun_int Money.hashCode()(n$22:junit.samples.money.Money*) virtual [line 118];
+*&amp;$irvar4:int=n$24 [line 118];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$25=*&amp;equalMoney:junit.samples.money.Money* [line 118];
+_=*n$25:junit.samples.money.Money*(root junit.samples.money.Money) [line 118];
+n$27=_fun_int Money.hashCode()(n$25:junit.samples.money.Money*) virtual [line 118];
+*&amp;$irvar5:int=n$27 [line 118];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$28=*&amp;$irvar4:int [line 118];
+n$29=*&amp;$irvar5:int [line 118];
+n$30=_fun_void Assert.assertEquals(long,long)((long)n$28:long,(long)n$29:long) [line 118];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">        assertTrue(!f12CHF.equals(f14CHF)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 21 exn:3 Instructions
+n$31=*&amp;this:org.junit.samples.money.MoneyTest* [line 119];
+n$32=*n$31.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 119];
+_=*n$32:junit.samples.money.Money*(root junit.samples.money.Money) [line 119];
+n$34=*&amp;this:org.junit.samples.money.MoneyTest* [line 119];
+n$35=*n$34.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 119];
+n$36=_fun_boolean Money.equals(Object)(n$32:junit.samples.money.Money*,n$35:junit.samples.money.Money*) virtual [line 119];
+*&amp;$irvar6:_Bool=n$36 [line 119];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:19 succs:22 exn:3 Conditional method_body
+n$37=*&amp;$irvar6:_Bool [line 119];
+PRUNE(!(n$37 != 0), true); [line 119];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:20 succs:24 exn:3 Instructions
+*&amp;$T0_85:int=1 [line 119];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node21.html"><span class='visited with_tooltip'>C_21<span class='tooltip'>node21 preds:19 succs:23 exn:3 Conditional method_body
+n$37=*&amp;$irvar6:_Bool [line 119];
+PRUNE((n$37 != 0), false); [line 119];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:21 succs:24 exn:3 Instructions
+*&amp;$T0_85:int=0 [line 119];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 22 succs:25 exn:3 Instructions
+n$38=*&amp;$T0_85:int [line 119];
+n$39=_fun_void Assert.assertTrue(boolean)(n$38:int) [line 119];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:25 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyEquals%28%29%3Avoid.c02dc50c8bfa93f33804c66afd4dfb5d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">    public void zeroMoniesAreEqualRegardlessOfCurrency() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae.html">summary for void MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency()</a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">        Money zeroDollars = new Money(0, &quot;USD&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 124];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,0:int,"USD":java.lang.Object*) [line 124];
+*&amp;zeroDollars:junit.samples.money.Money*=n$0 [line 124];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        Money zeroFrancs = new Money(0, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 125];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,0:int,"CHF":java.lang.Object*) [line 125];
+*&amp;zeroFrancs:junit.samples.money.Money*=n$2 [line 125];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        assertEquals(zeroDollars, zeroFrancs); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;zeroDollars:junit.samples.money.Money* [line 127];
+n$5=*&amp;zeroFrancs:junit.samples.money.Money* [line 127];
+n$6=_fun_void Assert.assertEquals(Object,Object)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 127];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        assertEquals(zeroDollars.hashCode(), zeroFrancs.hashCode()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;zeroDollars:junit.samples.money.Money* [line 128];
+_=*n$7:junit.samples.money.Money*(root junit.samples.money.Money) [line 128];
+n$9=_fun_int Money.hashCode()(n$7:junit.samples.money.Money*) virtual [line 128];
+*&amp;$irvar0:int=n$9 [line 128];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$10=*&amp;zeroFrancs:junit.samples.money.Money* [line 128];
+_=*n$10:junit.samples.money.Money*(root junit.samples.money.Money) [line 128];
+n$12=_fun_int Money.hashCode()(n$10:junit.samples.money.Money*) virtual [line 128];
+*&amp;$irvar1:int=n$12 [line 128];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$13=*&amp;$irvar0:int [line 128];
+n$14=*&amp;$irvar1:int [line 128];
+n$15=_fun_void Assert.assertEquals(long,long)((long)n$13:long,(long)n$14:long) [line 128];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.zeroMoniesAreEqualRegardlessOfCurrency%28%29%3Avoid.bf4ae5b8ecd136316f053913254c77ae_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    public void testMoneyHash() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5.html">summary for void MoneyTest.testMoneyHash()</a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        assertTrue(!f12CHF.equals(null)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 133];
+n$1=*n$0.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 133];
+_=*n$1:junit.samples.money.Money*(root junit.samples.money.Money) [line 133];
+n$3=_fun_boolean Money.equals(Object)(n$1:junit.samples.money.Money*,null:java.lang.Object*) virtual [line 133];
+*&amp;$irvar0:_Bool=n$3 [line 133];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 133];
+PRUNE(!(n$4 != 0), true); [line 133];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_16:int=1 [line 133];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 133];
+PRUNE((n$4 != 0), false); [line 133];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_16:int=0 [line 133];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:10 exn:3 Instructions
+n$5=*&amp;$T0_16:int [line 133];
+n$6=_fun_void Assert.assertTrue(boolean)(n$5:int) [line 133];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B1] object `null` is dereferenced by call to `equals(...)` at line 133</div></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        Money equal = new Money(12, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 134];
+n$8=_fun_Money.&lt;init&gt;(int,String)(n$7:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 134];
+*&amp;equal:junit.samples.money.Money*=n$7 [line 134];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        assertEquals(f12CHF.hashCode(), equal.hashCode()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$9=*&amp;this:org.junit.samples.money.MoneyTest* [line 135];
+n$10=*n$9.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 135];
+_=*n$10:junit.samples.money.Money*(root junit.samples.money.Money) [line 135];
+n$12=_fun_int Money.hashCode()(n$10:junit.samples.money.Money*) virtual [line 135];
+*&amp;$irvar1:int=n$12 [line 135];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$13=*&amp;equal:junit.samples.money.Money* [line 135];
+_=*n$13:junit.samples.money.Money*(root junit.samples.money.Money) [line 135];
+n$15=_fun_int Money.hashCode()(n$13:junit.samples.money.Money*) virtual [line 135];
+*&amp;$irvar2:int=n$15 [line 135];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$16=*&amp;$irvar1:int [line 135];
+n$17=*&amp;$irvar2:int [line 135];
+n$18=_fun_void Assert.assertEquals(long,long)((long)n$16:long,(long)n$17:long) [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testMoneyHash%28%29%3Avoid.004698b5907ea8fbeabd6b40910766c5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    public void testSimplify() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff.html">summary for void MoneyTest.testSimplify()</a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        IMoney money = MoneyBag.create(new Money(26, &quot;CHF&quot;), new Money(28, &quot;CHF&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 140];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,26:int,"CHF":java.lang.Object*) [line 140];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 140];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 140];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,28:int,"CHF":java.lang.Object*) [line 140];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 140];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 140];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 140];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 140];
+*&amp;money:junit.samples.money.IMoney*=n$6 [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        assertEquals(new Money(54, &quot;CHF&quot;), money); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 141];
+n$8=_fun_Money.&lt;init&gt;(int,String)(n$7:junit.samples.money.Money*,54:int,"CHF":java.lang.Object*) [line 141];
+*&amp;$irvar2:junit.samples.money.Money*=n$7 [line 141];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar2:junit.samples.money.Money* [line 141];
+n$10=*&amp;money:junit.samples.money.IMoney* [line 141];
+n$11=_fun_void Assert.assertEquals(Object,Object)(n$9:junit.samples.money.Money*,n$10:junit.samples.money.IMoney*) [line 141];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimplify%28%29%3Avoid.0483b4f8d3e9f23e72ec28465e877cff_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">    public void testNormalize2() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6.html">summary for void MoneyTest.testNormalize2()</a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        // {[12 CHF][7 USD]} - [12 CHF] == [7 USD] </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        Money expected = new Money(7, &quot;USD&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 147];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,7:int,"USD":java.lang.Object*) [line 147];
+*&amp;expected:junit.samples.money.Money*=n$0 [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        assertEquals(expected, fMB1.subtract(f12CHF)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 148];
+n$3=*n$2.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 148];
+_=*n$3:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 148];
+n$5=*&amp;this:org.junit.samples.money.MoneyTest* [line 148];
+n$6=*n$5.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 148];
+n$7=_fun_IMoney IMoney.subtract(IMoney)(n$3:junit.samples.money.IMoney*,n$6:junit.samples.money.Money*) interface virtual [line 148];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$7 [line 148];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;expected:junit.samples.money.Money* [line 148];
+n$9=*&amp;$irvar0:junit.samples.money.IMoney* [line 148];
+n$10=_fun_void Assert.assertEquals(Object,Object)(n$8:junit.samples.money.Money*,n$9:junit.samples.money.IMoney*) [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize2%28%29%3Avoid.ce7ed1c1f6fc145a3a7a71c406e5eec6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    public void testNormalize3() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66.html">summary for void MoneyTest.testNormalize3()</a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        // {[12 CHF][7 USD]} - {[12 CHF][3 USD]} == [4 USD] </td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        IMoney ms1 = MoneyBag.create(new Money(12, &quot;CHF&quot;), new Money(3, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 154];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 154];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 154];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 154];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,3:int,"USD":java.lang.Object*) [line 154];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 154];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 154];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 154];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 154];
+*&amp;ms1:junit.samples.money.IMoney*=n$6 [line 154];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        Money expected = new Money(4, &quot;USD&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 155];
+n$8=_fun_Money.&lt;init&gt;(int,String)(n$7:junit.samples.money.Money*,4:int,"USD":java.lang.Object*) [line 155];
+*&amp;expected:junit.samples.money.Money*=n$7 [line 155];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">        assertEquals(expected, fMB1.subtract(ms1)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;this:org.junit.samples.money.MoneyTest* [line 156];
+n$10=*n$9.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 156];
+_=*n$10:junit.samples.money.IMoney*(root junit.samples.money.IMoney) [line 156];
+n$12=*&amp;ms1:junit.samples.money.IMoney* [line 156];
+n$13=_fun_IMoney IMoney.subtract(IMoney)(n$10:junit.samples.money.IMoney*,n$12:junit.samples.money.IMoney*) interface virtual [line 156];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$13 [line 156];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;expected:junit.samples.money.Money* [line 156];
+n$15=*&amp;$irvar2:junit.samples.money.IMoney* [line 156];
+n$16=_fun_void Assert.assertEquals(Object,Object)(n$14:junit.samples.money.Money*,n$15:junit.samples.money.IMoney*) [line 156];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize3%28%29%3Avoid.e8d0bbd2e53018afe7d5e4b7b6e0cf66_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">    public void testNormalize4() { // [12 CHF] - {[12 CHF][3 USD]} == [-3 USD] <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de.html">summary for void MoneyTest.testNormalize4()</a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">        IMoney ms1 = MoneyBag.create(new Money(12, &quot;CHF&quot;), new Money(3, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 161];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,12:int,"CHF":java.lang.Object*) [line 161];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 161];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 161];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,3:int,"USD":java.lang.Object*) [line 161];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 161];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 161];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 161];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 161];
+*&amp;ms1:junit.samples.money.IMoney*=n$6 [line 161];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">        Money expected = new Money(-3, &quot;USD&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 162];
+n$8=_fun_Money.&lt;init&gt;(int,String)(n$7:junit.samples.money.Money*,-3:int,"USD":java.lang.Object*) [line 162];
+*&amp;expected:junit.samples.money.Money*=n$7 [line 162];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">        assertEquals(expected, f12CHF.subtract(ms1)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;this:org.junit.samples.money.MoneyTest* [line 163];
+n$10=*n$9.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 163];
+_=*n$10:junit.samples.money.Money*(root junit.samples.money.Money) [line 163];
+n$12=*&amp;ms1:junit.samples.money.IMoney* [line 163];
+n$13=_fun_IMoney Money.subtract(IMoney)(n$10:junit.samples.money.Money*,n$12:junit.samples.money.IMoney*) virtual [line 163];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$13 [line 163];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=*&amp;expected:junit.samples.money.Money* [line 163];
+n$15=*&amp;$irvar2:junit.samples.money.IMoney* [line 163];
+n$16=_fun_void Assert.assertEquals(Object,Object)(n$14:junit.samples.money.Money*,n$15:junit.samples.money.IMoney*) [line 163];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testNormalize4%28%29%3Avoid.27522164fcfdc7e86b59c83b3c5356de_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">    public void testPrint() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6.html">summary for void MoneyTest.testPrint()</a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">        assertEquals(&quot;[12 CHF]&quot;, f12CHF.toString()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.samples.money.MoneyTest* [line 168];
+n$1=*n$0.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 168];
+_=*n$1:junit.samples.money.Money*(root junit.samples.money.Money) [line 168];
+n$3=_fun_String Money.toString()(n$1:junit.samples.money.Money*) virtual [line 168];
+*&amp;$irvar0:java.lang.String*=n$3 [line 168];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String* [line 168];
+n$5=_fun_void Assert.assertEquals(Object,Object)("[12 CHF]":java.lang.Object*,n$4:java.lang.String*) [line 168];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testPrint%28%29%3Avoid.a086818a26dd04585bb85dff2dedb9e6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">    public void testSimpleAdd() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d.html">summary for void MoneyTest.testSimpleAdd()</a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">        // [12 CHF] + [14 CHF] == [26 CHF] </td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">        Money expected = new Money(26, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 174];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,26:int,"CHF":java.lang.Object*) [line 174];
+*&amp;expected:junit.samples.money.Money*=n$0 [line 174];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">        assertEquals(expected, f12CHF.add(f14CHF)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 175];
+n$3=*n$2.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 175];
+_=*n$3:junit.samples.money.Money*(root junit.samples.money.Money) [line 175];
+n$5=*&amp;this:org.junit.samples.money.MoneyTest* [line 175];
+n$6=*n$5.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 175];
+n$7=_fun_IMoney Money.add(IMoney)(n$3:junit.samples.money.Money*,n$6:junit.samples.money.Money*) virtual [line 175];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$7 [line 175];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;expected:junit.samples.money.Money* [line 175];
+n$9=*&amp;$irvar0:junit.samples.money.IMoney* [line 175];
+n$10=_fun_void Assert.assertEquals(Object,Object)(n$8:junit.samples.money.Money*,n$9:junit.samples.money.IMoney*) [line 175];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleAdd%28%29%3Avoid.bd990af3601a3a16491c434f67d8e36d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">    public void testSimpleBagAdd() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1.html">summary for void MoneyTest.testSimpleBagAdd()</a></td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">        // [14 CHF] + {[12 CHF][7 USD]} == {[26 CHF][7 USD]} </td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">        IMoney expected = MoneyBag.create(new Money(26, &quot;CHF&quot;), new Money(7, &quot;USD&quot;)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 181];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,26:int,"CHF":java.lang.Object*) [line 181];
+*&amp;$irvar0:junit.samples.money.Money*=n$0 [line 181];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 181];
+n$3=_fun_Money.&lt;init&gt;(int,String)(n$2:junit.samples.money.Money*,7:int,"USD":java.lang.Object*) [line 181];
+*&amp;$irvar1:junit.samples.money.Money*=n$2 [line 181];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.samples.money.Money* [line 181];
+n$5=*&amp;$irvar1:junit.samples.money.Money* [line 181];
+n$6=_fun_IMoney MoneyBag.create(IMoney,IMoney)(n$4:junit.samples.money.Money*,n$5:junit.samples.money.Money*) [line 181];
+*&amp;expected:junit.samples.money.IMoney*=n$6 [line 181];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">        assertEquals(expected, f14CHF.add(fMB1)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;this:org.junit.samples.money.MoneyTest* [line 182];
+n$8=*n$7.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 182];
+_=*n$8:junit.samples.money.Money*(root junit.samples.money.Money) [line 182];
+n$10=*&amp;this:org.junit.samples.money.MoneyTest* [line 182];
+n$11=*n$10.fMB1:junit.samples.money.IMoney*(root org.junit.samples.money.MoneyTest) [line 182];
+n$12=_fun_IMoney Money.add(IMoney)(n$8:junit.samples.money.Money*,n$11:junit.samples.money.IMoney*) virtual [line 182];
+*&amp;$irvar2:junit.samples.money.IMoney*=n$12 [line 182];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$13=*&amp;expected:junit.samples.money.IMoney* [line 182];
+n$14=*&amp;$irvar2:junit.samples.money.IMoney* [line 182];
+n$15=_fun_void Assert.assertEquals(Object,Object)(n$13:junit.samples.money.IMoney*,n$14:junit.samples.money.IMoney*) [line 182];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleBagAdd%28%29%3Avoid.6050ef4c2b01c6c3e72775aa83dfd2e1_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line">    public void testSimpleMultiply() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89.html">summary for void MoneyTest.testSimpleMultiply()</a></td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">        // [14 CHF] *2 == [28 CHF] </td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">        Money expected = new Money(28, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 188];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,28:int,"CHF":java.lang.Object*) [line 188];
+*&amp;expected:junit.samples.money.Money*=n$0 [line 188];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line">        assertEquals(expected, f14CHF.multiply(2)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 189];
+n$3=*n$2.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 189];
+_=*n$3:junit.samples.money.Money*(root junit.samples.money.Money) [line 189];
+n$5=_fun_IMoney Money.multiply(int)(n$3:junit.samples.money.Money*,2:int) virtual [line 189];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$5 [line 189];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;expected:junit.samples.money.Money* [line 189];
+n$7=*&amp;$irvar0:junit.samples.money.IMoney* [line 189];
+n$8=_fun_void Assert.assertEquals(Object,Object)(n$6:junit.samples.money.Money*,n$7:junit.samples.money.IMoney*) [line 189];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleMultiply%28%29%3Avoid.f253f5ccf47370827d736c4852355b89_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">    public void testSimpleNegate() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86.html">summary for void MoneyTest.testSimpleNegate()</a></td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line">        // [14 CHF] negate == [-14 CHF] </td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line">        Money expected = new Money(-14, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 195];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,-14:int,"CHF":java.lang.Object*) [line 195];
+*&amp;expected:junit.samples.money.Money*=n$0 [line 195];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">        assertEquals(expected, f14CHF.negate()); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 196];
+n$3=*n$2.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 196];
+_=*n$3:junit.samples.money.Money*(root junit.samples.money.Money) [line 196];
+n$5=_fun_IMoney Money.negate()(n$3:junit.samples.money.Money*) virtual [line 196];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$5 [line 196];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;expected:junit.samples.money.Money* [line 196];
+n$7=*&amp;$irvar0:junit.samples.money.IMoney* [line 196];
+n$8=_fun_void Assert.assertEquals(Object,Object)(n$6:junit.samples.money.Money*,n$7:junit.samples.money.IMoney*) [line 196];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleNegate%28%29%3Avoid.b84797eae4c00f008346ee0949a8fb86_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line">    public void testSimpleSubtract() { <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41.html">summary for void MoneyTest.testSimpleSubtract()</a></td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">        // [14 CHF] - [12 CHF] == [2 CHF] </td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line">        Money expected = new Money(2, &quot;CHF&quot;); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=junit.samples.money.Money):junit.samples.money.Money*) [line 202];
+n$1=_fun_Money.&lt;init&gt;(int,String)(n$0:junit.samples.money.Money*,2:int,"CHF":java.lang.Object*) [line 202];
+*&amp;expected:junit.samples.money.Money*=n$0 [line 202];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line">        assertEquals(expected, f14CHF.subtract(f12CHF)); <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.samples.money.MoneyTest* [line 203];
+n$3=*n$2.f14CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 203];
+_=*n$3:junit.samples.money.Money*(root junit.samples.money.Money) [line 203];
+n$5=*&amp;this:org.junit.samples.money.MoneyTest* [line 203];
+n$6=*n$5.f12CHF:junit.samples.money.Money*(root org.junit.samples.money.MoneyTest) [line 203];
+n$7=_fun_IMoney Money.subtract(IMoney)(n$3:junit.samples.money.Money*,n$6:junit.samples.money.Money*) virtual [line 203];
+*&amp;$irvar0:junit.samples.money.IMoney*=n$7 [line 203];
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$8=*&amp;expected:junit.samples.money.Money* [line 203];
+n$9=*&amp;$irvar0:junit.samples.money.IMoney* [line 203];
+n$10=_fun_void Assert.assertEquals(Object,Object)(n$8:junit.samples.money.Money*,n$9:junit.samples.money.IMoney*) [line 203];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">    } <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/org.junit.samples.money.MoneyTest.testSimpleSubtract%28%29%3Avoid.9865d7a329d250f473524c5fe4032a41_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Null Dereference [B1] object `null` is dereferenced by call to `equals(...)` at line 133 <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/node4.html#session52">node4#session52</a>(<a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/../MoneyTest.java.3448c98ab9c42e1c6337650fe590d459.html#LINE133">133</a>)<br>Null Dereference [B1] object returned by `MoneyTest.fMB1.multiply(0)` could be null and is dereferenced at line 44 <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/node13.html#session65">node13#session65</a>(<a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/../MoneyTest.java.3448c98ab9c42e1c6337650fe590d459.html#LINE44">44</a>)<br>Null Dereference [B1] object `null` is dereferenced by call to `equals(...)` at line 114 <a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/nodes/node4.html#session96">node4#session96</a>(<a href="./MoneyTest.java.3448c98ab9c42e1c6337650fe590d459/../MoneyTest.java.3448c98ab9c42e1c6337650fe590d459.html#LINE114">114</a>)</body>
+</html>

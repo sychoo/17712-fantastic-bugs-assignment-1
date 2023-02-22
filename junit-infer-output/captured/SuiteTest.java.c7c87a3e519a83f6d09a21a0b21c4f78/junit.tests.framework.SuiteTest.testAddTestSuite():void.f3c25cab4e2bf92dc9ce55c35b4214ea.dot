@@ -1,0 +1,44 @@
+/* @generated */
+digraph cfg {
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_1" [label="1: Start void SuiteTest.testAddTestSuite()\nFormals:  this:junit.tests.framework.SuiteTest*\nLocals:  $irvar0:void suite:junit.framework.TestSuite* \n  " color=yellow style=filled]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_1" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_4" ;
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_2" [label="2: Exit void SuiteTest.testAddTestSuite() \n  " color=yellow style=filled]
+	
+
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 110]\n  NULLIFY(&suite); [line 110]\n  EXIT_SCOPE($irvar0,suite); [line 110]\n  APPLY_ABSTRACTION; [line 110]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_2" ;
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_4" [label="4:  Call TestSuite.<init>() \n   n$0=_fun___new(sizeof(t=junit.framework.TestSuite):junit.framework.TestSuite*) [line 106]\n  n$1=_fun_TestSuite.<init>()(n$0:junit.framework.TestSuite*) [line 106]\n  *&suite:junit.framework.TestSuite*=n$0 [line 106]\n  EXIT_SCOPE(n$0,n$1); [line 106]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_4" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_5" ;
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_4" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_5" [label="5:  Call void TestSuite.addTestSuite(Class) \n   n$2=*&suite:junit.framework.TestSuite* [line 107]\n  _=*n$2:junit.framework.TestSuite*(root junit.framework.TestSuite) [line 107]\n  n$4=_fun_void TestSuite.addTestSuite(Class)(n$2:junit.framework.TestSuite*,junit.tests.framework.OneTestCase:java.lang.Object*) [line 107]\n  EXIT_SCOPE(_,n$2,n$4); [line 107]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_5" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_6" ;
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_5" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_6" [label="6:  Call void TestSuite.run(TestResult) \n   n$5=*&suite:junit.framework.TestSuite* [line 108]\n  _=*n$5:junit.framework.TestSuite*(root junit.framework.TestSuite) [line 108]\n  n$7=*&this:junit.tests.framework.SuiteTest* [line 108]\n  n$8=*n$7.fResult:junit.framework.TestResult*(root junit.tests.framework.SuiteTest) [line 108]\n  n$9=_fun_void TestSuite.run(TestResult)(n$5:junit.framework.TestSuite*,n$8:junit.framework.TestResult*) [line 108]\n  NULLIFY(&suite); [line 108]\n  EXIT_SCOPE(_,n$5,n$7,n$8,n$9,suite); [line 108]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_6" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_7" ;
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_6" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_7" [label="7:  Call int TestResult.runCount() \n   n$10=*&this:junit.tests.framework.SuiteTest* [line 109]\n  n$11=*n$10.fResult:junit.framework.TestResult*(root junit.tests.framework.SuiteTest) [line 109]\n  _=*n$11:junit.framework.TestResult*(root junit.framework.TestResult) [line 109]\n  n$13=_fun_int TestResult.runCount()(n$11:junit.framework.TestResult*) virtual [line 109]\n  *&$irvar0:int=n$13 [line 109]\n  NULLIFY(&this); [line 109]\n  EXIT_SCOPE(_,n$10,n$11,n$13,this); [line 109]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_7" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_8" ;
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_7" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_8" [label="8:  Call void TestCase.assertEquals(int,int) \n   n$14=*&$irvar0:int [line 109]\n  n$15=_fun_void TestCase.assertEquals(int,int)(1:int,n$14:int) [line 109]\n  NULLIFY(&$irvar0); [line 109]\n  EXIT_SCOPE(n$14,n$15,$irvar0); [line 109]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_8" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_9" ;
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_8" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [color="red" ];
+"junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_9" [label="9:  method_body \n   APPLY_ABSTRACTION; [line 110]\n " shape="box"]
+	
+
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_9" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_2" ;
+	 "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_9" -> "junit.tests.framework.SuiteTest.testAddTestSuite():void.f3c25cab4e2bf92dc9ce55c35b4214ea_3" [color="red" ];
+}

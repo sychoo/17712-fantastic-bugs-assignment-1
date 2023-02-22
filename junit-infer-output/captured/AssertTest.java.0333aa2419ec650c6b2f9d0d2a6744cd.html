@@ -1,0 +1,707 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/junit/tests/framework/AssertTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package junit.tests.framework; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import junit.framework.AssertionFailedError; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import junit.framework.ComparisonFailure; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import junit.framework.TestCase; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">public class AssertTest extends TestCase { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.<init>%28%29.7fa2d10932a6ee86224f5174f7de1ceb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.<init>%28%29.7fa2d10932a6ee86224f5174f7de1ceb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.tests.framework.AssertTest* [line 7];
+n$1=_fun_TestCase.&lt;init&gt;()(n$0:junit.tests.framework.AssertTest*) [line 7];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.<init>%28%29.7fa2d10932a6ee86224f5174f7de1ceb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.<init>%28%29.7fa2d10932a6ee86224f5174f7de1ceb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.<init>%28%29.7fa2d10932a6ee86224f5174f7de1ceb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.<init>%28%29.7fa2d10932a6ee86224f5174f7de1ceb.html">summary for AssertTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">    /* In the tests that follow, we can't use standard formatting </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">      * for exception tests: </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">      *     try { </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">      *         somethingThatShouldThrow(); </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">      *         fail(); </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">      *     catch (AssertionFailedError e) { </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">      *     } </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">      * because fail() would never be reported. </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">      */ </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    public void testFail() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc.html">summary for void AssertTest.testFail()</a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">        // Also, we are testing fail, so we can't rely on fail() working. </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">        // We have to throw the exception manually. </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">            fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:11 Instructions
+n$0=_fun_void TestCase.fail()() [line 22];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:9 succs:6 exn:3 Instructions
+n$1=*&amp;CatchVar6:java.lang.Object* [line 23];
+*&amp;e:java.lang.Object*=n$1 [line 23];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:5 exn:3 Conditional exception handler
+n$7=_fun___instanceof(n$6:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 23];
+PRUNE(n$7, true); [line 23];
+*&amp;CatchVar6:void=n$6 [line 23];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:3 exn:3 Conditional exception handler
+n$7=_fun___instanceof(n$6:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 23];
+PRUNE(!n$7, false); [line 23];
+*&amp;return:void=EXN n$6 [line 23];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds: succs:9 10 exn:3 Instructions
+n$5=*&amp;return:void [line 23];
+*&amp;return:void=null [line 23];
+n$6=_fun___unwrap_exception(n$5:void) [line 23];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">        throw new AssertionFailedError(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:4 succs:8 exn:3 Instructions
+n$2=_fun___new(sizeof(t=junit.framework.AssertionFailedError):junit.framework.AssertionFailedError*) [line 26];
+n$3=_fun_AssertionFailedError.&lt;init&gt;()(n$2:junit.framework.AssertionFailedError*) [line 26];
+*&amp;$irvar0:junit.framework.AssertionFailedError*=n$2 [line 26];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:junit.framework.AssertionFailedError* [line 26];
+*&amp;return:void=EXN n$4 [line 26];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 6 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testFail%28%29%3Avoid.655e5daf89b77953b6b8ef059cb367dc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:10 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    public void testAssertionFailedErrorToStringWithNoMessage() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9.html">summary for void AssertTest.testAssertionFailedErrorToStringWithNoMessage()</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        // Also, we are testing fail, so we can't rely on fail() working. </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        // We have to throw the exception manually. </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">            fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:9 exn:13 Instructions
+n$0=_fun_void TestCase.fail()() [line 33];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:11 succs:6 exn:3 Instructions
+n$1=*&amp;CatchVar6:java.lang.Object* [line 34];
+*&amp;e:java.lang.Object*=n$1 [line 34];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:5 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 34];
+PRUNE(n$12, true); [line 34];
+*&amp;CatchVar6:void=n$11 [line 34];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:3 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 34];
+PRUNE(!n$12, false); [line 34];
+*&amp;return:void=EXN n$11 [line 34];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds: succs:11 12 exn:3 Instructions
+n$10=*&amp;return:void [line 34];
+*&amp;return:void=null [line 34];
+n$11=_fun___unwrap_exception(n$10:void) [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">            assertEquals(&quot;junit.framework.AssertionFailedError&quot;, e.toString()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;e:java.lang.Object* [line 35];
+_=*n$2:java.lang.Object*(root java.lang.Object) [line 35];
+n$4=_fun_String AssertionFailedError.toString()(n$2:java.lang.Object*) virtual [line 35];
+*&amp;$irvar0:java.lang.String*=n$4 [line 35];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String* [line 35];
+n$6=_fun_void TestCase.assertEquals(String,String)("junit.framework.AssertionFailedError":java.lang.Object*,n$5:java.lang.String*) [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        throw new AssertionFailedError(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:4 succs:10 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.framework.AssertionFailedError):junit.framework.AssertionFailedError*) [line 38];
+n$8=_fun_AssertionFailedError.&lt;init&gt;()(n$7:junit.framework.AssertionFailedError*) [line 38];
+*&amp;$irvar1:junit.framework.AssertionFailedError*=n$7 [line 38];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$9=*&amp;$irvar1:junit.framework.AssertionFailedError* [line 38];
+*&amp;return:void=EXN n$9 [line 38];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 8 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithNoMessage%28%29%3Avoid.b6602a07379634b288427c86b1265dc9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:12 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    public void testAssertionFailedErrorToStringWithMessage() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa.html">summary for void AssertTest.testAssertionFailedErrorToStringWithMessage()</a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        // Also, we are testing fail, so we can't rely on fail() working. </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        // We have to throw the exception manually. </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">            fail(&quot;woops!&quot;); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:9 exn:13 Instructions
+n$0=_fun_void TestCase.fail(String)("woops!":java.lang.Object*) [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:11 succs:6 exn:3 Instructions
+n$1=*&amp;CatchVar8:java.lang.Object* [line 46];
+*&amp;e:java.lang.Object*=n$1 [line 46];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:5 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 46];
+PRUNE(n$12, true); [line 46];
+*&amp;CatchVar8:void=n$11 [line 46];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:3 exn:3 Conditional exception handler
+n$12=_fun___instanceof(n$11:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 46];
+PRUNE(!n$12, false); [line 46];
+*&amp;return:void=EXN n$11 [line 46];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds: succs:11 12 exn:3 Instructions
+n$10=*&amp;return:void [line 46];
+*&amp;return:void=null [line 46];
+n$11=_fun___unwrap_exception(n$10:void) [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">            assertEquals(&quot;junit.framework.AssertionFailedError: woops!&quot;, e.toString()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;e:java.lang.Object* [line 47];
+_=*n$2:java.lang.Object*(root java.lang.Object) [line 47];
+n$4=_fun_String AssertionFailedError.toString()(n$2:java.lang.Object*) virtual [line 47];
+*&amp;$irvar0:java.lang.String*=n$4 [line 47];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String* [line 47];
+n$6=_fun_void TestCase.assertEquals(String,String)("junit.framework.AssertionFailedError: woops!":java.lang.Object*,n$5:java.lang.String*) [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        throw new AssertionFailedError(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:4 succs:10 exn:3 Instructions
+n$7=_fun___new(sizeof(t=junit.framework.AssertionFailedError):junit.framework.AssertionFailedError*) [line 50];
+n$8=_fun_AssertionFailedError.&lt;init&gt;()(n$7:junit.framework.AssertionFailedError*) [line 50];
+*&amp;$irvar1:junit.framework.AssertionFailedError*=n$7 [line 50];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$9=*&amp;$irvar1:junit.framework.AssertionFailedError* [line 50];
+*&amp;return:void=EXN n$9 [line 50];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 8 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertionFailedErrorToStringWithMessage%28%29%3Avoid.4264db1af2137536b96b957f1bb6f6aa_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:12 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    public void testAssertEquals() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122.html">summary for void AssertTest.testAssertEquals()</a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        Object o = new Object(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 54];
+n$1=_fun_Object.&lt;init&gt;()(n$0:java.lang.Object*) [line 54];
+*&amp;o:java.lang.Object*=n$0 [line 54];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        assertEquals(o, o); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;o:java.lang.Object* [line 55];
+n$3=*&amp;o:java.lang.Object* [line 55];
+n$4=_fun_void TestCase.assertEquals(Object,Object)(n$2:java.lang.Object*,n$3:java.lang.Object*) [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">            assertEquals(new Object(), new Object()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:15 Instructions
+n$5=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 57];
+n$6=_fun_Object.&lt;init&gt;()(n$5:java.lang.Object*) [line 57];
+*&amp;$irvar0:java.lang.Object*=n$5 [line 57];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:15 Instructions
+n$7=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 57];
+n$8=_fun_Object.&lt;init&gt;()(n$7:java.lang.Object*) [line 57];
+*&amp;$irvar1:java.lang.Object*=n$7 [line 57];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:11 exn:15 Instructions
+n$9=*&amp;$irvar0:java.lang.Object* [line 57];
+n$10=*&amp;$irvar1:java.lang.Object* [line 57];
+n$11=_fun_void TestCase.assertEquals(Object,Object)(n$9:java.lang.Object*,n$10:java.lang.Object*) [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:13 succs:10 exn:3 Instructions
+n$12=*&amp;CatchVar33:java.lang.Object* [line 58];
+*&amp;e:java.lang.Object*=n$12 [line 58];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:9 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 58];
+PRUNE(n$16, true); [line 58];
+*&amp;CatchVar33:void=n$15 [line 58];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:3 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 58];
+PRUNE(!n$16, false); [line 58];
+*&amp;return:void=EXN n$15 [line 58];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds: succs:13 14 exn:3 Instructions
+n$14=*&amp;return:void [line 58];
+*&amp;return:void=null [line 58];
+n$15=_fun___unwrap_exception(n$14:void) [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$13=_fun_void TestCase.fail()() [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 10 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEquals%28%29%3Avoid.efc4c4f5f565c431c4784040c7855122_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:14 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">    public void testAssertEqualsNull() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEqualsNull%28%29%3Avoid.e19ebed9e36fb424824ccf7639b2e4d0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertEqualsNull%28%29%3Avoid.e19ebed9e36fb424824ccf7639b2e4d0.html">summary for void AssertTest.testAssertEqualsNull()</a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        assertEquals((Object) null, (Object) null); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEqualsNull%28%29%3Avoid.e19ebed9e36fb424824ccf7639b2e4d0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void TestCase.assertEquals(Object,Object)(null:java.lang.Object*,null:java.lang.Object*) [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEqualsNull%28%29%3Avoid.e19ebed9e36fb424824ccf7639b2e4d0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEqualsNull%28%29%3Avoid.e19ebed9e36fb424824ccf7639b2e4d0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertEqualsNull%28%29%3Avoid.e19ebed9e36fb424824ccf7639b2e4d0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    public void testAssertStringEquals() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringEquals%28%29%3Avoid.9c30d43e8eb642d52f4046937f82cb54_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertStringEquals%28%29%3Avoid.9c30d43e8eb642d52f4046937f82cb54.html">summary for void AssertTest.testAssertStringEquals()</a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">        assertEquals(&quot;a&quot;, &quot;a&quot;); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringEquals%28%29%3Avoid.9c30d43e8eb642d52f4046937f82cb54_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void TestCase.assertEquals(String,String)("a":java.lang.Object*,"a":java.lang.Object*) [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringEquals%28%29%3Avoid.9c30d43e8eb642d52f4046937f82cb54_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringEquals%28%29%3Avoid.9c30d43e8eb642d52f4046937f82cb54_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringEquals%28%29%3Avoid.9c30d43e8eb642d52f4046937f82cb54_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">    public void testAssertNullNotEqualsString() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b.html">summary for void AssertTest.testAssertNullNotEqualsString()</a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            assertEquals(null, &quot;foo&quot;); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:10 Instructions
+n$0=_fun_void TestCase.assertEquals(String,String)(null:java.lang.Object*,"foo":java.lang.Object*) [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">            fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:7 exn:10 Instructions
+n$1=_fun_void TestCase.fail()() [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">        } catch (ComparisonFailure e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:8 succs:7 exn:3 Instructions
+n$2=*&amp;CatchVar12:java.lang.Object* [line 76];
+*&amp;$bcvar1:java.lang.Object*=n$2 [line 76];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:10 succs:6 exn:3 Conditional exception handler
+n$5=_fun___instanceof(n$4:junit.framework.ComparisonFailure*,sizeof(t=junit.framework.ComparisonFailure):void) [line 76];
+PRUNE(n$5, true); [line 76];
+*&amp;CatchVar12:void=n$4 [line 76];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:10 succs:3 exn:3 Conditional exception handler
+n$5=_fun___instanceof(n$4:junit.framework.ComparisonFailure*,sizeof(t=junit.framework.ComparisonFailure):void) [line 76];
+PRUNE(!n$5, false); [line 76];
+*&amp;return:void=EXN n$4 [line 76];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds: succs:8 9 exn:3 Instructions
+n$3=*&amp;return:void [line 76];
+*&amp;return:void=null [line 76];
+n$4=_fun___unwrap_exception(n$3:void) [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsString%28%29%3Avoid.4cf1b6bf956653e3e9f8d12288df3d2b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:9 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">    public void testAssertStringNotEqualsNull() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069.html">summary for void AssertTest.testAssertStringNotEqualsNull()</a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">            assertEquals(&quot;foo&quot;, null); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:12 Instructions
+n$0=_fun_void TestCase.assertEquals(String,String)("foo":java.lang.Object*,null:java.lang.Object*) [line 82];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">            fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:9 exn:12 Instructions
+n$1=_fun_void TestCase.fail()() [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        } catch (ComparisonFailure e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:10 succs:7 exn:3 Instructions
+n$2=*&amp;CatchVar12:java.lang.Object* [line 84];
+*&amp;e:java.lang.Object*=n$2 [line 84];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:12 succs:6 exn:3 Conditional exception handler
+n$10=_fun___instanceof(n$9:junit.framework.ComparisonFailure*,sizeof(t=junit.framework.ComparisonFailure):void) [line 84];
+PRUNE(n$10, true); [line 84];
+*&amp;CatchVar12:void=n$9 [line 84];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:12 succs:3 exn:3 Conditional exception handler
+n$10=_fun___instanceof(n$9:junit.framework.ComparisonFailure*,sizeof(t=junit.framework.ComparisonFailure):void) [line 84];
+PRUNE(!n$10, false); [line 84];
+*&amp;return:void=EXN n$9 [line 84];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds: succs:10 11 exn:3 Instructions
+n$8=*&amp;return:void [line 84];
+*&amp;return:void=null [line 84];
+n$9=_fun___unwrap_exception(n$8:void) [line 84];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">            assertNotNull(e.getMessage()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$3=*&amp;e:java.lang.Object* [line 85];
+_=*n$3:java.lang.Object*(root java.lang.Object) [line 85];
+n$5=_fun_String ComparisonFailure.getMessage()(n$3:java.lang.Object*) virtual [line 85];
+*&amp;$irvar0:java.lang.String*=n$5 [line 85];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=*&amp;$irvar0:java.lang.String* [line 85];
+n$7=_fun_void TestCase.assertNotNull(Object)(n$6:java.lang.String*) [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertStringNotEqualsNull%28%29%3Avoid.eb8bbdf8f8f7b7556be30f0fc4d25069_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:11 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    public void testAssertNullNotEqualsNull() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb.html">summary for void AssertTest.testAssertNullNotEqualsNull()</a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">            assertEquals(null, new Object()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:14 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 91];
+n$1=_fun_Object.&lt;init&gt;()(n$0:java.lang.Object*) [line 91];
+*&amp;$irvar0:java.lang.Object*=n$0 [line 91];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:10 exn:14 Instructions
+n$2=*&amp;$irvar0:java.lang.Object* [line 91];
+n$3=_fun_void TestCase.assertEquals(Object,Object)(null:java.lang.Object*,n$2:java.lang.Object*) [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:12 succs:7 exn:3 Instructions
+n$4=*&amp;CatchVar14:java.lang.Object* [line 92];
+*&amp;e:java.lang.Object*=n$4 [line 92];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:14 succs:6 exn:3 Conditional exception handler
+n$13=_fun___instanceof(n$12:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 92];
+PRUNE(n$13, true); [line 92];
+*&amp;CatchVar14:void=n$12 [line 92];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:14 succs:3 exn:3 Conditional exception handler
+n$13=_fun___instanceof(n$12:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 92];
+PRUNE(!n$13, false); [line 92];
+*&amp;return:void=EXN n$12 [line 92];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds: succs:12 13 exn:3 Instructions
+n$11=*&amp;return:void [line 92];
+*&amp;return:void=null [line 92];
+n$12=_fun___unwrap_exception(n$11:void) [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">            assertNotNull(e.getMessage()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;e:java.lang.Object* [line 93];
+_=*n$5:java.lang.Object*(root java.lang.Object) [line 93];
+n$7=_fun_String AssertionFailedError.getMessage()(n$5:java.lang.Object*) virtual [line 93];
+*&amp;$irvar1:java.lang.String*=n$7 [line 93];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;$irvar1:java.lang.String* [line 93];
+n$9=_fun_void TestCase.assertNotNull(Object)(n$8:java.lang.String*) [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:5 succs:11 exn:3 Instructions
+n$10=_fun_void TestCase.fail()() [line 96];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 9 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNullNotEqualsNull%28%29%3Avoid.021fd0fdcb7cfe83093d0edb0182a1cb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:13 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">    public void testAssertNull() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6.html">summary for void AssertTest.testAssertNull()</a></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        assertNull(null); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void TestCase.assertNull(Object)(null:java.lang.Object*) [line 100];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">            assertNull(new Object()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:13 Instructions
+n$1=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 102];
+n$2=_fun_Object.&lt;init&gt;()(n$1:java.lang.Object*) [line 102];
+*&amp;$irvar0:java.lang.Object*=n$1 [line 102];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:9 exn:13 Instructions
+n$3=*&amp;$irvar0:java.lang.Object* [line 102];
+n$4=_fun_void TestCase.assertNull(Object)(n$3:java.lang.Object*) [line 102];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `assertNull(...)` at line 102</div></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:11 succs:8 exn:3 Instructions
+n$5=*&amp;CatchVar17:java.lang.Object* [line 103];
+*&amp;e:java.lang.Object*=n$5 [line 103];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:7 exn:3 Conditional exception handler
+n$9=_fun___instanceof(n$8:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 103];
+PRUNE(n$9, true); [line 103];
+*&amp;CatchVar17:void=n$8 [line 103];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:3 exn:3 Conditional exception handler
+n$9=_fun___instanceof(n$8:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 103];
+PRUNE(!n$9, false); [line 103];
+*&amp;return:void=EXN n$8 [line 103];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds: succs:11 12 exn:3 Instructions
+n$7=*&amp;return:void [line 103];
+*&amp;return:void=null [line 103];
+n$8=_fun___unwrap_exception(n$7:void) [line 103];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$6=_fun_void TestCase.fail()() [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 8 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNull%28%29%3Avoid.f5402e45d8aa9e5beeaf74c5e3f703e6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:12 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">    public void testAssertNotNull() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec.html">summary for void AssertTest.testAssertNotNull()</a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        assertNotNull(new Object()); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 110];
+n$1=_fun_Object.&lt;init&gt;()(n$0:java.lang.Object*) [line 110];
+*&amp;$irvar0:java.lang.Object*=n$0 [line 110];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Object* [line 110];
+n$3=_fun_void TestCase.assertNotNull(Object)(n$2:java.lang.Object*) [line 110];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">            assertNotNull(null); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:9 exn:13 Instructions
+n$4=_fun_void TestCase.assertNotNull(Object)(null:java.lang.Object*) [line 112];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `assertNotNull(...)` at line 112</div></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:11 succs:8 exn:3 Instructions
+n$5=*&amp;CatchVar17:java.lang.Object* [line 113];
+*&amp;e:java.lang.Object*=n$5 [line 113];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:13 succs:7 exn:3 Conditional exception handler
+n$9=_fun___instanceof(n$8:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 113];
+PRUNE(n$9, true); [line 113];
+*&amp;CatchVar17:void=n$8 [line 113];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node12.html"><span class='visited with_tooltip'>C_12<span class='tooltip'>node12 preds:13 succs:3 exn:3 Conditional exception handler
+n$9=_fun___instanceof(n$8:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 113];
+PRUNE(!n$9, false); [line 113];
+*&amp;return:void=EXN n$8 [line 113];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds: succs:11 12 exn:3 Instructions
+n$7=*&amp;return:void [line 113];
+*&amp;return:void=null [line 113];
+n$8=_fun___unwrap_exception(n$7:void) [line 113];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:10 exn:3 Instructions
+n$6=_fun_void TestCase.fail()() [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 8 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotNull%28%29%3Avoid.44999a82d1d2ec1eab0d6f9e92e660ec_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:12 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    public void testAssertTrue() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4.html">summary for void AssertTest.testAssertTrue()</a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        assertTrue(true); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void TestCase.assertTrue(boolean)(1:int) [line 120];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            assertTrue(false); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:8 exn:12 Instructions
+n$1=_fun_void TestCase.assertTrue(boolean)(0:int) [line 122];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `assertTrue(...)` at line 122</div></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:10 succs:7 exn:3 Instructions
+n$2=*&amp;CatchVar11:java.lang.Object* [line 123];
+*&amp;e:java.lang.Object*=n$2 [line 123];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:12 succs:6 exn:3 Conditional exception handler
+n$6=_fun___instanceof(n$5:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 123];
+PRUNE(n$6, true); [line 123];
+*&amp;CatchVar11:void=n$5 [line 123];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:12 succs:3 exn:3 Conditional exception handler
+n$6=_fun___instanceof(n$5:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 123];
+PRUNE(!n$6, false); [line 123];
+*&amp;return:void=EXN n$5 [line 123];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds: succs:10 11 exn:3 Instructions
+n$4=*&amp;return:void [line 123];
+*&amp;return:void=null [line 123];
+n$5=_fun___unwrap_exception(n$4:void) [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$3=_fun_void TestCase.fail()() [line 126];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 7 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertTrue%28%29%3Avoid.d89e516ba4d8e35972f0a751edf902a4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:11 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">    public void testAssertFalse() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb.html">summary for void AssertTest.testAssertFalse()</a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        assertFalse(false); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void TestCase.assertFalse(boolean)(0:int) [line 130];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">            assertFalse(true); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:8 exn:12 Instructions
+n$1=_fun_void TestCase.assertFalse(boolean)(1:int) [line 132];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:10 succs:7 exn:3 Instructions
+n$2=*&amp;CatchVar11:java.lang.Object* [line 133];
+*&amp;e:java.lang.Object*=n$2 [line 133];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:12 succs:6 exn:3 Conditional exception handler
+n$6=_fun___instanceof(n$5:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 133];
+PRUNE(n$6, true); [line 133];
+*&amp;CatchVar11:void=n$5 [line 133];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:12 succs:3 exn:3 Conditional exception handler
+n$6=_fun___instanceof(n$5:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 133];
+PRUNE(!n$6, false); [line 133];
+*&amp;return:void=EXN n$5 [line 133];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds: succs:10 11 exn:3 Instructions
+n$4=*&amp;return:void [line 133];
+*&amp;return:void=null [line 133];
+n$5=_fun___unwrap_exception(n$4:void) [line 133];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:5 succs:9 exn:3 Instructions
+n$3=_fun_void TestCase.fail()() [line 136];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 7 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertFalse%28%29%3Avoid.a369179651c54cd56a8a5296447a2bcb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:11 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    public void testAssertSame() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059.html">summary for void AssertTest.testAssertSame()</a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">        Object o = new Object(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Object):java.lang.Object*) [line 140];
+n$1=_fun_Object.&lt;init&gt;()(n$0:java.lang.Object*) [line 140];
+*&amp;o:java.lang.Object*=n$0 [line 140];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        assertSame(o, o); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;o:java.lang.Object* [line 141];
+n$3=*&amp;o:java.lang.Object* [line 141];
+n$4=_fun_void TestCase.assertSame(Object,Object)(n$2:java.lang.Object*,n$3:java.lang.Object*) [line 141];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">            assertSame(new Integer(1), new Integer(1)); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:15 Instructions
+n$5=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 143];
+n$6=_fun_Integer.&lt;init&gt;(int)(n$5:java.lang.Integer*,1:int) [line 143];
+*&amp;$irvar0:java.lang.Integer*=n$5 [line 143];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:15 Instructions
+n$7=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 143];
+n$8=_fun_Integer.&lt;init&gt;(int)(n$7:java.lang.Integer*,1:int) [line 143];
+*&amp;$irvar1:java.lang.Integer*=n$7 [line 143];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:11 exn:15 Instructions
+n$9=*&amp;$irvar0:java.lang.Integer* [line 143];
+n$10=*&amp;$irvar1:java.lang.Integer* [line 143];
+n$11=_fun_void TestCase.assertSame(Object,Object)(n$9:java.lang.Integer*,n$10:java.lang.Integer*) [line 143];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:13 succs:10 exn:3 Instructions
+n$12=*&amp;CatchVar35:java.lang.Object* [line 144];
+*&amp;e:java.lang.Object*=n$12 [line 144];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node13.html"><span class='visited with_tooltip'>C_13<span class='tooltip'>node13 preds:15 succs:9 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 144];
+PRUNE(n$16, true); [line 144];
+*&amp;CatchVar35:void=n$15 [line 144];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:15 succs:3 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 144];
+PRUNE(!n$16, false); [line 144];
+*&amp;return:void=EXN n$15 [line 144];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds: succs:13 14 exn:3 Instructions
+n$14=*&amp;return:void [line 144];
+*&amp;return:void=null [line 144];
+n$15=_fun___unwrap_exception(n$14:void) [line 144];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:8 succs:12 exn:3 Instructions
+n$13=_fun_void TestCase.fail()() [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 10 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertSame%28%29%3Avoid.416e90cdff0025e8c36975a505d05059_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:14 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">    public void testAssertNotSame() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787.html">summary for void AssertTest.testAssertNotSame()</a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">        assertNotSame(new Integer(1), null); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 151];
+n$1=_fun_Integer.&lt;init&gt;(int)(n$0:java.lang.Integer*,1:int) [line 151];
+*&amp;$irvar0:java.lang.Integer*=n$0 [line 151];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Integer* [line 151];
+n$3=_fun_void TestCase.assertNotSame(Object,Object)(n$2:java.lang.Integer*,null:java.lang.Object*) [line 151];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">        assertNotSame(null, new Integer(1)); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 152];
+n$5=_fun_Integer.&lt;init&gt;(int)(n$4:java.lang.Integer*,1:int) [line 152];
+*&amp;$irvar1:java.lang.Integer*=n$4 [line 152];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;$irvar1:java.lang.Integer* [line 152];
+n$7=_fun_void TestCase.assertNotSame(Object,Object)(null:java.lang.Object*,n$6:java.lang.Integer*) [line 152];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        assertNotSame(new Integer(1), new Integer(1)); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 153];
+n$9=_fun_Integer.&lt;init&gt;(int)(n$8:java.lang.Integer*,1:int) [line 153];
+*&amp;$irvar2:java.lang.Integer*=n$8 [line 153];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 153];
+n$11=_fun_Integer.&lt;init&gt;(int)(n$10:java.lang.Integer*,1:int) [line 153];
+*&amp;$irvar3:java.lang.Integer*=n$10 [line 153];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar2:java.lang.Integer* [line 153];
+n$13=*&amp;$irvar3:java.lang.Integer* [line 153];
+n$14=_fun_void TestCase.assertNotSame(Object,Object)(n$12:java.lang.Integer*,n$13:java.lang.Integer*) [line 153];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">            Integer obj = new Integer(1); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:19 Instructions
+n$15=_fun___new(sizeof(t=java.lang.Integer):java.lang.Integer*) [line 155];
+n$16=_fun_Integer.&lt;init&gt;(int)(n$15:java.lang.Integer*,1:int) [line 155];
+*&amp;obj:java.lang.Integer*=n$15 [line 155];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">            assertNotSame(obj, obj); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:15 exn:19 Instructions
+n$17=*&amp;obj:java.lang.Integer* [line 156];
+n$18=*&amp;obj:java.lang.Integer* [line 156];
+n$19=_fun_void TestCase.assertNotSame(Object,Object)(n$17:java.lang.Integer*,n$18:java.lang.Integer*) [line 156];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:17 succs:14 exn:3 Instructions
+n$20=*&amp;CatchVar60:java.lang.Object* [line 157];
+*&amp;e:java.lang.Object*=n$20 [line 157];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:19 succs:13 exn:3 Conditional exception handler
+n$24=_fun___instanceof(n$23:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 157];
+PRUNE(n$24, true); [line 157];
+*&amp;CatchVar60:void=n$23 [line 157];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:19 succs:3 exn:3 Conditional exception handler
+n$24=_fun___instanceof(n$23:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 157];
+PRUNE(!n$24, false); [line 157];
+*&amp;return:void=EXN n$23 [line 157];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds: succs:17 18 exn:3 Instructions
+n$22=*&amp;return:void [line 157];
+*&amp;return:void=null [line 157];
+n$23=_fun___unwrap_exception(n$22:void) [line 157];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:12 succs:16 exn:3 Instructions
+n$21=_fun_void TestCase.fail()() [line 160];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 14 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSame%28%29%3Avoid.f4b2a978bf659a761e8cab9913622787_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:18 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line">    public void testAssertNotSameFailsNull() { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23.html">summary for void AssertTest.testAssertNotSameFailsNull()</a></td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">            assertNotSame(null, null); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:7 exn:11 Instructions
+n$0=_fun_void TestCase.assertNotSame(Object,Object)(null:java.lang.Object*,null:java.lang.Object*) [line 165];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">        } catch (AssertionFailedError e) { <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:9 succs:6 exn:3 Instructions
+n$1=*&amp;CatchVar8:java.lang.Object* [line 166];
+*&amp;e:java.lang.Object*=n$1 [line 166];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:11 succs:5 exn:3 Conditional exception handler
+n$5=_fun___instanceof(n$4:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 166];
+PRUNE(n$5, true); [line 166];
+*&amp;CatchVar8:void=n$4 [line 166];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:11 succs:3 exn:3 Conditional exception handler
+n$5=_fun___instanceof(n$4:junit.framework.AssertionFailedError*,sizeof(t=junit.framework.AssertionFailedError):void) [line 166];
+PRUNE(!n$5, false); [line 166];
+*&amp;return:void=EXN n$4 [line 166];
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds: succs:9 10 exn:3 Instructions
+n$3=*&amp;return:void [line 166];
+*&amp;return:void=null [line 166];
+n$4=_fun___unwrap_exception(n$3:void) [line 166];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line">            return; <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">        fail(); <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:4 succs:8 exn:3 Instructions
+n$2=_fun_void TestCase.fail()() [line 169];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">    } <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 6 3 succs: exn: Exit
+</span></span></a> <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/junit.tests.framework.AssertTest.testAssertNotSameFailsNull%28%29%3Avoid.e651fdbc5e3fd575977475aa9200bf23_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:10 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+<br>Precondition Not Met in call to `assertNotNull(...)` at line 112 <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/node6.html#session30">node6#session30</a>(<a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/../AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd.html#LINE112">112</a>)<br>Precondition Not Met in call to `assertNull(...)` at line 102 <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/node6.html#session30">node6#session30</a>(<a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/../AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd.html#LINE102">102</a>)<br>Precondition Not Met in call to `assertTrue(...)` at line 122 <a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/nodes/node5.html#session25">node5#session25</a>(<a href="./AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd/../AssertTest.java.0333aa2419ec650c6b2f9d0d2a6744cd.html#LINE122">122</a>)
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

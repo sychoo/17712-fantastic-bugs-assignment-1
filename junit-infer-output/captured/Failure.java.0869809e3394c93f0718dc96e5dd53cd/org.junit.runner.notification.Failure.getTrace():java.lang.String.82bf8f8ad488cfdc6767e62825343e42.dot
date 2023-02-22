@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_1" [label="1: Start String Failure.getTrace()\nFormals:  this:org.junit.runner.notification.Failure*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_1" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_4" ;
+"org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_2" [label="2: Exit String Failure.getTrace() \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 70]\n  NULLIFY(&$irvar1); [line 70]\n  EXIT_SCOPE($irvar0,$irvar1); [line 70]\n  APPLY_ABSTRACTION; [line 70]\n " shape="box"]
+	
+
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_3" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_2" ;
+"org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_4" [label="4:  Call Throwable Failure.getException() \n   n$0=*&this:org.junit.runner.notification.Failure* [line 70]\n  _=*n$0:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 70]\n  n$2=_fun_Throwable Failure.getException()(n$0:org.junit.runner.notification.Failure*) virtual [line 70]\n  *&$irvar0:java.lang.Throwable*=n$2 [line 70]\n  NULLIFY(&this); [line 70]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 70]\n " shape="box"]
+	
+
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_4" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_5" ;
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_4" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_3" [color="red" ];
+"org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_5" [label="5:  Call String Throwables.getStacktrace(Throwable) \n   n$3=*&$irvar0:java.lang.Throwable* [line 70]\n  n$4=_fun_String Throwables.getStacktrace(Throwable)(n$3:java.lang.Throwable*) [line 70]\n  *&$irvar1:java.lang.String*=n$4 [line 70]\n  NULLIFY(&$irvar0); [line 70]\n  EXIT_SCOPE(n$3,n$4,$irvar0); [line 70]\n " shape="box"]
+	
+
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_5" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_6" ;
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_5" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_3" [color="red" ];
+"org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_6" [label="6:  method_body \n   n$5=*&$irvar1:java.lang.String* [line 70]\n  *&return:java.lang.String*=n$5 [line 70]\n  NULLIFY(&$irvar1); [line 70]\n  EXIT_SCOPE(n$5,$irvar1); [line 70]\n  APPLY_ABSTRACTION; [line 70]\n " shape="box"]
+	
+
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_6" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_2" ;
+	 "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_6" -> "org.junit.runner.notification.Failure.getTrace():java.lang.String.82bf8f8ad488cfdc6767e62825343e42_3" [color="red" ];
+}

@@ -1,0 +1,676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MethodValidator.java.4c3ed24e3e51904473350c813545ad95</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/runners/MethodValidator.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.runners; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.annotation.Annotation; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.lang.reflect.Modifier; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import java.util.ArrayList; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.After; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.AfterClass; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.BeforeClass; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.runners.BlockJUnit4ClassRunner; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> * @deprecated Included for backwards compatibility with JUnit 4.4. Will be </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> *             removed in the next major release. Please use </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> *             {@link BlockJUnit4ClassRunner} in place of {@link JUnit4ClassRunner}. </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">@Deprecated </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">public class MethodValidator { </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    private final List&lt;Throwable&gt; errors = new ArrayList&lt;Throwable&gt;(); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 24];
+n$3=_fun_ArrayList.&lt;init&gt;()(n$2:java.util.ArrayList*) [line 24];
+*&amp;$irvar0:java.util.ArrayList*=n$2 [line 24];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.runners.MethodValidator* [line 24];
+n$5=*&amp;$irvar0:java.util.ArrayList* [line 24];
+*n$4.errors:org.junit.internal.runners.MethodValidator(root org.junit.internal.runners.MethodValidator)=n$5 [line 24];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    private TestClass testClass; </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    public MethodValidator(TestClass testClass) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 28];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.runners.MethodValidator*) [line 28];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88.html">summary for MethodValidator.&lt;init&gt;(TestClass)</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">        this.testClass = testClass; <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.MethodValidator* [line 29];
+n$7=*&amp;testClass:org.junit.internal.runners.TestClass* [line 29];
+*n$6.testClass:org.junit.internal.runners.MethodValidator(root org.junit.internal.runners.MethodValidator)=n$7 [line 29];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    } <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.<init>%28org.junit.internal.runners.TestClass%29.041184daf14cebf3d53f11ac72b7bb88_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">    public void validateInstanceMethods() { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157.html">summary for void MethodValidator.validateInstanceMethods()</a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        validateTestMethods(After.class, false); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 33];
+n$1=_fun_void MethodValidator.validateTestMethods(Class,boolean)(n$0:org.junit.internal.runners.MethodValidator*,org.junit.After:java.lang.Object*,0:int) [line 33];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        validateTestMethods(Before.class, false); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.MethodValidator* [line 34];
+n$3=_fun_void MethodValidator.validateTestMethods(Class,boolean)(n$2:org.junit.internal.runners.MethodValidator*,org.junit.Before:java.lang.Object*,0:int) [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        validateTestMethods(Test.class, false); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.runners.MethodValidator* [line 35];
+n$5=_fun_void MethodValidator.validateTestMethods(Class,boolean)(n$4:org.junit.internal.runners.MethodValidator*,org.junit.Test:java.lang.Object*,0:int) [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        List&lt;Method&gt; methods = testClass.getAnnotatedMethods(Test.class); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.MethodValidator* [line 37];
+n$7=*n$6.testClass:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.MethodValidator) [line 37];
+_=*n$7:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestClass) [line 37];
+n$9=_fun_List TestClass.getAnnotatedMethods(Class)(n$7:org.junit.internal.runners.TestClass*,org.junit.Test:java.lang.Object*) virtual [line 37];
+*&amp;methods:java.util.List*=n$9 [line 37];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        if (methods.size() == 0) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 10 exn:3 Instructions
+n$10=*&amp;methods:java.util.List* [line 38];
+_=*n$10:java.util.List*(root java.util.List) [line 38];
+n$12=_fun_int List.size()(n$10:java.util.List*) interface virtual [line 38];
+*&amp;$irvar0:int=n$12 [line 38];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$13=*&amp;$irvar0:int [line 38];
+PRUNE(!(n$13 != 0), true); [line 38];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:14 exn:3 Conditional method_body
+n$13=*&amp;$irvar0:int [line 38];
+PRUNE((n$13 != 0), false); [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">            errors.add(new Exception(&quot;No runnable methods&quot;)); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 succs:12 exn:3 Instructions
+n$14=*&amp;this:org.junit.internal.runners.MethodValidator* [line 39];
+n$15=*n$14.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 39];
+*&amp;$irvar1:java.util.List*=n$15 [line 39];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 39];
+n$17=_fun_Exception.&lt;init&gt;(String)(n$16:java.lang.Exception*,"No runnable methods":java.lang.Object*) [line 39];
+*&amp;$irvar2:java.lang.Exception*=n$16 [line 39];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar1:java.util.List* [line 39];
+_=*n$18:java.util.List*(root java.util.List) [line 39];
+n$20=*&amp;$irvar2:java.lang.Exception* [line 39];
+n$21=_fun_boolean List.add(Object)(n$18:java.util.List*,n$20:java.lang.Exception*) interface virtual [line 39];
+*&amp;$irvar3:_Bool=n$21 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">    } <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:14 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateInstanceMethods%28%29%3Avoid.2cc6ddb02fc57f67d695027879628157_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    public void validateStaticMethods() { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b.html">summary for void MethodValidator.validateStaticMethods()</a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        validateTestMethods(BeforeClass.class, true); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 44];
+n$1=_fun_void MethodValidator.validateTestMethods(Class,boolean)(n$0:org.junit.internal.runners.MethodValidator*,org.junit.BeforeClass:java.lang.Object*,1:int) [line 44];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        validateTestMethods(AfterClass.class, true); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.MethodValidator* [line 45];
+n$3=_fun_void MethodValidator.validateTestMethods(Class,boolean)(n$2:org.junit.internal.runners.MethodValidator*,org.junit.AfterClass:java.lang.Object*,1:int) [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    } <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateStaticMethods%28%29%3Avoid.d43dd4bbf923f50b6736e7182ff6031b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">    public List&lt;Throwable&gt; validateMethodsForDefaultRunner() { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6.html">summary for List MethodValidator.validateMethodsForDefaultRunner()</a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        validateNoArgConstructor(); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 49];
+_=*n$0:org.junit.internal.runners.MethodValidator*(root org.junit.internal.runners.MethodValidator) [line 49];
+n$2=_fun_void MethodValidator.validateNoArgConstructor()(n$0:org.junit.internal.runners.MethodValidator*) virtual [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        validateStaticMethods(); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.internal.runners.MethodValidator* [line 50];
+_=*n$3:org.junit.internal.runners.MethodValidator*(root org.junit.internal.runners.MethodValidator) [line 50];
+n$5=_fun_void MethodValidator.validateStaticMethods()(n$3:org.junit.internal.runners.MethodValidator*) virtual [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">        validateInstanceMethods(); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;this:org.junit.internal.runners.MethodValidator* [line 51];
+_=*n$6:org.junit.internal.runners.MethodValidator*(root org.junit.internal.runners.MethodValidator) [line 51];
+n$8=_fun_void MethodValidator.validateInstanceMethods()(n$6:org.junit.internal.runners.MethodValidator*) virtual [line 51];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        return errors; <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$9=*&amp;this:org.junit.internal.runners.MethodValidator* [line 52];
+n$10=*n$9.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 52];
+*&amp;return:java.util.List*=n$10 [line 52];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner%28%29%3Ajava.util.List.34598f257023041674047a887b6232e6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    public void assertValid() throws InitializationError { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36.html">summary for void MethodValidator.assertValid()</a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        if (!errors.isEmpty()) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 56];
+n$1=*n$0.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 56];
+_=*n$1:java.util.List*(root java.util.List) [line 56];
+n$3=_fun_boolean List.isEmpty()(n$1:java.util.List*) interface virtual [line 56];
+*&amp;$irvar0:_Bool=n$3 [line 56];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 56];
+PRUNE(!(n$4 != 0), true); [line 56];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:9 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:_Bool [line 56];
+PRUNE((n$4 != 0), false); [line 56];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">            throw new InitializationError(errors); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:8 exn:3 Instructions
+n$5=_fun___new(sizeof(t=org.junit.internal.runners.InitializationError):org.junit.internal.runners.InitializationError*) [line 57];
+n$6=*&amp;this:org.junit.internal.runners.MethodValidator* [line 57];
+n$7=*n$6.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 57];
+n$8=_fun_InitializationError.&lt;init&gt;(List)(n$5:org.junit.internal.runners.InitializationError*,n$7:java.util.List*) [line 57];
+*&amp;$irvar1:org.junit.internal.runners.InitializationError*=n$5 [line 57];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$9=*&amp;$irvar1:org.junit.internal.runners.InitializationError* [line 57];
+*&amp;return:void=EXN n$9 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    } <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 8 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.assertValid%28%29%3Avoid.eae4b5959029a5dd8b851114a80f3a36_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    public void validateNoArgConstructor() { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b.html">summary for void MethodValidator.validateNoArgConstructor()</a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        try { </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">            testClass.getConstructor(); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:9 exn:12 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 63];
+n$1=*n$0.testClass:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.MethodValidator) [line 63];
+_=*n$1:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestClass) [line 63];
+n$3=_fun_Constructor TestClass.getConstructor()(n$1:org.junit.internal.runners.TestClass*) virtual [line 63];
+*&amp;$irvar0:java.lang.reflect.Constructor*=n$3 [line 63];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        } catch (Exception e) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:10 succs:6 exn:3 Instructions
+n$4=*&amp;CatchVar11:java.lang.Object* [line 64];
+*&amp;e:java.lang.Object*=n$4 [line 64];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:12 succs:5 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 64];
+PRUNE(n$16, true); [line 64];
+*&amp;CatchVar11:void=n$15 [line 64];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node11.html"><span class='visited with_tooltip'>C_11<span class='tooltip'>node11 preds:12 succs:3 exn:3 Conditional exception handler
+n$16=_fun___instanceof(n$15:java.lang.Exception*,sizeof(t=java.lang.Exception):void) [line 64];
+PRUNE(!n$16, false); [line 64];
+*&amp;return:void=EXN n$15 [line 64];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds: succs:10 11 exn:3 Instructions
+n$14=*&amp;return:void [line 64];
+*&amp;return:void=null [line 64];
+n$15=_fun___unwrap_exception(n$14:void) [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">            errors.add(new Exception(&quot;Test class should have public zero-argument constructor&quot;, e)); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.internal.runners.MethodValidator* [line 65];
+n$6=*n$5.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 65];
+*&amp;$irvar1:java.util.List*=n$6 [line 65];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 65];
+n$8=*&amp;e:java.lang.Object* [line 65];
+n$9=_fun_Exception.&lt;init&gt;(String,Throwable)(n$7:java.lang.Exception*,"Test class should have public zero-argument constructor":java.lang.Object*,n$8:java.lang.Object*) [line 65];
+*&amp;$irvar2:java.lang.Exception*=n$7 [line 65];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$10=*&amp;$irvar1:java.util.List* [line 65];
+_=*n$10:java.util.List*(root java.util.List) [line 65];
+n$12=*&amp;$irvar2:java.lang.Exception* [line 65];
+n$13=_fun_boolean List.add(Object)(n$10:java.util.List*,n$12:java.lang.Exception*) interface virtual [line 65];
+*&amp;$irvar3:_Bool=n$13 [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    } <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateNoArgConstructor%28%29%3Avoid.939061a6e6777accc675126fe63fe16b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds:11 succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    private void validateTestMethods(Class&lt;? extends Annotation&gt; annotation, <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f.html">summary for void MethodValidator.validateTestMethods(Class,boolean)</a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">            boolean isStatic) { </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">        List&lt;Method&gt; methods = testClass.getAnnotatedMethods(annotation); <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.MethodValidator* [line 71];
+n$1=*n$0.testClass:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.MethodValidator) [line 71];
+_=*n$1:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestClass) [line 71];
+n$3=*&amp;annotation:java.lang.Class* [line 71];
+n$4=_fun_List TestClass.getAnnotatedMethods(Class)(n$1:org.junit.internal.runners.TestClass*,n$3:java.lang.Class*) virtual [line 71];
+*&amp;methods:java.util.List*=n$4 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">        for (Method each : methods) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$5=*&amp;methods:java.util.List* [line 73];
+_=*n$5:java.util.List*(root java.util.List) [line 73];
+n$7=_fun_Iterator List.iterator()(n$5:java.util.List*) interface virtual [line 73];
+*&amp;$bcvar4:java.util.Iterator*=n$7 [line 73];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:88 78 5 succs:9 exn:3 Instructions
+n$8=*&amp;$bcvar4:java.util.Iterator* [line 73];
+_=*n$8:java.util.Iterator*(root java.util.Iterator) [line 73];
+n$10=_fun_boolean Iterator.hasNext()(n$8:java.util.Iterator*) interface virtual [line 73];
+*&amp;$irvar0:_Bool=n$10 [line 73];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node9.html"><span class='visited with_tooltip'>J_9<span class='tooltip'>node9 preds:6 succs:7 8 exn: Join
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:9 succs:10 exn:3 Conditional method_body
+n$11=*&amp;$irvar0:_Bool [line 73];
+PRUNE(!(n$11 == 0), true); [line 73];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:7 succs:11 exn:3 Instructions
+n$12=*&amp;$bcvar4:java.util.Iterator* [line 73];
+_=*n$12:java.util.Iterator*(root java.util.Iterator) [line 73];
+n$14=_fun_Object Iterator.next()(n$12:java.util.Iterator*) interface virtual [line 73];
+*&amp;$irvar1:java.lang.Object*=n$14 [line 73];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=*&amp;$irvar1:java.lang.Object* [line 73];
+n$16=_fun___cast(n$15:java.lang.Object*,sizeof(t=java.lang.reflect.Method;sub_t=( sub )(cast)):void) [line 73];
+*&amp;each:java.lang.reflect.Method*=n$16 [line 73];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:9 succs:89 exn:3 Conditional method_body
+n$11=*&amp;$irvar0:_Bool [line 73];
+PRUNE((n$11 == 0), false); [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">            if (Modifier.isStatic(each.getModifiers()) != isStatic) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$17=*&amp;each:java.lang.reflect.Method* [line 74];
+_=*n$17:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 74];
+n$19=_fun_int Method.getModifiers()(n$17:java.lang.reflect.Method*) virtual [line 74];
+*&amp;$irvar2:int=n$19 [line 74];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:16 exn:3 Instructions
+n$20=*&amp;$irvar2:int [line 74];
+n$21=_fun_boolean Modifier.isStatic(int)(n$20:int) [line 74];
+*&amp;$irvar3:_Bool=n$21 [line 74];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node16.html"><span class='visited with_tooltip'>J_16<span class='tooltip'>node16 preds:13 succs:14 15 exn: Join
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node14.html"><span class='visited with_tooltip'>C_14<span class='tooltip'>node14 preds:16 succs:17 18 exn:3 Conditional method_body
+n$22=*&amp;$irvar3:_Bool [line 74];
+n$23=*&amp;isStatic:_Bool [line 74];
+PRUNE(!(n$22 == n$23), true); [line 74];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node15.html"><span class='visited with_tooltip'>C_15<span class='tooltip'>node15 preds:16 succs:33 exn:3 Conditional method_body
+n$22=*&amp;$irvar3:_Bool [line 74];
+n$23=*&amp;isStatic:_Bool [line 74];
+PRUNE((n$22 == n$23), false); [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                String state = isStatic ? &quot;should&quot; : &quot;should not&quot;; <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node17.html"><span class='visited with_tooltip'>C_17<span class='tooltip'>node17 preds:14 succs:19 exn:3 Conditional method_body
+n$24=*&amp;isStatic:_Bool [line 75];
+PRUNE(!(n$24 == 0), true); [line 75];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:17 succs:21 exn:3 Instructions
+*&amp;$T0_62:java.lang.Object*="should" [line 75];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node18.html"><span class='visited with_tooltip'>C_18<span class='tooltip'>node18 preds:14 succs:20 exn:3 Conditional method_body
+n$24=*&amp;isStatic:_Bool [line 75];
+PRUNE((n$24 == 0), false); [line 75];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:18 succs:21 exn:3 Instructions
+*&amp;$T0_62:java.lang.Object*="should not" [line 75];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 19 succs:22 exn:3 Instructions
+n$25=*&amp;$T0_62:java.lang.Object* [line 75];
+*&amp;state:java.lang.Object*=n$25 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                errors.add(new Exception(&quot;Method &quot; + each.getName() + &quot;() &quot; <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$26=*&amp;this:org.junit.internal.runners.MethodValidator* [line 76];
+n$27=*n$26.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 76];
+*&amp;$irvar4:java.util.List*=n$27 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$28=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 76];
+n$29=_fun_StringBuilder.&lt;init&gt;()(n$28:java.lang.StringBuilder*) [line 76];
+*&amp;$irvar5:java.lang.StringBuilder*=n$28 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$30=*&amp;$irvar5:java.lang.StringBuilder* [line 76];
+_=*n$30:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 76];
+n$32=_fun_StringBuilder StringBuilder.append(String)(n$30:java.lang.StringBuilder*,"Method ":java.lang.Object*) virtual [line 76];
+*&amp;$irvar6:java.lang.StringBuilder*=n$32 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$33=*&amp;each:java.lang.reflect.Method* [line 76];
+_=*n$33:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 76];
+n$35=_fun_String Method.getName()(n$33:java.lang.reflect.Method*) virtual [line 76];
+*&amp;$irvar7:java.lang.String*=n$35 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$36=*&amp;$irvar6:java.lang.StringBuilder* [line 76];
+_=*n$36:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 76];
+n$38=*&amp;$irvar7:java.lang.String* [line 76];
+n$39=_fun_StringBuilder StringBuilder.append(String)(n$36:java.lang.StringBuilder*,n$38:java.lang.String*) virtual [line 76];
+*&amp;$irvar8:java.lang.StringBuilder*=n$39 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$40=*&amp;$irvar8:java.lang.StringBuilder* [line 76];
+_=*n$40:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 76];
+n$42=_fun_StringBuilder StringBuilder.append(String)(n$40:java.lang.StringBuilder*,"() ":java.lang.Object*) virtual [line 76];
+*&amp;$irvar9:java.lang.StringBuilder*=n$42 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$43=*&amp;$irvar9:java.lang.StringBuilder* [line 76];
+_=*n$43:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 76];
+n$45=*&amp;state:java.lang.Object* [line 76];
+n$46=_fun_StringBuilder StringBuilder.append(String)(n$43:java.lang.StringBuilder*,n$45:java.lang.Object*) virtual [line 76];
+*&amp;$irvar10:java.lang.StringBuilder*=n$46 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$47=*&amp;$irvar10:java.lang.StringBuilder* [line 76];
+_=*n$47:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 76];
+n$49=_fun_StringBuilder StringBuilder.append(String)(n$47:java.lang.StringBuilder*," be static":java.lang.Object*) virtual [line 76];
+*&amp;$irvar11:java.lang.StringBuilder*=n$49 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$50=*&amp;$irvar11:java.lang.StringBuilder* [line 76];
+_=*n$50:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 76];
+n$52=_fun_String StringBuilder.toString()(n$50:java.lang.StringBuilder*) virtual [line 76];
+*&amp;$irvar12:java.lang.String*=n$52 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$53=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 76];
+n$54=*&amp;$irvar12:java.lang.String* [line 76];
+n$55=_fun_Exception.&lt;init&gt;(String)(n$53:java.lang.Exception*,n$54:java.lang.String*) [line 76];
+*&amp;$irvar13:java.lang.Exception*=n$53 [line 76];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:33 exn:3 Instructions
+n$56=*&amp;$irvar4:java.util.List* [line 76];
+_=*n$56:java.util.List*(root java.util.List) [line 76];
+n$58=*&amp;$irvar13:java.lang.Exception* [line 76];
+n$59=_fun_boolean List.add(Object)(n$56:java.util.List*,n$58:java.lang.Exception*) interface virtual [line 76];
+*&amp;$irvar14:_Bool=n$59 [line 76];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">						+ state + &quot; be static&quot;)); </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            if (!Modifier.isPublic(each.getDeclaringClass().getModifiers())) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node33.html"><span class='visited with_tooltip'>I_33<span class='tooltip'>node33 preds:32 15 succs:34 exn:3 Instructions
+n$60=*&amp;each:java.lang.reflect.Method* [line 79];
+_=*n$60:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 79];
+n$62=_fun_Class Method.getDeclaringClass()(n$60:java.lang.reflect.Method*) virtual [line 79];
+*&amp;$irvar15:java.lang.Class*=n$62 [line 79];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node34.html"><span class='visited with_tooltip'>I_34<span class='tooltip'>node34 preds:33 succs:35 exn:3 Instructions
+n$63=*&amp;$irvar15:java.lang.Class* [line 79];
+_=*n$63:java.lang.Class*(root java.lang.Class) [line 79];
+n$65=_fun_int Class.getModifiers()(n$63:java.lang.Class*) virtual [line 79];
+*&amp;$irvar16:int=n$65 [line 79];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node35.html"><span class='visited with_tooltip'>I_35<span class='tooltip'>node35 preds:34 succs:38 exn:3 Instructions
+n$66=*&amp;$irvar16:int [line 79];
+n$67=_fun_boolean Modifier.isPublic(int)(n$66:int) [line 79];
+*&amp;$irvar17:_Bool=n$67 [line 79];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node38.html"><span class='visited with_tooltip'>J_38<span class='tooltip'>node38 preds:35 succs:36 37 exn: Join
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node36.html"><span class='visited with_tooltip'>C_36<span class='tooltip'>node36 preds:38 succs:39 exn:3 Conditional method_body
+n$68=*&amp;$irvar17:_Bool [line 79];
+PRUNE(!(n$68 != 0), true); [line 79];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node37.html"><span class='visited with_tooltip'>C_37<span class='tooltip'>node37 preds:38 succs:49 exn:3 Conditional method_body
+n$68=*&amp;$irvar17:_Bool [line 79];
+PRUNE((n$68 != 0), false); [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">                errors.add(new Exception(&quot;Class &quot; + each.getDeclaringClass().getName() <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node39.html"><span class='visited with_tooltip'>I_39<span class='tooltip'>node39 preds:36 succs:40 exn:3 Instructions
+n$69=*&amp;this:org.junit.internal.runners.MethodValidator* [line 80];
+n$70=*n$69.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 80];
+*&amp;$irvar18:java.util.List*=n$70 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node40.html"><span class='visited with_tooltip'>I_40<span class='tooltip'>node40 preds:39 succs:41 exn:3 Instructions
+n$71=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 80];
+n$72=_fun_StringBuilder.&lt;init&gt;()(n$71:java.lang.StringBuilder*) [line 80];
+*&amp;$irvar19:java.lang.StringBuilder*=n$71 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node41.html"><span class='visited with_tooltip'>I_41<span class='tooltip'>node41 preds:40 succs:42 exn:3 Instructions
+n$73=*&amp;$irvar19:java.lang.StringBuilder* [line 80];
+_=*n$73:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 80];
+n$75=_fun_StringBuilder StringBuilder.append(String)(n$73:java.lang.StringBuilder*,"Class ":java.lang.Object*) virtual [line 80];
+*&amp;$irvar20:java.lang.StringBuilder*=n$75 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node42.html"><span class='visited with_tooltip'>I_42<span class='tooltip'>node42 preds:41 succs:43 exn:3 Instructions
+n$76=*&amp;each:java.lang.reflect.Method* [line 80];
+_=*n$76:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 80];
+n$78=_fun_Class Method.getDeclaringClass()(n$76:java.lang.reflect.Method*) virtual [line 80];
+*&amp;$irvar21:java.lang.Class*=n$78 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node43.html"><span class='visited with_tooltip'>I_43<span class='tooltip'>node43 preds:42 succs:44 exn:3 Instructions
+n$79=*&amp;$irvar21:java.lang.Class* [line 80];
+_=*n$79:java.lang.Class*(root java.lang.Class) [line 80];
+n$81=_fun_String Class.getName()(n$79:java.lang.Class*) virtual [line 80];
+*&amp;$irvar22:java.lang.String*=n$81 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node44.html"><span class='visited with_tooltip'>I_44<span class='tooltip'>node44 preds:43 succs:45 exn:3 Instructions
+n$82=*&amp;$irvar20:java.lang.StringBuilder* [line 80];
+_=*n$82:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 80];
+n$84=*&amp;$irvar22:java.lang.String* [line 80];
+n$85=_fun_StringBuilder StringBuilder.append(String)(n$82:java.lang.StringBuilder*,n$84:java.lang.String*) virtual [line 80];
+*&amp;$irvar23:java.lang.StringBuilder*=n$85 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node45.html"><span class='visited with_tooltip'>I_45<span class='tooltip'>node45 preds:44 succs:46 exn:3 Instructions
+n$86=*&amp;$irvar23:java.lang.StringBuilder* [line 80];
+_=*n$86:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 80];
+n$88=_fun_StringBuilder StringBuilder.append(String)(n$86:java.lang.StringBuilder*," should be public":java.lang.Object*) virtual [line 80];
+*&amp;$irvar24:java.lang.StringBuilder*=n$88 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node46.html"><span class='visited with_tooltip'>I_46<span class='tooltip'>node46 preds:45 succs:47 exn:3 Instructions
+n$89=*&amp;$irvar24:java.lang.StringBuilder* [line 80];
+_=*n$89:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 80];
+n$91=_fun_String StringBuilder.toString()(n$89:java.lang.StringBuilder*) virtual [line 80];
+*&amp;$irvar25:java.lang.String*=n$91 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node47.html"><span class='visited with_tooltip'>I_47<span class='tooltip'>node47 preds:46 succs:48 exn:3 Instructions
+n$92=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 80];
+n$93=*&amp;$irvar25:java.lang.String* [line 80];
+n$94=_fun_Exception.&lt;init&gt;(String)(n$92:java.lang.Exception*,n$93:java.lang.String*) [line 80];
+*&amp;$irvar26:java.lang.Exception*=n$92 [line 80];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node48.html"><span class='visited with_tooltip'>I_48<span class='tooltip'>node48 preds:47 succs:49 exn:3 Instructions
+n$95=*&amp;$irvar18:java.util.List* [line 80];
+_=*n$95:java.util.List*(root java.util.List) [line 80];
+n$97=*&amp;$irvar26:java.lang.Exception* [line 80];
+n$98=_fun_boolean List.add(Object)(n$95:java.util.List*,n$97:java.lang.Exception*) interface virtual [line 80];
+*&amp;$irvar27:_Bool=n$98 [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">						+ &quot; should be public&quot;)); </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">            if (!Modifier.isPublic(each.getModifiers())) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node49.html"><span class='visited with_tooltip'>I_49<span class='tooltip'>node49 preds:48 37 succs:50 exn:3 Instructions
+n$99=*&amp;each:java.lang.reflect.Method* [line 83];
+_=*n$99:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 83];
+n$101=_fun_int Method.getModifiers()(n$99:java.lang.reflect.Method*) virtual [line 83];
+*&amp;$irvar28:int=n$101 [line 83];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node50.html"><span class='visited with_tooltip'>I_50<span class='tooltip'>node50 preds:49 succs:53 exn:3 Instructions
+n$102=*&amp;$irvar28:int [line 83];
+n$103=_fun_boolean Modifier.isPublic(int)(n$102:int) [line 83];
+*&amp;$irvar29:_Bool=n$103 [line 83];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node53.html"><span class='visited with_tooltip'>J_53<span class='tooltip'>node53 preds:50 succs:51 52 exn: Join
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node51.html"><span class='visited with_tooltip'>C_51<span class='tooltip'>node51 preds:53 succs:54 exn:3 Conditional method_body
+n$104=*&amp;$irvar29:_Bool [line 83];
+PRUNE(!(n$104 != 0), true); [line 83];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node52.html"><span class='visited with_tooltip'>C_52<span class='tooltip'>node52 preds:53 succs:63 exn:3 Conditional method_body
+n$104=*&amp;$irvar29:_Bool [line 83];
+PRUNE((n$104 != 0), false); [line 83];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">                errors.add(new Exception(&quot;Method &quot; + each.getName() <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node54.html"><span class='visited with_tooltip'>I_54<span class='tooltip'>node54 preds:51 succs:55 exn:3 Instructions
+n$105=*&amp;this:org.junit.internal.runners.MethodValidator* [line 84];
+n$106=*n$105.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 84];
+*&amp;$irvar30:java.util.List*=n$106 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node55.html"><span class='visited with_tooltip'>I_55<span class='tooltip'>node55 preds:54 succs:56 exn:3 Instructions
+n$107=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 84];
+n$108=_fun_StringBuilder.&lt;init&gt;()(n$107:java.lang.StringBuilder*) [line 84];
+*&amp;$irvar31:java.lang.StringBuilder*=n$107 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node56.html"><span class='visited with_tooltip'>I_56<span class='tooltip'>node56 preds:55 succs:57 exn:3 Instructions
+n$109=*&amp;$irvar31:java.lang.StringBuilder* [line 84];
+_=*n$109:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 84];
+n$111=_fun_StringBuilder StringBuilder.append(String)(n$109:java.lang.StringBuilder*,"Method ":java.lang.Object*) virtual [line 84];
+*&amp;$irvar32:java.lang.StringBuilder*=n$111 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node57.html"><span class='visited with_tooltip'>I_57<span class='tooltip'>node57 preds:56 succs:58 exn:3 Instructions
+n$112=*&amp;each:java.lang.reflect.Method* [line 84];
+_=*n$112:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 84];
+n$114=_fun_String Method.getName()(n$112:java.lang.reflect.Method*) virtual [line 84];
+*&amp;$irvar33:java.lang.String*=n$114 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node58.html"><span class='visited with_tooltip'>I_58<span class='tooltip'>node58 preds:57 succs:59 exn:3 Instructions
+n$115=*&amp;$irvar32:java.lang.StringBuilder* [line 84];
+_=*n$115:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 84];
+n$117=*&amp;$irvar33:java.lang.String* [line 84];
+n$118=_fun_StringBuilder StringBuilder.append(String)(n$115:java.lang.StringBuilder*,n$117:java.lang.String*) virtual [line 84];
+*&amp;$irvar34:java.lang.StringBuilder*=n$118 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node59.html"><span class='visited with_tooltip'>I_59<span class='tooltip'>node59 preds:58 succs:60 exn:3 Instructions
+n$119=*&amp;$irvar34:java.lang.StringBuilder* [line 84];
+_=*n$119:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 84];
+n$121=_fun_StringBuilder StringBuilder.append(String)(n$119:java.lang.StringBuilder*," should be public":java.lang.Object*) virtual [line 84];
+*&amp;$irvar35:java.lang.StringBuilder*=n$121 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node60.html"><span class='visited with_tooltip'>I_60<span class='tooltip'>node60 preds:59 succs:61 exn:3 Instructions
+n$122=*&amp;$irvar35:java.lang.StringBuilder* [line 84];
+_=*n$122:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 84];
+n$124=_fun_String StringBuilder.toString()(n$122:java.lang.StringBuilder*) virtual [line 84];
+*&amp;$irvar36:java.lang.String*=n$124 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node61.html"><span class='visited with_tooltip'>I_61<span class='tooltip'>node61 preds:60 succs:62 exn:3 Instructions
+n$125=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 84];
+n$126=*&amp;$irvar36:java.lang.String* [line 84];
+n$127=_fun_Exception.&lt;init&gt;(String)(n$125:java.lang.Exception*,n$126:java.lang.String*) [line 84];
+*&amp;$irvar37:java.lang.Exception*=n$125 [line 84];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node62.html"><span class='visited with_tooltip'>I_62<span class='tooltip'>node62 preds:61 succs:63 exn:3 Instructions
+n$128=*&amp;$irvar30:java.util.List* [line 84];
+_=*n$128:java.util.List*(root java.util.List) [line 84];
+n$130=*&amp;$irvar37:java.lang.Exception* [line 84];
+n$131=_fun_boolean List.add(Object)(n$128:java.util.List*,n$130:java.lang.Exception*) interface virtual [line 84];
+*&amp;$irvar38:_Bool=n$131 [line 84];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">						+ &quot; should be public&quot;)); </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">            if (each.getReturnType() != Void.TYPE) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node63.html"><span class='visited with_tooltip'>I_63<span class='tooltip'>node63 preds:62 52 succs:66 exn:3 Instructions
+n$132=*&amp;each:java.lang.reflect.Method* [line 87];
+_=*n$132:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 87];
+n$134=_fun_Class Method.getReturnType()(n$132:java.lang.reflect.Method*) virtual [line 87];
+*&amp;$irvar39:java.lang.Class*=n$134 [line 87];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node66.html"><span class='visited with_tooltip'>J_66<span class='tooltip'>node66 preds:63 succs:64 65 exn: Join
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node64.html"><span class='visited with_tooltip'>C_64<span class='tooltip'>node64 preds:66 succs:67 exn:3 Conditional method_body
+n$135=*&amp;$irvar39:java.lang.Class* [line 87];
+n$136=*&amp;#GB<>$java.lang.Void.TYPE:java.lang.Class*(root java.lang.Void) [line 87];
+PRUNE(!(n$135 == n$136), true); [line 87];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node65.html"><span class='visited with_tooltip'>C_65<span class='tooltip'>node65 preds:66 succs:76 exn:3 Conditional method_body
+n$135=*&amp;$irvar39:java.lang.Class* [line 87];
+n$136=*&amp;#GB<>$java.lang.Void.TYPE:java.lang.Class*(root java.lang.Void) [line 87];
+PRUNE((n$135 == n$136), false); [line 87];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">                errors.add(new Exception(&quot;Method &quot; + each.getName() <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node67.html"><span class='visited with_tooltip'>I_67<span class='tooltip'>node67 preds:64 succs:68 exn:3 Instructions
+n$137=*&amp;this:org.junit.internal.runners.MethodValidator* [line 88];
+n$138=*n$137.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 88];
+*&amp;$irvar40:java.util.List*=n$138 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node68.html"><span class='visited with_tooltip'>I_68<span class='tooltip'>node68 preds:67 succs:69 exn:3 Instructions
+n$139=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 88];
+n$140=_fun_StringBuilder.&lt;init&gt;()(n$139:java.lang.StringBuilder*) [line 88];
+*&amp;$irvar41:java.lang.StringBuilder*=n$139 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node69.html"><span class='visited with_tooltip'>I_69<span class='tooltip'>node69 preds:68 succs:70 exn:3 Instructions
+n$141=*&amp;$irvar41:java.lang.StringBuilder* [line 88];
+_=*n$141:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 88];
+n$143=_fun_StringBuilder StringBuilder.append(String)(n$141:java.lang.StringBuilder*,"Method ":java.lang.Object*) virtual [line 88];
+*&amp;$irvar42:java.lang.StringBuilder*=n$143 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node70.html"><span class='visited with_tooltip'>I_70<span class='tooltip'>node70 preds:69 succs:71 exn:3 Instructions
+n$144=*&amp;each:java.lang.reflect.Method* [line 88];
+_=*n$144:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 88];
+n$146=_fun_String Method.getName()(n$144:java.lang.reflect.Method*) virtual [line 88];
+*&amp;$irvar43:java.lang.String*=n$146 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node71.html"><span class='visited with_tooltip'>I_71<span class='tooltip'>node71 preds:70 succs:72 exn:3 Instructions
+n$147=*&amp;$irvar42:java.lang.StringBuilder* [line 88];
+_=*n$147:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 88];
+n$149=*&amp;$irvar43:java.lang.String* [line 88];
+n$150=_fun_StringBuilder StringBuilder.append(String)(n$147:java.lang.StringBuilder*,n$149:java.lang.String*) virtual [line 88];
+*&amp;$irvar44:java.lang.StringBuilder*=n$150 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node72.html"><span class='visited with_tooltip'>I_72<span class='tooltip'>node72 preds:71 succs:73 exn:3 Instructions
+n$151=*&amp;$irvar44:java.lang.StringBuilder* [line 88];
+_=*n$151:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 88];
+n$153=_fun_StringBuilder StringBuilder.append(String)(n$151:java.lang.StringBuilder*,"should have a return type of void":java.lang.Object*) virtual [line 88];
+*&amp;$irvar45:java.lang.StringBuilder*=n$153 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node73.html"><span class='visited with_tooltip'>I_73<span class='tooltip'>node73 preds:72 succs:74 exn:3 Instructions
+n$154=*&amp;$irvar45:java.lang.StringBuilder* [line 88];
+_=*n$154:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 88];
+n$156=_fun_String StringBuilder.toString()(n$154:java.lang.StringBuilder*) virtual [line 88];
+*&amp;$irvar46:java.lang.String*=n$156 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node74.html"><span class='visited with_tooltip'>I_74<span class='tooltip'>node74 preds:73 succs:75 exn:3 Instructions
+n$157=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 88];
+n$158=*&amp;$irvar46:java.lang.String* [line 88];
+n$159=_fun_Exception.&lt;init&gt;(String)(n$157:java.lang.Exception*,n$158:java.lang.String*) [line 88];
+*&amp;$irvar47:java.lang.Exception*=n$157 [line 88];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node75.html"><span class='visited with_tooltip'>I_75<span class='tooltip'>node75 preds:74 succs:76 exn:3 Instructions
+n$160=*&amp;$irvar40:java.util.List* [line 88];
+_=*n$160:java.util.List*(root java.util.List) [line 88];
+n$162=*&amp;$irvar47:java.lang.Exception* [line 88];
+n$163=_fun_boolean List.add(Object)(n$160:java.util.List*,n$162:java.lang.Exception*) interface virtual [line 88];
+*&amp;$irvar48:_Bool=n$163 [line 88];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">						+ &quot;should have a return type of void&quot;)); </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">            if (each.getParameterTypes().length != 0) { <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node76.html"><span class='visited with_tooltip'>I_76<span class='tooltip'>node76 preds:75 65 succs:79 exn:3 Instructions
+n$164=*&amp;each:java.lang.reflect.Method* [line 91];
+_=*n$164:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 91];
+n$166=_fun_Class[] Method.getParameterTypes()(n$164:java.lang.reflect.Method*) virtual [line 91];
+*&amp;$irvar49:java.lang.Class*[_*_](*)=n$166 [line 91];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node79.html"><span class='visited with_tooltip'>J_79<span class='tooltip'>node79 preds:76 succs:77 78 exn: Join
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node77.html"><span class='visited with_tooltip'>C_77<span class='tooltip'>node77 preds:79 succs:80 exn:3 Conditional method_body
+n$167=*&amp;$irvar49:java.lang.Class*[_*_](*) [line 91];
+_=*n$167:int(root java.lang.Class*[_*_]) [line 91];
+n$169=_fun___get_array_length(n$167:java.lang.Class*[_*_](*)) [line 91];
+PRUNE(!(n$169 == 0), true); [line 91];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node78.html"><span class='visited with_tooltip'>C_78<span class='tooltip'>node78 preds:79 succs:6 exn:3 Conditional method_body
+n$167=*&amp;$irvar49:java.lang.Class*[_*_](*) [line 91];
+_=*n$167:int(root java.lang.Class*[_*_]) [line 91];
+n$169=_fun___get_array_length(n$167:java.lang.Class*[_*_](*)) [line 91];
+PRUNE((n$169 == 0), false); [line 91];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">                errors.add(new Exception(&quot;Method &quot; + each.getName() <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node80.html"><span class='visited with_tooltip'>I_80<span class='tooltip'>node80 preds:77 succs:81 exn:3 Instructions
+n$170=*&amp;this:org.junit.internal.runners.MethodValidator* [line 92];
+n$171=*n$170.errors:java.util.List*(root org.junit.internal.runners.MethodValidator) [line 92];
+*&amp;$irvar50:java.util.List*=n$171 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node81.html"><span class='visited with_tooltip'>I_81<span class='tooltip'>node81 preds:80 succs:82 exn:3 Instructions
+n$172=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 92];
+n$173=_fun_StringBuilder.&lt;init&gt;()(n$172:java.lang.StringBuilder*) [line 92];
+*&amp;$irvar51:java.lang.StringBuilder*=n$172 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node82.html"><span class='visited with_tooltip'>I_82<span class='tooltip'>node82 preds:81 succs:83 exn:3 Instructions
+n$174=*&amp;$irvar51:java.lang.StringBuilder* [line 92];
+_=*n$174:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 92];
+n$176=_fun_StringBuilder StringBuilder.append(String)(n$174:java.lang.StringBuilder*,"Method ":java.lang.Object*) virtual [line 92];
+*&amp;$irvar52:java.lang.StringBuilder*=n$176 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node83.html"><span class='visited with_tooltip'>I_83<span class='tooltip'>node83 preds:82 succs:84 exn:3 Instructions
+n$177=*&amp;each:java.lang.reflect.Method* [line 92];
+_=*n$177:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 92];
+n$179=_fun_String Method.getName()(n$177:java.lang.reflect.Method*) virtual [line 92];
+*&amp;$irvar53:java.lang.String*=n$179 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node84.html"><span class='visited with_tooltip'>I_84<span class='tooltip'>node84 preds:83 succs:85 exn:3 Instructions
+n$180=*&amp;$irvar52:java.lang.StringBuilder* [line 92];
+_=*n$180:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 92];
+n$182=*&amp;$irvar53:java.lang.String* [line 92];
+n$183=_fun_StringBuilder StringBuilder.append(String)(n$180:java.lang.StringBuilder*,n$182:java.lang.String*) virtual [line 92];
+*&amp;$irvar54:java.lang.StringBuilder*=n$183 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node85.html"><span class='visited with_tooltip'>I_85<span class='tooltip'>node85 preds:84 succs:86 exn:3 Instructions
+n$184=*&amp;$irvar54:java.lang.StringBuilder* [line 92];
+_=*n$184:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 92];
+n$186=_fun_StringBuilder StringBuilder.append(String)(n$184:java.lang.StringBuilder*," should have no parameters":java.lang.Object*) virtual [line 92];
+*&amp;$irvar55:java.lang.StringBuilder*=n$186 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node86.html"><span class='visited with_tooltip'>I_86<span class='tooltip'>node86 preds:85 succs:87 exn:3 Instructions
+n$187=*&amp;$irvar55:java.lang.StringBuilder* [line 92];
+_=*n$187:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 92];
+n$189=_fun_String StringBuilder.toString()(n$187:java.lang.StringBuilder*) virtual [line 92];
+*&amp;$irvar56:java.lang.String*=n$189 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node87.html"><span class='visited with_tooltip'>I_87<span class='tooltip'>node87 preds:86 succs:88 exn:3 Instructions
+n$190=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 92];
+n$191=*&amp;$irvar56:java.lang.String* [line 92];
+n$192=_fun_Exception.&lt;init&gt;(String)(n$190:java.lang.Exception*,n$191:java.lang.String*) [line 92];
+*&amp;$irvar57:java.lang.Exception*=n$190 [line 92];
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node88.html"><span class='visited with_tooltip'>I_88<span class='tooltip'>node88 preds:87 succs:6 exn:3 Instructions
+n$193=*&amp;$irvar50:java.util.List* [line 92];
+_=*n$193:java.util.List*(root java.util.List) [line 92];
+n$195=*&amp;$irvar57:java.lang.Exception* [line 92];
+n$196=_fun_boolean List.add(Object)(n$193:java.util.List*,n$195:java.lang.Exception*) interface virtual [line 92];
+*&amp;$irvar58:_Bool=n$196 [line 92];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">						+ &quot; should have no parameters&quot;)); </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    } <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node89.html"><span class='visited with_tooltip'>I_89<span class='tooltip'>node89 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:89 3 succs: exn: Exit
+</span></span></a> <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/org.junit.internal.runners.MethodValidator.validateTestMethods%28java.lang.Class%2Cboolean%29%3Avoid.d4700f411e406350638b086cf76ece7f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/nodes/node65.html#session508">node65#session508</a>(<a href="./MethodValidator.java.4c3ed24e3e51904473350c813545ad95/../MethodValidator.java.4c3ed24e3e51904473350c813545ad95.html#LINE87">87</a>)</body>
+</html>

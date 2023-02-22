@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_1" [label="1: Start int Runner.testCount()\nFormals:  this:org.junit.runner.Runner*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_1" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_4" ;
+"org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_2" [label="2: Exit int Runner.testCount() \n  " color=yellow style=filled]
+	
+
+"org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 41]\n  NULLIFY(&$irvar1); [line 41]\n  EXIT_SCOPE($irvar0,$irvar1); [line 41]\n  APPLY_ABSTRACTION; [line 41]\n " shape="box"]
+	
+
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_3" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_2" ;
+"org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_4" [label="4:  Call Description Runner.getDescription() \n   n$0=*&this:org.junit.runner.Runner* [line 41]\n  _=*n$0:org.junit.runner.Runner*(root org.junit.runner.Runner) [line 41]\n  n$2=_fun_Description Runner.getDescription()(n$0:org.junit.runner.Runner*) virtual [line 41]\n  *&$irvar0:org.junit.runner.Description*=n$2 [line 41]\n  NULLIFY(&this); [line 41]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 41]\n " shape="box"]
+	
+
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_4" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_5" ;
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_4" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_3" [color="red" ];
+"org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_5" [label="5:  Call int Description.testCount() \n   n$3=*&$irvar0:org.junit.runner.Description* [line 41]\n  _=*n$3:org.junit.runner.Description*(root org.junit.runner.Description) [line 41]\n  n$5=_fun_int Description.testCount()(n$3:org.junit.runner.Description*) virtual [line 41]\n  *&$irvar1:int=n$5 [line 41]\n  NULLIFY(&$irvar0); [line 41]\n  EXIT_SCOPE(_,n$3,n$5,$irvar0); [line 41]\n " shape="box"]
+	
+
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_5" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_6" ;
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_5" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_3" [color="red" ];
+"org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_6" [label="6:  method_body \n   n$6=*&$irvar1:int [line 41]\n  *&return:int=n$6 [line 41]\n  NULLIFY(&$irvar1); [line 41]\n  EXIT_SCOPE(n$6,$irvar1); [line 41]\n  APPLY_ABSTRACTION; [line 41]\n " shape="box"]
+	
+
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_6" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_2" ;
+	 "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_6" -> "org.junit.runner.Runner.testCount():int.21b2c7a5018d5f3b2dcecb3294658dcf_3" [color="red" ];
+}

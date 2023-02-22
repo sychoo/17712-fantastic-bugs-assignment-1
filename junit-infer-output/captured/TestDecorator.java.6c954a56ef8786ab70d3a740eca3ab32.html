@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/junit/extensions/TestDecorator.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package junit.extensions; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import junit.framework.Assert; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import junit.framework.Test; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import junit.framework.TestResult; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> * A Decorator for Tests. Use TestDecorator as the base class for defining new </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * test decorators. Test decorator subclasses can be introduced to add behaviour </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * before or after a test is run. </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">@SuppressWarnings(&quot;deprecation&quot;) </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">public class TestDecorator extends Assert implements Test { </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">    protected Test fTest; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">    public TestDecorator(Test test) { <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.TestDecorator* [line 16];
+n$1=_fun_Assert.&lt;init&gt;()(n$0:junit.extensions.TestDecorator*) [line 16];
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d.html">summary for TestDecorator.&lt;init&gt;(Test)</a></td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">        fTest = test; <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:junit.extensions.TestDecorator* [line 17];
+n$3=*&amp;test:junit.framework.Test* [line 17];
+*n$2.fTest:junit.extensions.TestDecorator(root junit.extensions.TestDecorator)=n$3 [line 17];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    } <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.<init>%28junit.framework.Test%29.016b7ace1ae05660f5112a3578634e0d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">     * The basic run behaviour. </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">    public void basicRun(TestResult result) { <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.basicRun%28junit.framework.TestResult%29%3Avoid.9d3673d16d2e0b09952374dbc9e43442_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/junit.extensions.TestDecorator.basicRun%28junit.framework.TestResult%29%3Avoid.9d3673d16d2e0b09952374dbc9e43442.html">summary for void TestDecorator.basicRun(TestResult)</a></td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">        fTest.run(result); <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.basicRun%28junit.framework.TestResult%29%3Avoid.9d3673d16d2e0b09952374dbc9e43442_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.TestDecorator* [line 24];
+n$1=*n$0.fTest:junit.framework.Test*(root junit.extensions.TestDecorator) [line 24];
+_=*n$1:junit.framework.Test*(root junit.framework.Test) [line 24];
+n$3=*&amp;result:junit.framework.TestResult* [line 24];
+n$4=_fun_void Test.run(TestResult)(n$1:junit.framework.Test*,n$3:junit.framework.TestResult*) interface virtual [line 24];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">    } <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.basicRun%28junit.framework.TestResult%29%3Avoid.9d3673d16d2e0b09952374dbc9e43442_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.basicRun%28junit.framework.TestResult%29%3Avoid.9d3673d16d2e0b09952374dbc9e43442_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.basicRun%28junit.framework.TestResult%29%3Avoid.9d3673d16d2e0b09952374dbc9e43442_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    public int countTestCases() { <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.countTestCases%28%29%3Aint.a9c60dac397dd17fc35f2e6437b7ea08_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/junit.extensions.TestDecorator.countTestCases%28%29%3Aint.a9c60dac397dd17fc35f2e6437b7ea08.html">summary for int TestDecorator.countTestCases()</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        return fTest.countTestCases(); <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.countTestCases%28%29%3Aint.a9c60dac397dd17fc35f2e6437b7ea08_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.TestDecorator* [line 28];
+n$1=*n$0.fTest:junit.framework.Test*(root junit.extensions.TestDecorator) [line 28];
+_=*n$1:junit.framework.Test*(root junit.framework.Test) [line 28];
+n$3=_fun_int Test.countTestCases()(n$1:junit.framework.Test*) interface virtual [line 28];
+*&amp;$irvar0:int=n$3 [line 28];
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.countTestCases%28%29%3Aint.a9c60dac397dd17fc35f2e6437b7ea08_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 28];
+*&amp;return:int=n$4 [line 28];
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.countTestCases%28%29%3Aint.a9c60dac397dd17fc35f2e6437b7ea08_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.countTestCases%28%29%3Aint.a9c60dac397dd17fc35f2e6437b7ea08_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    public void run(TestResult result) { <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.run%28junit.framework.TestResult%29%3Avoid.a750866a67943f4d36650843b365fd1b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/junit.extensions.TestDecorator.run%28junit.framework.TestResult%29%3Avoid.a750866a67943f4d36650843b365fd1b.html">summary for void TestDecorator.run(TestResult)</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">        basicRun(result); <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.run%28junit.framework.TestResult%29%3Avoid.a750866a67943f4d36650843b365fd1b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.TestDecorator* [line 32];
+_=*n$0:junit.extensions.TestDecorator*(root junit.extensions.TestDecorator) [line 32];
+n$2=*&amp;result:junit.framework.TestResult* [line 32];
+n$3=_fun_void TestDecorator.basicRun(TestResult)(n$0:junit.extensions.TestDecorator*,n$2:junit.framework.TestResult*) virtual [line 32];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    } <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.run%28junit.framework.TestResult%29%3Avoid.a750866a67943f4d36650843b365fd1b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.run%28junit.framework.TestResult%29%3Avoid.a750866a67943f4d36650843b365fd1b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.run%28junit.framework.TestResult%29%3Avoid.a750866a67943f4d36650843b365fd1b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    @Override </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">    public String toString() { <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.toString%28%29%3Ajava.lang.String.7b86378dc2bfe98e948c701279c13604_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/junit.extensions.TestDecorator.toString%28%29%3Ajava.lang.String.7b86378dc2bfe98e948c701279c13604.html">summary for String TestDecorator.toString()</a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        return fTest.toString(); <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.toString%28%29%3Ajava.lang.String.7b86378dc2bfe98e948c701279c13604_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.TestDecorator* [line 37];
+n$1=*n$0.fTest:junit.framework.Test*(root junit.extensions.TestDecorator) [line 37];
+_=*n$1:junit.framework.Test*(root junit.framework.Test) [line 37];
+n$3=_fun_String Test.toString()(n$1:junit.framework.Test*) interface virtual [line 37];
+*&amp;$irvar0:java.lang.String*=n$3 [line 37];
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.toString%28%29%3Ajava.lang.String.7b86378dc2bfe98e948c701279c13604_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.String* [line 37];
+*&amp;return:java.lang.String*=n$4 [line 37];
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.toString%28%29%3Ajava.lang.String.7b86378dc2bfe98e948c701279c13604_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.toString%28%29%3Ajava.lang.String.7b86378dc2bfe98e948c701279c13604_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    public Test getTest() { <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.getTest%28%29%3Ajunit.framework.Test.ab5076c861a8289b61fab7290b234e9b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/junit.extensions.TestDecorator.getTest%28%29%3Ajunit.framework.Test.ab5076c861a8289b61fab7290b234e9b.html">summary for Test TestDecorator.getTest()</a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        return fTest; <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.getTest%28%29%3Ajunit.framework.Test.ab5076c861a8289b61fab7290b234e9b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:junit.extensions.TestDecorator* [line 41];
+n$1=*n$0.fTest:junit.framework.Test*(root junit.extensions.TestDecorator) [line 41];
+*&amp;return:junit.framework.Test*=n$1 [line 41];
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.getTest%28%29%3Ajunit.framework.Test.ab5076c861a8289b61fab7290b234e9b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TestDecorator.java.6c954a56ef8786ab70d3a740eca3ab32/nodes/junit.extensions.TestDecorator.getTest%28%29%3Ajunit.framework.Test.ab5076c861a8289b61fab7290b234e9b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

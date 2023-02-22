@@ -1,0 +1,1177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/rules/StopwatchTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static java.util.concurrent.TimeUnit.MILLISECONDS; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.hamcrest.core.Is.is; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import static org.junit.Assert.assertTrue; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import static org.junit.Assert.fail; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import static org.junit.Assume.assumeTrue; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import java.util.concurrent.TimeUnit; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.AssumptionViolatedException; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.runner.Description; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">import org.junit.runner.Request; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> * @author tibor17 </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> * @since 4.12 </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">public class StopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24302%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.40718f2f0e13eb9c99e12fc0e7efdb12_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24200%28long%29%3Avoid.b02e8c41355ee5937f439aa8df6bec48_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24102%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.21e6202dead7f9485453329b7dd40022_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<init>%28%29.c6cff9748d3bc9fe093b8e4f46fb6def_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24302%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.40718f2f0e13eb9c99e12fc0e7efdb12_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.StopwatchTest$Record* [line 26];
+*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=n$0 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24200%28long%29%3Avoid.b02e8c41355ee5937f439aa8df6bec48_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:long [line 26];
+n$1=_fun_void StopwatchTest.simulateTimePassing(long)(n$0:long) [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24102%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.21e6202dead7f9485453329b7dd40022_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;x0:org.junit.rules.StopwatchTest$Record* [line 26];
+*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=n$0 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.StopwatchTest.fakeTimeNanos:long(root org.junit.rules.StopwatchTest) [line 26];
+*&amp;$irvar1:long=(n$0 + 1) [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<init>%28%29.c6cff9748d3bc9fe093b8e4f46fb6def_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest* [line 26];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest*) [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24302%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.40718f2f0e13eb9c99e12fc0e7efdb12_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;x0:org.junit.rules.StopwatchTest$Record* [line 26];
+*&amp;return:org.junit.rules.StopwatchTest$Record*=n$1 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24200%28long%29%3Avoid.b02e8c41355ee5937f439aa8df6bec48_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24102%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.21e6202dead7f9485453329b7dd40022_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;x0:org.junit.rules.StopwatchTest$Record* [line 26];
+*&amp;return:org.junit.rules.StopwatchTest$Record*=n$1 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;#GB<>$org.junit.rules.StopwatchTest.fakeTimeNanos:long(root org.junit.rules.StopwatchTest) [line 26];
+*&amp;$irvar0:long=n$1 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<init>%28%29.c6cff9748d3bc9fe093b8e4f46fb6def_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24302%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.40718f2f0e13eb9c99e12fc0e7efdb12_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24200%28long%29%3Avoid.b02e8c41355ee5937f439aa8df6bec48_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24102%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.21e6202dead7f9485453329b7dd40022_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<init>%28%29.c6cff9748d3bc9fe093b8e4f46fb6def_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar1:long [line 26];
+*&amp;#GB<>$org.junit.rules.StopwatchTest.fakeTimeNanos:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=n$2 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:long [line 26];
+*&amp;return:long=n$3 [line 26];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24302%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.40718f2f0e13eb9c99e12fc0e7efdb12_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24200%28long%29%3Avoid.b02e8c41355ee5937f439aa8df6bec48_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24102%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.21e6202dead7f9485453329b7dd40022_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<init>%28%29.c6cff9748d3bc9fe093b8e4f46fb6def_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.access%24302%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.40718f2f0e13eb9c99e12fc0e7efdb12.html">summary for StopwatchTest$Record StopwatchTest.access$302(StopwatchTest$Record)</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.access%24200%28long%29%3Avoid.b02e8c41355ee5937f439aa8df6bec48.html">summary for void StopwatchTest.access$200(long)</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.access%24102%28org.junit.rules.StopwatchTest%24Record%29%3Aorg.junit.rules.Stopw.21e6202dead7f9485453329b7dd40022.html">summary for StopwatchTest$Record StopwatchTest.access$102(StopwatchTest$Record)</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.access%24008%28%29%3Along.361f6593f26e0982f723216e85346502.html">summary for long StopwatchTest.access$008()</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.<init>%28%29.c6cff9748d3bc9fe093b8e4f46fb6def.html">summary for StopwatchTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    private static enum TestStatus { SUCCEEDED, FAILED, SKIPPED } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.39a4c9074cce65ded8a8e10620e55096_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.valueOf%28java.lang.String%29%3Aorg.junit.rules.StopwatchTest%24Tes.96c439669dc8463b03fb349099b7fe07_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<init>%28java.lang.String%2Cint%29.78b8328701eb1b4c745b16ad4a472d8d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.39a4c9074cce65ded8a8e10620e55096_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.$VALUES:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)(root org.junit.rules.StopwatchTest$TestStatus) [line 27];
+_=*n$0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)(root org.junit.rules.StopwatchTest$TestStatus*[_*_]) [line 27];
+n$2=_fun_Object Object.clone()(n$0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)) virtual [line 27];
+*&amp;$irvar0:java.lang.Object*=n$2 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.valueOf%28java.lang.String%29%3Aorg.junit.rules.StopwatchTest%24Tes.96c439669dc8463b03fb349099b7fe07_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;name:java.lang.String* [line 27];
+n$1=_fun_Enum Enum.valueOf(Class,String)(org.junit.rules.StopwatchTest$TestStatus:java.lang.Object*,n$0:java.lang.String*) [line 27];
+*&amp;$irvar0:java.lang.Enum*=n$1 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<init>%28java.lang.String%2Cint%29.78b8328701eb1b4c745b16ad4a472d8d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$TestStatus* [line 27];
+n$1=*&amp;$bcvar1:java.lang.String* [line 27];
+n$2=*&amp;$bcvar2:int [line 27];
+n$3=_fun_Enum.&lt;init&gt;(String,int)(n$0:org.junit.rules.StopwatchTest$TestStatus*,n$1:java.lang.String*,n$2:int) [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$TestStatus):org.junit.rules.StopwatchTest$TestStatus*) [line 27];
+n$1=_fun_StopwatchTest$TestStatus.&lt;init&gt;(String,int)(n$0:org.junit.rules.StopwatchTest$TestStatus*,"SUCCEEDED":java.lang.Object*,0:int) [line 27];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus*=n$0 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=org.junit.rules.StopwatchTest$TestStatus*[_*_];len=[3]):org.junit.rules.StopwatchTest$TestStatus*[_*_](*)) [line 27];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)=n$0 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.39a4c9074cce65ded8a8e10620e55096_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$3=*&amp;$irvar0:java.lang.Object* [line 27];
+n$4=_fun___cast(n$3:java.lang.Object*,sizeof(t=org.junit.rules.StopwatchTest$TestStatus*[_*_];sub_t=( sub )(cast)):void) [line 27];
+*&amp;return:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)=n$4 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.valueOf%28java.lang.String%29%3Aorg.junit.rules.StopwatchTest%24Tes.96c439669dc8463b03fb349099b7fe07_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Enum* [line 27];
+n$3=_fun___cast(n$2:java.lang.Enum*,sizeof(t=org.junit.rules.StopwatchTest$TestStatus;sub_t=( sub )(cast)):void) [line 27];
+*&amp;return:org.junit.rules.StopwatchTest$TestStatus*=n$3 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<init>%28java.lang.String%2Cint%29.78b8328701eb1b4c745b16ad4a472d8d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus* [line 27];
+*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SUCCEEDED:org.junit.rules.StopwatchTest$TestStatus(root org.junit.rules.StopwatchTest$TestStatus)=n$2 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*) [line 27];
+n$2=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SUCCEEDED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 27];
+*n$1[0]:org.junit.rules.StopwatchTest$TestStatus*=n$2 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.39a4c9074cce65ded8a8e10620e55096_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.valueOf%28java.lang.String%29%3Aorg.junit.rules.StopwatchTest%24Tes.96c439669dc8463b03fb349099b7fe07_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<init>%28java.lang.String%2Cint%29.78b8328701eb1b4c745b16ad4a472d8d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$TestStatus):org.junit.rules.StopwatchTest$TestStatus*) [line 27];
+n$4=_fun_StopwatchTest$TestStatus.&lt;init&gt;(String,int)(n$3:org.junit.rules.StopwatchTest$TestStatus*,"FAILED":java.lang.Object*,1:int) [line 27];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$TestStatus*=n$3 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*) [line 27];
+n$4=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.FAILED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 27];
+*n$3[1]:org.junit.rules.StopwatchTest$TestStatus*=n$4 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:org.junit.rules.StopwatchTest$TestStatus* [line 27];
+*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.FAILED:org.junit.rules.StopwatchTest$TestStatus(root org.junit.rules.StopwatchTest$TestStatus)=n$5 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*) [line 27];
+n$6=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SKIPPED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 27];
+*n$5[2]:org.junit.rules.StopwatchTest$TestStatus*=n$6 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$TestStatus):org.junit.rules.StopwatchTest$TestStatus*) [line 27];
+n$7=_fun_StopwatchTest$TestStatus.&lt;init&gt;(String,int)(n$6:org.junit.rules.StopwatchTest$TestStatus*,"SKIPPED":java.lang.Object*,2:int) [line 27];
+*&amp;$irvar2:org.junit.rules.StopwatchTest$TestStatus*=n$6 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar0:org.junit.rules.StopwatchTest$TestStatus*[_*_](*) [line 27];
+*&amp;return:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)=n$7 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$8=*&amp;$irvar2:org.junit.rules.StopwatchTest$TestStatus* [line 27];
+*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SKIPPED:org.junit.rules.StopwatchTest$TestStatus(root org.junit.rules.StopwatchTest$TestStatus)=n$8 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$9=_fun_StopwatchTest$TestStatus[] StopwatchTest$TestStatus.$values()() [line 27];
+*&amp;$irvar3:org.junit.rules.StopwatchTest$TestStatus*[_*_](*)=n$9 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$10=*&amp;$irvar3:org.junit.rules.StopwatchTest$TestStatus*[_*_](*) [line 27];
+*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.$VALUES:org.junit.rules.StopwatchTest$TestStatus(root org.junit.rules.StopwatchTest$TestStatus)=n$10 [line 27];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.39a4c9074cce65ded8a8e10620e55096_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.valueOf%28java.lang.String%29%3Aorg.junit.rules.StopwatchTest%24Tes.96c439669dc8463b03fb349099b7fe07_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<init>%28java.lang.String%2Cint%29.78b8328701eb1b4c745b16ad4a472d8d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24TestStatus.values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.39a4c9074cce65ded8a8e10620e55096.html">summary for StopwatchTest$TestStatus[] StopwatchTest$TestStatus.values()</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24TestStatus.valueOf%28java.lang.String%29%3Aorg.junit.rules.StopwatchTest%24Tes.96c439669dc8463b03fb349099b7fe07.html">summary for StopwatchTest$TestStatus StopwatchTest$TestStatus.valueOf(String)</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24TestStatus.<init>%28java.lang.String%2Cint%29.78b8328701eb1b4c745b16ad4a472d8d.html">summary for StopwatchTest$TestStatus.&lt;init&gt;(String,int)</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24TestStatus.<clinit>%28%29%3Avoid.e205b9b279554702294a412c92dbc050.html">summary for void StopwatchTest$TestStatus.&lt;clinit&gt;()</a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24TestStatus.%24values%28%29%3Aorg.junit.rules.StopwatchTest%24TestStatus%5B%5D.ea3eb59d6daa09d32a0988793600b970.html">summary for StopwatchTest$TestStatus[] StopwatchTest$TestStatus.$values()</a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    private static Record record; </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    private static Record finishedRecord; </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    private static long fakeTimeNanos = 1234; <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<clinit>%28%29%3Avoid.9aebb75d267a9ce6d50bde290892c77b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<clinit>%28%29%3Avoid.9aebb75d267a9ce6d50bde290892c77b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.rules.StopwatchTest.fakeTimeNanos:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=1234 [line 30];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<clinit>%28%29%3Avoid.9aebb75d267a9ce6d50bde290892c77b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<clinit>%28%29%3Avoid.9aebb75d267a9ce6d50bde290892c77b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.<clinit>%28%29%3Avoid.9aebb75d267a9ce6d50bde290892c77b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.<clinit>%28%29%3Avoid.9aebb75d267a9ce6d50bde290892c77b.html">summary for void StopwatchTest.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">    private static class Record { </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        final long duration; </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        final String name; </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        final TestStatus status; </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        Record() { </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">            this(0, null, null); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28%29.48a3b4c6e4d5be76c87c9290b61a7819_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28%29.48a3b4c6e4d5be76c87c9290b61a7819_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 38];
+n$1=_fun_StopwatchTest$Record.&lt;init&gt;(long,StopwatchTest$TestStatus,Description)(n$0:org.junit.rules.StopwatchTest$Record*,0:long,null:java.lang.Object*,null:java.lang.Object*) [line 38];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24Record.<init>%28%29.48a3b4c6e4d5be76c87c9290b61a7819.html">summary for StopwatchTest$Record.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28%29.48a3b4c6e4d5be76c87c9290b61a7819_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28%29.48a3b4c6e4d5be76c87c9290b61a7819_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28%29.48a3b4c6e4d5be76c87c9290b61a7819_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        Record(long duration, Description description) { </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">            this(duration, null, description); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.runner.Description%29.1704377af11ad300de7cdd8dd3faf00e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.runner.Description%29.1704377af11ad300de7cdd8dd3faf00e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 42];
+n$1=*&amp;duration:long [line 42];
+n$2=*&amp;description:org.junit.runner.Description* [line 42];
+n$3=_fun_StopwatchTest$Record.&lt;init&gt;(long,StopwatchTest$TestStatus,Description)(n$0:org.junit.rules.StopwatchTest$Record*,n$1:long,null:java.lang.Object*,n$2:org.junit.runner.Description*) [line 42];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.runner.Description%29.1704377af11ad300de7cdd8dd3faf00e.html">summary for StopwatchTest$Record.&lt;init&gt;(long,Description)</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.runner.Description%29.1704377af11ad300de7cdd8dd3faf00e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.runner.Description%29.1704377af11ad300de7cdd8dd3faf00e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.runner.Description%29.1704377af11ad300de7cdd8dd3faf00e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">        Record(long duration, TestStatus status, Description description) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 45];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$Record*) [line 45];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58.html">summary for StopwatchTest$Record.&lt;init&gt;(long,StopwatchTest$TestStatus,Description)</a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">            this.duration = duration; <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 46];
+n$3=*&amp;duration:long [line 46];
+*n$2.duration:org.junit.rules.StopwatchTest$Record(root org.junit.rules.StopwatchTest$Record)=n$3 [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">            this.status = status; <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 47];
+n$5=*&amp;status:org.junit.rules.StopwatchTest$TestStatus* [line 47];
+*n$4.status:org.junit.rules.StopwatchTest$Record(root org.junit.rules.StopwatchTest$Record)=n$5 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">            this.name = description == null ? null : description.getMethodName(); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 9 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 48];
+*&amp;$T0_24:org.junit.rules.StopwatchTest$Record*=n$6 [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:7 succs:10 exn:3 Conditional method_body
+n$7=*&amp;description:org.junit.runner.Description* [line 48];
+PRUNE(!(n$7 != null), true); [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+*&amp;$T0_29:java.lang.Object*=null [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:15 exn:3 Instructions
+n$8=*&amp;this:org.junit.rules.StopwatchTest$Record* [line 48];
+*&amp;$T1_29:org.junit.rules.StopwatchTest$Record*=n$8 [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:7 succs:12 exn:3 Conditional method_body
+n$7=*&amp;description:org.junit.runner.Description* [line 48];
+PRUNE((n$7 != null), false); [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:9 succs:13 exn:3 Instructions
+n$9=*&amp;description:org.junit.runner.Description* [line 48];
+_=*n$9:org.junit.runner.Description*(root org.junit.runner.Description) [line 48];
+n$11=_fun_String Description.getMethodName()(n$9:org.junit.runner.Description*) virtual [line 48];
+*&amp;$irvar0:java.lang.String*=n$11 [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$12=*&amp;$irvar0:java.lang.String* [line 48];
+*&amp;$T0_29:java.lang.String*=n$12 [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$13=*&amp;$T0_24:org.junit.rules.StopwatchTest$Record* [line 48];
+*&amp;$T1_29:org.junit.rules.StopwatchTest$Record*=n$13 [line 48];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 11 succs:16 exn:3 Instructions
+n$14=*&amp;$T1_29:org.junit.rules.StopwatchTest$Record* [line 48];
+n$15=*&amp;$T0_29:java.lang.String* [line 48];
+*n$14.name:org.junit.rules.StopwatchTest$Record(root org.junit.rules.StopwatchTest$Record)=n$15 [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24Record.<init>%28long%2Corg.junit.rules.StopwatchTest%24TestStatus%2Corg.junit..ab95b866fdcc75e6511e1ca72e934f58_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">    public abstract static class AbstractStopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 52];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest*) [line 52];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104.html">summary for StopwatchTest$AbstractStopwatchTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line">        /** </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">         * Fake implementation of {@link Stopwatch.Clock} that increments the time </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">         * every time it is asked. </td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">         */ </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">        private final Stopwatch.Clock fakeClock = new Stopwatch.Clock() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1* [line 58];
+n$1=*&amp;this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 58];
+*n$0.this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1(root org.junit.rules.StopwatchTest$AbstractStopwatchTest$1)=n$1 [line 58];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1* [line 58];
+n$3=_fun_Stopwatch$Clock.&lt;init&gt;()(n$2:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1*) [line 58];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$AbstractStopwatchTest$1):org.junit.rules.StopwatchTest$AbstractStopwatchTest$1*) [line 58];
+n$3=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 58];
+n$4=_fun_StopwatchTest$AbstractStopwatchTest$1.&lt;init&gt;(StopwatchTest$AbstractStopwatchTest)(n$2:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1*,n$3:org.junit.rules.StopwatchTest$AbstractStopwatchTest*) [line 58];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1*=n$2 [line 58];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 58];
+n$6=*&amp;$irvar0:org.junit.rules.StopwatchTest$AbstractStopwatchTest$1* [line 58];
+*n$5.fakeClock:org.junit.rules.StopwatchTest$AbstractStopwatchTest(root org.junit.rules.StopwatchTest$AbstractStopwatchTest)=n$6 [line 58];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.<init>%28org.junit.rules.StopwatchTest%24AbstractS.9d4b491ab62df46c215c56f9ef397883.html">summary for StopwatchTest$AbstractStopwatchTest$1.&lt;init&gt;(StopwatchTest$AbstractStopwatchTest)</a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">            public long nanoTime() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.nanoTime%28%29%3Along.584745da304a4743e976ae20c77cb8fe_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.nanoTime%28%29%3Along.584745da304a4743e976ae20c77cb8fe.html">summary for long StopwatchTest$AbstractStopwatchTest$1.nanoTime()</a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">                return fakeTimeNanos++; <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.nanoTime%28%29%3Along.584745da304a4743e976ae20c77cb8fe_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_long StopwatchTest.access$008()() [line 61];
+*&amp;$irvar0:long=n$0 [line 61];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.nanoTime%28%29%3Along.584745da304a4743e976ae20c77cb8fe_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;$irvar0:long [line 61];
+*&amp;return:long=n$1 [line 61];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.nanoTime%28%29%3Along.584745da304a4743e976ae20c77cb8fe_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%241.nanoTime%28%29%3Along.584745da304a4743e976ae20c77cb8fe_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">        protected final Stopwatch stopwatch = new Stopwatch(fakeClock) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2* [line 65];
+n$1=*&amp;this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 65];
+*n$0.this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2(root org.junit.rules.StopwatchTest$AbstractStopwatchTest$2)=n$1 [line 65];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2* [line 65];
+n$3=*&amp;arg0:org.junit.rules.Stopwatch$Clock* [line 65];
+n$4=_fun_Stopwatch.&lt;init&gt;(Stopwatch$Clock)(n$2:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2*,n$3:org.junit.rules.Stopwatch$Clock*) [line 65];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$AbstractStopwatchTest$2):org.junit.rules.StopwatchTest$AbstractStopwatchTest$2*) [line 65];
+n$8=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 65];
+n$9=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 65];
+n$10=*n$9.fakeClock:org.junit.rules.Stopwatch$Clock*(root org.junit.rules.StopwatchTest$AbstractStopwatchTest) [line 65];
+n$11=_fun_StopwatchTest$AbstractStopwatchTest$2.&lt;init&gt;(StopwatchTest$AbstractStopwatchTest,Stopwatch$Clock)(n$7:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2*,n$8:org.junit.rules.StopwatchTest$AbstractStopwatchTest*,n$10:org.junit.rules.Stopwatch$Clock*) [line 65];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2*=n$7 [line 65];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$12=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 65];
+n$13=*&amp;$irvar1:org.junit.rules.StopwatchTest$AbstractStopwatchTest$2* [line 65];
+*n$12.stopwatch:org.junit.rules.StopwatchTest$AbstractStopwatchTest(root org.junit.rules.StopwatchTest$AbstractStopwatchTest)=n$13 [line 65];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.<init>%28org.junit.rules.StopwatchTest%24AbstractS.3b79fafa2d7229f26fcebc95045cd6b6.html">summary for StopwatchTest$AbstractStopwatchTest$2.&lt;init&gt;(StopwatchTest$AbstractStopwatchTest,Stopwatch$Clock)</a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">            protected void succeeded(long nanos, Description description) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061.html">summary for void StopwatchTest$AbstractStopwatchTest$2.succeeded(long,Description)</a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">                StopwatchTest.record = new Record(nanos, TestStatus.SUCCEEDED, description); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$Record):org.junit.rules.StopwatchTest$Record*) [line 68];
+n$1=*&amp;nanos:long [line 68];
+n$2=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SUCCEEDED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 68];
+n$3=*&amp;description:org.junit.runner.Description* [line 68];
+n$4=_fun_StopwatchTest$Record.&lt;init&gt;(long,StopwatchTest$TestStatus,Description)(n$0:org.junit.rules.StopwatchTest$Record*,n$1:long,n$2:org.junit.rules.StopwatchTest$TestStatus*,n$3:org.junit.runner.Description*) [line 68];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$Record*=n$0 [line 68];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.rules.StopwatchTest$Record* [line 68];
+n$6=_fun_StopwatchTest$Record StopwatchTest.access$102(StopwatchTest$Record)(n$5:org.junit.rules.StopwatchTest$Record*) [line 68];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$Record*=n$6 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">                simulateTimePassing(1); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$7=_fun_void StopwatchTest.access$200(long)(1:long) [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">            } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.succeeded%28long%2Corg.junit.runner.Description%29%3Av.490fb7d40942ebae4e70074e16905061_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">            protected void failed(long nanos, Throwable e, Description description) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5.html">summary for void StopwatchTest$AbstractStopwatchTest$2.failed(long,Throwable,Description)</a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">                StopwatchTest.record = new Record(nanos, TestStatus.FAILED, description); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$Record):org.junit.rules.StopwatchTest$Record*) [line 74];
+n$1=*&amp;nanos:long [line 74];
+n$2=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.FAILED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 74];
+n$3=*&amp;description:org.junit.runner.Description* [line 74];
+n$4=_fun_StopwatchTest$Record.&lt;init&gt;(long,StopwatchTest$TestStatus,Description)(n$0:org.junit.rules.StopwatchTest$Record*,n$1:long,n$2:org.junit.rules.StopwatchTest$TestStatus*,n$3:org.junit.runner.Description*) [line 74];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$Record*=n$0 [line 74];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.rules.StopwatchTest$Record* [line 74];
+n$6=_fun_StopwatchTest$Record StopwatchTest.access$102(StopwatchTest$Record)(n$5:org.junit.rules.StopwatchTest$Record*) [line 74];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$Record*=n$6 [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                simulateTimePassing(1); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$7=_fun_void StopwatchTest.access$200(long)(1:long) [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">            } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.failed%28long%2Cjava.lang.Throwable%2Corg.junit.runn.1e44f4b7b7cb7e98c071d3f29b0f2fa5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">            protected void skipped(long nanos, AssumptionViolatedException e, Description description) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e.html">summary for void StopwatchTest$AbstractStopwatchTest$2.skipped(long,AssumptionViolatedException,Description)</a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">                StopwatchTest.record = new Record(nanos, TestStatus.SKIPPED, description); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$Record):org.junit.rules.StopwatchTest$Record*) [line 80];
+n$1=*&amp;nanos:long [line 80];
+n$2=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SKIPPED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 80];
+n$3=*&amp;description:org.junit.runner.Description* [line 80];
+n$4=_fun_StopwatchTest$Record.&lt;init&gt;(long,StopwatchTest$TestStatus,Description)(n$0:org.junit.rules.StopwatchTest$Record*,n$1:long,n$2:org.junit.rules.StopwatchTest$TestStatus*,n$3:org.junit.runner.Description*) [line 80];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$Record*=n$0 [line 80];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.rules.StopwatchTest$Record* [line 80];
+n$6=_fun_StopwatchTest$Record StopwatchTest.access$102(StopwatchTest$Record)(n$5:org.junit.rules.StopwatchTest$Record*) [line 80];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$Record*=n$6 [line 80];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">                simulateTimePassing(1); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$7=_fun_void StopwatchTest.access$200(long)(1:long) [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">            } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.skipped%28long%2Corg.junit.AssumptionViolatedExcep.ede25a0a9651391126302cf7fad8175e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">            protected void finished(long nanos, Description description) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8.html">summary for void StopwatchTest$AbstractStopwatchTest$2.finished(long,Description)</a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">                StopwatchTest.finishedRecord = new Record(nanos, description); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$Record):org.junit.rules.StopwatchTest$Record*) [line 86];
+n$1=*&amp;nanos:long [line 86];
+n$2=*&amp;description:org.junit.runner.Description* [line 86];
+n$3=_fun_StopwatchTest$Record.&lt;init&gt;(long,Description)(n$0:org.junit.rules.StopwatchTest$Record*,n$1:long,n$2:org.junit.runner.Description*) [line 86];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$Record*=n$0 [line 86];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.rules.StopwatchTest$Record* [line 86];
+n$5=_fun_StopwatchTest$Record StopwatchTest.access$302(StopwatchTest$Record)(n$4:org.junit.rules.StopwatchTest$Record*) [line 86];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$Record*=n$5 [line 86];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">            } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%242.finished%28long%2Corg.junit.runner.Description%29%3Avo.b31ca56654a1b03808f40c15a8f6d7f8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line">        private final TestWatcher watcher = new TestWatcher() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3* [line 90];
+n$1=*&amp;this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 90];
+*n$0.this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3(root org.junit.rules.StopwatchTest$AbstractStopwatchTest$3)=n$1 [line 90];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3* [line 90];
+n$3=_fun_TestWatcher.&lt;init&gt;()(n$2:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3*) [line 90];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$14=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$AbstractStopwatchTest$3):org.junit.rules.StopwatchTest$AbstractStopwatchTest$3*) [line 90];
+n$15=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 90];
+n$16=_fun_StopwatchTest$AbstractStopwatchTest$3.&lt;init&gt;(StopwatchTest$AbstractStopwatchTest)(n$14:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3*,n$15:org.junit.rules.StopwatchTest$AbstractStopwatchTest*) [line 90];
+*&amp;$irvar2:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3*=n$14 [line 90];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$17=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 90];
+n$18=*&amp;$irvar2:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3* [line 90];
+*n$17.watcher:org.junit.rules.StopwatchTest$AbstractStopwatchTest(root org.junit.rules.StopwatchTest$AbstractStopwatchTest)=n$18 [line 90];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.<init>%28org.junit.rules.StopwatchTest%24AbstractS.2d6a981bff4c031ea50b9f669f6b2a91.html">summary for StopwatchTest$AbstractStopwatchTest$3.&lt;init&gt;(StopwatchTest$AbstractStopwatchTest)</a></td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            protected void finished(Description description) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.finished%28org.junit.runner.Description%29%3Avoid.8da19ff40535ecad4fb208cfeeaff0ab_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.finished%28org.junit.runner.Description%29%3Avoid.8da19ff40535ecad4fb208cfeeaff0ab.html">summary for void StopwatchTest$AbstractStopwatchTest$3.finished(Description)</a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">                afterStopwatchRule(); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.finished%28org.junit.runner.Description%29%3Avoid.8da19ff40535ecad4fb208cfeeaff0ab_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest$3* [line 93];
+n$1=*n$0.this$0:org.junit.rules.StopwatchTest$AbstractStopwatchTest*(root org.junit.rules.StopwatchTest$AbstractStopwatchTest$3) [line 93];
+_=*n$1:org.junit.rules.StopwatchTest$AbstractStopwatchTest*(root org.junit.rules.StopwatchTest$AbstractStopwatchTest) [line 93];
+n$3=_fun_void StopwatchTest$AbstractStopwatchTest.afterStopwatchRule()(n$1:org.junit.rules.StopwatchTest$AbstractStopwatchTest*) virtual [line 93];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">            } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.finished%28org.junit.runner.Description%29%3Avoid.8da19ff40535ecad4fb208cfeeaff0ab_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.finished%28org.junit.runner.Description%29%3Avoid.8da19ff40535ecad4fb208cfeeaff0ab_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest%243.finished%28org.junit.runner.Description%29%3Avoid.8da19ff40535ecad4fb208cfeeaff0ab_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        @Rule <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">        public final RuleChain chain = RuleChain </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">            .outerRule(watcher) <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$19=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 99];
+n$20=*n$19.watcher:org.junit.rules.TestWatcher*(root org.junit.rules.StopwatchTest$AbstractStopwatchTest) [line 99];
+*&amp;$irvar3:org.junit.rules.TestWatcher*=n$20 [line 99];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$21=*&amp;$irvar3:org.junit.rules.TestWatcher* [line 99];
+n$22=_fun_RuleChain RuleChain.outerRule(TestRule)(n$21:org.junit.rules.TestWatcher*) [line 99];
+*&amp;$irvar4:org.junit.rules.RuleChain*=n$22 [line 99];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">PRECONDITION_NOT_MET in call to `outerRule(...)` at line 99</div></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">            .around(stopwatch); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$23=*&amp;$irvar4:org.junit.rules.RuleChain* [line 100];
+_=*n$23:org.junit.rules.RuleChain*(root org.junit.rules.RuleChain) [line 100];
+n$25=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 100];
+n$26=*n$25.stopwatch:org.junit.rules.Stopwatch*(root org.junit.rules.StopwatchTest$AbstractStopwatchTest) [line 100];
+n$27=_fun_RuleChain RuleChain.around(TestRule)(n$23:org.junit.rules.RuleChain*,n$26:org.junit.rules.Stopwatch*) virtual [line 100];
+*&amp;$irvar5:org.junit.rules.RuleChain*=n$27 [line 100];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$28=*&amp;this:org.junit.rules.StopwatchTest$AbstractStopwatchTest* [line 100];
+n$29=*&amp;$irvar5:org.junit.rules.RuleChain* [line 100];
+*n$28.chain:org.junit.rules.StopwatchTest$AbstractStopwatchTest(root org.junit.rules.StopwatchTest$AbstractStopwatchTest)=n$29 [line 100];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.<init>%28%29.c23f10bc9f662b35f18c0bf07d012104_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">        protected void afterStopwatchRule() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.afterStopwatchRule%28%29%3Avoid.17fcc0a15255a6ef9ca899647a3ec444_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.afterStopwatchRule%28%29%3Avoid.17fcc0a15255a6ef9ca899647a3ec444.html">summary for void StopwatchTest$AbstractStopwatchTest.afterStopwatchRule()</a></td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.afterStopwatchRule%28%29%3Avoid.17fcc0a15255a6ef9ca899647a3ec444_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.afterStopwatchRule%28%29%3Avoid.17fcc0a15255a6ef9ca899647a3ec444_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24AbstractStopwatchTest.afterStopwatchRule%28%29%3Avoid.17fcc0a15255a6ef9ca899647a3ec444_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">    public static class SuccessfulTest extends AbstractStopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.<init>%28%29.8bc5f6fb19f9211dcaef0b7353854fea_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.<init>%28%29.8bc5f6fb19f9211dcaef0b7353854fea_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$SuccessfulTest* [line 106];
+n$1=_fun_StopwatchTest$AbstractStopwatchTest.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$SuccessfulTest*) [line 106];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.<init>%28%29.8bc5f6fb19f9211dcaef0b7353854fea_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.<init>%28%29.8bc5f6fb19f9211dcaef0b7353854fea_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.<init>%28%29.8bc5f6fb19f9211dcaef0b7353854fea_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24SuccessfulTest.<init>%28%29.8bc5f6fb19f9211dcaef0b7353854fea.html">summary for StopwatchTest$SuccessfulTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">        public void successfulTest() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.successfulTest%28%29%3Avoid.d1df644d47d11b1922c036d6dc1c2c59_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24SuccessfulTest.successfulTest%28%29%3Avoid.d1df644d47d11b1922c036d6dc1c2c59.html">summary for void StopwatchTest$SuccessfulTest.successfulTest()</a></td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.successfulTest%28%29%3Avoid.d1df644d47d11b1922c036d6dc1c2c59_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.successfulTest%28%29%3Avoid.d1df644d47d11b1922c036d6dc1c2c59_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SuccessfulTest.successfulTest%28%29%3Avoid.d1df644d47d11b1922c036d6dc1c2c59_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line">    public static class FailedTest extends AbstractStopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.<init>%28%29.044b7d4dff6bd5659cb0617ffd5f3821_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.<init>%28%29.044b7d4dff6bd5659cb0617ffd5f3821_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$FailedTest* [line 112];
+n$1=_fun_StopwatchTest$AbstractStopwatchTest.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$FailedTest*) [line 112];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.<init>%28%29.044b7d4dff6bd5659cb0617ffd5f3821_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.<init>%28%29.044b7d4dff6bd5659cb0617ffd5f3821_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.<init>%28%29.044b7d4dff6bd5659cb0617ffd5f3821_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24FailedTest.<init>%28%29.044b7d4dff6bd5659cb0617ffd5f3821.html">summary for StopwatchTest$FailedTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        public void failedTest() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.failedTest%28%29%3Avoid.1f83de0d94a8b22421366a0efce805e9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24FailedTest.failedTest%28%29%3Avoid.1f83de0d94a8b22421366a0efce805e9.html">summary for void StopwatchTest$FailedTest.failedTest()</a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            fail(); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.failedTest%28%29%3Avoid.1f83de0d94a8b22421366a0efce805e9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assert.fail()() [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.failedTest%28%29%3Avoid.1f83de0d94a8b22421366a0efce805e9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.failedTest%28%29%3Avoid.1f83de0d94a8b22421366a0efce805e9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24FailedTest.failedTest%28%29%3Avoid.1f83de0d94a8b22421366a0efce805e9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    public static class SkippedTest extends AbstractStopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.<init>%28%29.a3a32934d9b34ec4f8f8de8ae28c964f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.<init>%28%29.a3a32934d9b34ec4f8f8de8ae28c964f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$SkippedTest* [line 119];
+n$1=_fun_StopwatchTest$AbstractStopwatchTest.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$SkippedTest*) [line 119];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.<init>%28%29.a3a32934d9b34ec4f8f8de8ae28c964f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.<init>%28%29.a3a32934d9b34ec4f8f8de8ae28c964f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.<init>%28%29.a3a32934d9b34ec4f8f8de8ae28c964f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24SkippedTest.<init>%28%29.a3a32934d9b34ec4f8f8de8ae28c964f.html">summary for StopwatchTest$SkippedTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        public void skippedTest() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.skippedTest%28%29%3Avoid.73b16aed1cce48d6fc986147e231f669_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24SkippedTest.skippedTest%28%29%3Avoid.73b16aed1cce48d6fc986147e231f669.html">summary for void StopwatchTest$SkippedTest.skippedTest()</a></td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">            assumeTrue(false); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.skippedTest%28%29%3Avoid.73b16aed1cce48d6fc986147e231f669_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void Assume.assumeTrue(boolean)(0:int) [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.skippedTest%28%29%3Avoid.73b16aed1cce48d6fc986147e231f669_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.skippedTest%28%29%3Avoid.73b16aed1cce48d6fc986147e231f669_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24SkippedTest.skippedTest%28%29%3Avoid.73b16aed1cce48d6fc986147e231f669_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    public static class DurationDuringTestTest extends AbstractStopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.<init>%28%29.758f42d002e286fc42895ec941baef8d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.<init>%28%29.758f42d002e286fc42895ec941baef8d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$DurationDuringTestTest* [line 126];
+n$1=_fun_StopwatchTest$AbstractStopwatchTest.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$DurationDuringTestTest*) [line 126];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.<init>%28%29.758f42d002e286fc42895ec941baef8d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.<init>%28%29.758f42d002e286fc42895ec941baef8d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.<init>%28%29.758f42d002e286fc42895ec941baef8d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24DurationDuringTestTest.<init>%28%29.758f42d002e286fc42895ec941baef8d.html">summary for StopwatchTest$DurationDuringTestTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        public void duration() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129.html">summary for void StopwatchTest$DurationDuringTestTest.duration()</a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">            simulateTimePassing(300L); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void StopwatchTest.access$200(long)(300:long) [line 129];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">            assertEquals(300L, stopwatch.runtime(MILLISECONDS)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;this:org.junit.rules.StopwatchTest$DurationDuringTestTest* [line 130];
+n$2=*n$1.stopwatch:org.junit.rules.Stopwatch*(root org.junit.rules.StopwatchTest$DurationDuringTestTest) [line 130];
+*&amp;$irvar0:org.junit.rules.Stopwatch*=n$2 [line 130];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.rules.Stopwatch* [line 130];
+_=*n$3:org.junit.rules.Stopwatch*(root org.junit.rules.Stopwatch) [line 130];
+n$5=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 130];
+n$6=_fun_long Stopwatch.runtime(TimeUnit)(n$3:org.junit.rules.Stopwatch*,n$5:java.util.concurrent.TimeUnit*) virtual [line 130];
+*&amp;$irvar1:long=n$6 [line 130];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar1:long [line 130];
+n$8=_fun_void Assert.assertEquals(long,long)(300:long,n$7:long) [line 130];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">            simulateTimePassing(500L); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=_fun_void StopwatchTest.access$200(long)(500:long) [line 131];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">            assertEquals(800L, stopwatch.runtime(MILLISECONDS)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;this:org.junit.rules.StopwatchTest$DurationDuringTestTest* [line 132];
+n$11=*n$10.stopwatch:org.junit.rules.Stopwatch*(root org.junit.rules.StopwatchTest$DurationDuringTestTest) [line 132];
+*&amp;$irvar2:org.junit.rules.Stopwatch*=n$11 [line 132];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar2:org.junit.rules.Stopwatch* [line 132];
+_=*n$12:org.junit.rules.Stopwatch*(root org.junit.rules.Stopwatch) [line 132];
+n$14=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 132];
+n$15=_fun_long Stopwatch.runtime(TimeUnit)(n$12:org.junit.rules.Stopwatch*,n$14:java.util.concurrent.TimeUnit*) virtual [line 132];
+*&amp;$irvar3:long=n$15 [line 132];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;$irvar3:long [line 132];
+n$17=_fun_void Assert.assertEquals(long,long)(800:long,n$16:long) [line 132];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:12 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationDuringTestTest.duration%28%29%3Avoid.07fa67c126b5fffdbc01d3941c60e129_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">    public static class DurationAfterTestTest extends AbstractStopwatchTest { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.<init>%28%29.6759e377ec3f0088cf25cbfc027e5530_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.<init>%28%29.6759e377ec3f0088cf25cbfc027e5530_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$DurationAfterTestTest* [line 136];
+n$1=_fun_StopwatchTest$AbstractStopwatchTest.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$DurationAfterTestTest*) [line 136];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.<init>%28%29.6759e377ec3f0088cf25cbfc027e5530_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.<init>%28%29.6759e377ec3f0088cf25cbfc027e5530_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.<init>%28%29.6759e377ec3f0088cf25cbfc027e5530_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24DurationAfterTestTest.<init>%28%29.6759e377ec3f0088cf25cbfc027e5530.html">summary for StopwatchTest$DurationAfterTestTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line">        public void duration() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6.html">summary for void StopwatchTest$DurationAfterTestTest.duration()</a></td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">            simulateTimePassing(300L); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void StopwatchTest.access$200(long)(300:long) [line 139];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">            assertEquals(300L, stopwatch.runtime(MILLISECONDS)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;this:org.junit.rules.StopwatchTest$DurationAfterTestTest* [line 140];
+n$2=*n$1.stopwatch:org.junit.rules.Stopwatch*(root org.junit.rules.StopwatchTest$DurationAfterTestTest) [line 140];
+*&amp;$irvar0:org.junit.rules.Stopwatch*=n$2 [line 140];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.rules.Stopwatch* [line 140];
+_=*n$3:org.junit.rules.Stopwatch*(root org.junit.rules.Stopwatch) [line 140];
+n$5=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 140];
+n$6=_fun_long Stopwatch.runtime(TimeUnit)(n$3:org.junit.rules.Stopwatch*,n$5:java.util.concurrent.TimeUnit*) virtual [line 140];
+*&amp;$irvar1:long=n$6 [line 140];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=*&amp;$irvar1:long [line 140];
+n$8=_fun_void Assert.assertEquals(long,long)(300:long,n$7:long) [line 140];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:8 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.duration%28%29%3Avoid.fcbc9d1b91032d85e80881439aaafdb6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        protected void afterStopwatchRule() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3.html">summary for void StopwatchTest$DurationAfterTestTest.afterStopwatchRule()</a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">            assertEquals(300L, stopwatch.runtime(MILLISECONDS)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.StopwatchTest$DurationAfterTestTest* [line 145];
+n$1=*n$0.stopwatch:org.junit.rules.Stopwatch*(root org.junit.rules.StopwatchTest$DurationAfterTestTest) [line 145];
+*&amp;$irvar0:org.junit.rules.Stopwatch*=n$1 [line 145];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.rules.Stopwatch* [line 145];
+_=*n$2:org.junit.rules.Stopwatch*(root org.junit.rules.Stopwatch) [line 145];
+n$4=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 145];
+n$5=_fun_long Stopwatch.runtime(TimeUnit)(n$2:org.junit.rules.Stopwatch*,n$4:java.util.concurrent.TimeUnit*) virtual [line 145];
+*&amp;$irvar1:long=n$5 [line 145];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$6=*&amp;$irvar1:long [line 145];
+n$7=_fun_void Assert.assertEquals(long,long)(300:long,n$6:long) [line 145];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">            simulateTimePassing(500L); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=_fun_void StopwatchTest.access$200(long)(500:long) [line 146];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">            assertEquals(300L, stopwatch.runtime(MILLISECONDS)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;this:org.junit.rules.StopwatchTest$DurationAfterTestTest* [line 147];
+n$10=*n$9.stopwatch:org.junit.rules.Stopwatch*(root org.junit.rules.StopwatchTest$DurationAfterTestTest) [line 147];
+*&amp;$irvar2:org.junit.rules.Stopwatch*=n$10 [line 147];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$11=*&amp;$irvar2:org.junit.rules.Stopwatch* [line 147];
+_=*n$11:org.junit.rules.Stopwatch*(root org.junit.rules.Stopwatch) [line 147];
+n$13=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 147];
+n$14=_fun_long Stopwatch.runtime(TimeUnit)(n$11:org.junit.rules.Stopwatch*,n$13:java.util.concurrent.TimeUnit*) virtual [line 147];
+*&amp;$irvar3:long=n$14 [line 147];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$15=*&amp;$irvar3:long [line 147];
+n$16=_fun_void Assert.assertEquals(long,long)(300:long,n$15:long) [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest%24DurationAfterTestTest.afterStopwatchRule%28%29%3Avoid.e88a019622d3b8b798848dd13ce7d9f3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line">    @Before </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    public void init() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946.html">summary for void StopwatchTest.init()</a></td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">        record = new Record(); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$Record):org.junit.rules.StopwatchTest$Record*) [line 153];
+n$1=_fun_StopwatchTest$Record.&lt;init&gt;()(n$0:org.junit.rules.StopwatchTest$Record*) [line 153];
+*&amp;$irvar0:org.junit.rules.StopwatchTest$Record*=n$0 [line 153];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.rules.StopwatchTest$Record* [line 153];
+*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=n$2 [line 153];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        finishedRecord = new Record(); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=_fun___new(sizeof(t=org.junit.rules.StopwatchTest$Record):org.junit.rules.StopwatchTest$Record*) [line 154];
+n$4=_fun_StopwatchTest$Record.&lt;init&gt;()(n$3:org.junit.rules.StopwatchTest$Record*) [line 154];
+*&amp;$irvar1:org.junit.rules.StopwatchTest$Record*=n$3 [line 154];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:org.junit.rules.StopwatchTest$Record* [line 154];
+*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=n$5 [line 154];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        simulateTimePassing(1L); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$6=_fun_void StopwatchTest.simulateTimePassing(long)(1:long) [line 155];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.init%28%29%3Avoid.b9747c9602ab831c810953985c175946_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">    private static Result runTest(Class&lt;?&gt; test) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb.html">summary for Result StopwatchTest.runTest(Class)</a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">        simulateTimePassing(1L); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_void StopwatchTest.simulateTimePassing(long)(1:long) [line 159];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">        JUnitCore junitCore = new JUnitCore(); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=_fun___new(sizeof(t=org.junit.runner.JUnitCore):org.junit.runner.JUnitCore*) [line 160];
+n$2=_fun_JUnitCore.&lt;init&gt;()(n$1:org.junit.runner.JUnitCore*) [line 160];
+*&amp;junitCore:org.junit.runner.JUnitCore*=n$1 [line 160];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">        return junitCore.run(Request.aClass(test).getRunner()); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;test:java.lang.Class* [line 161];
+n$4=_fun_Request Request.aClass(Class)(n$3:java.lang.Class*) [line 161];
+*&amp;$irvar0:org.junit.runner.Request*=n$4 [line 161];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.runner.Request* [line 161];
+_=*n$5:org.junit.runner.Request*(root org.junit.runner.Request) [line 161];
+n$7=_fun_Runner Request.getRunner()(n$5:org.junit.runner.Request*) virtual [line 161];
+*&amp;$irvar1:org.junit.runner.Runner*=n$7 [line 161];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;junitCore:org.junit.runner.JUnitCore* [line 161];
+_=*n$8:org.junit.runner.JUnitCore*(root org.junit.runner.JUnitCore) [line 161];
+n$10=*&amp;$irvar1:org.junit.runner.Runner* [line 161];
+n$11=_fun_Result JUnitCore.run(Runner)(n$8:org.junit.runner.JUnitCore*,n$10:org.junit.runner.Runner*) virtual [line 161];
+*&amp;$irvar2:org.junit.runner.Result*=n$11 [line 161];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+n$12=*&amp;$irvar2:org.junit.runner.Result* [line 161];
+*&amp;return:org.junit.runner.Result*=n$12 [line 161];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runTest%28java.lang.Class%29%3Aorg.junit.runner.Result.a041c138c397bf1afb9af562f43a8ecb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE163">163</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE164">164</td><td class="line">    private static void simulateTimePassing(long millis) { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d.html">summary for void StopwatchTest.simulateTimePassing(long)</a></td></tr>
+<tr><td class="num" id="LINE165">165</td><td class="line">        fakeTimeNanos += TimeUnit.MILLISECONDS.toNanos(millis); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.StopwatchTest.fakeTimeNanos:long(root org.junit.rules.StopwatchTest) [line 165];
+*&amp;$irvar0:long=n$0 [line 165];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 165];
+_=*n$1:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 165];
+n$3=*&amp;millis:long [line 165];
+n$4=_fun_long TimeUnit.toNanos(long)(n$1:java.util.concurrent.TimeUnit*,n$3:long) virtual [line 165];
+*&amp;$irvar1:long=n$4 [line 165];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:long [line 165];
+n$6=*&amp;$irvar1:long [line 165];
+*&amp;#GB<>$org.junit.rules.StopwatchTest.fakeTimeNanos:org.junit.rules.StopwatchTest(root org.junit.rules.StopwatchTest)=(n$5 + n$6) [line 165];
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE166">166</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.simulateTimePassing%28long%29%3Avoid.5dd600f34ee28e5b4eb1bdf955caad3d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE167">167</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE168">168</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE169">169</td><td class="line">    public void succeeded() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128.html">summary for void StopwatchTest.succeeded()</a></td></tr>
+<tr><td class="num" id="LINE170">170</td><td class="line">        Result result = runTest(SuccessfulTest.class); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Result StopwatchTest.runTest(Class)(org.junit.rules.StopwatchTest$SuccessfulTest:java.lang.Object*) [line 170];
+*&amp;result:org.junit.runner.Result*=n$0 [line 170];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE171">171</td><td class="line">        assertEquals(0, result.getFailureCount()); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;result:org.junit.runner.Result* [line 171];
+_=*n$1:org.junit.runner.Result*(root org.junit.runner.Result) [line 171];
+n$3=_fun_int Result.getFailureCount()(n$1:org.junit.runner.Result*) virtual [line 171];
+*&amp;$irvar0:int=n$3 [line 171];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 171];
+n$5=_fun_void Assert.assertEquals(long,long)(0:long,(long)n$4:long) [line 171];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE172">172</td><td class="line">        assertThat(record.name, is(&quot;successfulTest&quot;)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 172];
+n$7=*n$6.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 172];
+*&amp;$irvar1:java.lang.String*=n$7 [line 172];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=_fun_Matcher Is.is(Object)("successfulTest":java.lang.Object*) [line 172];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$8 [line 172];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar1:java.lang.String* [line 172];
+n$10=*&amp;$irvar2:org.hamcrest.Matcher* [line 172];
+n$11=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$9:java.lang.String*,n$10:org.hamcrest.Matcher*) [line 172];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE173">173</td><td class="line">        assertThat(record.name, is(finishedRecord.name)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 173];
+n$13=*n$12.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 173];
+*&amp;$irvar3:java.lang.String*=n$13 [line 173];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 173];
+n$15=*n$14.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 173];
+*&amp;$irvar4:java.lang.String*=n$15 [line 173];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;$irvar4:java.lang.String* [line 173];
+n$17=_fun_Matcher Is.is(Object)(n$16:java.lang.String*) [line 173];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$17 [line 173];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar3:java.lang.String* [line 173];
+n$19=*&amp;$irvar5:org.hamcrest.Matcher* [line 173];
+n$20=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$18:java.lang.String*,n$19:org.hamcrest.Matcher*) [line 173];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE174">174</td><td class="line">        assertThat(record.status, is(TestStatus.SUCCEEDED)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$21=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 174];
+n$22=*n$21.status:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$Record) [line 174];
+*&amp;$irvar6:org.junit.rules.StopwatchTest$TestStatus*=n$22 [line 174];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SUCCEEDED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 174];
+*&amp;$irvar7:org.junit.rules.StopwatchTest$TestStatus*=n$23 [line 174];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$24=*&amp;$irvar7:org.junit.rules.StopwatchTest$TestStatus* [line 174];
+n$25=_fun_Matcher Is.is(Object)(n$24:org.junit.rules.StopwatchTest$TestStatus*) [line 174];
+*&amp;$irvar8:org.hamcrest.Matcher*=n$25 [line 174];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$26=*&amp;$irvar6:org.junit.rules.StopwatchTest$TestStatus* [line 174];
+n$27=*&amp;$irvar8:org.hamcrest.Matcher* [line 174];
+n$28=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$26:org.junit.rules.StopwatchTest$TestStatus*,n$27:org.hamcrest.Matcher*) [line 174];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE175">175</td><td class="line">        assertTrue(&quot;timeSpent &gt; 0&quot;, record.duration &gt; 0); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 20 exn:3 Instructions
+*&amp;$T0_79:java.lang.Object*="timeSpent > 0" [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:18 succs:21 exn:3 Conditional method_body
+n$29=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 175];
+n$30=*n$29.duration:long(root org.junit.rules.StopwatchTest$Record) [line 175];
+PRUNE(!(n$30  &lt;=  0), true); [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:19 succs:22 exn:3 Instructions
+*&amp;$T0_80:int=1 [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:25 exn:3 Instructions
+*&amp;$T1_80:java.lang.Object*="timeSpent > 0" [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:18 succs:23 exn:3 Conditional method_body
+n$29=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 175];
+n$30=*n$29.duration:long(root org.junit.rules.StopwatchTest$Record) [line 175];
+PRUNE((n$30  &lt;=  0), false); [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:20 succs:24 exn:3 Instructions
+*&amp;$T0_80:int=0 [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$31=*&amp;$T0_79:java.lang.Object* [line 175];
+*&amp;$T1_80:java.lang.Object*=n$31 [line 175];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 22 succs:26 exn:3 Instructions
+n$32=*&amp;$T1_80:java.lang.Object* [line 175];
+n$33=*&amp;$T0_80:int [line 175];
+n$34=_fun_void Assert.assertTrue(String,boolean)(n$32:java.lang.Object*,n$33:int) [line 175];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE176">176</td><td class="line">        assertThat(record.duration, is(finishedRecord.duration)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$35=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 176];
+n$36=*n$35.duration:long(root org.junit.rules.StopwatchTest$Record) [line 176];
+*&amp;$irvar9:long=n$36 [line 176];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$37=*&amp;$irvar9:long [line 176];
+n$38=_fun_Long Long.valueOf(long)(n$37:long) [line 176];
+*&amp;$irvar10:java.lang.Long*=n$38 [line 176];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$39=*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 176];
+n$40=*n$39.duration:long(root org.junit.rules.StopwatchTest$Record) [line 176];
+*&amp;$irvar11:long=n$40 [line 176];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$41=*&amp;$irvar11:long [line 176];
+n$42=_fun_Long Long.valueOf(long)(n$41:long) [line 176];
+*&amp;$irvar12:java.lang.Long*=n$42 [line 176];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$43=*&amp;$irvar12:java.lang.Long* [line 176];
+n$44=_fun_Matcher Is.is(Object)(n$43:java.lang.Long*) [line 176];
+*&amp;$irvar13:org.hamcrest.Matcher*=n$44 [line 176];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$45=*&amp;$irvar10:java.lang.Long* [line 176];
+n$46=*&amp;$irvar13:org.hamcrest.Matcher* [line 176];
+n$47=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$45:java.lang.Long*,n$46:org.hamcrest.Matcher*) [line 176];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE177">177</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.succeeded%28%29%3Avoid.7c941caea926d968f3d6b5f014cd3128_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE178">178</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE179">179</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE180">180</td><td class="line">    public void failed() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5.html">summary for void StopwatchTest.failed()</a></td></tr>
+<tr><td class="num" id="LINE181">181</td><td class="line">        Result result = runTest(FailedTest.class); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Result StopwatchTest.runTest(Class)(org.junit.rules.StopwatchTest$FailedTest:java.lang.Object*) [line 181];
+*&amp;result:org.junit.runner.Result*=n$0 [line 181];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE182">182</td><td class="line">        assertEquals(1, result.getFailureCount()); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;result:org.junit.runner.Result* [line 182];
+_=*n$1:org.junit.runner.Result*(root org.junit.runner.Result) [line 182];
+n$3=_fun_int Result.getFailureCount()(n$1:org.junit.runner.Result*) virtual [line 182];
+*&amp;$irvar0:int=n$3 [line 182];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 182];
+n$5=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$4:long) [line 182];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE183">183</td><td class="line">        assertThat(record.name, is(&quot;failedTest&quot;)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 183];
+n$7=*n$6.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 183];
+*&amp;$irvar1:java.lang.String*=n$7 [line 183];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=_fun_Matcher Is.is(Object)("failedTest":java.lang.Object*) [line 183];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$8 [line 183];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar1:java.lang.String* [line 183];
+n$10=*&amp;$irvar2:org.hamcrest.Matcher* [line 183];
+n$11=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$9:java.lang.String*,n$10:org.hamcrest.Matcher*) [line 183];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE184">184</td><td class="line">        assertThat(record.name, is(finishedRecord.name)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 184];
+n$13=*n$12.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 184];
+*&amp;$irvar3:java.lang.String*=n$13 [line 184];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 184];
+n$15=*n$14.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 184];
+*&amp;$irvar4:java.lang.String*=n$15 [line 184];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;$irvar4:java.lang.String* [line 184];
+n$17=_fun_Matcher Is.is(Object)(n$16:java.lang.String*) [line 184];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$17 [line 184];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar3:java.lang.String* [line 184];
+n$19=*&amp;$irvar5:org.hamcrest.Matcher* [line 184];
+n$20=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$18:java.lang.String*,n$19:org.hamcrest.Matcher*) [line 184];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE185">185</td><td class="line">        assertThat(record.status, is(TestStatus.FAILED)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$21=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 185];
+n$22=*n$21.status:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$Record) [line 185];
+*&amp;$irvar6:org.junit.rules.StopwatchTest$TestStatus*=n$22 [line 185];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.FAILED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 185];
+*&amp;$irvar7:org.junit.rules.StopwatchTest$TestStatus*=n$23 [line 185];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$24=*&amp;$irvar7:org.junit.rules.StopwatchTest$TestStatus* [line 185];
+n$25=_fun_Matcher Is.is(Object)(n$24:org.junit.rules.StopwatchTest$TestStatus*) [line 185];
+*&amp;$irvar8:org.hamcrest.Matcher*=n$25 [line 185];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$26=*&amp;$irvar6:org.junit.rules.StopwatchTest$TestStatus* [line 185];
+n$27=*&amp;$irvar8:org.hamcrest.Matcher* [line 185];
+n$28=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$26:org.junit.rules.StopwatchTest$TestStatus*,n$27:org.hamcrest.Matcher*) [line 185];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE186">186</td><td class="line">        assertTrue(&quot;timeSpent &gt; 0&quot;, record.duration &gt; 0); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 20 exn:3 Instructions
+*&amp;$T0_79:java.lang.Object*="timeSpent > 0" [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:18 succs:21 exn:3 Conditional method_body
+n$29=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 186];
+n$30=*n$29.duration:long(root org.junit.rules.StopwatchTest$Record) [line 186];
+PRUNE(!(n$30  &lt;=  0), true); [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:19 succs:22 exn:3 Instructions
+*&amp;$T0_80:int=1 [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:25 exn:3 Instructions
+*&amp;$T1_80:java.lang.Object*="timeSpent > 0" [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:18 succs:23 exn:3 Conditional method_body
+n$29=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 186];
+n$30=*n$29.duration:long(root org.junit.rules.StopwatchTest$Record) [line 186];
+PRUNE((n$30  &lt;=  0), false); [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:20 succs:24 exn:3 Instructions
+*&amp;$T0_80:int=0 [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$31=*&amp;$T0_79:java.lang.Object* [line 186];
+*&amp;$T1_80:java.lang.Object*=n$31 [line 186];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 22 succs:26 exn:3 Instructions
+n$32=*&amp;$T1_80:java.lang.Object* [line 186];
+n$33=*&amp;$T0_80:int [line 186];
+n$34=_fun_void Assert.assertTrue(String,boolean)(n$32:java.lang.Object*,n$33:int) [line 186];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE187">187</td><td class="line">        assertThat(record.duration, is(finishedRecord.duration)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$35=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 187];
+n$36=*n$35.duration:long(root org.junit.rules.StopwatchTest$Record) [line 187];
+*&amp;$irvar9:long=n$36 [line 187];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$37=*&amp;$irvar9:long [line 187];
+n$38=_fun_Long Long.valueOf(long)(n$37:long) [line 187];
+*&amp;$irvar10:java.lang.Long*=n$38 [line 187];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$39=*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 187];
+n$40=*n$39.duration:long(root org.junit.rules.StopwatchTest$Record) [line 187];
+*&amp;$irvar11:long=n$40 [line 187];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$41=*&amp;$irvar11:long [line 187];
+n$42=_fun_Long Long.valueOf(long)(n$41:long) [line 187];
+*&amp;$irvar12:java.lang.Long*=n$42 [line 187];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$43=*&amp;$irvar12:java.lang.Long* [line 187];
+n$44=_fun_Matcher Is.is(Object)(n$43:java.lang.Long*) [line 187];
+*&amp;$irvar13:org.hamcrest.Matcher*=n$44 [line 187];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$45=*&amp;$irvar10:java.lang.Long* [line 187];
+n$46=*&amp;$irvar13:org.hamcrest.Matcher* [line 187];
+n$47=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$45:java.lang.Long*,n$46:org.hamcrest.Matcher*) [line 187];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE188">188</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.failed%28%29%3Avoid.9dadcca1107073a836936aabcb158cd5_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE189">189</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE190">190</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE191">191</td><td class="line">    public void skipped() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9.html">summary for void StopwatchTest.skipped()</a></td></tr>
+<tr><td class="num" id="LINE192">192</td><td class="line">        Result result = runTest(SkippedTest.class); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Result StopwatchTest.runTest(Class)(org.junit.rules.StopwatchTest$SkippedTest:java.lang.Object*) [line 192];
+*&amp;result:org.junit.runner.Result*=n$0 [line 192];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE193">193</td><td class="line">        assertEquals(0, result.getFailureCount()); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;result:org.junit.runner.Result* [line 193];
+_=*n$1:org.junit.runner.Result*(root org.junit.runner.Result) [line 193];
+n$3=_fun_int Result.getFailureCount()(n$1:org.junit.runner.Result*) virtual [line 193];
+*&amp;$irvar0:int=n$3 [line 193];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:int [line 193];
+n$5=_fun_void Assert.assertEquals(long,long)(0:long,(long)n$4:long) [line 193];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE194">194</td><td class="line">        assertThat(record.name, is(&quot;skippedTest&quot;)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 194];
+n$7=*n$6.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 194];
+*&amp;$irvar1:java.lang.String*=n$7 [line 194];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=_fun_Matcher Is.is(Object)("skippedTest":java.lang.Object*) [line 194];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$8 [line 194];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;$irvar1:java.lang.String* [line 194];
+n$10=*&amp;$irvar2:org.hamcrest.Matcher* [line 194];
+n$11=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$9:java.lang.String*,n$10:org.hamcrest.Matcher*) [line 194];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE195">195</td><td class="line">        assertThat(record.name, is(finishedRecord.name)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 195];
+n$13=*n$12.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 195];
+*&amp;$irvar3:java.lang.String*=n$13 [line 195];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$14=*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 195];
+n$15=*n$14.name:java.lang.String*(root org.junit.rules.StopwatchTest$Record) [line 195];
+*&amp;$irvar4:java.lang.String*=n$15 [line 195];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;$irvar4:java.lang.String* [line 195];
+n$17=_fun_Matcher Is.is(Object)(n$16:java.lang.String*) [line 195];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$17 [line 195];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$18=*&amp;$irvar3:java.lang.String* [line 195];
+n$19=*&amp;$irvar5:org.hamcrest.Matcher* [line 195];
+n$20=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$18:java.lang.String*,n$19:org.hamcrest.Matcher*) [line 195];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE196">196</td><td class="line">        assertThat(record.status, is(TestStatus.SKIPPED)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$21=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 196];
+n$22=*n$21.status:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$Record) [line 196];
+*&amp;$irvar6:org.junit.rules.StopwatchTest$TestStatus*=n$22 [line 196];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;#GB<>$org.junit.rules.StopwatchTest$TestStatus.SKIPPED:org.junit.rules.StopwatchTest$TestStatus*(root org.junit.rules.StopwatchTest$TestStatus) [line 196];
+*&amp;$irvar7:org.junit.rules.StopwatchTest$TestStatus*=n$23 [line 196];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$24=*&amp;$irvar7:org.junit.rules.StopwatchTest$TestStatus* [line 196];
+n$25=_fun_Matcher Is.is(Object)(n$24:org.junit.rules.StopwatchTest$TestStatus*) [line 196];
+*&amp;$irvar8:org.hamcrest.Matcher*=n$25 [line 196];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$26=*&amp;$irvar6:org.junit.rules.StopwatchTest$TestStatus* [line 196];
+n$27=*&amp;$irvar8:org.hamcrest.Matcher* [line 196];
+n$28=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$26:org.junit.rules.StopwatchTest$TestStatus*,n$27:org.hamcrest.Matcher*) [line 196];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE197">197</td><td class="line">        assertTrue(&quot;timeSpent &gt; 0&quot;, record.duration &gt; 0); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 20 exn:3 Instructions
+*&amp;$T0_79:java.lang.Object*="timeSpent > 0" [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node19.html"><span class='visited with_tooltip'>C_19<span class='tooltip'>node19 preds:18 succs:21 exn:3 Conditional method_body
+n$29=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 197];
+n$30=*n$29.duration:long(root org.junit.rules.StopwatchTest$Record) [line 197];
+PRUNE(!(n$30  &lt;=  0), true); [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:19 succs:22 exn:3 Instructions
+*&amp;$T0_80:int=1 [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:25 exn:3 Instructions
+*&amp;$T1_80:java.lang.Object*="timeSpent > 0" [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node20.html"><span class='visited with_tooltip'>C_20<span class='tooltip'>node20 preds:18 succs:23 exn:3 Conditional method_body
+n$29=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 197];
+n$30=*n$29.duration:long(root org.junit.rules.StopwatchTest$Record) [line 197];
+PRUNE((n$30  &lt;=  0), false); [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:20 succs:24 exn:3 Instructions
+*&amp;$T0_80:int=0 [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$31=*&amp;$T0_79:java.lang.Object* [line 197];
+*&amp;$T1_80:java.lang.Object*=n$31 [line 197];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 22 succs:26 exn:3 Instructions
+n$32=*&amp;$T1_80:java.lang.Object* [line 197];
+n$33=*&amp;$T0_80:int [line 197];
+n$34=_fun_void Assert.assertTrue(String,boolean)(n$32:java.lang.Object*,n$33:int) [line 197];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE198">198</td><td class="line">        assertThat(record.duration, is(finishedRecord.duration)); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$35=*&amp;#GB<>$org.junit.rules.StopwatchTest.record:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 198];
+n$36=*n$35.duration:long(root org.junit.rules.StopwatchTest$Record) [line 198];
+*&amp;$irvar9:long=n$36 [line 198];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$37=*&amp;$irvar9:long [line 198];
+n$38=_fun_Long Long.valueOf(long)(n$37:long) [line 198];
+*&amp;$irvar10:java.lang.Long*=n$38 [line 198];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:29 exn:3 Instructions
+n$39=*&amp;#GB<>$org.junit.rules.StopwatchTest.finishedRecord:org.junit.rules.StopwatchTest$Record*(root org.junit.rules.StopwatchTest) [line 198];
+n$40=*n$39.duration:long(root org.junit.rules.StopwatchTest$Record) [line 198];
+*&amp;$irvar11:long=n$40 [line 198];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node29.html"><span class='visited with_tooltip'>I_29<span class='tooltip'>node29 preds:28 succs:30 exn:3 Instructions
+n$41=*&amp;$irvar11:long [line 198];
+n$42=_fun_Long Long.valueOf(long)(n$41:long) [line 198];
+*&amp;$irvar12:java.lang.Long*=n$42 [line 198];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node30.html"><span class='visited with_tooltip'>I_30<span class='tooltip'>node30 preds:29 succs:31 exn:3 Instructions
+n$43=*&amp;$irvar12:java.lang.Long* [line 198];
+n$44=_fun_Matcher Is.is(Object)(n$43:java.lang.Long*) [line 198];
+*&amp;$irvar13:org.hamcrest.Matcher*=n$44 [line 198];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node31.html"><span class='visited with_tooltip'>I_31<span class='tooltip'>node31 preds:30 succs:32 exn:3 Instructions
+n$45=*&amp;$irvar10:java.lang.Long* [line 198];
+n$46=*&amp;$irvar13:org.hamcrest.Matcher* [line 198];
+n$47=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$45:java.lang.Long*,n$46:org.hamcrest.Matcher*) [line 198];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE199">199</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node32.html"><span class='visited with_tooltip'>I_32<span class='tooltip'>node32 preds:31 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:32 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.skipped%28%29%3Avoid.b35abc85c760c3747533cc990dd5e9c9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE200">200</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE201">201</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE202">202</td><td class="line">    public void runtimeDuringTestShouldReturnTimeSinceStart() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8.html">summary for void StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart()</a></td></tr>
+<tr><td class="num" id="LINE203">203</td><td class="line">        Result result = runTest(DurationDuringTestTest.class); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Result StopwatchTest.runTest(Class)(org.junit.rules.StopwatchTest$DurationDuringTestTest:java.lang.Object*) [line 203];
+*&amp;result:org.junit.runner.Result*=n$0 [line 203];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE204">204</td><td class="line">        assertTrue(result.wasSuccessful()); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;result:org.junit.runner.Result* [line 204];
+_=*n$1:org.junit.runner.Result*(root org.junit.runner.Result) [line 204];
+n$3=_fun_boolean Result.wasSuccessful()(n$1:org.junit.runner.Result*) virtual [line 204];
+*&amp;$irvar0:_Bool=n$3 [line 204];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:_Bool [line 204];
+n$5=_fun_void Assert.assertTrue(boolean)(n$4:_Bool) [line 204];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE205">205</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeDuringTestShouldReturnTimeSinceStart%28%29%3Avoid.582445017ed089cf51b853f586eb39d8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE206">206</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE207">207</td><td class="line">  @Test </td></tr>
+<tr><td class="num" id="LINE208">208</td><td class="line">    public void runtimeAfterTestShouldReturnRunDuration() { <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8.html">summary for void StopwatchTest.runtimeAfterTestShouldReturnRunDuration()</a></td></tr>
+<tr><td class="num" id="LINE209">209</td><td class="line">        Result result = runTest(DurationAfterTestTest.class); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Result StopwatchTest.runTest(Class)(org.junit.rules.StopwatchTest$DurationAfterTestTest:java.lang.Object*) [line 209];
+*&amp;result:org.junit.runner.Result*=n$0 [line 209];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE210">210</td><td class="line">        assertTrue(result.wasSuccessful()); <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;result:org.junit.runner.Result* [line 210];
+_=*n$1:org.junit.runner.Result*(root org.junit.runner.Result) [line 210];
+n$3=_fun_boolean Result.wasSuccessful()(n$1:org.junit.runner.Result*) virtual [line 210];
+*&amp;$irvar0:_Bool=n$3 [line 210];
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:_Bool [line 210];
+n$5=_fun_void Assert.assertTrue(boolean)(n$4:_Bool) [line 210];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE211">211</td><td class="line">    } <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/org.junit.rules.StopwatchTest.runtimeAfterTestShouldReturnRunDuration%28%29%3Avoid.b306bad73c5add0a798070c05ba78ef8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE212">212</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+<br>Precondition Not Met in call to `outerRule(...)` at line 99 <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/node12.html#session64">node12#session64</a>(<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/../StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba.html#LINE99">99</a>)
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/node6.html#session46">node6#session46</a>(<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/../StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba.html#LINE130">130</a>)<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/node6.html#session30">node6#session30</a>(<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/../StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba.html#LINE140">140</a>)<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/node5.html#session41">node5#session41</a>(<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/../StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba.html#LINE145">145</a>)<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/nodes/node5.html#session25">node5#session25</a>(<a href="./StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba/../StopwatchTest.java.3e0137793d957c4e468a72394ccff7ba.html#LINE165">165</a>)</body>
+</html>

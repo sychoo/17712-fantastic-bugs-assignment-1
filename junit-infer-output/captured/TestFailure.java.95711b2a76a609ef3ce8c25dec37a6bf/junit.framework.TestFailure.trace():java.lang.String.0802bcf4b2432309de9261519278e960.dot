@@ -1,0 +1,29 @@
+/* @generated */
+digraph cfg {
+"junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_1" [label="1: Start String TestFailure.trace()\nFormals:  this:junit.framework.TestFailure*\nLocals:  $irvar1:void $irvar0:void \n  " color=yellow style=filled]
+	
+
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_1" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_4" ;
+"junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_2" [label="2: Exit String TestFailure.trace() \n  " color=yellow style=filled]
+	
+
+"junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar0); [line 51]\n  NULLIFY(&$irvar1); [line 51]\n  EXIT_SCOPE($irvar0,$irvar1); [line 51]\n  APPLY_ABSTRACTION; [line 51]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_3" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_2" ;
+"junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_4" [label="4:  Call Throwable TestFailure.thrownException() \n   n$0=*&this:junit.framework.TestFailure* [line 51]\n  _=*n$0:junit.framework.TestFailure*(root junit.framework.TestFailure) [line 51]\n  n$2=_fun_Throwable TestFailure.thrownException()(n$0:junit.framework.TestFailure*) virtual [line 51]\n  *&$irvar0:java.lang.Throwable*=n$2 [line 51]\n  NULLIFY(&this); [line 51]\n  EXIT_SCOPE(_,n$0,n$2,this); [line 51]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_4" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_5" ;
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_4" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_3" [color="red" ];
+"junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_5" [label="5:  Call String Throwables.getStacktrace(Throwable) \n   n$3=*&$irvar0:java.lang.Throwable* [line 51]\n  n$4=_fun_String Throwables.getStacktrace(Throwable)(n$3:java.lang.Throwable*) [line 51]\n  *&$irvar1:java.lang.String*=n$4 [line 51]\n  NULLIFY(&$irvar0); [line 51]\n  EXIT_SCOPE(n$3,n$4,$irvar0); [line 51]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_5" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_6" ;
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_5" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_3" [color="red" ];
+"junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_6" [label="6:  method_body \n   n$5=*&$irvar1:java.lang.String* [line 51]\n  *&return:java.lang.String*=n$5 [line 51]\n  NULLIFY(&$irvar1); [line 51]\n  EXIT_SCOPE(n$5,$irvar1); [line 51]\n  APPLY_ABSTRACTION; [line 51]\n " shape="box"]
+	
+
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_6" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_2" ;
+	 "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_6" -> "junit.framework.TestFailure.trace():java.lang.String.0802bcf4b2432309de9261519278e960_3" [color="red" ];
+}

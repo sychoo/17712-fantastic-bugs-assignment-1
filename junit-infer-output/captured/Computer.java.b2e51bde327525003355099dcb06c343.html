@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Computer.java.b2e51bde327525003355099dcb06c343</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/runner/Computer.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import org.junit.runners.Suite; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import org.junit.runners.model.InitializationError; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import org.junit.runners.model.RunnerBuilder; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line"> * Represents a strategy for computing runners and suites. </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line"> * WARNING: this class is very likely to undergo serious changes in version 4.8 and </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line"> * beyond. </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line"> * </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line"> * @since 4.6 </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">public class Computer { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.<init>%28%29.c0ae762e45ad213a3bbbc0621dada77a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.<init>%28%29.c0ae762e45ad213a3bbbc0621dada77a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.Computer* [line 14];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.Computer*) [line 14];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.<init>%28%29.c0ae762e45ad213a3bbbc0621dada77a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.<init>%28%29.c0ae762e45ad213a3bbbc0621dada77a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.<init>%28%29.c0ae762e45ad213a3bbbc0621dada77a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer.<init>%28%29.c0ae762e45ad213a3bbbc0621dada77a.html">summary for Computer.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line">     * Returns a new default computer, which runs tests in serial order </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    public static Computer serial() { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.serial%28%29%3Aorg.junit.runner.Computer.7bb8a0d52d07a29f2dd52fb9cb7e1634_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer.serial%28%29%3Aorg.junit.runner.Computer.7bb8a0d52d07a29f2dd52fb9cb7e1634.html">summary for Computer Computer.serial()</a></td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">        return new Computer(); <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.serial%28%29%3Aorg.junit.runner.Computer.7bb8a0d52d07a29f2dd52fb9cb7e1634_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.Computer):org.junit.runner.Computer*) [line 19];
+n$1=_fun_Computer.&lt;init&gt;()(n$0:org.junit.runner.Computer*) [line 19];
+*&amp;$irvar0:org.junit.runner.Computer*=n$0 [line 19];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.serial%28%29%3Aorg.junit.runner.Computer.7bb8a0d52d07a29f2dd52fb9cb7e1634_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$2=*&amp;$irvar0:org.junit.runner.Computer* [line 19];
+*&amp;return:org.junit.runner.Computer*=n$2 [line 19];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.serial%28%29%3Aorg.junit.runner.Computer.7bb8a0d52d07a29f2dd52fb9cb7e1634_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.serial%28%29%3Aorg.junit.runner.Computer.7bb8a0d52d07a29f2dd52fb9cb7e1634_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">     * Create a suite for {@code classes}, building Runners with {@code builder}. </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">     * Throws an InitializationError if Runner construction fails </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    public Runner getSuite(final RunnerBuilder builder, <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a.html">summary for Runner Computer.getSuite(RunnerBuilder,Class[])</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">            Class&lt;?&gt;[] classes) throws InitializationError { </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">        return new Suite(new RunnerBuilder() { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=org.junit.runner.Computer$1):org.junit.runner.Computer$1*) [line 28];
+n$1=*&amp;this:org.junit.runner.Computer* [line 28];
+n$2=*&amp;builder:org.junit.runners.model.RunnerBuilder* [line 28];
+n$3=_fun_Computer$1.&lt;init&gt;(Computer,RunnerBuilder)(n$0:org.junit.runner.Computer$1*,n$1:org.junit.runner.Computer*,n$2:org.junit.runners.model.RunnerBuilder*) [line 28];
+*&amp;$irvar0:org.junit.runner.Computer$1*=n$0 [line 28];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.Computer$1* [line 28];
+n$1=*&amp;this$0:org.junit.runner.Computer* [line 28];
+*n$0.this$0:org.junit.runner.Computer$1(root org.junit.runner.Computer$1)=n$1 [line 28];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun___new(sizeof(t=org.junit.runner.Computer$2):org.junit.runner.Computer$2*) [line 28];
+n$5=*&amp;this:org.junit.runner.Computer* [line 28];
+n$6=*&amp;$irvar0:org.junit.runner.Computer$1* [line 28];
+n$7=*&amp;classes:java.lang.Class*[_*_](*) [line 28];
+n$8=_fun_Computer$2.&lt;init&gt;(Computer,RunnerBuilder,Class[])(n$4:org.junit.runner.Computer$2*,n$5:org.junit.runner.Computer*,n$6:org.junit.runner.Computer$1*,n$7:java.lang.Class*[_*_](*)) [line 28];
+*&amp;$irvar1:org.junit.runner.Computer$2*=n$4 [line 28];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.Computer$1* [line 28];
+n$3=*&amp;$bcvar2:org.junit.runners.model.RunnerBuilder* [line 28];
+*n$2.val$builder:org.junit.runner.Computer$1(root org.junit.runner.Computer$1)=n$3 [line 28];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$9=*&amp;$irvar1:org.junit.runner.Computer$2* [line 28];
+*&amp;return:org.junit.runner.Runner*=n$9 [line 28];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.runner.Computer$1* [line 28];
+n$5=_fun_RunnerBuilder.&lt;init&gt;()(n$4:org.junit.runner.Computer$1*) [line 28];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getSuite%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%5B%5D%29%3Aorg.juni.754b81b101e008d950a26f2e3abb532a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer%241.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%29.a133a0713a09a31dc28570649fcff22c.html">summary for Computer$1.&lt;init&gt;(Computer,RunnerBuilder)</a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">            public Runner runnerForClass(Class&lt;?&gt; testClass) throws Throwable { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.runnerForClass%28java.lang.Class%29%3Aorg.junit.runner.Runner.27e9c67335a17b0867588cb494c4369e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer%241.runnerForClass%28java.lang.Class%29%3Aorg.junit.runner.Runner.27e9c67335a17b0867588cb494c4369e.html">summary for Runner Computer$1.runnerForClass(Class)</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">                return getRunner(builder, testClass); <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.runnerForClass%28java.lang.Class%29%3Aorg.junit.runner.Runner.27e9c67335a17b0867588cb494c4369e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.Computer$1* [line 31];
+n$1=*n$0.this$0:org.junit.runner.Computer*(root org.junit.runner.Computer$1) [line 31];
+_=*n$1:org.junit.runner.Computer*(root org.junit.runner.Computer) [line 31];
+n$3=*&amp;this:org.junit.runner.Computer$1* [line 31];
+n$4=*n$3.val$builder:org.junit.runners.model.RunnerBuilder*(root org.junit.runner.Computer$1) [line 31];
+n$5=*&amp;testClass:java.lang.Class* [line 31];
+n$6=_fun_Runner Computer.getRunner(RunnerBuilder,Class)(n$1:org.junit.runner.Computer*,n$4:org.junit.runners.model.RunnerBuilder*,n$5:java.lang.Class*) virtual [line 31];
+*&amp;$irvar0:org.junit.runner.Runner*=n$6 [line 31];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.runnerForClass%28java.lang.Class%29%3Aorg.junit.runner.Runner.27e9c67335a17b0867588cb494c4369e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$7=*&amp;$irvar0:org.junit.runner.Runner* [line 31];
+*&amp;return:org.junit.runner.Runner*=n$7 [line 31];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.runnerForClass%28java.lang.Class%29%3Aorg.junit.runner.Runner.27e9c67335a17b0867588cb494c4369e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%241.runnerForClass%28java.lang.Class%29%3Aorg.junit.runner.Runner.27e9c67335a17b0867588cb494c4369e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        }, classes) { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.Computer$2* [line 33];
+n$1=*&amp;this$0:org.junit.runner.Computer* [line 33];
+*n$0.this$0:org.junit.runner.Computer$2(root org.junit.runner.Computer$2)=n$1 [line 33];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.Computer$2* [line 33];
+n$3=*&amp;builder:org.junit.runners.model.RunnerBuilder* [line 33];
+n$4=*&amp;classes:java.lang.Class*[_*_](*) [line 33];
+n$5=_fun_Suite.&lt;init&gt;(RunnerBuilder,Class[])(n$2:org.junit.runner.Computer$2*,n$3:org.junit.runners.model.RunnerBuilder*,n$4:java.lang.Class*[_*_](*)) [line 33];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer%242.<init>%28org.junit.runner.Computer%2Corg.junit.runners.model.RunnerBuilder%2Cj.e4f955bbe3f7798225f047c8b7a4acf3.html">summary for Computer$2.&lt;init&gt;(Computer,RunnerBuilder,Class[])</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">            @Override </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">            protected String getName() { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.getName%28%29%3Ajava.lang.String.95f3d3a2b569f4418dda2b4e662268a0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer%242.getName%28%29%3Ajava.lang.String.95f3d3a2b569f4418dda2b4e662268a0.html">summary for String Computer$2.getName()</a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">                /* </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">                 * #1320 The generated suite is not based on a real class so </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">                 * only a 'null' description can be generated from it. This name </td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">                 * will be overridden here. </td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">                 */ </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">                return &quot;classes&quot;; <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.getName%28%29%3Ajava.lang.String.95f3d3a2b569f4418dda2b4e662268a0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.String*="classes" [line 41];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.getName%28%29%3Ajava.lang.String.95f3d3a2b569f4418dda2b4e662268a0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer%242.getName%28%29%3Ajava.lang.String.95f3d3a2b569f4418dda2b4e662268a0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        }; </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    /** </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">     * Create a single-class runner for {@code testClass}, using {@code builder} </td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">     */ </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    protected Runner getRunner(RunnerBuilder builder, Class&lt;?&gt; testClass) throws Throwable { <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getRunner%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%29%3Aorg.junit.c476f8f1418d6429cfcde0d5317f7f9f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/org.junit.runner.Computer.getRunner%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%29%3Aorg.junit.c476f8f1418d6429cfcde0d5317f7f9f.html">summary for Runner Computer.getRunner(RunnerBuilder,Class)</a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        return builder.runnerForClass(testClass); <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getRunner%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%29%3Aorg.junit.c476f8f1418d6429cfcde0d5317f7f9f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;builder:org.junit.runners.model.RunnerBuilder* [line 50];
+_=*n$0:org.junit.runners.model.RunnerBuilder*(root org.junit.runners.model.RunnerBuilder) [line 50];
+n$2=*&amp;testClass:java.lang.Class* [line 50];
+n$3=_fun_Runner RunnerBuilder.runnerForClass(Class)(n$0:org.junit.runners.model.RunnerBuilder*,n$2:java.lang.Class*) virtual [line 50];
+*&amp;$irvar0:org.junit.runner.Runner*=n$3 [line 50];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getRunner%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%29%3Aorg.junit.c476f8f1418d6429cfcde0d5317f7f9f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:org.junit.runner.Runner* [line 50];
+*&amp;return:org.junit.runner.Runner*=n$4 [line 50];
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getRunner%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%29%3Aorg.junit.c476f8f1418d6429cfcde0d5317f7f9f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./Computer.java.b2e51bde327525003355099dcb06c343/nodes/org.junit.runner.Computer.getRunner%28org.junit.runners.model.RunnerBuilder%2Cjava.lang.Class%29%3Aorg.junit.c476f8f1418d6429cfcde0d5317f7f9f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

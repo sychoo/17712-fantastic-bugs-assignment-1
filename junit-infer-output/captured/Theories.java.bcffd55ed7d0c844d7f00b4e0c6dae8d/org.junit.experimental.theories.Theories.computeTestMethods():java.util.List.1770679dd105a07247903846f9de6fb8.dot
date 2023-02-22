@@ -1,0 +1,49 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_1" [label="1: Start List Theories.computeTestMethods()\nFormals:  this:org.junit.experimental.theories.Theories*\nLocals:  $irvar3:void $irvar2:void $irvar1:void $irvar0:void theoryMethods:java.util.List* testMethods:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_1" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_4" ;
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_2" [label="2: Exit List Theories.computeTestMethods() \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [label="3:  exceptions sink \n   NULLIFY(&testMethods); [line 165]\n  NULLIFY(&theoryMethods); [line 165]\n  NULLIFY(&$irvar0); [line 165]\n  NULLIFY(&$irvar1); [line 165]\n  EXIT_SCOPE(testMethods,theoryMethods,$irvar0,$irvar1); [line 165]\n  APPLY_ABSTRACTION; [line 165]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_2" ;
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_4" [label="4:  Call List BlockJUnit4ClassRunner.computeTestMethods() \n   n$0=*&this:org.junit.experimental.theories.Theories* [line 161]\n  n$1=_fun_List BlockJUnit4ClassRunner.computeTestMethods()(n$0:org.junit.experimental.theories.Theories*) [line 161]\n  *&$irvar0:java.util.List*=n$1 [line 161]\n  EXIT_SCOPE(n$0,n$1); [line 161]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_4" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_5" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_4" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_5" [label="5:  Call ArrayList.<init>(Collection) \n   n$2=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 161]\n  n$3=*&$irvar0:java.util.List* [line 161]\n  n$4=_fun_ArrayList.<init>(Collection)(n$2:java.util.ArrayList*,n$3:java.util.List*) [line 161]\n  *&testMethods:java.util.ArrayList*=n$2 [line 161]\n  NULLIFY(&$irvar0); [line 161]\n  EXIT_SCOPE(n$2,n$3,n$4,$irvar0); [line 161]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_5" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_6" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_5" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_6" [label="6:  Call TestClass ParentRunner.getTestClass() \n   n$5=*&this:org.junit.experimental.theories.Theories* [line 162]\n  _=*n$5:org.junit.experimental.theories.Theories*(root org.junit.experimental.theories.Theories) [line 162]\n  n$7=_fun_TestClass ParentRunner.getTestClass()(n$5:org.junit.experimental.theories.Theories*) virtual [line 162]\n  *&$irvar1:org.junit.runners.model.TestClass*=n$7 [line 162]\n  NULLIFY(&this); [line 162]\n  EXIT_SCOPE(_,n$5,n$7,this); [line 162]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_6" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_7" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_6" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_7" [label="7:  Call List TestClass.getAnnotatedMethods(Class) \n   n$8=*&$irvar1:org.junit.runners.model.TestClass* [line 162]\n  _=*n$8:org.junit.runners.model.TestClass*(root org.junit.runners.model.TestClass) [line 162]\n  n$10=_fun_List TestClass.getAnnotatedMethods(Class)(n$8:org.junit.runners.model.TestClass*,org.junit.experimental.theories.Theory:java.lang.Object*) virtual [line 162]\n  *&theoryMethods:java.util.List*=n$10 [line 162]\n  NULLIFY(&$irvar1); [line 162]\n  EXIT_SCOPE(_,n$8,n$10,$irvar1); [line 162]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_7" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_8" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_7" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_8" [label="8:  Call boolean List.removeAll(Collection) \n   n$11=*&testMethods:java.util.ArrayList* [line 163]\n  _=*n$11:java.util.ArrayList*(root java.util.ArrayList) [line 163]\n  n$13=*&theoryMethods:java.util.List* [line 163]\n  n$14=_fun_boolean List.removeAll(Collection)(n$11:java.util.ArrayList*,n$13:java.util.List*) interface virtual [line 163]\n  *&$irvar2:_Bool=n$14 [line 163]\n  NULLIFY(&$irvar2); [line 163]\n  EXIT_SCOPE(_,n$11,n$13,n$14,$irvar2); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_8" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_9" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_8" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_9" [label="9:  Call boolean List.addAll(Collection) \n   n$15=*&testMethods:java.util.ArrayList* [line 164]\n  _=*n$15:java.util.ArrayList*(root java.util.ArrayList) [line 164]\n  n$17=*&theoryMethods:java.util.List* [line 164]\n  n$18=_fun_boolean List.addAll(Collection)(n$15:java.util.ArrayList*,n$17:java.util.List*) interface virtual [line 164]\n  *&$irvar3:_Bool=n$18 [line 164]\n  NULLIFY(&$irvar3); [line 164]\n  NULLIFY(&theoryMethods); [line 164]\n  EXIT_SCOPE(_,n$15,n$17,n$18,$irvar3,theoryMethods); [line 164]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_9" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_10" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_9" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+"org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_10" [label="10:  method_body \n   n$19=*&testMethods:java.util.ArrayList* [line 165]\n  *&return:java.util.List*=n$19 [line 165]\n  NULLIFY(&testMethods); [line 165]\n  EXIT_SCOPE(n$19,testMethods); [line 165]\n  APPLY_ABSTRACTION; [line 165]\n " shape="box"]
+	
+
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_10" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_2" ;
+	 "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_10" -> "org.junit.experimental.theories.Theories.computeTestMethods():java.util.List.1770679dd105a07247903846f9de6fb8_3" [color="red" ];
+}

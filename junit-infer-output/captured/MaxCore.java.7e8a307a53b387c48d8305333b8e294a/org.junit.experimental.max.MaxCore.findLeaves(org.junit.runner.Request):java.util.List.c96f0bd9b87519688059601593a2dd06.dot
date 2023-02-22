@@ -1,0 +1,39 @@
+/* @generated */
+digraph cfg {
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_1" [label="1: Start List MaxCore.findLeaves(Request)\nFormals:  this:org.junit.experimental.max.MaxCore* request:org.junit.runner.Request*\nLocals:  $irvar1:void $irvar0:void results:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_1" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_4" ;
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_2" [label="2: Exit List MaxCore.findLeaves(Request) \n  " color=yellow style=filled]
+	
+
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" [label="3:  exceptions sink \n   NULLIFY(&results); [line 165]\n  NULLIFY(&$irvar0); [line 165]\n  NULLIFY(&$irvar1); [line 165]\n  EXIT_SCOPE(results,$irvar0,$irvar1); [line 165]\n  APPLY_ABSTRACTION; [line 165]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_2" ;
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_4" [label="4:  Call ArrayList.<init>() \n   n$0=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 163]\n  n$1=_fun_ArrayList.<init>()(n$0:java.util.ArrayList*) [line 163]\n  *&results:java.util.ArrayList*=n$0 [line 163]\n  EXIT_SCOPE(n$0,n$1); [line 163]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_4" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_5" ;
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_4" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" [color="red" ];
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_5" [label="5:  Call Runner Request.getRunner() \n   n$2=*&request:org.junit.runner.Request* [line 164]\n  _=*n$2:org.junit.runner.Request*(root org.junit.runner.Request) [line 164]\n  n$4=_fun_Runner Request.getRunner()(n$2:org.junit.runner.Request*) virtual [line 164]\n  *&$irvar0:org.junit.runner.Runner*=n$4 [line 164]\n  NULLIFY(&request); [line 164]\n  EXIT_SCOPE(_,n$2,n$4,request); [line 164]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_5" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_6" ;
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_5" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" [color="red" ];
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_6" [label="6:  Call Description Runner.getDescription() \n   n$5=*&$irvar0:org.junit.runner.Runner* [line 164]\n  _=*n$5:org.junit.runner.Runner*(root org.junit.runner.Runner) [line 164]\n  n$7=_fun_Description Runner.getDescription()(n$5:org.junit.runner.Runner*) virtual [line 164]\n  *&$irvar1:org.junit.runner.Description*=n$7 [line 164]\n  NULLIFY(&$irvar0); [line 164]\n  EXIT_SCOPE(_,n$5,n$7,$irvar0); [line 164]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_6" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_7" ;
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_6" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" [color="red" ];
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_7" [label="7:  Call void MaxCore.findLeaves(Description,Description,List) \n   n$8=*&this:org.junit.experimental.max.MaxCore* [line 164]\n  n$9=*&$irvar1:org.junit.runner.Description* [line 164]\n  n$10=*&results:java.util.ArrayList* [line 164]\n  n$11=_fun_void MaxCore.findLeaves(Description,Description,List)(n$8:org.junit.experimental.max.MaxCore*,null:java.lang.Object*,n$9:org.junit.runner.Description*,n$10:java.util.ArrayList*) [line 164]\n  NULLIFY(&$irvar1); [line 164]\n  NULLIFY(&this); [line 164]\n  EXIT_SCOPE(n$8,n$9,n$10,n$11,$irvar1,this); [line 164]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_7" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_8" ;
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_7" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" [color="red" ];
+"org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_8" [label="8:  method_body \n   n$12=*&results:java.util.ArrayList* [line 165]\n  *&return:java.util.List*=n$12 [line 165]\n  NULLIFY(&results); [line 165]\n  EXIT_SCOPE(n$12,results); [line 165]\n  APPLY_ABSTRACTION; [line 165]\n " shape="box"]
+	
+
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_8" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_2" ;
+	 "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_8" -> "org.junit.experimental.max.MaxCore.findLeaves(org.junit.runner.Request):java.util.List.c96f0bd9b87519688059601593a2dd06_3" [color="red" ];
+}

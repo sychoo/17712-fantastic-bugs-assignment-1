@@ -1,0 +1,44 @@
+/* @generated */
+digraph cfg {
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_1" [label="1: Start String TextListenerTest.convert(String)\nFormals:  this:org.junit.tests.listening.TextListenerTest* string:java.lang.String*\nLocals:  $irvar1:void $irvar0:void writer:java.io.PrintStream* resultsStream:java.io.OutputStream* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_1" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_4" ;
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_2" [label="2: Exit String TextListenerTest.convert(String) \n  " color=yellow style=filled]
+	
+
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [label="3:  exceptions sink \n   NULLIFY(&writer); [line 71]\n  NULLIFY(&$irvar0); [line 71]\n  NULLIFY(&resultsStream); [line 71]\n  NULLIFY(&$irvar1); [line 71]\n  EXIT_SCOPE(writer,$irvar0,resultsStream,$irvar1); [line 71]\n  APPLY_ABSTRACTION; [line 71]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_2" ;
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_4" [label="4:  Call ByteArrayOutputStream.<init>() \n   n$0=_fun___new(sizeof(t=java.io.ByteArrayOutputStream):java.io.ByteArrayOutputStream*) [line 68]\n  n$1=_fun_ByteArrayOutputStream.<init>()(n$0:java.io.ByteArrayOutputStream*) [line 68]\n  *&resultsStream:java.io.ByteArrayOutputStream*=n$0 [line 68]\n  EXIT_SCOPE(n$0,n$1); [line 68]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_4" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_5" ;
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_4" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [color="red" ];
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_5" [label="5:  Call PrintStream.<init>(OutputStream) \n   n$2=_fun___new(sizeof(t=java.io.PrintStream):java.io.PrintStream*) [line 69]\n  n$3=*&resultsStream:java.io.ByteArrayOutputStream* [line 69]\n  n$4=_fun_PrintStream.<init>(OutputStream)(n$2:java.io.PrintStream*,n$3:java.io.ByteArrayOutputStream*) [line 69]\n  *&writer:java.io.PrintStream*=n$2 [line 69]\n  EXIT_SCOPE(n$2,n$3,n$4); [line 69]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_5" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_6" ;
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_5" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [color="red" ];
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_6" [label="6:  Call void PrintStream.println() \n   n$5=*&writer:java.io.PrintStream* [line 70]\n  _=*n$5:java.io.PrintStream*(root java.io.PrintStream) [line 70]\n  n$7=_fun_void PrintStream.println()(n$5:java.io.PrintStream*) virtual [line 70]\n  NULLIFY(&writer); [line 70]\n  EXIT_SCOPE(_,n$5,n$7,writer); [line 70]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_6" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_7" ;
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_6" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [color="red" ];
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_7" [label="7:  Call String Object.toString() \n   n$8=*&resultsStream:java.io.ByteArrayOutputStream* [line 71]\n  _=*n$8:java.io.ByteArrayOutputStream*(root java.io.ByteArrayOutputStream) [line 71]\n  n$10=_fun_String Object.toString()(n$8:java.io.ByteArrayOutputStream*) virtual [line 71]\n  *&$irvar0:java.lang.String*=n$10 [line 71]\n  NULLIFY(&resultsStream); [line 71]\n  EXIT_SCOPE(_,n$8,n$10,resultsStream); [line 71]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_7" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_8" ;
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_7" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [color="red" ];
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_8" [label="8:  Call String String.replace(CharSequence,CharSequence) \n   n$11=*&string:java.lang.String* [line 71]\n  _=*n$11:java.lang.String*(root java.lang.String) [line 71]\n  n$13=*&$irvar0:java.lang.String* [line 71]\n  n$14=_fun_String String.replace(CharSequence,CharSequence)(n$11:java.lang.String*,\"\\\\n\":java.lang.Object*,n$13:java.lang.String*) virtual [line 71]\n  *&$irvar1:java.lang.String*=n$14 [line 71]\n  NULLIFY(&$irvar0); [line 71]\n  NULLIFY(&string); [line 71]\n  EXIT_SCOPE(_,n$11,n$13,n$14,$irvar0,string); [line 71]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_8" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_9" ;
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_8" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [color="red" ];
+"org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_9" [label="9:  method_body \n   n$15=*&$irvar1:java.lang.String* [line 71]\n  *&return:java.lang.String*=n$15 [line 71]\n  NULLIFY(&$irvar1); [line 71]\n  EXIT_SCOPE(n$15,$irvar1); [line 71]\n  APPLY_ABSTRACTION; [line 71]\n " shape="box"]
+	
+
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_9" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_2" ;
+	 "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_9" -> "org.junit.tests.listening.TextListenerTest.convert(java.lang.String):java.lang.String.5f93503900f198d37fbcdb4088ae4547_3" [color="red" ];
+}

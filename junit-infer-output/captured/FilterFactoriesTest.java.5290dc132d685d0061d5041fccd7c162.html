@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/runner/FilterFactoriesTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.runner; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.hamcrest.CoreMatchers.instanceOf; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.hamcrest.CoreMatchers.is; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.hamcrest.CoreMatchers.startsWith; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import static org.junit.Assume.assumeThat; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.experimental.categories.ExcludeCategories; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.rules.ExpectedException; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.rules.TestName; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import org.junit.runner.manipulation.Filter; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import org.junit.runners.Suite; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import org.junit.runners.Suite.SuiteClasses; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">public class FilterFactoriesTest { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 17];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest*) [line 17];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52.html">summary for FilterFactoriesTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">    @Rule </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">    public ExpectedException expectedException = ExpectedException.none(); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun_ExpectedException ExpectedException.none()() [line 19];
+*&amp;$irvar0:org.junit.rules.ExpectedException*=n$2 [line 19];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 19];
+n$4=*&amp;$irvar0:org.junit.rules.ExpectedException* [line 19];
+*n$3.expectedException:org.junit.runner.FilterFactoriesTest(root org.junit.runner.FilterFactoriesTest)=n$4 [line 19];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    @Rule <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=_fun___new(sizeof(t=org.junit.rules.TestName):org.junit.rules.TestName*) [line 21];
+n$6=_fun_TestName.&lt;init&gt;()(n$5:org.junit.rules.TestName*) [line 21];
+*&amp;$irvar1:org.junit.rules.TestName*=n$5 [line 21];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 21];
+n$8=*&amp;$irvar1:org.junit.rules.TestName* [line 21];
+*n$7.testName:org.junit.runner.FilterFactoriesTest(root org.junit.runner.FilterFactoriesTest)=n$8 [line 21];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.<init>%28%29.06a18414f97bbb165f046670eee36a52_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    public TestName testName = new TestName(); </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    private Request createSuiteRequest() { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.createSuiteRequest%28%29%3Aorg.junit.runner.Request.e90b7039ddf0e92e5a6206279a8c67d0_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.createSuiteRequest%28%29%3Aorg.junit.runner.Request.e90b7039ddf0e92e5a6206279a8c67d0.html">summary for Request FilterFactoriesTest.createSuiteRequest()</a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        return Request.aClass(DummySuite.class); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.createSuiteRequest%28%29%3Aorg.junit.runner.Request.e90b7039ddf0e92e5a6206279a8c67d0_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun_Request Request.aClass(Class)(org.junit.runner.FilterFactoriesTest$DummySuite:java.lang.Object*) [line 25];
+*&amp;$irvar0:org.junit.runner.Request*=n$0 [line 25];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.createSuiteRequest%28%29%3Aorg.junit.runner.Request.e90b7039ddf0e92e5a6206279a8c67d0_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$1=*&amp;$irvar0:org.junit.runner.Request* [line 25];
+*&amp;return:org.junit.runner.Request*=n$1 [line 25];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.createSuiteRequest%28%29%3Aorg.junit.runner.Request.e90b7039ddf0e92e5a6206279a8c67d0_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.createSuiteRequest%28%29%3Aorg.junit.runner.Request.e90b7039ddf0e92e5a6206279a8c67d0_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    public void shouldCreateFilterWithArguments() throws Exception { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89.html">summary for void FilterFactoriesTest.shouldCreateFilterWithArguments()</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        Filter filter = FilterFactories.createFilterFromFilterSpec( <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$20=*&amp;$irvar0:org.junit.runner.Request* [line 30];
+n$21=*&amp;$irvar7:java.lang.String* [line 30];
+n$22=_fun_Filter FilterFactories.createFilterFromFilterSpec(Request,String)(n$20:org.junit.runner.Request*,n$21:java.lang.String*) [line 30];
+*&amp;filter:org.junit.runner.manipulation.Filter*=n$22 [line 30];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">                createSuiteRequest(), <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 31];
+n$1=_fun_Request FilterFactoriesTest.createSuiteRequest()(n$0:org.junit.runner.FilterFactoriesTest*) [line 31];
+*&amp;$irvar0:org.junit.runner.Request*=n$1 [line 31];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=java.lang.StringBuilder):java.lang.StringBuilder*) [line 31];
+n$3=_fun_StringBuilder.&lt;init&gt;()(n$2:java.lang.StringBuilder*) [line 31];
+*&amp;$irvar1:java.lang.StringBuilder*=n$2 [line 31];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line">                ExcludeCategories.class.getName() + &quot;=&quot; + DummyCategory.class.getName()); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=_fun_String Class.getName()(org.junit.experimental.categories.ExcludeCategories:java.lang.Object*) virtual [line 32];
+*&amp;$irvar2:java.lang.String*=n$4 [line 32];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar1:java.lang.StringBuilder* [line 32];
+_=*n$5:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 32];
+n$7=*&amp;$irvar2:java.lang.String* [line 32];
+n$8=_fun_StringBuilder StringBuilder.append(String)(n$5:java.lang.StringBuilder*,n$7:java.lang.String*) virtual [line 32];
+*&amp;$irvar3:java.lang.StringBuilder*=n$8 [line 32];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;$irvar3:java.lang.StringBuilder* [line 32];
+_=*n$9:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 32];
+n$11=_fun_StringBuilder StringBuilder.append(String)(n$9:java.lang.StringBuilder*,"=":java.lang.Object*) virtual [line 32];
+*&amp;$irvar4:java.lang.StringBuilder*=n$11 [line 32];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$12=_fun_String Class.getName()(org.junit.runner.FilterFactoriesTest$DummyCategory:java.lang.Object*) virtual [line 32];
+*&amp;$irvar5:java.lang.String*=n$12 [line 32];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;$irvar4:java.lang.StringBuilder* [line 32];
+_=*n$13:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 32];
+n$15=*&amp;$irvar5:java.lang.String* [line 32];
+n$16=_fun_StringBuilder StringBuilder.append(String)(n$13:java.lang.StringBuilder*,n$15:java.lang.String*) virtual [line 32];
+*&amp;$irvar6:java.lang.StringBuilder*=n$16 [line 32];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$17=*&amp;$irvar6:java.lang.StringBuilder* [line 32];
+_=*n$17:java.lang.StringBuilder*(root java.lang.StringBuilder) [line 32];
+n$19=_fun_String StringBuilder.toString()(n$17:java.lang.StringBuilder*) virtual [line 32];
+*&amp;$irvar7:java.lang.String*=n$19 [line 32];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        assertThat(filter.describe(), startsWith(&quot;excludes &quot;)); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$23=*&amp;filter:org.junit.runner.manipulation.Filter* [line 34];
+_=*n$23:org.junit.runner.manipulation.Filter*(root org.junit.runner.manipulation.Filter) [line 34];
+n$25=_fun_String Filter.describe()(n$23:org.junit.runner.manipulation.Filter*) virtual [line 34];
+*&amp;$irvar8:java.lang.String*=n$25 [line 34];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$26=_fun_Matcher CoreMatchers.startsWith(String)("excludes ":java.lang.Object*) [line 34];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$26 [line 34];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$27=*&amp;$irvar8:java.lang.String* [line 34];
+n$28=*&amp;$irvar9:org.hamcrest.Matcher* [line 34];
+n$29=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$27:java.lang.String*,n$28:org.hamcrest.Matcher*) [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">    } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithArguments%28%29%3Avoid.9a6b34abf8f81c7a668318111d8c2a89_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">    public void shouldCreateFilterWithNoArguments() throws Exception { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c.html">summary for void FilterFactoriesTest.shouldCreateFilterWithNoArguments()</a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        Filter filter = FilterFactories.createFilterFromFilterSpec( <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;$irvar0:org.junit.runner.Request* [line 39];
+n$4=*&amp;$irvar1:java.lang.String* [line 39];
+n$5=_fun_Filter FilterFactories.createFilterFromFilterSpec(Request,String)(n$3:org.junit.runner.Request*,n$4:java.lang.String*) [line 39];
+*&amp;filter:org.junit.runner.manipulation.Filter*=n$5 [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">                createSuiteRequest(), FilterFactoryStub.class.getName()); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 40];
+n$1=_fun_Request FilterFactoriesTest.createSuiteRequest()(n$0:org.junit.runner.FilterFactoriesTest*) [line 40];
+*&amp;$irvar0:org.junit.runner.Request*=n$1 [line 40];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun_String Class.getName()(org.junit.runner.FilterFactoriesTest$FilterFactoryStub:java.lang.Object*) virtual [line 40];
+*&amp;$irvar1:java.lang.String*=n$2 [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">        assertThat(filter, instanceOf(DummyFilter.class)); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=_fun_Matcher CoreMatchers.instanceOf(Class)(org.junit.runner.FilterFactoriesTest$DummyFilter:java.lang.Object*) [line 42];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$6 [line 42];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;filter:org.junit.runner.manipulation.Filter* [line 42];
+n$8=*&amp;$irvar2:org.hamcrest.Matcher* [line 42];
+n$9=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$7:org.junit.runner.manipulation.Filter*,n$8:org.hamcrest.Matcher*) [line 42];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">    } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilterWithNoArguments%28%29%3Avoid.09c2e2ab7690c5498842a3dd78de025c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">    public void shouldPassOnDescriptionToFilterFactory() throws Exception { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922.html">summary for void FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory()</a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        Request request = createSuiteRequest(); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 47];
+n$1=_fun_Request FilterFactoriesTest.createSuiteRequest()(n$0:org.junit.runner.FilterFactoriesTest*) [line 47];
+*&amp;request:org.junit.runner.Request*=n$1 [line 47];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        Description description = request.getRunner().getDescription(); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;request:org.junit.runner.Request* [line 48];
+_=*n$2:org.junit.runner.Request*(root org.junit.runner.Request) [line 48];
+n$4=_fun_Runner Request.getRunner()(n$2:org.junit.runner.Request*) virtual [line 48];
+*&amp;$irvar0:org.junit.runner.Runner*=n$4 [line 48];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:org.junit.runner.Runner* [line 48];
+_=*n$5:org.junit.runner.Runner*(root org.junit.runner.Runner) [line 48];
+n$7=_fun_Description Runner.getDescription()(n$5:org.junit.runner.Runner*) virtual [line 48];
+*&amp;description:org.junit.runner.Description*=n$7 [line 48];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        Filter filter = FilterFactories.createFilterFromFilterSpec( <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$9=*&amp;request:org.junit.runner.Request* [line 49];
+n$10=*&amp;$irvar1:java.lang.String* [line 49];
+n$11=_fun_Filter FilterFactories.createFilterFromFilterSpec(Request,String)(n$9:org.junit.runner.Request*,n$10:java.lang.String*) [line 49];
+*&amp;filter:org.junit.runner.manipulation.Filter*=n$11 [line 49];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">                request, FilterFactoryStub.class.getName()); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=_fun_String Class.getName()(org.junit.runner.FilterFactoriesTest$FilterFactoryStub:java.lang.Object*) virtual [line 50];
+*&amp;$irvar1:java.lang.String*=n$8 [line 50];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        // This assumption tested in shouldCreateFilterWithNoArguments() </td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        assumeThat(filter, instanceOf(DummyFilter.class)); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$12=_fun_Matcher CoreMatchers.instanceOf(Class)(org.junit.runner.FilterFactoriesTest$DummyFilter:java.lang.Object*) [line 53];
+*&amp;$irvar2:org.hamcrest.Matcher*=n$12 [line 53];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$13=*&amp;filter:org.junit.runner.manipulation.Filter* [line 53];
+n$14=*&amp;$irvar2:org.hamcrest.Matcher* [line 53];
+n$15=_fun_void Assume.assumeThat(Object,Matcher)(n$13:org.junit.runner.manipulation.Filter*,n$14:org.hamcrest.Matcher*) [line 53];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        DummyFilter dummyFilter = (DummyFilter) filter; <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$16=*&amp;filter:org.junit.runner.manipulation.Filter* [line 55];
+n$17=_fun___cast(n$16:org.junit.runner.manipulation.Filter*,sizeof(t=org.junit.runner.FilterFactoriesTest$DummyFilter;sub_t=( sub )(cast)):void) [line 55];
+*&amp;dummyFilter:org.junit.runner.FilterFactoriesTest$DummyFilter*=n$17 [line 55];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        assertThat(dummyFilter.getTopLevelDescription(), is(description)); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$18=*&amp;dummyFilter:org.junit.runner.FilterFactoriesTest$DummyFilter* [line 56];
+_=*n$18:org.junit.runner.FilterFactoriesTest$DummyFilter*(root org.junit.runner.FilterFactoriesTest$DummyFilter) [line 56];
+n$20=_fun_Description FilterFactoriesTest$DummyFilter.getTopLevelDescription()(n$18:org.junit.runner.FilterFactoriesTest$DummyFilter*) virtual [line 56];
+*&amp;$irvar3:org.junit.runner.Description*=n$20 [line 56];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$21=*&amp;description:org.junit.runner.Description* [line 56];
+n$22=_fun_Matcher CoreMatchers.is(Object)(n$21:org.junit.runner.Description*) [line 56];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$22 [line 56];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$23=*&amp;$irvar3:org.junit.runner.Description* [line 56];
+n$24=*&amp;$irvar4:org.hamcrest.Matcher* [line 56];
+n$25=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$23:org.junit.runner.Description*,n$24:org.hamcrest.Matcher*) [line 56];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:15 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldPassOnDescriptionToFilterFactory%28%29%3Avoid.e6a19f1db997596d05b4d54432877922_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">    public void shouldCreateFilter() throws Exception { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2.html">summary for void FilterFactoriesTest.shouldCreateFilter()</a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">        Filter filter = FilterFactories.createFilter( <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$11=*&amp;$irvar3:org.junit.runner.FilterFactoryParams* [line 61];
+n$12=_fun_Filter FilterFactories.createFilter(Class,FilterFactoryParams)(org.junit.runner.FilterFactoriesTest$FilterFactoryStub:java.lang.Object*,n$11:org.junit.runner.FilterFactoryParams*) [line 61];
+*&amp;filter:org.junit.runner.manipulation.Filter*=n$12 [line 61];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">                FilterFactoryStub.class, </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">                new FilterFactoryParams( </td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">                        Description.createSuiteDescription(testName.getMethodName()), <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 64];
+n$1=*n$0.testName:org.junit.rules.TestName*(root org.junit.runner.FilterFactoriesTest) [line 64];
+_=*n$1:org.junit.rules.TestName*(root org.junit.rules.TestName) [line 64];
+n$3=_fun_String TestName.getMethodName()(n$1:org.junit.rules.TestName*) virtual [line 64];
+*&amp;$irvar0:java.lang.String*=n$3 [line 64];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun___new_array(sizeof(t=java.lang.annotation.Annotation*[_*_];len=[0]):java.lang.annotation.Annotation*[_*_](*)) [line 64];
+*&amp;$irvar1:java.lang.annotation.Annotation*[_*_](*)=n$4 [line 64];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String* [line 64];
+n$6=*&amp;$irvar1:java.lang.annotation.Annotation*[_*_](*) [line 64];
+n$7=_fun_Description Description.createSuiteDescription(String,Annotation[])(n$5:java.lang.String*,n$6:java.lang.annotation.Annotation*[_*_](*)) [line 64];
+*&amp;$irvar2:org.junit.runner.Description*=n$7 [line 64];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$8=_fun___new(sizeof(t=org.junit.runner.FilterFactoryParams):org.junit.runner.FilterFactoryParams*) [line 64];
+n$9=*&amp;$irvar2:org.junit.runner.Description* [line 64];
+n$10=_fun_FilterFactoryParams.&lt;init&gt;(Description,String)(n$8:org.junit.runner.FilterFactoryParams*,n$9:org.junit.runner.Description*,"":java.lang.Object*) [line 64];
+*&amp;$irvar3:org.junit.runner.FilterFactoryParams*=n$8 [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">                        &quot;&quot;)); </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">        assertThat(filter, instanceOf(DummyFilter.class)); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$13=_fun_Matcher CoreMatchers.instanceOf(Class)(org.junit.runner.FilterFactoriesTest$DummyFilter:java.lang.Object*) [line 67];
+*&amp;$irvar4:org.hamcrest.Matcher*=n$13 [line 67];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$14=*&amp;filter:org.junit.runner.manipulation.Filter* [line 67];
+n$15=*&amp;$irvar4:org.hamcrest.Matcher* [line 67];
+n$16=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$14:org.junit.runner.manipulation.Filter*,n$15:org.hamcrest.Matcher*) [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">    } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldCreateFilter%28%29%3Avoid.be33dbc5bb1e1d9f9002af1d68ece3c2_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">    public void shouldThrowExceptionIfNotFilterFactory() throws Exception { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee.html">summary for void FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory()</a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">        expectedException.expect(FilterFactory.FilterNotCreatedException.class); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 72];
+n$1=*n$0.expectedException:org.junit.rules.ExpectedException*(root org.junit.runner.FilterFactoriesTest) [line 72];
+_=*n$1:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 72];
+n$3=_fun_void ExpectedException.expect(Class)(n$1:org.junit.rules.ExpectedException*,org.junit.runner.FilterFactory$FilterNotCreatedException:java.lang.Object*) virtual [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">        FilterFactories.createFilterFactory(NonFilterFactory.class.getName()); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun_String Class.getName()(org.junit.runner.FilterFactoriesTest$NonFilterFactory:java.lang.Object*) virtual [line 74];
+*&amp;$irvar0:java.lang.String*=n$4 [line 74];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.String* [line 74];
+n$6=_fun_FilterFactory FilterFactories.createFilterFactory(String)(n$5:java.lang.String*) [line 74];
+*&amp;$irvar1:org.junit.runner.FilterFactory*=n$6 [line 74];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">    } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotFilterFactory%28%29%3Avoid.d9e679f7cfe9acc2145335330cb838ee_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">    public void shouldThrowExceptionIfNotInstantiable() throws Exception { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3.html">summary for void FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable()</a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">        expectedException.expect(FilterFactory.FilterNotCreatedException.class); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest* [line 79];
+n$1=*n$0.expectedException:org.junit.rules.ExpectedException*(root org.junit.runner.FilterFactoriesTest) [line 79];
+_=*n$1:org.junit.rules.ExpectedException*(root org.junit.rules.ExpectedException) [line 79];
+n$3=_fun_void ExpectedException.expect(Class)(n$1:org.junit.rules.ExpectedException*,org.junit.runner.FilterFactory$FilterNotCreatedException:java.lang.Object*) virtual [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        FilterFactories.createFilterFactory(NonInstantiableFilterFactory.class); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$4=_fun_FilterFactory FilterFactories.createFilterFactory(Class)(org.junit.runner.FilterFactoriesTest$NonInstantiableFilterFactory:java.lang.Object*) [line 81];
+*&amp;$irvar0:org.junit.runner.FilterFactory*=n$4 [line 81];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line">    } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest.shouldThrowExceptionIfNotInstantiable%28%29%3Avoid.3c5eea0644d16f3720675d095725b6b3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">    public static class NonFilterFactory { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonFilterFactory.<init>%28%29.f64f80730ff4ebf16ccfdf0c1d9cc36e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonFilterFactory.<init>%28%29.f64f80730ff4ebf16ccfdf0c1d9cc36e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$NonFilterFactory* [line 84];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$NonFilterFactory*) [line 84];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonFilterFactory.<init>%28%29.f64f80730ff4ebf16ccfdf0c1d9cc36e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonFilterFactory.<init>%28%29.f64f80730ff4ebf16ccfdf0c1d9cc36e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonFilterFactory.<init>%28%29.f64f80730ff4ebf16ccfdf0c1d9cc36e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24NonFilterFactory.<init>%28%29.f64f80730ff4ebf16ccfdf0c1d9cc36e.html">summary for FilterFactoriesTest$NonFilterFactory.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">    public static class NonInstantiableFilterFactory implements FilterFactory { </td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        private NonInstantiableFilterFactory() { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.<init>%28%29.412b392ff1c80bd96dc3a7f83310cbcf_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.<init>%28%29.412b392ff1c80bd96dc3a7f83310cbcf_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$NonInstantiableFilterFactory* [line 88];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$NonInstantiableFilterFactory*) [line 88];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.<init>%28%29.412b392ff1c80bd96dc3a7f83310cbcf.html">summary for FilterFactoriesTest$NonInstantiableFilterFactory.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">        } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.<init>%28%29.412b392ff1c80bd96dc3a7f83310cbcf_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.<init>%28%29.412b392ff1c80bd96dc3a7f83310cbcf_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.<init>%28%29.412b392ff1c80bd96dc3a7f83310cbcf_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">        public Filter createFilter(FilterFactoryParams params) throws FilterNotCreatedException { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703.html">summary for Filter FilterFactoriesTest$NonInstantiableFilterFactory.createFilter(FilterFactoryParams)</a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line">            throw new FilterNotCreatedException(new Exception(&quot;not implemented&quot;)); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.Exception):java.lang.Exception*) [line 92];
+n$1=_fun_Exception.&lt;init&gt;(String)(n$0:java.lang.Exception*,"not implemented":java.lang.Object*) [line 92];
+*&amp;$irvar0:java.lang.Exception*=n$0 [line 92];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.runner.FilterFactory$FilterNotCreatedException):org.junit.runner.FilterFactory$FilterNotCreatedException*) [line 92];
+n$3=*&amp;$irvar0:java.lang.Exception* [line 92];
+n$4=_fun_FilterFactory$FilterNotCreatedException.&lt;init&gt;(Exception)(n$2:org.junit.runner.FilterFactory$FilterNotCreatedException*,n$3:java.lang.Exception*) [line 92];
+*&amp;$irvar1:org.junit.runner.FilterFactory$FilterNotCreatedException*=n$2 [line 92];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar1:org.junit.runner.FilterFactory$FilterNotCreatedException* [line 92];
+*&amp;return:org.junit.runner.manipulation.Filter*=EXN n$5 [line 92];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24NonInstantiableFilterFactory.createFilter%28org.junit.runner.Filt.1345e4a4a59dfa4621571360990c7703_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line">    public static class FilterFactoryStub implements FilterFactory { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.<init>%28%29.0dc46a9e957a6072649d47e8daebbc88_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.<init>%28%29.0dc46a9e957a6072649d47e8daebbc88_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$FilterFactoryStub* [line 96];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$FilterFactoryStub*) [line 96];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.<init>%28%29.0dc46a9e957a6072649d47e8daebbc88_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.<init>%28%29.0dc46a9e957a6072649d47e8daebbc88_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.<init>%28%29.0dc46a9e957a6072649d47e8daebbc88_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.<init>%28%29.0dc46a9e957a6072649d47e8daebbc88.html">summary for FilterFactoriesTest$FilterFactoryStub.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">        public Filter createFilter(FilterFactoryParams params) { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f.html">summary for Filter FilterFactoriesTest$FilterFactoryStub.createFilter(FilterFactoryParams)</a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line">            return new DummyFilter(params.getTopLevelDescription()); <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;params:org.junit.runner.FilterFactoryParams* [line 98];
+_=*n$0:org.junit.runner.FilterFactoryParams*(root org.junit.runner.FilterFactoryParams) [line 98];
+n$2=_fun_Description FilterFactoryParams.getTopLevelDescription()(n$0:org.junit.runner.FilterFactoryParams*) virtual [line 98];
+*&amp;$irvar0:org.junit.runner.Description*=n$2 [line 98];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new(sizeof(t=org.junit.runner.FilterFactoriesTest$DummyFilter):org.junit.runner.FilterFactoriesTest$DummyFilter*) [line 98];
+n$4=*&amp;$irvar0:org.junit.runner.Description* [line 98];
+n$5=_fun_FilterFactoriesTest$DummyFilter.&lt;init&gt;(Description)(n$3:org.junit.runner.FilterFactoriesTest$DummyFilter*,n$4:org.junit.runner.Description*) [line 98];
+*&amp;$irvar1:org.junit.runner.FilterFactoriesTest$DummyFilter*=n$3 [line 98];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$6=*&amp;$irvar1:org.junit.runner.FilterFactoriesTest$DummyFilter* [line 98];
+*&amp;return:org.junit.runner.manipulation.Filter*=n$6 [line 98];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24FilterFactoryStub.createFilter%28org.junit.runner.FilterFactoryPa.89efb3c561dd672b67b459560eca0a8f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">    private static class DummyFilter extends Filter { </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">        private final Description fTopLevelDescription; </td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        public DummyFilter(Description topLevelDescription) { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$DummyFilter* [line 105];
+n$1=_fun_Filter.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$DummyFilter*) [line 105];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18.html">summary for FilterFactoriesTest$DummyFilter.&lt;init&gt;(Description)</a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">            fTopLevelDescription = topLevelDescription; <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.runner.FilterFactoriesTest$DummyFilter* [line 106];
+n$3=*&amp;topLevelDescription:org.junit.runner.Description* [line 106];
+*n$2.fTopLevelDescription:org.junit.runner.FilterFactoriesTest$DummyFilter(root org.junit.runner.FilterFactoriesTest$DummyFilter)=n$3 [line 106];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">        } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.<init>%28org.junit.runner.Description%29.4a678ddfac8254fc8cff864b9ee39e18_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        public Description getTopLevelDescription() { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.getTopLevelDescription%28%29%3Aorg.junit.runner.Descripti.483bf025b321f368929d9f429cb708f9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyFilter.getTopLevelDescription%28%29%3Aorg.junit.runner.Descripti.483bf025b321f368929d9f429cb708f9.html">summary for Description FilterFactoriesTest$DummyFilter.getTopLevelDescription()</a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">            return fTopLevelDescription; <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.getTopLevelDescription%28%29%3Aorg.junit.runner.Descripti.483bf025b321f368929d9f429cb708f9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$DummyFilter* [line 110];
+n$1=*n$0.fTopLevelDescription:org.junit.runner.Description*(root org.junit.runner.FilterFactoriesTest$DummyFilter) [line 110];
+*&amp;return:org.junit.runner.Description*=n$1 [line 110];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.getTopLevelDescription%28%29%3Aorg.junit.runner.Descripti.483bf025b321f368929d9f429cb708f9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.getTopLevelDescription%28%29%3Aorg.junit.runner.Descripti.483bf025b321f368929d9f429cb708f9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">        public boolean shouldRun(Description description) { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.shouldRun%28org.junit.runner.Description%29%3Aboolean.16352519ddf0898cd3a8a62398fdcb17_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyFilter.shouldRun%28org.junit.runner.Description%29%3Aboolean.16352519ddf0898cd3a8a62398fdcb17.html">summary for boolean FilterFactoriesTest$DummyFilter.shouldRun(Description)</a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">            return false; <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.shouldRun%28org.junit.runner.Description%29%3Aboolean.16352519ddf0898cd3a8a62398fdcb17_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:_Bool=0 [line 115];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.shouldRun%28org.junit.runner.Description%29%3Aboolean.16352519ddf0898cd3a8a62398fdcb17_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.shouldRun%28org.junit.runner.Description%29%3Aboolean.16352519ddf0898cd3a8a62398fdcb17_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line">        @Override </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">        public String describe() { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.describe%28%29%3Ajava.lang.String.e89daa33dfdf01d6326d301848e69ef8_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyFilter.describe%28%29%3Ajava.lang.String.e89daa33dfdf01d6326d301848e69ef8.html">summary for String FilterFactoriesTest$DummyFilter.describe()</a></td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">            return null; <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.describe%28%29%3Ajava.lang.String.e89daa33dfdf01d6326d301848e69ef8_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+*&amp;return:java.lang.String*=null [line 120];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.describe%28%29%3Ajava.lang.String.e89daa33dfdf01d6326d301848e69ef8_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyFilter.describe%28%29%3Ajava.lang.String.e89daa33dfdf01d6326d301848e69ef8_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    public static class DummyCategory { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyCategory.<init>%28%29.3ab3fc2e08b54b9d568d26357e3724a3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyCategory.<init>%28%29.3ab3fc2e08b54b9d568d26357e3724a3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$DummyCategory* [line 124];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$DummyCategory*) [line 124];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyCategory.<init>%28%29.3ab3fc2e08b54b9d568d26357e3724a3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyCategory.<init>%28%29.3ab3fc2e08b54b9d568d26357e3724a3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyCategory.<init>%28%29.3ab3fc2e08b54b9d568d26357e3724a3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyCategory.<init>%28%29.3ab3fc2e08b54b9d568d26357e3724a3.html">summary for FilterFactoriesTest$DummyCategory.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    @RunWith(Suite.class) </td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">    @SuiteClasses(DummyTest.class) </td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">    public static class DummySuite { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummySuite.<init>%28%29.53342fc0ce43b1bc16964a90937edccc_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummySuite.<init>%28%29.53342fc0ce43b1bc16964a90937edccc_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$DummySuite* [line 129];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$DummySuite*) [line 129];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummySuite.<init>%28%29.53342fc0ce43b1bc16964a90937edccc_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummySuite.<init>%28%29.53342fc0ce43b1bc16964a90937edccc_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummySuite.<init>%28%29.53342fc0ce43b1bc16964a90937edccc_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummySuite.<init>%28%29.53342fc0ce43b1bc16964a90937edccc.html">summary for FilterFactoriesTest$DummySuite.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">    public static class DummyTest { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.<init>%28%29.51f5824c6da23ecf286997f993062855_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.<init>%28%29.51f5824c6da23ecf286997f993062855_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.runner.FilterFactoriesTest$DummyTest* [line 132];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.runner.FilterFactoriesTest$DummyTest*) [line 132];
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.<init>%28%29.51f5824c6da23ecf286997f993062855_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.<init>%28%29.51f5824c6da23ecf286997f993062855_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.<init>%28%29.51f5824c6da23ecf286997f993062855_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyTest.<init>%28%29.51f5824c6da23ecf286997f993062855.html">summary for FilterFactoriesTest$DummyTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        public void passes() { <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.passes%28%29%3Avoid.1f48bdd4b0550514f6f0a5b74f27f8bb_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/org.junit.runner.FilterFactoriesTest%24DummyTest.passes%28%29%3Avoid.1f48bdd4b0550514f6f0a5b74f27f8bb.html">summary for void FilterFactoriesTest$DummyTest.passes()</a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        } <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.passes%28%29%3Avoid.1f48bdd4b0550514f6f0a5b74f27f8bb_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.passes%28%29%3Avoid.1f48bdd4b0550514f6f0a5b74f27f8bb_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./FilterFactoriesTest.java.5290dc132d685d0061d5041fccd7c162/nodes/org.junit.runner.FilterFactoriesTest%24DummyTest.passes%28%29%3Avoid.1f48bdd4b0550514f6f0a5b74f27f8bb_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/main/java/org/junit/internal/runners/TestMethod.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.internal.runners; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import java.lang.reflect.InvocationTargetException; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import java.lang.reflect.Method; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import java.util.List; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import org.junit.After; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import org.junit.Ignore; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import org.junit.Test.None; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import org.junit.runners.BlockJUnit4ClassRunner; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">/** </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line"> * @deprecated Included for backwards compatibility with JUnit 4.4. Will be </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> *             removed in the next major release. Please use </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line"> *             {@link BlockJUnit4ClassRunner} in place of {@link JUnit4ClassRunner}. </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line"> */ </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">@Deprecated </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">public class TestMethod { </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">    private final Method method; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">    private TestClass testClass; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line">    public TestMethod(Method method, TestClass testClass) { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 24];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.internal.runners.TestMethod*) [line 24];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758.html">summary for TestMethod.&lt;init&gt;(Method,TestClass)</a></td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">        this.method = method; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;this:org.junit.internal.runners.TestMethod* [line 25];
+n$3=*&amp;method:java.lang.reflect.Method* [line 25];
+*n$2.method:org.junit.internal.runners.TestMethod(root org.junit.internal.runners.TestMethod)=n$3 [line 25];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">        this.testClass = testClass; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.internal.runners.TestMethod* [line 26];
+n$5=*&amp;testClass:org.junit.internal.runners.TestClass* [line 26];
+*n$4.testClass:org.junit.internal.runners.TestMethod(root org.junit.internal.runners.TestMethod)=n$5 [line 26];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line">    } <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.<init>%28java.lang.reflect.Method%2Corg.junit.internal.runners.Tes.deef0b0c764cd00b06cefe7dfb560758_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line">    public boolean isIgnored() { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6.html">summary for boolean TestMethod.isIgnored()</a></td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">        return method.getAnnotation(Ignore.class) != null; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 30];
+n$1=*n$0.method:java.lang.reflect.Method*(root org.junit.internal.runners.TestMethod) [line 30];
+_=*n$1:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 30];
+n$3=_fun_Annotation Method.getAnnotation(Class)(n$1:java.lang.reflect.Method*,org.junit.Ignore:java.lang.Object*) virtual [line 30];
+*&amp;$irvar0:java.lang.annotation.Annotation*=n$3 [line 30];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:java.lang.annotation.Annotation* [line 30];
+PRUNE(!(n$4 == null), true); [line 30];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_17:int=1 [line 30];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$4=*&amp;$irvar0:java.lang.annotation.Annotation* [line 30];
+PRUNE((n$4 == null), false); [line 30];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_17:int=0 [line 30];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:2 exn:3 Instructions
+n$5=*&amp;$T0_17:int [line 30];
+*&amp;return:_Bool=n$5 [line 30];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isIgnored%28%29%3Aboolean.20da80de3548be7db05efd6f37a48dc6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">    public long getTimeout() { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174.html">summary for long TestMethod.getTimeout()</a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        Test annotation = method.getAnnotation(Test.class); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 34];
+n$1=*n$0.method:java.lang.reflect.Method*(root org.junit.internal.runners.TestMethod) [line 34];
+_=*n$1:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 34];
+n$3=_fun_Annotation Method.getAnnotation(Class)(n$1:java.lang.reflect.Method*,org.junit.Test:java.lang.Object*) virtual [line 34];
+*&amp;$irvar0:java.lang.annotation.Annotation*=n$3 [line 34];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.annotation.Annotation* [line 34];
+n$5=_fun___cast(n$4:java.lang.annotation.Annotation*,sizeof(t=org.junit.Test;sub_t=( sub )(cast)):void) [line 34];
+*&amp;annotation:org.junit.Test*=n$5 [line 34];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line">        if (annotation == null) { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;annotation:org.junit.Test* [line 35];
+PRUNE(!(n$6 != null), true); [line 35];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Conditional method_body
+n$6=*&amp;annotation:org.junit.Test* [line 35];
+PRUNE((n$6 != null), false); [line 35];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">            return 0; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:2 exn:3 Instructions
+*&amp;return:long=0 [line 36];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">        long timeout = annotation.timeout(); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:10 exn:3 Instructions
+n$7=*&amp;annotation:org.junit.Test* [line 38];
+_=*n$7:org.junit.Test*(root org.junit.Test) [line 38];
+n$9=_fun_long Test.timeout()(n$7:org.junit.Test*) interface virtual [line 38];
+*&amp;timeout:long=n$9 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">        return timeout; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:2 exn:3 Instructions
+n$10=*&amp;timeout:long [line 39];
+*&amp;return:long=n$10 [line 39];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:10 8 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getTimeout%28%29%3Along.e8101cc7cc1b1b526c4ccc0bd8209174_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line">    protected Class&lt;? extends Throwable&gt; getExpectedException() { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703.html">summary for Class TestMethod.getExpectedException()</a></td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        Test annotation = method.getAnnotation(Test.class); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 43];
+n$1=*n$0.method:java.lang.reflect.Method*(root org.junit.internal.runners.TestMethod) [line 43];
+_=*n$1:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 43];
+n$3=_fun_Annotation Method.getAnnotation(Class)(n$1:java.lang.reflect.Method*,org.junit.Test:java.lang.Object*) virtual [line 43];
+*&amp;$irvar0:java.lang.annotation.Annotation*=n$3 [line 43];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.annotation.Annotation* [line 43];
+n$5=_fun___cast(n$4:java.lang.annotation.Annotation*,sizeof(t=org.junit.Test;sub_t=( sub )(cast)):void) [line 43];
+*&amp;annotation:org.junit.Test*=n$5 [line 43];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        if (annotation == null || annotation.expected() == None.class) { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:5 succs:8 exn:3 Conditional method_body
+n$6=*&amp;annotation:org.junit.Test* [line 44];
+PRUNE(!(n$6 == null), true); [line 44];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 10 exn:3 Instructions
+n$7=*&amp;annotation:org.junit.Test* [line 44];
+_=*n$7:org.junit.Test*(root org.junit.Test) [line 44];
+n$9=_fun_Class Test.expected()(n$7:org.junit.Test*) interface virtual [line 44];
+*&amp;$irvar1:java.lang.Class*=n$9 [line 44];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node9.html"><span class='visited with_tooltip'>C_9<span class='tooltip'>node9 preds:8 succs:11 exn:3 Conditional method_body
+n$10=*&amp;$irvar1:java.lang.Class* [line 44];
+PRUNE(!(n$10 != org.junit.Test$None), true); [line 44];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node10.html"><span class='visited with_tooltip'>C_10<span class='tooltip'>node10 preds:8 succs:12 exn:3 Conditional method_body
+n$10=*&amp;$irvar1:java.lang.Class* [line 44];
+PRUNE((n$10 != org.junit.Test$None), false); [line 44];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:5 succs:11 exn:3 Conditional method_body
+n$6=*&amp;annotation:org.junit.Test* [line 44];
+PRUNE((n$6 == null), false); [line 44];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">            return null; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:9 7 succs:2 exn:3 Instructions
+*&amp;return:java.lang.Class*=null [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">        } else { </td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">            return annotation.expected(); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:10 succs:13 exn:3 Instructions
+n$11=*&amp;annotation:org.junit.Test* [line 47];
+_=*n$11:org.junit.Test*(root org.junit.Test) [line 47];
+n$13=_fun_Class Test.expected()(n$11:org.junit.Test*) interface virtual [line 47];
+*&amp;$irvar2:java.lang.Class*=n$13 [line 47];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:2 exn:3 Instructions
+n$14=*&amp;$irvar2:java.lang.Class* [line 47];
+*&amp;return:java.lang.Class*=n$14 [line 47];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:13 11 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getExpectedException%28%29%3Ajava.lang.Class.992e813e4faea48cdc9602c184a8b703_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">    boolean isUnexpected(Throwable exception) { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842.html">summary for boolean TestMethod.isUnexpected(Throwable)</a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">        return !getExpectedException().isAssignableFrom(exception.getClass()); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 52];
+_=*n$0:org.junit.internal.runners.TestMethod*(root org.junit.internal.runners.TestMethod) [line 52];
+n$2=_fun_Class TestMethod.getExpectedException()(n$0:org.junit.internal.runners.TestMethod*) virtual [line 52];
+*&amp;$irvar0:java.lang.Class*=n$2 [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;exception:java.lang.Throwable* [line 52];
+_=*n$3:java.lang.Throwable*(root java.lang.Throwable) [line 52];
+n$5=_fun_Class Object.getClass()(n$3:java.lang.Throwable*) virtual [line 52];
+*&amp;$irvar1:java.lang.Class*=n$5 [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 8 exn:3 Instructions
+n$6=*&amp;$irvar0:java.lang.Class* [line 52];
+_=*n$6:java.lang.Class*(root java.lang.Class) [line 52];
+n$8=*&amp;$irvar1:java.lang.Class* [line 52];
+n$9=_fun_boolean Class.isAssignableFrom(Class)(n$6:java.lang.Class*,n$8:java.lang.Class*) virtual [line 52];
+*&amp;$irvar2:_Bool=n$9 [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:6 succs:9 exn:3 Conditional method_body
+n$10=*&amp;$irvar2:_Bool [line 52];
+PRUNE(!(n$10 != 0), true); [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:11 exn:3 Instructions
+*&amp;$T0_19:int=1 [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node8.html"><span class='visited with_tooltip'>C_8<span class='tooltip'>node8 preds:6 succs:10 exn:3 Conditional method_body
+n$10=*&amp;$irvar2:_Bool [line 52];
+PRUNE((n$10 != 0), false); [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:8 succs:11 exn:3 Instructions
+*&amp;$T0_19:int=0 [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 9 succs:2 exn:3 Instructions
+n$11=*&amp;$T0_19:int [line 52];
+*&amp;return:_Bool=n$11 [line 52];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:11 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.isUnexpected%28java.lang.Throwable%29%3Aboolean.e2d22721cb9fe8394ce890514f447842_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a>
+<div class="msg" style="margin-left:9ex">NULL_DEREFERENCE [B2] object returned by `getExpectedException()` could be null and is dereferenced at line 52</div></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">    boolean expectsException() { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269.html">summary for boolean TestMethod.expectsException()</a></td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        return getExpectedException() != null; <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 6 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 56];
+_=*n$0:org.junit.internal.runners.TestMethod*(root org.junit.internal.runners.TestMethod) [line 56];
+n$2=_fun_Class TestMethod.getExpectedException()(n$0:org.junit.internal.runners.TestMethod*) virtual [line 56];
+*&amp;$irvar0:java.lang.Class*=n$2 [line 56];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node5.html"><span class='visited with_tooltip'>C_5<span class='tooltip'>node5 preds:4 succs:7 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:java.lang.Class* [line 56];
+PRUNE(!(n$3 == null), true); [line 56];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:5 succs:9 exn:3 Instructions
+*&amp;$T0_12:int=1 [line 56];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:4 succs:8 exn:3 Conditional method_body
+n$3=*&amp;$irvar0:java.lang.Class* [line 56];
+PRUNE((n$3 == null), false); [line 56];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:6 succs:9 exn:3 Instructions
+*&amp;$T0_12:int=0 [line 56];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 7 succs:2 exn:3 Instructions
+n$4=*&amp;$T0_12:int [line 56];
+*&amp;return:_Bool=n$4 [line 56];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.expectsException%28%29%3Aboolean.29c03b7f2873dcbebe28648a1d082269_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">    List&lt;Method&gt; getBefores() { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getBefores%28%29%3Ajava.util.List.63b69a50970ffbff162bbadbd3ba61b6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.getBefores%28%29%3Ajava.util.List.63b69a50970ffbff162bbadbd3ba61b6.html">summary for List TestMethod.getBefores()</a></td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        return testClass.getAnnotatedMethods(Before.class); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getBefores%28%29%3Ajava.util.List.63b69a50970ffbff162bbadbd3ba61b6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 60];
+n$1=*n$0.testClass:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestMethod) [line 60];
+_=*n$1:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestClass) [line 60];
+n$3=_fun_List TestClass.getAnnotatedMethods(Class)(n$1:org.junit.internal.runners.TestClass*,org.junit.Before:java.lang.Object*) virtual [line 60];
+*&amp;$irvar0:java.util.List*=n$3 [line 60];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getBefores%28%29%3Ajava.util.List.63b69a50970ffbff162bbadbd3ba61b6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.util.List* [line 60];
+*&amp;return:java.util.List*=n$4 [line 60];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getBefores%28%29%3Ajava.util.List.63b69a50970ffbff162bbadbd3ba61b6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getBefores%28%29%3Ajava.util.List.63b69a50970ffbff162bbadbd3ba61b6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">    List&lt;Method&gt; getAfters() { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getAfters%28%29%3Ajava.util.List.f391a7cebb6e5d315ca5c18f265b083f_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.getAfters%28%29%3Ajava.util.List.f391a7cebb6e5d315ca5c18f265b083f.html">summary for List TestMethod.getAfters()</a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">        return testClass.getAnnotatedMethods(After.class); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getAfters%28%29%3Ajava.util.List.f391a7cebb6e5d315ca5c18f265b083f_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.internal.runners.TestMethod* [line 64];
+n$1=*n$0.testClass:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestMethod) [line 64];
+_=*n$1:org.junit.internal.runners.TestClass*(root org.junit.internal.runners.TestClass) [line 64];
+n$3=_fun_List TestClass.getAnnotatedMethods(Class)(n$1:org.junit.internal.runners.TestClass*,org.junit.After:java.lang.Object*) virtual [line 64];
+*&amp;$irvar0:java.util.List*=n$3 [line 64];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getAfters%28%29%3Ajava.util.List.f391a7cebb6e5d315ca5c18f265b083f_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+n$4=*&amp;$irvar0:java.util.List* [line 64];
+*&amp;return:java.util.List*=n$4 [line 64];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getAfters%28%29%3Ajava.util.List.f391a7cebb6e5d315ca5c18f265b083f_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.getAfters%28%29%3Ajava.util.List.f391a7cebb6e5d315ca5c18f265b083f_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">    public void invoke(Object test) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException { <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4.html">summary for void TestMethod.invoke(Object)</a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">        method.invoke(test); <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Object*[_*_];len=[0]):java.lang.Object*[_*_](*)) [line 68];
+*&amp;$irvar0:java.lang.Object*[_*_](*)=n$0 [line 68];
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;this:org.junit.internal.runners.TestMethod* [line 68];
+n$2=*n$1.method:java.lang.reflect.Method*(root org.junit.internal.runners.TestMethod) [line 68];
+_=*n$2:java.lang.reflect.Method*(root java.lang.reflect.Method) [line 68];
+n$4=*&amp;test:java.lang.Object* [line 68];
+n$5=*&amp;$irvar0:java.lang.Object*[_*_](*) [line 68];
+n$6=_fun_Object Method.invoke(Object,Object[])(n$2:java.lang.reflect.Method*,n$4:java.lang.Object*,n$5:java.lang.Object*[_*_](*)) virtual [line 68];
+*&amp;$irvar1:java.lang.Object*=n$6 [line 68];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">    } <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/org.junit.internal.runners.TestMethod.invoke%28java.lang.Object%29%3Avoid.211402f95de35c9aa54d8b393e7c2ad4_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Null Dereference [B2] object returned by `getExpectedException()` could be null and is dereferenced at line 52 <a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/nodes/node6.html#session42">node6#session42</a>(<a href="./TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1/../TestMethod.java.98bd4c2ca28fec0f6ca8198c58b91ff1.html#LINE52">52</a>)</body>
+</html>

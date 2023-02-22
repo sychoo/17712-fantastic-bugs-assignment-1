@@ -1,0 +1,60 @@
+/* @generated */
+digraph cfg {
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_1" [label="1: Start RuleChain RuleChain.around(TestRule)\nFormals:  this:org.junit.rules.RuleChain* enclosedRule:org.junit.rules.TestRule*\nLocals:  $irvar3:void $irvar2:void $irvar1:void $irvar0:void rulesOfNewChain:java.util.List* \n  " color=yellow style=filled]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_1" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_4" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_1" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_5" ;
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_2" [label="2: Exit RuleChain RuleChain.around(TestRule) \n  " color=yellow style=filled]
+	
+
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [label="3:  exceptions sink \n   NULLIFY(&$irvar3); [line 104]\n  NULLIFY(&$irvar0); [line 104]\n  NULLIFY(&rulesOfNewChain); [line 104]\n  EXIT_SCOPE($irvar3,$irvar0,rulesOfNewChain); [line 104]\n  APPLY_ABSTRACTION; [line 104]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_2" ;
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_4" [label="4: Prune (true branch, if) \n   n$0=*&enclosedRule:org.junit.rules.TestRule* [line 98]\n  PRUNE(!(n$0 != null), true); [line 98]\n  NULLIFY(&enclosedRule); [line 98]\n  EXIT_SCOPE(n$0,enclosedRule); [line 98]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_4" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_6" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_4" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_5" [label="5: Prune (false branch, if) \n   n$0=*&enclosedRule:org.junit.rules.TestRule* [line 98]\n  PRUNE((n$0 != null), false); [line 98]\n  EXIT_SCOPE(n$0); [line 98]\n " shape="invhouse"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_5" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_8" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_5" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_6" [label="6:  Call NullPointerException.<init>(String) \n   n$1=_fun___new(sizeof(t=java.lang.NullPointerException):java.lang.NullPointerException*) [line 99]\n  n$2=_fun_NullPointerException.<init>(String)(n$1:java.lang.NullPointerException*,\"The enclosed rule must not be null\":java.lang.Object*) [line 99]\n  *&$irvar0:java.lang.NullPointerException*=n$1 [line 99]\n  EXIT_SCOPE(n$1,n$2); [line 99]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_6" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_7" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_6" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_7" [label="7:  throw \n   n$3=*&$irvar0:java.lang.NullPointerException* [line 99]\n  *&return:org.junit.rules.RuleChain*=EXN n$3 [line 99]\n  NULLIFY(&$irvar0); [line 99]\n  EXIT_SCOPE(n$3,$irvar0); [line 99]\n  APPLY_ABSTRACTION; [line 99]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_7" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_2" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_7" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_8" [label="8:  Call ArrayList.<init>() \n   n$4=_fun___new(sizeof(t=java.util.ArrayList):java.util.ArrayList*) [line 101]\n  n$5=_fun_ArrayList.<init>()(n$4:java.util.ArrayList*) [line 101]\n  *&rulesOfNewChain:java.util.ArrayList*=n$4 [line 101]\n  EXIT_SCOPE(n$4,n$5); [line 101]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_8" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_9" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_8" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_9" [label="9:  Call boolean List.add(Object) \n   n$6=*&rulesOfNewChain:java.util.ArrayList* [line 102]\n  _=*n$6:java.util.ArrayList*(root java.util.ArrayList) [line 102]\n  n$8=*&enclosedRule:org.junit.rules.TestRule* [line 102]\n  n$9=_fun_boolean List.add(Object)(n$6:java.util.ArrayList*,n$8:org.junit.rules.TestRule*) interface virtual [line 102]\n  *&$irvar1:_Bool=n$9 [line 102]\n  NULLIFY(&$irvar1); [line 102]\n  NULLIFY(&enclosedRule); [line 102]\n  EXIT_SCOPE(_,n$6,n$8,n$9,$irvar1,enclosedRule); [line 102]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_9" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_10" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_9" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_10" [label="10:  Call boolean List.addAll(Collection) \n   n$10=*&rulesOfNewChain:java.util.ArrayList* [line 103]\n  _=*n$10:java.util.ArrayList*(root java.util.ArrayList) [line 103]\n  n$12=*&this:org.junit.rules.RuleChain* [line 103]\n  n$13=*n$12.rulesStartingWithInnerMost:java.util.List*(root org.junit.rules.RuleChain) [line 103]\n  n$14=_fun_boolean List.addAll(Collection)(n$10:java.util.ArrayList*,n$13:java.util.List*) interface virtual [line 103]\n  *&$irvar2:_Bool=n$14 [line 103]\n  NULLIFY(&$irvar2); [line 103]\n  NULLIFY(&this); [line 103]\n  EXIT_SCOPE(_,n$10,n$12,n$13,n$14,$irvar2,this); [line 103]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_10" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_11" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_10" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_11" [label="11:  Call RuleChain.<init>(List) \n   n$15=_fun___new(sizeof(t=org.junit.rules.RuleChain):org.junit.rules.RuleChain*) [line 104]\n  n$16=*&rulesOfNewChain:java.util.ArrayList* [line 104]\n  n$17=_fun_RuleChain.<init>(List)(n$15:org.junit.rules.RuleChain*,n$16:java.util.ArrayList*) [line 104]\n  *&$irvar3:org.junit.rules.RuleChain*=n$15 [line 104]\n  NULLIFY(&rulesOfNewChain); [line 104]\n  EXIT_SCOPE(n$15,n$16,n$17,rulesOfNewChain); [line 104]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_11" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_12" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_11" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+"org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_12" [label="12:  method_body \n   n$18=*&$irvar3:org.junit.rules.RuleChain* [line 104]\n  *&return:org.junit.rules.RuleChain*=n$18 [line 104]\n  NULLIFY(&$irvar3); [line 104]\n  EXIT_SCOPE(n$18,$irvar3); [line 104]\n  APPLY_ABSTRACTION; [line 104]\n " shape="box"]
+	
+
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_12" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_2" ;
+	 "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_12" -> "org.junit.rules.RuleChain.around(org.junit.rules.TestRule):org.junit.rules.RuleChain.2c091fc0424dbc03d4a7856dc974bc94_3" [color="red" ];
+}

@@ -1,0 +1,767 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body { background-color:#fff; color:#000; font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.code { border-collapse:collapse; width:100%; font-family: "Andale Mono", monospace; font-size:10pt; line-height: 1.2em }
+.color_black { color: black }
+.color_blue { color: blue }
+.color_green { color: green }
+.color_orange { color: orange }
+.color_red { color: red }
+.line { border-left: 3px solid #ccc; padding-left: 1ex; white-space: pre; }
+.msg { background-color:#fff8b4; color:#000; float:left; font-family:Helvetica, sans-serif; font-size: smaller; font-weight: bold; margin-bottom:10px; margin-top:10px; max-width:60em; padding:0.5em 1ex 0.5em 1ex; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; white-space: pre-wrap; word-wrap: break-word; }
+.num { background-color:#eee; color:#444; font-size: smaller; padding-right:2ex; text-align:right; width:2.5em; }
+.dangling { background-color:white; color: gray; }
+.visited { background-color:LemonChiffon; color: darkmagenta; }
+.tooltip { display: none; background-color:#FFF0F0; border: 2px solid #F00; font-weight: normal; left:10em; padding: 2px; position: absolute; top: -1em; -webkit-border-radius:5px; -webkit-box-shadow:1px 1px 7px #000; z-index: 1}
+.with_tooltip { position: relative; }
+.with_tooltip:hover .tooltip, .visited:hover .tooltip { display: block; }
+</style>
+</head>
+<body>
+<center><h1>File src/test/java/org/junit/rules/TimeoutRuleTest.java </h1></center>
+<table class="code">
+<tr><td class="num" id="LINE1">1</td><td class="line">package org.junit.rules; </td></tr>
+<tr><td class="num" id="LINE2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE3">3</td><td class="line">import static org.hamcrest.CoreMatchers.containsString; </td></tr>
+<tr><td class="num" id="LINE4">4</td><td class="line">import static org.hamcrest.MatcherAssert.assertThat; </td></tr>
+<tr><td class="num" id="LINE5">5</td><td class="line">import static org.junit.Assert.assertEquals; </td></tr>
+<tr><td class="num" id="LINE6">6</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE7">7</td><td class="line">import java.io.File; </td></tr>
+<tr><td class="num" id="LINE8">8</td><td class="line">import java.io.IOException; </td></tr>
+<tr><td class="num" id="LINE9">9</td><td class="line">import java.io.InterruptedIOException; </td></tr>
+<tr><td class="num" id="LINE10">10</td><td class="line">import java.io.RandomAccessFile; </td></tr>
+<tr><td class="num" id="LINE11">11</td><td class="line">import java.nio.ByteBuffer; </td></tr>
+<tr><td class="num" id="LINE12">12</td><td class="line">import java.nio.channels.FileChannel; </td></tr>
+<tr><td class="num" id="LINE13">13</td><td class="line">import java.util.Random; </td></tr>
+<tr><td class="num" id="LINE14">14</td><td class="line">import java.util.concurrent.TimeUnit; </td></tr>
+<tr><td class="num" id="LINE15">15</td><td class="line">import java.util.concurrent.locks.ReentrantLock; </td></tr>
+<tr><td class="num" id="LINE16">16</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE17">17</td><td class="line">import org.junit.After; </td></tr>
+<tr><td class="num" id="LINE18">18</td><td class="line">import org.junit.Before; </td></tr>
+<tr><td class="num" id="LINE19">19</td><td class="line">import org.junit.Rule; </td></tr>
+<tr><td class="num" id="LINE20">20</td><td class="line">import org.junit.Test; </td></tr>
+<tr><td class="num" id="LINE21">21</td><td class="line">import org.junit.runner.JUnitCore; </td></tr>
+<tr><td class="num" id="LINE22">22</td><td class="line">import org.junit.runner.Result; </td></tr>
+<tr><td class="num" id="LINE23">23</td><td class="line">import org.junit.runner.notification.Failure; </td></tr>
+<tr><td class="num" id="LINE24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE25">25</td><td class="line">public class TimeoutRuleTest { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24100%28%29%3Aboolean.db1b2d15f1cf7893bde6790a485637ae_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24000%28%29%3Ajava.util.concurrent.locks.ReentrantLock.d124a2ba505656faf59aab3e9385824d_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<init>%28%29.b8fd1da6151a3582245447c432c029b6_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24100%28%29%3Aboolean.db1b2d15f1cf7893bde6790a485637ae_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run4done:_Bool(root org.junit.rules.TimeoutRuleTest) [line 25];
+*&amp;return:_Bool=n$0 [line 25];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24000%28%29%3Ajava.util.concurrent.locks.ReentrantLock.d124a2ba505656faf59aab3e9385824d_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run1Lock:java.util.concurrent.locks.ReentrantLock*(root org.junit.rules.TimeoutRuleTest) [line 25];
+*&amp;return:java.util.concurrent.locks.ReentrantLock*=n$0 [line 25];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<init>%28%29.b8fd1da6151a3582245447c432c029b6_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TimeoutRuleTest* [line 25];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.TimeoutRuleTest*) [line 25];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24100%28%29%3Aboolean.db1b2d15f1cf7893bde6790a485637ae_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24000%28%29%3Ajava.util.concurrent.locks.ReentrantLock.d124a2ba505656faf59aab3e9385824d_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<init>%28%29.b8fd1da6151a3582245447c432c029b6_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<init>%28%29.b8fd1da6151a3582245447c432c029b6_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:5 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24100%28%29%3Aboolean.db1b2d15f1cf7893bde6790a485637ae_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.access%24000%28%29%3Ajava.util.concurrent.locks.ReentrantLock.d124a2ba505656faf59aab3e9385824d_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<init>%28%29.b8fd1da6151a3582245447c432c029b6_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.access%24100%28%29%3Aboolean.db1b2d15f1cf7893bde6790a485637ae.html">summary for boolean TimeoutRuleTest.access$100()</a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.access%24000%28%29%3Ajava.util.concurrent.locks.ReentrantLock.d124a2ba505656faf59aab3e9385824d.html">summary for ReentrantLock TimeoutRuleTest.access$000()</a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.<init>%28%29.b8fd1da6151a3582245447c432c029b6.html">summary for TimeoutRuleTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE26">26</td><td class="line">    private static final ReentrantLock run1Lock = new ReentrantLock(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.util.concurrent.locks.ReentrantLock):java.util.concurrent.locks.ReentrantLock*) [line 26];
+n$1=_fun_ReentrantLock.&lt;init&gt;()(n$0:java.util.concurrent.locks.ReentrantLock*) [line 26];
+*&amp;$irvar0:java.util.concurrent.locks.ReentrantLock*=n$0 [line 26];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.util.concurrent.locks.ReentrantLock* [line 26];
+*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run1Lock:org.junit.rules.TimeoutRuleTest(root org.junit.rules.TimeoutRuleTest)=n$2 [line 26];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed.html">summary for void TimeoutRuleTest.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE28">28</td><td class="line">    private static volatile boolean run4done = false; <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run4done:org.junit.rules.TimeoutRuleTest(root org.junit.rules.TimeoutRuleTest)=0 [line 28];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.<clinit>%28%29%3Avoid.c7db63e3f172b736a304db6284bf6aed_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE29">29</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE30">30</td><td class="line">    public abstract static class AbstractTimeoutTest { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest* [line 30];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest*) [line 30];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b.html">summary for TimeoutRuleTest$AbstractTimeoutTest.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE31">31</td><td class="line">        public static final StringBuffer logger = new StringBuffer(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new(sizeof(t=java.lang.StringBuffer):java.lang.StringBuffer*) [line 31];
+n$1=_fun_StringBuffer.&lt;init&gt;()(n$0:java.lang.StringBuffer*) [line 31];
+*&amp;$irvar0:java.lang.StringBuffer*=n$0 [line 31];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.StringBuffer* [line 31];
+*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest)=n$2 [line 31];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<clinit>%28%29%3Avoid.f1178f735452a07ab4be0d42feea7234.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.&lt;clinit&gt;()</a></td></tr>
+<tr><td class="num" id="LINE32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE33">33</td><td class="line">        @Rule <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.rules.TemporaryFolder):org.junit.rules.TemporaryFolder*) [line 33];
+n$3=_fun_TemporaryFolder.&lt;init&gt;()(n$2:org.junit.rules.TemporaryFolder*) [line 33];
+*&amp;$irvar0:org.junit.rules.TemporaryFolder*=n$2 [line 33];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest* [line 33];
+n$5=*&amp;$irvar0:org.junit.rules.TemporaryFolder* [line 33];
+*n$4.tmpFile:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest)=n$5 [line 33];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.<init>%28%29.23401d1eafd6a2d2fe791bd7edc62f9b_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE34">34</td><td class="line">        public final TemporaryFolder tmpFile = new TemporaryFolder(); </td></tr>
+<tr><td class="num" id="LINE35">35</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE36">36</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE37">37</td><td class="line">        public void run1() throws InterruptedException { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.run1()</a></td></tr>
+<tr><td class="num" id="LINE38">38</td><td class="line">            logger.append(&quot;run1&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 38];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 38];
+n$2=_fun_StringBuffer StringBuffer.append(String)(n$0:java.lang.StringBuffer*,"run1":java.lang.Object*) virtual [line 38];
+*&amp;$irvar0:java.lang.StringBuffer*=n$2 [line 38];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE39">39</td><td class="line">            TimeoutRuleTest.run1Lock.lockInterruptibly(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun_ReentrantLock TimeoutRuleTest.access$000()() [line 39];
+*&amp;$irvar1:java.util.concurrent.locks.ReentrantLock*=n$3 [line 39];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar1:java.util.concurrent.locks.ReentrantLock* [line 39];
+_=*n$4:java.util.concurrent.locks.ReentrantLock*(root java.util.concurrent.locks.ReentrantLock) [line 39];
+n$6=_fun_void ReentrantLock.lockInterruptibly()(n$4:java.util.concurrent.locks.ReentrantLock*) virtual [line 39];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE40">40</td><td class="line">            TimeoutRuleTest.run1Lock.unlock(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$7=_fun_ReentrantLock TimeoutRuleTest.access$000()() [line 40];
+*&amp;$irvar2:java.util.concurrent.locks.ReentrantLock*=n$7 [line 40];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$8=*&amp;$irvar2:java.util.concurrent.locks.ReentrantLock* [line 40];
+_=*n$8:java.util.concurrent.locks.ReentrantLock*(root java.util.concurrent.locks.ReentrantLock) [line 40];
+n$10=_fun_void ReentrantLock.unlock()(n$8:java.util.concurrent.locks.ReentrantLock*) virtual [line 40];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE41">41</td><td class="line">        } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run1%28%29%3Avoid.2570d017ce7a7c17b2c77bc33c363d47_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE42">42</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE43">43</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE44">44</td><td class="line">        public void run2() throws InterruptedException { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.run2()</a></td></tr>
+<tr><td class="num" id="LINE45">45</td><td class="line">            logger.append(&quot;run2&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 45];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 45];
+n$2=_fun_StringBuffer StringBuffer.append(String)(n$0:java.lang.StringBuffer*,"run2":java.lang.Object*) virtual [line 45];
+*&amp;$irvar0:java.lang.StringBuffer*=n$2 [line 45];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE46">46</td><td class="line">            Thread.currentThread().join(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun_Thread Thread.currentThread()() [line 46];
+*&amp;$irvar1:java.lang.Thread*=n$3 [line 46];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar1:java.lang.Thread* [line 46];
+_=*n$4:java.lang.Thread*(root java.lang.Thread) [line 46];
+n$6=_fun_void Thread.join()(n$4:java.lang.Thread*) virtual [line 46];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE47">47</td><td class="line">        } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run2%28%29%3Avoid.fb0b6d60cad95d795dccc9c5d2dfbffd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE48">48</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE49">49</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE50">50</td><td class="line">        public synchronized void run3() throws InterruptedException { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.run3()</a></td></tr>
+<tr><td class="num" id="LINE51">51</td><td class="line">            logger.append(&quot;run3&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 51];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 51];
+n$2=_fun_StringBuffer StringBuffer.append(String)(n$0:java.lang.StringBuffer*,"run3":java.lang.Object*) virtual [line 51];
+*&amp;$irvar0:java.lang.StringBuffer*=n$2 [line 51];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE52">52</td><td class="line">            wait(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=*&amp;this:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest* [line 52];
+_=*n$3:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 52];
+n$5=_fun_void Object.wait()(n$3:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest*) virtual [line 52];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE53">53</td><td class="line">        } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run3%28%29%3Avoid.798d517d8145dcaeb4b506771c280099_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE54">54</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE55">55</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE56">56</td><td class="line">        public void run4() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.run4()</a></td></tr>
+<tr><td class="num" id="LINE57">57</td><td class="line">            logger.append(&quot;run4&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 57];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 57];
+n$2=_fun_StringBuffer StringBuffer.append(String)(n$0:java.lang.StringBuffer*,"run4":java.lang.Object*) virtual [line 57];
+*&amp;$irvar0:java.lang.StringBuffer*=n$2 [line 57];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE58">58</td><td class="line">            while (!run4done) { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:6 4 succs:8 exn:3 Instructions
+n$3=_fun_boolean TimeoutRuleTest.access$100()() [line 58];
+*&amp;$irvar1:_Bool=n$3 [line 58];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node8.html"><span class='visited with_tooltip'>J_8<span class='tooltip'>node8 preds:5 succs:6 7 exn: Join
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node6.html"><span class='visited with_tooltip'>C_6<span class='tooltip'>node6 preds:8 succs:5 exn:3 Conditional method_body
+n$4=*&amp;$irvar1:_Bool [line 58];
+PRUNE(!(n$4 != 0), true); [line 58];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node7.html"><span class='visited with_tooltip'>C_7<span class='tooltip'>node7 preds:8 succs:9 exn:3 Conditional method_body
+n$4=*&amp;$irvar1:_Bool [line 58];
+PRUNE((n$4 != 0), false); [line 58];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE59">59</td><td class="line">            } </td></tr>
+<tr><td class="num" id="LINE60">60</td><td class="line">        } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:7 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:9 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run4%28%29%3Avoid.980921ec630b33941edf320a2854533a_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE61">61</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE62">62</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE63">63</td><td class="line">        public void run5() throws IOException { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.run5()</a></td></tr>
+<tr><td class="num" id="LINE64">64</td><td class="line">            logger.append(&quot;run5&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 64];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 64];
+n$2=_fun_StringBuffer StringBuffer.append(String)(n$0:java.lang.StringBuffer*,"run5":java.lang.Object*) virtual [line 64];
+*&amp;$irvar0:java.lang.StringBuffer*=n$2 [line 64];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE65">65</td><td class="line">            Random rnd = new Random(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new(sizeof(t=java.util.Random):java.util.Random*) [line 65];
+n$4=_fun_Random.&lt;init&gt;()(n$3:java.util.Random*) [line 65];
+*&amp;rnd:java.util.Random*=n$3 [line 65];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE66">66</td><td class="line">            byte[] data = new byte[1024]; <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=_fun___new_array(sizeof(t=signed char[_*_];len=[1024]):signed char[_*_](*)) [line 66];
+*&amp;data:signed char[_*_](*)=n$5 [line 66];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE67">67</td><td class="line">            File tmp = tmpFile.newFile(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$6=*&amp;this:org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest* [line 67];
+n$7=*n$6.tmpFile:org.junit.rules.TemporaryFolder*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 67];
+_=*n$7:org.junit.rules.TemporaryFolder*(root org.junit.rules.TemporaryFolder) [line 67];
+n$9=_fun_File TemporaryFolder.newFile()(n$7:org.junit.rules.TemporaryFolder*) virtual [line 67];
+*&amp;tmp:java.io.File*=n$9 [line 67];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE68">68</td><td class="line">            while (true) { </td></tr>
+<tr><td class="num" id="LINE69">69</td><td class="line">                RandomAccessFile randomAccessFile = new RandomAccessFile(tmp, &quot;rw&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:17 7 succs:9 exn:3 Instructions
+n$10=_fun___new(sizeof(t=java.io.RandomAccessFile):java.io.RandomAccessFile*) [line 69];
+n$11=*&amp;tmp:java.io.File* [line 69];
+n$12=_fun_RandomAccessFile.&lt;init&gt;(File,String)(n$10:java.io.RandomAccessFile*,n$11:java.io.File*,"rw":java.lang.Object*) [line 69];
+*&amp;randomAccessFile:java.io.RandomAccessFile*=n$10 [line 69];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE70">70</td><td class="line">                try { </td></tr>
+<tr><td class="num" id="LINE71">71</td><td class="line">                    FileChannel channel = randomAccessFile.getChannel(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:19 Instructions
+n$13=*&amp;randomAccessFile:java.io.RandomAccessFile* [line 71];
+_=*n$13:java.io.RandomAccessFile*(root java.io.RandomAccessFile) [line 71];
+n$15=_fun_FileChannel RandomAccessFile.getChannel()(n$13:java.io.RandomAccessFile*) virtual [line 71];
+*&amp;channel:java.nio.channels.FileChannel*=n$15 [line 71];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE72">72</td><td class="line">                    rnd.nextBytes(data); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:19 Instructions
+n$16=*&amp;rnd:java.util.Random* [line 72];
+_=*n$16:java.util.Random*(root java.util.Random) [line 72];
+n$18=*&amp;data:signed char[_*_](*) [line 72];
+n$19=_fun_void Random.nextBytes(byte[])(n$16:java.util.Random*,n$18:signed char[_*_](*)) virtual [line 72];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE73">73</td><td class="line">                    ByteBuffer buffer = ByteBuffer.wrap(data); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:19 Instructions
+n$20=*&amp;data:signed char[_*_](*) [line 73];
+n$21=_fun_ByteBuffer ByteBuffer.wrap(byte[])(n$20:signed char[_*_](*)) [line 73];
+*&amp;buffer:java.nio.ByteBuffer*=n$21 [line 73];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE74">74</td><td class="line">                    // Interrupted thread closes channel and throws ClosedByInterruptException. </td></tr>
+<tr><td class="num" id="LINE75">75</td><td class="line">                    channel.write(buffer); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:19 Instructions
+n$22=*&amp;channel:java.nio.channels.FileChannel* [line 75];
+_=*n$22:java.nio.channels.FileChannel*(root java.nio.channels.FileChannel) [line 75];
+n$24=*&amp;buffer:java.nio.ByteBuffer* [line 75];
+n$25=_fun_int FileChannel.write(ByteBuffer)(n$22:java.nio.channels.FileChannel*,n$24:java.nio.ByteBuffer*) virtual [line 75];
+*&amp;$irvar1:int=n$25 [line 75];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE76">76</td><td class="line">                } finally { </td></tr>
+<tr><td class="num" id="LINE77">77</td><td class="line">                    randomAccessFile.close(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:17 exn:3 Instructions
+n$26=*&amp;randomAccessFile:java.io.RandomAccessFile* [line 77];
+_=*n$26:java.io.RandomAccessFile*(root java.io.RandomAccessFile) [line 77];
+n$28=_fun_void RandomAccessFile.close()(n$26:java.io.RandomAccessFile*) virtual [line 77];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:20 18 succs:15 exn:21 Instructions
+n$29=*&amp;CatchVar77:java.lang.Object* [line 77];
+*&amp;$bcvar7:java.lang.Object*=n$29 [line 77];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$30=*&amp;randomAccessFile:java.io.RandomAccessFile* [line 77];
+_=*n$30:java.io.RandomAccessFile*(root java.io.RandomAccessFile) [line 77];
+n$32=_fun_void RandomAccessFile.close()(n$30:java.io.RandomAccessFile*) virtual [line 77];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:19 succs:14 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds: succs:18 exn:3 Instructions
+n$37=*&amp;return:void [line 77];
+*&amp;return:void=null [line 77];
+n$38=_fun___unwrap_exception(n$37:void) [line 77];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:21 succs:14 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds: succs:20 exn:3 Instructions
+n$37=*&amp;return:void [line 77];
+*&amp;return:void=null [line 77];
+n$38=_fun___unwrap_exception(n$37:void) [line 77];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE78">78</td><td class="line">                } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:2 exn:3 Instructions
+n$33=*&amp;$bcvar7:java.lang.Object* [line 78];
+*&amp;return:void=EXN n$33 [line 78];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE79">79</td><td class="line">                tmp.delete(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:13 succs:8 exn:3 Instructions
+n$34=*&amp;tmp:java.io.File* [line 79];
+_=*n$34:java.io.File*(root java.io.File) [line 79];
+n$36=_fun_boolean File.delete()(n$34:java.io.File*) virtual [line 79];
+*&amp;$irvar2:_Bool=n$36 [line 79];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE80">80</td><td class="line">            } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:16 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run5%28%29%3Avoid.e889ecd3f09994d44661da476111db4c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE81">81</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE83">83</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE84">84</td><td class="line">        public void run6() throws InterruptedIOException { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9.html">summary for void TimeoutRuleTest$AbstractTimeoutTest.run6()</a></td></tr>
+<tr><td class="num" id="LINE85">85</td><td class="line">            logger.append(&quot;run6&quot;); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$AbstractTimeoutTest) [line 85];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 85];
+n$2=_fun_StringBuffer StringBuffer.append(String)(n$0:java.lang.StringBuffer*,"run6":java.lang.Object*) virtual [line 85];
+*&amp;$irvar0:java.lang.StringBuffer*=n$2 [line 85];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE86">86</td><td class="line">            // Java IO throws InterruptedIOException only on SUN machines. </td></tr>
+<tr><td class="num" id="LINE87">87</td><td class="line">            throw new InterruptedIOException(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new(sizeof(t=java.io.InterruptedIOException):java.io.InterruptedIOException*) [line 87];
+n$4=_fun_InterruptedIOException.&lt;init&gt;()(n$3:java.io.InterruptedIOException*) [line 87];
+*&amp;$irvar1:java.io.InterruptedIOException*=n$3 [line 87];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+n$5=*&amp;$irvar1:java.io.InterruptedIOException* [line 87];
+*&amp;return:void=EXN n$5 [line 87];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24AbstractTimeoutTest.run6%28%29%3Avoid.2e31c7c3a45cd9791d629aac87ebd8d9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE88">88</td><td class="line">        } </td></tr>
+<tr><td class="num" id="LINE89">89</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE91">91</td><td class="line">    public static class HasGlobalLongTimeout extends AbstractTimeoutTest { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout* [line 91];
+n$1=_fun_TimeoutRuleTest$AbstractTimeoutTest.&lt;init&gt;()(n$0:org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout*) [line 91];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c.html">summary for TimeoutRuleTest$HasGlobalLongTimeout.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE92">92</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE93">93</td><td class="line">        @Rule <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE94">94</td><td class="line">        public final TestRule globalTimeout = Timeout.millis(200); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun_Timeout Timeout.millis(long)(200:long) [line 94];
+*&amp;$irvar0:org.junit.rules.Timeout*=n$2 [line 94];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$3=*&amp;this:org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout* [line 94];
+n$4=*&amp;$irvar0:org.junit.rules.Timeout* [line 94];
+*n$3.globalTimeout:org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout)=n$4 [line 94];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalLongTimeout.<init>%28%29.c37c8516c11bb003ec13da9d8b3cd92c_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE95">95</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE96">96</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE97">97</td><td class="line">    public static class HasGlobalTimeUnitTimeout extends AbstractTimeoutTest { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout* [line 97];
+n$1=_fun_TimeoutRuleTest$AbstractTimeoutTest.&lt;init&gt;()(n$0:org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout*) [line 97];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce.html">summary for TimeoutRuleTest$HasGlobalTimeUnitTimeout.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE99">99</td><td class="line">        @Rule <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.rules.Timeout):org.junit.rules.Timeout*) [line 99];
+n$3=*&amp;#GB<>$java.util.concurrent.TimeUnit.MILLISECONDS:java.util.concurrent.TimeUnit*(root java.util.concurrent.TimeUnit) [line 99];
+n$4=_fun_Timeout.&lt;init&gt;(long,TimeUnit)(n$2:org.junit.rules.Timeout*,200:long,n$3:java.util.concurrent.TimeUnit*) [line 99];
+*&amp;$irvar0:org.junit.rules.Timeout*=n$2 [line 99];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$5=*&amp;this:org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout* [line 99];
+n$6=*&amp;$irvar0:org.junit.rules.Timeout* [line 99];
+*n$5.globalTimeout:org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout)=n$6 [line 99];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasGlobalTimeUnitTimeout.<init>%28%29.18119c9587cd9ff2c92795ff9565afce_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a>
+<div class="msg" style="margin-left:9ex">Bad_footprint </div></td></tr>
+<tr><td class="num" id="LINE100">100</td><td class="line">        public final TestRule globalTimeout = new Timeout(200, TimeUnit.MILLISECONDS); </td></tr>
+<tr><td class="num" id="LINE101">101</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE102">102</td><td class="line">     </td></tr>
+<tr><td class="num" id="LINE103">103</td><td class="line">    public static class HasNullTimeUnit { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;this:org.junit.rules.TimeoutRuleTest$HasNullTimeUnit* [line 103];
+n$1=_fun_Object.&lt;init&gt;()(n$0:org.junit.rules.TimeoutRuleTest$HasNullTimeUnit*) [line 103];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd.html">summary for TimeoutRuleTest$HasNullTimeUnit.&lt;init&gt;()</a></td></tr>
+<tr><td class="num" id="LINE104">104</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE105">105</td><td class="line">        @Rule <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$2=_fun___new(sizeof(t=org.junit.rules.Timeout):org.junit.rules.Timeout*) [line 105];
+n$3=_fun_Timeout.&lt;init&gt;(long,TimeUnit)(n$2:org.junit.rules.Timeout*,200:long,null:java.lang.Object*) [line 105];
+*&amp;$irvar0:org.junit.rules.Timeout*=n$2 [line 105];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;this:org.junit.rules.TimeoutRuleTest$HasNullTimeUnit* [line 105];
+n$5=*&amp;$irvar0:org.junit.rules.Timeout* [line 105];
+*n$4.globalTimeout:org.junit.rules.TimeoutRuleTest$HasNullTimeUnit(root org.junit.rules.TimeoutRuleTest$HasNullTimeUnit)=n$5 [line 105];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:7 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.<init>%28%29.25d843d9ef005859f4e742f08fdcd4dd_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE106">106</td><td class="line">        public final TestRule globalTimeout = new Timeout(200, null); </td></tr>
+<tr><td class="num" id="LINE107">107</td><td class="line">         </td></tr>
+<tr><td class="num" id="LINE108">108</td><td class="line">        @Test </td></tr>
+<tr><td class="num" id="LINE109">109</td><td class="line">        public void wouldPass() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.wouldPass%28%29%3Avoid.2792940ad81696fb6cfa464cec7d1c9e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.wouldPass%28%29%3Avoid.2792940ad81696fb6cfa464cec7d1c9e.html">summary for void TimeoutRuleTest$HasNullTimeUnit.wouldPass()</a></td></tr>
+<tr><td class="num" id="LINE110">110</td><td class="line">        } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.wouldPass%28%29%3Avoid.2792940ad81696fb6cfa464cec7d1c9e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.wouldPass%28%29%3Avoid.2792940ad81696fb6cfa464cec7d1c9e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:4 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest%24HasNullTimeUnit.wouldPass%28%29%3Avoid.2792940ad81696fb6cfa464cec7d1c9e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE111">111</td><td class="line">    } </td></tr>
+<tr><td class="num" id="LINE112">112</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE113">113</td><td class="line">    @Before </td></tr>
+<tr><td class="num" id="LINE114">114</td><td class="line">    public void before() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3.html">summary for void TimeoutRuleTest.before()</a></td></tr>
+<tr><td class="num" id="LINE115">115</td><td class="line">        run4done = false; <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run4done:org.junit.rules.TimeoutRuleTest(root org.junit.rules.TimeoutRuleTest)=0 [line 115];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE116">116</td><td class="line">        run1Lock.lock(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run1Lock:java.util.concurrent.locks.ReentrantLock*(root org.junit.rules.TimeoutRuleTest) [line 116];
+_=*n$0:java.util.concurrent.locks.ReentrantLock*(root java.util.concurrent.locks.ReentrantLock) [line 116];
+n$2=_fun_void ReentrantLock.lock()(n$0:java.util.concurrent.locks.ReentrantLock*) virtual [line 116];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE117">117</td><td class="line">    } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.before%28%29%3Avoid.54d3cc98e73c9a9f095660cbbac797c3_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE118">118</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE119">119</td><td class="line">    @After </td></tr>
+<tr><td class="num" id="LINE120">120</td><td class="line">    public void after() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9.html">summary for void TimeoutRuleTest.after()</a></td></tr>
+<tr><td class="num" id="LINE121">121</td><td class="line">        // set run4done to make sure that the thread won't continue at run4() </td></tr>
+<tr><td class="num" id="LINE122">122</td><td class="line">        run4done = true; <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run4done:org.junit.rules.TimeoutRuleTest(root org.junit.rules.TimeoutRuleTest)=1 [line 122];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE123">123</td><td class="line">        run1Lock.unlock(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest.run1Lock:java.util.concurrent.locks.ReentrantLock*(root org.junit.rules.TimeoutRuleTest) [line 123];
+_=*n$0:java.util.concurrent.locks.ReentrantLock*(root java.util.concurrent.locks.ReentrantLock) [line 123];
+n$2=_fun_void ReentrantLock.unlock()(n$0:java.util.concurrent.locks.ReentrantLock*) virtual [line 123];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE124">124</td><td class="line">    } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:6 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.after%28%29%3Avoid.dfd37486276d7b1d81ff447576a637b9_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE125">125</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE126">126</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE127">127</td><td class="line">    public void timeUnitTimeout() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246.html">summary for void TimeoutRuleTest.timeUnitTimeout()</a></td></tr>
+<tr><td class="num" id="LINE128">128</td><td class="line">        HasGlobalTimeUnitTimeout.logger.setLength(0); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 128];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 128];
+n$2=_fun_void StringBuffer.setLength(int)(n$0:java.lang.StringBuffer*,0:int) virtual [line 128];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE129">129</td><td class="line">        Result result = JUnitCore.runClasses(HasGlobalTimeUnitTimeout.class); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 129];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$3 [line 129];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 129];
+*n$4[0]:java.lang.Object*=org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout [line 129];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 129];
+n$6=_fun_Result JUnitCore.runClasses(Class[])(n$5:java.lang.Class*[_*_](*)) [line 129];
+*&amp;result:org.junit.runner.Result*=n$6 [line 129];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE130">130</td><td class="line">        assertEquals(6, result.getFailureCount()); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;result:org.junit.runner.Result* [line 130];
+_=*n$7:org.junit.runner.Result*(root org.junit.runner.Result) [line 130];
+n$9=_fun_int Result.getFailureCount()(n$7:org.junit.runner.Result*) virtual [line 130];
+*&amp;$irvar1:int=n$9 [line 130];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;$irvar1:int [line 130];
+n$11=_fun_void Assert.assertEquals(long,long)(6:long,(long)n$10:long) [line 130];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE131">131</td><td class="line">        assertThat(HasGlobalTimeUnitTimeout.logger.toString(), containsString(&quot;run1&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 131];
+_=*n$12:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 131];
+n$14=_fun_String StringBuffer.toString()(n$12:java.lang.StringBuffer*) virtual [line 131];
+*&amp;$irvar2:java.lang.String*=n$14 [line 131];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=_fun_Matcher CoreMatchers.containsString(String)("run1":java.lang.Object*) [line 131];
+*&amp;$irvar3:org.hamcrest.Matcher*=n$15 [line 131];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;$irvar2:java.lang.String* [line 131];
+n$17=*&amp;$irvar3:org.hamcrest.Matcher* [line 131];
+n$18=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$16:java.lang.String*,n$17:org.hamcrest.Matcher*) [line 131];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE132">132</td><td class="line">        assertThat(HasGlobalTimeUnitTimeout.logger.toString(), containsString(&quot;run2&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$19=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 132];
+_=*n$19:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 132];
+n$21=_fun_String StringBuffer.toString()(n$19:java.lang.StringBuffer*) virtual [line 132];
+*&amp;$irvar4:java.lang.String*=n$21 [line 132];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$22=_fun_Matcher CoreMatchers.containsString(String)("run2":java.lang.Object*) [line 132];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$22 [line 132];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;$irvar4:java.lang.String* [line 132];
+n$24=*&amp;$irvar5:org.hamcrest.Matcher* [line 132];
+n$25=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$23:java.lang.String*,n$24:org.hamcrest.Matcher*) [line 132];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE133">133</td><td class="line">        assertThat(HasGlobalTimeUnitTimeout.logger.toString(), containsString(&quot;run3&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$26=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 133];
+_=*n$26:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 133];
+n$28=_fun_String StringBuffer.toString()(n$26:java.lang.StringBuffer*) virtual [line 133];
+*&amp;$irvar6:java.lang.String*=n$28 [line 133];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$29=_fun_Matcher CoreMatchers.containsString(String)("run3":java.lang.Object*) [line 133];
+*&amp;$irvar7:org.hamcrest.Matcher*=n$29 [line 133];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$30=*&amp;$irvar6:java.lang.String* [line 133];
+n$31=*&amp;$irvar7:org.hamcrest.Matcher* [line 133];
+n$32=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$30:java.lang.String*,n$31:org.hamcrest.Matcher*) [line 133];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE134">134</td><td class="line">        assertThat(HasGlobalTimeUnitTimeout.logger.toString(), containsString(&quot;run4&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$33=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 134];
+_=*n$33:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 134];
+n$35=_fun_String StringBuffer.toString()(n$33:java.lang.StringBuffer*) virtual [line 134];
+*&amp;$irvar8:java.lang.String*=n$35 [line 134];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$36=_fun_Matcher CoreMatchers.containsString(String)("run4":java.lang.Object*) [line 134];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$36 [line 134];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$37=*&amp;$irvar8:java.lang.String* [line 134];
+n$38=*&amp;$irvar9:org.hamcrest.Matcher* [line 134];
+n$39=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$37:java.lang.String*,n$38:org.hamcrest.Matcher*) [line 134];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE135">135</td><td class="line">        assertThat(HasGlobalTimeUnitTimeout.logger.toString(), containsString(&quot;run5&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$40=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 135];
+_=*n$40:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 135];
+n$42=_fun_String StringBuffer.toString()(n$40:java.lang.StringBuffer*) virtual [line 135];
+*&amp;$irvar10:java.lang.String*=n$42 [line 135];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$43=_fun_Matcher CoreMatchers.containsString(String)("run5":java.lang.Object*) [line 135];
+*&amp;$irvar11:org.hamcrest.Matcher*=n$43 [line 135];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$44=*&amp;$irvar10:java.lang.String* [line 135];
+n$45=*&amp;$irvar11:org.hamcrest.Matcher* [line 135];
+n$46=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$44:java.lang.String*,n$45:org.hamcrest.Matcher*) [line 135];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE136">136</td><td class="line">        assertThat(HasGlobalTimeUnitTimeout.logger.toString(), containsString(&quot;run6&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$47=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalTimeUnitTimeout) [line 136];
+_=*n$47:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 136];
+n$49=_fun_String StringBuffer.toString()(n$47:java.lang.StringBuffer*) virtual [line 136];
+*&amp;$irvar12:java.lang.String*=n$49 [line 136];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$50=_fun_Matcher CoreMatchers.containsString(String)("run6":java.lang.Object*) [line 136];
+*&amp;$irvar13:org.hamcrest.Matcher*=n$50 [line 136];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$51=*&amp;$irvar12:java.lang.String* [line 136];
+n$52=*&amp;$irvar13:org.hamcrest.Matcher* [line 136];
+n$53=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$51:java.lang.String*,n$52:org.hamcrest.Matcher*) [line 136];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE137">137</td><td class="line">    } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:28 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.timeUnitTimeout%28%29%3Avoid.3ade41e7bcbbf7c4653e320494a1e246_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE138">138</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE139">139</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE140">140</td><td class="line">    public void longTimeout() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e.html">summary for void TimeoutRuleTest.longTimeout()</a></td></tr>
+<tr><td class="num" id="LINE141">141</td><td class="line">        HasGlobalLongTimeout.logger.setLength(0); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 141];
+_=*n$0:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 141];
+n$2=_fun_void StringBuffer.setLength(int)(n$0:java.lang.StringBuffer*,0:int) virtual [line 141];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE142">142</td><td class="line">        Result result = JUnitCore.runClasses(HasGlobalLongTimeout.class); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$3=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 142];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$3 [line 142];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$4=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 142];
+*n$4[0]:java.lang.Object*=org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout [line 142];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$5=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 142];
+n$6=_fun_Result JUnitCore.runClasses(Class[])(n$5:java.lang.Class*[_*_](*)) [line 142];
+*&amp;result:org.junit.runner.Result*=n$6 [line 142];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE143">143</td><td class="line">        assertEquals(6, result.getFailureCount()); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;result:org.junit.runner.Result* [line 143];
+_=*n$7:org.junit.runner.Result*(root org.junit.runner.Result) [line 143];
+n$9=_fun_int Result.getFailureCount()(n$7:org.junit.runner.Result*) virtual [line 143];
+*&amp;$irvar1:int=n$9 [line 143];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$10=*&amp;$irvar1:int [line 143];
+n$11=_fun_void Assert.assertEquals(long,long)(6:long,(long)n$10:long) [line 143];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE144">144</td><td class="line">        assertThat(HasGlobalLongTimeout.logger.toString(), containsString(&quot;run1&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 144];
+_=*n$12:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 144];
+n$14=_fun_String StringBuffer.toString()(n$12:java.lang.StringBuffer*) virtual [line 144];
+*&amp;$irvar2:java.lang.String*=n$14 [line 144];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=_fun_Matcher CoreMatchers.containsString(String)("run1":java.lang.Object*) [line 144];
+*&amp;$irvar3:org.hamcrest.Matcher*=n$15 [line 144];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$16=*&amp;$irvar2:java.lang.String* [line 144];
+n$17=*&amp;$irvar3:org.hamcrest.Matcher* [line 144];
+n$18=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$16:java.lang.String*,n$17:org.hamcrest.Matcher*) [line 144];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE145">145</td><td class="line">        assertThat(HasGlobalLongTimeout.logger.toString(), containsString(&quot;run2&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$19=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 145];
+_=*n$19:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 145];
+n$21=_fun_String StringBuffer.toString()(n$19:java.lang.StringBuffer*) virtual [line 145];
+*&amp;$irvar4:java.lang.String*=n$21 [line 145];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$22=_fun_Matcher CoreMatchers.containsString(String)("run2":java.lang.Object*) [line 145];
+*&amp;$irvar5:org.hamcrest.Matcher*=n$22 [line 145];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$23=*&amp;$irvar4:java.lang.String* [line 145];
+n$24=*&amp;$irvar5:org.hamcrest.Matcher* [line 145];
+n$25=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$23:java.lang.String*,n$24:org.hamcrest.Matcher*) [line 145];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE146">146</td><td class="line">        assertThat(HasGlobalLongTimeout.logger.toString(), containsString(&quot;run3&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$26=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 146];
+_=*n$26:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 146];
+n$28=_fun_String StringBuffer.toString()(n$26:java.lang.StringBuffer*) virtual [line 146];
+*&amp;$irvar6:java.lang.String*=n$28 [line 146];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$29=_fun_Matcher CoreMatchers.containsString(String)("run3":java.lang.Object*) [line 146];
+*&amp;$irvar7:org.hamcrest.Matcher*=n$29 [line 146];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$30=*&amp;$irvar6:java.lang.String* [line 146];
+n$31=*&amp;$irvar7:org.hamcrest.Matcher* [line 146];
+n$32=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$30:java.lang.String*,n$31:org.hamcrest.Matcher*) [line 146];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE147">147</td><td class="line">        assertThat(HasGlobalLongTimeout.logger.toString(), containsString(&quot;run4&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$33=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 147];
+_=*n$33:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 147];
+n$35=_fun_String StringBuffer.toString()(n$33:java.lang.StringBuffer*) virtual [line 147];
+*&amp;$irvar8:java.lang.String*=n$35 [line 147];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$36=_fun_Matcher CoreMatchers.containsString(String)("run4":java.lang.Object*) [line 147];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$36 [line 147];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:22 exn:3 Instructions
+n$37=*&amp;$irvar8:java.lang.String* [line 147];
+n$38=*&amp;$irvar9:org.hamcrest.Matcher* [line 147];
+n$39=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$37:java.lang.String*,n$38:org.hamcrest.Matcher*) [line 147];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE148">148</td><td class="line">        assertThat(HasGlobalLongTimeout.logger.toString(), containsString(&quot;run5&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node22.html"><span class='visited with_tooltip'>I_22<span class='tooltip'>node22 preds:21 succs:23 exn:3 Instructions
+n$40=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 148];
+_=*n$40:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 148];
+n$42=_fun_String StringBuffer.toString()(n$40:java.lang.StringBuffer*) virtual [line 148];
+*&amp;$irvar10:java.lang.String*=n$42 [line 148];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node23.html"><span class='visited with_tooltip'>I_23<span class='tooltip'>node23 preds:22 succs:24 exn:3 Instructions
+n$43=_fun_Matcher CoreMatchers.containsString(String)("run5":java.lang.Object*) [line 148];
+*&amp;$irvar11:org.hamcrest.Matcher*=n$43 [line 148];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node24.html"><span class='visited with_tooltip'>I_24<span class='tooltip'>node24 preds:23 succs:25 exn:3 Instructions
+n$44=*&amp;$irvar10:java.lang.String* [line 148];
+n$45=*&amp;$irvar11:org.hamcrest.Matcher* [line 148];
+n$46=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$44:java.lang.String*,n$45:org.hamcrest.Matcher*) [line 148];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE149">149</td><td class="line">        assertThat(HasGlobalLongTimeout.logger.toString(), containsString(&quot;run6&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node25.html"><span class='visited with_tooltip'>I_25<span class='tooltip'>node25 preds:24 succs:26 exn:3 Instructions
+n$47=*&amp;#GB<>$org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout.logger:java.lang.StringBuffer*(root org.junit.rules.TimeoutRuleTest$HasGlobalLongTimeout) [line 149];
+_=*n$47:java.lang.StringBuffer*(root java.lang.StringBuffer) [line 149];
+n$49=_fun_String StringBuffer.toString()(n$47:java.lang.StringBuffer*) virtual [line 149];
+*&amp;$irvar12:java.lang.String*=n$49 [line 149];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node26.html"><span class='visited with_tooltip'>I_26<span class='tooltip'>node26 preds:25 succs:27 exn:3 Instructions
+n$50=_fun_Matcher CoreMatchers.containsString(String)("run6":java.lang.Object*) [line 149];
+*&amp;$irvar13:org.hamcrest.Matcher*=n$50 [line 149];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node27.html"><span class='visited with_tooltip'>I_27<span class='tooltip'>node27 preds:26 succs:28 exn:3 Instructions
+n$51=*&amp;$irvar12:java.lang.String* [line 149];
+n$52=*&amp;$irvar13:org.hamcrest.Matcher* [line 149];
+n$53=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$51:java.lang.String*,n$52:org.hamcrest.Matcher*) [line 149];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE150">150</td><td class="line">    } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node28.html"><span class='visited with_tooltip'>I_28<span class='tooltip'>node28 preds:27 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:28 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.longTimeout%28%29%3Avoid.71e0142e5e1afae60cb193dcdbe0a33e_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE151">151</td><td class="line"> </td></tr>
+<tr><td class="num" id="LINE152">152</td><td class="line">    @Test </td></tr>
+<tr><td class="num" id="LINE153">153</td><td class="line">    public void nullTimeUnit() { <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node1.html"><span class='visited with_tooltip'>S_1<span class='tooltip'>node1 preds: succs:4 exn:2 Start
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331.html">summary for void TimeoutRuleTest.nullTimeUnit()</a></td></tr>
+<tr><td class="num" id="LINE154">154</td><td class="line">        Result result = JUnitCore.runClasses(HasNullTimeUnit.class); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node4.html"><span class='visited with_tooltip'>I_4<span class='tooltip'>node4 preds:1 succs:5 exn:3 Instructions
+n$0=_fun___new_array(sizeof(t=java.lang.Class*[_*_];len=[1]):java.lang.Class*[_*_](*)) [line 154];
+*&amp;$irvar0:java.lang.Class*[_*_](*)=n$0 [line 154];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node5.html"><span class='visited with_tooltip'>I_5<span class='tooltip'>node5 preds:4 succs:6 exn:3 Instructions
+n$1=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 154];
+*n$1[0]:java.lang.Object*=org.junit.rules.TimeoutRuleTest$HasNullTimeUnit [line 154];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node6.html"><span class='visited with_tooltip'>I_6<span class='tooltip'>node6 preds:5 succs:7 exn:3 Instructions
+n$2=*&amp;$irvar0:java.lang.Class*[_*_](*) [line 154];
+n$3=_fun_Result JUnitCore.runClasses(Class[])(n$2:java.lang.Class*[_*_](*)) [line 154];
+*&amp;result:org.junit.runner.Result*=n$3 [line 154];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE155">155</td><td class="line">        assertEquals(1, result.getFailureCount()); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node7.html"><span class='visited with_tooltip'>I_7<span class='tooltip'>node7 preds:6 succs:8 exn:3 Instructions
+n$4=*&amp;result:org.junit.runner.Result* [line 155];
+_=*n$4:org.junit.runner.Result*(root org.junit.runner.Result) [line 155];
+n$6=_fun_int Result.getFailureCount()(n$4:org.junit.runner.Result*) virtual [line 155];
+*&amp;$irvar1:int=n$6 [line 155];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node8.html"><span class='visited with_tooltip'>I_8<span class='tooltip'>node8 preds:7 succs:9 exn:3 Instructions
+n$7=*&amp;$irvar1:int [line 155];
+n$8=_fun_void Assert.assertEquals(long,long)(1:long,(long)n$7:long) [line 155];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE156">156</td><td class="line">        Failure failure = result.getFailures().get(0); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node9.html"><span class='visited with_tooltip'>I_9<span class='tooltip'>node9 preds:8 succs:10 exn:3 Instructions
+n$9=*&amp;result:org.junit.runner.Result* [line 156];
+_=*n$9:org.junit.runner.Result*(root org.junit.runner.Result) [line 156];
+n$11=_fun_List Result.getFailures()(n$9:org.junit.runner.Result*) virtual [line 156];
+*&amp;$irvar2:java.util.List*=n$11 [line 156];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node10.html"><span class='visited with_tooltip'>I_10<span class='tooltip'>node10 preds:9 succs:11 exn:3 Instructions
+n$12=*&amp;$irvar2:java.util.List* [line 156];
+_=*n$12:java.util.List*(root java.util.List) [line 156];
+n$14=_fun_Object List.get(int)(n$12:java.util.List*,0:int) interface virtual [line 156];
+*&amp;$irvar3:java.lang.Object*=n$14 [line 156];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node11.html"><span class='visited with_tooltip'>I_11<span class='tooltip'>node11 preds:10 succs:12 exn:3 Instructions
+n$15=*&amp;$irvar3:java.lang.Object* [line 156];
+n$16=_fun___cast(n$15:java.lang.Object*,sizeof(t=org.junit.runner.notification.Failure;sub_t=( sub )(cast)):void) [line 156];
+*&amp;failure:org.junit.runner.notification.Failure*=n$16 [line 156];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE157">157</td><td class="line">        assertThat(failure.getException().getMessage(), <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node12.html"><span class='visited with_tooltip'>I_12<span class='tooltip'>node12 preds:11 succs:13 exn:3 Instructions
+n$17=*&amp;failure:org.junit.runner.notification.Failure* [line 157];
+_=*n$17:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 157];
+n$19=_fun_Throwable Failure.getException()(n$17:org.junit.runner.notification.Failure*) virtual [line 157];
+*&amp;$irvar4:java.lang.Throwable*=n$19 [line 157];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node13.html"><span class='visited with_tooltip'>I_13<span class='tooltip'>node13 preds:12 succs:14 exn:3 Instructions
+n$20=*&amp;$irvar4:java.lang.Throwable* [line 157];
+_=*n$20:java.lang.Throwable*(root java.lang.Throwable) [line 157];
+n$22=_fun_String Throwable.getMessage()(n$20:java.lang.Throwable*) virtual [line 157];
+*&amp;$irvar5:java.lang.String*=n$22 [line 157];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node15.html"><span class='visited with_tooltip'>I_15<span class='tooltip'>node15 preds:14 succs:16 exn:3 Instructions
+n$24=*&amp;$irvar5:java.lang.String* [line 157];
+n$25=*&amp;$irvar6:org.hamcrest.Matcher* [line 157];
+n$26=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$24:java.lang.String*,n$25:org.hamcrest.Matcher*) [line 157];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE158">158</td><td class="line">                containsString(&quot;Invalid parameters for Timeout&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node14.html"><span class='visited with_tooltip'>I_14<span class='tooltip'>node14 preds:13 succs:15 exn:3 Instructions
+n$23=_fun_Matcher CoreMatchers.containsString(String)("Invalid parameters for Timeout":java.lang.Object*) [line 158];
+*&amp;$irvar6:org.hamcrest.Matcher*=n$23 [line 158];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE159">159</td><td class="line">        Throwable cause = failure.getException().getCause(); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node16.html"><span class='visited with_tooltip'>I_16<span class='tooltip'>node16 preds:15 succs:17 exn:3 Instructions
+n$27=*&amp;failure:org.junit.runner.notification.Failure* [line 159];
+_=*n$27:org.junit.runner.notification.Failure*(root org.junit.runner.notification.Failure) [line 159];
+n$29=_fun_Throwable Failure.getException()(n$27:org.junit.runner.notification.Failure*) virtual [line 159];
+*&amp;$irvar7:java.lang.Throwable*=n$29 [line 159];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node17.html"><span class='visited with_tooltip'>I_17<span class='tooltip'>node17 preds:16 succs:18 exn:3 Instructions
+n$30=*&amp;$irvar7:java.lang.Throwable* [line 159];
+_=*n$30:java.lang.Throwable*(root java.lang.Throwable) [line 159];
+n$32=_fun_Throwable Throwable.getCause()(n$30:java.lang.Throwable*) virtual [line 159];
+*&amp;cause:java.lang.Throwable*=n$32 [line 159];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE160">160</td><td class="line">        assertThat(cause.getMessage(), containsString(&quot;TimeUnit cannot be null&quot;)); <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node18.html"><span class='visited with_tooltip'>I_18<span class='tooltip'>node18 preds:17 succs:19 exn:3 Instructions
+n$33=*&amp;cause:java.lang.Throwable* [line 160];
+_=*n$33:java.lang.Throwable*(root java.lang.Throwable) [line 160];
+n$35=_fun_String Throwable.getMessage()(n$33:java.lang.Throwable*) virtual [line 160];
+*&amp;$irvar8:java.lang.String*=n$35 [line 160];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node19.html"><span class='visited with_tooltip'>I_19<span class='tooltip'>node19 preds:18 succs:20 exn:3 Instructions
+n$36=_fun_Matcher CoreMatchers.containsString(String)("TimeUnit cannot be null":java.lang.Object*) [line 160];
+*&amp;$irvar9:org.hamcrest.Matcher*=n$36 [line 160];
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node20.html"><span class='visited with_tooltip'>I_20<span class='tooltip'>node20 preds:19 succs:21 exn:3 Instructions
+n$37=*&amp;$irvar8:java.lang.String* [line 160];
+n$38=*&amp;$irvar9:org.hamcrest.Matcher* [line 160];
+n$39=_fun_void MatcherAssert.assertThat(Object,Matcher)(n$37:java.lang.String*,n$38:org.hamcrest.Matcher*) [line 160];
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE161">161</td><td class="line">    } <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node21.html"><span class='visited with_tooltip'>I_21<span class='tooltip'>node21 preds:20 succs:2 exn:3 Instructions
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node2.html"><span class='visited with_tooltip'>E_2<span class='tooltip'>node2 preds:21 3 succs: exn: Exit
+</span></span></a> <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/org.junit.rules.TimeoutRuleTest.nullTimeUnit%28%29%3Avoid.3c8f6e8ea10c4cc1ecc86014708b9331_node3.html"><span class='visited with_tooltip'>I_3<span class='tooltip'>node3 preds: succs:2 exn:2 Instructions
+</span></span></a></td></tr>
+<tr><td class="num" id="LINE162">162</td><td class="line">} </td></tr>
+</table>
+
+<hr width="100%">
+LIKE DURING FOOTPRINT
+
+<hr width="100%">
+INFO DURING FOOTPRINT
+
+<hr width="100%">
+ADVICE DURING FOOTPRINT
+
+<hr width="100%">
+WARNING DURING FOOTPRINT
+
+<hr width="100%">
+ERROR DURING FOOTPRINT
+<br>Bad Footprint  <a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/nodes/node5.html#session25">node5#session25</a>(<a href="./TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8/../TimeoutRuleTest.java.832977de6fa81d14a108a71de7b3eca8.html#LINE99">99</a>)</body>
+</html>

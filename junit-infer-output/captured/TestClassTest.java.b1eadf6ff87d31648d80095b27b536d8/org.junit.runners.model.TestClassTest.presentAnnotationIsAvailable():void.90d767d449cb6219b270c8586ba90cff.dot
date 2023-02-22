@@ -1,0 +1,44 @@
+/* @generated */
+digraph cfg {
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_1" [label="1: Start void TestClassTest.presentAnnotationIsAvailable()\nFormals:  this:org.junit.runners.model.TestClassTest*\nLocals:  $irvar1:void $irvar0:void annotation:java.lang.annotation.Annotation* tc:org.junit.runners.model.TestClass*\nAnnotation: <_org.junit.Test> void TestClassTest.presentAnnotationIsAvailable()() \n  " color=yellow style=filled]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_1" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_4" ;
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_2" [label="2: Exit void TestClassTest.presentAnnotationIsAvailable() \n  " color=yellow style=filled]
+	
+
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [label="3:  exceptions sink \n   NULLIFY(&tc); [line 255]\n  NULLIFY(&annotation); [line 255]\n  NULLIFY(&$irvar0); [line 255]\n  NULLIFY(&$irvar1); [line 255]\n  EXIT_SCOPE(tc,annotation,$irvar0,$irvar1); [line 255]\n  APPLY_ABSTRACTION; [line 255]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_2" ;
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_4" [label="4:  Call TestClass.<init>(Class) \n   n$0=_fun___new(sizeof(t=org.junit.runners.model.TestClass):org.junit.runners.model.TestClass*) [line 252]\n  n$1=_fun_TestClass.<init>(Class)(n$0:org.junit.runners.model.TestClass*,org.junit.runners.model.TestClassTest$AnnotatedClass:java.lang.Object*) [line 252]\n  *&tc:org.junit.runners.model.TestClass*=n$0 [line 252]\n  EXIT_SCOPE(n$0,n$1); [line 252]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_4" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_5" ;
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_4" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [color="red" ];
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_5" [label="5:  Call Annotation TestClass.getAnnotation(Class) \n   n$2=*&tc:org.junit.runners.model.TestClass* [line 253]\n  _=*n$2:org.junit.runners.model.TestClass*(root org.junit.runners.model.TestClass) [line 253]\n  n$4=_fun_Annotation TestClass.getAnnotation(Class)(n$2:org.junit.runners.model.TestClass*,org.junit.Ignore:java.lang.Object*) [line 253]\n  *&annotation:java.lang.annotation.Annotation*=n$4 [line 253]\n  NULLIFY(&tc); [line 253]\n  EXIT_SCOPE(_,n$2,n$4,tc); [line 253]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_5" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_6" ;
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_5" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [color="red" ];
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_6" [label="6:  Call Class Annotation.getClass() \n   n$5=*&annotation:java.lang.annotation.Annotation* [line 254]\n  _=*n$5:java.lang.annotation.Annotation*(root java.lang.annotation.Annotation) [line 254]\n  n$7=_fun_Class Annotation.getClass()(n$5:java.lang.annotation.Annotation*) interface virtual [line 254]\n  *&$irvar0:java.lang.Class*=n$7 [line 254]\n  NULLIFY(&annotation); [line 254]\n  EXIT_SCOPE(_,n$5,n$7,annotation); [line 254]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_6" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_7" ;
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_6" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [color="red" ];
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_7" [label="7:  Call boolean Class.isAssignableFrom(Class) \n   n$8=*&$irvar0:java.lang.Class* [line 254]\n  n$9=_fun_boolean Class.isAssignableFrom(Class)(org.junit.Ignore:java.lang.Object*,n$8:java.lang.Class*) virtual [line 254]\n  *&$irvar1:_Bool=n$9 [line 254]\n  NULLIFY(&$irvar0); [line 254]\n  EXIT_SCOPE(n$8,n$9,$irvar0); [line 254]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_7" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_8" ;
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_7" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [color="red" ];
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_8" [label="8:  Call void Assert.assertTrue(boolean) \n   n$10=*&$irvar1:_Bool [line 254]\n  n$11=_fun_void Assert.assertTrue(boolean)(n$10:_Bool) [line 254]\n  NULLIFY(&$irvar1); [line 254]\n  EXIT_SCOPE(n$10,n$11,$irvar1); [line 254]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_8" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_9" ;
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_8" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [color="red" ];
+"org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_9" [label="9:  method_body \n   APPLY_ABSTRACTION; [line 255]\n " shape="box"]
+	
+
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_9" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_2" ;
+	 "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_9" -> "org.junit.runners.model.TestClassTest.presentAnnotationIsAvailable():void.90d767d449cb6219b270c8586ba90cff_3" [color="red" ];
+}
